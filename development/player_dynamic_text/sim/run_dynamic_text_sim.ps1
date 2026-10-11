@@ -1,10 +1,11 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..')).Path
 $simDir = Join-Path $projectRoot 'development\player_dynamic_text\sim'
 $buildDir = Join-Path $projectRoot 'development\player_dynamic_text\build\dynamic_sim'
-$iverilog = Join-Path $projectRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp = Join-Path $projectRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $dut = Join-Path $projectRoot 'development\player_dynamic_text\src\user_source\hdl_source\player_dynamic_text.v'
 $legacy = Join-Path $projectRoot 'development\player_dynamic_text\src\user_source\hdl_source\player_osd.v'
 

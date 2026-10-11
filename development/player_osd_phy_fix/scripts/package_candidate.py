@@ -1,10 +1,13 @@
 """Package a built candidate and the verified fallback; do not touch the card."""
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 import hashlib
 import json
 import zipfile
 
-ROOT = Path('E:/VSCODE-project/FPGA-ANLU')
+ROOT = REPOSITORY_ROOT
 TASK = ROOT / 'development/player_osd_phy_fix'
 info = json.loads((TASK / 'build/manual/AC201_player_osd_phy_fix.info.json').read_text(encoding='utf-8-sig'))
 candidate = TASK / 'build/manual/AC201_player_osd_phy_fix.bit'
@@ -33,7 +36,7 @@ readme = '''OSD串行采样修复候选（2026-10-09）
 保持现有TF卡、供电、HDMI和音量，卡内四图和TEST.WAV无需修改。
 解压到英文路径；在BitWriter选择PROGRAM_SRAM，添加
 firmware/osd_phy_fix.bit，下载后等待 Downloading succeeded!。
-本机短路径：E:/VSCODE-project/FPGA-ANLU/download/osd_phy_fix.bit。
+工程仓库内的短路径：download/osd_phy_fix.bit。
 
 验证：
 1. 四张图颜色正常，无密集噪点、条纹或黑块；左上状态栏黑底白字。

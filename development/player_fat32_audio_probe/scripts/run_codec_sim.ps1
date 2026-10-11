@@ -1,8 +1,9 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-$iverilog = 'E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp = 'E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $source = Join-Path $projectRoot 'src\user_source\hdl_source\rgb888_word_codec.v'
 $testbench = Join-Path $projectRoot 'sim\tb_rgb888_word_codec.v'
 $simDir = Join-Path $projectRoot 'build\sim'

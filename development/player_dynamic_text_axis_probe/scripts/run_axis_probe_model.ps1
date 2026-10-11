@@ -1,10 +1,11 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $project = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $repo = (Resolve-Path (Join-Path $project '..\..')).Path
 $build = Join-Path $project 'build\axis_probe_model'
 $null = New-Item -ItemType Directory -Force -Path $build
-$iverilog = Join-Path $repo 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp = Join-Path $repo 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $hdl = Join-Path $project 'src\user_source\hdl_source\player_axis_input_probe.v'
 $tb = Join-Path $project 'sim\axis_probe\tb_axis_probe.v'
 $legacy = Join-Path $repo 'development\player_dynamic_text_video_probe\src\user_source\hdl_source'

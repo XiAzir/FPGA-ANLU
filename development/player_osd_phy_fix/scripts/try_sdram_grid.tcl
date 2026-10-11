@@ -1,5 +1,7 @@
+# Locate this project from the script, independently of the caller working directory.
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
 # Placement-only experiment for the single setup-critical SDRAM tristate slice.
-set task_root E:/VSCODE-project/FPGA-ANLU/development/player_osd_phy_fix
+set task_root ${fpga_project_root}
 set grid $::env(FPGA_OSD_SDRAM_GRID)
 if {[lsearch -exact {x28y40 x30y44 x26y48} $grid]<0} {error "Unexpected trial grid"}
 set output_dir $task_root/build/attempt_sdram_$grid

@@ -21,7 +21,7 @@ D2 只监视 BMP 输出、帧缓存入口。匹配为32位求和检查，不能�
 
 ## 使用与边界
 
-保持已验证的供电、TF、HDMI 接线，等待 BitWriter 下载明确完成，等约10秒记录 D3/D2/D1/D0、画面和声音；KEY0 切下一张再记录。KEY0/KEY1 播放功能保持原文件播放器行为。无信号或异常时可回载 `E:/VSCODE-project/FPGA-ANLU/development/player_480p/build/manual/AC201_tf_hdmi_data_d1.bit`。
+保持已验证的供电、TF、HDMI 接线，等待 BitWriter 下载明确完成，等约10秒记录 D3/D2/D1/D0、画面和声音；KEY0 切下一张再记录。KEY0/KEY1 播放功能保持原文件播放器行为。无信号或异常时可回载 `../player_480p/build/manual/AC201_tf_hdmi_data_d1.bit`。
 
 构建采用 `scripts/build_candidate.ps1` 的 synthesis→physical→按报告决定是否 hold→bitstream。不运行沿用副本的 save_candidate.py；本版尚未实物验证，不作为成功检查点。原诊断位流与稳定位流保留不改。
 

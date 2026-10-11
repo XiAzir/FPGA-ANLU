@@ -1,13 +1,16 @@
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 import datetime, hashlib, json, re
 
-root = Path(r'E:\VSCODE-project\FPGA-ANLU')
+root = REPOSITORY_ROOT
 project = root / 'development/player_dynamic_text_axis_probe'
 old = root / 'development/player_dynamic_text_video_probe'
 out = project / 'build/independent_audit'
 
 def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest().upper()
+    return hashlib.sha256(require_file(path).read_bytes()).hexdigest().upper()
 
 scope = json.loads((project / 'build/manual/build_source_scope.json').read_text(encoding='utf-8-sig'))
 for item in scope:
@@ -53,16 +56,16 @@ observer_identifiers = len(re.findall(r'\\u_axis_input_probe/', new_norm))
 
 model_binding = json.loads((project / 'build/axis_probe_model/source_bindings.json').read_text(encoding='utf-8-sig'))['files']
 for key in ('observer_rtl', 'testbench', 'runner'):
-    assert sha(Path(model_binding[key]['path'])) == model_binding[key]['sha256'].upper(), key
+    assert sha(recorded_path(model_binding[key]['path'])) == model_binding[key]['sha256'].upper(), key
 for item in model_binding['actual_chain']:
-    path = Path(item['path'])
+    path = recorded_path(item['path'])
     assert sha(path) == item['sha256'].upper()
     equivalent = project / 'src/user_source/hdl_source' / path.relative_to(old / 'src/user_source/hdl_source')
     assert sha(equivalent) == sha(path)
 assert 'PASS: source bindings and report written.' in (project / 'build/axis_probe_model/run.log').read_text(encoding='utf-8-sig')
 status_binding = json.loads((project / 'build/status_axis_model/source_bindings.json').read_text(encoding='utf-8-sig'))
 for item in status_binding['sources']:
-    assert sha(Path(item['path'])) == item['sha256'].upper(), item['path']
+    assert sha(recorded_path(item['path'])) == item['sha256'].upper(), item['path']
 integration = json.loads((out / 'integration_review.json').read_text(encoding='utf-8-sig'))
 assert integration['overall'] == 'PASS_WITH_INTERPRETATION_BOUNDARY'
 assert integration['icarus_model']['status'] == 'PASS'
@@ -79,7 +82,7 @@ for proj, cp, count in (
     manifest = json.loads((folder / 'manifest.json').read_text(encoding='utf-8-sig'))
     assert len(manifest) == count
     for item in manifest:
-        path = folder / item['path']
+        path = require_file(folder / item['path'])
         assert path.stat().st_size == item['bytes'] and sha(path) == item['sha256'].upper(), str(path)
     guards[proj] = {'files': count, 'result': 'PASS', 'manifest_sha256': sha(folder / 'manifest.json')}
 for bit, expected in (

@@ -1,5 +1,8 @@
 """Gate, freeze and package a dynamic-text candidate. Never replace checkpoints."""
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 from datetime import datetime, timezone, timedelta
 import hashlib
 import json
@@ -17,7 +20,7 @@ FALLBACK = ROOT / 'download/osd_phy_fix.bit'
 FALLBACK_SHA = '9E893B0B6C86BF6FBEE19E74B5FB58933C1BEA6AA07F203786CCE96F3B60AE6F'
 
 def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest().upper()
+    return hashlib.sha256(require_file(path).read_bytes()).hexdigest().upper()
 
 def read_json(path):
     return json.loads(path.read_text(encoding='utf-8-sig'))
@@ -48,7 +51,7 @@ for entry in scope:
     assert sha(path) == entry['sha256'], f'Synthesis source changed: {path}'
 
 baseline = read_json(PROJECT / 'build/baseline.json')
-old_root = Path(baseline['baseline']) / 'src/user_source'
+old_root = recorded_path(baseline['baseline']) / 'src/user_source'
 new_root = PROJECT / 'src/user_source'
 new_files = sorted(p for p in new_root.rglob('*') if p.is_file())
 assert len(new_files) == 75 and len([p for p in old_root.rglob('*') if p.is_file()]) == 74

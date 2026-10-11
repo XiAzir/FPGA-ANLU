@@ -1,6 +1,8 @@
+# Locate this project from the script, independently of the caller working directory.
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
 # Seed selection follows the installed TD scripts/MultiSeed.tcl flow.
 # No pin, clock, HDL or timing exception changes. No post-route phys_opt.
-set task_root E:/VSCODE-project/FPGA-ANLU/development/player_fat32_packet_diag
+set task_root ${fpga_project_root}
 set place_seed $::env(FPGA_DIAG_PLACE_SEED)
 if {![string is integer -strict $place_seed] || $place_seed < 2 || $place_seed > 5} {
     error "Invalid bounded diagnostic placement seed"

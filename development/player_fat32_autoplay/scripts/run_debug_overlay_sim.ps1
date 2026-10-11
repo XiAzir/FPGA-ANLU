@@ -1,7 +1,8 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..')).Path
-$iverilog = Join-Path $projectRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp = Join-Path $projectRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $source = Join-Path $projectRoot 'development\player_fat32_audio_probe\src\user_source\hdl_source\player_debug_overlay.v'
 $testbench = Join-Path $projectRoot 'development\player_fat32_audio_probe\sim\tb_player_debug_overlay.v'
 $outDir = Join-Path $projectRoot 'development\player_fat32_audio_probe\build\fat_sim'

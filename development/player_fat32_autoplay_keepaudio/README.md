@@ -12,7 +12,7 @@ Internal tone: D3 blinks; D2/D1/D0 valid/nonzero/ACR observations.
 
 Expected file: build/manual/AC201_player_fat32_autoplay_keepaudio.bit.
 Same original card/power/HDMI and PROGRAM_SRAM. First test default WAV, KEY0 and short KEY1 auto on/off without long-press. If the WAV is still noisy, diagnostic long KEY1 can compare internal tone on the same bitstream.
-Rollback: E:/VSCODE-project/FPGA-ANLU/development/player_fat32_audio_probe/build/manual/AC201_player_fat32_audio_probe.bit.
+Rollback: ../player_fat32_audio_probe/build/manual/AC201_player_fat32_audio_probe.bit.
 No TF writes, Flash programming, segment driver or assistant board operation.
 
 ## Build complete 2026-10-08 16:35:15 (Beijing), hardware pending

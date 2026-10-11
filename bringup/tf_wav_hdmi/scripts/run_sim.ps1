@@ -1,7 +1,8 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $root = Split-Path $PSScriptRoot -Parent
-$iv = Join-Path $root 'tools/iverilog/app/bin/iverilog.exe'
-$vvp = Join-Path $root 'tools/iverilog/app/bin/vvp.exe'
+$iv = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $hdl = Join-Path $root 'src/user_source/hdl_source'
 $sim = Join-Path $root 'sim'
 & $iv -g2012 -s tb_tf_wav_player -o "$sim/player.vvp" "$hdl/tf_wav_player.v" "$sim/tb_tf_wav_player.v"

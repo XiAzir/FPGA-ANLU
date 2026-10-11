@@ -1,10 +1,11 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
 $project = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
 $repo = (Resolve-Path (Join-Path $project '..\..')).Path
 $outDir = Join-Path $project 'build\status_axis_model'
 $null = New-Item -ItemType Directory -Force -Path $outDir
-$iverilog = Join-Path $repo 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp = Join-Path $repo 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $hdl = Join-Path $project 'src\user_source\hdl_source\player_status_monitor.v'
 $tb = Join-Path $PSScriptRoot 'tb_status_axis_monitor.v'
 $compileArgs = @('-g2012','-s','tb_status_axis_monitor','-o',(Join-Path $outDir 'status_axis.vvp'),$tb,$hdl)

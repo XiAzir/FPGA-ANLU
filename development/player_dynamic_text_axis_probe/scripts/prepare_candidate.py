@@ -1,7 +1,10 @@
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 import shutil, re, json, hashlib, datetime
 
-root=Path(r'E:\VSCODE-project\FPGA-ANLU')
+root=REPOSITORY_ROOT
 old=root/'development/player_dynamic_text_video_probe'
 new=root/'development/player_dynamic_text_axis_probe'
 assert not (new/'build/manual').exists(), 'Do not overwrite a candidate that has entered TD build'

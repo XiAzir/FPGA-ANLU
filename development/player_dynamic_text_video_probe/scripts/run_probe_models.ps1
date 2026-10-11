@@ -1,8 +1,9 @@
 # Reproduction entry point; original model runs and hashes are in model_results.json.
 $ErrorActionPreference='Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $taskProject=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $taskWorkspace=(Resolve-Path (Join-Path $taskProject '..\..')).Path
-$taskTools=Join-Path $taskWorkspace 'bringup\tf_wav_hdmi\tools\iverilog\app\bin'
+$taskTools=(Split-Path -Parent (Resolve-AnluTool 'iverilog'))
 $taskHdl=Join-Path $taskProject 'src\user_source\hdl_source'
 $taskOutput=Join-Path $taskProject 'build\probe_model_reproduction'
 New-Item -ItemType Directory -Path $taskOutput -Force | Out-Null
@@ -16,9 +17,9 @@ foreach ($taskCase in $taskCases) {
     $taskCompile=Join-Path $taskOutput ($taskCase.name+'_compile.log')
     $taskRun=Join-Path $taskOutput ($taskCase.name+'_run.log')
     $taskSources=@($taskCase.sources | ForEach-Object {Join-Path $taskHdl $_})
-    & (Join-Path $taskTools 'iverilog.exe') -g2012 -s $taskCase.top -o $taskModel @taskSources (Join-Path $taskProject ('sim\tests\'+$taskCase.tb)) *> $taskCompile
+    & (Resolve-AnluTool 'iverilog') -g2012 -s $taskCase.top -o $taskModel @taskSources (Join-Path $taskProject ('sim\tests\'+$taskCase.tb)) *> $taskCompile
     if ($LASTEXITCODE -ne 0) {throw ('Probe compile failed: '+$taskCompile)}
-    & (Join-Path $taskTools 'vvp.exe') $taskModel *> $taskRun
+    & (Resolve-AnluTool 'vvp') $taskModel *> $taskRun
     if ($LASTEXITCODE -ne 0) {throw ('Probe simulation failed: '+$taskRun)}
     $taskText=Get-Content -LiteralPath $taskRun -Raw
     if ($taskText -notmatch 'PASS' -or $taskText -match 'FAIL|FATAL') {throw ('Missing passing model: '+$taskRun)}

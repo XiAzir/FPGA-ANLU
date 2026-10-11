@@ -1,5 +1,8 @@
 """Preserve a hardware-pending runtime source probe; refuse stale inputs or overwrite."""
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 from datetime import datetime, timezone, timedelta
 import hashlib, json, re, shutil, zipfile
 
@@ -10,7 +13,7 @@ bit=manual/'AC201_player_dynamic_text_video_probe.bit'
 short=root/'download/dynamic_text_video_probe.bit'
 checkpoint=project/'checkpoints/dynamic_text_video_probe_20261009_candidate'
 package=root/'deliverables/dynamic_text_video_probe_20261009.zip'
-sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest().upper()
+sha=lambda p:hashlib.sha256(require_file(p).read_bytes()).hexdigest().upper()
 load=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
 def write(p,d):
     p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -35,13 +38,13 @@ assert {p.relative_to(prior).as_posix() for p in prior.rglob('*') if p.is_file()
 models=load(project/'build/model_results.json')
 assert len(models['tests'])==3, 'No complete model evidence'
 for path,expected in models['source_sha256'].items():
-    assert sha(Path(path))==expected, 'Modeled source changed'
+    assert sha(recorded_path(path))==expected, 'Modeled source changed'
 for e in models['tests']:
-    p=Path(e['path'])
+    p=recorded_path(e['path'])
     text=p.read_text(encoding='utf-8-sig',errors='replace')
     assert e['marker'] in text and not re.search(r'FAIL|FATAL',text),str(p)
     assert sha(p)==e['sha256'].upper()
-    assert sha(Path(e['testbench']))==e['testbench_sha256']
+    assert sha(recorded_path(e['testbench']))==e['testbench_sha256']
 assert (project/'build/probe_review/report.md').is_file(), 'Missing independent review'
 timing_text=(manual/'AC201_tf_hdmi_phy.ts').read_text()
 m=re.search(r'SWNS:\s*([-\d.]+)ns, STNS:\s*([-\d.]+)ns\.\s*HWNS:\s*([-\d.]+)ns, HTNS:\s*([-\d.]+)ns\.',timing_text)
@@ -56,7 +59,7 @@ guards={}
 for name in ['player_osd_phy_fix/checkpoints/osd_phy_fix_20261009_candidate','player_dynamic_text/checkpoints/dynamic_text_20261009_candidate','player_dynamic_text_fit/checkpoints/dynamic_text_fit_20261009_candidate']:
     frozen=root/'development'/name
     for e in load(frozen/'manifest.json'):
-        p=frozen/e['path'];assert p.stat().st_size==e['bytes'] and sha(p)==e['sha256']
+        p=require_file(frozen/e['path']);assert p.stat().st_size==e['bytes'] and sha(p)==e['sha256']
     guards[name]=len(load(frozen/'manifest.json'))
 assert bit.stat().st_size==629624
 now=datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')

@@ -1,4 +1,5 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 
 # This project root is the compact experiment's own directory; the repository
 # root is used only to locate the installed Icarus tools.
@@ -6,8 +7,8 @@ $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $repositoryRoot = (Resolve-Path (Join-Path $projectRoot '..\..')).Path
 $simDir = Join-Path $projectRoot 'sim'
 $buildDir = Join-Path $projectRoot 'build\dynamic_sim'
-$iverilog = Join-Path $repositoryRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp = Join-Path $repositoryRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $dut = Join-Path $projectRoot 'src\user_source\hdl_source\player_dynamic_text.v'
 $legacy = Join-Path $projectRoot 'src\user_source\hdl_source\player_osd.v'
 

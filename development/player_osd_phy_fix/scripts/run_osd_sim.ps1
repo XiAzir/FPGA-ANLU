@@ -1,13 +1,14 @@
 param()
 
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..')).Path
 $modulePath = Join-Path $projectRoot 'development\player_osd_phy_fix\src\user_source\hdl_source\player_osd.v'
 $testbenchPath = Join-Path $projectRoot 'development\player_osd_phy_fix\sim\tb_player_osd.v'
 $outputDir = Join-Path $projectRoot 'development\player_osd_phy_fix\build\osd_sim'
 $imagePath = Join-Path $outputDir 'tb_player_osd.vvp'
-$iverilog = Join-Path $projectRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp = Join-Path $projectRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 
 New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
 if (-not (Test-Path -LiteralPath $iverilog -PathType Leaf)) { throw "Icarus compiler missing: $iverilog" }

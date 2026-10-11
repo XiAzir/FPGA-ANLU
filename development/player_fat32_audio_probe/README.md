@@ -34,7 +34,7 @@
 
 `scripts/run_audio_probe_sim.ps1`验证：primed高但sample_available低时不虚报播放；这种情况下内部音阶仍有valid/非零/正确ACR；返回WAV保持独立观测；模拟队列到HDMI输入119个样本顺序、24位打包、双声道、分数采样节拍和ACR准确。此测试不运行加密HDMI/真实SPI/SDRAM，也不证明显示器收到音频。
 
-稳定回退仍为 `E:/VSCODE-project/FPGA-ANLU/development/player_480p/build/manual/AC201_tf_hdmi_data_d1.bit`。上一probe显示/按键通过而音频未通过；不能当完整成功版。
+稳定回退仍为 `../player_480p/build/manual/AC201_tf_hdmi_data_d1.bit`。上一probe显示/按键通过而音频未通过；不能当完整成功版。
 
 ## 最终构建
 

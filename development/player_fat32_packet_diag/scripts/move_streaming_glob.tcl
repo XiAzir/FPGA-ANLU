@@ -1,6 +1,8 @@
+# Locate this project from the script, independently of the caller working directory.
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
 # Query a typed collection using one-character wildcards for bus brackets.
 # Exact canonical name/count are checked before touching the placement.
-set task_root E:/VSCODE-project/FPGA-ANLU/development/player_fat32_packet_diag
+set task_root ${fpga_project_root}
 set output_dir $task_root/build/attempt_streaming_move_glob
 file mkdir $output_dir
 cd $task_root/src/td_project

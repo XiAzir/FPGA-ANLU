@@ -1,20 +1,32 @@
 """Archive user board feedback; update live records without changing frozen artifacts."""
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 from datetime import datetime, timezone, timedelta
 import hashlib
 import json
 import re
 import shutil
+import argparse
 
-ROOT = Path('E:/VSCODE-project/FPGA-ANLU')
-DOC = Path('E:/QQ CACHE/Download/安路资料/开发记录')
+parser = argparse.ArgumentParser(description='One-time archival workflow for the original 2026-10-09 board feedback; inspect existing record guards before replay.')
+parser.add_argument('--evidence-dir', type=Path, required=True,
+                    help='Directory containing the two original codex-clipboard JPG files named below.')
+args = parser.parse_args()
+evidence_dir = args.evidence_dir.expanduser().resolve()
+if not evidence_dir.is_dir():
+    parser.error(f'Original evidence directory is missing: {evidence_dir}')
+
+ROOT = REPOSITORY_ROOT
+DOC = (DOCS_ROOT / '开发记录')
 PROJECT = ROOT / 'development/player_osd_phy_fix'
 STAMP = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
 BIT_SHA = '9E893B0B6C86BF6FBEE19E74B5FB58933C1BEA6AA07F203786CCE96F3B60AE6F'
 ARCHIVE = DOC / '专题记录/OSD状态显示/修复版通过_20261009'
 
 def digest(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest().upper()
+    return hashlib.sha256(require_file(path).read_bytes()).hexdigest().upper()
 
 def write_json(path, data):
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
@@ -33,7 +45,7 @@ for index, name in enumerate([
     'codex-clipboard-84b527b1-76ef-4ac6-8f4b-15d747149d3d.jpg',
     'codex-clipboard-8323c941-865f-4016-ab84-777e09f2942b.jpg',
 ], 1):
-    source = Path('C:/Users/PENGYU~1/AppData/Local/Temp') / name
+    source = require_file(evidence_dir / name)
     target = ARCHIVE / f'image_{index}.jpg'
     if target.exists():
         assert digest(target) == digest(source), 'Existing evidence differs'

@@ -1,8 +1,11 @@
 import hashlib, json
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 
 new = Path(__file__).resolve().parent.parent
-base = Path('E:/VSCODE-project/FPGA-ANLU/bringup/tf_wav_hdmi')
+base = (REPOSITORY_ROOT / 'bringup/tf_wav_hdmi')
 digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest().upper()
 base_hdl = base / 'src/user_source'
 new_hdl = new / 'src/user_source'

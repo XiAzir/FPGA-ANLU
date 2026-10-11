@@ -48,4 +48,4 @@
 
 原顶层WAV debug向量在实例连接后才声明，TD有4条critical warnings；LED probe中改为先声明再使用，不能仅凭此缺陷认定无信号根因。PLL/pin/SDC/HDMI PHY与BitGen PLL编码核查一致，无信号具体机制仍待定位。
 
-下一版已在隔离player_fat32_probe构建，去叠字并恢复RGB直通，通过独立四灯观察。参见[probe说明](E:/VSCODE-project/FPGA-ANLU/development/player_fat32_probe/README.md)。原位流、日志与DB保留。
+下一版已在隔离player_fat32_probe构建，去叠字并恢复RGB直通，通过独立四灯观察。参见[probe说明](../player_fat32_probe/README.md)。原位流、日志与DB保留。

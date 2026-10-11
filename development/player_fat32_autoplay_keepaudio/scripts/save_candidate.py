@@ -4,12 +4,15 @@ import json
 import shutil
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 
 root = Path(__file__).resolve().parent.parent
 manual = root / 'build/manual'
 checkpoint = root / 'checkpoints/fat32_candidate_v1'
 bit = manual / 'AC201_player_fat32_candidate.bit'
-sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest().upper()
+sha = lambda p: hashlib.sha256(require_file(p).read_bytes()).hexdigest().upper()
 assert bit.is_file(), 'Bitstream missing'
 assert not checkpoint.exists(), 'Use a new checkpoint name instead of overwriting'
 status = (manual / 'AC201_tf_hdmi_phy.ts').read_text()

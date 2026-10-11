@@ -1,6 +1,8 @@
+# Locate this project from the script, independently of the caller working directory.
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
 # Documented place settings from installed official_strategy_ph1.json TimingUltra.
 # Reuse the same synthesized database, HDL, PLL, pins and SDC. No seed search.
-set task_root E:/VSCODE-project/FPGA-ANLU/development/player_osd_phy_fix
+set task_root ${fpga_project_root}
 set output_dir $task_root/build/attempt_timing_high
 file mkdir $output_dir
 cd $task_root/src/td_project

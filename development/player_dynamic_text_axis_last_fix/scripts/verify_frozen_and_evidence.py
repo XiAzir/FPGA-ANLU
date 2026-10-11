@@ -1,10 +1,13 @@
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 import hashlib, json, shutil, datetime
 
-root = Path(r'E:\VSCODE-project\FPGA-ANLU')
+root = REPOSITORY_ROOT
 candidate = root/'development/player_dynamic_text_axis_last_fix'
-topic = Path(r'E:\QQ CACHE\Download\安路资料\开发记录\专题记录\OSD状态显示\动态字幕资源版竖线_20261009')
-def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest().upper()
+topic = (DOCS_ROOT / '开发记录/专题记录/OSD状态显示/动态字幕资源版竖线_20261009')
+def sha(p): return hashlib.sha256(require_file(p).read_bytes()).hexdigest().upper()
 guards = {}
 for project, checkpoint, count in (
     ('player_osd_phy_fix','osd_phy_fix_20261009_candidate',174),
@@ -16,7 +19,7 @@ for project, checkpoint, count in (
     manifest = json.loads((folder/'manifest.json').read_text(encoding='utf-8-sig'))
     assert len(manifest) == count, (project, len(manifest))
     for item in manifest:
-        path = folder/item['path']
+        path = require_file(folder/item['path'])
         assert path.is_file() and path.stat().st_size == item['bytes'] and sha(path) == item['sha256'].upper(), str(path)
     guards[str(folder)] = {'count':count, 'result':'PASS', 'manifest_sha256':sha(folder/'manifest.json')}
 for name, expected in (

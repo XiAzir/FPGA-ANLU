@@ -1,9 +1,11 @@
+# Locate this project from the script, independently of the caller working directory.
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
 # Target the reported setup bottleneck: one registered SDRAM tristate driver
 # fans out to 34 loads. Use supported pre-route HFN replication, no post-route
 # phys_opt modes and no timing/PLL/HDL edits.
-set project_dir E:/VSCODE-project/FPGA-ANLU/development/player_fat32_packet_diag/src/td_project
-set input_db E:/VSCODE-project/FPGA-ANLU/development/player_fat32_packet_diag/build/manual/AC201_tf_hdmi_gate.db
-set output_dir E:/VSCODE-project/FPGA-ANLU/development/player_fat32_packet_diag/build/attempt_packet_replicated
+set project_dir ${fpga_project_root}/src/td_project
+set input_db ${fpga_project_root}/build/manual/AC201_tf_hdmi_gate.db
+set output_dir ${fpga_project_root}/build/attempt_packet_replicated
 file mkdir $output_dir
 cd $project_dir
 if {[catch {
