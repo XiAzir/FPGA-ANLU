@@ -1,0 +1,96 @@
+# HDMI 包观测诊断工程
+
+日期：2026-10-08。基线为已观察到两源杂音、输入计数符合预期的
+`../player_fat32_status_diag`。本工程用于定位问题，尚未证明修复音频。
+
+只在 HDMI 核心到 PHY 的原三路10位并行输出旁接被动监测；原音视频、
+按键、PLL、PHY、引脚及SDC保持基线。新增扇出会改变物理实现，不能据此
+声称捕获了旧失败位流的波形。既有加密IP告警、外部IO延迟和实测频率边界保留。
+
+## 实物操作
+
+候选位流须待TD综合、布局布线、原约束setup/hold全部通过后才生成。
+PROGRAM_SRAM临时下载，保持原卡、供电、HDMI和音量。
+KEY0点按切图；KEY1短按开关自动轮播；长按约2秒切WAV/内部音阶，
+长按也会触发一次轮播开关，松开至少1.5秒后可再次切源。
+内部模式D3闪烁；灯本身不能证明声音正确。
+
+数码管前2秒01234567、后2秒88888888，随后9页按1、3、6、7、8、9、A、B、C循环，
+每页2秒。数字均为十六进制。拍摄时等启动稳定，覆盖完整18秒页周期；
+切内部音阶后等至少3秒，再记录后续窗口，避免旧WAV FIFO样本影响初窗。
+
+| 页 | 第二位含义 | 后六位数值及判读 |
+| --- | --- | --- |
+| 1 | 启动状态K | FF/文件错误EE/mapper错误WW，正常1dA80000 |
+| 3 | 输入模式M | 每名义秒送入核心的audio_valid，48kHz为00BB80 |
+| 6 | 包观察F | 好BCH、合法layout0音频包里的立体声采样时刻数；稳定48kHz约00BB80，允许包边界带来小量窗口差异 |
+| 7 | 包观察F | 好BCH、合法layout0音频包数；若每包4样本约002EE0，实际按present数分组，不能仅凭不是12000判错 |
+| 8 | 包观察F | 每秒坏BCH包数；任一header或4个body校验错按该包一次，坏包不计入页6/7 |
+| 9 | 包观察F | 每秒非法TERC/guard符号事件数；非法符号中断本岛并重新搜索 |
+| A | 包观察F | 内部tone模式下present且非flat的样本对，任一L/R不是±1000000的次数；WAV模式不比较 |
+| B | 包观察F | 最近合法ACR CTS，25MHz/48kHz对应0061A8=25000；CTS=0保留上一有效值 |
+| C | 包观察F | 最近合法ACR N，001800=6144 |
+
+M={tone_mode,underflow,hdmi_locked,frame_seen}；默认无欠载模式3，内部模式B。
+F={island_seen,audio_seen,acr_seen,format_error_seen}，前三项锁存；通常E表示三种事件
+均见过且没有格式错误，F表示格式错误曾发生，不能推断错误仍持续。
+页8/9/A是非锁存的一秒窗计数，要读稳定后的多个窗口。
+页6..A上限00FFFF（65535）饱和，不回绕。计数窗按名义25MHz，物理频率未测。
+
+ACR按BCH、四个重复payload和保留位检查；HB1/HB2按接收端忽略规则处理。
+音频仅支持当前双声道layout0的五种present前缀。absent子包flat/B字段不作
+有效样本，flat样本不检查tone幅值。未检查完整PCM顺序、IEC parity/V/U/C、
+Audio InfoFrame、General Control/AVMUTE或接收器输出波形，计数通过也不排除这些问题。
+观察点使用核心原并行位序，首次实板还需确认符号对齐；若F全0不能直接认定核心
+没有发送，需同时考虑观察器位序/对齐假设。监测不观察差分PHY引脚或显示器内部。
+
+## 实现与验证
+
+`hdmi_packet_monitor.v`在线解析数据岛：8拍preamble、2拍guard、32拍同步收
+header和4个body。包间无guard；同岛可以连续多个packet。5个在线BCH校验器
+使用左移0xC1；独立Python右移0x83核对外部向量及32组三路字符。
+为节约器件资源，仅保留24/56位payload，不保存ECC寄存器副本；计数16位饱和。
+输入mailbox仅保留28位模式/有效样本数；上一版视频已证实的像素/PCM变化计数
+不在本观测版重复测量，故没有2/4/5页。包计数已由同一像素时钟寄存，直接送显示
+组合逻辑，595在每轮扫描起点锁存完整32位，避免额外328位快照副本。
+所有相关路径仍受STA约束。最终595源码恢复基线原样，外部链模型重跑通过。
+
+模型：`sim/run_monitor_tests.ps1`独立BCH及31项定向断言；
+`scripts/run_status_sim.ps1`9页精确字段；`scripts/run_hex_sim.ps1`外部595链25MHz。
+模型不含加密HDMI核心、SDRAM或板测。首次TD工程属性错误已修正，日志保留；
+首轮完整快照布局容量5060 MSlice超过4900，归档`build/attempt_capacity_full`，未生成位流。
+去除重复快照后第二轮4918仍超4900，归档`build/attempt_capacity_compact`；
+缩减595计数宽度后第三轮4962仍超4900（打包结果不随位宽单调下降），归档
+`build/attempt_capacity_595`，没有位流。最终恢复595原样，去除重复的输入像素/变化
+计数，将显示集中在新包观察信息；最终是否可布局/通过时序以构建报告为准。
+
+构建：`scripts/build_candidate.ps1 -Stage synthesis|physical|hold|bitstream`。
+后续阶段复核成功综合时源哈希，bitstream阶段拒绝负setup/hold/TNS。
+不使用额外false path或放宽约束。成功后`scripts/save_packet_build.ps1`保存源码范围、
+位流SHA256、真实STA/资源及检查点manifest；禁止覆盖已有检查点。
+`src/td_project`复制自基线，其中旧输出仅为历史；本次构建显式只用`build/manual`新DB。
+
+### 2026-10-08 路由及工具限制（阶段记录）
+
+9页版实际打包4872/4900 MSlice、route后18600 LE。默认route的SRAM三态
+控制到DQ[12..15]出现setup SWNS=-0.263ns/STNS=-0.708ns，原约束fix_hold后
+HWNS=0.031ns/HTNS=0，setup仍未通过；尚未生成位流。
+prehold、setup失败DB分别保存在`build/attempt_packet_prehold`和
+`build/attempt_packet_setup_input`。这不能解释旧版杂音原因。
+低effort的post-route reroute模式也在TD内部检查时崩溃，日志与minidump保存在
+`build/attempt_packet_reroute`，原DB保留；不再重复phys_opt各模式。
+从place DB按本机官方手册route effort=routability完成常规route/fix_hold，
+独立输出`build/attempt_packet_routability`：SWNS=-0.329/STNS=-0.922ns，
+HWNS=0.031/HTNS=0，setup仍未通过，没有位流。
+目标sdr_t高扇出复制从gate DB因physical model未建立失败；改用placed DB后命令
+完成但实际0个复制，之后常规route仍SWNS=-0.263/STNS=-0.708ns。
+独立get_nets/report_nets已确认规范名及34个PAD TS负载；使用get_nets集合形式
+再次验证仍0个复制，排除本次仅因字面量/集合传参差异造成0复制的解释，
+未证实优化器不选择该driver的具体原因。所有尝试独立保留，未从违例DB生成位流。
+当前诊断工程模型已完成、最终STA及实板观测未完成；下一步须解决原约束下的
+SRAM输出setup，再观察真实核心输出包。不能从这些构建失败推断旧音频杂音原因。
+
+协议依据：[HDMI Licensing原始规范5.2/5.3/7.6](https://fpga.mit.edu/6205/_static/F24/default_files/CEC_HDMI_Specification.pdf)、
+[AMD官方AUX packets说明](https://docs.amd.com/r/3.1-English/pg236-v-hdmi-rx-ss/AUX-Packets)，
+以及本地APUG092手册/原PHY位序。详细规格在基线工程
+`build/tone_video_20261008/packet_probe_spec.md`。这不是原加密核心行为已实证的声明。

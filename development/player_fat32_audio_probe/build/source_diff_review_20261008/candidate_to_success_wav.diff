@@ -1,0 +1,27 @@
+diff --git a/development/player_fat32/src/user_source/hdl_source/tf_wav_file_player.v b/development/player_fat32_audio_probe/src/user_source/hdl_source/tf_wav_file_player.v
+index 89d46c0..a05720e 100644
+--- a/development/player_fat32/src/user_source/hdl_source/tf_wav_file_player.v
++++ b/development/player_fat32_audio_probe/src/user_source/hdl_source/tf_wav_file_player.v
+@@ -11,7 +11,9 @@ module tf_wav_file_player #(
+     output reg sd_read, output reg [31:0] sd_addr,
+     input wire [7:0] sd_data, input wire sd_valid, input wire sd_end,
+     input wire sample_take, output wire [15:0] sample_data,
+-    output wire sample_available, output reg primed, output reg error
++    output wire sample_available, output reg primed, output reg error,
++    output wire [3:0] debug_state, output wire [3:0] debug_phase,
++    output wire [31:0] debug_scan_pos, output wire [7:0] debug_scan_byte
+ );
+     localparam integer PTR_W = (FIFO_DEPTH <= 2) ? 1 : $clog2(FIFO_DEPTH);
+     localparam [12:0] DEPTH_COUNT = FIFO_DEPTH;
+@@ -36,6 +38,11 @@ module tf_wav_file_player #(
+     reg loaded_sector_valid;
+     reg [31:0] scan_pos, riff_end;
+     reg [3:0] scan_phase;
++    // Passive taps; no additional RAM output register or parser delay.
++    assign debug_state = state;
++    assign debug_phase = scan_phase;
++    assign debug_scan_pos = scan_byte_pos;
++    assign debug_scan_byte = scan_byte;
+     localparam [3:0] P_RIFF=0, P_WAVE=1, P_CHUNK_ID=2, P_CHUNK_SIZE=3,
+         P_FMT=4, P_SKIP=5, P_DONE=6;
+     reg [2:0] field_index;

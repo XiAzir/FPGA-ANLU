@@ -1,0 +1,22 @@
+diff --git "a/E:\\VSCODE-project\\FPGA-ANLU\\development\\player_fat32_audio_probe\\checkpoints\\audio_probe_20261008_verified\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v" "b/E:\\VSCODE-project\\FPGA-ANLU\\development\\player_fat32_autoplay_keepaudio\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v"
+index b57a621..ceae952 100644
+--- "a/E:\\VSCODE-project\\FPGA-ANLU\\development\\player_fat32_audio_probe\\checkpoints\\audio_probe_20261008_verified\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v"
++++ "b/E:\\VSCODE-project\\FPGA-ANLU\\development\\player_fat32_autoplay_keepaudio\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v"
+@@ -181,7 +181,7 @@ fat32_catalog u_catalog (
+ );
+ tf_bmp_file_player #(.CLK_FREQ_HZ(50000000),
+     .FRAME_WIDTH(DISPLAY_WIDTH),.FRAME_HEIGHT(DISPLAY_HEIGHT)) u_bmp_file_player (
+-    .clk(sd_card_clk),.rst(rst_all),.key_next(key1),.key_auto(1'b1),
++    .clk(sd_card_clk),.rst(rst_all),.key_next(key1),.key_auto(key2),
+     .catalog_ready(fs_ready),.bmp_count(fs_bmp_count),
+     .bmp_clusters(fs_bmp_clusters),.bmp_sizes(fs_bmp_sizes),
+     .file_cluster(bmp_file_cluster),.file_size(bmp_file_size),
+@@ -311,7 +311,7 @@ player_debug_monitor u_debug_monitor (
+ assign vout_data = vout_data_base;
+ 
+ wire debug_tone_press, debug_tone_mode;
+-key_press_debounce #(.CLK_FREQ_HZ(25000000),.DEBOUNCE_MS(50)) u_tone_key (
++key_press_debounce #(.CLK_FREQ_HZ(25000000),.DEBOUNCE_MS(1500)) u_tone_key (
+     .clk(video_clk),.rst(rst_all),.button_in(key2),.press_pulse(debug_tone_press)
+ );
+ player_audio_probe u_audio_probe (

@@ -1,0 +1,68 @@
+diff --git a/development/player_fat32_probe/src/user_source/hdl_source/top_tf_hdmi_audio.v b/development/player_fat32_audio_probe/src/user_source/hdl_source/top_tf_hdmi_audio.v
+index cb59427..b57a621 100644
+--- a/development/player_fat32_probe/src/user_source/hdl_source/top_tf_hdmi_audio.v
++++ b/development/player_fat32_audio_probe/src/user_source/hdl_source/top_tf_hdmi_audio.v
+@@ -181,7 +181,7 @@ fat32_catalog u_catalog (
+ );
+ tf_bmp_file_player #(.CLK_FREQ_HZ(50000000),
+     .FRAME_WIDTH(DISPLAY_WIDTH),.FRAME_HEIGHT(DISPLAY_HEIGHT)) u_bmp_file_player (
+-    .clk(sd_card_clk),.rst(rst_all),.key_next(key1),.key_auto(key2),
++    .clk(sd_card_clk),.rst(rst_all),.key_next(key1),.key_auto(1'b1),
+     .catalog_ready(fs_ready),.bmp_count(fs_bmp_count),
+     .bmp_clusters(fs_bmp_clusters),.bmp_sizes(fs_bmp_sizes),
+     .file_cluster(bmp_file_cluster),.file_size(bmp_file_size),
+@@ -225,9 +225,7 @@ wire debug_source_sum_matches = (debug_rows_sd[95:64] == 32'hfb167260) ||
+     (debug_rows_sd[95:64] == 32'hc3ebce2e) ||
+     (debug_rows_sd[95:64] == 32'h0b94a9db) ||
+     (debug_rows_sd[95:64] == 32'h98df6a9e);
+-assign led = ~{(fs_ready && !fs_error), debug_source_sum_matches,
+-    (debug_rows_sd[15:0] == 16'h4952),
+-    (wav_primed && !wav_error && !wav_map_error && !audio_underflow)};
++// LED meanings in this audio probe are owned by u_audio_probe below.
+ 
+ // ===================== 原图像时序与帧缓存 =====================
+ video_timing_data video_timing_data_m0(
+@@ -312,13 +310,19 @@ player_debug_monitor u_debug_monitor (
+ // Restore the candidate's direct RGB path. No diagnostic overlay or video CDC.
+ assign vout_data = vout_data_base;
+ 
+-wav_pcm_bridge u_wav_pcm_bridge (
+-    .pixel_clk(video_clk), .sd_clk(sd_card_clk), .rst(rst_all),
+-    .primed(wav_primed), .sample_available(wav_sample_available),
+-    .sample_data(wav_sample_data), .sample_take(wav_sample_take),
+-    .audio_valid(audio_valid), .audio_left(audio_left_data),
+-    .audio_right(audio_right_data), .underflow(audio_underflow)
+-);
++wire debug_tone_press, debug_tone_mode;
++key_press_debounce #(.CLK_FREQ_HZ(25000000),.DEBOUNCE_MS(50)) u_tone_key (
++    .clk(video_clk),.rst(rst_all),.button_in(key2),.press_pulse(debug_tone_press)
++);
++player_audio_probe u_audio_probe (
++    .pixel_clk(video_clk),.sd_clk(sd_card_clk),.rst(rst_all),
++    .tone_toggle(debug_tone_press),.primed(wav_primed),
++    .sample_available(wav_sample_available),.sample_data(wav_sample_data),
++    .sample_take(wav_sample_take),.underflow(audio_underflow),
++    .audio_valid(audio_valid),.audio_left(audio_left_data),.audio_right(audio_right_data),
++    .acr_valid(acr_valid),.acr_cts(acr_cts),.acr_n(acr_n),
++    .led(led),.tone_mode(debug_tone_mode)
++);
+ 
+ sd_sector_arbiter u_card_arbiter (
+     .clk(sd_card_clk), .rst(rst_all || !fs_ready),
+@@ -344,16 +348,6 @@ sd_card_top u_shared_card (
+     .sd_sec_write(1'b0), .sd_sec_write_addr(32'd0), .sd_sec_write_data(8'd0),
+     .sd_sec_write_data_req(), .sd_sec_write_end()
+ );
+-audio_arc_calculate #(
+-    .ACR_N (6144)
+-) u_audio_arc_calculate (
+-    .I_clk         (video_clk),
+-    .I_rst         (rst_all),
+-    .I_audio_valid (audio_valid),
+-    .O_acr_valid   (acr_valid),
+-    .O_acr_cts     (acr_cts),
+-    .O_acr_n       (acr_n)
+-);
+ // ===================== RGB/DE 转 AXIS 视频 =====================
+ video_rgb_to_axis_640x480 u_video_rgb_to_axis_640x480(
+     .I_clk         (video_clk),

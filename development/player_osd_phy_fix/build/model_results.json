@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "hardware_proof": false,
+  "source_sha256": "4E2297D22452B437EE60968DAAD5D6473E1541AB1614C507EFF7F298F112BC0E",
+  "osd": {
+    "frames": 6,
+    "active_pixels": 1843200,
+    "overlay_pixels": 46080
+  },
+  "state_assertions": 838,
+  "serializer": {
+    "zero_delay_phase_skew_cases": 640,
+    "delay_injection_cases": 126,
+    "loads": 12474,
+    "baseline_bad_cases": 96,
+    "baseline_mixed_or_wrong_words": 8085,
+    "candidate_wrong_words": 0,
+    "candidate_serial_sequence_errors": 0,
+    "four_lane_reset_epochs": 2,
+    "first_epoch_loads": 20,
+    "second_epoch_loads": 19,
+    "strobe_word_reset_mismatches": 0
+  },
+  "evidence": "build/serializer_tests",
+  "limitations": [
+    "Delay model uses invented parameter ranges, not measured board delays",
+    "ODDR is a behavioral stub",
+    "Initial warm-up and bit alignment corrected in final scoreboards; earlier preliminary statistics superseded"
+  ]
+}

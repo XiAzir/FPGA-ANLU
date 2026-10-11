@@ -1,0 +1,10 @@
+iverilog compile: PASS
+normal run:
+PASS: continuous sectors, wrap loop, priming, and FIFO admission
+bringup/tf_wav_hdmi/sim/tb_tf_wav_player.v:297: $finish called at 114420000 (1ps)
+BAD_HEADER run:
+PASS: malformed header halts with no samples
+bringup/tf_wav_hdmi/sim/tb_tf_wav_player.v:214: $finish called at 20720000 (1ps)
+SLOW_SD run:
+PASS: ~32-clock SD byte spacing, concurrent FIFO push/pop, and 1041/1042-clock sample takes
+bringup/tf_wav_hdmi/sim/tb_tf_wav_player.v:255: $finish called at 21363720000 (1ps)

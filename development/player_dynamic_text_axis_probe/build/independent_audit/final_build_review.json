@@ -1,0 +1,77 @@
+{
+  "recorded_beijing": "2026-10-09T16:46:20.172992+08:00",
+  "result": "PASS_BUILD_AND_MODEL_SOURCE_GUARDS_BOARD_NOT_TESTED",
+  "source_scope_matched": 81,
+  "source_changed": [
+    "hdl_source/player_status_monitor.v",
+    "hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "source_added": [
+    "hdl_source/player_axis_input_probe.v"
+  ],
+  "source_unchanged": 74,
+  "al_ip_unchanged": true,
+  "timing": {
+    "SWNS_ns": 0.28,
+    "STNS_ns": 0.0,
+    "HWNS_ns": 0.027,
+    "HTNS_ns": 0.0
+  },
+  "sta_coverage_percent": 99.97,
+  "resources": {
+    "lut": 17137,
+    "reg": 7978,
+    "le": 18435,
+    "bram9k": 19,
+    "dsp": 0,
+    "gclk": 2
+  },
+  "prehold": {
+    "SWNS_ns": 0.28,
+    "STNS_ns": 0.0,
+    "HWNS_ns": -0.008,
+    "HTNS_ns": -0.016
+  },
+  "final_db_sha256": "2CF6E165EA45FBF4C4EF9066A9A4DF19BA6C558C569CC9E0EF397A8A90D4F233",
+  "final_route_lines": 210879,
+  "old_route_lines": 210257,
+  "final_route_normalized_sha256": "0B36C6963AE19D6FA43B16C633462C3FE8643D82254AAF6C904647A735A3A3F9",
+  "old_route_normalized_sha256": "8E894B5FC25B745A658FCED4F98AB332C5C76B2B472C7D4DD3CCDF93F5C33AD6",
+  "final_implementation_differs": true,
+  "observer_identifier_occurrences": 2673,
+  "observer_model_source_bindings": "PASS",
+  "status_model_source_bindings": "PASS",
+  "integration_review": "PASS_WITH_INTERPRETATION_BOUNDARY",
+  "frozen_guards": {
+    "player_osd_phy_fix": {
+      "files": 174,
+      "result": "PASS",
+      "manifest_sha256": "A1CD61FECFBF1E2BFA0E537C5987AA6E22985D824E52CEAFE81F87E0ED6DCEAF"
+    },
+    "player_dynamic_text": {
+      "files": 136,
+      "result": "PASS",
+      "manifest_sha256": "5B8153191DEDB5BE573159CD2E1333B4E7B8FCB2DCD75406EF7D80C9B67B4FB3"
+    },
+    "player_dynamic_text_fit": {
+      "files": 148,
+      "result": "PASS",
+      "manifest_sha256": "92CE5257EFF129CCF6194737F5390485568E20241EB44EA81E06F343CC335B68"
+    },
+    "player_dynamic_text_video_probe": {
+      "files": 140,
+      "result": "PASS",
+      "manifest_sha256": "DEE939D3B233FD9053AD11D7C150C84F61755F6828318C8FD08DED8C27CFF936"
+    }
+  },
+  "old_download_bits": "PASS",
+  "hardware_result": "NOT_TESTED",
+  "root_cause": "NOT_CONFIRMED",
+  "limitations": [
+    "STA coverage 99.97%; external SPI I/O delays not characterized.",
+    "Three dummy nodes reported; shared encrypted IP and historical warnings retained.",
+    "Passive RTL changes fanout and placement; recovery would not prove the old unique cause.",
+    "Input metrics count VALID cycles regardless of READY; these are not accepted-transfer counts.",
+    "No board electrical measurements or card/Flash operations."
+  ]
+}

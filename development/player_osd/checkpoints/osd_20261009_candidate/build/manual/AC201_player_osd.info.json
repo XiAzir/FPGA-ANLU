@@ -1,0 +1,51 @@
+{
+  "created_beijing": "2026-10-09 11:20:10",
+  "status": "OSD model/build/original-constraint timing passed; hardware pending",
+  "baseline": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_fat32_packet_diag\\checkpoints\\packet_diag_20261008_candidate",
+  "baseline_bit_sha256": "C2B3DEAFB78355C124CE8958015EED31CEBA38CD4B0B41D9179A7190E4200818",
+  "device": "EG4S20BG256",
+  "td": "6.2.178840",
+  "bitstream": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_osd\\build\\manual\\AC201_player_osd.bit",
+  "bytes": 629624,
+  "sha256": "16AD16157F5B8D1E3431750B9B81B6EB4B42A2E8559EE5F70C527FEDFB27950F",
+  "routed_db_sha256": "BB6F561BD5A24B405A056BDB587A2520F7E282DDFE4C741089FC4DF005F82CEA",
+  "changed_sources": [
+    "hdl_source\\tf_bmp_file_player.v",
+    "hdl_source\\top_tf_hdmi_audio.v"
+  ],
+  "added_sources": [
+    "hdl_source\\player_osd_state.v",
+    "hdl_source\\player_osd.v"
+  ],
+  "original_audio_ip_pll_sdc_pins_unchanged": true,
+  "timing": {
+    "SWNS_ns": 0.138,
+    "STNS_ns": 0.0,
+    "HWNS_ns": 0.031,
+    "HTNS_ns": 0.0
+  },
+  "sta_coverage_percent": 99.98,
+  "resources": {
+    "lut": 16905,
+    "reg": 8096,
+    "le": 18369,
+    "bram9k": 19,
+    "dsp": 0,
+    "gclk": 2
+  },
+  "tests": [
+    "six complete 640x480 frames / 1843200 active pixels / 46080 overlay pixels",
+    "838 dual-clock mailbox, reset and frame-selection assertions"
+  ],
+  "behavior": "IMG current/total and MANUAL/AUTO; 240x32 black panel at (16,16), 5x7 white glyphs scaled 2x; no RGB pipeline delay; metadata and memory buffer selected together, read request delayed one pixel cycle",
+  "hardware_result": "not tested",
+  "hardware_operations": "none by assistant",
+  "card_or_flash_writes": "none",
+  "limits": [
+    "RTL simulation is not proof of metastability absence or encrypted-IP / board correctness",
+    "Existing read_ack CDC and ping-pong buffer lifetime remain; writer reuse is not a full anti-tearing protocol",
+    "Original board IO-delay, physical clock-frequency and encrypted-IP warning boundaries remain",
+    "Historical audio-noise root cause unresolved; new implementation needs real-board audio and image regression",
+    "Status text is implemented; scrolling subtitles and other planned extensions are not"
+  ]
+}

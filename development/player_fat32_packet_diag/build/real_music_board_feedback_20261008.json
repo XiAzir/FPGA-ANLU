@@ -1,0 +1,34 @@
+{
+  "recorded_beijing": "2026-10-08 21:35:53",
+  "evidence_type": "user field feedback; assistant did not operate or measure hardware",
+  "user_statement": "没事了是乌龙，刚刚显示屏按错按钮了，现在测试正常，音频播放正常，KEY0切换正常，KEY1轮播正常",
+  "bitstream": "E:/VSCODE-project/FPGA-ANLU/deliverables/real_music_20261008/firmware/packet_diag.bit",
+  "bitstream_sha256": "C2B3DEAFB78355C124CE8958015EED31CEBA38CD4B0B41D9179A7190E4200818",
+  "wav": "60-second 天ノ弱 clip, 48kHz PCM16 mono TEST.WAV",
+  "reported_pass": [
+    "image display",
+    "real music playback",
+    "KEY0 manual image change",
+    "KEY1 automatic slideshow",
+    "two consecutive 60-second clip playback cycles and return-to-start behavior"
+  ],
+  "black_screen_resolution": "User corrected to monitor button misoperation; no RTL or bitstream changes",
+  "duration_seconds": null,
+  "loop_count": 2,
+  "limits": [
+    "No new audio/video recording or objective measurement",
+    "Full track, fragmented changed files and long-run operation pending",
+    "Old noise root cause remains unresolved and is unrelated to this monitor incident"
+  ],
+  "next_step": "OSD status text development per existing plan; full track/changed file and long-run scenarios remain pending",
+  "checkpoint_policy": "Keep frozen candidate, incomplete checkpoint and delivered ZIP immutable; save new evidence separately",
+  "loop_feedback": {
+    "recorded_beijing": "2026-10-08 21:38:51",
+    "preceding_instruction": "连续两次60秒片段循环，回到开头没有卡死或杂音",
+    "user_statement": "试过了，没问题",
+    "result": "passed by user contextual confirmation",
+    "requested_consecutive_cycles": 2,
+    "duration_independently_measured": false
+  },
+  "loop_count_basis": "User confirmation in response to two-cycle instruction, not an independently measured counter"
+}

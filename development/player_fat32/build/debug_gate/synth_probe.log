@@ -1,0 +1,511 @@
+============================================================
+   Tang Dynasty, V6.2.178840
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/bin/td_commands_prompt.exe
+   Built at =   14:07:58 Sep  4 2025
+   Run by =     PENGYUHAO
+   Run Date =   Wed Oct  7 22:27:32 2026
+
+   Run on =     DESKTOP-3CITPT4
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20BG256"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :            OPTION            |          IO          |   SETTING   
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  T3/R11/T10/P10/S11  |    gpio    
+ARC-1001 :             done             |         P13          |    gpio    
+ARC-1001 :           program_b          |          T2          |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |   C12/A15/C14/E14    |  dedicate  
+ARC-1001 : ------------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "open_project fat_probe.al -single_run"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file ../../src/user_source/hdl_source/fat32_catalog.v
+HDL-1007 : analyze verilog file ../../src/user_source/hdl_source/fat32_file_sector.v
+HDL-1007 : analyze verilog file ../../src/user_source/hdl_source/tf_bmp_file_player.v
+HDL-1007 : analyze verilog file ../../src/user_source/hdl_source/tf_wav_file_player.v
+HDL-1007 : analyze verilog file ../../src/user_source/hdl_source/sd_sector_arbiter.v
+HDL-1007 : analyze verilog file ../../src/user_source/hdl_source/SD/sd_card_bmp.v
+HDL-1007 : analyze verilog file fat_probe.v
+HDL-5373 WARNING: identifier 'write_req' is used before its declaration in fat_probe.v(31)
+PRJ-1401 : Successfully analyzed 7 source files.
+RUN-1002 : start command "load_run_param -run syn_1"
+RUN-1002 : start command "elaborate -top fat_probe"
+HDL-1007 : elaborate module fat_probe in fat_probe.v(3)
+HDL-1007 : elaborate module fat32_catalog in ../../src/user_source/hdl_source/fat32_catalog.v(4)
+HDL-1007 : extracting RAM for identifier 'mbr_tmp' in ../../src/user_source/hdl_source/fat32_catalog.v(38)
+HDL-1007 : elaborate module tf_bmp_file_player(CLK_FREQ_HZ=20000,WAIT_LIMIT=1000000) in ../../src/user_source/hdl_source/tf_bmp_file_player.v(3)
+HDL-1007 : elaborate module key_press_debounce(CLK_FREQ_HZ=20000,DEBOUNCE_MS=50) in ../../src/user_source/hdl_source/SD/sd_card_bmp.v(384)
+HDL-1007 : elaborate module fat32_file_sector in ../../src/user_source/hdl_source/fat32_file_sector.v(4)
+HDL-1007 : elaborate module tf_wav_file_player(WAIT_LIMIT=1000000) in ../../src/user_source/hdl_source/tf_wav_file_player.v(4)
+HDL-1007 : extracting RAM for identifier 'sector_mem' in ../../src/user_source/hdl_source/tf_wav_file_player.v(29)
+HDL-1007 : extracting RAM for identifier 'fifo_mem' in ../../src/user_source/hdl_source/tf_wav_file_player.v(62)
+HDL-1007 : elaborate module sd_sector_arbiter in ../../src/user_source/hdl_source/sd_sector_arbiter.v(3)
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-1200 : Current top model is fat_probe
+HDL-1100 : Inferred 3 RAMs.
+RUN-1002 : start command "commit_param -step rtl"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Rtl Property
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :         Parameters        |  Settings  |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :        fix_undriven       |     0      |        0         |        
+RUN-1001 :   gated_clock_conversion  |    off     |       off        |        
+RUN-1001 :         infer_fsm         |    auto    |       auto       |        
+RUN-1001 :         infer_gsr         |    off     |       off        |        
+RUN-1001 :         infer_rom         |     on     |        on        |        
+RUN-1001 :       keep_hierarchy      |    auto    |       auto       |        
+RUN-1001 :        merge_equal        |     on     |        on        |        
+RUN-1001 :      min_control_set      |     8      |        8         |        
+RUN-1001 :       min_ripple_len      |    auto    |       auto       |        
+RUN-1001 :          seq_syn          |     on     |        on        |        
+RUN-1001 : -------------------------------------------------------------------
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.001697s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 191, reserved = 182, peak = 191;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 9201, Total nets: 54107.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 0.585057s wall, 0.468750s user + 0.093750s system = 0.562500s CPU (96.1%); Memory(MB): used = 191, reserved = 182, peak = 191;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 3048, Total nets: 43139.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model fat_probe
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.165917s wall, 0.171875s user + 0.000000s system = 0.171875s CPU (103.6%); Memory(MB): used = 193, reserved = 183, peak = 193;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 3763, Total nets: 52137.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.022554s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (69.3%); Memory(MB): used = 193, reserved = 193, peak = 193;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 3735, Total nets: 52109.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1066 : Inferred FSM for state register 'u_arb/owner_reg' in module 'fat_probe'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    10              010
+                    01              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_arb/owner_reg' using encoding 'one_hot' in model 'fat_probe'
+SYN-1066 : Inferred FSM for state register 'u_bmp/byte_phase_reg' in module 'fat_probe'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_bmp/byte_phase_reg' using encoding 'one_hot' in model 'fat_probe'
+SYN-1066 : Inferred FSM for state register 'u_bmp/state_reg' in module 'fat_probe'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                  0000        000000001
+                  0001        000000010
+                  0010        000000100
+                  0011        000001000
+                  0100        000010000
+                  0110        000100000
+                  0101        001000000
+                  0111        010000000
+                  1000        100000000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_bmp/state_reg' using encoding 'one_hot' in model 'fat_probe'
+SYN-1066 : Inferred FSM for state register 'u_bmp_map/state_reg' in module 'fat_probe'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                  0000         00000001
+                  0001         00000010
+                  0010         00000100
+                  0011         00001000
+                  0101         00010000
+                  0110         00100000
+                  0111         01000000
+                  0100         10000000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_bmp_map/state_reg' using encoding 'one_hot' in model 'fat_probe'
+SYN-1066 : Inferred FSM for state register 'u_cat/state_reg' in module 'fat_probe'
+---------------------------------------------
+     Previous Encoding      New Encoding
+---------------------------------------------
+                  0000     0000000000001
+                  0010     0000000000010
+                  0011     0000000000100
+                  1100     0000000001000
+                  1101     0000000010000
+                  1110     0000000100000
+                  1111     0000001000000
+                  1000     0000010000000
+                  1001     0000100000000
+                  0101     0001000000000
+                  0110     0010000000000
+                  1011     0100000000000
+                  1010     1000000000000
+---------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_cat/state_reg' using encoding 'one_hot' in model 'fat_probe'
+SYN-1066 : Inferred FSM for state register 'u_wav/scan_phase_reg' in module 'fat_probe'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                  0000             0001
+                  0010             0010
+                  0011             0100
+                  0100             1000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_wav/scan_phase_reg' using encoding 'one_hot' in model 'fat_probe'
+SYN-1066 : Inferred FSM for state register 'u_wav/state_reg' in module 'fat_probe'
+---------------------------------------------
+     Previous Encoding      New Encoding
+---------------------------------------------
+                  0000     0000000000001
+                  0001     0000000000010
+                  0010     0000000000100
+                  0011     0000000001000
+                  0100     0000000010000
+                  0101     0000000100000
+                  0110     0000001000000
+                  0111     0000010000000
+                  1000     0000100000000
+                  1001     0001000000000
+                  1010     0010000000000
+                  1011     0100000000000
+                  1100     1000000000000
+---------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_wav/state_reg' using encoding 'one_hot' in model 'fat_probe'
+SYN-1066 : Inferred FSM for state register 'u_wav_map/state_reg' in module 'fat_probe'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                  0000         00000001
+                  0001         00000010
+                  0010         00000100
+                  0011         00001000
+                  0101         00010000
+                  0110         00100000
+                  0111         01000000
+                  0100         10000000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_wav_map/state_reg' using encoding 'one_hot' in model 'fat_probe'
+SYN-1057 : Inferred 8 FSM(s)
+SYN-1001 : Optimize 2 less-than instances
+SYN-1001 : Optimize 8 less-than instances
+SYN-1032 : 51934/407 useful/useless nets, 3577/4 useful/useless insts
+SYN-1021 : Optimized 22 onehot mux instances.
+SYN-1019 : Optimized 51 mux instances.
+SYN-1021 : Optimized 9 onehot mux instances.
+SYN-1021 : Optimized 2 onehot mux instances.
+SYN-1001 : Optimize 1 less-than instances
+SYN-1016 : Merged 1287 instances.
+SYN-1025 : Merged 32 RAM ports.
+SYN-1027 : Infer Logic DRAM(u_wav/ramread0_syn_4) read 2048x16, write 2048x16
+SYN-1026 : Infer Logic BRAM(u_wav/ramread1_syn_4)
+	 port mode: single dual port
+	 port a size: 512 x 8	 write mode: NORMAL
+	 port b size: 512 x 8	 write mode: READBEFOREWRITE
+SYN-1023 : Infer 1 Logic DRAMs, 1 Logic BRAMs.
+SYN-1016 : Merged 333 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 5.571259s wall, 5.421875s user + 0.078125s system = 5.500000s CPU (98.7%); Memory(MB): used = 301, reserved = 288, peak = 301;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 12573, Total nets: 14892.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1019 : Optimized 8 mux instances.
+SYN-1021 : Optimized 144 onehot mux instances.
+SYN-1014 : Optimize round 1
+SYN-1044 : Optimized 33 inv instances.
+SYN-1017 : Remove 16 const input seq instances
+SYN-1019 : Optimized 314 mux instances.
+SYN-1020 : Optimized 1101 distributor mux.
+SYN-1001 : Optimize 36 less-than instances
+SYN-1019 : Optimized 523 mux instances.
+SYN-2595 : bram inst: u_wav/ramread1_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-1016 : Merged 6078 instances.
+SYN-1015 : Optimize round 1, 24011 better
+SYN-1014 : Optimize round 2
+SYN-1044 : Optimized 19 inv instances.
+SYN-1017 : Remove 5 const input seq instances
+SYN-1019 : Optimized 9 mux instances.
+SYN-1020 : Optimized 55 distributor mux.
+SYN-1019 : Optimized 12 mux instances.
+SYN-1016 : Merged 64 instances.
+SYN-1015 : Optimize round 2, 673 better
+SYN-3010 : Optimized 132 DFF(s)
+SYN-1014 : Optimize round 1
+SYN-1020 : Optimized 8 distributor mux.
+SYN-1016 : Merged 38 instances.
+SYN-1015 : Optimize round 1, 99 better
+SYN-1014 : Optimize round 2
+SYN-1015 : Optimize round 2, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 10.031012s wall, 9.750000s user + 0.125000s system = 9.875000s CPU (98.4%); Memory(MB): used = 416, reserved = 411, peak = 455;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 23683, Total nets: 25730.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.004694s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 416, reserved = 411, peak = 455;
+
+SYN-1079 : finish stage Check Design. Total instances: 23683, Total nets: 25730.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 16.382876s wall, 15.828125s user + 0.296875s system = 16.125000s CPU (98.4%); Memory(MB): used = 416, reserved = 411, peak = 455;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 23683, Total nets: 25730.
+
+RUN-1003 : finish command "optimize_rtl" in  16.390848s wall, 15.828125s user + 0.312500s system = 16.140625s CPU (98.5%)
+
+RUN-1004 : used memory is 416 MB, reserved memory is 411 MB, peak memory is 455 MB
+RUN-1002 : start command "commit_param -step gate"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Gate Property
+RUN-1001 : -----------------------------------------------------------
+RUN-1001 :     Parameters    |  Settings  |  Default Values  |  Note  
+RUN-1001 : -----------------------------------------------------------
+RUN-1001 :     eram_init     |    off     |       off        |        
+RUN-1001 :      map_mode     |    auto    |       auto       |        
+RUN-1001 :    pack_effort    |   medium   |      medium      |        
+RUN-1001 :   pack_seq_in_io  |    auto    |       auto       |        
+RUN-1001 :       report      |  standard  |     standard     |        
+RUN-1001 : -----------------------------------------------------------
+RUN-1002 : start command "optimize_gate -packarea probe.area"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.317785s wall, 0.312500s user + 0.000000s system = 0.312500s CPU (98.3%); Memory(MB): used = 415, reserved = 410, peak = 455;
+
+SYN-1079 : finish stage Map Reg. Total instances: 23683, Total nets: 25730.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2001 : Map 98 IOs to PADs of model 'fat_probe'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.178739s wall, 0.187500s user + 0.000000s system = 0.187500s CPU (104.9%); Memory(MB): used = 415, reserved = 410, peak = 455;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module fat_probe"
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-6562 WARNING: The init value of "u_wav/ramread1_syn_4(../../src/user_source/hdl_source/tf_wav_file_player.v(102))" will be ignored since gate eram_init is set to off
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-1016 : Merged 120 instances.
+SYN-2571 : Optimize after map_dsp, round 1, 120 better
+SYN-2571 : Optimize after map_dsp, round 2
+SYN-2571 : Optimize after map_dsp, round 2, 0 better
+SYN-1001 : Throwback 109 control mux instances
+SYN-1001 : Generate 5 bigger adders
+SYN-1001 : Optimize 17 adders
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 906 instances.
+SYN-2501 : Optimize round 1, 3418 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 1 instances.
+SYN-2501 : Optimize round 1, 1 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Map 168 macro adder(s)
+SYN-1019 : Optimized 386 mux instances.
+SYN-1016 : Merged 213 instances.
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 2.541199s wall, 2.515625s user + 0.015625s system = 2.531250s CPU (99.6%); Memory(MB): used = 422, reserved = 415, peak = 455;
+
+SYN-1079 : finish stage Map Macro. Total instances: 33455, Total nets: 36887.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-2581 : Mapping with K=5, #lut = 5938 (3.49), #lev = 10 (4.33), #crit_level = 0
+SYN-2551 : Post LUT mapping optimization.
+SYN-2581 : Mapping with K=5, #lut = 5937 (3.53), #lev = 9 (4.29), #crit_level = 0
+SYN-3001 : Logic optimization opt = 1.32 sec, map = 0.60 sec, post map opt = 1.84 sec.
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 4.431845s wall, 4.390625s user + 0.015625s system = 4.406250s CPU (99.4%); Memory(MB): used = 441, reserved = 432, peak = 455;
+
+SYN-1001 : Packing model "fat_probe" ...
+SYN-4010 : Pack lib has 59 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 4118 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 72 carry chain into lslice
+SYN-4007 : Packing 2139 adder to BLE ...
+SYN-4008 : Packed 2139 adder and 0 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+SYN-4013 : Packed 512 DRAM and 0 SEQ.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+TMR-2502 : Net delay update with mode: Synthesized
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |          894                |
+|     Setup TNS             |            0                |
+|     Num of violated S-EP  |            0                |
+|     Hold WNS              |          560                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |         4118                |
+|     #luts                 |         5937                |
+|     #lut1                 |           15                |
+|     #lut1(~A)             |           15                |
+|     #slices               |         3196                |
+|     slices percentage     |       32.61%                |
+|     #RAMs                 |            1                |
+|     #DSPs                 |            0                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |          661                |
+|     #insts in MACRO       |         3196                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |            0                |
+|     #keep_hier            |            0                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |       102.04                |
+| dff(single fanout)->dff   |           58                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total Number          |            0                |
+|     Total Exceed Level    |            0                |
+|     Worst Level Slack     |            4                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 1000ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Clock        |  Period            |  0     |  1     |  2    |  3     |  4    |  5    |  6     |  7    |  8    |  9    |  10   |  11   |  12   |  13   |  14   |  15
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  DeriveClock  |  20.000ns (50MHz)  |  1027  |  2486  |  431  |  1657  |  428  |  560  |  1054  |  693  |  286  |  320  |  286  |  686  |  249  |  166  |  320  |  69
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(10718 paths analyzed)
+
+Hierarchical Rent Exponent Report
++-------------------------------------------------------------------------+
+|Inst        |Model                |Rent     |Cell     |Pin     |Term     |
++-------------------------------------------------------------------------+
+|top         |fat_probe            |0.13     |13350    |83789   |22       |
+|  u_bmp     |tf_bmp_file_player_2 |0.62     |1290     |5629    |370      |
+|  u_cat     |fat32_catalog_4      |0.57     |3609     |16236   |495      |
+|  u_bmp_map |fat32_file_sector_3  |0.56     |1666     |7654    |285      |
+|  u_wav_map |fat32_file_sector_6  |0.54     |1570     |7186    |251      |
+|  u_wav     |tf_wav_file_player_5 |0.27     |5000     |46306   |94       |
++-------------------------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+RUN-1003 : finish command "report_qor -step gate -file gate.qor" in  1.656224s wall, 1.593750s user + 0.015625s system = 1.609375s CPU (97.2%)
+
+RUN-1004 : used memory is 443 MB, reserved memory is 434 MB, peak memory is 455 MB
+RUN-1002 : start command "report_area -file probe.area"
+RUN-1001 : standard
+***Report Model: fat_probe Device: EG4S20BG256***
+
+IO Statistics
+#IO                        98   out of    188   52.13%
+  #input                   16
+  #output                  82
+  #inout                    0
+
+LUT Statistics
+#Total_luts              5937
+  #lut4                  5103
+  #lut5                   834
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                    12329   out of  19600   62.90%
+#reg                     4118   out of  19600   21.01%
+#bram                       1   out of     64    1.56%
+  #bram9k                   1
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                       98   out of    188   52.13%
+  #ireg                    10
+  #oreg                    48
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 9.629447s wall, 9.484375s user + 0.046875s system = 9.531250s CPU (99.0%); Memory(MB): used = 443, reserved = 434, peak = 455;
+
+RUN-1003 : finish command "optimize_gate -packarea probe.area" in  9.638219s wall, 9.500000s user + 0.046875s system = 9.546875s CPU (99.1%)
+
+RUN-1004 : used memory is 443 MB, reserved memory is 434 MB, peak memory is 455 MB
+RUN-1002 : start command "write_verilog probe_gate.v"
+HDL-1201 : write out verilog file probe_gate.v
+PROBE_EXPORTED
+RUN-1002 : start command "close_project"

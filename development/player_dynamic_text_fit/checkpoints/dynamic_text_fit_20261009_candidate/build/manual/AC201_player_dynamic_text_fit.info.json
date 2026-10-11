@@ -1,0 +1,108 @@
+{
+  "created_beijing": "2026-10-09 13:54:34",
+  "status": "Resource candidate: local models and original-constraint STA passed; hardware NOT TESTED",
+  "device": "EG4S20BG256",
+  "td": "6.2.178840",
+  "source_change": {
+    "versus": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text",
+    "changed": [
+      "hdl_source/fat32_file_sector.v"
+    ],
+    "unchanged": 74,
+    "files": 75,
+    "detail": "Brent anchor stays 32 bits; power/cache_power 14 bits; length/cache_length 13 bits. Existing 4096-cluster/hop limits, algorithm and interfaces unchanged.",
+    "renderer": "Original dynamic-text renderer retained; shared-font experiment rejected after PHY-9009."
+  },
+  "bitstream": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_fit\\build\\manual\\AC201_player_dynamic_text_fit.bit",
+  "bytes": 629624,
+  "sha256": "028D9D9A742A2CD980ECBEA48FFBE824D89DA34CF6B2B3E66EA0AA42B6D6456D",
+  "routed_db_sha256": "CA1626334A2E844F4E3EE3B444A9795A7DC443A673585B278EA1F3E520A25581",
+  "timing": {
+    "SWNS_ns": 0.581,
+    "STNS_ns": 0.0,
+    "HWNS_ns": 0.027,
+    "HTNS_ns": 0.0
+  },
+  "sta_coverage_percent": 99.98,
+  "resources": {
+    "lut": 17151,
+    "reg": 8016,
+    "le": 18459,
+    "bram9k": 19,
+    "dsp": 0,
+    "gclk": 2
+  },
+  "models": {
+    "mapper_original_bytegap": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_fit\\sim\\mapper_width_experiment\\tb_fat32_file_sector_existing_run.log",
+      "sha256": "1045A763C42166DC4CAA161B60EB0C74A8B40BFAE60235A1CA18CE0579B4774A",
+      "result": [
+        "PASS: mapper SPC1/8/64, fragmentation, cache, backward/descriptor reset, EOF, invalid/free, cross-request cycles, SD timeout, byte gaps"
+      ],
+      "same_source_evidence_reused": false
+    },
+    "mapper_narrow_bytegap": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_fit\\sim\\mapper_width_experiment\\tb_fat32_file_sector_narrow_existing_run.log",
+      "sha256": "78CC6FEE94DB1A6AE954FD7D39B3649F9DC9CBD29FEEE4076A82759764DC973E",
+      "result": [
+        "PASS: mapper SPC1/8/64, fragmentation, cache, backward/descriptor reset, EOF, invalid/free, cross-request cycles, SD timeout, byte gaps"
+      ],
+      "same_source_evidence_reused": false
+    },
+    "mapper_cycle_equivalence": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_fit\\sim\\mapper_width_experiment\\tb_mapper_width_equiv_run.log",
+      "sha256": "6F7C422DEEA0C6281A121DF7A374013542281FADCC0908D337246AD1653680BC",
+      "result": [
+        "PASS reachable Brent power boundary: cache power=4096 after legal sector 4095",
+        "PASS: cycle-equivalent interfaces and Brent numeric state; valid 4096-cluster max, target 4095, cache continuation/backseek, 4097-cluster E_LIMIT, long EOC and late loop; cycles=6381198 sectors=12295"
+      ],
+      "same_source_evidence_reused": false
+    },
+    "dynamic_pixels_same_source": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text\\build\\dynamic_sim\\pixels_run.log",
+      "sha256": "FFF31E171C8CCB91CA17EAA113B923E6B367FD48B7C00E2CB34BACF30453D386",
+      "result": [
+        "PASS pixels=1843200 overlay=150528 top=33792 bottom=116736 passthrough=1692672 blank=4655 phases=2,200,450,700,879-wrap,reset-to-2; VS edges=1762 active-time-change=1842900; preview=307200 pixels; old player_osd preserved outside boxes"
+      ],
+      "same_source_evidence_reused": true
+    },
+    "dynamic_timer_same_source": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text\\build\\dynamic_sim\\timer_run.log",
+      "sha256": "56E25B347D26E7E6D66590DCB60CFE9DCCF3CCB6890A3F01AA91A3E850691A21",
+      "result": [
+        "PASS timer parameter=2 Hz; checked 00:59->01:00, 99:20, 99:59->00:00, second reset and restart; 12000-cycle wrap path"
+      ],
+      "same_source_evidence_reused": true
+    },
+    "osd_same_source": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text\\build\\osd_sim\\run.log",
+      "sha256": "182AD8FCFF6E18C8C9EE38C720C07C3751B299EB06E69283ACF2E9B0120D7892",
+      "result": [
+        "PASS: 1843200 active pixels across six 640x480 frames; 46080 overlay-region pixels; blank pass-through checked; both VS edges, reset, metadata/mode changes, and frame boundaries covered."
+      ],
+      "same_source_evidence_reused": true
+    },
+    "state_same_source": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text\\build\\state_sim\\run.log",
+      "sha256": "4702D0337E96D931159DA171A1F787FDDBDF948D13D4C8ACE999C93A4E98524A",
+      "result": [
+        "PASS coherent dual-clock mailbox and frame selection: 838 assertions"
+      ],
+      "same_source_evidence_reused": true
+    }
+  },
+  "frozen_guards": {
+    "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_osd_phy_fix\\checkpoints\\osd_phy_fix_20261009_candidate": 174,
+    "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text\\checkpoints\\dynamic_text_20261009_candidate": 136
+  },
+  "fallback_sha256": "9E893B0B6C86BF6FBEE19E74B5FB58933C1BEA6AA07F203786CCE96F3B60AE6F",
+  "hardware_result": "NOT_TESTED",
+  "root_cause": "NOT_CONFIRMED",
+  "card_or_flash_writes": "NONE",
+  "limitations": [
+    "STA lacks characterized SPI input and HDMI receiver output budgets.",
+    "Simulation equivalence covers tested cases; it is not a complete formal proof.",
+    "Resource optimization and new placement do not uniquely prove the historical physical fault.",
+    "Runtime and scroll use nominal 25MHz/VS; frequency and long-duration operation not measured."
+  ]
+}

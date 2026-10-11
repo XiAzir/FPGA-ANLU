@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "hardware_proof": false,
+  "tests": {
+    "dynamic_pixels": {
+      "log": "build/dynamic_sim/pixels_run.log",
+      "sha256": "FFF31E171C8CCB91CA17EAA113B923E6B367FD48B7C00E2CB34BACF30453D386",
+      "result": "PASS pixels=1843200 overlay=150528 top=33792 bottom=116736 passthrough=1692672 blank=4655 phases=2,200,450,700,879-wrap,reset-to-2; VS edges=1762 active-time-change=1842900; preview=307200 pixels; old player_osd preserved outside boxes"
+    },
+    "dynamic_timer": {
+      "log": "build/dynamic_sim/timer_run.log",
+      "sha256": "56E25B347D26E7E6D66590DCB60CFE9DCCF3CCB6890A3F01AA91A3E850691A21",
+      "result": "PASS timer parameter=2 Hz; checked 00:59->01:00, 99:20, 99:59->00:00, second reset and restart; 12000-cycle wrap path"
+    },
+    "original_osd": {
+      "log": "build/osd_sim/run.log",
+      "sha256": "182AD8FCFF6E18C8C9EE38C720C07C3751B299EB06E69283ACF2E9B0120D7892",
+      "result": "PASS: 1843200 active pixels across six 640x480 frames; 46080 overlay-region pixels; blank pass-through checked; both VS edges, reset, metadata/mode changes, and frame boundaries covered."
+    },
+    "state_mailbox": {
+      "log": "build/state_sim/run.log",
+      "sha256": "4702D0337E96D931159DA171A1F787FDDBDF948D13D4C8ACE999C93A4E98524A",
+      "result": "PASS coherent dual-clock mailbox and frame selection: 838 assertions"
+    }
+  }
+}

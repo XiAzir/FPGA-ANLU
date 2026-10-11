@@ -1,0 +1,95 @@
+{
+  "created_beijing": "2026-10-09 12:56:07",
+  "status": "Local models/build passed; hardware regression FAILED; use osd_phy_fix fallback",
+  "device": "EG4S20BG256",
+  "td": "6.2.178840",
+  "baseline": {
+    "baseline": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_osd_phy_fix\\checkpoints\\osd_phy_fix_20261009_candidate",
+    "baseline_bit_sha256": "9E893B0B6C86BF6FBEE19E74B5FB58933C1BEA6AA07F203786CCE96F3B60AE6F",
+    "baseline_user_feedback": "Display, status OSD, manual/auto switching, real music and internal tone passed",
+    "manifest_verified": 174,
+    "card_or_flash_writes": "none"
+  },
+  "source_delta": {
+    "changed": [
+      "hdl_source/top_tf_hdmi_audio.v"
+    ],
+    "added": [
+      "hdl_source/player_dynamic_text.v"
+    ],
+    "unchanged": 73,
+    "source_files": 75
+  },
+  "behavior": {
+    "runtime": "RUN MM:SS; reset release to 99:59, wraps to 00:00; nominal 25MHz pixel clock",
+    "time_panel": [
+      448,
+      16,
+      624,
+      48
+    ],
+    "scroll_panel": [
+      16,
+      432,
+      624,
+      464
+    ],
+    "text": "FPGA MEDIA PLAYER",
+    "scroll": "1 pixel per VS rising edge; 880-frame period",
+    "keys": "existing manual/auto/internal-tone mapping unchanged",
+    "overlay": "black background, white text; no added RGB/VS/DE pipeline delay; no adjustable opacity"
+  },
+  "bitstream": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text\\build\\manual\\AC201_player_dynamic_text.bit",
+  "bytes": 629624,
+  "sha256": "D0559A203C0A775B2C70F7A1EA3E7F90BB7743F7ED463AF11409855D54CBF28F",
+  "routed_db_sha256": "F04EAE94E339AA152E56C9ECD3411B70E7D4AB0C1A12D04DC6E34FDD37920534",
+  "timing": {
+    "SWNS_ns": 0.513,
+    "STNS_ns": 0.0,
+    "HWNS_ns": 0.024,
+    "HTNS_ns": 0.0
+  },
+  "sta_coverage_percent": 99.98,
+  "resources": {
+    "lut": 17254,
+    "reg": 8170,
+    "le": 18630,
+    "bram9k": 19,
+    "dsp": 0,
+    "gclk": 2
+  },
+  "models": {
+    "dynamic_pixels": {
+      "log": "build/dynamic_sim/pixels_run.log",
+      "sha256": "FFF31E171C8CCB91CA17EAA113B923E6B367FD48B7C00E2CB34BACF30453D386",
+      "result": "PASS pixels=1843200 overlay=150528 top=33792 bottom=116736 passthrough=1692672 blank=4655 phases=2,200,450,700,879-wrap,reset-to-2; VS edges=1762 active-time-change=1842900; preview=307200 pixels; old player_osd preserved outside boxes"
+    },
+    "dynamic_timer": {
+      "log": "build/dynamic_sim/timer_run.log",
+      "sha256": "56E25B347D26E7E6D66590DCB60CFE9DCCF3CCB6890A3F01AA91A3E850691A21",
+      "result": "PASS timer parameter=2 Hz; checked 00:59->01:00, 99:20, 99:59->00:00, second reset and restart; 12000-cycle wrap path"
+    },
+    "original_osd": {
+      "log": "build/osd_sim/run.log",
+      "sha256": "182AD8FCFF6E18C8C9EE38C720C07C3751B299EB06E69283ACF2E9B0120D7892",
+      "result": "PASS: 1843200 active pixels across six 640x480 frames; 46080 overlay-region pixels; blank pass-through checked; both VS edges, reset, metadata/mode changes, and frame boundaries covered."
+    },
+    "state_mailbox": {
+      "log": "build/state_sim/run.log",
+      "sha256": "4702D0337E96D931159DA171A1F787FDDBDF948D13D4C8ACE999C93A4E98524A",
+      "result": "PASS coherent dual-clock mailbox and frame selection: 838 assertions"
+    }
+  },
+  "hardware_result": "FAIL from user feedback: IMG0/4, no BMP/WAV, distorted internal tone; same-condition osd_phy_fix restores requested functions",
+  "physical_flow": "documented high-effort timing placement + routability route + original-constraint fix_hold",
+  "assistant_board_operations": "none",
+  "card_or_flash_writes": "none",
+  "limits": [
+    "Models do not prove actual electrical/CDC/PLL/receiver correctness",
+    "25MHz and timer nominal; physical frequency not measured",
+    "Whole physical implementation changes; historical fault root cause remains unmeasured",
+    "Long run, cold reload and changed/fragmented-card hardware regression pending",
+    "Fixed text and colors; no lyric file, Chinese glyphs or adjustable transparency"
+  ],
+  "board_feedback": "build/board_feedback_20261009.json"
+}

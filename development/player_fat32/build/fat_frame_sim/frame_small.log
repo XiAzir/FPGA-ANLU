@@ -1,0 +1,6 @@
+SDRAM_FRAME_PASS image=0 buffer=0 words=768 vertical_flip=exact
+FRAME_READBACK_PASS image=0 buffer=0 pixels=1024
+SDRAM_FRAME_PASS image=1 buffer=1 words=768 vertical_flip=exact
+FRAME_READBACK_PASS image=1 buffer=1 pixels=1024
+PASS tb_fat_frame_integration 16x64: 2 exact BMP frame(s) through FAT32, codec, generated FIFOs and SDRAM backend; sectors=35
+E:\VSCODE-project\FPGA-ANLU\development\player_fat32\sim\tb_fat_frame_integration.v:246: $finish called at 11638560000 (1ps)

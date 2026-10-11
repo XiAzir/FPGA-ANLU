@@ -1,0 +1,98 @@
+{
+  "created_beijing": "2026-10-09 16:49:00",
+  "status": "BOARD_FAIL_NO_SIGNAL_UNDER_INVESTIGATION",
+  "hardware_result": "USER_REPORTED_NO_SIGNAL_BEFORE_AND_AFTER_TONE_SWITCH",
+  "root_cause": "NOT_CONFIRMED",
+  "bitstream": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_axis_probe\\build\\manual\\AC201_player_dynamic_text_axis_probe.bit",
+  "download": "E:\\VSCODE-project\\FPGA-ANLU\\download\\axis_probe.bit",
+  "bytes": 629624,
+  "sha256": "07DEAD7F0337A3BAD7DA8C093BF57093AAB1E0106B322311724F78A90A10577B",
+  "source_changed_vs_video_probe": [
+    "hdl_source/player_status_monitor.v",
+    "hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "source_added": [
+    "hdl_source/player_axis_input_probe.v"
+  ],
+  "source_unchanged": 74,
+  "timing": {
+    "SWNS_ns": 0.28,
+    "STNS_ns": 0.0,
+    "HWNS_ns": 0.027,
+    "HTNS_ns": 0.0
+  },
+  "sta_coverage_percent": 99.97,
+  "resources": {
+    "lut": 17137,
+    "reg": 7978,
+    "le": 18435,
+    "bram9k": 19,
+    "dsp": 0,
+    "gclk": 2
+  },
+  "routed_db_sha256": "2CF6E165EA45FBF4C4EF9066A9A4DF19BA6C558C569CC9E0EF397A8A90D4F233",
+  "final_implementation_differs": true,
+  "final_route_normalized_sha256": "0B36C6963AE19D6FA43B16C633462C3FE8643D82254AAF6C904647A735A3A3F9",
+  "models": {
+    "observer": "PASS: three actual source-chain frames, directed malformed USER/row/frame/ready/reset/saturation tests; SDRAM pixel source substituted",
+    "status_display": "PASS: self-test, three 9-page rounds, startup/audio mailbox and full B/C 24-bit payload",
+    "scope": "Partial RTL models; encrypted HDMI and physical board not modeled",
+    "observer_bindings": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_axis_probe\\build\\axis_probe_model\\source_bindings.json",
+    "status_bindings": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_axis_probe\\build\\status_axis_model\\source_bindings.json"
+  },
+  "audit": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_axis_probe\\build\\independent_audit\\final_build_review.json",
+  "integration_audit": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_axis_probe\\build\\independent_audit\\integration_review.json",
+  "fallback": "E:\\VSCODE-project\\FPGA-ANLU\\download\\osd_phy_fix.bit",
+  "fallback_sha256": "9E893B0B6C86BF6FBEE19E74B5FB58933C1BEA6AA07F203786CCE96F3B60AE6F",
+  "frozen_guards": {
+    "player_osd_phy_fix": {
+      "files": 174,
+      "result": "PASS",
+      "manifest_sha256": "A1CD61FECFBF1E2BFA0E537C5987AA6E22985D824E52CEAFE81F87E0ED6DCEAF"
+    },
+    "player_dynamic_text": {
+      "files": 136,
+      "result": "PASS",
+      "manifest_sha256": "5B8153191DEDB5BE573159CD2E1333B4E7B8FCB2DCD75406EF7D80C9B67B4FB3"
+    },
+    "player_dynamic_text_fit": {
+      "files": 148,
+      "result": "PASS",
+      "manifest_sha256": "92CE5257EFF129CCF6194737F5390485568E20241EB44EA81E06F343CC335B68"
+    },
+    "player_dynamic_text_video_probe": {
+      "files": 140,
+      "result": "PASS",
+      "manifest_sha256": "DEE939D3B233FD9053AD11D7C150C84F61755F6828318C8FD08DED8C27CFF936"
+    }
+  },
+  "agent_card_or_flash_operations": "NONE",
+  "limitations": [
+    "STA coverage 99.97%; external SPI I/O delays not characterized.",
+    "Three dummy nodes reported; shared encrypted IP and historical warnings retained.",
+    "Passive RTL changes fanout and placement; recovery would not prove the old unique cause.",
+    "Input metrics count VALID cycles regardless of READY; these are not accepted-transfer counts.",
+    "No board electrical measurements or card/Flash operations."
+  ],
+  "expected_source_metrics": {
+    "line_width": 640,
+    "frame_rows": 480,
+    "frame_cycles": 420000,
+    "valid_pixels_per_frame": 307200,
+    "intra_frame_blank": 160,
+    "TLAST": 0
+  },
+  "observer_flags": "{current_locked,locked_ever,valid_seen,user_seen}",
+  "display_codes": [
+    "1",
+    "3",
+    "6",
+    "7",
+    "8",
+    "9",
+    "A",
+    "B",
+    "C"
+  ],
+  "board_feedback_record": "E:\\QQ CACHE\\Download\\安路资料\\开发记录\\专题记录\\OSD状态显示\\动态字幕资源版竖线_20261009\\AXIS实板读数与核验_20261009.md"
+}

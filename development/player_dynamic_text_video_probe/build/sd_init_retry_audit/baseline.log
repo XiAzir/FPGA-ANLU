@@ -1,0 +1,20 @@
+=== baseline ===
+RUN fail_cmd=-1
+CARD CMD0 start at cycle 42
+CARD CMD0 R1 poll at cycle 60
+CMD state=S_END handshake req=1 ack=1 err=0 cycle=62
+CARD CMD8 start at cycle 71
+CARD CMD8 R1 poll at cycle 89
+CMD state=S_END handshake req=1 ack=1 err=0 cycle=104
+CARD CMD55 start at cycle 113
+CARD CMD55 R1 poll at cycle 131
+CMD state=S_END handshake req=1 ack=1 err=0 cycle=134
+CARD CMD41 start at cycle 142
+CARD CMD41 R1 poll at cycle 160
+CMD state=S_END handshake req=1 ack=1 err=0 cycle=162
+CARD CMD16 start at cycle 171
+CARD CMD16 R1 poll at cycle 189
+CMD state=S_END handshake req=1 ack=1 err=0 cycle=192
+COUNTS CMD0=1 CMD8=1 CMD55=1 CMD41=1 CMD16=1 injected=0 failures=0
+PASS fail_cmd=-1: initialization reached WAIT_READ_WRITE
+E:\VSCODE-project\FPGA-ANLU\development\player_dynamic_text_video_probe\build\sd_init_retry_audit\tb_sd_init_retry.v:162: $finish called at 1985000 (1ps)

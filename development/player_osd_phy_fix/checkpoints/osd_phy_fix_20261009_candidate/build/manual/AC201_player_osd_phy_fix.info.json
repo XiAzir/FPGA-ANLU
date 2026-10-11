@@ -1,0 +1,108 @@
+{
+  "created_beijing": "2026-10-09 12:28:36",
+  "status": "Targeted serializer sampling candidate; models and original-constraint implementation passed; hardware pending",
+  "device": "EG4S20BG256",
+  "td": "6.2.178840",
+  "baseline": {
+    "baseline": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_osd\\checkpoints\\osd_20261009_candidate",
+    "baseline_hardware": "FAILED: image corrupt and silent; same-condition packet_diag fallback restored both",
+    "baseline_bit_sha256": "16AD16157F5B8D1E3431750B9B81B6EB4B42A2E8559EE5F70C527FEDFB27950F",
+    "verified_fallback": "E:/VSCODE-project/FPGA-ANLU/download/packet_diag.bit",
+    "verified_fallback_sha256": "C2B3DEAFB78355C124CE8958015EED31CEBA38CD4B0B41D9179A7190E4200818",
+    "source_baseline_files": 74,
+    "original_checkpoint_verified_files": 121,
+    "hardware_pending": true
+  },
+  "changed_sources": [
+    "hdl_source\\lane_lvds_10_1.v"
+  ],
+  "unchanged_source_count": 73,
+  "change": "Capture 10-bit pending word on S_load_en_1d; shift loads pending on original S_load_en_2d; shift/ODDR schedule unchanged",
+  "osd_files_audio_pll_sdc_pins_unchanged": true,
+  "bitstream": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_osd_phy_fix\\build\\manual\\AC201_player_osd_phy_fix.bit",
+  "bytes": 629624,
+  "sha256": "9E893B0B6C86BF6FBEE19E74B5FB58933C1BEA6AA07F203786CCE96F3B60AE6F",
+  "routed_db_sha256": "ECAD033FCE64E85CD95988F73D75212DE9255F55B5A5B09911E724EF1724F5F7",
+  "timing": {
+    "SWNS_ns": 0.629,
+    "STNS_ns": 0.0,
+    "HWNS_ns": 0.03,
+    "HTNS_ns": 0.0
+  },
+  "sta_coverage_percent": 99.98,
+  "resources": {
+    "lut": 16932,
+    "reg": 8125,
+    "le": 18322,
+    "bram9k": 19,
+    "dsp": 0,
+    "gclk": 2
+  },
+  "models": {
+    "status": "PASS",
+    "hardware_proof": false,
+    "source_sha256": "4E2297D22452B437EE60968DAAD5D6473E1541AB1614C507EFF7F298F112BC0E",
+    "osd": {
+      "frames": 6,
+      "active_pixels": 1843200,
+      "overlay_pixels": 46080
+    },
+    "state_assertions": 838,
+    "serializer": {
+      "zero_delay_phase_skew_cases": 640,
+      "delay_injection_cases": 126,
+      "loads": 12474,
+      "baseline_bad_cases": 96,
+      "baseline_mixed_or_wrong_words": 8085,
+      "candidate_wrong_words": 0,
+      "candidate_serial_sequence_errors": 0,
+      "four_lane_reset_epochs": 2,
+      "first_epoch_loads": 20,
+      "second_epoch_loads": 19,
+      "strobe_word_reset_mismatches": 0
+    },
+    "evidence": "build/serializer_tests",
+    "limitations": [
+      "Delay model uses invented parameter ranges, not measured board delays",
+      "ODDR is a behavioral stub",
+      "Initial warm-up and bit alignment corrected in final scoreboards; earlier preliminary statistics superseded"
+    ]
+  },
+  "hardware_result": "not tested",
+  "assistant_board_operations": "none",
+  "card_or_flash_writes": "none",
+  "limits": [
+    "Delay injection reproduces a possible serializer mixed-word mechanism; actual failing board timing is not measured",
+    "Whole implementation changes with resynthesis; a passing board A/B alone does not uniquely establish the historical root cause",
+    "Behavioral ODDR model is not a silicon or electrical model",
+    "Existing frame-buffer lifetime and ACK CDC, IO-delay, physical-frequency and encrypted-IP warning boundaries remain"
+  ],
+  "physical_implementation": {
+    "selected_beijing": "2026-10-09 12:28:17",
+    "flow": "same gate DB -> documented high-effort timing placement -> routability route -> original-constraint fix_hold",
+    "placed_db": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_osd_phy_fix\\build\\attempt_timing_high\\AC201_tf_hdmi_place.db",
+    "routed_from": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_osd_phy_fix\\build\\attempt_timing_high_routability",
+    "physical_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_osd_phy_fix\\build\\attempt_timing_high_routability\\physical_console.log",
+    "routed_db_sha256": "ECAD033FCE64E85CD95988F73D75212DE9255F55B5A5B09911E724EF1724F5F7",
+    "place_settings": {
+      "effort": "high",
+      "opt_timing": "high",
+      "crit_path_opt": "on",
+      "post_place_opt": "high",
+      "hfn_opt_effort": "high"
+    },
+    "route_settings": {
+      "effort": "routability"
+    },
+    "hdl_sdc_adc_pll_unchanged_since_synthesis": true,
+    "random_seed_search": false,
+    "local_moves_succeeded": 0,
+    "default_reports": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_osd_phy_fix\\build\\attempt_default",
+    "timing": {
+      "SWNS_ns": 0.629,
+      "STNS_ns": 0.0,
+      "HWNS_ns": 0.03,
+      "HTNS_ns": 0.0
+    }
+  }
+}

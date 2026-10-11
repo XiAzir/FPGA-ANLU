@@ -1,0 +1,68 @@
+{
+  "created_beijing": "2026-10-08 21:05:48",
+  "archive": "E:\\VSCODE-project\\FPGA-ANLU\\deliverables\\real_music_20261008.zip",
+  "bytes": 5372714,
+  "sha256": "5AC7DCC1F6960E27E894F7EC91048983C287706B950DA80AF85AEEB6401A246D",
+  "file_count": 6,
+  "manifest": {
+    "README.md": "70E051F6B32A94A7FA820F94D84ABF4DC1BB347DB3CB1D42CAF9DDEE50A0CCF1",
+    "README.txt": "70E051F6B32A94A7FA820F94D84ABF4DC1BB347DB3CB1D42CAF9DDEE50A0CCF1",
+    "card/TEST.WAV": "D5244FD3935052A743379D9331EE78109C8A913241ED60DE472CB9E34A17FECF",
+    "firmware/packet_diag.bit": "C2B3DEAFB78355C124CE8958015EED31CEBA38CD4B0B41D9179A7190E4200818",
+    "package_status.json": "8B8C8E8D441A71C5D4C7B58E33DCE4C9E8BC761D778D4076EDB3E27ABFC1F330"
+  },
+  "zip_crc_test": "PASS",
+  "all_archived_file_sha256_comparisons": "PASS",
+  "audio_ffprobe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "48000",
+        "channels": 1,
+        "bits_per_sample": 16
+      }
+    ],
+    "format": {
+      "duration": "60.000000",
+      "size": "5760044"
+    }
+  },
+  "source_path": "C:\\Users\\PENGYUHAO\\Downloads\\天ノ弱 piano off vocal.m4a",
+  "source_sha256_before_and_after": "C240F7169542B09304EC9B3711671F4A9C934F26A7FFA4ED8F7339DD2D497B77",
+  "source_unchanged": true,
+  "hardware_music_validation": "pending",
+  "independent_wav_check": "second reader parsed RIFF and validated format, boundaries, sample count, peak/nonzero samples",
+  "conversion": {
+    "program": "ffmpeg 8.1.2",
+    "arguments": [
+      "-hide_banner",
+      "-nostdin",
+      "-n",
+      "-i",
+      "C:\\Users\\PENGYUHAO\\Downloads\\天ノ弱 piano off vocal.m4a",
+      "-map",
+      "0:a:0",
+      "-t",
+      "60",
+      "-af",
+      "afade=t=in:st=0:d=0.02,afade=t=out:st=59.95:d=0.05",
+      "-ac",
+      "1",
+      "-ar",
+      "48000",
+      "-c:a",
+      "pcm_s16le",
+      "-map_metadata",
+      "-1",
+      "-fflags",
+      "+bitexact",
+      "-flags:a",
+      "+bitexact",
+      "E:\\VSCODE-project\\FPGA-ANLU\\deliverables\\real_music_20261008\\card\\TEST.WAV"
+    ]
+  },
+  "hardware_or_card_operations_by_assistant": "none"
+}

@@ -1,0 +1,35 @@
+# Target the reported setup bottleneck: one registered SDRAM tristate driver
+# fans out to 34 loads. Use supported pre-route HFN replication, no post-route
+# phys_opt modes and no timing/PLL/HDL edits.
+set project_dir E:/VSCODE-project/FPGA-ANLU/development/player_fat32_packet_diag/src/td_project
+set input_db E:/VSCODE-project/FPGA-ANLU/development/player_fat32_packet_diag/build/manual/AC201_tf_hdmi_gate.db
+set output_dir E:/VSCODE-project/FPGA-ANLU/development/player_fat32_packet_diag/build/attempt_packet_replicated
+file mkdir $output_dir
+cd $project_dir
+if {[catch {
+    import_device eagle_s20.db -package EG4S20BG256
+    open_project AC201_tf_hdmi.al -single_run -noanalyze
+    set_param -run phy_1 route effort normal
+    load_run_param -run phy_1
+    import_db $input_db
+    commit_param -step place
+    phys_opt -force_replication_on_nets u_frame_buffer/u_sdram/u2_ram/u2_wrrd/sdr_t -fanout_threshold 16 -effort low
+    export_db $output_dir/AC201_tf_hdmi_replicated.db
+    place
+    export_db $output_dir/AC201_tf_hdmi_place.db
+    commit_param -step route
+    route
+    fix_hold
+    update_timing -mode final
+    report_timing_status -file $output_dir/AC201_tf_hdmi_phy.ts
+    report_timing_summary -file $output_dir/AC201_tf_hdmi_pr.timing
+    check_timing -verbose -file $output_dir/AC201_tf_hdmi_chk.timing
+    report_area -io_info -file $output_dir/AC201_tf_hdmi_phy.area
+    export_db $output_dir/AC201_tf_hdmi_pr.db
+} message]} {
+    puts "REPLICATION_BUILD_ERROR: $message"
+    exit 1
+}
+puts REPLICATION_BUILD_COMPLETE
+close_project
+exit

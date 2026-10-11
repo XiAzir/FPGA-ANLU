@@ -1,0 +1,667 @@
+Table of Contents
+-----------------
+1. checking no clock(0) (HIGH)
+2. checking clock definition(0) (HIGH)
+3. checking dummy node(3) (HIGH)
+4. checking invalid constraint(0) (HIGH)
+5. checking pll/clock buffer clock constraints(0) (HIGH)
+6. checking combinational loops(0) (HIGH)
+7. checking soft fifo timing exception constraints(0) (HIGH)
+8. checking no path constraints(0) (MEDIUM)
+9. checking shadowed/ignored timing exception constraints(0) (MEDIUM)
+10. checking no input delay(4) (MEDIUM)
+11. checking no output delay(14) (MEDIUM)
+12. checking partial input delay(0) (MEDIUM)
+13. checking partial output delay(0) (MEDIUM)
+14. checking abnormal input delay(0) (MEDIUM)
+
+
+1. checking nets with no clock driven. (HIGH)
+---------------------------------------------
+2. checking clock definition problems. (HIGH)
+---------------------------------------------
+2.1 There are 0 leaf clock pins driven by multiple clocks. (HIGH)
+
+
+2.2 There are 0 clocks created on internal clock network. (HIGH)
+
+
+2.3 There are 0 unexpandable clock sets. (HIGH)
+
+
+2.4 There are 0 local clocks. (HIGH)
+
+
+2.5 There are 0 generated clocks that are not connected to their master clocks. (HIGH)
+
+
+3. checking dummy nodes. (HIGH)
+---------------------------------------------
+There are 3 nodes are dangling. (HIGH)
+
+DummyNode in Model: EG_PHY_LSLICE
+	u_bmp_file_mapper/fat_b2_reg[2]_syn_4.d[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_video_data_ch0_2d_reg[2]_syn_4.d[0]
+	u_bmp_file_mapper/cache_brent_anchor_reg[20]_syn_4.d[0]
+	u_frame_buffer/u_unpack/merged[52]_syn_9.mi[0]
+	u_packet_monitor/ev_samples[1]_syn_277.mi[0]
+	rst_all_reg_reg_syn_320.mi[1]
+	rst_all_reg_reg_syn_253.mi[0]
+	u_wav_player/error_reg_syn_591.mi[0]
+	u_shared_card/sd_card_cmd_m0/byte_cnt_b[9]_syn_24.mi[0]
+	rst_all_reg_reg_syn_381.mi[0]
+	u_wav_player/fifo_head_b3[11]_syn_257.mi[0]
+	u_catalog/left_shift13_syn_683.mi[0]
+	u_catalog/left_shift13_syn_681.mi[0]
+	u_catalog/left_shift13_syn_679.mi[0]
+	rst_all_reg_reg_syn_253.mi[1]
+	rst_all_reg_reg_syn_236.mi[0]
+	rst_all_reg_reg_syn_306.mi[1]
+	rst_all_reg_reg_syn_222.mi[1]
+	rst_all_reg_reg_syn_292.mi[0]
+	u_wav_file_mapper/left_shift0_syn_824.mi[0]
+	rst_all_reg_reg_syn_229.mi[0]
+	u_wav_file_mapper/left_shift0_syn_828.mi[0]
+	u_wav_file_mapper/left_shift0_syn_851.mi[0]
+	rst_all_reg_reg_syn_218.mi[1]
+	rst_all_reg_reg_syn_374.mi[1]
+	u_wav_file_mapper/wait_count_b[25]_syn_7.mi[0]
+	u_packet_monitor/tone_payload_bad_reg[2]_syn_17.mi[0]
+	u_shared_card/sd_card_cmd_m0/byte_cnt_b[9]_syn_22.mi[0]
+	u_bmp_file_mapper/cache_brent_power_reg[7]_syn_4.b[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_video_data_ch0_2d_reg[2]_syn_4.b[0]
+	u_bmp_file_mapper/fat_b2_reg[2]_syn_4.b[0]
+	u_bmp_file_mapper/cache_brent_anchor_reg[20]_syn_4.b[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_video_data_ch0_2d_reg[2]_syn_4.c[0]
+	u_bmp_file_mapper/fat_b2_reg[2]_syn_4.c[0]
+	u_bmp_file_mapper/cache_brent_anchor_reg[20]_syn_4.c[0]
+	u_bmp_file_mapper/mux411_syn_78.c[1]
+	u_bmp_file_mapper/cache_brent_power_reg[7]_syn_4.d[0]
+	u_bmp_file_mapper/cache_brent_power_reg[7]_syn_4.c[0]
+	u_bmp_file_player/state_reg[6]_syn_12.mi[1]
+	u_bmp_file_player/state_reg[6]_syn_12.mi[0]
+	u_catalog/dir_cllo_b_reg[10]_syn_4.c[0]
+	u_catalog/dir_cllo_b_reg[10]_syn_4.d[0]
+	u_catalog/bmp_clusters_reg[101]_syn_4.c[0]
+	u_catalog/bmp_clusters_reg[101]_syn_4.d[0]
+	u_catalog/state_reg[3]_syn_14.mi[0]
+	u_catalog/state_reg[3]_syn_11.mi[0]
+	u_catalog/mux638_syn_71.b[1]
+	u_catalog/root_lba_p2_reg[29]_syn_4.b[0]
+	u_catalog/root_lba_p2_reg[29]_syn_4.d[0]
+	u_catalog/mux638_syn_71.d[1]
+	u_catalog/fat_lba_base_p1_reg[0]_syn_4.c[0]
+	u_catalog/ready_reg_syn_16.mi[0]
+	u_catalog/state_reg[4]_syn_8.mi[0]
+	u_catalog/left_shift13_syn_663.mi[0]
+	u_wav_file_mapper/file_data_reg[6]_syn_13.mi[0]
+	u_wav_file_mapper/file_data_reg[4]_syn_14.mi[1]
+	u_wav_file_mapper/file_data_reg[5]_syn_14.mi[0]
+	u_wav_file_mapper/file_data_reg[1]_syn_13.mi[0]
+	u_wav_file_mapper/file_data_reg[1]_syn_17.mi[1]
+	u_wav_file_mapper/file_data_reg[1]_syn_13.mi[1]
+	u_wav_file_mapper/file_data_reg[1]_syn_17.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[1]_syn_23.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_27.mi[1]
+	u_wav_file_mapper/left_shift0_syn_810.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[1]_syn_23.mi[1]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_27.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[0]_syn_18.mi[1]
+	u_catalog/data_sector_count_p1_reg[34]_syn_4.c[0]
+	u_catalog/fat_lba_base_p1_reg[1]_syn_4.c[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_32.mi[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_25.mi[1]
+	u_wav_player/error_reg_syn_523.d[0]
+	u_wav_file_mapper/state_reg[5]_syn_19.b[0]
+	u_wav_file_mapper/cache_index_reg[9]_syn_4.d[1]
+	u_wav_file_mapper/sd_read_reg_syn_150.d[0]
+	u_wav_file_mapper/sd_read_reg_syn_150.b[0]
+	u_wav_file_mapper/cache_index_reg[9]_syn_4.b[1]
+	u_wav_player/fifo_head_b3[11]_syn_221.mi[0]
+	u_wav_player/fifo_head_b3[14]_syn_1077.mi[0]
+	u_wav_player/low_byte_reg[0]_syn_18.mi[0]
+	u_wav_player/fifo_head_b3[6]_syn_220.mi[0]
+	u_wav_player/low_byte_reg[1]_syn_21.mi[0]
+	u_wav_player/low_byte_reg[1]_syn_19.mi[0]
+	u_wav_player/low_byte_reg[1]_syn_19.mi[1]
+	u_wav_player/fifo_head_b3[14]_syn_1107.mi[0]
+	u_wav_player/low_byte_reg[0]_syn_24.mi[1]
+	u_wav_file_mapper/state_reg[5]_syn_19.d[0]
+	u_wav_file_mapper/state_reg[5]_syn_19.c[0]
+	u_wav_player/riff_size_reg[13]_syn_4.d[0]
+	u_wav_player/error_reg_syn_523.b[0]
+	u_wav_player/error_reg_syn_523.a[0]
+	u_wav_player/fifo_head_b3[15]_syn_205.c[0]
+	u_wav_player/fifo_head_b3[8]_syn_233.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1356.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1083.c[0]
+	u_wav_file_mapper/file_data_reg[4]_syn_14.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1089.c[1]
+	u_wav_player/low_byte_reg[1]_syn_21.c[0]
+	u_wav_player/low_byte_reg[4]_syn_14.c[0]
+	u_wav_file_mapper/file_data_reg[1]_syn_15.c[0]
+	rst_all_reg_reg_syn_224.c[0]
+	u_wav_player/fifo_head_b3[9]_syn_300.c[0]
+	u_wav_player/low_byte_reg[1]_syn_23.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1309.c[1]
+	u_wav_player/wr_ptr_reg[2]_syn_31.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1347.c[0]
+	u_wav_player/fifo_head_b3[7]_syn_276.c[0]
+	u_wav_player/fifo_head_b3[6]_syn_240.c[0]
+	u_wav_player/fifo_head_b3[11]_syn_241.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1081.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1075.c[1]
+	u_wav_player/fifo_head_b3[13]_syn_233.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1077.c[0]
+	u_wav_player/fifo_head_b3[2]_syn_272.c[0]
+	u_wav_player/wr_ptr_reg[1]_syn_30.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1069.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1071.c[0]
+	u_wav_player/fifo_head_b3[6]_syn_250.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1085.c[1]
+	u_wav_player/fifo_head_b3[9]_syn_284.c[0]
+	u_wav_file_mapper/file_data_reg[4]_syn_12.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1414.c[1]
+	u_wav_player/fifo_head_b3[5]_syn_237.c[0]
+	u_wav_player/fifo_head_b3[5]_syn_241.c[0]
+	u_wav_player/fifo_head_b3[9]_syn_286.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1075.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1184.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1249.c[0]
+	u_wav_player/rd_ptr_reg[2]_syn_4.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1101.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1067.c[0]
+	u_wav_player/fifo_mem_n_syn_843.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1113.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1085.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1306.c[0]
+	u_wav_player/fifo_head_b3[9]_syn_276.c[0]
+	u_wav_player/wr_ptr_reg[2]_syn_35.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1238.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1364.c[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_5d_reg[12]_syn_4.c[1]
+	u_wav_player/fifo_mem_n_syn_845.c[0]
+	u_wav_player/fifo_mem_n_syn_851.c[0]
+	u_wav_player/fifo_head_b3[9]_syn_278.c[0]
+	u_wav_player/low_byte_reg[0]_syn_18.c[0]
+	u_wav_player/wr_ptr_reg[5]_syn_12.c[0]
+	u_wav_player/fifo_head_b3[13]_syn_237.c[0]
+	u_wav_player/fifo_head_b3[15]_syn_225.c[0]
+	u_wav_player/fifo_mem_n_syn_861.c[0]
+	u_wav_player/fifo_head_b3[11]_syn_245.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1061.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1111.c[1]
+	u_wav_player/fifo_head_b3[9]_syn_296.c[0]
+	u_wav_player/fifo_mem_n_syn_859.c[0]
+	u_wav_player/fifo_head_b3[9]_syn_294.c[0]
+	u_audio_probe/fifo_nonzero_seen_reg_syn_21.c[0]
+	u_wav_player/fifo_head_b3[12]_syn_269.c[0]
+	u_wav_player/wr_ptr_reg[3]_syn_36.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1091.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1091.c[0]
+	u_wav_player/fifo_head_b3[1]_syn_241.c[0]
+	u_wav_player/fifo_head_b3[15]_syn_205.b[0]
+	u_wav_player/fifo_head_b3[8]_syn_233.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1356.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1083.b[0]
+	u_wav_file_mapper/file_data_reg[4]_syn_14.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1089.b[1]
+	u_wav_player/low_byte_reg[1]_syn_21.b[0]
+	u_wav_player/low_byte_reg[4]_syn_14.b[0]
+	u_wav_file_mapper/file_data_reg[1]_syn_15.b[0]
+	rst_all_reg_reg_syn_224.b[0]
+	u_wav_player/fifo_head_b3[9]_syn_300.b[0]
+	u_wav_player/low_byte_reg[1]_syn_23.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1309.b[1]
+	u_wav_player/wr_ptr_reg[2]_syn_31.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1347.b[0]
+	u_wav_player/fifo_head_b3[7]_syn_276.b[0]
+	u_wav_player/fifo_head_b3[6]_syn_240.b[0]
+	u_wav_player/fifo_head_b3[11]_syn_241.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1081.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1075.b[1]
+	u_wav_player/fifo_head_b3[13]_syn_233.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1077.b[0]
+	u_wav_player/fifo_head_b3[2]_syn_272.b[0]
+	u_wav_player/wr_ptr_reg[1]_syn_30.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1069.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1071.b[0]
+	u_wav_player/fifo_head_b3[6]_syn_250.b[0]
+	u_wav_player/rd_ptr_reg[2]_syn_4.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1085.b[1]
+	u_wav_player/fifo_head_b3[9]_syn_284.b[0]
+	u_wav_file_mapper/file_data_reg[4]_syn_12.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1414.b[1]
+	u_wav_player/fifo_head_b3[5]_syn_237.b[0]
+	u_wav_player/fifo_head_b3[5]_syn_241.b[0]
+	u_wav_player/fifo_head_b3[9]_syn_286.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1075.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1184.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1249.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1101.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1067.b[0]
+	u_wav_player/fifo_mem_n_syn_843.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1113.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1085.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1306.b[0]
+	u_wav_player/fifo_head_b3[9]_syn_276.b[0]
+	u_wav_player/wr_ptr_reg[2]_syn_35.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1238.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1364.b[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_5d_reg[12]_syn_4.b[1]
+	u_wav_player/fifo_mem_n_syn_845.b[0]
+	u_wav_player/fifo_mem_n_syn_851.b[0]
+	u_wav_player/fifo_head_b3[9]_syn_278.b[0]
+	u_wav_player/low_byte_reg[0]_syn_18.b[0]
+	u_wav_player/wr_ptr_reg[5]_syn_12.b[0]
+	u_wav_player/wr_ptr_reg[2]_syn_33.mi[0]
+	u_wav_player/wr_ptr_reg[0]_syn_36.mi[1]
+	u_wav_player/fifo_head_b3[15]_syn_205.mi[0]
+	u_wav_player/wr_ptr_reg[0]_syn_34.mi[1]
+	u_wav_player/wr_ptr_reg[0]_syn_45.mi[1]
+	u_wav_player/fifo_head_b3[14]_syn_1101.mi[0]
+	u_wav_player/wr_ptr_reg[0]_syn_43.mi[1]
+	u_wav_player/wr_ptr_reg[5]_syn_12.mi[1]
+	u_wav_player/wr_ptr_reg[3]_syn_36.mi[0]
+	u_wav_player/wr_ptr_reg[5]_syn_12.mi[0]
+	u_wav_player/fifo_head_b3[14]_syn_1097.mi[0]
+	u_wav_player/wr_ptr_reg[4]_syn_15.mi[1]
+	u_wav_player/wr_ptr_reg[3]_syn_45.mi[1]
+	u_wav_player/fifo_head_b3[12]_syn_232.mi[0]
+	u_wav_player/wr_ptr_reg[0]_syn_39.mi[0]
+	u_wav_player/wr_ptr_reg[1]_syn_46.mi[0]
+	u_wav_player/wr_ptr_reg[3]_syn_40.mi[1]
+	u_wav_player/fifo_head_b3[14]_syn_1095.mi[0]
+	u_wav_player/wr_ptr_reg[3]_syn_45.mi[0]
+	u_wav_player/wr_ptr_reg[2]_syn_48.mi[1]
+	u_wav_player/wr_ptr_reg[2]_syn_31.mi[1]
+	u_wav_player/wr_ptr_reg[2]_syn_35.mi[1]
+	u_wav_player/wr_ptr_reg[0]_syn_34.mi[0]
+	u_wav_player/wr_ptr_reg[3]_syn_40.mi[0]
+	u_wav_player/wr_ptr_reg[0]_syn_43.mi[0]
+	u_wav_player/wr_ptr_reg[0]_syn_48.mi[0]
+	u_wav_player/wr_ptr_reg[0]_syn_36.mi[0]
+	u_wav_player/wr_ptr_reg[2]_syn_35.mi[0]
+	u_wav_player/wr_ptr_reg[2]_syn_31.mi[0]
+	u_wav_player/wr_ptr_reg[5]_syn_16.mi[0]
+	u_wav_player/wr_ptr_reg[1]_syn_37.mi[1]
+	u_wav_player/riff_size_reg[13]_syn_4.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1081.d[0]
+	u_wav_player/low_byte_reg[1]_syn_21.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1089.d[1]
+	u_wav_player/fifo_head_b3[15]_syn_225.d[0]
+	u_wav_player/wr_ptr_reg[2]_syn_35.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1061.d[1]
+	u_wav_file_mapper/file_data_reg[4]_syn_12.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1111.d[1]
+	u_wav_player/fifo_head_b3[9]_syn_296.d[0]
+	u_wav_player/fifo_head_b3[9]_syn_294.d[0]
+	u_wav_player/fifo_head_b3[15]_syn_205.d[0]
+	u_audio_probe/fifo_nonzero_seen_reg_syn_21.d[0]
+	u_wav_player/fifo_head_b3[12]_syn_269.d[0]
+	u_wav_player/wr_ptr_reg[3]_syn_36.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1091.d[1]
+	u_wav_player/fifo_head_b3[14]_syn_1091.d[0]
+	u_wav_player/fifo_head_b3[1]_syn_241.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1083.d[0]
+	u_wav_player/fifo_mem_n_syn_861.d[0]
+	u_wav_player/fifo_head_b3[11]_syn_245.d[0]
+	u_wav_player/fifo_mem_n_syn_859.d[0]
+	u_wav_player/fifo_head_b3[13]_syn_237.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1085.d[1]
+	u_wav_player/fifo_head_b3[14]_syn_1309.d[1]
+	u_wav_player/fifo_head_b3[9]_syn_276.d[0]
+	u_wav_file_mapper/file_data_reg[4]_syn_14.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1347.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1414.d[1]
+	u_wav_player/fifo_head_b3[8]_syn_233.d[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_5d_reg[12]_syn_4.d[1]
+	u_wav_player/fifo_mem_n_syn_851.d[0]
+	u_wav_player/fifo_head_b3[9]_syn_278.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1184.d[1]
+	u_wav_player/fifo_head_b3[6]_syn_240.d[0]
+	u_wav_player/low_byte_reg[4]_syn_14.d[0]
+	u_wav_player/low_byte_reg[0]_syn_18.d[0]
+	u_wav_player/wr_ptr_reg[5]_syn_12.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1069.d[1]
+	u_wav_player/low_byte_reg[1]_syn_23.d[0]
+	u_wav_player/fifo_mem_n_syn_845.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1085.d[0]
+	u_wav_player/fifo_head_b3[9]_syn_284.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1306.d[0]
+	u_wav_player/wr_ptr_reg[2]_syn_31.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1238.d[0]
+	rst_all_reg_reg_syn_224.d[0]
+	u_wav_player/fifo_head_b3[5]_syn_241.d[0]
+	u_wav_player/fifo_head_b3[9]_syn_286.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1075.d[1]
+	u_wav_player/fifo_head_b3[14]_syn_1249.d[0]
+	u_wav_player/rd_ptr_reg[2]_syn_4.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1101.d[1]
+	u_wav_player/fifo_head_b3[14]_syn_1067.d[0]
+	u_wav_player/fifo_mem_n_syn_843.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1077.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1113.d[1]
+	u_wav_player/fifo_head_b3[5]_syn_237.d[0]
+	u_wav_player/fifo_head_b3[7]_syn_276.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1356.d[1]
+	u_wav_player/fifo_head_b3[9]_syn_300.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1364.d[0]
+	u_wav_player/fifo_head_b3[11]_syn_241.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1075.d[0]
+	u_wav_player/fifo_head_b3[13]_syn_233.d[0]
+	u_wav_player/fifo_head_b3[2]_syn_272.d[0]
+	u_wav_player/wr_ptr_reg[1]_syn_30.d[1]
+	u_wav_file_mapper/file_data_reg[1]_syn_15.d[0]
+	u_wav_player/fifo_head_b3[6]_syn_250.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1071.d[0]
+	u_bmp_file_mapper/state_reg[1]_syn_22.mi[1]
+	u_bmp_file_mapper/state_reg[1]_syn_26.mi[1]
+	u_bmp_file_mapper/mux411_syn_78.d[1]
+	u_catalog/mux638_syn_71.a[1]
+	u_catalog/root_lba_p2_reg[29]_syn_4.a[0]
+	u_catalog/mux638_syn_71.c[1]
+	u_catalog/root_lba_p2_reg[29]_syn_4.c[0]
+	u_catalog/fat_lba_base_p1_reg[0]_syn_4.d[0]
+	u_catalog/data_sector_count_p1_reg[34]_syn_4.d[0]
+	u_catalog/fat_lba_base_p1_reg[1]_syn_4.d[1]
+	u_wav_file_mapper/sd_read_reg_syn_150.c[0]
+	u_wav_file_mapper/cache_index_reg[9]_syn_4.c[1]
+	u_wav_player/error_reg_syn_523.c[0]
+
+DummyNode in Model: EG_PHY_MSLICE
+	u_wav_file_mapper/cache_valid_reg_syn_102.d[1]
+	rst_all_reg_reg_syn_359.mi[1]
+	u_wav_player/primed_reg_syn_45.mi[0]
+	u_bmp_file_mapper/left_shift0_syn_702.mi[0]
+	u_bmp_file_mapper/right_shift3_syn_481.mi[0]
+	rst_all_reg_reg_syn_261.mi[0]
+	rst_all_reg_reg_syn_233.mi[1]
+	rst_all_reg_reg_syn_327.mi[1]
+	rst_all_reg_reg_syn_244.mi[0]
+	u_wav_player/fifo_head_b3[2]_syn_276.mi[0]
+	u_bmp_file_player/state_reg[6]_syn_15.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_29.mi[1]
+	u_frame_buffer/u_unpack/merged[13]_syn_7.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_38.mi[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_35.mi[1]
+	u_wav_player/mux18_syn_74.d[1]
+	u_wav_player/mux18_syn_76.d[1]
+	u_wav_file_mapper/cache_valid_reg_syn_102.b[1]
+	u_wav_file_mapper/state_reg[2]_syn_27.d[1]
+	u_wav_file_mapper/state_reg[2]_syn_27.b[1]
+	u_wav_file_mapper/cache_valid_reg_syn_102.c[1]
+	u_wav_player/field_acc_reg[15]_syn_4.d[0]
+	u_wav_player/mux18_syn_74.b[1]
+	u_wav_player/mux18_syn_76.b[1]
+	u_wav_player/mux18_syn_74.a[1]
+	u_wav_player/mux18_syn_76.a[1]
+	u_wav_player/fifo_head_b3[14]_syn_1471.c[1]
+	u_wav_player/fifo_head_b3[4]_syn_284.c[0]
+	u_wav_player/fifo_head_b3[11]_syn_255.c[0]
+	u_wav_player/fifo_head_b3[8]_syn_227.c[0]
+	u_wav_player/fifo_head_b3[7]_syn_280.c[0]
+	u_wav_player/fifo_head_b3[6]_syn_228.c[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_5d_reg[14]_syn_4.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1266.c[1]
+	u_wav_player/fifo_head_b3[12]_syn_277.c[0]
+	u_wav_player/fifo_head_b3[12]_syn_279.c[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[12]_syn_4.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1448.c[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[14]_syn_4.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1350.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1214.c[0]
+	u_wav_player/fifo_head_b3[3]_syn_266.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1127.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1242.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1400.c[1]
+	u_wav_player/fifo_head_b3[8]_syn_223.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1451.c[1]
+	u_wav_player/fifo_head_b3[9]_syn_288.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1423.c[1]
+	u_wav_player/fifo_head_b3[1]_syn_239.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1129.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1129.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1232.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1119.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1456.c[0]
+	u_wav_player/fifo_head_b3[11]_syn_237.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1196.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1330.c[1]
+	u_wav_player/fifo_head_b3[13]_syn_235.c[0]
+	u_wav_player/fifo_head_b3[4]_syn_278.c[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[12]_syn_4.c[0]
+	u_wav_player/fifo_head_b3[1]_syn_237.c[0]
+	u_wav_player/fifo_head_b3[15]_syn_217.c[0]
+	u_wav_player/fifo_head_b3[6]_syn_248.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1291.c[0]
+	u_wav_player/fifo_head_b3[7]_syn_274.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1127.c[1]
+	u_wav_player/fifo_head_b3[1]_syn_235.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1391.c[0]
+	u_wav_player/fifo_head_b3[13]_syn_241.c[0]
+	u_wav_player/fifo_head_b3[12]_syn_273.c[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[10]_syn_4.c[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[10]_syn_4.c[1]
+	u_wav_player/fifo_head_b3[6]_syn_254.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1439.c[1]
+	u_wav_player/fifo_head_b3[12]_syn_271.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1535.c[1]
+	u_wav_player/fifo_head_b3[8]_syn_229.c[0]
+	u_wav_player/fifo_head_b3[11]_syn_249.c[0]
+	u_wav_player/fifo_head_b3[11]_syn_223.c[0]
+	u_wav_player/fifo_head_b3[0]_syn_276.c[0]
+	u_wav_player/fifo_head_b3[3]_syn_270.c[0]
+	u_wav_player/fifo_head_b3[0]_syn_274.c[0]
+	u_wav_player/fifo_head_b3[14]_syn_1269.c[1]
+	u_wav_player/fifo_head_b3[14]_syn_1471.b[1]
+	u_wav_player/fifo_head_b3[4]_syn_284.b[0]
+	u_wav_player/fifo_head_b3[11]_syn_255.b[0]
+	u_wav_player/fifo_head_b3[8]_syn_227.b[0]
+	u_wav_player/fifo_head_b3[7]_syn_280.b[0]
+	u_wav_player/fifo_head_b3[6]_syn_228.b[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_5d_reg[14]_syn_4.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1266.b[1]
+	u_wav_player/fifo_head_b3[12]_syn_277.b[0]
+	u_wav_player/fifo_head_b3[12]_syn_279.b[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[12]_syn_4.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1448.b[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[14]_syn_4.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1350.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1214.b[0]
+	u_wav_player/fifo_head_b3[3]_syn_266.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1127.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1242.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1400.b[1]
+	u_wav_player/fifo_head_b3[8]_syn_223.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1451.b[1]
+	u_wav_player/fifo_head_b3[9]_syn_288.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1423.b[1]
+	u_wav_player/fifo_head_b3[1]_syn_239.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1129.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1129.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1232.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1119.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1456.b[0]
+	u_wav_player/fifo_head_b3[11]_syn_237.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1196.b[1]
+	u_wav_player/fifo_head_b3[14]_syn_1330.b[1]
+	u_wav_player/fifo_head_b3[13]_syn_235.b[0]
+	u_wav_player/fifo_head_b3[4]_syn_278.b[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[12]_syn_4.b[0]
+	u_wav_player/fifo_head_b3[1]_syn_237.b[0]
+	u_wav_player/fifo_head_b3[15]_syn_217.b[0]
+	u_wav_player/fifo_head_b3[6]_syn_248.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1291.b[0]
+	u_wav_player/fifo_head_b3[7]_syn_274.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1127.b[1]
+	u_wav_player/fifo_head_b3[1]_syn_235.b[0]
+	u_wav_player/fifo_head_b3[14]_syn_1391.b[0]
+	u_wav_player/field_acc_reg[15]_syn_4.c[0]
+	u_wav_player/fifo_head_b3[4]_syn_284.d[0]
+	u_wav_player/fifo_head_b3[13]_syn_241.d[0]
+	u_wav_player/fifo_head_b3[4]_syn_278.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1350.d[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[10]_syn_4.d[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[10]_syn_4.d[1]
+	u_wav_player/fifo_head_b3[14]_syn_1448.d[0]
+	u_wav_player/fifo_head_b3[6]_syn_228.d[0]
+	u_wav_player/fifo_head_b3[12]_syn_271.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1535.d[1]
+	u_wav_player/fifo_head_b3[8]_syn_229.d[0]
+	u_wav_player/fifo_head_b3[11]_syn_249.d[0]
+	u_wav_player/fifo_head_b3[11]_syn_223.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1456.d[0]
+	u_wav_player/fifo_head_b3[3]_syn_270.d[0]
+	u_wav_player/fifo_head_b3[0]_syn_274.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1471.d[1]
+	u_wav_player/fifo_head_b3[0]_syn_276.d[0]
+	u_wav_player/fifo_head_b3[6]_syn_254.d[0]
+	u_wav_player/fifo_head_b3[12]_syn_273.d[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[12]_syn_4.d[1]
+	u_wav_player/fifo_head_b3[14]_syn_1423.d[1]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[14]_syn_4.d[1]
+	u_wav_player/fifo_head_b3[6]_syn_248.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1242.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1127.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1232.d[1]
+	u_wav_player/fifo_head_b3[14]_syn_1400.d[1]
+	u_wav_player/fifo_head_b3[14]_syn_1196.d[1]
+	u_wav_player/fifo_head_b3[15]_syn_217.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1269.d[1]
+	u_wav_player/fifo_head_b3[14]_syn_1266.d[1]
+	u_wav_player/fifo_head_b3[1]_syn_237.d[0]
+	u_wav_player/fifo_head_b3[1]_syn_235.d[0]
+	u_wav_player/fifo_head_b3[7]_syn_274.d[0]
+	u_wav_player/fifo_head_b3[8]_syn_227.d[0]
+	u_wav_player/fifo_head_b3[9]_syn_288.d[0]
+	u_wav_player/fifo_head_b3[11]_syn_255.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1129.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1291.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1129.d[1]
+	u_wav_player/fifo_head_b3[11]_syn_237.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1391.d[0]
+	u_wav_player/fifo_head_b3[13]_syn_235.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1119.d[1]
+	u_wav_player/fifo_head_b3[14]_syn_1214.d[0]
+	u_wav_player/fifo_head_b3[12]_syn_279.d[0]
+	u_wav_player/fifo_head_b3[1]_syn_239.d[0]
+	u_wav_player/fifo_head_b3[3]_syn_266.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1451.d[1]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[12]_syn_4.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1330.d[1]
+	u_wav_player/fifo_head_b3[7]_syn_280.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1439.d[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_5d_reg[14]_syn_4.d[0]
+	u_wav_player/fifo_head_b3[12]_syn_277.d[0]
+	u_wav_player/fifo_head_b3[14]_syn_1127.d[1]
+	u_wav_player/fifo_head_b3[8]_syn_223.d[0]
+	u_wav_file_mapper/state_reg[2]_syn_27.c[1]
+	u_wav_player/mux18_syn_74.c[1]
+	u_wav_player/mux18_syn_76.c[1]
+
+DummyNode in Model: EG_PHY_PAD
+	u_frame_buffer/u_sdram/sdram_syn_5.opad
+	u_frame_buffer/u_sdram/sdram_syn_10.opad
+
+4. checking invalid constraints. (HIGH)
+---------------------------------------------
+There are 0 invalid constraints. (HIGH)
+
+
+5. checking PLL/buffer clocks. (HIGH)
+---------------------------------------------
+PLL/buffer inst: sys_pll_m0/pll_inst
+{
+	There are 0 clock pins that have no clock constraints. (HIGH)
+
+
+	There are 0 clocks whose clock frequency do not match the PLL setting. (HIGH)
+
+
+}
+
+PLL/buffer inst: video_pll_m0/pll_inst
+{
+	There are 0 clock pins that have no clock constraints. (HIGH)
+
+
+	There are 0 clocks whose clock frequency do not match the PLL setting. (HIGH)
+
+
+}
+
+6. checking combinational loops. (HIGH)
+---------------------------------------------
+There are 0 combinational loops. (HIGH)
+
+
+7. checking soft fifo set_max_delay constraints. (HIGH)
+---------------------------------------------
+There are 0 max-delay datapath-only paths that are part of the provided async clock paths, whereas the timing between other registers is not relaxed or ignored. (HIGH)
+
+
+8. checking no path constraints. (MEDIUM)
+---------------------------------------------
+There are 0 constraints that have no timing paths. (MEDIUM)
+
+
+9. checking path exception constraints shadowed/ignored by other constraints. (MEDIUM)
+---------------------------------------------
+
+MCP/SMD Summary
+--------------------
+
+		Max Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+		        36           36            0            0   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 19.700
+		        36           36            0            0   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 19.700
+
+		Min Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+
+10. checking no input delay (MEDIUM)
+--------------------------
+There are 4 input ports that with no input delay specified. (MEDIUM)
+
+	key1
+	key2
+	rst_n
+	sd_miso
+
+11. checking no output delay (MEDIUM)
+--------------------------
+There are 14 output ports that with no output delay specified. (MEDIUM)
+
+	HDMI_CLK_P
+	HDMI_D0_P
+	HDMI_D1_P
+	HDMI_D2_P
+	led[3]
+	led[2]
+	led[1]
+	led[0]
+	sd_dclk
+	sd_mosi
+	sd_ncs
+	seg7_dio
+	seg7_rclk
+	seg7_sclk
+
+12. checking partial input delay (MEDIUM)
+--------------------------
+There are 0 input ports with partial input delay specified. (MEDIUM)
+
+
+13. checking partial output delay (MEDIUM)
+--------------------------
+There are 0 output ports with partial output delay specified. (MEDIUM)
+
+
+14. checking abnormal set_input_delay constraints. (MEDIUM)
+---------------------------------------------
+There are 0 abnormal set_input_delay constraints. (MEDIUM)
+
+

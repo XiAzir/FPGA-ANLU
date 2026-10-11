@@ -1,0 +1,66 @@
+{
+  "source_video": "E:/QQ CACHE/LiaoTianJiLu/Tencent Files/1791081637/nt_qq/nt_data/Video/2026-10/Ori/5ded2d76d3154412b512928f524f8b7f.mp4",
+  "video_sha256": "B5FF3DEFA1FB1F25BDE782D5568C93673C03F9BE3AA23E5DC5F81D0C96F1B2CE",
+  "duration_s": 45.876544,
+  "rotation": "CCW 90 degrees, ffmpeg transpose=2; original file unchanged",
+  "extract": "1 fps; nominal sample centers in contacts; source frames saved",
+  "bitstream_sha256": "0EE4EF71838B3CAD7F0C360E9FEAAA5672C2DE7C5FA6BA21C73F9EEE8B5BD907",
+  "mode": "User states did not long-press KEY1; video decoded mode bit=0",
+  "user_feedback": [
+    "image normal",
+    "default WAV still hisses, now scale cycles instead of one wavering tone",
+    "after requested long KEY1 hiss remains"
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "hex": "1DA80000",
+      "interpretation": "PLL locks high, playback reset low, SD initialized; fs_ready,display_valid,wav_primed high; displayed FAT/BMP/WAV/map error flags and error codes zero"
+    },
+    {
+      "page": 2,
+      "hex": "2304B000",
+      "count": 307200,
+      "interpretation": "HDMI input nonblack pixels in last complete frame"
+    },
+    {
+      "page": 3,
+      "hex": "3300BB80",
+      "count": 48000,
+      "interpretation": "valid audio events per nominal 25MHz-clock second"
+    },
+    {
+      "page": 4,
+      "hex_examples": [
+        "43008C5E",
+        "43008CA5",
+        "43008C79",
+        "43008C95",
+        "43008C46"
+      ],
+      "count_examples": [
+        35934,
+        36005,
+        35961,
+        35989,
+        35910
+      ],
+      "interpretation": "Input PCM adjacent changes; consistent with canonical WAV including 250ms silence per note, not exact-value verification"
+    },
+    {
+      "page": 5,
+      "hex": "5304B000",
+      "count": 307200,
+      "interpretation": "HDMI input valid pixels in last complete frame"
+    }
+  ],
+  "common_M": "3 = tone0,underflow0,HDMI_video_locked1,frame_seen1",
+  "limitations": [
+    "Assistant video reading, not direct board instrumentation",
+    "Screen/image and sound results from user reports; video points at board display",
+    "No actual-card re-read this turn",
+    "Tone-page/valid/change values after long KEY1 not provided",
+    "Instrumentation changes implementation; results apply to status_diag",
+    "No new source change, synthesis, bitstream, TF or Flash write this turn"
+  ]
+}

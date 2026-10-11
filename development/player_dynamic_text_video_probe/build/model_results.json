@@ -1,0 +1,43 @@
+{
+  "created_beijing": "2026-10-09",
+  "tests": [
+    {
+      "name": "source_probe",
+      "result": "PASS: real key_press_debounce scaled thresholds; KEY0 short, KEY1 short/long, both-low mask, tone one-shot, release/rearm, synchronizer boundary cases, VS rising and same-edge request parity, reset/BMP validity, and exact four 24-bit colors.",
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_video_probe\\build\\probe_model\\source_probe_run.log",
+      "marker": "PASS source probe:",
+      "testbench": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_video_probe\\sim\\tests\\tb_player_video_source_probe.v",
+      "testbench_sha256": "31BC3543464BE68D4448EB2423DF24BA72DB435BC74692E82059D6FDEDB3EC1D",
+      "sha256": "AA1D42DAB9676897651BABEB69928D0136085C5F21A2F83E7BBCDF6195CBA718",
+      "top": "tb_player_video_source_probe"
+    },
+    {
+      "name": "pixels_probe",
+      "result": "PASS: 1,843,200 active pixels with parallel probe0 RUN and probe1 REF models; exact glyph oracle; scroll/timer/pass-through/blanking/frame/VS checks.",
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_video_probe\\build\\probe_model\\pixels_probe_run.log",
+      "marker": "PASS pixels=",
+      "testbench": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_video_probe\\sim\\tests\\tb_player_dynamic_text_pixels_probe.v",
+      "testbench_sha256": "9977CF4AACA726E8A564AADEE73BF4C1A360DBE9A963EC333DE0B7AB9E9FD17A",
+      "sha256": "62FA84BE8A1042C6AF1038975311E75902A322039275ACE3D821B8B21706B184",
+      "top": "tb_player_dynamic_text_pixels_probe"
+    },
+    {
+      "name": "timer_probe",
+      "result": "PASS: 00:59->01:00, 99:20, 99:59->00:00, reset/restart and 12,000-cycle wrap.",
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_video_probe\\build\\probe_model\\timer_probe_run.log",
+      "marker": "PASS timer",
+      "testbench": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_video_probe\\sim\\tests\\tb_player_dynamic_text_timer_probe.v",
+      "testbench_sha256": "B8F6A3AE28F27C90336D4B352DB831256AB92A1E2DAB8D9C5E51B42641150DCB",
+      "sha256": "FD184429F695780CB9199D03E9B0CC15A66F93D8118E6E9D496E847C930BEFEF",
+      "top": "tb_player_dynamic_text_timer_probe"
+    }
+  ],
+  "scope": "Standalone functional RTL models only; no full top simulation, TD build, board run, SDRAM PHY model, or encrypted HDMI netlist.",
+  "source_sha256": {
+    "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_video_probe\\src\\td_project\\AC201_tf_hdmi.al": "7655614299C87D12A6B0ADF86F4FCE7EA43BA208DCF12BA6D05A32320F1E074D",
+    "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_video_probe\\src\\user_source\\hdl_source\\player_video_source_probe.v": "8B8DF6AF3C328079B2CFDF6F3CC68F3D5E4B9D5E925F77CFF1AFF53607AF348E",
+    "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_video_probe\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v": "EA115FA31BD796BF1E8F480B8D7CB392BDBC6FC057CE26AF1516C60310C0C35E",
+    "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_video_probe\\src\\user_source\\hdl_source\\player_dynamic_text.v": "8CD40DCC12F7A1B88C3A2F7FC0CAD62C7DBF198FE9C9D735C5B75BC40E4FED3B"
+  },
+  "runner": "Icarus Verilog custom Windows build: bringup/tf_wav_hdmi/tools/iverilog/app/bin"
+}

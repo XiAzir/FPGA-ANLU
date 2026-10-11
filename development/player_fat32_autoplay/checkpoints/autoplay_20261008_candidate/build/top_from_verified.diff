@@ -1,0 +1,30 @@
+diff --git "a/development\\player_fat32_audio_probe\\checkpoints\\audio_probe_20261008_verified\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v" "b/development\\player_fat32_autoplay\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v"
+index b57a621..d3944a5 100644
+--- "a/development\\player_fat32_audio_probe\\checkpoints\\audio_probe_20261008_verified\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v"
++++ "b/development\\player_fat32_autoplay\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v"
+@@ -181,7 +181,7 @@ fat32_catalog u_catalog (
+ );
+ tf_bmp_file_player #(.CLK_FREQ_HZ(50000000),
+     .FRAME_WIDTH(DISPLAY_WIDTH),.FRAME_HEIGHT(DISPLAY_HEIGHT)) u_bmp_file_player (
+-    .clk(sd_card_clk),.rst(rst_all),.key_next(key1),.key_auto(1'b1),
++    .clk(sd_card_clk),.rst(rst_all),.key_next(key1),.key_auto(key2),
+     .catalog_ready(fs_ready),.bmp_count(fs_bmp_count),
+     .bmp_clusters(fs_bmp_clusters),.bmp_sizes(fs_bmp_sizes),
+     .file_cluster(bmp_file_cluster),.file_size(bmp_file_size),
+@@ -310,13 +310,11 @@ player_debug_monitor u_debug_monitor (
+ // Restore the candidate's direct RGB path. No diagnostic overlay or video CDC.
+ assign vout_data = vout_data_base;
+ 
+-wire debug_tone_press, debug_tone_mode;
+-key_press_debounce #(.CLK_FREQ_HZ(25000000),.DEBOUNCE_MS(50)) u_tone_key (
+-    .clk(video_clk),.rst(rst_all),.button_in(key2),.press_pulse(debug_tone_press)
+-);
++// KEY1 controls autoplay; audio stays in WAV mode.
++wire debug_tone_mode;
+ player_audio_probe u_audio_probe (
+     .pixel_clk(video_clk),.sd_clk(sd_card_clk),.rst(rst_all),
+-    .tone_toggle(debug_tone_press),.primed(wav_primed),
++    .tone_toggle(1'b0),.primed(wav_primed),
+     .sample_available(wav_sample_available),.sample_data(wav_sample_data),
+     .sample_take(wav_sample_take),.underflow(audio_underflow),
+     .audio_valid(audio_valid),.audio_left(audio_left_data),.audio_right(audio_right_data),

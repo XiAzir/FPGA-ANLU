@@ -1,0 +1,25 @@
+=== cmd0_illegal_r1_once ===
+RUN fail_cmd=0
+CARD CMD0 start at cycle 42
+CARD CMD0 inject illegal R1=04 at cycle 60
+CARD CMD0 R1 poll at cycle 60
+CMD state=S_ERR cmd=0 req=1 ack=0 err=0 cycle=62
+CMD state=S_END handshake req=1 ack=1 err=1 cycle=64
+CARD CMD0 start at cycle 71
+CARD CMD0 R1 poll at cycle 89
+CMD state=S_END handshake req=1 ack=1 err=0 cycle=92
+CARD CMD8 start at cycle 100
+CARD CMD8 R1 poll at cycle 118
+CMD state=S_END handshake req=1 ack=1 err=0 cycle=134
+CARD CMD55 start at cycle 142
+CARD CMD55 R1 poll at cycle 160
+CMD state=S_END handshake req=1 ack=1 err=0 cycle=162
+CARD CMD41 start at cycle 171
+CARD CMD41 R1 poll at cycle 189
+CMD state=S_END handshake req=1 ack=1 err=0 cycle=192
+CARD CMD16 start at cycle 200
+CARD CMD16 R1 poll at cycle 218
+CMD state=S_END handshake req=1 ack=1 err=0 cycle=220
+COUNTS CMD0=2 CMD8=1 CMD55=1 CMD41=1 CMD16=1 injected=1 failures=1
+PASS fail_cmd=0: initialization reached WAIT_READ_WRITE
+E:\VSCODE-project\FPGA-ANLU\development\player_dynamic_text_video_probe\build\sd_init_retry_audit\tb_sd_init_retry.v:162: $finish called at 2275000 (1ps)

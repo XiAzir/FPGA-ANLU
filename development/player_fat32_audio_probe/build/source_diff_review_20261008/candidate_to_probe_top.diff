@@ -1,0 +1,87 @@
+diff --git a/development/player_fat32/src/user_source/hdl_source/top_tf_hdmi_audio.v b/development/player_fat32_probe/src/user_source/hdl_source/top_tf_hdmi_audio.v
+index d702c81..cb59427 100644
+--- a/development/player_fat32/src/user_source/hdl_source/top_tf_hdmi_audio.v
++++ b/development/player_fat32_probe/src/user_source/hdl_source/top_tf_hdmi_audio.v
+@@ -35,7 +35,8 @@ wire vs;
+ wire de;
+ 
+ wire [23:0] vout_data_raw;
+-wire [23:0] vout_data;
++wire [23:0] vout_data;
++wire [23:0] vout_data_base;
+ wire        display_valid;
+ 
+ wire [3:0]  state_code;
+@@ -83,7 +84,13 @@ wire [31:0] fs_addr, bmp_phy_addr, wav_phy_addr;
+ wire [7:0] bmp_phy_data, wav_phy_data;
+ wire bmp_phy_valid, bmp_phy_end, wav_phy_valid, wav_phy_end;
+ wire arb_card_read, arb_card_valid, arb_card_end;
+-wire [31:0] arb_card_addr;
++wire [31:0] arb_card_addr;
++// Declare diagnostic buses before their first connection (TD rejects implicit
++// vector redeclarations with critical warnings).
++wire [3:0] debug_wav_state, debug_wav_phase;
++wire [31:0] debug_wav_pos;
++wire [7:0] debug_wav_byte;
++wire [127:0] debug_rows_sd;
+ // Stereo PCM and HDMI audio clock regeneration, all in the pixel clock domain.
+ wire        audio_valid;
+ wire [23:0] audio_left_data;
+@@ -211,8 +218,16 @@ fat32_file_sector u_wav_file_mapper (
+ 
+ // AC201 has four active-low LEDs and a serial segment-display interface.
+ // Show the reader state while loading; all four LEDs light after a frame commit.
+-assign led = (fs_error || bmp_error || bmp_map_error || wav_map_error || wav_error) ? 4'b1010 : audio_underflow ? 4'b1100 :
+-             display_valid ? 4'b0000 : ~state_code;
++// Probe build: four independent, active-low observations, usable without HDMI.
++// D3: mounted; D2: full source-frame sum matches one of the unchanged card BMPs;
++// D1: first two logical WAV bytes are RI; D0: audio primed with no WAV fault.
++wire debug_source_sum_matches = (debug_rows_sd[95:64] == 32'hfb167260) ||
++    (debug_rows_sd[95:64] == 32'hc3ebce2e) ||
++    (debug_rows_sd[95:64] == 32'h0b94a9db) ||
++    (debug_rows_sd[95:64] == 32'h98df6a9e);
++assign led = ~{(fs_ready && !fs_error), debug_source_sum_matches,
++    (debug_rows_sd[15:0] == 16'h4952),
++    (wav_primed && !wav_error && !wav_map_error && !audio_underflow)};
+ 
+ // ===================== 原图像时序与帧缓存 =====================
+ video_timing_data video_timing_data_m0(
+@@ -240,7 +255,7 @@ video_delay video_delay_m0(
+ );
+ 
+ // 首图提交前黑屏；提交后一直显示当前显示缓冲区内容
+-assign vout_data = display_valid ? vout_data_raw : 24'd0;
++assign vout_data_base = display_valid ? vout_data_raw : 24'd0;
+ 
+ // RGB888 pixel API; SDRAM word layout is owned by the frame buffer.
+ frame_buffer_rgb888 #(
+@@ -275,8 +290,27 @@ tf_wav_file_player #(
+     .sd_read(wav_card_read), .sd_addr(wav_card_addr),
+     .sd_data(wav_card_data), .sd_valid(wav_card_valid), .sd_end(wav_card_end),
+     .sample_take(wav_sample_take), .sample_data(wav_sample_data),
+-    .sample_available(wav_sample_available), .primed(wav_primed), .error(wav_error)
+-);
++    .sample_available(wav_sample_available), .primed(wav_primed), .error(wav_error),
++    .debug_state(debug_wav_state), .debug_phase(debug_wav_phase),
++    .debug_scan_pos(debug_wav_pos), .debug_scan_byte(debug_wav_byte)
++);
++
++// Diagnostic-only build: monitor source pixels and freeze the first WAV fault.
++wire [7:0] debug_flags = {fs_ready,display_valid,fs_wav_found,wav_primed,
++    wav_error,(bmp_error || bmp_map_error),wav_map_error,audio_underflow};
++player_debug_monitor u_debug_monitor (
++    .clk(sd_card_clk),.rst(rst_all),.flags(debug_flags),
++    .fs_code(fs_error_code),.bmp_map_code(bmp_map_error_code),
++    .wav_map_code(wav_map_error_code),
++    .write_req(sd_card_write_req),.write_en(sd_card_write_en),
++    .write_rgb(sd_card_write_data),.wav_addr(wav_card_addr),
++    .wav_valid(wav_card_valid),.wav_end(wav_card_end),.wav_data(wav_card_data),
++    .wav_error(wav_error),.wav_state(debug_wav_state),.wav_phase(debug_wav_phase),
++    .wav_scan_pos(debug_wav_pos),.wav_scan_byte(debug_wav_byte),
++    .debug_rows(debug_rows_sd)
++);
++// Restore the candidate's direct RGB path. No diagnostic overlay or video CDC.
++assign vout_data = vout_data_base;
+ 
+ wav_pcm_bridge u_wav_pcm_bridge (
+     .pixel_clk(video_clk), .sd_clk(sd_card_clk), .rst(rst_all),

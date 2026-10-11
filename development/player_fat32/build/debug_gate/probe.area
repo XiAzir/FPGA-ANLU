@@ -1,0 +1,46 @@
+standard
+***Report Model: fat_probe Device: EG4S20BG256***
+
+IO Statistics
+#IO                        98   out of    188   52.13%
+  #input                   16
+  #output                  82
+  #inout                    0
+
+LUT Statistics
+#Total_luts              5937
+  #lut4                  5103
+  #lut5                   834
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                    12329   out of  19600   62.90%
+#reg                     4118   out of  19600   21.01%
+#bram                       1   out of     64    1.56%
+  #bram9k                   1
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                       98   out of    188   52.13%
+  #ireg                    10
+  #oreg                    48
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+Report Hierarchy Area:
++-----------------------------------------------------------------------------+
+|Instance    |Module             |lut     |ripple  |seq     |bram    |dsp     |
++-----------------------------------------------------------------------------+
+|top         |fat_probe          |10669   |1660    |4176    |1       |0       |
+|  u_arb     |sd_sector_arbiter  |45      |0       |39      |0       |0       |
+|  u_bmp     |tf_bmp_file_player |780     |210     |510     |0       |0       |
+|    u_auto  |key_press_debounce |21      |9       |13      |0       |0       |
+|    u_next  |key_press_debounce |21      |9       |13      |0       |0       |
+|  u_bmp_map |fat32_file_sector  |1046    |283     |620     |0       |0       |
+|  u_cat     |fat32_catalog      |1931    |572     |1678    |0       |0       |
+|  u_wav     |tf_wav_file_player |5883    |347     |652     |1       |0       |
+|  u_wav_map |fat32_file_sector  |951     |248     |619     |0       |0       |
++-----------------------------------------------------------------------------+
