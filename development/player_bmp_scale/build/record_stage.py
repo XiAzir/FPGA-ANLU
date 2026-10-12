@@ -7,13 +7,13 @@ for _anlu_root in Path(__file__).resolve().parents:
         break
 from anlu_paths import DOCS_ROOT, REPOSITORY_ROOT, recorded_path
 
-from datetime import datetime
-from zoneinfo import ZoneInfo
+from datetime import datetime, timezone, timedelta
+
 
 docs = DOCS_ROOT / '开发记录'
 topic = docs / '专题记录/图片缩放/多尺寸最近邻首版_20261012'
 topic.mkdir(parents=True, exist_ok=True)
-stamp = datetime.now(ZoneInfo('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M:%S')
+stamp = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
 summary = f'''**{stamp} C11206多尺寸BMP/FPGA最近邻缩放开发中（T29/T30，S4转场与缩放）。从C11205 verified169逐项核验隔离复制src/scripts，无旧DB。支持规格24位BI_RGB、宽1..1024/高绝对值1..768、正负高度/行padding、等比居中黑边，FPGA加载时输出固定640×480，原音频/PHY/读侧转场保持。新增写FIFO真实ready：wrusedw<=480/非full/clear/两拍释放；实际pack/backend/IP拥塞模型PASS4096像素/3072word/max_used481/stalled5908，未含实际缩放engine或加密SDRAM。完整解析缩放黄金模型及RTL收尾中，未生成新bit/未板测。成功基线仍C11205；动态波形双线与清晰度优化保留。全流程进度粗估60%–65%、功能开发约80%，为剩余工作量主观估算，非官方评分或任务数量；缩放/集成回归/长稳异常/Flash/报告视频提交仍未完成。板与下载器在远控实验室电脑，未操作本机JTAG/TF/Flash。下一步完整像素黄金核验、静态审查、综合/原约束时序与资源审查，再封存候选供板测。 [缩放专题](专题记录/图片缩放/多尺寸最近邻首版_20261012/README.md)。**'''
 state = docs / '当前状态.md'
 text = state.read_text(encoding='utf-8-sig')
