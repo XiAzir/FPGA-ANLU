@@ -12,16 +12,16 @@
 ## 源码核对
 
 - C11108 [`tf_wav_file_player.v`](../../src/user_source/hdl_source/tf_wav_file_player.v)：第 71–88 行定义 `fifo_mem[0:FIFO_DEPTH-1]`、`wr_ptr/rd_ptr`、计数、`fifo_head`、pop/full 条件及预取/绕过判定；第 92–98 行导出样本与被动 source 观测端口；第 131–145 行同步复位 FIFO 状态、写内存、移动指针/计数、更新 head 并置错误标志。Top 在 [`top_tf_hdmi_audio.v`](../../src/user_source/hdl_source/top_tf_hdmi_audio.v) 第 332–345 行以 `sd_card_clk` 驱动播放器。
-- 成功版本 [`tf_wav_file_player.v`](../../../../player_osd_phy_fix/src/user_source/hdl_source/tf_wav_file_player.v)：对应 FIFO 行为为第 69–86、90–91、124–138 行。除参数行偏移和 C11108 新增 debug 端口/赋值外，内存、指针、count、prefetch、bypass、pop/push 行为相同。
+- 成功版本 [`tf_wav_file_player.v`](../../../player_osd_phy_fix/src/user_source/hdl_source/tf_wav_file_player.v)：对应 FIFO 行为为第 69–86、90–91、124–138 行。除参数行偏移和 C11108 新增 debug 端口/赋值外，内存、指针、count、prefetch、bypass、pop/push 行为相同。
 - [`wav_pcm_bridge.v`](../../src/user_source/hdl_source/wav_pcm_bridge.v) 第 15–44 行在 `sd_clk` 域同步 request toggle、取 `sample_data` 并脉冲 `sample_take`，用稳定 mailbox/ack 返回；第 46–91 行在 `pixel_clk` 域消费 mailbox 并产生 `audio_valid`。Top 第 376–384 行把播放器 FIFO 端接在 `sd_card_clk`。因此未发现 `sample_take` 或 FIFO 指针/内存端直接跨域；probe pop CRC 也在 SD 域，HDMI CRC 在 pixel 域。
 - [`player_pcm_prefix_probe.v`](../../src/user_source/hdl_source/player_pcm_prefix_probe.v) 第 64–74 行用独立 `pcm_prefix_crc` 观察 `push_valid`、pop_valid 和 `audio_valid&&!tone_mode`；第 14–35 行每个实例独立按 valid ordinal 跳过并计数；第 76–107 行记录源首个哈希样本位置、同步冻结 CRC，并报告早 tone abort。source 首位置/offset 证实 data offset=44 与窗口首 high-byte=131117；fifo 侧没有等价的 absolute ordinal/offset 观测。
 
 ## 网表与时序证据
 
 - C11108 [`synthesis_console.log`](../manual/synthesis_console.log) 第 213–216 行报告展开 `tf_wav_file_player`，并出现 `extracting RAM for identifier 'fifo_mem'`。这表示综合前端识别出数组 RAM，不等价于最后一定映射成专用 BRAM。
-- C11108 [`AC201_tf_hdmi_pr.timing`](C11108/AC201_tf_hdmi_pr.timing) 第 25–29、45–49 行：全局 SWNS=+0.633ns，HWNS=-0.008ns、HTNS=-0.014ns；SD 域 max path slack=+1.087ns，min 分析有 4 个违规端点。第 85–173 行的 WAV 路径经过多个 `fifo_mem_n_syn_*` LUT，再到 `ramread0_syn_*` DRAM(reg)；另见其第 201–207 行到 `fifo_head` 的 13 逻辑级路径。
-- C11108 [`physical_console.log`](C11108/physical_console.log) 第 70–74 行报告 8601 LUT / 7758 seq / 19 BRAM；第 175–180 行给出 `fifo_head_b3[14]`、`rd_ptr_b1[0..3]` 等 1026 扇出。[`AC201_tf_hdmi_phy.area`](C11108/AC201_tf_hdmi_phy.area) 第 10–20 行报告 16825 LUT、19 个 BRAM9K、0 FIFO9K。资源总数不具备 FIFO 实例级归属信息。
-- 成功 [`player_osd_phy_fix` 的 `physical_console.log`](../../../../player_osd_phy_fix/build/manual/physical_console.log) 第 63–67、169–173 行也有约 8757 LUT、19 BRAM 与 `rd_ptr` 1026 扇出；其 [`AC201_tf_hdmi_pr.timing`](../../../../player_osd_phy_fix/build/manual/AC201_tf_hdmi_pr.timing) 第 3590–3598 行可见同名 `fifo_mem_n_syn_*` LUT 路径。成功报告全局 HWNS=+0.030ns、HTNS=0（同报告第 25–29 行），C11108 有少量 min 角违规，但两份版本构建阶段/布局条件并非严格配对，不能据此确定这解释实板无信号。
+- C11108 [`AC201_tf_hdmi_pr.timing`](../prehold/C11108/AC201_tf_hdmi_pr.timing) 第 25–29、45–49 行：全局 SWNS=+0.633ns，HWNS=-0.008ns、HTNS=-0.014ns；SD 域 max path slack=+1.087ns，min 分析有 4 个违规端点。第 85–173 行的 WAV 路径经过多个 `fifo_mem_n_syn_*` LUT，再到 `ramread0_syn_*` DRAM(reg)；另见其第 201–207 行到 `fifo_head` 的 13 逻辑级路径。
+- C11108 [`physical_console.log`](../prehold/C11108/physical_console.log) 第 70–74 行报告 8601 LUT / 7758 seq / 19 BRAM；第 175–180 行给出 `fifo_head_b3[14]`、`rd_ptr_b1[0..3]` 等 1026 扇出。[`AC201_tf_hdmi_phy.area`](../prehold/C11108/AC201_tf_hdmi_phy.area) 第 10–20 行报告 16825 LUT、19 个 BRAM9K、0 FIFO9K。资源总数不具备 FIFO 实例级归属信息。
+- 成功 [`player_osd_phy_fix` 的 `physical_console.log`](../../../player_osd_phy_fix/build/manual/physical_console.log) 第 63–67、169–173 行也有约 8757 LUT、19 BRAM 与 `rd_ptr` 1026 扇出；其 [`AC201_tf_hdmi_pr.timing`](../../../player_osd_phy_fix/build/manual/AC201_tf_hdmi_pr.timing) 第 3590–3598 行可见同名 `fifo_mem_n_syn_*` LUT 路径。成功报告全局 HWNS=+0.030ns、HTNS=0（同报告第 25–29 行），C11108 有少量 min 角违规，但两份版本构建阶段/布局条件并非严格配对，不能据此确定这解释实板无信号。
 
 ## 风险判定边界
 
