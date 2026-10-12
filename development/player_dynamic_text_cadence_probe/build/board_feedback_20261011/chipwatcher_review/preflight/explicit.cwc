@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<chipwatcher project_name="cadence_cw_preflight" bit_file="" bid_file="" chip_name="EG4S20BG256">
+  <instance name="auto_chipwatcher_0" id="0" enabled="yes">
+    <clock clk_name="u_status_monitor/sys_clk" polarity="posedge" />
+    <config bram_name="auto_chipwatcher_0_logicbram" sample_depth="128" />
+    <signal_vec>
+      <data_nets>
+        <net name="u_audio_probe/audio_valid" />
+      </data_nets>
+      <watcher_nodes>
+        <net name="u_audio_probe/audio_valid" op="equal" type="reg" trigger="enable" />
+      </watcher_nodes>
+    </signal_vec>
+    <trigger name="auto_chipwatcher_0_trigger" position="pre">
+      <condition level="1" enabled="yes" type="basic_and" />
+    </trigger>
+  </instance>
+</chipwatcher>

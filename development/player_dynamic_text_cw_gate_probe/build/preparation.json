@@ -1,0 +1,24 @@
+{
+  "build_id": "C11105",
+  "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_cw_probe",
+  "method": "GUI-derived gate insertion; no source IP",
+  "changed_from_source_ip": [
+    "src/user_source/hdl_source/player_cadence_probe.v",
+    "src/user_source/hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "removed_source": "player_count_chipwatcher.sv",
+  "gui_config_sha256": "53d4d7d6b9c584d4261a139013653f88d3bc3333aff764b7611ba8b4b40053dc",
+  "board_connected_to_agent_host": false,
+  "status": "C11105_HUB10_FAILED_FINAL_TIMING_NOT_DELIVERED",
+  "active_config_sha256": "6f69519407e908239e0923ecd5d27f7d4cf3ea33af5e56e6d26dcffc8305cd7f",
+  "trigger": "cw_count_data[4] request_toggle only",
+  "previous_failure": "one-trigger C11102: PHY-9009 MSlice 4989 > 4900",
+  "omitted": "player_cadence_probe instance only; pages 6..B FFFFFFF unavailable markers",
+  "retained": "original counter/mailbox/received/display logic; only passive capture bus narrowed",
+  "top_sha256": "b0d775e72db8bbabbfd09b7c1e04413727f9d59a017fe2b738325e5d44891d4e",
+  "last_result": "route SWNS -0.044/STNS -0.134/HWNS -0.089/HTNS -0.609; after hold SWNS -0.044/STNS -0.134/HWNS -0.089/HTNS -0.219 ns; no bit",
+  "strategy": "seed1/place high/route timing; floating 10x10 bound cw_debug_hub on debug_hub_top; original timing constraints unchanged",
+  "capture_depth": 64,
+  "capture_width": 10,
+  "mapping": "9=tone,8:5=page,4=request_toggle,3=hex[17],2=received[17],1=mailbox[17],0=audio_count[17]"
+}

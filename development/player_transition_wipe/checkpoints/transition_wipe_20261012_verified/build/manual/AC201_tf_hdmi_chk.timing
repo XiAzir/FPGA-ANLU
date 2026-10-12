@@ -1,0 +1,500 @@
+Table of Contents
+-----------------
+1. checking no clock(0) (HIGH)
+2. checking clock definition(0) (HIGH)
+3. checking dummy node(3) (HIGH)
+4. checking invalid constraint(0) (HIGH)
+5. checking pll/clock buffer clock constraints(0) (HIGH)
+6. checking combinational loops(0) (HIGH)
+7. checking soft fifo timing exception constraints(0) (HIGH)
+8. checking no path constraints(0) (MEDIUM)
+9. checking shadowed/ignored timing exception constraints(0) (MEDIUM)
+10. checking no input delay(4) (MEDIUM)
+11. checking no output delay(14) (MEDIUM)
+12. checking partial input delay(0) (MEDIUM)
+13. checking partial output delay(0) (MEDIUM)
+14. checking abnormal input delay(0) (MEDIUM)
+
+
+1. checking nets with no clock driven. (HIGH)
+---------------------------------------------
+2. checking clock definition problems. (HIGH)
+---------------------------------------------
+2.1 There are 0 leaf clock pins driven by multiple clocks. (HIGH)
+
+
+2.2 There are 0 clocks created on internal clock network. (HIGH)
+
+
+2.3 There are 0 unexpandable clock sets. (HIGH)
+
+
+2.4 There are 0 local clocks. (HIGH)
+
+
+2.5 There are 0 generated clocks that are not connected to their master clocks. (HIGH)
+
+
+3. checking dummy nodes. (HIGH)
+---------------------------------------------
+There are 3 nodes are dangling. (HIGH)
+
+DummyNode in Model: EG_PHY_LSLICE
+	u_wav_file_mapper/cache_valid_reg_syn_123.a[1]
+	rst_all_reg_reg_syn_241.mi[1]
+	rst_all_reg_reg_syn_241.mi[0]
+	u_catalog/left_shift13_syn_666.mi[0]
+	rst_all_reg_reg_syn_303.mi[0]
+	rst_all_reg_reg_syn_253.mi[0]
+	u_bmp_file_mapper/left_shift0_syn_748.mi[0]
+	rst_all_reg_reg_syn_322.mi[0]
+	u_catalog/mux501_syn_3252.mi[0]
+	rst_all_reg_reg_syn_295.mi[1]
+	rst_all_reg_reg_syn_246.mi[0]
+	rst_all_reg_reg_syn_400.mi[1]
+	u_video_rgb_to_axis_640x480/I_rgb[7]_syn_1079.mi[0]
+	rst_all_reg_reg_syn_416.mi[1]
+	rst_all_reg_reg_syn_237.mi[1]
+	rst_all_reg_reg_syn_237.mi[0]
+	rst_all_reg_reg_syn_255.mi[0]
+	rst_all_reg_reg_syn_356.mi[0]
+	u_shared_card/sd_card_cmd_m0/send_data_b[2]_syn_15.mi[0]
+	u_video_rgb_to_axis_640x480/I_rgb[7]_syn_930.mi[0]
+	u_video_rgb_to_axis_640x480/I_rgb[7]_syn_932.mi[0]
+	u_wav_file_mapper/error_code_reg[3]_syn_38.mi[0]
+	u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_load_en_2d_reg_syn_16.a[0]
+	u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_load_en_2d_reg_syn_17.a[0]
+	u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_load_en_2d_reg_syn_16.c[0]
+	u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_load_en_2d_reg_syn_17.c[0]
+	u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_load_en_2d_reg_syn_16.b[0]
+	u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_load_en_2d_reg_syn_17.b[0]
+	u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_load_en_2d_reg_syn_16.d[0]
+	u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_load_en_2d_reg_syn_17.d[0]
+	u_bmp_file_mapper/cache_index_reg[4]_syn_4.d[0]
+	u_bmp_file_mapper/state_reg[6]_syn_177.d[0]
+	u_bmp_file_mapper/cache_index_reg[10]_syn_4.d[1]
+	u_bmp_file_mapper/cache_index_reg[4]_syn_4.d[1]
+	u_bmp_file_mapper/state_reg[6]_syn_206.d[0]
+	u_bmp_file_mapper/state_reg[6]_syn_203.d[0]
+	u_bmp_file_mapper/state_reg[6]_syn_204.d[0]
+	u_bmp_file_mapper/state_reg[6]_syn_205.d[0]
+	u_bmp_file_mapper/state_reg[1]_syn_18.d[1]
+	u_bmp_file_mapper/sd_read_reg_syn_25.d[0]
+	u_bmp_file_mapper/state_reg[1]_syn_23.d[0]
+	u_bmp_file_mapper/state_reg[1]_syn_24.d[0]
+	u_bmp_file_mapper/state_reg[1]_syn_25.d[0]
+	u_bmp_file_mapper/state_reg[2]_syn_24.d[1]
+	u_bmp_file_mapper/state_reg[2]_syn_24.c[1]
+	u_bmp_file_mapper/state_reg[6]_syn_206.d[1]
+	u_bmp_file_mapper/state_reg[6]_syn_203.d[1]
+	u_bmp_file_mapper/state_reg[6]_syn_204.d[1]
+	u_bmp_file_mapper/state_reg[6]_syn_205.d[1]
+	u_catalog/left_shift15_syn_187.d[0]
+	u_catalog/left_shift15_syn_188.d[0]
+	u_catalog/left_shift15_syn_187.b[0]
+	u_catalog/left_shift15_syn_188.b[0]
+	u_bmp_file_mapper/cache_index_reg[4]_syn_4.b[0]
+	u_bmp_file_mapper/state_reg[6]_syn_177.b[0]
+	u_bmp_file_mapper/cache_index_reg[10]_syn_4.b[1]
+	u_bmp_file_mapper/cache_index_reg[4]_syn_4.b[1]
+	u_bmp_file_mapper/state_reg[6]_syn_206.b[0]
+	u_bmp_file_mapper/state_reg[6]_syn_203.b[0]
+	u_bmp_file_mapper/state_reg[6]_syn_204.b[0]
+	u_bmp_file_mapper/state_reg[6]_syn_205.b[0]
+	u_bmp_file_mapper/cache_index_reg[4]_syn_4.c[0]
+	u_bmp_file_mapper/state_reg[6]_syn_177.c[0]
+	u_bmp_file_mapper/cache_index_reg[10]_syn_4.c[1]
+	u_bmp_file_mapper/cache_index_reg[4]_syn_4.c[1]
+	u_bmp_file_mapper/state_reg[6]_syn_206.c[0]
+	u_bmp_file_mapper/state_reg[6]_syn_203.c[0]
+	u_bmp_file_mapper/state_reg[6]_syn_204.c[0]
+	u_bmp_file_mapper/state_reg[6]_syn_205.c[0]
+	u_bmp_file_player/state_reg[6]_syn_10.mi[0]
+	u_bmp_file_player/state_reg[6]_syn_12.mi[0]
+	u_bmp_file_player/state_reg[6]_syn_16.b[0]
+	u_bmp_file_player/state_reg[6]_syn_17.b[0]
+	u_bmp_file_player/state_reg[6]_syn_16.a[1]
+	u_bmp_file_player/state_reg[6]_syn_17.a[1]
+	u_bmp_file_player/state_reg[6]_syn_16.d[1]
+	u_bmp_file_player/state_reg[6]_syn_17.d[1]
+	u_bmp_file_player/file_size_b[6]_syn_16.c[0]
+	u_catalog/bmp_clusters_reg[115]_syn_4.c[0]
+	u_catalog/bmp_clusters_reg[115]_syn_4.c[1]
+	u_bmp_file_player/state_reg[6]_syn_16.d[0]
+	u_bmp_file_player/state_reg[6]_syn_17.d[0]
+	u_bmp_file_player/file_size_b[6]_syn_16.d[0]
+	u_catalog/bmp_clusters_reg[115]_syn_4.d[0]
+	u_catalog/bmp_clusters_reg[115]_syn_4.d[1]
+	u_bmp_file_player/state_reg[6]_syn_16.a[0]
+	u_bmp_file_player/state_reg[6]_syn_17.a[0]
+	u_bmp_file_player/state_reg[6]_syn_16.c[1]
+	u_bmp_file_player/state_reg[6]_syn_17.c[1]
+	rst_all_reg_reg_syn_310.c[0]
+	u_catalog/bmp_clusters_reg[88]_syn_4.c[0]
+	u_bmp_file_player/state_reg[6]_syn_16.c[0]
+	u_bmp_file_player/state_reg[6]_syn_17.c[0]
+	rst_all_reg_reg_syn_310.d[0]
+	u_catalog/bmp_clusters_reg[88]_syn_4.d[0]
+	u_catalog/left_shift15_syn_187.c[0]
+	u_catalog/left_shift15_syn_188.c[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_40.c[1]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_41.c[1]
+	u_catalog/state_reg[3]_syn_15.mi[1]
+	u_catalog/left_shift13_syn_650.mi[0]
+	u_catalog/error_code_reg[2]_syn_559.c[1]
+	u_catalog/error_code_reg[2]_syn_559.b[1]
+	u_catalog/part_type_reg[6]_syn_4.c[0]
+	u_catalog/root_lba_p2_reg[27]_syn_4.c[0]
+	u_catalog/fat_lba_p2_reg[28]_syn_4.c[0]
+	u_catalog/state_reg[12]_syn_4.mi[0]
+	u_catalog/error_code_reg[2]_syn_559.d[1]
+	u_catalog/state_reg[4]_syn_9.mi[1]
+	u_catalog/state_reg[4]_syn_9.mi[0]
+	u_catalog/spc_reg[1]_syn_5.mi[0]
+	u_catalog/spc_reg[1]_syn_6.mi[0]
+	u_catalog/spc_reg[1]_syn_7.mi[0]
+	u_catalog/spc_reg[1]_syn_8.mi[0]
+	u_catalog/spc_reg[1]_syn_5.mi[1]
+	u_catalog/spc_reg[1]_syn_6.mi[1]
+	u_catalog/spc_reg[1]_syn_7.mi[1]
+	u_catalog/spc_reg[1]_syn_8.mi[1]
+	u_catalog/left_shift15_syn_187.c[1]
+	u_catalog/left_shift15_syn_188.c[1]
+	u_catalog/left_shift15_syn_187.b[1]
+	u_catalog/left_shift15_syn_188.b[1]
+	u_catalog/left_shift15_syn_188.d[1]
+	u_catalog/left_shift15_syn_187.d[1]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_40.e[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_41.e[0]
+	u_bmp_file_mapper/left_shift0_syn_710.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_36.mi[1]
+	u_wav_file_mapper/state_reg[6]_syn_251.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[1]_syn_25.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[1]_syn_25.mi[1]
+	u_wav_file_mapper/state_reg[6]_syn_253.mi[0]
+	u_catalog/byte_index_b28[0]_syn_6.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_40.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_41.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[0]_syn_25.mi[1]
+	u_catalog/spc_reg[1]_syn_5.b[1]
+	u_catalog/spc_reg[1]_syn_6.b[1]
+	u_catalog/spc_reg[1]_syn_7.b[1]
+	u_catalog/spc_reg[1]_syn_8.b[1]
+	u_catalog/spc_reg[4]_syn_4.e[0]
+	u_catalog/spc_reg[0]_syn_4.e[0]
+	u_catalog/spc_reg[1]_syn_5.d[1]
+	u_catalog/spc_reg[1]_syn_6.d[1]
+	u_catalog/spc_reg[1]_syn_7.d[1]
+	u_catalog/spc_reg[1]_syn_8.d[1]
+	u_catalog/spc_reg[4]_syn_4.d[0]
+	u_catalog/spc_reg[0]_syn_4.d[0]
+	u_catalog/spc_reg[4]_syn_4.c[0]
+	u_catalog/spc_reg[0]_syn_4.c[0]
+	u_catalog/spc_reg[4]_syn_4.b[0]
+	u_catalog/spc_reg[0]_syn_4.b[0]
+	u_catalog/spc_reg[4]_syn_4.a[0]
+	u_catalog/spc_reg[0]_syn_4.a[0]
+	u_catalog/data_lba_p1_reg[21]_syn_4.c[1]
+	u_catalog/part_type_reg[6]_syn_4.c[1]
+	u_catalog/root_lba_p2_reg[35]_syn_4.c[1]
+	u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_load_en_2d_reg_syn_9.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_38.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_44.mi[0]
+	u_wav_file_mapper/right_shift4_syn_456.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u1_hdmi_tmds_encode/S_q_m_1d_reg[3]_syn_3.mi[0]
+	u_wav_player/mux28_syn_74.d[1]
+	u_wav_file_mapper/cache_valid_reg_syn_123.b[1]
+	u_wav_file_mapper/rq_sector_reg[11]_syn_4.d[1]
+	u_wav_file_mapper/state_reg[2]_syn_24.d[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_40.a[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_41.a[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_40.d[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_41.d[0]
+	u_wav_file_mapper/state_reg[2]_syn_24.d[1]
+	u_wav_file_mapper/state_reg[2]_syn_22.d[1]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_40.b[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_40.d[1]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_41.b[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_41.d[1]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_40.b[1]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_41.b[1]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_40.c[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_41.c[0]
+	u_wav_file_mapper/cache_valid_reg_syn_123.d[1]
+	u_wav_file_mapper/cache_valid_reg_syn_123.c[1]
+	u_wav_file_mapper/rq_sector_reg[11]_syn_4.b[1]
+	u_wav_file_mapper/state_reg[2]_syn_24.b[0]
+	u_wav_file_mapper/rq_sector_reg[11]_syn_4.c[1]
+	u_wav_file_mapper/state_reg[2]_syn_24.c[0]
+	u_wav_player/error_reg_syn_447.d[0]
+	u_wav_player/mux28_syn_74.c[1]
+	u_wav_player/mux28_syn_74.b[1]
+	u_wav_player/mux28_syn_74.a[1]
+	u_wav_player/error_reg_syn_447.c[0]
+	u_bmp_file_mapper/state_reg[1]_syn_21.mi[1]
+	u_bmp_file_mapper/state_reg[1]_syn_21.mi[0]
+	u_bmp_file_mapper/state_reg[1]_syn_18.mi[1]
+	u_bmp_file_mapper/state_reg[1]_syn_23.mi[1]
+	u_bmp_file_mapper/state_reg[1]_syn_23.mi[0]
+	u_bmp_file_mapper/state_reg[1]_syn_24.mi[1]
+	u_bmp_file_mapper/state_reg[1]_syn_24.mi[0]
+	u_bmp_file_mapper/state_reg[1]_syn_25.mi[1]
+	u_bmp_file_mapper/state_reg[1]_syn_25.mi[0]
+	u_bmp_file_mapper/state_reg[1]_syn_18.c[1]
+	u_bmp_file_mapper/sd_read_reg_syn_25.c[0]
+	u_bmp_file_mapper/state_reg[1]_syn_23.c[0]
+	u_bmp_file_mapper/state_reg[1]_syn_24.c[0]
+	u_bmp_file_mapper/state_reg[1]_syn_25.c[0]
+	u_bmp_file_mapper/state_reg[1]_syn_18.b[1]
+	u_bmp_file_mapper/sd_read_reg_syn_25.b[0]
+	u_bmp_file_mapper/state_reg[1]_syn_23.b[0]
+	u_bmp_file_mapper/state_reg[1]_syn_24.b[0]
+	u_bmp_file_mapper/state_reg[1]_syn_25.b[0]
+	u_bmp_file_mapper/state_reg[6]_syn_206.c[1]
+	u_bmp_file_mapper/state_reg[6]_syn_203.c[1]
+	u_bmp_file_mapper/state_reg[6]_syn_204.c[1]
+	u_bmp_file_mapper/state_reg[6]_syn_205.c[1]
+	u_bmp_file_mapper/state_reg[2]_syn_24.a[1]
+	u_bmp_file_mapper/state_reg[6]_syn_206.b[1]
+	u_bmp_file_mapper/state_reg[6]_syn_203.b[1]
+	u_bmp_file_mapper/state_reg[6]_syn_204.b[1]
+	u_bmp_file_mapper/state_reg[6]_syn_205.b[1]
+	u_bmp_file_mapper/state_reg[2]_syn_24.b[1]
+	u_bmp_file_mapper/state_reg[6]_syn_206.a[1]
+	u_bmp_file_mapper/state_reg[6]_syn_203.a[1]
+	u_bmp_file_mapper/state_reg[6]_syn_204.a[1]
+	u_bmp_file_mapper/state_reg[6]_syn_205.a[1]
+	u_bmp_file_player/state_reg[6]_syn_16.b[1]
+	u_bmp_file_player/state_reg[6]_syn_17.b[1]
+	u_catalog/spc_reg[1]_syn_5.c[1]
+	u_catalog/spc_reg[1]_syn_6.c[1]
+	u_catalog/spc_reg[1]_syn_7.c[1]
+	u_catalog/spc_reg[1]_syn_8.c[1]
+	u_catalog/error_code_reg[2]_syn_572.d[1]
+	u_catalog/error_code_reg[2]_syn_572.d[0]
+	u_catalog/error_code_reg[2]_syn_572.c[1]
+	u_catalog/error_code_reg[2]_syn_572.c[0]
+	u_catalog/root_lba_p2_reg[27]_syn_4.d[0]
+	u_catalog/fat_lba_p2_reg[28]_syn_4.d[0]
+	u_catalog/root_lba_p2_reg[27]_syn_4.b[0]
+	u_catalog/fat_lba_p2_reg[28]_syn_4.b[0]
+	u_catalog/part_type_reg[6]_syn_4.d[0]
+	u_catalog/root_lba_p2_reg[35]_syn_4.d[1]
+	u_catalog/data_lba_p1_reg[21]_syn_4.d[1]
+	u_catalog/part_type_reg[6]_syn_4.d[1]
+	u_wav_file_mapper/state_reg[2]_syn_22.c[1]
+	u_wav_file_mapper/state_reg[2]_syn_24.c[1]
+	u_wav_file_mapper/state_reg[2]_syn_22.b[1]
+	u_wav_file_mapper/state_reg[2]_syn_24.b[1]
+
+DummyNode in Model: EG_PHY_MSLICE
+	u_osd_state/latest_pixel_reg[3]_syn_4.a[0]
+	rst_all_reg_reg_syn_436.mi[0]
+	rst_all_reg_reg_syn_455.mi[1]
+	rst_all_reg_reg_syn_422.mi[0]
+	rst_all_reg_reg_syn_259.mi[0]
+	rst_all_reg_reg_syn_263.mi[0]
+	rst_all_reg_reg_syn_277.mi[1]
+	rst_all_reg_reg_syn_291.mi[1]
+	rst_all_reg_reg_syn_291.mi[0]
+	rst_all_reg_reg_syn_270.mi[0]
+	u_shared_card/sd_card_cmd_m0/mux24_syn_2135.mi[0]
+	rst_all_reg_reg_syn_341.mi[1]
+	rst_all_reg_reg_syn_306.mi[1]
+	rst_all_reg_reg_syn_306.mi[0]
+	rst_all_reg_reg_syn_280.mi[1]
+	rst_all_reg_reg_syn_313.mi[0]
+	rst_all_reg_reg_syn_344.mi[0]
+	rst_all_reg_reg_syn_361.mi[1]
+	rst_all_reg_reg_syn_395.mi[1]
+	rst_all_reg_reg_syn_395.mi[0]
+	u_wav_file_mapper/left_shift0_syn_756.mi[0]
+	u_wav_file_mapper/right_shift4_syn_465.mi[0]
+	u_wav_player/fifo_head_bypass_reg_syn_68.mi[0]
+	u_wav_file_mapper/state_reg[6]_syn_284.mi[0]
+	u_adjust_osd/y_pos_reg[4]_syn_4.c[0]
+	u_adjust_osd/y_pos_reg[5]_syn_4.c[0]
+	u_adjust_osd/y_pos_reg[6]_syn_4.c[0]
+	u_adjust_osd/y_pos_reg[4]_syn_9.c[1]
+	u_adjust_osd/y_pos_reg[5]_syn_6.c[1]
+	u_adjust_osd/y_pos_reg[5]_syn_7.c[1]
+	u_adjust_osd/y_pos_reg[5]_syn_8.c[1]
+	u_adjust_osd/y_pos_reg[4]_syn_8.c[1]
+	u_adjust_osd/y_pos_reg[6]_syn_6.c[1]
+	u_adjust_osd/y_pos_reg[6]_syn_7.c[1]
+	u_adjust_osd/y_pos_reg[4]_syn_7.c[1]
+	u_adjust_osd/y_pos_reg[6]_syn_9.c[1]
+	u_adjust_osd/y_pos_reg[4]_syn_5.c[1]
+	u_status_hex/mux7_syn_729.mi[0]
+	status_reset_pipe_reg[1]_syn_13.mi[0]
+	u_adjust_osd/y_pos_reg[6]_syn_9.d[1]
+	u_adjust_osd/y_pos_reg[6]_syn_6.d[1]
+	u_adjust_osd/y_pos_reg[6]_syn_7.d[1]
+	u_adjust_osd/y_pos_reg[5]_syn_8.d[1]
+	u_adjust_osd/y_pos_reg[5]_syn_6.d[1]
+	u_adjust_osd/y_pos_reg[5]_syn_7.d[1]
+	u_adjust_osd/y_pos_reg[4]_syn_5.d[1]
+	u_adjust_osd/y_pos_reg[4]_syn_9.d[1]
+	u_adjust_osd/y_pos_reg[4]_syn_7.d[1]
+	u_adjust_osd/y_pos_reg[4]_syn_8.d[1]
+	u_adjust_osd/y_pos_reg[6]_syn_4.d[0]
+	u_adjust_osd/y_pos_reg[5]_syn_4.d[0]
+	u_adjust_osd/y_pos_reg[4]_syn_4.d[0]
+	u_adjust_osd/y_pos_reg[6]_syn_4.b[0]
+	u_adjust_osd/y_pos_reg[4]_syn_4.b[0]
+	u_adjust_osd/y_pos_reg[5]_syn_4.b[0]
+	u_adjust_osd/y_pos_reg[4]_syn_9.b[1]
+	u_adjust_osd/y_pos_reg[5]_syn_6.b[1]
+	u_adjust_osd/y_pos_reg[5]_syn_7.b[1]
+	u_adjust_osd/y_pos_reg[5]_syn_8.b[1]
+	u_adjust_osd/y_pos_reg[4]_syn_8.b[1]
+	u_adjust_osd/y_pos_reg[6]_syn_6.b[1]
+	u_adjust_osd/y_pos_reg[6]_syn_7.b[1]
+	u_adjust_osd/y_pos_reg[4]_syn_7.b[1]
+	u_adjust_osd/y_pos_reg[6]_syn_9.b[1]
+	u_adjust_osd/y_pos_reg[4]_syn_5.b[1]
+	u_bmp_file_mapper/cache_start_reg[16]_syn_4.d[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_3d_reg[12]_syn_4.c[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_3d_reg[12]_syn_4.c[1]
+	rst_all_reg_reg_syn_272.c[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_3d_reg[12]_syn_4.b[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_3d_reg[12]_syn_4.b[1]
+	rst_all_reg_reg_syn_272.b[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_3d_reg[12]_syn_4.d[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_3d_reg[12]_syn_4.d[1]
+	rst_all_reg_reg_syn_272.d[0]
+	u_wav_file_mapper/right_shift3_syn_550.d[0]
+	u_wav_file_mapper/right_shift3_syn_550.c[1]
+	u_catalog/sectors_per_cluster_shift_reg[1]_syn_28.mi[0]
+	u_wav_file_mapper/right_shift4_syn_440.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[0]_syn_27.mi[1]
+	u_catalog/sectors_per_cluster_shift_reg[0]_syn_30.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u2_hdmi_tmds_encode/S_cnt_t_1_b[3]_syn_8.mi[0]
+	u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_load_en_1d_reg_syn_10.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_55.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u1_hdmi_tmds_encode/S_cnt_t_1_b[2]_syn_20.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_47.mi[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u2_hdmi_tmds_encode/S_q_m_1d_reg[6]_syn_4.mi[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u2_hdmi_tmds_encode/S_q_m_1d_reg[6]_syn_5.mi[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u2_hdmi_tmds_encode/S_q_m_1d_reg[6]_syn_3.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u2_hdmi_tmds_encode/S_q_m_1d_reg[5]_syn_3.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u2_hdmi_tmds_encode/S_q_m_1d_reg[1]_syn_3.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u0_hdmi_tmds_encode/S_video_data_guard_band_code_1d_reg[2]_syn_4.mi[0]
+	u_osd_state/latest_pixel_reg[3]_syn_4.b[0]
+	u_wav_file_mapper/right_shift3_syn_550.d[1]
+	u_wav_file_mapper/right_shift3_syn_550.b[1]
+	u_osd_state/latest_pixel_reg[3]_syn_4.d[0]
+	u_osd_state/latest_pixel_reg[3]_syn_4.c[0]
+	u_wav_file_mapper/right_shift3_syn_550.c[0]
+	u_wav_file_mapper/right_shift3_syn_550.b[0]
+	u_bmp_file_mapper/cache_start_reg[16]_syn_4.c[0]
+	u_bmp_file_mapper/cache_start_reg[16]_syn_4.b[0]
+	rst_all_reg_reg_syn_280.d[0]
+	rst_all_reg_reg_syn_280.c[0]
+	u_wav_file_mapper/file_end_n_syn_21.mi[0]
+
+DummyNode in Model: EG_PHY_PAD
+	u_frame_buffer/u_sdram/sdram_syn_5.opad
+	u_frame_buffer/u_sdram/sdram_syn_10.opad
+
+4. checking invalid constraints. (HIGH)
+---------------------------------------------
+There are 0 invalid constraints. (HIGH)
+
+
+5. checking PLL/buffer clocks. (HIGH)
+---------------------------------------------
+PLL/buffer inst: sys_pll_m0/pll_inst
+{
+	There are 0 clock pins that have no clock constraints. (HIGH)
+
+
+	There are 0 clocks whose clock frequency do not match the PLL setting. (HIGH)
+
+
+}
+
+PLL/buffer inst: video_pll_m0/pll_inst
+{
+	There are 0 clock pins that have no clock constraints. (HIGH)
+
+
+	There are 0 clocks whose clock frequency do not match the PLL setting. (HIGH)
+
+
+}
+
+6. checking combinational loops. (HIGH)
+---------------------------------------------
+There are 0 combinational loops. (HIGH)
+
+
+7. checking soft fifo set_max_delay constraints. (HIGH)
+---------------------------------------------
+There are 0 max-delay datapath-only paths that are part of the provided async clock paths, whereas the timing between other registers is not relaxed or ignored. (HIGH)
+
+
+8. checking no path constraints. (MEDIUM)
+---------------------------------------------
+There are 0 constraints that have no timing paths. (MEDIUM)
+
+
+9. checking path exception constraints shadowed/ignored by other constraints. (MEDIUM)
+---------------------------------------------
+
+MCP/SMD Summary
+--------------------
+
+		Max Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+		        36           36            0            0   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 19.700
+		        36           36            0            0   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 19.700
+
+		Min Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+
+10. checking no input delay (MEDIUM)
+--------------------------
+There are 4 input ports that with no input delay specified. (MEDIUM)
+
+	key1
+	key2
+	rst_n
+	sd_miso
+
+11. checking no output delay (MEDIUM)
+--------------------------
+There are 14 output ports that with no output delay specified. (MEDIUM)
+
+	HDMI_CLK_P
+	HDMI_D0_P
+	HDMI_D1_P
+	HDMI_D2_P
+	led[3]
+	led[2]
+	led[1]
+	led[0]
+	sd_dclk
+	sd_mosi
+	sd_ncs
+	seg7_dio
+	seg7_rclk
+	seg7_sclk
+
+12. checking partial input delay (MEDIUM)
+--------------------------
+There are 0 input ports with partial input delay specified. (MEDIUM)
+
+
+13. checking partial output delay (MEDIUM)
+--------------------------
+There are 0 output ports with partial output delay specified. (MEDIUM)
+
+
+14. checking abnormal set_input_delay constraints. (MEDIUM)
+---------------------------------------------
+There are 0 abnormal set_input_delay constraints. (MEDIUM)
+
+
