@@ -1,0 +1,7 @@
+prefix expected=0dd5 src=0dd5 fifo=0dd5 hdmi=0dd5 count=1024 first_high=969 data_offset=544
+fault pop: src=0dd5 fifo=98a6 hdmi=0dd5 expected_fault=98a6
+fault HDMI: src=0dd5 fifo=0dd5 hdmi=98a6 expected_fault=98a6
+format fault: crc=0dd5 format_bad=1
+real full-parameter direct: crc=f485 count=32768 done=1 input-events=98304
+PASS tb_pcm_prefix_pipeline
+tb_pcm_prefix_pipeline.v:359: $finish called at 17758785000 (1ps)

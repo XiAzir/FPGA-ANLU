@@ -1,0 +1,20 @@
+PASS reset clears and LEDs off led=f flags=0000
+PASS WAV does not latch led=f flags=0000
+PASS tone entry starts clear led=f flags=0000
+PASS bit0 audio_count17 maps to LED0 led=e flags=0001
+PASS one-cycle bit0 pulse remains sticky led=e flags=0001
+PASS WAV does not latch led=f flags=0000
+PASS tone entry starts clear led=f flags=0000
+PASS bit1 mailbox17 maps to LED1 led=d flags=0010
+PASS WAV does not latch led=f flags=0000
+PASS tone entry starts clear led=f flags=0000
+PASS bit2 received17 maps to LED2 led=b flags=0100
+PASS WAV does not latch led=f flags=0000
+PASS tone entry starts clear led=f flags=0000
+PASS hex17 ignored outside internal page1 led=f flags=0000
+PASS hex17 maps to LED3 on display page3 led=7 flags=1000
+PASS hex17 page3 event remains sticky led=7 flags=1000
+PASS return to WAV clears all flags led=f flags=0000
+PASS WAV remains unlatched led=f flags=0000
+MODEL_PASS
+E:\VSCODE-project\FPGA-ANLU\development\player_dynamic_text_bit17_led_probe\build\model\tb_player_bit17_led_probe.sv:70: $finish called at 186000 (1ps)

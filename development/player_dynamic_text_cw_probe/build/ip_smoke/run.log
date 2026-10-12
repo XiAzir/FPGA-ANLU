@@ -1,0 +1,448 @@
+============================================================
+   Tang Dynasty, V6.2.178840
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/bin/td_commands_prompt.exe
+   Built at =   14:07:58 Sep  4 2025
+   Run by =     PENGYUHAO
+   Run Date =   Sun Oct 11 14:22:40 2026
+
+   Run on =     DESKTOP-3CITPT4
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20BG256"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :            OPTION            |          IO          |   SETTING   
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  T3/R11/T10/P10/S11  |    gpio    
+ARC-1001 :             done             |         P13          |    gpio    
+ARC-1001 :           program_b          |          T2          |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |   C12/A15/C14/E14    |  dedicate  
+ARC-1001 : ------------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "read_verilog -file smoke.sv"
+HDL-1007 : analyze verilog file smoke.sv
+HDL-1007 : elaborate module cw_smoke_top in smoke.sv(14)
+HDL-1007 : elaborate module cw_smoke_ip in smoke.sv(3)
+HDL-1200 : Current top model is cw_smoke_top
+HDL-1100 : Inferred 0 RAMs.
+RUN-1002 : start command "commit_param -step rtl"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Rtl Property
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :         Parameters        |  Settings  |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :        fix_undriven       |     0      |        0         |        
+RUN-1001 :   gated_clock_conversion  |    off     |       off        |        
+RUN-1001 :         infer_fsm         |    auto    |       auto       |        
+RUN-1001 :         infer_gsr         |    off     |       off        |        
+RUN-1001 :         infer_rom         |     on     |        on        |        
+RUN-1001 :       keep_hierarchy      |    auto    |       auto       |        
+RUN-1001 :        merge_equal        |     on     |        on        |        
+RUN-1001 :      min_control_set      |     8      |        8         |        
+RUN-1001 :       min_ripple_len      |    auto    |       auto       |        
+RUN-1001 :          seq_syn          |     on     |        on        |        
+RUN-1001 : -------------------------------------------------------------------
+RUN-1002 : start command "insert_debugger ."
+KIT-1004 : Ooc flow for module cw_smoke_ip is running...
+RUN-1002 : start command "import_db -link -mode ooc cw/cw_smoke_ip/cw_smoke_ip_ooc.db"
+USR-1600 : Load OOC design OOC Model: cw_smoke_ip .
+RUN-1001 : Import OOC design success TD_VERSION=6.2.178840 , DB_VERSION=46207
+KIT-1004 : ooc link black box model cw_smoke_ip.
+RUN-1002 : start command "report_cwc_status"
+RUN-1001 : print cwc global configuration
+RUN-1001 : ----------------------------------------------
+RUN-1001 :   Project  |  Chip  |  Cwc File  |  Bit File  
+RUN-1001 : ----------------------------------------------
+RUN-1001 :            |        |            |            
+RUN-1001 : ----------------------------------------------
+RUN-1001 : print net viewer configuration
+RUN-1001 : ---------------------------------------------------------------------
+RUN-1001 :   Node  |  Type  |  Enabled  |  Trigger Clock  |  Watcher Instances  
+RUN-1001 : ---------------------------------------------------------------------
+RUN-1001 : ---------------------------------------------------------------------
+RUN-1001 : print chipwatcher instances configuration
+RUN-1001 : ------------------------------------------------------------------------------------------------------
+RUN-1001 :   Wathcer  |  Sample Depth  |  Clock  |  Input Pipe Stage  |  Output Pipe State  |  Power On trigger  
+RUN-1001 : ------------------------------------------------------------------------------------------------------
+RUN-1001 : ------------------------------------------------------------------------------------------------------
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.000119s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 94, reserved = 105, peak = 94;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 790, Total nets: 934.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[71](wrapper_cwc_top/cwc_control[71]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[70](wrapper_cwc_top/cwc_control[70]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[69](wrapper_cwc_top/cwc_control[69]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[68](wrapper_cwc_top/cwc_control[68]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[67](wrapper_cwc_top/cwc_control[67]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[66](wrapper_cwc_top/cwc_control[66]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[65](wrapper_cwc_top/cwc_control[65]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[64](wrapper_cwc_top/cwc_control[64]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[63](wrapper_cwc_top/cwc_control[63]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[62](wrapper_cwc_top/cwc_control[62]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[61](wrapper_cwc_top/cwc_control[61]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[60](wrapper_cwc_top/cwc_control[60]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[59](wrapper_cwc_top/cwc_control[59]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[58](wrapper_cwc_top/cwc_control[58]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[57](wrapper_cwc_top/cwc_control[57]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[56](wrapper_cwc_top/cwc_control[56]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[55](wrapper_cwc_top/cwc_control[55]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[54](wrapper_cwc_top/cwc_control[54]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[53](wrapper_cwc_top/cwc_control[53]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[52](wrapper_cwc_top/cwc_control[52]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[51](wrapper_cwc_top/cwc_control[51]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[50](wrapper_cwc_top/cwc_control[50]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[49](wrapper_cwc_top/cwc_control[49]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[48](wrapper_cwc_top/cwc_control[48]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[47](wrapper_cwc_top/cwc_control[47]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[46](wrapper_cwc_top/cwc_control[46]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[45](wrapper_cwc_top/cwc_control[45]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[44](wrapper_cwc_top/cwc_control[44]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[43](wrapper_cwc_top/cwc_control[43]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[42](wrapper_cwc_top/cwc_control[42]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[41](wrapper_cwc_top/cwc_control[41]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[40](wrapper_cwc_top/cwc_control[40]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[39](wrapper_cwc_top/cwc_control[39]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[38](wrapper_cwc_top/cwc_control[38]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[37](wrapper_cwc_top/cwc_control[37]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[36](wrapper_cwc_top/cwc_control[36]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[35](wrapper_cwc_top/cwc_control[35]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[34](wrapper_cwc_top/cwc_control[34]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[33](wrapper_cwc_top/cwc_control[33]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[32](wrapper_cwc_top/cwc_control[32]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[31](wrapper_cwc_top/cwc_control[31]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[30](wrapper_cwc_top/cwc_control[30]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[29](wrapper_cwc_top/cwc_control[29]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[28](wrapper_cwc_top/cwc_control[28]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[27](wrapper_cwc_top/cwc_control[27]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[26](wrapper_cwc_top/cwc_control[26]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[25](wrapper_cwc_top/cwc_control[25]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[24](wrapper_cwc_top/cwc_control[24]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[23](wrapper_cwc_top/cwc_control[23]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[22](wrapper_cwc_top/cwc_control[22]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[21](wrapper_cwc_top/cwc_control[21]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[20](wrapper_cwc_top/cwc_control[20]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[19](wrapper_cwc_top/cwc_control[19]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[18](wrapper_cwc_top/cwc_control[18]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[17](wrapper_cwc_top/cwc_control[17]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[16](wrapper_cwc_top/cwc_control[16]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[15](wrapper_cwc_top/cwc_control[15]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[14](wrapper_cwc_top/cwc_control[14]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[13](wrapper_cwc_top/cwc_control[13]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[12](wrapper_cwc_top/cwc_control[12]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[11](wrapper_cwc_top/cwc_control[11]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[10](wrapper_cwc_top/cwc_control[10]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[9](wrapper_cwc_top/cwc_control[9]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[8](wrapper_cwc_top/cwc_control[8]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[7](wrapper_cwc_top/cwc_control[7]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[6](wrapper_cwc_top/cwc_control[6]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[5](wrapper_cwc_top/cwc_control[5]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[4](wrapper_cwc_top/cwc_control[4]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[3](wrapper_cwc_top/cwc_control[3]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[2](wrapper_cwc_top/cwc_control[2]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[1](wrapper_cwc_top/cwc_control[1]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_control[0](wrapper_cwc_top/cwc_control[0]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[23](wrapper_cwc_top/cwc_status[23]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[22](wrapper_cwc_top/cwc_status[22]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[21](wrapper_cwc_top/cwc_status[21]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[20](wrapper_cwc_top/cwc_status[20]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[19](wrapper_cwc_top/cwc_status[19]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[18](wrapper_cwc_top/cwc_status[18]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[17](wrapper_cwc_top/cwc_status[17]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[16](wrapper_cwc_top/cwc_status[16]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[15](wrapper_cwc_top/cwc_status[15]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[14](wrapper_cwc_top/cwc_status[14]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[13](wrapper_cwc_top/cwc_status[13]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[12](wrapper_cwc_top/cwc_status[12]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[11](wrapper_cwc_top/cwc_status[11]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[10](wrapper_cwc_top/cwc_status[10]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[9](wrapper_cwc_top/cwc_status[9]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[8](wrapper_cwc_top/cwc_status[8]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[7](wrapper_cwc_top/cwc_status[7]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[6](wrapper_cwc_top/cwc_status[6]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[5](wrapper_cwc_top/cwc_status[5]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[4](wrapper_cwc_top/cwc_status[4]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[3](wrapper_cwc_top/cwc_status[3]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[2](wrapper_cwc_top/cwc_status[2]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[1](wrapper_cwc_top/cwc_status[1]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/cwc_status[0](wrapper_cwc_top/cwc_status[0]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[15](wrapper_cwc_top/U_cwc_ram/dia[15]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[14](wrapper_cwc_top/U_cwc_ram/dia[14]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[13](wrapper_cwc_top/U_cwc_ram/dia[13]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[12](wrapper_cwc_top/U_cwc_ram/dia[12]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[11](wrapper_cwc_top/U_cwc_ram/dia[11]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[10](wrapper_cwc_top/U_cwc_ram/dia[10]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[9](wrapper_cwc_top/U_cwc_ram/dia[9]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[8](wrapper_cwc_top/U_cwc_ram/dia[8]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[7](wrapper_cwc_top/U_cwc_ram/dia[7]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[6](wrapper_cwc_top/U_cwc_ram/dia[6]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[5](wrapper_cwc_top/U_cwc_ram/dia[5]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[4](wrapper_cwc_top/U_cwc_ram/dia[4]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[3](wrapper_cwc_top/U_cwc_ram/dia[3]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[2](wrapper_cwc_top/U_cwc_ram/dia[2]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[1](wrapper_cwc_top/U_cwc_ram/dia[1]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/dia[0](wrapper_cwc_top/U_cwc_ram/dia[0]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[15](wrapper_cwc_top/U_cwc_ram/doa_keep[15]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[14](wrapper_cwc_top/U_cwc_ram/doa_keep[14]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[13](wrapper_cwc_top/U_cwc_ram/doa_keep[13]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[12](wrapper_cwc_top/U_cwc_ram/doa_keep[12]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[11](wrapper_cwc_top/U_cwc_ram/doa_keep[11]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[10](wrapper_cwc_top/U_cwc_ram/doa_keep[10]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[9](wrapper_cwc_top/U_cwc_ram/doa_keep[9]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[8](wrapper_cwc_top/U_cwc_ram/doa_keep[8]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[7](wrapper_cwc_top/U_cwc_ram/doa_keep[7]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[6](wrapper_cwc_top/U_cwc_ram/doa_keep[6]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[5](wrapper_cwc_top/U_cwc_ram/doa_keep[5]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[4](wrapper_cwc_top/U_cwc_ram/doa_keep[4]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[3](wrapper_cwc_top/U_cwc_ram/doa_keep[3]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[2](wrapper_cwc_top/U_cwc_ram/doa_keep[2]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[1](wrapper_cwc_top/U_cwc_ram/doa_keep[1]_syn_1)
+SYN-1001 : 	kept net: wrapper_cwc_top/U_cwc_ram/doa_keep[0](wrapper_cwc_top/U_cwc_ram/doa_keep[0]_syn_1)
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 0.010816s wall, 0.000000s user + 0.015625s system = 0.015625s CPU (144.5%); Memory(MB): used = 94, reserved = 105, peak = 94;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 773, Total nets: 917.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model cw_smoke_top
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.003627s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 94, reserved = 105, peak = 94;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 772, Total nets: 900.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.000527s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 95, reserved = 105, peak = 95;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 772, Total nets: 900.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1016 : Merged 2 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 0.049880s wall, 0.031250s user + 0.031250s system = 0.062500s CPU (125.3%); Memory(MB): used = 97, reserved = 105, peak = 97;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 786, Total nets: 898.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 0.108113s wall, 0.093750s user + 0.000000s system = 0.093750s CPU (86.7%); Memory(MB): used = 109, reserved = 100, peak = 116;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 786, Total nets: 898.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.000064s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 109, reserved = 100, peak = 116;
+
+SYN-1079 : finish stage Check Design. Total instances: 786, Total nets: 898.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 0.173473s wall, 0.125000s user + 0.046875s system = 0.171875s CPU (99.1%); Memory(MB): used = 109, reserved = 100, peak = 116;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 786, Total nets: 898.
+
+RUN-1002 : start command "commit_param -step gate"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Gate Property
+RUN-1001 : -----------------------------------------------------------
+RUN-1001 :     Parameters    |  Settings  |  Default Values  |  Note  
+RUN-1001 : -----------------------------------------------------------
+RUN-1001 :     eram_init     |    off     |       off        |        
+RUN-1001 :      map_mode     |    auto    |       auto       |        
+RUN-1001 :    pack_effort    |   medium   |      medium      |        
+RUN-1001 :   pack_seq_in_io  |    auto    |       auto       |        
+RUN-1001 :       report      |  standard  |     standard     |        
+RUN-1001 : -----------------------------------------------------------
+RUN-1002 : start command "optimize_gate -packarea smoke.area"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.002790s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 109, reserved = 100, peak = 116;
+
+SYN-1079 : finish stage Map Reg. Total instances: 786, Total nets: 898.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2001 : Map 3 IOs to PADs of model 'cw_smoke_top'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.003164s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 109, reserved = 100, peak = 116;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module cw_smoke_top"
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-2571 : Optimize after map_dsp, round 1, 0 better
+SYN-2501 : Optimize round 1
+SYN-2501 : Optimize round 1, 0 better
+SYN-2501 : Optimize round 1
+SYN-2501 : Optimize round 1, 0 better
+SYN-2501 : Map 1 macro adder(s)
+SYN-1016 : Merged 1 instances.
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 0.025356s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (61.6%); Memory(MB): used = 110, reserved = 101, peak = 116;
+
+SYN-1079 : finish stage Map Macro. Total instances: 806, Total nets: 917.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-2581 : Mapping with K=1, #lut = 1 (1.00), #lev = 1 (0.33), #crit_level = 0
+SYN-2551 : Post LUT mapping optimization.
+SYN-2581 : Mapping with K=1, #lut = 1 (1.00), #lev = 1 (0.33), #crit_level = 0
+SYN-3001 : Logic optimization opt = 0.05 sec, map = 0.00 sec, post map opt = 0.03 sec.
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 0.078813s wall, 0.062500s user + 0.015625s system = 0.078125s CPU (99.1%); Memory(MB): used = 112, reserved = 105, peak = 116;
+
+SYN-1001 : Packing model "cw_smoke_top" ...
+SYN-4010 : Pack lib has 59 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 16 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 1 carry chain into lslice
+SYN-4007 : Packing 0 adder to BLE ...
+SYN-4008 : Packed 0 adder and 0 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+TMR-2502 : Net delay update with mode: Synthesized
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |        14996                |
+|     Setup TNS             |            0                |
+|     Num of violated S-EP  |            0                |
+|     Hold WNS              |          694                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |          324                |
+|     #luts                 |          123                |
+|     #lut1                 |            4                |
+|     #lut1(~A)             |            4                |
+|     #slices               |           56                |
+|     slices percentage     |        0.57%                |
+|     #RAMs                 |            2                |
+|     #DSPs                 |            0                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |           12                |
+|     #insts in MACRO       |           56                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |          128                |
+|     #keep_hier            |           26                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |        10.50                |
+| dff(single fanout)->dff   |           73                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total Number          |            0                |
+|     Total Exceed Level    |            0                |
+|     Worst Level Slack     |           15                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 1000ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+-----------------------------------------------------------------------
+  Clock        |  Period            |  0    |  1   |  2   |  3   |  4
+-----------------------------------------------------------------------
+  DeriveClock  |  20.000ns (50MHz)  |  208  |  96  |  41  |  33  |  1
+-----------------------------------------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(379 paths analyzed)
+
+Hierarchical Rent Exponent Report
++--------------------------------------------------------+
+|Inst     |Model  |Rent     |Cell     |Pin     |Term     |
++--------------------------------------------------------+
++--------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+SYN-1001 : The design has 27 dangling syn_keep insts.
+RUN-1002 : start command "report_area -file smoke.area"
+RUN-1001 : standard
+***Report Model: cw_smoke_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                         3   out of    188    1.60%
+  #input                    2
+  #output                   1
+  #inout                    0
+
+LUT Statistics
+#Total_luts               123
+  #lut4                    92
+  #lut5                    31
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                      235   out of  19600    1.20%
+#reg                      328   out of  19600    1.67%
+#bram                       2   out of     64    3.12%
+  #bram9k                   2
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                        3   out of    188    1.60%
+  #ireg                     0
+  #oreg                     1
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 0.178159s wall, 0.093750s user + 0.031250s system = 0.125000s CPU (70.2%); Memory(MB): used = 113, reserved = 105, peak = 116;
+
+RUN-1002 : start command "export_db smoke_gate.db"
+RUN-1001 : Exported flow parameters
+RUN-1001 : Exported /
+RUN-1001 : Exported libs
+RUN-1001 : Exported entities
+RUN-1001 : Exported ports
+RUN-1001 : Exported pins
+RUN-1001 : Exported instances
+RUN-1001 : Exported nets
+RUN-1001 : Exported buses
+RUN-1001 : Exported models
+RUN-1001 : Exported packer
+RUN-1001 : Exported congestions
+RUN-1001 : Exported violations
+RUN-1001 : Exported ATMR Setting
+RUN-1001 : Exported IO constraints
+RUN-1001 : Exported Inst constraints
+RUN-1001 : Exported ChipWatcher
+RUN-1002 : start command "write_verilog smoke_gate.v"
+HDL-1201 : write out verilog file smoke_gate.v
+RUN-1002 : start command "export_chipwatcher smoke.cwc"
+KIT-1004 : export chip watcher configuration to file(smoke.cwc) successfully.
+IP_SMOKE_GATE_COMPLETE

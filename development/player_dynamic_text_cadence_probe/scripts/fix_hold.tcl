@@ -1,5 +1,6 @@
 # Locate this project from the script, independently of the caller working directory.
 set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
+set fpga_repo_root [file normalize [file join $fpga_project_root ../..]]
 # SWUG105 post-route fix_hold flow, with the original timing constraints.
 set output_dir ${fpga_project_root}/build/manual
 cd ${fpga_project_root}/src/td_project

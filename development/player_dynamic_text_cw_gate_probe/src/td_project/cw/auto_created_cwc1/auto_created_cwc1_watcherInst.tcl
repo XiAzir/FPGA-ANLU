@@ -1,0 +1,27 @@
+if {[info exists ::env(ANLU_TD_BIN)] && $::env(ANLU_TD_BIN) ne ""} {
+    set anlu_td_bin [file normalize $::env(ANLU_TD_BIN)]
+} else {
+    set anlu_td_bin [file dirname [info nameofexecutable]]
+}
+source [file join $anlu_td_bin ../cw/atpl/templa.tcl]
+set fd [open [file join $anlu_td_bin ../cw/atpl/cwc.atpl] r]
+set tmpl [read $fd]
+close $fd
+set parser [::tmpl_parser::tmpl_parser $tmpl]
+
+set ComponentName        auto_created_cwc1
+set bus_num              1
+set cwc_ctrl_len         24
+set cwc_bus_ctrl_len     4
+set bus_din_num          1
+set ram_len              10
+set input_pipe_num       0
+set output_pipe_num      0
+set depth                64
+set capture_ctrl_exist   0
+set bus_width            { 1 };
+set bus_din_pos          { 0 };
+set bus_ctrl_pos         { 0 };
+set fp [open "cw/auto_created_cwc1/auto_created_cwc1_watcherInst.sv" w+]
+puts $fp [eval $parser]
+close $fp

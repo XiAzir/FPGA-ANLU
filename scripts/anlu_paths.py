@@ -8,6 +8,18 @@ DOCS_ROOT = REPOSITORY_ROOT.parent / 'FPGA-ANLU-docs'
 def recorded_path(value):
     """Rebase recorded repository paths without altering the historical record."""
     normalized = str(value).replace('\\', '/')
+    path = Path(value)
+    # A caller may already hold a path under the current checkout. Recognize
+    # it before the historical E: prefix, which can also be a parent of a
+    # nested temporary checkout used for isolated work.
+    if path.is_absolute():
+        resolved = path.resolve()
+        for current_root in (REPOSITORY_ROOT, DOCS_ROOT):
+            try:
+                resolved.relative_to(current_root.resolve())
+                return resolved
+            except ValueError:
+                pass
     for original, current in (
         ('E:/VSCODE-project/FPGA-ANLU', REPOSITORY_ROOT),
         ('E:/QQ CACHE/Download/安路资料', DOCS_ROOT),
@@ -16,7 +28,6 @@ def recorded_path(value):
             return current
         if normalized.lower().startswith(original.lower() + '/'):
             return current / normalized[len(original) + 1:]
-    path = Path(value)
     return path if path.is_absolute() else REPOSITORY_ROOT / path
 
 

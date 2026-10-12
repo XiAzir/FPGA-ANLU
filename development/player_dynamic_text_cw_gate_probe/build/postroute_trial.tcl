@@ -1,0 +1,23 @@
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
+set fpga_repo_root [file normalize [file join $fpga_project_root ../..]]
+set output_dir ${fpga_project_root}/build/postroute_trial
+file mkdir $output_dir
+cd ${fpga_project_root}/src/td_project
+if {[catch {
+    import_device eagle_s20.db -package EG4S20BG256
+    open_project AC201_tf_hdmi.al -single_run -noanalyze
+    load_run_param -run phy_1
+    import_db ${fpga_project_root}/build/manual/AC201_tf_hdmi_pr.db
+    phys_opt -post_route -effort high -mode reroute
+    update_timing -mode final
+    report_timing_status -file $output_dir/trial.ts
+    report_timing_summary -file $output_dir/trial.timing
+    report_timing_exception -file $output_dir/trial_exception.timing
+    export_db $output_dir/trial.db
+} message]} {
+    puts "TRIAL_ERROR: $message"
+    exit 1
+}
+puts "OFFLINE_POST_ROUTE_TRIAL_COMPLETE_NO_BITGEN"
+close_project
+exit

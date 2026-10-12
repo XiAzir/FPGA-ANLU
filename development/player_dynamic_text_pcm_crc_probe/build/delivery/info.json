@@ -1,0 +1,102 @@
+{
+  "version": "C11108",
+  "kind": "PCM_WINDOW_CRC_DIAGNOSTIC_CANDIDATE",
+  "boardStatus": "PENDING",
+  "rootCause": "UNCONFIRMED",
+  "createdBeijing": "2026-10-11 17:22:32",
+  "sourceProject": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_pcm_crc_probe",
+  "parentVersion": "C11107",
+  "canonicalBit": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_pcm_crc_probe\\build\\manual\\AC201_player_dynamic_text_pcm_crc_probe.bit",
+  "deliveryBitName": "pcm_crc_probe.bit",
+  "bitBytes": 629624,
+  "bitSha256": "F467BA1C05D27BB762E735016AFC7CF02D404B1E724D23203F56100C879749E4",
+  "rollbackSha256": "9E893B0B6C86BF6FBEE19E74B5FB58933C1BEA6AA07F203786CCE96F3B60AE6F",
+  "scopeHash": "d8cbce4bacb2323139cfebdbd577814aba5b93c7e42ec19b4e430728270d83ad",
+  "scriptHash": "e098057dad94382b5eaf53341928d4cd37b9ea436798f7ce64e5509461418db0",
+  "stageRunIds": {
+    "synthesis": "788f1d3e-6ee0-4720-a2dd-59a5253dc2e8",
+    "physical": "c5d7dc36-74c7-4db0-a217-0ae550d9740b",
+    "hold": "dd3d4c71-ce8a-4e8d-8bbd-6b124bfaf8ba",
+    "bitstream": "b6f1381e-e8c1-47d6-942b-71a9f047be3f"
+  },
+  "timing": {
+    "SWNSns": 0.633,
+    "STNSns": 0.0,
+    "HWNSns": 0.035,
+    "HTNSns": 0.0
+  },
+  "timingCoveragePercent": 99.97,
+  "resource": {
+    "LUT": 16825,
+    "reg": 7995,
+    "LE": 18215,
+    "BRAM9K": 19,
+    "DSP": 0,
+    "GCLK": 2
+  },
+  "changedUserSourceFiles": [
+    "hdl_source/player_status_monitor.v",
+    "hdl_source/tf_wav_file_player.v",
+    "hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "newUserSourceFiles": [
+    "hdl_source/player_pcm_prefix_probe.v"
+  ],
+  "projectMetadataChanged": true,
+  "models": {
+    "pipeline": "PASS scaled actual player/bridge, asynchronous clocks, crossed sectors, loop, passive branch faults, abort/freeze",
+    "productionCrc": "PASS default SKIP65536/PREFIX32768 direct generic CRC unit, independent Python F485",
+    "status": "PASS self-tests,10 pages,DFC11108,wrap",
+    "logs": {
+      "pipeline_model.log": "4D36F2579600D653C1BB206928749790DC601BC5E0ACB2DDF57437A86D7418DB",
+      "status_pages.log": "FE33FA4EE800218750A60DE689B78E711771BDE29B33144B2C9B58D2C61C3603",
+      "reference_generation.log": "312C2F02784F3F4D2D572CED3EB86AAEADE5787EACA64EF124DB8AE6C3E64FC4"
+    }
+  },
+  "reference": {
+    "source": "E:\\VSCODE-project\\FPGA-ANLU\\deliverables\\real_music_20261008\\card\\TEST.WAV",
+    "sha256": "d5244fd3935052a743379d9331ee78109c8a913241ed60de472cb9e34a17fecf",
+    "file_bytes": 5760044,
+    "data_offset": 44,
+    "first_high_byte_position": 131117,
+    "payload_bytes": 5760000,
+    "prefix_samples": 32768,
+    "skip_samples": 65536,
+    "window_first_sample": 65536,
+    "window_last_sample": 98303,
+    "nonzero_samples": 31281,
+    "byte_order": "PCM16 little endian: low byte then high byte",
+    "crc_algorithm": "CRC-16/CCITT-FALSE; poly1021 initFFFF no final xor",
+    "prefix_crc16_hex": "F485",
+    "prefix_sha256": "d236b560e3924d87b21c22f5e30a608344bd5b20310ed28e8017d22bc7292cb6",
+    "expected_complete_pages": {
+      "6": "6700F485",
+      "7": "7700F485",
+      "8": "8700F485",
+      "9": "97000000",
+      "A": "A7008000",
+      "B": "B702002D",
+      "C": "C700002C",
+      "D": "DFC11108"
+    },
+    "limit": "Local delivered music reference, not a fresh hash of the remote TF card. CRC16 can collide."
+  },
+  "captureFlags": "{early_tone_abort, source_done_sync, fifo_done_sync, hdmi_done}; normal complete=7",
+  "pages": {
+    "6": "write/push CRC16",
+    "7": "FIFO pop CRC16",
+    "8": "HDMI input CRC16",
+    "9": "captured PCM low8/stereo format errors",
+    "A": "captured HDMI sample count",
+    "B": "first hashed high-byte file offset, low24",
+    "C": "data_offset, low24",
+    "D": "DFC11108"
+  },
+  "checkpoint": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_pcm_crc_probe\\checkpoints\\pcm_crc_probe_20261011_candidate",
+  "physicalLayoutChanged": true,
+  "originalConstraintsRetained": true,
+  "externalSpiIoCharacterized": false,
+  "chipwatcherInserted": false,
+  "boundary": "CRC16 may collide; covers only same-ordinal music window through HDMI core input, not actual WAV packet PCM/PHY pins. Models exclude encrypted transmitter and physical link. Reference card hash not freshly read.",
+  "hardwareActions": "None by agent; remote lab board, no JTAG/TF/Flash actions"
+}

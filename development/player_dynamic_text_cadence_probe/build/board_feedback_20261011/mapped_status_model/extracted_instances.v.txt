@@ -1,0 +1,74 @@
+// Exact instance parameter/connection text extracted from final_pr_routed.v.
+// Text only; this is not a standalone simulation or a complete combinational cone.
+
+// --- audio_count_reg[15]_syn_4 ---
+EG_PHY_MSLICE #(
+    //.LUT0("(~C*D)"),
+    //.LUT1("(~C*D)"),
+    .CEMUX("1"),
+    .CLKMUX("CLK"),
+    .DFFMODE("FF"),
+    .INIT_LUT0(16'b0000111100000000),
+    .INIT_LUT1(16'b0000111100000000),
+    .MODE("LOGIC"),
+    .REG0_REGSET("RESET"),
+    .REG0_SD("F"),
+    .REG1_REGSET("RESET"),
+    .REG1_SD("F"),
+    .SRMODE("ASYNC"),
+    .SRMUX("SR"))
+    \u_status_monitor/audio_count_reg[15]_syn_4  (
+    .c({\u_dynamic_text/minute_ones_b_n ,\u_dynamic_text/minute_ones_b_n }),
+    .clk(\u_status_monitor/sys_clk ),
+    .d({\u_status_monitor/audio_count_b1 [15],\u_status_monitor/audio_count_b1 [17]}),
+    .sr(\u_status_monitor/startup_flags[1]_dup_4336 ),
+    .q({\u_status_monitor/audio_count [15],\u_status_monitor/audio_count [17]}));
+
+// --- mailbox_reg[17]_syn_4 ---
+EG_PHY_MSLICE #(
+    //.LUT0("(C*~(B)*~(D)+C*B*~(D)+~(C)*B*D+C*B*D)"),
+    //.LUT1("(C*~(B)*~(D)+C*B*~(D)+~(C)*B*D+C*B*D)"),
+    .CEMUX("CE"),
+    .CLKMUX("CLK"),
+    .DFFMODE("FF"),
+    .INIT_LUT0(16'b1100110011110000),
+    .INIT_LUT1(16'b1100110011110000),
+    .MODE("LOGIC"),
+    .REG0_REGSET("RESET"),
+    .REG0_SD("F"),
+    .REG1_REGSET("RESET"),
+    .REG1_SD("F"),
+    .SRMODE("ASYNC"),
+    .SRMUX("SR"))
+    \u_status_monitor/mailbox_reg[17]_syn_4  (
+    .b({\u_status_monitor/audio_count_b3 [17],\u_status_monitor/audio_count_b3 [19]}),
+    .c({\u_status_monitor/audio_count [17],\u_status_monitor/audio_count [19]}),
+    .ce(\u_status_monitor/mux5_syn_2 [27]),
+    .clk(\u_status_monitor/sys_clk ),
+    .d({\u_status_monitor/audio_count_b1_n ,\u_status_monitor/audio_count_b1_n }),
+    .sr(\u_status_monitor/startup_flags[1]_dup_4336 ),
+    .f({\u_status_monitor/audio_count_b1 [17],\u_status_monitor/audio_count_b1 [19]}),
+    .q({\u_status_monitor/mailbox [17],\u_status_monitor/mailbox [19]}));
+
+// --- rst_all_reg_reg_syn_217: audio_count_b1_n selector producer ---
+EG_PHY_LSLICE #(
+    //.LUTF0("(D*~(C*B*A))"),
+    //.LUTG0("(D*~(C*B*A))"),
+    .CEMUX("1"),
+    .CLKMUX("CLK"),
+    .DFFMODE("FF"),
+    .INIT_LUTF0(16'b0111111100000000),
+    .INIT_LUTG0(16'b0111111100000000),
+    .LSFMUX0("FUNC5"),
+    .MODE("LOGIC"),
+    .REG0_REGSET("SET"),
+    .SRMODE("ASYNC"),
+    .SRMUX("0"))
+    rst_all_reg_reg_syn_217 (
+    .a({open_n718,\u_status_monitor/audio_count_b[11]_syn_5 }),
+    .b({open_n719,\u_status_monitor/audio_count_b[11]_syn_9 }),
+    .c({open_n720,\u_status_monitor/audio_count_b[11]_syn_13 }),
+    .clk(clk_dup_1),
+    .d({open_n722,\u_audio_probe/audio_valid }),
+    .mi({open_n726,rst_all_reg_reg_syn_3}),
+    .f({open_n739,\u_status_monitor/audio_count_b1_n }));

@@ -32,6 +32,33 @@ function Resolve-AnluTool {
     throw "Required tool '$Name' is missing. Install it and set $variable to its absolute bin directory, or add it to PATH. Tool installations are not included in Git."
 }
 
+function Resolve-AnluPython {
+    [CmdletBinding()]
+    param()
+    $configured = [Environment]::GetEnvironmentVariable('ANLU_PYTHON')
+    if ($configured) {
+        if (-not [IO.Path]::IsPathRooted($configured)) { throw "ANLU_PYTHON must be an absolute path to python.exe or py.exe: $configured" }
+        if (-not (Test-Path -LiteralPath $configured -PathType Leaf)) { throw "Python was not found at ANLU_PYTHON=$configured" }
+        return [IO.Path]::GetFullPath($configured)
+    }
+    foreach ($name in @('python.exe', 'python', 'py.exe', 'py')) {
+        $command = Get-Command $name -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
+        if ($command) { return $command.Source }
+    }
+    throw "Required Python interpreter is missing. Install Python and add python.exe or the py launcher to PATH, or set ANLU_PYTHON to its absolute executable path."
+}
+
+function Invoke-AnluPython {
+    [CmdletBinding()]
+    param([Parameter(Mandatory)][string[]]$Arguments)
+    $python = Resolve-AnluPython
+    if ([IO.Path]::GetFileNameWithoutExtension($python) -ieq 'py') {
+        & $python -3 @Arguments
+    } else {
+        & $python @Arguments
+    }
+}
+
 function Assert-AnluInputFile {
     param([Parameter(Mandatory)][string]$Path)
     if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) {

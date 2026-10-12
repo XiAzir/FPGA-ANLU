@@ -1,0 +1,59 @@
+{
+  "version": "C11106",
+  "kind": "DIAGNOSTIC_CANDIDATE",
+  "boardStatus": "PENDING",
+  "rootCause": "UNCONFIRMED",
+  "createdBeijing": "2026-10-11 16:19:03",
+  "sourceProject": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_bit17_led_probe",
+  "canonicalBit": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_dynamic_text_bit17_led_probe\\build\\manual\\AC201_player_dynamic_text_bit17_led_probe.bit",
+  "deliveryBitName": "bit17_led_probe.bit",
+  "bitBytes": 629624,
+  "bitSha256": "62749e0485a34671d6fdf3b761b00da17981768084482bef7942f0c38a5dadb5",
+  "rollbackBit": "osd_phy_fix.bit",
+  "rollbackSha256": "9e893b0b6c86bf6fbee19e74b5fb58933c1bea6aa07f203786cce96f3b60ae6f",
+  "scopeHash": "96a76f6d11a77fbcc7fabf0a0a64ce7983b7f4c5406422c818da48a9cedd4449",
+  "scriptHash": "8a0508e38aa0e7204c3c99553a628764f8bc308c0b89992f2bf026822b190366",
+  "synthesisRunId": "0b09132b-8e73-44fe-8dee-705d1285d6c1",
+  "physicalRunId": "fb2d9d7d-6d9a-40d0-9e2f-8dbace0742b5",
+  "holdRunId": "eff5c722-725b-4154-abda-0eac734f346b",
+  "bitstreamRunId": "d5f02989-adf2-44e1-a450-a3e293bf624c",
+  "timing": {
+    "SWNSns": 0.621,
+    "STNSns": 0,
+    "HWNSns": 0.03,
+    "HTNSns": 0,
+    "coveragePercent": 99.97,
+    "originalConstraintsRetained": true,
+    "externalSpiIoCharacterized": false
+  },
+  "resources": {
+    "LUT": 16484,
+    "registers": 7606,
+    "LE": 17812,
+    "BRAM9K": 19,
+    "DSP": 0,
+    "GCLK": 2
+  },
+  "model": {
+    "result": "MODEL_PASS",
+    "log": "build/model/model.log",
+    "logSha256": "61647485fdf1ed09aa072e6b485832b2d02a5ccc82456224563e3f5d965c697a",
+    "scope": "LED observer unit model only"
+  },
+  "statusMonitorSha256": "14d3b0441d6a652343be0089ad9e6da660305091639f3a600c5a13ecadf6ee9e",
+  "led": {
+    "polarity": "active-low",
+    "D0": "audio_count[17]",
+    "D1": "mailbox[17]",
+    "D2": "received[17]",
+    "D3": "hex_value[17] only internal page1/display label3",
+    "reset": "reset or WAV clears",
+    "tone": "sticky flags, no D3 blink"
+  },
+  "buildMarker": "CFC11106",
+  "pages6ToB": "FFFFFFF unavailable placeholders",
+  "chipwatcherInserted": false,
+  "physicalLayoutChanged": true,
+  "boundary": "D3 on label3 is logically the same received bit as D2 with a page condition, not independent physical display evidence",
+  "hardwareActions": "None; board on user remote computer; no JTAG scan/TF/Flash write by agent"
+}

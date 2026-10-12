@@ -1,0 +1,8 @@
+cd E:/VSCODE-project/FPGA-ANLU/development/player_pcm_waveform_keyfreeze/src/td_project
+if {[catch {
+ import_device eagle_s20.db -package EG4S20BG256
+ open_project AC201_tf_hdmi.al -single_run
+ close_project
+} message]} { puts "PROJECT_NORMALIZATION_ERROR: $message"; exit 1 }
+puts PROJECT_NORMALIZATION_COMPLETE
+exit
