@@ -1,0 +1,20 @@
+--- E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_fft_recover\checkpoints\music_spectrum_fft_recover_20261014_candidate\src\user_source\hdl_source\SD\frame_read_write.v
++++ E:\VSCODE-project\FPGA-ANLU\development\system_verification_20261016\hdmi\period_C11310_negative_audio_20261016_181940\frame_read_write_compat.v
+@@ -178,7 +178,7 @@
+ 	.write_addr_index           (write_addr_index         ),    
+ 	.write_len                  (write_len                ),
+ 	.fifo_aclr                  (write_fifo_aclr          ),
+-	.rdusedw                 	(rdusedw                  )
++	.rdusedw                 	({1'b0,rdusedw})
+ );
+ 
+ //instantiate an asynchronous FIFO 
+@@ -228,7 +228,7 @@
+ 	.read_addr_index            (read_addr_index          ),    
+ 	.read_len                   (read_len                 ),
+ 	.fifo_aclr                  (read_fifo_aclr           ),
+-	.wrusedw                	(wrusedw                  )
++	.wrusedw                	({1'b0,wrusedw})
+ );
+ 
+ endmodule

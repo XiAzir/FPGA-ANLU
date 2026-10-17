@@ -1,0 +1,59 @@
+{
+  "status": "MODEL_CALIBRATION_FAILED",
+  "interpretation": "The no-reset case matches reset=0 on both wrapper inputs and is the relevant model-equivalent case; a testbench-only pulse is diagnostic evidence and does not represent the production top.",
+  "no_reset": {
+    "name": "no_reset",
+    "result": "FAIL_BOTH_UNLOCKED",
+    "log": "no_reset.log",
+    "lock_time_raw": {}
+  },
+  "testbench_reset_pulse": {
+    "name": "reset_pulse",
+    "result": "PASS_BOTH_LOCKED",
+    "log": "reset_pulse.log",
+    "lock_time_raw": {
+      "video": 1201.875,
+      "sys": 945.875
+    }
+  },
+  "no_reset_equivalent_model_qualified": false,
+  "adapter": {
+    "status": "MODEL_INIT_ADAPTER_FUNCTIONAL_PASS",
+    "run": {
+      "name": "adapter_no_reset",
+      "result": "PASS_BOTH_LOCKED",
+      "log": "adapter_no_reset.log",
+      "lock_time_raw": {
+        "video": 944.875,
+        "sys": 944.875
+      }
+    },
+    "note": "Local one-line initialization hypothesis only; it does not make the original vendor model or production hardware pass."
+  },
+  "adapter_status": "MODEL_INIT_ADAPTER_FUNCTIONAL_PASS",
+  "adapter_no_reset": {
+    "name": "adapter_no_reset",
+    "result": "PASS_BOTH_LOCKED",
+    "log": "adapter_no_reset.log",
+    "lock_time_raw": {
+      "video": 944.875,
+      "sys": 944.875
+    }
+  },
+  "adapter_note": "Local one-line initialization hypothesis only; it does not make the original vendor model or production hardware pass.",
+  "vendor_model_sha256": "73671E13F74679AC630F68506CE67408455734B21CACAE62AEB94F284D7A8EB8",
+  "adapter_model_sha256": "98E717E5810CB2EB316FB8A590D9747A1E96F9BC1522A029B6991D7A17329FAA",
+  "adapter_diff": "reg[3:0] fakelockcnt; => reg[3:0] fakelockcnt=4'b0;",
+  "sys_pll_sha256": "4A410FC8776C9C116695B7DD8A84012317F9D88AA654B8287A89BDC1F88D0B4E",
+  "video_pll_sha256": "57E45A062814673E97773CF6C58FF1629FA45895E30DE9D2C2B6BDD30BD9BB13",
+  "stable_C11206_checkpoint_sys_pll_sha256": "4A410FC8776C9C116695B7DD8A84012317F9D88AA654B8287A89BDC1F88D0B4E",
+  "stable_C11206_checkpoint_video_pll_sha256": "57E45A062814673E97773CF6C58FF1629FA45895E30DE9D2C2B6BDD30BD9BB13",
+  "stable_C11206_wrappers_match": true,
+  "vendor_model_path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_pll.v",
+  "tool": "ModelSim SE-64 10.1c",
+  "sampled_at_us": [
+    1,
+    100,
+    1000
+  ]
+}

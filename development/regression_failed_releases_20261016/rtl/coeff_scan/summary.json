@@ -1,0 +1,174 @@
+{
+  "run_directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\rtl\\coeff_scan\\run_20261016_160639",
+  "simulator": "ModelSim SE-64 10.1c",
+  "vendor_library": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\build\\board_feedback_no_signal_20261014\\modelsim\\work",
+  "vendor_library_info_sha256": "e404116e224e5df27e3a97e8a925a6f170b493ec168335e5e045780ab0c38bfe",
+  "command_line": "pwsh -NoProfile -File development/regression_failed_releases_20261016/rtl/coeff_scan/run_coeff_scan.ps1",
+  "define_PRIVATE_ROM_BEHAVIORAL_SIM": false,
+  "rom_comparison": {
+    "c11306_rom_sha256": "c273f96dfbd4e6331b28485959ae60559fbd951fee7dbc9c9c8eeae6f3f5ac2f",
+    "c11307_rom_sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+    "init_constant_line_count_c11306": 144,
+    "init_constant_line_count_c11307": 144,
+    "init_constants_same_order_and_value": true,
+    "hann_golden_sha256_c11306": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+    "hann_golden_sha256_c11307": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+    "twiddle_golden_sha256_c11306": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+    "twiddle_golden_sha256_c11307": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+    "observed_read_side_change": "C11306 enables both PDPW8K sides with cea=ceb=twiddle_en and fixed csa=csb=111. C11307 selects the port-B read side by holding ceb=1/CEBMUX=1 and gating csb={twiddle_en,2'b00}; it disables port A with cea=0/CEAMUX=0. Both use identical address wiring and identical INIT constants."
+  },
+  "result_count": 2,
+  "results": [
+    {
+      "id": "C11306",
+      "tree": "player_spectrum_private_init",
+      "checkpoint": "music_spectrum_private_init_20261013_candidate",
+      "checkpoint_manifest_sha256": "2496ba28835d656d1c121776b8a060cc12d50f735fe50a6006ac65d64a712632",
+      "input_hashes": [
+        {
+          "path": "src/user_source/hdl_source/spectrum_coeff_rom.v",
+          "sha256": "c273f96dfbd4e6331b28485959ae60559fbd951fee7dbc9c9c8eeae6f3f5ac2f",
+          "manifest_sha256": "c273f96dfbd4e6331b28485959ae60559fbd951fee7dbc9c9c8eeae6f3f5ac2f",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_manifest": true
+        }
+      ],
+      "copied_input_hashes": [
+        {
+          "path": "tb_coeff_rom_scan.v",
+          "sha256": "ed386271dd8ec1a24749497f053dd38f402cddbcfe06e8941b68299d2d96c504",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_source": true
+        }
+      ],
+      "isolated_tb_sha256": "ed386271dd8ec1a24749497f053dd38f402cddbcfe06e8941b68299d2d96c504",
+      "compile_exit_code": 0,
+      "simulation_exit_code": 0,
+      "loaded_eg_phy_bram": true,
+      "loaded_glbl": true,
+      "readmem_open_failure": false,
+      "hann": {
+        "words": 1024,
+        "unknown": 0,
+        "mismatches": 0,
+        "first_index": -1,
+        "first_got": "xxxx",
+        "first_expected": "xxxx"
+      },
+      "twiddle": {
+        "words": 512,
+        "unknown": 0,
+        "mismatches": 512,
+        "first_index": 0,
+        "first_got": "00000000",
+        "first_expected": "7fff0000"
+      },
+      "controls": {
+        "rom_version": "C11306",
+        "hann_low_and_high": "Both versions: SP8K, addra={hann_addr,3'b111}, cea=hann_en, csa=3'b111, wea=0; no meaningful read-control difference observed.",
+        "twiddle_low_and_high": "PDPW8K; A and B addresses both twiddle_addr; cea=twiddle_en and ceb=twiddle_en; csa=csb=3'b111; wea=0/web=0; outputs use doa low 9 bits plus dob upper 9 bits.",
+        "raw_rom_sha256": "c273f96dfbd4e6331b28485959ae60559fbd951fee7dbc9c9c8eeae6f3f5ac2f",
+        "raw_rom_text_has_private_sim_define": true,
+        "behavioral_branch_enabled": false
+      },
+      "status": "READBACK_MISMATCH",
+      "limitations": "Standalone coefficient ROM RTL scan against frozen .mem files using the installed precompiled EG_PHY_BRAM simulation model; does not validate mapped silicon behavior, analyzer scheduling, complete top-level startup, PHY, routed timing, or board behavior."
+    },
+    {
+      "id": "C11307",
+      "tree": "player_spectrum_observed",
+      "checkpoint": "music_spectrum_observed_20261013_candidate",
+      "checkpoint_manifest_sha256": "b9935a54b29b31cc39ccbde6661445f434223a42d4420c0c62bfd3e41c22730f",
+      "input_hashes": [
+        {
+          "path": "src/user_source/hdl_source/spectrum_coeff_rom.v",
+          "sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+          "manifest_sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_manifest": true
+        }
+      ],
+      "copied_input_hashes": [
+        {
+          "path": "tb_coeff_rom_scan.v",
+          "sha256": "ed386271dd8ec1a24749497f053dd38f402cddbcfe06e8941b68299d2d96c504",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_source": true
+        }
+      ],
+      "isolated_tb_sha256": "ed386271dd8ec1a24749497f053dd38f402cddbcfe06e8941b68299d2d96c504",
+      "compile_exit_code": 0,
+      "simulation_exit_code": 0,
+      "loaded_eg_phy_bram": true,
+      "loaded_glbl": true,
+      "readmem_open_failure": false,
+      "hann": {
+        "words": 1024,
+        "unknown": 0,
+        "mismatches": 0,
+        "first_index": -1,
+        "first_got": "xxxx",
+        "first_expected": "xxxx"
+      },
+      "twiddle": {
+        "words": 512,
+        "unknown": 0,
+        "mismatches": 0,
+        "first_index": -1,
+        "first_got": "xxxxxxxx",
+        "first_expected": "xxxxxxxx"
+      },
+      "controls": {
+        "rom_version": "C11307",
+        "hann_low_and_high": "Both versions: SP8K, addra={hann_addr,3'b111}, cea=hann_en, csa=3'b111, wea=0; no meaningful read-control difference observed.",
+        "twiddle_low_and_high": "PDPW8K; A and B addresses both twiddle_addr; cea=0, ceb=1; csa=csb={twiddle_en,2'b00}; wea=1/web=0; outputs use doa low 9 bits plus dob upper 9 bits.",
+        "raw_rom_sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+        "raw_rom_text_has_private_sim_define": true,
+        "behavioral_branch_enabled": false
+      },
+      "status": "PASS",
+      "limitations": "Standalone coefficient ROM RTL scan against frozen .mem files using the installed precompiled EG_PHY_BRAM simulation model; does not validate mapped silicon behavior, analyzer scheduling, complete top-level startup, PHY, routed timing, or board behavior."
+    }
+  ],
+  "rationale": "Directly scan both clocked ROM outputs at every address, separately from the analyzer/testbench pipeline, to test whether C11306 coefficients themselves read back correctly."
+}

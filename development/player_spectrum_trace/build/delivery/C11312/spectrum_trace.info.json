@@ -1,0 +1,75 @@
+{
+  "build_id": "C11312",
+  "status": "DIAGNOSTIC_CANDIDATE_PENDING_BOARD",
+  "created": "2026-10-15T21:13:20.841249+08:00",
+  "bitstream_sha256": "60ae6b971ce1f9ed09d76bec14cf88dfc25cdfe7cbbebe5dd9fc070115b812ce",
+  "bitstream_bytes": 634280,
+  "root_cause_confirmed": false,
+  "purpose": "Passive atomic snapshots of the preceding/current FFT counters and reset/source/timeout controls, frozen on a fault; rearm on audio source change.",
+  "changes": "4 existing HDL files plus 1 new passive module; analyzer/render arithmetic and control token comparison unchanged after removing observation ports/declaration ordering; display pages 6..C repurposed.",
+  "timing": {
+    "setup_wns_ns": 0.06,
+    "hold_wns_ns": 0.024,
+    "setup_tns_ns": 0,
+    "hold_tns_ns": 0,
+    "coverage": "99.98%"
+  },
+  "resources": {
+    "lut": 16934,
+    "register": 10061,
+    "LE": 18481,
+    "BRAM9K": 44,
+    "DSP": 12,
+    "GCLK": 3
+  },
+  "tests": {
+    "fault_snapshot/run.log": {
+      "marker": "PASS fault_snapshot",
+      "sha256": "8117030ba0b5f9336518f028fbeb446145c47c0c725c15ff5044ae2d929e05b1"
+    },
+    "snapshot_fft/run.log": {
+      "marker": "PASS snapshot_fft_integration",
+      "sha256": "76b649e57cabc246470d211c38f2eaf9dc31bd48000e8c0512de3ebb66e1068b"
+    },
+    "snapshot_display/run.log": {
+      "marker": "PASS snapshot_display",
+      "sha256": "ee35489e579cb7e197e60f1c4a020645d6b9976c9e4cc7c9a0a2e1d40f92f1b0"
+    },
+    "full_top_snapshot_gate/console.log": {
+      "marker": "PASS full_top_snapshot",
+      "sha256": "500f5ad8ebddcc27b2f41a39038e5d9fdf001b7c5cbb9c19e4029170342a9e3a"
+    },
+    "full_top_snapshot_routed/console.log": {
+      "marker": "PASS full_top_snapshot",
+      "sha256": "c9363030750d5d51eaf81b30a8bb7cdd5a92686a50c0533da912f55c00a26898"
+    }
+  },
+  "stages": {
+    "synthesis": {
+      "runId": "d2d9e745-1303-4e44-b36c-bdcb3240b4c9",
+      "scopeHash": "266361929abeecf5c9be8ab01c83f0c824995ff34aa5977a8d76d3714dcf0b8b",
+      "scriptHash": "4597947929a438ae09e494b0d8114a7081b9f1fc31c7be6213bdb5ad0805c261"
+    },
+    "physical": {
+      "runId": "793ca544-5632-4b6d-a62a-1d55cf7ea01a",
+      "scopeHash": "266361929abeecf5c9be8ab01c83f0c824995ff34aa5977a8d76d3714dcf0b8b",
+      "scriptHash": "4597947929a438ae09e494b0d8114a7081b9f1fc31c7be6213bdb5ad0805c261"
+    },
+    "hold": {
+      "runId": "ed9d07bc-0e3f-4567-9b23-1910aa2b1f6e",
+      "scopeHash": "266361929abeecf5c9be8ab01c83f0c824995ff34aa5977a8d76d3714dcf0b8b",
+      "scriptHash": "4597947929a438ae09e494b0d8114a7081b9f1fc31c7be6213bdb5ad0805c261"
+    },
+    "bitstream": {
+      "runId": "4a57cddc-320e-4e9f-b4ad-de5b23cb0f3c",
+      "scopeHash": "266361929abeecf5c9be8ab01c83f0c824995ff34aa5977a8d76d3714dcf0b8b",
+      "scriptHash": "4597947929a438ae09e494b0d8114a7081b9f1fc31c7be6213bdb5ad0805c261"
+    }
+  },
+  "limits": "No board/JTAG/TF/Flash operation. No full SDF or electrical verification. Earlier C11310 FFT gate/routed cones and video-control gate tests passed under controlled stimuli but did not reproduce the board failure. This is a diagnostic build, not a proven repair.",
+  "rollback": {
+    "file": "bmp_scale.bit",
+    "build_id": "C11206",
+    "sha256": "c60464c0d4396d316db7622e4cb0b70b5de12c25148afe234ac7c795c818625d"
+  }
+}

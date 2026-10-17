@@ -1,0 +1,26 @@
+from pathlib import Path
+
+p=Path(__file__).resolve().parent
+old=p.parent/'player_spectrum/package_candidate.py'
+s=old.read_text(encoding='utf-8-sig')
+s=s.replace("parent=root/'development/player_music_envelope_phy'","parent=root/'development/player_spectrum'\nbaseline=root/'development/player_bmp_scale'")
+s=s.replace("AC201_player_spectrum.bit","AC201_player_spectrum_baseline_phy.bit")
+s=s.replace("AC201_player_spectrum.info.json","AC201_player_spectrum_baseline_phy.info.json")
+s=s.replace("'spectrum.bit'","'spectrum_baseline_phy.bit'")
+s=s.replace("'spectrum.info.json'","'spectrum_baseline_phy.info.json'")
+s=s.replace("download/spectrum.info.json","download/spectrum_baseline_phy.info.json")
+s=s.replace("music_spectrum_20261013","music_spectrum_baseline_phy_20261013")
+s=s.replace("{'user_source/hdl_source/player_pcm_waveform.v','user_source/hdl_source/top_tf_hdmi_audio.v','user_source/hdl_source/player_status_monitor.v'}","{'user_source/hdl_source/hdmi_phy_warpper.v','user_source/hdl_source/lane_lvds_10_1.v','user_source/hdl_source/top_tf_hdmi_audio.v','user_source/hdl_source/player_status_monitor.v'}")
+s=s.replace("==sha(parent/'src/user_source/hdl_source'/name)","==sha(baseline/'src/user_source/hdl_source'/name)")
+s=s.replace("'version':'C11304'","'version':'C11305'")
+s=s.replace("'parent':'C11303 PHY candidate; not certified as full board baseline'","'parent':'C11304 failed board candidate; exact C11206 PHY restoration only, FFT and ERAM init retained'")
+s=s.replace("'parent':'C11303'","'parent':'C11304'")
+s=s.replace("# C11304 真实音乐频谱柱候选（实板待验证）","# C11305 频谱柱：恢复C11206发送电路（隔离候选，实板待验证）")
+s=s.replace("Add spectrum.bit","Add spectrum_baseline_phy.bit")
+s=s.replace("DFC11304","DFC11305")
+s=s.replace("从实际播放PCM计算1024点Hann窗FFT，显示24频段幅值柱。","C11304在同条件实板黑屏无信号，回载C11206恢复音画。此候选只将HDMI wrapper/lane恢复为成功C11206的逐字源码，并改build ID；PLL、复位、SDC、频谱算法/渲染、音频/TF链路不变。eram_init仍为on，它也作用于HDMI核FIFO，尚未排除该变量；唯一实物根因未确认。\n\n从实际播放PCM计算1024点Hann窗FFT，显示24频段幅值柱。")
+s=s.replace("'build/audit','build/delivery'","'build/audit','build/serializer_model','build/delivery'")
+s=s.replace("for folder in ('download','deliverables'):","assert sha(root/'download/spectrum.bit')=='789913A1C0E332E3FB5ED73C55252BBECB1ABF7A1C19F7E3319AC56AE09EEB17'\nassert sha(root/'deliverables/music_spectrum_20261013.zip')=='2E8F934195D94A96CB122922C5D41C16FA98E7C23378EC98338969578AD188A7'\nassert sha(p/'src/user_source/hdl_source/player_pcm_waveform.v')==sha(parent/'src/user_source/hdl_source/player_pcm_waveform.v')\nassert sha(p/'src/user_source/hdl_source/player_spectrum_analyzer.v')==sha(parent/'src/user_source/hdl_source/player_spectrum_analyzer.v')\nfor name in ('top_tf_hdmi_audio.v','player_status_monitor.v'):\n    assert (p/'src/user_source/hdl_source'/name).read_text(encoding='utf-8-sig').replace('C11305','C11304')==(parent/'src/user_source/hdl_source'/name).read_text(encoding='utf-8-sig')\nsummary=(p/'build/serializer_model/summary_baseline_final.txt').read_text().splitlines()\nassert len(summary)==27 and all('word_errors=0 serial_bit_errors=0 target_errors=0 capture_errors=0 source_sequence_errors=0' in row and 'align_bit=-1' not in row for row in summary)\nfor folder in ('download','deliverables'):")
+s=s.replace("shutil.copyfile(bit,root/folder/'spectrum_baseline_phy.bit')","shutil.copyfile(bit,root/folder/'spectrum_baseline_phy.bit')")
+(p/'package_candidate.py').write_text(s,encoding='utf-8')
+print('C11305 packaging checks prepared; no delivery created yet')

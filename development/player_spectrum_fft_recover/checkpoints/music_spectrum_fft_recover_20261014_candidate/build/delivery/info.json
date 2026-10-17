@@ -1,0 +1,41 @@
+{
+  "version": "C11310",
+  "createdBeijing": "2026-10-14 20:34:50",
+  "boardStatus": "PENDING_BOARD_VALIDATION",
+  "parent": "C11309 user reports normal image/audio/non-spectrum functions; both sources have empty spectrum, B7000000/C7840000",
+  "successfulBaseline": "C11206 bmp_scale.bit",
+  "stableMediaRollback": "C11309 spectrum_clock_route.bit",
+  "bitSha256": "9A076C4170DEB9BA84526B61E9F086A12EF59399DB7721EAFB5F7A80186BFA0C",
+  "bitBytes": 634280,
+  "timing": {
+    "SWNSns": 0.236,
+    "STNSns": 0.0,
+    "HWNSns": 0.027,
+    "HTNSns": 0.0
+  },
+  "resource": {
+    "LUT": 17001,
+    "reg": 10085,
+    "LE": 18508,
+    "BRAM9K": 44,
+    "DSP": 12,
+    "GCLK": 3
+  },
+  "changes": [
+    "hdl_source/player_pcm_waveform.v",
+    "hdl_source/player_spectrum_analyzer.v",
+    "hdl_source/player_status_monitor.v",
+    "hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "inheritedFiles": 90,
+  "stageRunIds": {
+    "synthesis": "bc83c14e-d3cd-436a-a224-26b5ca68b119",
+    "physical": "0f4ca9e2-396b-4acd-9e72-5371271d4750",
+    "hold": "ec964d13-0af5-4f76-b575-968b5a4ef0a5",
+    "bitstream": "6f6bd45b-b267-4d85-a704-5ad1e4ab97b6"
+  },
+  "scope": "FFT-local asynchronous assertion/synchronized release; retained 5-bit state/default recovery; 4096 incoming-sample no-frame watchdog; passive F2/F3/F4 telemetry. No watchdog feedback into global reset, PCM playback, HDMI or TF.",
+  "modelEvidence": "Current-source 312 synthetic,48 real-WAV,72 integrated band values (fixed-point error0),650 pixel samples,telemetry; production4096 watchdog at521clock input cadence with testbench-only illegal-state/stall injection. Accelerated fixtures explicitly disable watchdog.",
+  "limits": "Physical root of C11309 FFT stall not proven. Protected vendor BRAM behavior not simulated. Gate/routed INIT and effective enable logic checked separately; STA does not prove HDMI external electrical behavior or board functionality.",
+  "operation": "PROGRAM_SRAM JTAG5MHz; DFC11310; default WAV then longKEY1 tone; initial4sec selftest +32sec pages; if still empty record B/C/F2/F3/F4 twice."
+}

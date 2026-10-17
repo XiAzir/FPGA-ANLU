@@ -1,0 +1,67 @@
+{
+  "status": "PASS_SCOPE",
+  "scope": "Full frame, real FIFO/backend/codec, reading uncommitted data concurrently with writes; restart read before gold comparison. Application memory contract only.",
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-novopt",
+      "-lic_noqueue",
+      "-L",
+      "work",
+      "work.tb_framebuffer",
+      "+overlap",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602\\console.log"
+  },
+  "inputs": [
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602\\frame_fifo_read.v",
+      "sha256": "5952075B213EC638F5C9BB238D4D4162685F9E9B5E752674F0E68A92DBEC83AC"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602\\frame_fifo_write.v",
+      "sha256": "EF0F46443B6F79EBB9FBBA8F39B11DCA90EE7E9AE4637C1D45786744D964E540"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602\\frame_read_write_compat.v",
+      "sha256": "DA96443DE0DF8270260A758F657D9464B52C4EBDEA08BEB6551FCAA1D7C55FB3"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602\\rgb888_word_codec.v",
+      "sha256": "1EBE462B52A0F4A08E22BFF98E8B8C10C67FBA7857006CF2E5A2CB5004DE9C93"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602\\frame_buffer_rgb888.v",
+      "sha256": "65FF9ABF03C19D3BA27192AD645535F92D9542E7C18D74102C744C700713379D"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602\\player_wipe_address.v",
+      "sha256": "8712E3490C0EC01FDF1A719BB74EEE2BC2D7269AE51119E338F0EB0FBD143F4F"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602\\afifo_16_32_256.v",
+      "sha256": "3D29B06655482184A9AD157B9BD71B79032DEBE3199168D3B4D9570FDAC31835"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602\\afifo_32_16_256.v",
+      "sha256": "7C3EE41F30BE75AE686C9ABFF3A840FC5439209CDA077E4AA275EAC0DAB9F564"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602\\sdram_app_model.v",
+      "sha256": "D4E9DD2391823D6EC538FB4AEEB704B02F3E9C8BB09364A93DC80DFAB409F9CD"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602\\tb_framebuffer.v",
+      "sha256": "1B96A5E9BC51C7195B9F8F873EB9A61AF10D9BE9C5C2F8FA9CE2C487CC0BDE8E"
+    }
+  ]
+}

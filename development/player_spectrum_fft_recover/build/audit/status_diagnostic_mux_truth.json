@@ -1,0 +1,55 @@
+{
+  "schema": "c11310-status-diagnostic-mux-v2",
+  "status": "PASS",
+  "netlist": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\build\\board_feedback_no_signal_20261014\\optimized_rtl.v",
+  "netlist_sha256": "fa9b30c9123667a4b0619579eeccdcbdde632f18d09a67121df9d8bfe12d3933",
+  "rtl_sha256": "d15c9bb020d7162ca6a619059e11feee868e7e6a4d9c93202fae6f877bfe1cdf",
+  "diagnostic_mux_bit_count": 32,
+  "mux_primitive_cells": 15,
+  "mux_truth_vectors": 256,
+  "mux_truth_failures": 0,
+  "pages_tested": [
+    13,
+    14,
+    15
+  ],
+  "selector_source": "cw_count_data[8:5] = {tone_mode,page,request_toggle,audio_count[17]}[8:5]",
+  "rtl_contract": "page 13=F2+progress; page 14=F3+events; page 15/default=F4+accepted",
+  "page_details": [
+    {
+      "page_selector": 13,
+      "bus": "debug_progress",
+      "walking_one_bits": 24,
+      "fixed_prefix": "F2"
+    },
+    {
+      "page_selector": 14,
+      "bus": "debug_events",
+      "walking_one_bits": 16,
+      "fixed_prefix": "F3"
+    },
+    {
+      "page_selector": 15,
+      "bus": "debug_accepted",
+      "walking_one_bits": 24,
+      "fixed_prefix": "F4"
+    }
+  ],
+  "walking_output_bit_checks": 2144,
+  "failure_count": 0,
+  "failures": [],
+  "vendor_mux_contract": "AL_MUX = sel ? i1 : i0, verified from TD al_map_basic.v equations.",
+  "supplemental_routed_vendor_model_smoke": {
+    "console": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\build\\board_feedback_no_signal_20261014\\modelsim\\smoke_control_console.log",
+    "console_sha256": "19efd31f9c8098636ae67c06feb976d3cf6246b9c8ae7629d9959de2f635f558",
+    "pcm_observations": [
+      "# PCM t=250900000 n=1 progress=000200 accepted=000001 events=zz0001 fft=000000",
+      "# PCM t=459300000 n=2 progress=000400 accepted=000002 events=zz0001 fft=000000",
+      "# PCM t=667700000 n=3 progress=000600 accepted=000003 events=zz0001 fft=000000",
+      "# PCM t=876100000 n=4 progress=000800 accepted=000004 events=zz0001 fft=000000"
+    ],
+    "final_observation": "# RESULT smoke pclk=2642 pulses=4 SOF=0 locked=0 progress=000800 accepted=000004 events=zz0001 fft=000000",
+    "limitations": "Testbench forced both PLL lock inputs and tone_mode after reset distribution; no TF card or HDMI receiver model. events upper byte is zz because optimized-away constant bits are undriven in this routed simulation; treat only low16 payload as a reliable simulation observation, not as a hardware value."
+  },
+  "scope": "Static optimized RTL netlist check: 15-cell mux tree truth table; selectors 13/14/15; all 32 output bits; F2/F4 24-bit and F3 low-16 walking-one with high byte zero; fixed prefix wiring. Mailbox timing, routed netlist equivalence, and board behavior are not tested."
+}

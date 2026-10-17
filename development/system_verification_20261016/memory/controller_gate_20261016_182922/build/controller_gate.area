@@ -1,0 +1,41 @@
+standard
+***Report Model: sdram Device: EG4S20BG256***
+
+IO Statistics
+#IO                       119   out of    188   63.30%
+  #input                   83
+  #output                  36
+  #inout                    0
+
+LUT Statistics
+#Total_luts                88
+  #lut4                    83
+  #lut5                     5
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                       98   out of  19600    0.50%
+#reg                      412   out of  19600    2.10%
+#bram                       0   out of     64    0.00%
+  #bram9k                   0
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                      119   out of    188   63.30%
+  #ireg                    79
+  #oreg                     3
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+Report Hierarchy Area:
++---------------------------------------------------------------------------+
+|Instance        |Module       |lut     |ripple  |seq     |bram    |dsp     |
++---------------------------------------------------------------------------+
+|top             |sdram        |93      |5       |494     |0       |0       |
+|  u2_ram        |sdr_as_ram   |93      |5       |412     |0       |0       |
+|    u1_init_ref |sdr_init_ref |20      |5       |80      |0       |0       |
+|    u2_wrrd     |sdr_wrrd     |73      |0       |332     |0       |0       |
++---------------------------------------------------------------------------+

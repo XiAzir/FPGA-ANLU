@@ -1,0 +1,18 @@
+CASE PASS short_header_sector detail=0101ff
+CASE PASS long_header_sector detail=010201
+CASE PASS header_BM detail=020001
+CASE PASS header_DIB detail=020002
+CASE PASS header_offset detail=020004
+CASE PASS header_planes detail=020008
+CASE PASS header_bits detail=020010
+CASE PASS header_compression detail=020020
+CASE PASS header_width detail=020040
+CASE PASS header_height detail=020080
+CASE PASS _file_extent_and_declared_extent detail=020300
+CASE PASS header_declared_extent detail=020200
+CASE PASS header_declared_size_over_file detail=020400
+CASE PASS mapper_header detail=040002
+CASE PASS watchdog_header detail=050002
+FAIL detail write_ack_timeout got=020001 expected=050004 state=8
+FATAL: E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_tf_margin\sim\tb_tf_bmp_failure_detail.v:158: 
+       Time: 84310000  Scope: tb_tf_bmp_failure_detail.expect_detail

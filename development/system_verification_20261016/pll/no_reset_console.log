@@ -1,0 +1,63 @@
+Reading E:/ModelsimSE/tcl/vsim/pref.tcl 
+
+# 10.1c
+
+# vsim -L work -L EG4 -do {run -all; quit -f} -l no_reset.log -c -modelsimini modelsim.ini -novopt work.tb_pll_reset_calibration EG4.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/pll/work.tb_pll_reset_calibration
+# Loading work.tb_pll_reset_calibration
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/pll/work.sys_pll
+# Loading work.sys_pll
+# Loading EG4.EG_LOGIC_BUFG
+# Loading EG4.EG_PHY_PLL
+# Loading EG4.eg_dphase_sel
+# Loading EG4.prediv_mux
+# Loading EG4.eg_pll_div2
+# Loading EG4.eg_clko_premux
+# Loading EG4.eg_pll_div128
+# Loading EG4.eg_clko_ctrl
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/pll/work.video_pll
+# Loading work.video_pll
+# Loading EG4.glbl
+# ** Warning: (vsim-3015) E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_fft_recover/src/user_source/hdl_source/IP/sys_pll.v(94): [PCDPC] - Port size (5 or 5) does not match connection size (1) for port 'load_reg'. The port definition is at: C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v(25).
+# 
+#         Region: /tb_pll_reset_calibration/spll/pll_inst
+# ** Warning: (vsim-3015) E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_fft_recover/src/user_source/hdl_source/IP/video_pll.v(87): [PCDPC] - Port size (5 or 5) does not match connection size (1) for port 'load_reg'. The port definition is at: C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v(25).
+# 
+#         Region: /tb_pll_reset_calibration/vpll/pll_inst
+# run -all 
+# ******************** : The Attribute            REFCLK_DIV on pll instance tb_pll_reset_calibration.spll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             FBCLK_DIV on pll instance tb_pll_reset_calibration.spll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC0_DIV on pll instance tb_pll_reset_calibration.spll.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC1_DIV on pll instance tb_pll_reset_calibration.spll.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC2_DIV on pll instance tb_pll_reset_calibration.spll.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC3_DIV on pll instance tb_pll_reset_calibration.spll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC4_DIV on pll instance tb_pll_reset_calibration.spll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute            REFCLK_DIV on pll instance tb_pll_reset_calibration.vpll.pll_inst.para_int_range_chk is set to           2.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             FBCLK_DIV on pll instance tb_pll_reset_calibration.vpll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC0_DIV on pll instance tb_pll_reset_calibration.vpll.pll_inst.para_int_range_chk is set to          40.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC1_DIV on pll instance tb_pll_reset_calibration.vpll.pll_inst.para_int_range_chk is set to           8.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC2_DIV on pll instance tb_pll_reset_calibration.vpll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC3_DIV on pll instance tb_pll_reset_calibration.vpll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC4_DIV on pll instance tb_pll_reset_calibration.vpll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# CASE reset_pulse=0; source=unmodified vendor EG_PHY_PLL
+# SAMPLE us=1 t_ns=1000.000 reset=0 slock=0 vlock=0 pc=9 sc=40 pclk_period_ns=40.000 serclk_period_ns=8.000
+# SYS_INTERNAL pllrst_n=1 lock_cnt=0100110111 ilock_rls=0 elock_rls=0 int_lock=1 fakelockcnt=xxxx refclk_toggle_smpl=1 pulse_count=30 tmp_time_value=0
+# VID_INTERNAL pllrst_n=1 lock_cnt=0100110111 ilock_rls=0 elock_rls=0 int_lock=1 fakelockcnt=xxxx refclk_toggle_smpl=1 pulse_count=30 tmp_time_value=0
+# SAMPLE us=100 t_ns=100000.000 reset=0 slock=0 vlock=0 pc=2484 sc=12415 pclk_period_ns=40.000 serclk_period_ns=8.000
+# SYS_INTERNAL pllrst_n=1 lock_cnt=1111101111 ilock_rls=0 elock_rls=0 int_lock=1 fakelockcnt=xxxx refclk_toggle_smpl=1 pulse_count=30 tmp_time_value=0
+# VID_INTERNAL pllrst_n=1 lock_cnt=1111101111 ilock_rls=0 elock_rls=0 int_lock=1 fakelockcnt=xxxx refclk_toggle_smpl=1 pulse_count=30 tmp_time_value=0
+# SAMPLE us=1000 t_ns=1000000.000 reset=0 slock=0 vlock=0 pc=24984 sc=124915 pclk_period_ns=40.000 serclk_period_ns=8.000
+# SYS_INTERNAL pllrst_n=1 lock_cnt=1110001111 ilock_rls=0 elock_rls=0 int_lock=1 fakelockcnt=xxxx refclk_toggle_smpl=1 pulse_count=30 tmp_time_value=0
+# VID_INTERNAL pllrst_n=1 lock_cnt=1110001111 ilock_rls=0 elock_rls=0 int_lock=1 fakelockcnt=xxxx refclk_toggle_smpl=1 pulse_count=30 tmp_time_value=0
+# RESULT FAIL_BOTH_UNLOCKED
+# ** Note: $finish    : tb_pll_reset_calibration.v(49)
+#    Time: 1 ms  Iteration: 0  Instance: /tb_pll_reset_calibration

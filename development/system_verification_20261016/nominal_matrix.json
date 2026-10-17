@@ -1,0 +1,174 @@
+{
+  "updated_beijing": "2026-10-16T18:21:39.712929+08:00",
+  "status": "NOMINAL_OFFLINE_SUITE_PASS_WITH_ASSUMPTIONS",
+  "field_fault_reproduced": false,
+  "hardware_root_cause_confirmed": false,
+  "new_bitstream_built": false,
+  "assumptions": [
+    "PLL initialization adapter and qualified edge replay under fixed 50MHz/reset0",
+    "Explicit zero extension at two FIFO count input ports in isolated simulation copies",
+    "Application-interface SDRAM model with data-leading-valid; physical SDRAM controller/model not qualified",
+    "Generated BMP and 4096-sample real-WAV excerpt, not original TF image or complete song"
+  ],
+  "unverified": [
+    "Complete SDF/physical timing",
+    "Non-nominal reset/clock/card-delay matrix",
+    "Long KEY1 source switching in whole top",
+    "All original TF contents and long runtime",
+    "Actual board HDMI/FFT field-failure reproduction"
+  ],
+  "results": [
+    {
+      "name": "media_C11206",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\run_C11206_20261016_180507",
+      "summary_sha256": "ee46992222d384612bbd19f4154d57f73725ab438fd0b447226585bf13a2bab3",
+      "counts": {
+        "pcm_push": 6378,
+        "pcm_consume": 4447,
+        "bmp_pixels": 307200,
+        "read_pixels": 307200,
+        "read_frames": 1
+      },
+      "fft": null,
+      "verified_start_input_records": 59,
+      "evidence_receipt_sha256": "403ebe0fb0d2e951853a0792265299d86f62c2ca6fe04729b4a5627b053ca8cf"
+    },
+    {
+      "name": "media_C11309",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\run_C11309_20261016_181233",
+      "summary_sha256": "75d321cb98a9972f0d7b2cfc7c2ddce30cd53ae41cf6d491b46f115e8f29e71e",
+      "counts": {
+        "pcm_push": 6378,
+        "pcm_consume": 4447,
+        "bmp_pixels": 307200,
+        "read_pixels": 307200,
+        "read_frames": 1
+      },
+      "fft": {
+        "status": "PASS_SCOPE",
+        "completed_frames": 3,
+        "band_checks": 72,
+        "max_abs_error": 0,
+        "oracle_sha256": "c7459ba9b0c10656ed8b68370a25b7ba97a7db9b79592cf3cd2c2c480adc2bff",
+        "scope": "Actual full-top accepted PCM captures, real ROM/FFT, independent fixed-point band reference; nominal startup/WAV case only"
+      },
+      "verified_start_input_records": 65,
+      "evidence_receipt_sha256": "09a5cc31eef4603731dfba2b5d1cf20e9a1be92984572c80b606d71eee475817"
+    },
+    {
+      "name": "media_C11310",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\run_C11310_20261016_181233",
+      "summary_sha256": "d74e8807d53fb14ac28a56720699298bb0820416a41f20513def7e4364440b65",
+      "counts": {
+        "pcm_push": 6378,
+        "pcm_consume": 4447,
+        "bmp_pixels": 307200,
+        "read_pixels": 307200,
+        "read_frames": 1
+      },
+      "fft": {
+        "status": "PASS_SCOPE",
+        "completed_frames": 3,
+        "band_checks": 72,
+        "max_abs_error": 0,
+        "oracle_sha256": "c7459ba9b0c10656ed8b68370a25b7ba97a7db9b79592cf3cd2c2c480adc2bff",
+        "scope": "Actual full-top accepted PCM captures, real ROM/FFT, independent fixed-point band reference; nominal startup/WAV case only"
+      },
+      "verified_start_input_records": 65,
+      "evidence_receipt_sha256": "d41fd9e210713372ec30cf96260addd21ac9bc339b0dd48bd7d0d9f52bc37479"
+    },
+    {
+      "name": "framebuffer_icarus",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_20261016_174140",
+      "summary_sha256": "d5939f2c67944d4e7758d11825bbc04fb0f0f8e72695c2d32f2ee81eb5154e01",
+      "counts": null,
+      "fft": null,
+      "verified_start_input_records": 64,
+      "evidence_receipt_sha256": "48d05d41ad1e38f9cfcfb9ade4cf0b612b7df86d85da379641498a846a30ecb7"
+    },
+    {
+      "name": "framebuffer_modelsim_overlap",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\framebuffer_modelsim_20261016_180602",
+      "summary_sha256": "34e628997642a87b92af3bce79c740a24931be9a30b34ddfc622daf518ab5913",
+      "counts": null,
+      "fft": null,
+      "verified_start_input_records": 65,
+      "evidence_receipt_sha256": "969126e99f17dcba08ded74242ba97b4a4e259dc7acef177b2a3ae45d948bbd1"
+    },
+    {
+      "name": "hdmi_C11206_dynamic",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_positive_20261016_181443",
+      "summary_sha256": "ed33c5f2a2fb01ac405093ceaae5c13e14cdb75897684b5f8367905bad5fed25",
+      "counts": null,
+      "fft": null,
+      "verified_start_input_records": 66,
+      "evidence_receipt_sha256": "d13faadbf4f0175f6d0ce8947195ea3da29974e7552dafbc6c93f7c2f677617f"
+    },
+    {
+      "name": "hdmi_C11310_dynamic",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11310_positive_20261016_181646",
+      "summary_sha256": "74574ddafc1e75db8e6a2d4867f1b3f109eb3aa3091aa588f37973931e315222",
+      "counts": null,
+      "fft": null,
+      "verified_start_input_records": 71,
+      "evidence_receipt_sha256": "6f00e6d4181ee1d31dc288ff1eb4bd38761689a7b349114f8c4fa2ab3de9fca7"
+    },
+    {
+      "name": "hdmi_rgb_negative",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645",
+      "summary_sha256": "e7149df3f4d0f4e3f0958a06cfa3e5d88b7cb2e8684c5884c93d780e81daf2a0",
+      "counts": null,
+      "fft": null,
+      "verified_start_input_records": 66,
+      "evidence_receipt_sha256": "024b5c2ebd3122b8bc5114e1ffd99a124cbdf341b5aa27fa482356b8121b48fc"
+    },
+    {
+      "name": "hdmi_audio_negative",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_audio_20261016_181646",
+      "summary_sha256": "c36115839872a75325d255168590eb63ee7a6df4d14eabc87685269809ec93d9",
+      "counts": null,
+      "fft": null,
+      "verified_start_input_records": 66,
+      "evidence_receipt_sha256": "b6d10d30a3362d318ef40e73ad0c62b7db0e919b68768230a22d465395f6c700"
+    },
+    {
+      "name": "hdmi_C11310_ordered_stereo",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11310_positive_20261016_181940",
+      "summary_sha256": "9516c673e10c8519c37b45426febd36e153539ec63950a2aff9cba8ad2a564d7",
+      "counts": null,
+      "fft": null,
+      "verified_start_input_records": 71,
+      "evidence_receipt_sha256": "fa28a1f3e3202e5cb38b91b621c53a0adbdff4ad5b80d3c613111284d7c34df7"
+    },
+    {
+      "name": "hdmi_C11310_ordered_stereo_negative",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11310_negative_audio_20261016_181940",
+      "summary_sha256": "ddd8476cfb7f341b825528154f16879d851248af89d9ab69d44e5405b86ee1bd",
+      "counts": null,
+      "fft": null,
+      "verified_start_input_records": 71,
+      "evidence_receipt_sha256": "7ec5067b43759e1c11060f7eb7f0664aec91a65e33df667e8acf08c14617e33d"
+    },
+    {
+      "name": "fft_checker_guards",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\fft_checker_selftest_20261016_181200",
+      "summary_sha256": "3e86590d02e5be48d4360a2560ac888fe4774f6ea3a4b607ec3bdacb219d82c4",
+      "counts": null,
+      "fft": null,
+      "verified_start_input_records": 0,
+      "evidence_receipt_sha256": "7753dae569926eb7f5ed5a252b13cfbf2e9ece5241d41446dcb0922866893281"
+    }
+  ]
+}

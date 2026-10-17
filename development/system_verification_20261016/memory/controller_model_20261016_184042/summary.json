@@ -1,0 +1,38 @@
+{
+  "status": "PASS_SCOPE_PIN_MODEL",
+  "matrix": true,
+  "corrupt_data": false,
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "work.tb_controller_gate",
+      "work.glbl",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\controller_model_20261016_184042\\console.log"
+  },
+  "checked_words": 1024,
+  "mismatch_count": 0,
+  "first_mismatches": [],
+  "data_offset_cycles": -1,
+  "limitations": [
+    "Not full-top implementation or routed timing simulation",
+    "APUG011 reference chip model is not a guarantee of SiP silicon electrical timing",
+    "Nominal bank-aligned bursts, four banks, byte masks and post-refresh retention"
+  ]
+}

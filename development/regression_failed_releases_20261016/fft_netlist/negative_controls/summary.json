@@ -1,0 +1,67 @@
+[
+  {
+    "name": "wrong_gold",
+    "expected_failure_detected": true,
+    "simulator_exit_code": 0,
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "work.tb_fft_cone",
+      "eg4.glbl",
+      "+VEC=all_samples.mem",
+      "+EXP=../../../negative_controls/corrupt_expected.mem",
+      "-do",
+      "run.do",
+      "-l",
+      "wrong_gold_run.log"
+    ],
+    "console_sha256": "f244277885a5643b4d671a5a063422155796a8337f52ec88875cb6e7ae0f669f",
+    "markers": [
+      "# INPUT_VALID samples=13312 expected=312 unknown_words=0",
+      "# CASE_RESULT case=0 outputs=24 nonzero=24 cycles=55320 errors=1",
+      "# FAIL fft_cone errors=1"
+    ]
+  },
+  {
+    "name": "missing_gold",
+    "expected_failure_detected": true,
+    "simulator_exit_code": 0,
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "work.tb_fft_cone",
+      "eg4.glbl",
+      "+VEC=all_samples.mem",
+      "+EXP=file_that_does_not_exist.mem",
+      "-do",
+      "run.do",
+      "-l",
+      "missing_gold_run.log"
+    ],
+    "console_sha256": "477349f077bdf339b97bd3bbc579d77f51c4cfc528f177ec4f6cd7e5a8d6b6bf",
+    "markers": [
+      "# ** Warning: (vsim-7) Failed to open readmem file \"file_that_does_not_exist.mem\" in read mode.",
+      "# FAIL expected input not loaded i=0"
+    ]
+  }
+]

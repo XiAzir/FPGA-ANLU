@@ -1,0 +1,65 @@
+--- original_1015
++++ matrix_1016_corrected
+@@ -6,19 +6,15 @@
+ from pathlib import Path
+ import re, collections, json, hashlib, argparse
+ 
+-out=Path(__file__).resolve().parent
+-project=out.parents[3]
+ parser=argparse.ArgumentParser()
+-parser.add_argument('--video',action='store_true')
++parser.add_argument('--source',type=Path,required=True)
++parser.add_argument('--out',type=Path,required=True)
+ parser.add_argument('--routed',action='store_true')
+ args=parser.parse_args()
+-if args.video:
+-    out=out.parents[1]/'video_modelsim/full_gate_1015'
+-    out.mkdir(parents=True,exist_ok=True)
+-if args.routed:
+-    out=out/'routed'
+-    out.mkdir(parents=True,exist_ok=True)
+-src=project/('build/audit/routed_implementation.v' if args.routed else 'build/manual/AC201_tf_hdmi_gate.v')
++args.video=False
++out=args.out.resolve()
++out.mkdir(parents=True,exist_ok=True)
++src=args.source.resolve()
+ s=src.read_text()
+ decls=re.findall(r'^  wire[^\n]+',s,re.M)
+ widths={}
+@@ -99,16 +95,15 @@
+ clock='u_status_monitor/sys_clk'
+ reset='u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_edid_wrapper/u_iic_master_wrapper/u_iic_receiver_controller/I_rst'
+ bounds={clock: 'clk',reset:'rst','u_audio_probe/audio_valid':'audio_valid','u_audio_probe/tone_mode':'tone_mode'}
+-bounds['u_status_monitor/startup_flags [1]']='rst'
++if 'u_status_monitor/startup_flags' in widths:
++    bounds['u_status_monitor/startup_flags [1]']='rst'
+ if args.routed:
+     for name in widths:
+         if name.startswith('u_status_monitor/startup_flags[1]_dup_'):
+             bounds[name]='rst'
+ for i in range(24):bounds[f'audio_left_data [{i}]']=f'audio_pcm[{i}]'
+ targets=['\\u_pcm_waveform/band_valid ','\\u_pcm_waveform/frame_done ',
+-         '\\u_pcm_waveform/u_spectrum/band_index ','\\u_pcm_waveform/u_spectrum/band_value ',
+-         '\\u_pcm_waveform/u_spectrum/debug_progress ','\\u_pcm_waveform/u_spectrum/debug_accepted ',
+-         '\\u_pcm_waveform/u_spectrum/debug_events [15:0]','\\u_pcm_waveform/u_spectrum/debug_coeff_nonzero ']
++         '\\u_pcm_waveform/u_spectrum/band_index ','\\u_pcm_waveform/u_spectrum/band_value ']
+ if args.video:
+     bounds={clock:'clk',reset:'rst','u_status_monitor/startup_flags [1]':'rst'}
+     targets=['hdmi_video_locked','axis_s_user','\\u_adjust_osd/de_prev ',
+@@ -164,14 +159,14 @@
+ (out/'cone_manifest.json').write_text(json.dumps(summary,indent=2))
+ print(json.dumps({k:v for k,v in summary.items() if k not in ('instances','boundaries')},indent=2))
+ if missing:raise SystemExit('Unresolved nets: do not simulate incomplete cone')
+-body=['`timescale 1ns/1ps','module fft_cone(input clk,rst,audio_valid,tone_mode,input [23:0] audio_pcm,output band_valid,frame_done,output [4:0] band_index,output [15:0] band_value,output [23:0] debug_progress,debug_accepted,output [15:0] debug_events,output [1:0] debug_coeff);']+decls
++body=['`timescale 1ns/1ps','module fft_cone(input clk,rst,audio_valid,tone_mode,input [23:0] audio_pcm,output band_valid,frame_done,output [4:0] band_index,output [15:0] band_value);']+decls
+ if args.video:
+     body=['`timescale 1ns/1ps','module video_full_cone(input clk,rst,output locked,user,valid,pause);']+decls
+ for original,replacement in bounds.items():
+     original='\\'+original if '/' in original else original
+     body.append(f'assign {original} = {replacement};')
+ for i in sorted(selected):body.append(cells[i]['raw'])
+-names=['locked','user','valid','pause'] if args.video else ['band_valid','frame_done','band_index','band_value','debug_progress','debug_accepted','debug_events','debug_coeff']
++names=['locked','user','valid','pause'] if args.video else ['band_valid','frame_done','band_index','band_value']
+ for name,target in zip(names,targets):
+     body.append(f'assign {name} = {target};')
+ body+=['endmodule']

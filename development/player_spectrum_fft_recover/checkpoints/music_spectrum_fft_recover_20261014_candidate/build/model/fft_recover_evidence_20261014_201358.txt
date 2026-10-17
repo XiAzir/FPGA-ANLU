@@ -1,0 +1,15 @@
+PASS: analyzer recovery and recovery telemetry test completed.
+Production FRAME_TIMEOUT_SAMPLES default: 4096 (parameter not overridden in tb_fft_recover).
+Clock/sample cadence: 25 MHz clock; audio_valid one-cycle pulses every 521 clocks (~48 kHz).
+Checks: asynchronous reset assertion; non-edge-aligned reset release and 3-pixel-clock settling; source_change abort/reset; direct testbench-only injection of binary illegal states 17..31; valid nonzero normal frame with recovery_count=0; testbench-only ST_CAPTURE stall while valid source samples continue until timeout; local recovery_count increment; subsequent real-rate frame completes with no source_change/global reset; recovery/source counter saturation and accepted-sample saturation.
+No board, TD, or hardware test executed.
+Analyzer RTL SHA256=e4c631e7b8c3f0e8510711333edecc7d4c363dcb5377d126ef389f18a739b619
+Renderer/wrapper RTL SHA256=f8f1267a5541a228e50965720b8f9eae818b20070c23270f2997940e998186d4
+Testbench SHA256=7453b8d401d54ec7555aa95610dfb188a90a715a86a04bad6fecaa0bf8ddf64b
+Input vector SHA256=04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2
+Icarus SHA256=803b8844af2cc8ed70b5f08b07ffa749901280e81339617ca3e72cbbb852bd2b
+Compile log=E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_fft_recover\build\model\fft_recover_compile_20261014_201358.log
+Run log=E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_fft_recover\build\model\fft_recover_run_20261014_201358.log
+Testbench-only fault injection: state/counters are directly deposited only in this simulation; production RTL is unchanged.
+Audio source separation: analyzer has no audio output port; recovery counter/reset are local, and top-level audio probe wiring is independent of spectrum diagnostic outputs.
+Interface audit: E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_fft_recover\build\model\fft_recover_interface_audit.json

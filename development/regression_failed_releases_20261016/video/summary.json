@@ -1,0 +1,287 @@
+{
+  "task": "Failed-release video gate cone rerun",
+  "licenseSource": "MGLS_LICENSE_FILE loaded from current user environment; value intentionally omitted",
+  "runs": [
+    {
+      "release": "C11206",
+      "simulation": {
+        "startedLocal": "2026-10-16 15:45:58",
+        "command": "pwsh -NoProfile -File run.ps1 -SourcePath \"development/player_bmp_scale/build/manual/AC201_tf_hdmi_gate.v\" -CaseName C11206",
+        "completeFrames": 3,
+        "finishedLocal": "2026-10-16 15:47:43",
+        "nextFrameFirstPixel": 1,
+        "sofs": 4,
+        "completePixels": 921600,
+        "result": "PASS",
+        "lineErrors": 0,
+        "lines": 1440,
+        "durationSeconds": 105.2
+      },
+      "reportedBoardBehavior": "稳定基线",
+      "deliveredBit": {
+        "manifestSha256": "c60464c0d4396d316db7622e4cb0b70b5de12c25148afe234ac7c795c818625d",
+        "path": "development/player_bmp_scale/build/delivery/bmp_scale.bit",
+        "hashMatchesManifest": true,
+        "sha256": "c60464c0d4396d316db7622e4cb0b70b5de12c25148afe234ac7c795c818625d"
+      },
+      "checkpoint": "development/player_bmp_scale/checkpoints/bmp_scale_20261012_verified",
+      "checkpointManifestSha256": "71f87a4b82f974092f63102e0d7522b6c5577bd367b6789c6ad0ddda37a76fb7",
+      "gateNetlist": {
+        "manifestSha256": null,
+        "hashMatchesManifest": null,
+        "path": "development/player_bmp_scale/build/manual/AC201_tf_hdmi_gate.v",
+        "evidence": "C11206 verified checkpoint does not list this gate netlist; used current player_bmp_scale build/manual gate. The C11206 delivered bit association is separately verified by its manifest SHA-256.",
+        "sha256": "93822887689ebbeae2cdccf5deb22d2a24ca9ae4dcc4fcea187ac8c141b98aa0"
+      },
+      "cone": {
+        "boundarySignals": {
+          "u_status_monitor/sys_clk": "clk",
+          "u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_edid_wrapper/u_iic_master_wrapper/u_iic_receiver_controller/I_rst": "rst",
+          "u_status_monitor/startup_flags [1]": "rst"
+        },
+        "primitiveCounts": {
+          "AL_MAP_LUT4": 25,
+          "AL_MAP_LUT3": 16,
+          "AL_MAP_LUT2": 32,
+          "AL_MAP_SEQ": 131,
+          "AL_MAP_LUT1": 2,
+          "AL_MAP_LUT5": 8,
+          "EG_PHY_LSLICE": 23,
+          "EG_PHY_MSLICE": 8
+        },
+        "unresolvedCount": 0,
+        "totalCellsInSource": 20609,
+        "includedCells": 245
+      }
+    },
+    {
+      "release": "C11302",
+      "simulation": {
+        "startedLocal": "2026-10-16 15:48:12",
+        "command": "pwsh -NoProfile -File run.ps1 -SourcePath \"development/player_music_envelope/checkpoints/music_envelope_20261013_candidate/build/manual/AC201_tf_hdmi_gate.v\" -CaseName C11302",
+        "completeFrames": 3,
+        "finishedLocal": "2026-10-16 15:49:52",
+        "nextFrameFirstPixel": 1,
+        "sofs": 4,
+        "completePixels": 921600,
+        "result": "PASS",
+        "lineErrors": 0,
+        "lines": 1440,
+        "durationSeconds": 100.5
+      },
+      "reportedBoardBehavior": "绿条、无声",
+      "deliveredBit": {
+        "manifestSha256": "594aa169246dd480f224e9a0f4060e52ccb5642817b76522aba040e147bd73ef",
+        "path": "development/player_music_envelope/build/delivery/music_envelope.bit",
+        "hashMatchesManifest": true,
+        "sha256": "594aa169246dd480f224e9a0f4060e52ccb5642817b76522aba040e147bd73ef"
+      },
+      "checkpoint": "development/player_music_envelope/checkpoints/music_envelope_20261013_candidate",
+      "checkpointManifestSha256": "e135df7110b416042301f17c54336621b77c13902d0629d1edabc2a2ded9e9f1",
+      "gateNetlist": {
+        "manifestSha256": "a4e3456d6c70927c1387c2a01ec413ca1c95dc7422ea2a56f54bdb8158aa32b6",
+        "hashMatchesManifest": true,
+        "path": "development/player_music_envelope/checkpoints/music_envelope_20261013_candidate/build/manual/AC201_tf_hdmi_gate.v",
+        "evidence": "checkpoint manifest SHA-256 exact match",
+        "sha256": "a4e3456d6c70927c1387c2a01ec413ca1c95dc7422ea2a56f54bdb8158aa32b6"
+      },
+      "cone": {
+        "boundarySignals": {
+          "u_status_monitor/sys_clk": "clk",
+          "u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_edid_wrapper/u_iic_master_wrapper/u_iic_receiver_controller/I_rst": "rst",
+          "u_status_monitor/startup_flags [1]": "rst"
+        },
+        "primitiveCounts": {
+          "AL_MAP_SEQ": 131,
+          "AL_MAP_LUT4": 25,
+          "AL_MAP_LUT3": 16,
+          "AL_MAP_LUT2": 32,
+          "AL_MAP_LUT5": 8,
+          "AL_MAP_LUT1": 2,
+          "EG_PHY_LSLICE": 23,
+          "EG_PHY_MSLICE": 8
+        },
+        "unresolvedCount": 0,
+        "totalCellsInSource": 21715,
+        "includedCells": 245
+      }
+    },
+    {
+      "release": "C11304",
+      "simulation": {
+        "startedLocal": "2026-10-16 15:50:18",
+        "command": "pwsh -NoProfile -File run.ps1 -SourcePath \"development/player_spectrum/checkpoints/music_spectrum_20261013_candidate/build/manual/AC201_tf_hdmi_gate.v\" -CaseName C11304",
+        "completeFrames": 3,
+        "finishedLocal": "2026-10-16 15:52:23",
+        "nextFrameFirstPixel": 1,
+        "sofs": 4,
+        "completePixels": 921600,
+        "result": "PASS",
+        "lineErrors": 0,
+        "lines": 1440,
+        "durationSeconds": 125.2
+      },
+      "reportedBoardBehavior": "无信号",
+      "deliveredBit": {
+        "manifestSha256": "789913a1c0e332e3fb5ed73c55252bbecb1abf7a1c19f7e3319ac56ae09eeb17",
+        "path": "development/player_spectrum/build/delivery/spectrum.bit",
+        "hashMatchesManifest": true,
+        "sha256": "789913a1c0e332e3fb5ed73c55252bbecb1abf7a1c19f7e3319ac56ae09eeb17"
+      },
+      "checkpoint": "development/player_spectrum/checkpoints/music_spectrum_20261013_candidate",
+      "checkpointManifestSha256": "365eca09cb3bb988fca500519c45317661063ec24f5317e6dec94b65f19c2a7a",
+      "gateNetlist": {
+        "manifestSha256": "5dab202f00b97e6ac7512c252cd9df7e5fd2087341e8bc2be612803b8ce69052",
+        "hashMatchesManifest": true,
+        "path": "development/player_spectrum/checkpoints/music_spectrum_20261013_candidate/build/manual/AC201_tf_hdmi_gate.v",
+        "evidence": "checkpoint manifest SHA-256 exact match",
+        "sha256": "5dab202f00b97e6ac7512c252cd9df7e5fd2087341e8bc2be612803b8ce69052"
+      },
+      "cone": {
+        "boundarySignals": {
+          "u_status_monitor/sys_clk": "clk",
+          "u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_edid_wrapper/u_iic_master_wrapper/u_iic_receiver_controller/I_rst": "rst",
+          "u_status_monitor/startup_flags [1]": "rst"
+        },
+        "primitiveCounts": {
+          "AL_MAP_SEQ": 131,
+          "AL_MAP_LUT3": 18,
+          "AL_MAP_LUT4": 22,
+          "AL_MAP_LUT5": 8,
+          "AL_MAP_LUT2": 29,
+          "AL_MAP_LUT1": 2,
+          "EG_PHY_LSLICE": 23,
+          "EG_PHY_MSLICE": 8
+        },
+        "unresolvedCount": 0,
+        "totalCellsInSource": 22949,
+        "includedCells": 241
+      }
+    },
+    {
+      "release": "C11308",
+      "simulation": {
+        "startedLocal": "2026-10-16 15:52:42",
+        "command": "pwsh -NoProfile -File run.ps1 -SourcePath \"development/player_spectrum_tf_margin/checkpoints/music_spectrum_tf_margin_20261014_candidate/build/manual/AC201_tf_hdmi_gate.v\" -CaseName C11308",
+        "completeFrames": 3,
+        "finishedLocal": "2026-10-16 15:54:54",
+        "nextFrameFirstPixel": 1,
+        "sofs": 4,
+        "completePixels": 921600,
+        "result": "PASS",
+        "lineErrors": 0,
+        "lines": 1440,
+        "durationSeconds": 132.6
+      },
+      "reportedBoardBehavior": "绿条、静音",
+      "deliveredBit": {
+        "manifestSha256": "ad3c0ed07482ff88b9f252afc3862311de752216a511fe7164782d56e4b8c895",
+        "path": "development/player_spectrum_tf_margin/build/delivery/spectrum_tf_margin.bit",
+        "hashMatchesManifest": true,
+        "sha256": "ad3c0ed07482ff88b9f252afc3862311de752216a511fe7164782d56e4b8c895"
+      },
+      "checkpoint": "development/player_spectrum_tf_margin/checkpoints/music_spectrum_tf_margin_20261014_candidate",
+      "checkpointManifestSha256": "c3469bd0dc0b43d4e7f2054b71489436e3e4c3d3723e8f268847434c76f7d71b",
+      "gateNetlist": {
+        "manifestSha256": "63526fd7db9583ce8d86c7ccf63e399765d49d3ca7b5be89d321c31d9f4801b2",
+        "hashMatchesManifest": true,
+        "path": "development/player_spectrum_tf_margin/checkpoints/music_spectrum_tf_margin_20261014_candidate/build/manual/AC201_tf_hdmi_gate.v",
+        "evidence": "checkpoint manifest SHA-256 exact match",
+        "sha256": "63526fd7db9583ce8d86c7ccf63e399765d49d3ca7b5be89d321c31d9f4801b2"
+      },
+      "cone": {
+        "boundarySignals": {
+          "u_status_monitor/sys_clk": "clk",
+          "u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_edid_wrapper/u_iic_master_wrapper/u_iic_receiver_controller/I_rst": "rst",
+          "u_status_monitor/startup_flags [1]": "rst"
+        },
+        "primitiveCounts": {
+          "AL_MAP_SEQ": 131,
+          "EG_PHY_MSLICE": 8,
+          "AL_MAP_LUT3": 18,
+          "AL_MAP_LUT5": 8,
+          "AL_MAP_LUT4": 22,
+          "AL_MAP_LUT2": 29,
+          "EG_PHY_LSLICE": 23,
+          "AL_MAP_LUT1": 2
+        },
+        "unresolvedCount": 0,
+        "totalCellsInSource": 23372,
+        "includedCells": 241
+      }
+    },
+    {
+      "release": "C11310",
+      "simulation": {
+        "startedLocal": "2026-10-16 15:55:14",
+        "command": "pwsh -NoProfile -File run.ps1 -SourcePath \"development/player_spectrum_fft_recover/checkpoints/music_spectrum_fft_recover_20261014_candidate/build/manual/AC201_tf_hdmi_gate.v\" -CaseName C11310",
+        "completeFrames": 3,
+        "finishedLocal": "2026-10-16 15:56:57",
+        "nextFrameFirstPixel": 1,
+        "sofs": 4,
+        "completePixels": 921600,
+        "result": "PASS",
+        "lineErrors": 0,
+        "lines": 1440,
+        "durationSeconds": 102.5
+      },
+      "reportedBoardBehavior": "无信号",
+      "deliveredBit": {
+        "manifestSha256": "9a076c4170deb9ba84526b61e9f086a12ef59399db7721eafb5f7a80186bfa0c",
+        "path": "development/player_spectrum_fft_recover/build/delivery/spectrum_fft_recover.bit",
+        "hashMatchesManifest": true,
+        "sha256": "9a076c4170deb9ba84526b61e9f086a12ef59399db7721eafb5f7a80186bfa0c"
+      },
+      "checkpoint": "development/player_spectrum_fft_recover/checkpoints/music_spectrum_fft_recover_20261014_candidate",
+      "checkpointManifestSha256": "b72108d1deff5615d322661f1306485a389b908a00e45fc18aa39f5d704b7522",
+      "gateNetlist": {
+        "manifestSha256": "3008b47357b023a1c5c787b197460b807e9b410e975d8e133144e120e0b21f73",
+        "hashMatchesManifest": true,
+        "path": "development/player_spectrum_fft_recover/checkpoints/music_spectrum_fft_recover_20261014_candidate/build/manual/AC201_tf_hdmi_gate.v",
+        "evidence": "checkpoint manifest SHA-256 exact match",
+        "sha256": "3008b47357b023a1c5c787b197460b807e9b410e975d8e133144e120e0b21f73"
+      },
+      "cone": {
+        "boundarySignals": {
+          "u_status_monitor/sys_clk": "clk",
+          "u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_edid_wrapper/u_iic_master_wrapper/u_iic_receiver_controller/I_rst": "rst",
+          "u_status_monitor/startup_flags [1]": "rst"
+        },
+        "primitiveCounts": {
+          "AL_MAP_LUT5": 5,
+          "AL_MAP_SEQ": 131,
+          "AL_MAP_LUT3": 14,
+          "EG_PHY_LSLICE": 23,
+          "AL_MAP_LUT4": 28,
+          "AL_MAP_LUT2": 30,
+          "AL_MAP_LUT1": 2,
+          "EG_PHY_MSLICE": 8
+        },
+        "unresolvedCount": 0,
+        "totalCellsInSource": 23714,
+        "includedCells": 241
+      }
+    }
+  ],
+  "stimulus": "same tb_video_full_cone.v; clk 25 MHz; global reset only; 3 complete frames plus first pixel of next",
+  "workspace": "E:/VSCODE-project/FPGA-ANLU",
+  "modelsimCommand": "vsim -modelsimini modelsim.ini -c -novopt -lic_noqueue -suppress 3017,3722 -L eg4 work.tb_video_full_cone eg4.glbl -do run.do -l run.log",
+  "createdLocal": "2026-10-16 15:58:22",
+  "simulator": "ModelSim SE 10.1c",
+  "scope": "actual gate video timing/valid/user and HDMI lock/pause control dependency cone; no pixel data/FIFO/PHY/receiver/SDF; not a full HDMI-chain or board-root-cause claim",
+  "testbench": {
+    "path": "development/regression_failed_releases_20261016/video/tb_video_full_cone.v",
+    "sha256": "ae47cbb9d72cc5495983b35d84fc2ba94ba99502872f5959b8553adcd7923c84",
+    "source": "copied unchanged from prior C11310 video gate cone test"
+  },
+  "extractor": {
+    "path": "development/regression_failed_releases_20261016/video/extract_video.py",
+    "sha256": "b6fcefbcc9696c2f76d328f63cfeaa9a8e79dca8b66f9a1d4f4320d78afacde1",
+    "basis": "copy of FFT gate extractor; only source/output path CLI parameters changed; AL_MAP_SEQ/AL_MAP_LUT dependency logic retained"
+  },
+  "runner": {
+    "path": "development/regression_failed_releases_20261016/video/run.ps1",
+    "sha256": "0206eac0956b888293453667a82e792b349130cf990a5f9e4b634cecb9f3b330"
+  },
+  "timingMeasurement": "Per-run elapsed seconds estimated from ModelSim console.log creation and final modification timestamps."
+}

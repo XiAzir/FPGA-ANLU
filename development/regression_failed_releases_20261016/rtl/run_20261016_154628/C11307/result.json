@@ -1,0 +1,65 @@
+{
+  "id": "C11307",
+  "source_tree": "player_spectrum_observed",
+  "checkpoint": "music_spectrum_observed_20261013_candidate",
+  "manifest_sha256": "b9935a54b29b31cc39ccbde6661445f434223a42d4420c0c62bfd3e41c22730f",
+  "manifest_inputs": [
+    {
+      "path": "sim/tb_player_spectrum_analyzer.v",
+      "sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+      "manifest_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+      "matches_manifest": true
+    },
+    {
+      "path": "src/user_source/hdl_source/player_spectrum_analyzer.v",
+      "sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1",
+      "manifest_sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1",
+      "matches_manifest": true
+    },
+    {
+      "path": "sim/vectors/all_samples.mem",
+      "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+      "manifest_sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+      "matches_manifest": true
+    },
+    {
+      "path": "sim/vectors/all_expected.mem",
+      "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+      "manifest_sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+      "matches_manifest": true
+    },
+    {
+      "path": "src/user_source/hdl_source/spectrum_hann.mem",
+      "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+      "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+      "matches_manifest": true
+    },
+    {
+      "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+      "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+      "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+      "matches_manifest": true
+    },
+    {
+      "path": "src/user_source/hdl_source/spectrum_coeff_rom.v",
+      "sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+      "manifest_sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+      "matches_manifest": true
+    }
+  ],
+  "independent_rom_present": true,
+  "compile_exit_code": 1,
+  "compile_started": "2026-10-16T15:46:28.9516363+08:00",
+  "compile_ended": "2026-10-16T15:46:28.9972374+08:00",
+  "simulation_exit_code": null,
+  "simulation_started": null,
+  "simulation_ended": null,
+  "compile_error_signature": "Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012\n** Error: (vlog-1902) Option \"-I\" is either unknown, requires an argument, or was given with a bad argument.\n\nUse the -help option for complete vlog usage.\n",
+  "simulator_loaded_eg_phy_bram": false,
+  "simulator_loaded_glbl": false,
+  "private_rom_behavioral_sim_defined": false,
+  "pass_signature": "",
+  "failure_signatures": [],
+  "status": "COMPILE_FAILURE",
+  "limitation": "RTL-only controlled audio-input test; no whole-system startup, PHY, routed SDF, or hardware validation."
+}

@@ -1,0 +1,116 @@
+{
+  "version": "C11306",
+  "stage": "gate",
+  "checkpoint": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate",
+  "manifest_sha256": "2496BA28835D656D1C121776B8A060CC12D50F735FE50A6006AC65D64A712632",
+  "bit": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate\\build\\manual\\AC201_player_spectrum_private_init.bit",
+    "sha256": "5D730E2C92602CE92560AC37FE2EE97BC6755AD20D24DDFE8F6BB9313DF881FB",
+    "manifest_match": true
+  },
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\PENGYUHAO\\AppData\\Roaming\\uv\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe",
+        "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\extract_fft.py",
+        "--source",
+        "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate\\build\\manual\\AC201_tf_hdmi_gate.v",
+        "--out",
+        "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_2_guarded\\C11306\\gate"
+      ],
+      "returncode": 0,
+      "seconds": 15.563,
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_2_guarded\\C11306\\gate\\extract.log"
+    },
+    {
+      "command": [
+        "E:\\ModelsimSE\\win64\\vlib.exe",
+        "work"
+      ],
+      "returncode": 0,
+      "seconds": 0.047,
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_2_guarded\\C11306\\gate\\vlib.log"
+    },
+    {
+      "command": [
+        "E:\\ModelsimSE\\win64\\vlog.exe",
+        "-modelsimini",
+        "modelsim.ini",
+        "-work",
+        "work",
+        "fft_cone.v",
+        "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\tb_fft_cone.v"
+      ],
+      "returncode": 0,
+      "seconds": 0.14,
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_2_guarded\\C11306\\gate\\compile.log"
+    },
+    {
+      "command": [
+        "E:\\ModelsimSE\\win64\\vsim.exe",
+        "-modelsimini",
+        "modelsim.ini",
+        "-c",
+        "-lic_noqueue",
+        "-novopt",
+        "-suppress",
+        "3017,3722",
+        "-L",
+        "work",
+        "-L",
+        "eg4",
+        "work.tb_fft_cone",
+        "eg4.glbl",
+        "+VEC=all_samples.mem",
+        "+EXP=all_expected.mem",
+        "-do",
+        "run.do",
+        "-l",
+        "run.log"
+      ],
+      "returncode": 0,
+      "seconds": 16.219,
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_2_guarded\\C11306\\gate\\console.log"
+    }
+  ],
+  "netlist": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate\\build\\manual\\AC201_tf_hdmi_gate.v",
+    "sha256": "DC1F8B483DA6335B88BBD87B4FE34FAA3A190D71FDE62F5D09E6DFDCB450D9BF",
+    "manifest_match": true
+  },
+  "all_samples.mem": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate\\sim\\vectors\\all_samples.mem",
+    "sha256": "04091DF69301E2BF772CE76CAFDC7B8D1AD51B93FD33C17479A3EC43E59A89D2",
+    "manifest_match": true
+  },
+  "all_expected.mem": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate\\sim\\vectors\\all_expected.mem",
+    "sha256": "9F43A55DB95975206099C29B83724692CD7BD98DF0DB9D76899BE0D2DDBEDDC0",
+    "manifest_match": true
+  },
+  "cone": {
+    "included": 925,
+    "primitive_counts": {
+      "AL_MAP_LUT3": 136,
+      "AL_MAP_LUT2": 195,
+      "AL_MAP_SEQ": 350,
+      "AL_MAP_LUT4": 104,
+      "AL_MAP_LUT5": 44,
+      "EG_PHY_MSLICE": 18,
+      "EG_PHY_MULT18": 1,
+      "EG_PHY_BRAM": 14,
+      "EG_PHY_LSLICE": 63
+    },
+    "unresolved": [],
+    "sha256": "EDEF3B78B41BA148621F26146B35A23E7F32237E7D10E30712F7C7DDC000B3E8"
+  },
+  "model_loads_checked": true,
+  "markers": [
+    "# BOUNDARY original netlist primitive cone; external clk25MHz/global reset/PCM/valid/tone; accelerated capture (one PCM per clk); no SDF; excludes whole-system startup",
+    "# CASE_RESULT case=0 outputs=24 nonzero=0 cycles=55320 errors=24",
+    "# FAIL fft_cone errors=24"
+  ],
+  "input_guard_passed": true,
+  "status": "SIMULATION_FAILED_OR_INCONCLUSIVE",
+  "console_sha256": "1782CE6B31CFED3445D14034502A21F24C36FEA854713F50538B646C112F60F6"
+}

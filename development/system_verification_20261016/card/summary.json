@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "simulator": "Icarus Verilog / vvp, Verilog-2005",
+  "modelsim": "PASS: ModelSim SE-64 10.1c vlog + vsim -novopt; full SD unit and CS recovery; see modelsim/vlog.log and modelsim/unit_novopt.log",
+  "run_log": "run.log",
+  "result": "current packed-sector model: real sd_card_top initialization; LBA 0 and 4130, 512 bytes each; production CRC checked=2 bad=0; independent pin-level CS interruption and CMD17 recovery pass",
+  "model": "SDHC block addressing, production SPI mode 3, compact packed-sector array plus explicit LBA map; missing/X sectors fatal; unsupported commands set protocol_error",
+  "image_bytes": 67108864,
+  "populated_sectors": 2073,
+  "fat32_cluster_count": 126944,
+  "wave_source_sha256": "d5244fd3935052a743379d9331ee78109c8a913241ed60de472cb9e34a17fecf",
+  "wave_payload_byte_offset": 262144,
+  "wave_sample_count": 4096,
+  "source_sha256": {
+    "sd_spi_card_model.v": "c7a758a7fba278eb8e1be5803bb0a1819a877b3436981f17cba4deb965cbe342",
+    "tb_sd_card.v": "3cbdc02ff36cff0ccfc6527f99a2b56b108253b30a787959addfb36795050974",
+    "sd_card_top.v": "0e9df60abd3a08a99d7d9fb0cd3ddb4c5169ae3e095d1dbb6a09c1d9ef9de1d8",
+    "sd_card_sec_read_write.v": "c245c07e3b0056808d86e06aad74348494e2a7050d493a3d4141d97ccf115203",
+    "sd_card_cmd.v": "617ac307a4daee159a09de5aa87e52ba3d978b78ff8ec60b8701fa5dc4554bd0",
+    "spi_master.v": "37f7a21144fa5cca3cc5c3b5f68a5ad40b3108336b600e45a1367734ac61403c",
+    "card.mem": "bb2bbfac6aef307a16f528884aa0f837fa46cb3fb97771f67edc7c57d7cb581a",
+    "packed_mem.mem": "425e4ab907fc88dff0fb499d6c19b60d8872e3a32ce8ccc9fac345ea80f2ae5d",
+    "lba_map.mem": "42a172e8474adf869f6d1cd04eacf2fbb1dc049730abe8bca55afaba9c18c11a",
+    "expected_sectors.mem": "ed554521ed92d8b3c6779b75a4fda6229d39b06d7b1f793711f455b2b3dbc7f9",
+    "manifest.json": "ba03b3d94a1e082496238693366f8fa279cc2f2853ed88a0f80983f439ae97d6",
+    "gen_card.py": "a29d0091110101dc72bef44e5d84f188ecbcfe1be16117cf97209713ceccab6c"
+  }
+}

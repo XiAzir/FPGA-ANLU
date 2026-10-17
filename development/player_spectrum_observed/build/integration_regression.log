@@ -1,0 +1,58 @@
+PASS spectrum_overlay_integration actual_pcm_frames=3 actual_band_frames=3 atomic_front_commit=1 update_abort_source=1 reset_during_update=1 stale_full_cycle=2444624
+E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_observed\sim\tb_spectrum_overlay_integration.v:62: $finish called at 104559520000 (1ps)
+{
+  "status": "PASS",
+  "actual_pcm_frames": 3,
+  "actual_band_frames": 3,
+  "band_outputs_checked": 72,
+  "renderer_states_checked": 264,
+  "atomic_commits_observed": 4,
+  "front_stability_windows": [
+    [
+      "rise_mid",
+      24
+    ],
+    [
+      "silence_mid",
+      24
+    ],
+    [
+      "thaw_mid",
+      24
+    ],
+    [
+      "stale_mid",
+      24
+    ],
+    [
+      "source_cancel",
+      24
+    ]
+  ],
+  "snapshot_stability_windows": [
+    [
+      "real_pcm_frame",
+      24
+    ]
+  ],
+  "pixel_samples_checked": 652,
+  "checks": [
+    "actual PCM to analyzer band values versus independent fixed-point oracle",
+    "serial updater front unchanged before update_done and atomic commit",
+    "same-cycle frame_done/VS consumes previous ready frame and retains new frame_pending",
+    "attack/release, peak hold/decay and peak>=bar",
+    "HOLD freezes front while accepting frames; thaw updates latest ready frame",
+    "100ms stale zero-target update",
+    "source change cancels in-flight update and source VS clears all visible bands/title",
+    "asynchronous reset clears front and restarts private state initialization",
+    "actual analyzer-driven RGB pixel"
+  ],
+  "timeout_cycles": 2444624,
+  "limits": [
+    "Production 1024-point analyzer arithmetic is used; integrated audio capture is accelerated to one valid per clock.",
+    "Icarus ROM loading and this state model do not prove TD/FPGA hardware initialization.",
+    "Internal state arrays and update_done are inspected to check sequential control; no board display/audio test is included."
+  ]
+}
+PASS spectrum_overlay_integration actual_pcm_frames=3 actual_band_frames=3 atomic_front_commit=1 update_abort_source=1 reset_during_update=1 stale_full_cycle=2444624
+E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_observed\sim\tb_spectrum_overlay_integration.v:62: $finish called at 104559520000 (1ps)

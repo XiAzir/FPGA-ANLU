@@ -1,0 +1,702 @@
+{
+  "run_id": "regression_failed_releases_20261016",
+  "created_utc": "2026-10-16T07:53:30.5349166Z",
+  "run_directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\rtl\\run_20261016_155249",
+  "simulator": "ModelSim SE-64 10.1c",
+  "scope": "Offline RTL-only replay of frozen analyzer and sealed testbench.",
+  "command_line": "pwsh -NoProfile -File development/regression_failed_releases_20261016/rtl/run_retest.ps1",
+  "result_count": 7,
+  "results": [
+    {
+      "id": "C11304",
+      "source_tree": "player_spectrum",
+      "checkpoint": "music_spectrum_20261013_candidate",
+      "manifest_sha256": "365eca09cb3bb988fca500519c45317661063ec24f5317e6dec94b65f19c2a7a",
+      "manifest_inputs": [
+        {
+          "path": "sim/tb_player_spectrum_analyzer.v",
+          "sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "manifest_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/player_spectrum_analyzer.v",
+          "sha256": "1645b9fd8b255798015e9d706cb6fb26208bb7d480a089d92fe5ad382c20b566",
+          "manifest_sha256": "1645b9fd8b255798015e9d706cb6fb26208bb7d480a089d92fe5ad382c20b566",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "manifest_sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "manifest_sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_manifest": true
+        }
+      ],
+      "independent_rom_present": false,
+      "compatibility_relocation": null,
+      "testbench_input_guard": {
+        "applied": true,
+        "change": "Added sample_mem and expected_mem reduction-X checks immediately after the two $readmemh calls.",
+        "original_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+        "guarded_copy_sha256": "a859fea7324ae883cbb6c42d8df5f09d063b7d8de920a066fdb1105c8072a467",
+        "inverse_transform_matches_original": true
+      },
+      "compile_exit_code": 0,
+      "compile_started": "2026-10-16T15:52:49.8326577+08:00",
+      "compile_ended": "2026-10-16T15:52:49.9277280+08:00",
+      "simulation_exit_code": 0,
+      "simulation_started": "2026-10-16T15:52:49.9286173+08:00",
+      "simulation_ended": "2026-10-16T15:52:52.8407612+08:00",
+      "compile_error_signature": null,
+      "simulator_loaded_eg_phy_bram": false,
+      "simulator_loaded_glbl": true,
+      "private_rom_behavioral_sim_defined": false,
+      "copied_runtime_inputs": [
+        {
+          "path": "all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_source": true
+        },
+        {
+          "path": "all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_source": true
+        }
+      ],
+      "readmem_open_failure": false,
+      "pass_signature": "# PASS spectrum_analyzer cases=13 output_bands=312 max_fixedpoint_error=0 physical_rate_capture=521clk plus_continuous_frames=2 source_change_abort=2 reset_abort=1\r",
+      "failure_signatures": [],
+      "status": "PASS_RTL_ARRAY_ROM",
+      "limitation": "RTL-only controlled audio-input test; no whole-system startup, PHY, routed SDF, or hardware validation."
+    },
+    {
+      "id": "C11305",
+      "source_tree": "player_spectrum_baseline_phy",
+      "checkpoint": "music_spectrum_baseline_phy_20261013_candidate",
+      "manifest_sha256": "a69757029272521540b5a1ab05a0eef70d6973df26258b80f20d2137a10940c5",
+      "manifest_inputs": [
+        {
+          "path": "sim/tb_player_spectrum_analyzer.v",
+          "sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "manifest_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/player_spectrum_analyzer.v",
+          "sha256": "1645b9fd8b255798015e9d706cb6fb26208bb7d480a089d92fe5ad382c20b566",
+          "manifest_sha256": "1645b9fd8b255798015e9d706cb6fb26208bb7d480a089d92fe5ad382c20b566",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "manifest_sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "manifest_sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_manifest": true
+        }
+      ],
+      "independent_rom_present": false,
+      "compatibility_relocation": null,
+      "testbench_input_guard": {
+        "applied": true,
+        "change": "Added sample_mem and expected_mem reduction-X checks immediately after the two $readmemh calls.",
+        "original_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+        "guarded_copy_sha256": "a859fea7324ae883cbb6c42d8df5f09d063b7d8de920a066fdb1105c8072a467",
+        "inverse_transform_matches_original": true
+      },
+      "compile_exit_code": 0,
+      "compile_started": "2026-10-16T15:52:53.0729762+08:00",
+      "compile_ended": "2026-10-16T15:52:53.2031825+08:00",
+      "simulation_exit_code": 0,
+      "simulation_started": "2026-10-16T15:52:53.2033850+08:00",
+      "simulation_ended": "2026-10-16T15:52:56.8743051+08:00",
+      "compile_error_signature": null,
+      "simulator_loaded_eg_phy_bram": false,
+      "simulator_loaded_glbl": true,
+      "private_rom_behavioral_sim_defined": false,
+      "copied_runtime_inputs": [
+        {
+          "path": "all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_source": true
+        },
+        {
+          "path": "all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_source": true
+        }
+      ],
+      "readmem_open_failure": false,
+      "pass_signature": "# PASS spectrum_analyzer cases=13 output_bands=312 max_fixedpoint_error=0 physical_rate_capture=521clk plus_continuous_frames=2 source_change_abort=2 reset_abort=1\r",
+      "failure_signatures": [],
+      "status": "PASS_RTL_ARRAY_ROM",
+      "limitation": "RTL-only controlled audio-input test; no whole-system startup, PHY, routed SDF, or hardware validation."
+    },
+    {
+      "id": "C11306",
+      "source_tree": "player_spectrum_private_init",
+      "checkpoint": "music_spectrum_private_init_20261013_candidate",
+      "manifest_sha256": "2496ba28835d656d1c121776b8a060cc12d50f735fe50a6006ac65d64a712632",
+      "manifest_inputs": [
+        {
+          "path": "sim/tb_player_spectrum_analyzer.v",
+          "sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "manifest_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/player_spectrum_analyzer.v",
+          "sha256": "4d6131343a101e32174245a415a84d707f6308a16141dca55c081ff136a574fb",
+          "manifest_sha256": "4d6131343a101e32174245a415a84d707f6308a16141dca55c081ff136a574fb",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "manifest_sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "manifest_sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_coeff_rom.v",
+          "sha256": "c273f96dfbd4e6331b28485959ae60559fbd951fee7dbc9c9c8eeae6f3f5ac2f",
+          "manifest_sha256": "c273f96dfbd4e6331b28485959ae60559fbd951fee7dbc9c9c8eeae6f3f5ac2f",
+          "matches_manifest": true
+        }
+      ],
+      "independent_rom_present": true,
+      "compatibility_relocation": {
+        "applied": true,
+        "change": "Moved reg [8:0] twiddle_addr declaration before the first module instance to avoid ModelSim 10.1c implicit-net redeclaration failure.",
+        "original_sha256": "4d6131343a101e32174245a415a84d707f6308a16141dca55c081ff136a574fb",
+        "compatibility_copy_sha256": "e0984f2f6198b29f8912e0f11ef9f0c937f437dbbf2e00fa33b34a4c00e61bdf",
+        "inverse_transform_matches_original": true
+      },
+      "testbench_input_guard": {
+        "applied": true,
+        "change": "Added sample_mem and expected_mem reduction-X checks immediately after the two $readmemh calls.",
+        "original_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+        "guarded_copy_sha256": "a859fea7324ae883cbb6c42d8df5f09d063b7d8de920a066fdb1105c8072a467",
+        "inverse_transform_matches_original": true
+      },
+      "compile_exit_code": 0,
+      "compile_started": "2026-10-16T15:52:57.1588004+08:00",
+      "compile_ended": "2026-10-16T15:52:57.3231068+08:00",
+      "simulation_exit_code": 0,
+      "simulation_started": "2026-10-16T15:52:57.3232205+08:00",
+      "simulation_ended": "2026-10-16T15:53:00.2836400+08:00",
+      "compile_error_signature": null,
+      "simulator_loaded_eg_phy_bram": true,
+      "simulator_loaded_glbl": true,
+      "private_rom_behavioral_sim_defined": false,
+      "copied_runtime_inputs": [
+        {
+          "path": "all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_source": true
+        },
+        {
+          "path": "all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_source": true
+        }
+      ],
+      "readmem_open_failure": false,
+      "pass_signature": "",
+      "failure_signatures": [],
+      "status": "SIMULATION_FAILURE",
+      "limitation": "RTL-only controlled audio-input test; no whole-system startup, PHY, routed SDF, or hardware validation."
+    },
+    {
+      "id": "C11307",
+      "source_tree": "player_spectrum_observed",
+      "checkpoint": "music_spectrum_observed_20261013_candidate",
+      "manifest_sha256": "b9935a54b29b31cc39ccbde6661445f434223a42d4420c0c62bfd3e41c22730f",
+      "manifest_inputs": [
+        {
+          "path": "sim/tb_player_spectrum_analyzer.v",
+          "sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "manifest_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/player_spectrum_analyzer.v",
+          "sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1",
+          "manifest_sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "manifest_sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "manifest_sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_coeff_rom.v",
+          "sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+          "manifest_sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+          "matches_manifest": true
+        }
+      ],
+      "independent_rom_present": true,
+      "compatibility_relocation": {
+        "applied": true,
+        "change": "Moved reg [8:0] twiddle_addr declaration before the first module instance to avoid ModelSim 10.1c implicit-net redeclaration failure.",
+        "original_sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1",
+        "compatibility_copy_sha256": "6398e70fd9de6da1fb2e31a2758cd0fcd7af88f9402b53c91d501f11dfec9360",
+        "inverse_transform_matches_original": true
+      },
+      "testbench_input_guard": {
+        "applied": true,
+        "change": "Added sample_mem and expected_mem reduction-X checks immediately after the two $readmemh calls.",
+        "original_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+        "guarded_copy_sha256": "a859fea7324ae883cbb6c42d8df5f09d063b7d8de920a066fdb1105c8072a467",
+        "inverse_transform_matches_original": true
+      },
+      "compile_exit_code": 0,
+      "compile_started": "2026-10-16T15:53:00.4985289+08:00",
+      "compile_ended": "2026-10-16T15:53:00.6301610+08:00",
+      "simulation_exit_code": 0,
+      "simulation_started": "2026-10-16T15:53:00.6302135+08:00",
+      "simulation_ended": "2026-10-16T15:53:08.5132977+08:00",
+      "compile_error_signature": null,
+      "simulator_loaded_eg_phy_bram": true,
+      "simulator_loaded_glbl": true,
+      "private_rom_behavioral_sim_defined": false,
+      "copied_runtime_inputs": [
+        {
+          "path": "all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_source": true
+        },
+        {
+          "path": "all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_source": true
+        }
+      ],
+      "readmem_open_failure": false,
+      "pass_signature": "# PASS spectrum_analyzer cases=13 output_bands=312 max_fixedpoint_error=0 physical_rate_capture=521clk plus_continuous_frames=2 source_change_abort=2 reset_abort=1\r",
+      "failure_signatures": [],
+      "status": "PASS",
+      "limitation": "RTL-only controlled audio-input test; no whole-system startup, PHY, routed SDF, or hardware validation."
+    },
+    {
+      "id": "C11308",
+      "source_tree": "player_spectrum_tf_margin",
+      "checkpoint": "music_spectrum_tf_margin_20261014_candidate",
+      "manifest_sha256": "c3469bd0dc0b43d4e7f2054b71489436e3e4c3d3723e8f268847434c76f7d71b",
+      "manifest_inputs": [
+        {
+          "path": "sim/tb_player_spectrum_analyzer.v",
+          "sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "manifest_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/player_spectrum_analyzer.v",
+          "sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1",
+          "manifest_sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "manifest_sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "manifest_sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_coeff_rom.v",
+          "sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+          "manifest_sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+          "matches_manifest": true
+        }
+      ],
+      "independent_rom_present": true,
+      "compatibility_relocation": {
+        "applied": true,
+        "change": "Moved reg [8:0] twiddle_addr declaration before the first module instance to avoid ModelSim 10.1c implicit-net redeclaration failure.",
+        "original_sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1",
+        "compatibility_copy_sha256": "6398e70fd9de6da1fb2e31a2758cd0fcd7af88f9402b53c91d501f11dfec9360",
+        "inverse_transform_matches_original": true
+      },
+      "testbench_input_guard": {
+        "applied": true,
+        "change": "Added sample_mem and expected_mem reduction-X checks immediately after the two $readmemh calls.",
+        "original_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+        "guarded_copy_sha256": "a859fea7324ae883cbb6c42d8df5f09d063b7d8de920a066fdb1105c8072a467",
+        "inverse_transform_matches_original": true
+      },
+      "compile_exit_code": 0,
+      "compile_started": "2026-10-16T15:53:08.6920515+08:00",
+      "compile_ended": "2026-10-16T15:53:08.8128495+08:00",
+      "simulation_exit_code": 0,
+      "simulation_started": "2026-10-16T15:53:08.8128867+08:00",
+      "simulation_ended": "2026-10-16T15:53:15.7483704+08:00",
+      "compile_error_signature": null,
+      "simulator_loaded_eg_phy_bram": true,
+      "simulator_loaded_glbl": true,
+      "private_rom_behavioral_sim_defined": false,
+      "copied_runtime_inputs": [
+        {
+          "path": "all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_source": true
+        },
+        {
+          "path": "all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_source": true
+        }
+      ],
+      "readmem_open_failure": false,
+      "pass_signature": "# PASS spectrum_analyzer cases=13 output_bands=312 max_fixedpoint_error=0 physical_rate_capture=521clk plus_continuous_frames=2 source_change_abort=2 reset_abort=1\r",
+      "failure_signatures": [],
+      "status": "PASS",
+      "limitation": "RTL-only controlled audio-input test; no whole-system startup, PHY, routed SDF, or hardware validation."
+    },
+    {
+      "id": "C11309",
+      "source_tree": "player_spectrum_clock_route",
+      "checkpoint": "music_spectrum_clock_route_20261014_candidate",
+      "manifest_sha256": "e638d0fa259e12a584a9e31cec4babf97f1e261eb59474c338cc8295c503f0ea",
+      "manifest_inputs": [
+        {
+          "path": "sim/tb_player_spectrum_analyzer.v",
+          "sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "manifest_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/player_spectrum_analyzer.v",
+          "sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1",
+          "manifest_sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "manifest_sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "manifest_sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_coeff_rom.v",
+          "sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+          "manifest_sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+          "matches_manifest": true
+        }
+      ],
+      "independent_rom_present": true,
+      "compatibility_relocation": {
+        "applied": true,
+        "change": "Moved reg [8:0] twiddle_addr declaration before the first module instance to avoid ModelSim 10.1c implicit-net redeclaration failure.",
+        "original_sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1",
+        "compatibility_copy_sha256": "6398e70fd9de6da1fb2e31a2758cd0fcd7af88f9402b53c91d501f11dfec9360",
+        "inverse_transform_matches_original": true
+      },
+      "testbench_input_guard": {
+        "applied": true,
+        "change": "Added sample_mem and expected_mem reduction-X checks immediately after the two $readmemh calls.",
+        "original_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+        "guarded_copy_sha256": "a859fea7324ae883cbb6c42d8df5f09d063b7d8de920a066fdb1105c8072a467",
+        "inverse_transform_matches_original": true
+      },
+      "compile_exit_code": 0,
+      "compile_started": "2026-10-16T15:53:15.8865396+08:00",
+      "compile_ended": "2026-10-16T15:53:15.9871990+08:00",
+      "simulation_exit_code": 0,
+      "simulation_started": "2026-10-16T15:53:15.9872462+08:00",
+      "simulation_ended": "2026-10-16T15:53:22.9841525+08:00",
+      "compile_error_signature": null,
+      "simulator_loaded_eg_phy_bram": true,
+      "simulator_loaded_glbl": true,
+      "private_rom_behavioral_sim_defined": false,
+      "copied_runtime_inputs": [
+        {
+          "path": "all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_source": true
+        },
+        {
+          "path": "all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_source": true
+        }
+      ],
+      "readmem_open_failure": false,
+      "pass_signature": "# PASS spectrum_analyzer cases=13 output_bands=312 max_fixedpoint_error=0 physical_rate_capture=521clk plus_continuous_frames=2 source_change_abort=2 reset_abort=1\r",
+      "failure_signatures": [],
+      "status": "PASS",
+      "limitation": "RTL-only controlled audio-input test; no whole-system startup, PHY, routed SDF, or hardware validation."
+    },
+    {
+      "id": "C11310",
+      "source_tree": "player_spectrum_fft_recover",
+      "checkpoint": "music_spectrum_fft_recover_20261014_candidate",
+      "manifest_sha256": "b72108d1deff5615d322661f1306485a389b908a00e45fc18aa39f5d704b7522",
+      "manifest_inputs": [
+        {
+          "path": "sim/tb_player_spectrum_analyzer.v",
+          "sha256": "09cd117b009be33c079675928755bf23e8a2e05f3223034bf5d3d24dc5a9cac0",
+          "manifest_sha256": "09cd117b009be33c079675928755bf23e8a2e05f3223034bf5d3d24dc5a9cac0",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/player_spectrum_analyzer.v",
+          "sha256": "e4c631e7b8c3f0e8510711333edecc7d4c363dcb5377d126ef389f18a739b619",
+          "manifest_sha256": "e4c631e7b8c3f0e8510711333edecc7d4c363dcb5377d126ef389f18a739b619",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "manifest_sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_manifest": true
+        },
+        {
+          "path": "sim/vectors/all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "manifest_sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_manifest": true
+        },
+        {
+          "path": "src/user_source/hdl_source/spectrum_coeff_rom.v",
+          "sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+          "manifest_sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+          "matches_manifest": true
+        }
+      ],
+      "independent_rom_present": true,
+      "compatibility_relocation": {
+        "applied": true,
+        "change": "Moved reg [8:0] twiddle_addr declaration before the first module instance to avoid ModelSim 10.1c implicit-net redeclaration failure.",
+        "original_sha256": "e4c631e7b8c3f0e8510711333edecc7d4c363dcb5377d126ef389f18a739b619",
+        "compatibility_copy_sha256": "186a687300d2846e282d569079e1b5763afba0885cf973612a584ae89856f170",
+        "inverse_transform_matches_original": true
+      },
+      "testbench_input_guard": {
+        "applied": true,
+        "change": "Added sample_mem and expected_mem reduction-X checks immediately after the two $readmemh calls.",
+        "original_sha256": "09cd117b009be33c079675928755bf23e8a2e05f3223034bf5d3d24dc5a9cac0",
+        "guarded_copy_sha256": "b920073bba302a7ee611694e2696c6af313aa283a5ec349d8a0e0f03b0b05ff9",
+        "inverse_transform_matches_original": true
+      },
+      "compile_exit_code": 0,
+      "compile_started": "2026-10-16T15:53:23.1289541+08:00",
+      "compile_ended": "2026-10-16T15:53:23.2242335+08:00",
+      "simulation_exit_code": 0,
+      "simulation_started": "2026-10-16T15:53:23.2242808+08:00",
+      "simulation_ended": "2026-10-16T15:53:30.5283414+08:00",
+      "compile_error_signature": null,
+      "simulator_loaded_eg_phy_bram": true,
+      "simulator_loaded_glbl": true,
+      "private_rom_behavioral_sim_defined": false,
+      "copied_runtime_inputs": [
+        {
+          "path": "all_samples.mem",
+          "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+          "matches_source": true
+        },
+        {
+          "path": "all_expected.mem",
+          "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_hann.mem",
+          "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+          "matches_source": true
+        },
+        {
+          "path": "spectrum_twiddle.mem",
+          "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+          "matches_source": true
+        }
+      ],
+      "readmem_open_failure": false,
+      "pass_signature": "# PASS spectrum_analyzer cases=13 output_bands=312 max_fixedpoint_error=0 physical_rate_capture=521clk plus_continuous_frames=2 source_change_abort=2 reset_abort=1\r",
+      "failure_signatures": [],
+      "status": "PASS",
+      "limitation": "RTL-only controlled audio-input test; no whole-system startup, PHY, routed SDF, or hardware validation."
+    }
+  ],
+  "global_limitation": "Not a whole-system simulation: no full-player startup, PHY behavior, routed SDF, or physical hardware."
+}

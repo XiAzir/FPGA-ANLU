@@ -1,0 +1,36 @@
+{
+  "status": "PASS_SCOPE",
+  "simulator": "ModelSim SE-64 10.1c",
+  "optimization": "-novopt",
+  "compile": "PASS",
+  "simulation": "PASS",
+  "simulation_log": "modelsim/unit_novopt.log",
+  "scope": "production sd_card_top initialization (CMD0/CMD8/CMD55/ACMD41/CMD16), exact 512-byte LBA0 and LBA4130 comparison, read_crc_checked=2/read_crc_bad=0, standalone SPI pin-level CS interruption and CMD17 recovery; packed model t0 files-open and complete 2073-entry image/map validation",
+  "simulation_time": "2381385 ns",
+  "exit_code": 0,
+  "exit_code_caveat": "ModelSim CLI exit 0 is not sufficient alone; require the PASS marker and CRC counters in unit_novopt.log. Negative missing-file test logs model FATAL at 0 ps but this release still exits 0.",
+  "model_sha256": "c7a758a7fba278eb8e1be5803bb0a1819a877b3436981f17cba4deb965cbe342",
+  "fixture_sha256": {
+    "tb_sd_card": "3cbdc02ff36cff0ccfc6527f99a2b56b108253b30a787959addfb36795050974",
+    "packed_mem": "425e4ab907fc88dff0fb499d6c19b60d8872e3a32ce8ccc9fac345ea80f2ae5d",
+    "lba_map": "42a172e8474adf869f6d1cd04eacf2fbb1dc049730abe8bca55afaba9c18c11a",
+    "expected_sectors": "ed554521ed92d8b3c6779b75a4fda6229d39b06d7b1f793711f455b2b3dbc7f9",
+    "manifest": "ba03b3d94a1e082496238693366f8fa279cc2f2853ed88a0f80983f439ae97d6"
+  },
+  "all_sha256": {
+    "sd_spi_card_model.v": "c7a758a7fba278eb8e1be5803bb0a1819a877b3436981f17cba4deb965cbe342",
+    "tb_sd_card.v": "3cbdc02ff36cff0ccfc6527f99a2b56b108253b30a787959addfb36795050974",
+    "packed_mem.mem": "425e4ab907fc88dff0fb499d6c19b60d8872e3a32ce8ccc9fac345ea80f2ae5d",
+    "lba_map.mem": "42a172e8474adf869f6d1cd04eacf2fbb1dc049730abe8bca55afaba9c18c11a",
+    "expected_sectors.mem": "ed554521ed92d8b3c6779b75a4fda6229d39b06d7b1f793711f455b2b3dbc7f9",
+    "manifest.json": "ba03b3d94a1e082496238693366f8fa279cc2f2853ed88a0f80983f439ae97d6",
+    "gen_card.py": "a29d0091110101dc72bef44e5d84f188ecbcfe1be16117cf97209713ceccab6c",
+    "modelsim/vlog.log": "5db5050f85bf226f35a74939146b6124fc4d5c761132b2933b93e4a48e9b9ed0",
+    "modelsim/unit_novopt.log": "fac21b3479ff569376f35293ac962a79e33978f069d158abfa113e0e65006e0f",
+    "run_modelsim.do": "d929f64c77ac151e9da3ac0701789a110684cedd54d4714d5bedf8ff8b2d7d1b",
+    "development/player_spectrum_fft_recover/src/user_source/hdl_source/SD/sd_card_top.v": "0e9df60abd3a08a99d7d9fb0cd3ddb4c5169ae3e095d1dbb6a09c1d9ef9de1d8",
+    "development/player_spectrum_fft_recover/src/user_source/hdl_source/SD/sd_card_sec_read_write.v": "c245c07e3b0056808d86e06aad74348494e2a7050d493a3d4141d97ccf115203",
+    "development/player_spectrum_fft_recover/src/user_source/hdl_source/SD/sd_card_cmd.v": "617ac307a4daee159a09de5aa87e52ba3d978b78ff8ec60b8701fa5dc4554bd0",
+    "development/player_spectrum_fft_recover/src/user_source/hdl_source/SD/spi_master.v": "37f7a21144fa5cca3cc5c3b5f68a5ad40b3108336b600e45a1367734ac61403c"
+  }
+}

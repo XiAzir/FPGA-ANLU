@@ -1,0 +1,112 @@
+{
+  "status": "NOT_QUALIFIED",
+  "matrix": true,
+  "corrupt_data": true,
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "work.tb_controller_gate",
+      "work.glbl",
+      "+corrupt_data",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\controller_model_20261016_184001\\console.log"
+  },
+  "checked_words": 1024,
+  "mismatch_count": 513,
+  "first_mismatches": [
+    {
+      "index": 20,
+      "cycle": 131596,
+      "got": "87998cdd",
+      "expected": "87998cdc"
+    },
+    {
+      "index": 512,
+      "cycle": 132886,
+      "got": "xx5axxff",
+      "expected": "935a00ff"
+    },
+    {
+      "index": 513,
+      "cycle": 132887,
+      "got": "xx59xxf4",
+      "expected": "925907f4"
+    },
+    {
+      "index": 514,
+      "cycle": 132888,
+      "got": "xx5cxxe9",
+      "expected": "915c0ee9"
+    },
+    {
+      "index": 515,
+      "cycle": 132889,
+      "got": "xx53xxde",
+      "expected": "905315de"
+    },
+    {
+      "index": 516,
+      "cycle": 132890,
+      "got": "xx56xxd3",
+      "expected": "97561cd3"
+    },
+    {
+      "index": 517,
+      "cycle": 132891,
+      "got": "xx55xxc8",
+      "expected": "965523c8"
+    },
+    {
+      "index": 518,
+      "cycle": 132892,
+      "got": "xx48xxbd",
+      "expected": "95482abd"
+    },
+    {
+      "index": 519,
+      "cycle": 132893,
+      "got": "xx4fxxb2",
+      "expected": "944f31b2"
+    },
+    {
+      "index": 520,
+      "cycle": 132894,
+      "got": "xx42xxa7",
+      "expected": "9b4238a7"
+    },
+    {
+      "index": 521,
+      "cycle": 132895,
+      "got": "xx41xx9c",
+      "expected": "9a413f9c"
+    },
+    {
+      "index": 522,
+      "cycle": 132896,
+      "got": "xx44xx91",
+      "expected": "99444691"
+    }
+  ],
+  "data_offset_cycles": -1,
+  "limitations": [
+    "Not full-top implementation or routed timing simulation",
+    "APUG011 reference chip model is not a guarantee of SiP silicon electrical timing",
+    "Nominal bank-aligned bursts, four banks, byte masks and post-refresh retention"
+  ]
+}

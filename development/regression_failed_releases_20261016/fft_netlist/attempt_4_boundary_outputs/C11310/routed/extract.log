@@ -1,0 +1,40 @@
+{
+  "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\checkpoints\\music_spectrum_fft_recover_20261014_candidate\\build\\audit\\routed_implementation.v",
+  "source_sha256": "c340972399476f9c773e8412d790eaf702bad790197f32b1fad92edcbeca5a5e",
+  "primitive_counts": {
+    "EG_PHY_MSLICE": 185,
+    "EG_PHY_LSLICE": 227,
+    "EG_PHY_MULT18": 1,
+    "EG_PHY_BRAM": 14
+  },
+  "included": 427,
+  "total": 9756,
+  "unresolved": [],
+  "boundary_output_cuts": [
+    {
+      "instance": "rst_all_reg_reg_syn_358",
+      "port": "q",
+      "net": "u_status_monitor/startup_flags[1]_dup_4406",
+      "dummy": "boundary_cut_1"
+    },
+    {
+      "instance": "u_pcm_waveform/u_spectrum/real_a_read_addr[0]_syn_4",
+      "port": "q",
+      "net": "u_status_monitor/startup_flags[1]_dup_4404",
+      "dummy": "boundary_cut_3"
+    },
+    {
+      "instance": "u_pcm_waveform/u_spectrum/sel1_syn_445",
+      "port": "q",
+      "net": "u_status_monitor/startup_flags[1]_dup_4409",
+      "dummy": "boundary_cut_5"
+    },
+    {
+      "instance": "u_status_monitor/page_reg[2]_syn_30",
+      "port": "q",
+      "net": "u_status_monitor/startup_flags[1]_dup_4433",
+      "dummy": "boundary_cut_7"
+    }
+  ],
+  "dependency_scope": "Slice lane-aware overapproximation; original primitive parameters preserved. Co-packed outputs driving externally supplied boundary nets are disconnected to private dummy wires. Unobserved co-packed lane inputs may be undriven."
+}

@@ -1,0 +1,19 @@
+--- E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_clock_route\checkpoints\music_spectrum_clock_route_20261014_candidate\src\user_source\hdl_source\player_status_monitor.v
++++ E:\VSCODE-project\FPGA-ANLU\development\system_verification_20261016\integration\run_C11309_20261016_181233\player_status_monitor_compat.v
+@@ -24,6 +24,8 @@
+     output wire [9:0] cw_count_data,
+     output wire cw_count_trigger
+ );
++reg request_toggle, ack_sync0, ack_sync1;
++
+     assign window_toggle_out=request_toggle;
+     localparam integer PAGE_CYCLES=SYS_HZ*PAGE_SECONDS;
+     localparam integer PAGE_BITS=(PAGE_CYCLES<=1)?1:$clog2(PAGE_CYCLES);
+@@ -32,7 +34,6 @@
+     reg frame_seen;
+     reg [23:0] audio_count;
+     reg [27:0] mailbox, received;
+-    reg request_toggle, ack_sync0, ack_sync1;
+     reg request_sync0, request_sync1, ack_toggle;
+     reg [3:0] startup_sync0, startup_sync1;
+     reg [23:0] file_sync0, file_sync1;

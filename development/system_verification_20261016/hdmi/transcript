@@ -1,0 +1,23 @@
+# vsim +phase_ps=0 -L EG4 -do {run -all; quit -f} -c -novopt work.tb_hdmi_serial_receiver work.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_hdmi_serial_receiver
+# Loading work.hdmi_phy_wrapper
+# Loading work.lane_lvds_10_1
+# Loading work.hdmi_serial_receiver
+# Loading work.glbl
+# Loading EG4.EG_LOGIC_ODDR
+# run -all 
+# ERROR: data mismatch rx=240 expected-index=240 got=055/214/0d6 expected=xxx/xxx/xxx
+# SUMMARY phase_ps=0 sent=240 received=241 first_index=0 locked=1 malformed=0 errors=1
+# ** Fatal: receiver test FAILED
+#    Time: 9820 ns  Scope: tb_hdmi_serial_receiver File: ./tb_hdmi_serial_receiver.v Line: 82
+# ** Note: $finish    : ./tb_hdmi_serial_receiver.v(82)
+#    Time: 9820 ns  Iteration: 1  Instance: /tb_hdmi_serial_receiver
