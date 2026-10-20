@@ -1,0 +1,49 @@
+# vsim +quick -L work -L c11310 -do run.do -l run.log -c -lic_noqueue -sdfmax /tb_display_pins/dut=E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/build/board_feedback_20261017/display_cone/display.sdf -suppress 3017,3722 -novopt work.tb_display_pins c11310.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/build/board_feedback_20261017/display_sdf/work.tb_display_pins
+# Loading work.tb_display_pins
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/build/board_feedback_20261017/display_sdf/work.display_cone
+# Loading work.display_cone
+# Loading c11310.EG_PHY_MSLICE
+# Loading c11310.dff_slice
+# Loading c11310.pfb_dffctrl
+# Loading c11310.dff_slice_half
+# Loading c11310.EG_PHY_PAD
+# Loading c11310.EG_LOGIC_IDDR
+# Loading c11310.EG_LOGIC_IDDRx2
+# Loading c11310.EG_LOGIC_ODDR
+# Loading c11310.EG_LOGIC_ODDRx2
+# Loading c11310.EG_PHY_LSLICE
+# Loading c11310.glbl
+# SDF 10.1c Compiler 2012.07 Jul 27 2012
+# 
+# Loading instances from E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/build/board_feedback_20261017/display_cone/display.sdf
+# Loading timing data from E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/build/board_feedback_20261017/display_cone/display.sdf
+# ** Warning: (vsim-8756) C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_mslice.v(382): Instance 'tb_display_pins.dut.rst_all_reg_reg_syn_328' - Negative timing check limits detected in simulation with cells modeled without delayed copies of data or reference signals.
+# 
+#         Region: /tb_display_pins
+# ** Warning: (vsim-3448) E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/build/board_feedback_20261017/display_cone/display.sdf(687): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Warning: (vsim-3448) E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/build/board_feedback_20261017/display_cone/display.sdf(700): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Warning: (vsim-3448) E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/build/board_feedback_20261017/display_cone/display.sdf(714): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_display_pins File: E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/build/board_feedback_20261017/tb_display_pins.v
+# ** Warning: (vsim-3316) No solution possible for some delayed timing check nets. 38 negative limits were zeroed. Use +ntc_warn for more info.
+# 
+#         Region: /tb_display_pins
+# do run.do 
+# BOUNDARY ideal 50MHz and reset copies; actual routed primitive/PAD parameters; no SDF/external 595 electrical model
+# WORD_PASS case=0 word=dfc11312 negative=0 time=          7263000000
+# PASS sdf_display_fixed digit_checks=8
+# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/build/board_feedback_20261017/tb_display_pins.v(60)
+#    Time: 7263 us  Iteration: 1  Instance: /tb_display_pins

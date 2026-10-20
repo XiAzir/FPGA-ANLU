@@ -1,0 +1,164 @@
+         To verify that the interpolant agrees with the onset and the offset,
+ -verify
+ and verify
+ doesn't support bg_mode verify.
+"                        JTAG_START, " &
+"          JTAG_START           (00111101)," &
+"        JTAG_PROGRAM           (00110000)," &
+"CMD_DEFAULT[1]         (JTAG_PROGRAM, " &
+&verify
+-c       : toggle verifying the final result [default = %s]
+-eram_verify
+-file <jtag_outfile>
+-verify
+-verify_eram
+-verify_partial
+-verify_sram_only
+.bmk
+// Loading device with a `spi page verify` instruction.
+// Verify whether golden image had been lock protected.
+//Loading device with a `verify fpga` instruction.
+//begin to verify AXIS content
+//begin to verify Axis(except eram) content
+//begin to verify PLL content
+//begin to verify eram init content
+//begin to verify sram content
+= verify single address
+= verify spi in program_spi mode
+= work mode, jtag/program_spi/program_spidir/verify_spi/x_rdbk, it is 'jtag' in default
+Abc_NtkVerifyGetCleanModel
+Abc_NtkVerifySimulatePattern
+Aig_ManVerifyUsingBdds(): Counter-example verification has FAILED.
+Assuming const-0 init-state after backward retiming. Result will not verify.
+CFG_JTAG_CTRL
+Cannot find mask file for %s
+Cannot identify chip while verify arch file.
+Cannot open bit mask file %s.
+Current device is: {}, not support jtag_adc_access
+Device database imported verify failed
+Device database verify failed
+Encrypt bit don't support generate vec in jtag mode, please using jtag_burst instead.
+Failed to verify total count of instance {}; {} unit in arch and {} unit is expected.
+Fra_FraigInduction(): Internal error. The result may not verify.
+Generate bit mask file %s.
+Generate bits mask file %s.
+Gia_ManMappingVerify: CO driver %d does not have mapping.
+Gia_ManMappingVerify: Internal node %d does not have mapping.
+Import design verify db failed
+Import design verify failed %s_VERSION=%s, %s_ENCODE_VERSION=%s , DB_VERSION=%s DB_ENCODE_VERSION=%s
+Invalid adc ADC_LOC attribute %s on %s instance %s, ignored. Please verify ADC_LOC setting.
+Invalid user location %s on %s instance %s, ignored. Please verify user location constraints through the adc file.
+Invariant verification: Can only verify for K = 1
+JTAG_AXIS_APB_ACCESS
+JTAG_CTRL
+JTAG_PERSISTN
+JTAG_REG_ACCESS
+JTAG_REG_ACCESS_VEC
+LOGIC_JTAG_V2
+Llb_MtrVerifyColumns(): Internal error.
+MCU_JTAG_SEL
+Nwk_ManVerifyLevel
+Nwk_ManVerifyTiming
+Nwk_ManVerifyTiming(): Object %d has different arrival time (%.2f) from computed (%.2f).
+Nwk_ManVerifyTiming(): Object %d has different required time (%.2f) from computed (%.2f).
+Nwk_ManVerifyTopoOrder
+PH1P_LOGIC_JTAG_V2
+PJTAG_EN
+Please verify input netlist before proceeding.
+Please verify whether the current project device match the device in the database.
+Program: verify internal flash failed!
+Read back and verify AES key
+Setting jtag_ctrl to 0. Based addr is: %8x, Register addr is: %3x, data is: %8x
+Start to verify spi for default bit.
+Start to verify spi for golden bit.
+Start to verify spi for jump bit.
+Start to verify spi...
+The don't-care are assumed to be 0. The result may not verify.
+The reduced AIG was produced using %d-th invariants and will not verify.
+Time verify
+Timed out after verifying %d outputs (out of %d).
+Timed out after verifying %d partitions (out of %d).
+Unexpected primary input <%s> in verify_seq_syn.
+Verify flash content overflow
+Verify option is not supported when using bin file.
+VerifySpiBitstream130K
+VerifySpiDaisyChain
+Verifying
+Verifying latency along all paths...
+Verifying part %4d  (out of %4d)  PI = %5d. PO = %5d. And = %6d. Lev = %4d.
+axis_gbuf_jtag_x15
+bit_to_vec -chip %s -m verify_spi
+cfgmd_jtag_n
+csu_jtag_dis
+db file verify failed.
+gen_jtag_axis_vec
+generate bit mask file:
+generate essential bits mask file: 
+generate the bit mask file: 
+hctrl_jtag_tclk
+hctrl_jtag_tdi
+hctrl_jtag_tdo
+hctrl_jtag_tdo_en
+hctrl_jtag_tms
+hctrl_jtag_trst_n
+jtag_active
+jtag_adc_access
+jtag_adc_access -h -help <-w/-r> -addr <string> -data <string> -cable <integer> -total_dev <integer> -cur_dev <integer>
+jtag_asr_mode
+jtag_bk_tms
+jtag_burst
+jtag_cfg
+jtag_disable
+jtag_drv_tms
+jtag_dwen
+jtag_mode
+jtag_persist
+jtag_pib_sel_i
+jtag_pin_persistn
+jtag_prgm_done
+jtag_rdbk
+jtag_studio
+jtag_tck
+jtag_tdo
+jtag_tms_out
+jtag_xprog
+jtag_xread
+mask file for verifying FPGA
+mcu_jtag_enable_n
+njtag_cfg_mode
+njtag_prgm_done
+non_jtag_persist
+non_jtag_persist(none)
+non_jtag_persist(pcmx16)
+non_jtag_persist(pcmx32)
+non_jtag_persist(pcmx8)
+non_jtag_persist(spix1/x2)
+non_jtag_persist(spix4)
+nonjtag_bse_fail
+nonjtag_bse_fail_type
+nonjtag_cfg
+nonjtag_command_invalid
+off: not generate mask file for verifying FPGA
+on: generate mask file for verifying FPGA
+phy_jtag_sel
+pjtag_iomux_default_dis
+pnl import error, please verify pnl file and use option "-merge_equal" if necessary.
+pr_jtag_burst_en
+ps_jtag_iomux_default_dis
+ps_jtag_port_dis
+sys_jtag_dis
+trim_verify
+usage: &verify [-CT num] [-sdvh] <file>
+using the mask file(%s) to generate the svf file
+verify
+verify flash failed!
+verify ooc model param failed, param[%s]=%s
+verify ooc model port failed, black_port=%s, ooc_port=%s
+verify_internal_spi
+verify_internal_spi_s
+verify_retiming
+verify_seq_syn
+verify_spi
+verify_spi130
+write ctrl1[31:0] for phy_jtag_sel(ctrl1[28:27]): value has been changed from
+write ctrl2[31:0] for phy_jtag_sel(ctrl2[7:0]): value has been changed from

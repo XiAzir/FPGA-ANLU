@@ -1,6 +1,6 @@
 {
   "build_id": "C11312",
-  "status": "DIAGNOSTIC_CANDIDATE_PENDING_BOARD",
+  "status": "FAILED_BOARD_VIDEO_AUDIO_AND_TELEMETRY",
   "created": "2026-10-15T21:13:20.841249+08:00",
   "bitstream_sha256": "60ae6b971ce1f9ed09d76bec14cf88dfc25cdfe7cbbebe5dd9fc070115b812ce",
   "bitstream_bytes": 634280,
@@ -66,10 +66,83 @@
       "scriptHash": "4597947929a438ae09e494b0d8114a7081b9f1fc31c7be6213bdb5ad0805c261"
     }
   },
-  "limits": "No board/JTAG/TF/Flash operation. No full SDF or electrical verification. Earlier C11310 FFT gate/routed cones and video-control gate tests passed under controlled stimuli but did not reproduce the board failure. This is a diagnostic build, not a proven repair.",
+  "limits": "User board feedback on 2026-10-17 is abnormal, including corrupted fixed display words. No hardware operated by agent. Bounded local tests pass but do not reproduce the board fault. No confirmed repair or complete timing/electrical verification.",
   "rollback": {
     "file": "bmp_scale.bit",
     "build_id": "C11206",
     "sha256": "c60464c0d4396d316db7622e4cb0b70b5de12c25148afe234ac7c795c818625d"
+  },
+  "board_feedback_20261017": {
+    "recorded": "2026-10-17T20:01:03.599681+08:00",
+    "status": "FAILED_BOARD_VIDEO_AUDIO_AND_TELEMETRY",
+    "board_feedback_source": "User reports and preserved videos; no hardware operated by agent.",
+    "reported": [
+      "image green/color bands",
+      "spectrum empty",
+      "playing audio has noise",
+      "baseline reload normal"
+    ],
+    "observed_fixed_version_word": "5FC11312",
+    "expected_fixed_version_word": "DFC11312",
+    "raw_snapshot_decodable": false,
+    "root_cause_confirmed": false,
+    "hardware_location": "Laboratory with classmate; user at home, no local board/JTAG access.",
+    "agent_operations": "Video decoding, source/PLL parameter comparison, bounded ModelSim tests, file hashes only. No production RTL/bit/ZIP modification or new build.",
+    "simulation": {
+      "display_pins": {
+        "cases": 44,
+        "digit_checks": 352,
+        "negative_control_errors_detected": 1,
+        "primitives": 101,
+        "pads": 3,
+        "sdf": false
+      },
+      "display_sdf": {
+        "fixed_word": "DFC11312",
+        "digit_checks": 8,
+        "sdf_annotation_succeeded": true,
+        "negative_limits_zeroed": 38,
+        "scope": "Extracted cone with original retained delays, ideal clock/reset/input boundaries; external 595 electrical behavior excluded."
+      },
+      "upstream_version": {
+        "full_routed_top": true,
+        "mailbox_words": 8,
+        "version_word": "DFC11312",
+        "scope": "Controlled forced page selector copies, PLL-ready/fast startup/tone and observation fault injection; not natural board startup."
+      }
+    },
+    "logs": {
+      "display_pins": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_trace\\build\\board_feedback_20261017\\display_cone\\console.log",
+        "sha256": "e102836b5a32bf54a42a20f80fd15df7f409a975071b01dbe8678cc5f10b405c"
+      },
+      "display_sdf": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_trace\\build\\board_feedback_20261017\\display_sdf\\console.log",
+        "sha256": "f2646a23b454b18b505ebe3e56a6707499c347a0324f05c56039bdbf9fedaad4"
+      },
+      "upstream_version": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_trace\\build\\board_feedback_20261017\\upstream_version\\console.log",
+        "sha256": "57ca53c0183d7386512a964e58b79330a4f9e8a0415d90abf4e977e460c17dc6"
+      }
+    },
+    "next": "Laboratory file SHA matches delivered C11312 and programmer logs report three successful downloads. Only AL-LINK is available. Use the matching mask with GUI Verify SRAM if supported; confirm mask acceptance and actual comparison in logs. No hardware verify result yet, no confirmed repair."
+  },
+  "laboratory_file_verification_20261017": {
+    "received": "2026-10-17T20:35:07.326809+08:00",
+    "source": "User screenshot of laboratory PowerShell check_lab_bit.ps1 result",
+    "file": "E:/anlu/bit/spectrum_trace.bit",
+    "bytes": 634280,
+    "sha256": "60AE6B971CE1F9ED09D76BEC14CF88DFC25CDFE7CBBEBE5DD9FC070115B812CE",
+    "MatchesC11312": true,
+    "screenshot_sha256": "76f1d2c229c4ada38fcdc3a4c2bd486d171a8e5bbeb48bbc8280a5632f2c2ec5",
+    "limit": "Confirms the file tested at the laboratory matches delivered C11312; not a readback of FPGA configuration or a hardware runtime check.",
+    "equipment": "User confirms only AL-LINK downloader; no external logic analyzer."
+  },
+  "configuration_readback_candidate_20261017": {
+    "mask_zip": "deliverables/c11312_sram_verify_mask_20261017.zip",
+    "zip_sha256": "a9052161463689a659a49bdbce322e7f9b2c618c6eae613ef5db756e1ac598bd",
+    "status": "MASK_GENERATED_PENDING_GUI_HARDWARE_VERIFY",
+    "original_bit_unchanged": true,
+    "masked_conversion_validated": false
   }
 }

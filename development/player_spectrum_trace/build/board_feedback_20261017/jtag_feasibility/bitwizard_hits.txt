@@ -1,0 +1,89 @@
+2: 2 下载电缆 ................................ ................. 5
+2: 4.1 器件/下载器信息栏 ........................................................ 11
+2: 4.3 下载模式栏 ............................................................... 18
+2: 4.3.1 Program SRAM ....................................................... 18
+2: 4.3.2 Verify SRAM ........................................................ 19
+3: 4.3.8 Verify Flash ....................................................... 21
+3: 4.3.10 Read Save SRAM .................................................... 21
+3: 5.1 器件/下载器信息栏 ........................................................ 25
+3: 5.3.2.1 SVF for SRAM ................................................. 30
+3: 5.3.2.3 Verify SPI Only .............................................. 32
+4: 5.3.2.7 Erase SRAM ................................................... 35
+4: 5.6.1 SRAM 编程 ........................................................... 39
+6: 2 下载电缆
+6: AL-LINK 最新在线下载器型号为 AL-LINK-V3.0，是基于上海安路信息科技股份有限公司全系列
+6: CPLD/FPGA 器件， 结合公司自研的TD 软件， 可实现在线JTAG 固件下载、ChipWatcher 在线调试、FLASH
+6: 读写、级联模式烧录。下载器配合USB Type-B 数据线、2.54mm 间距10 针扁平线使用，实物如下图所
+6: 图 2-1 AL-LINK在线下载器
+6: 器件。结合公司自研的TD 软件和 FD 软件，可实现在线PL 部分的 JTAG 固件
+6: 下载、ChipWatcher 在线调试，FLASH、EMMC、NAND 等 NVM 的烧录和校验，以及PS 部分的C 程序片上调
+7:  gen_mask：产生校验FPGA ERAM 文件罩；
+7:  header：bin 文件头信息，用于AL-Link Pro 下载器；
+10: BitWriter/ChipLinker，结合下载器，下载至目标器件
+10: 载器，下载至目标器件；也可用于用户自定义配置方案；
+12: 4.1 器件/下载器信息栏
+12: 器件、下载器信息栏如图 4-3 所示。
+12: 图 4-3 器件/下载器信息栏界面
+12:  Refresh：刷新按钮，点击后，BitWriter 将通过下载器下发读器件 ID 指令，若 ID 返回值有效，
+12:  Debug Server：下载器显示型号，AL-LINK。
+12: 器件/下载器信息栏
+16:  Offline download cable：生成加密秘钥二进制文件，供AL-Link Pro 离线下载器使用；
+19: 4.3 下载模式栏
+19: 下载模式栏如图 4-10 所示。
+19: 图 4-10 下载模式栏界面
+19: 对于AL-Link，在BitWriter 中，下载速率显示如下：
+19: 4.3.1 Program SRAM
+19: SRAM 下载： 如图 4-11 所示， 可通过program sram选项将位流文件下载到配置RAM 上， 掉电丢失。
+19: 图 4-11 Program SRAM
+19: 下载模式栏
+20: 4.3.2 Verify SRAM
+20: 回读校验SRAM：如图 4-12 所示，可通过Verify SRAM，回读配置RAM 上数据，需软件生成。
+20: 图 4-12 Verify SRAM
+20: 此模式可用于配置RAM 数据（不包含用户ERAM 数据）的校验。
+20: 下载Flash：如图 4-13 所示， 可通过program flash 选项将位流文件下载到Flash， 掉电不丢失。
+20: Dual boot 下载：如图 4-14 所示，可通过Dual boot选项将主区(Default)位流、备区(Golden)位
+21: Multi Boot 下载：如图 4-15 所示，可通过Multi boot 选项将主区(Default)位流、跳转位流，指
+21: 下载 SPI Bin 文件：如图 4-16 所示，可通过 Program Spibin 选项将二进制(.bin)文件下载到
+21: 此模式下可将bin 文件下载至指定的Flash 偏移地址。
+22: 4.3.8 Verify Flash
+22: 校验Flash：如图 4-18 所示，可通过Verify Flash，校验写入Flash 数据。
+22: 图 4-18 Verify Flash
+22: 此模式下可用于配置Flash 数据的校验。
+22: 4.3.10 Read Save SRAM
+22: 读取并保存SRAM：如图 4-20 所示，可通过Read Save Sram 选项，将配置RAM 的数据回读保存成
+22: 图 4-20 Read Save SRAM
+26: 5.1 器件/下载器信息栏
+26: 下载模式栏如图 5-3 所示。
+26: 图 5-3 下载模式栏界面
+26:  Debug Server：下载器显示型号，AL-LINK。
+26: 器件/下载器信息栏
+27:  Program：下载工具默认生成的SVF 文件，此文件为ChipLinker 默认生成的SVF 文件；
+27: 下载速度可配置范围为200kHz～16MHz， 默认1MHz； 通常情况下，SVF 文件生成的参考时钟为1MHz，
+27: 下载指定的SVF 文件，如图 5-6 所示，此功能支持用户可选择自定义的SVF 文件，进行下载。
+30:  Bypass：JTAG Bypasss 指令长度。
+31: 5.3.2.1 SVF for SRAM
+31: SVF For SRAM，将生成用于将位流文件下载到配置RAM 上的SVF 文件，如图 5-11 所示。
+31: 图 5-11 SVF For SRAM
+32: SVF For SPI，将生成用于将位流文件下载到Flash 的 SVF 文件，如图 5-12 所示。
+32:  Jtag Studio：使能支持JTAG Studio 工具；
+32:  Length mode：使能Normal/ Short 长度的JTAG 指令，默认为Normal；
+32:  Verify：生成带回读校验Flash 功能的SVF 文件；
+33: 5.3.2.3 Verify SPI Only
+33: Verify SPI Only，将生成用于回读校验Flash 的 SVF 文件，如图 5-13 所示。
+33: 图 5-13 Verify SPI Only
+33:  Jtag Studio：使能支持JTAG Studio 工具；
+34:  Jtag Studio：使能支持JTAG Studio 工具；
+36: 5.3.2.7 Erase SRAM
+36: Erase SRAM，将生成用于擦除配置RAM 的 SVF 文件，如图 5-17 所示。
+36: 图 5-17 Erase SRAM
+37: Check Status Lock，将生成用于校验Golden 区域是否已Lock 的 SVF 文件，如图 5-19 所示。
+40: 5.6.1 SRAM编程
+40: 可通过SVF For SRAM 界面，生成SVF 文件，此文件可将位流下载至配置RAM 上，掉电丢失。
+40:  Verify：此选项将生成回读校验 Flash 数据操作，可结合 bg_mode、rf_mode 功能进行组合；在
+42: AJE，Anlogic JTAG Embedded，用于生成嵌入式平台配置FPGA 器件的文件，其加载平台与目标器
+42: 图 6-1 AJE2JTAG 验证平台
+42: 将 AJE2JTAG 系统代码嵌入到MCU/CPU 中，可使 CPU/MCU GPIO 模拟 JTAG 时序，通过 JTAG 接口对
+44: SRAM 配置，可通过下述命令对指令长度进行限定：
+44: svf2aje.exe -svffile PH4Led_L1SRAM.svf -ajefile PH4LedSRAM.aje -max_size 64
+45: 计算机首次连接AL-LINK 在线下载器需要安装驱动， 计算机首次用USB Type-B 数据线连接下载器，
+47: 网站（网址为：https://www.anlogic.com）自行查询下载，也可联系安路科技的销售人员咨询获取。
