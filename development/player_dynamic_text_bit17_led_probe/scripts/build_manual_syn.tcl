@@ -1,4 +1,6 @@
-set task_root E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_bit17_led_probe
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
+set fpga_repo_root [file normalize [file join $fpga_project_root ../..]]
+set task_root ${fpga_project_root}
 set project_dir $task_root/src/td_project
 set output_dir $task_root/build/manual
 file mkdir $output_dir

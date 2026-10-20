@@ -1,11 +1,19 @@
-"""Create the isolated, native gate-insertion diagnostic candidate (offline)."""
 from pathlib import Path
+import sys
+
+for _anlu_root in Path(__file__).resolve().parents:
+    if (_anlu_root / 'scripts' / 'anlu_paths.py').is_file():
+        sys.path.insert(0, str(_anlu_root / 'scripts'))
+        break
+from anlu_paths import DOCS_ROOT, REPOSITORY_ROOT, recorded_path
+
+"""Create the isolated, native gate-insertion diagnostic candidate (offline)."""
 import shutil
 import re
 import json
 import hashlib
 
-project = Path('E:/VSCODE-project/FPGA-ANLU')
+project = REPOSITORY_ROOT
 source = project / 'development/player_dynamic_text_cw_probe'
 target = project / 'development/player_dynamic_text_cw_gate_probe'
 assert not target.exists(), 'Refuse to replace an existing candidate'

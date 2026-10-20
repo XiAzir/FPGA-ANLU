@@ -1,5 +1,10 @@
-source "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/cw/atpl/templa.tcl"
-set fd [open "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/cw/atpl/cwc.atpl" r]
+if {[info exists ::env(ANLU_TD_BIN)] && $::env(ANLU_TD_BIN) ne ""} {
+    set anlu_td_bin [file normalize $::env(ANLU_TD_BIN)]
+} else {
+    set anlu_td_bin [file dirname [info nameofexecutable]]
+}
+source [file join $anlu_td_bin ../cw/atpl/templa.tcl]
+set fd [open [file join $anlu_td_bin ../cw/atpl/cwc.atpl] r]
 set tmpl [read $fd]
 close $fd
 set parser [::tmpl_parser::tmpl_parser $tmpl]

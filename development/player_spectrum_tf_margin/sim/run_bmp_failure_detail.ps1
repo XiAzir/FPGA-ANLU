@@ -1,10 +1,11 @@
 param([string]$ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path)
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $ErrorActionPreference = 'Stop'
 $modelDir = Join-Path $ProjectRoot 'build/model'
 $hdlDir = Join-Path $ProjectRoot 'src/user_source/hdl_source'
 $workspaceRoot = (Resolve-Path (Join-Path $ProjectRoot '../..')).Path
-$iverilog = Join-Path $workspaceRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$vvp = Join-Path $workspaceRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+$iverilog = (Resolve-AnluTool -Name 'iverilog')
+$vvp = (Resolve-AnluTool -Name 'vvp')
 $loader = Join-Path $hdlDir 'tf_bmp_file_player.v'
 $engine = Join-Path $hdlDir 'bmp_scale_engine.v'
 $keys = Join-Path $hdlDir 'SD/sd_card_bmp.v'

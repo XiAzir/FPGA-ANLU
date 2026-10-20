@@ -1,18 +1,22 @@
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
+$python = Resolve-AnluPython
+$pythonPrefix = @()
+if ([IO.Path]::GetFileNameWithoutExtension($python) -ieq 'py') { $pythonPrefix = @('-3') }
 $ErrorActionPreference='Stop'
-$project='E:\VSCODE-project\FPGA-ANLU'
+$project = $AnluRepositoryRoot
 $task=Join-Path $project 'development\player_spectrum_trace'
 $sim=Join-Path $task 'sim';$model=Join-Path $task 'build\model'
 $hdl=Join-Path $task 'src\user_source\hdl_source'
 $tb=Join-Path $sim 'tb_spectrum_overlay_integration.v'
 $rtl=Join-Path $hdl 'player_pcm_waveform.v';$analyzer=Join-Path $hdl 'player_spectrum_analyzer.v'
-$iverilog=Join-Path $project 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp=Join-Path $project 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iverilog=(Resolve-AnluTool -Name 'iverilog')
+$vvp=(Resolve-AnluTool -Name 'vvp')
 $vec=Join-Path $sim 'vectors';$obs=Join-Path $model 'spectrum_overlay_integration_observed.log'
 $exe=Join-Path $model 'spectrum_overlay_integration.vvp'
 $clog=Join-Path $model 'spectrum_overlay_integration_compile.log'
 $rlog=Join-Path $model 'spectrum_overlay_integration_run.log'
 foreach($f in @($tb,$rtl,$analyzer,$iverilog,$vvp)){if(!(Test-Path -LiteralPath $f)){throw "Missing $f"}}
-python (Join-Path $sim 'spectrum_oracle.py') --emit | Set-Content -LiteralPath (Join-Path $model 'oracle_run.json') -Encoding utf8
+& $python @pythonPrefix (Join-Path $sim 'spectrum_oracle.py') --emit | Set-Content -LiteralPath (Join-Path $model 'oracle_run.json') -Encoding utf8
 if($LASTEXITCODE -ne 0){throw 'spectrum oracle failed'}
 Set-Content -LiteralPath $clog -Value '' -Encoding ascii
 Push-Location $hdl
@@ -27,7 +31,7 @@ try {
   if($LASTEXITCODE -ne 0){throw "vvp failed: $LASTEXITCODE"}
 } finally {Pop-Location}
 $verify=Join-Path $sim 'verify_spectrum_overlay_integration.py'
-$verifyOutput=python $verify $obs 2>&1
+$verifyOutput=& $python @pythonPrefix $verify $obs 2>&1
 $verifyOutput | Tee-Object -FilePath (Join-Path $model 'spectrum_overlay_integration_verify.log')
 if($LASTEXITCODE -ne 0){throw 'integrated gold verification failed'}
 $hashes=[ordered]@{

@@ -11,8 +11,8 @@ Changes to functional HDL: top only. Restore image key_auto to key2; disconnect 
 
 Expected output: build/manual/AC201_player_fat32_autoplay.bit. Use PROGRAM_SRAM after successful build/timing review. Keep the original card and wiring. Verify image/colors and WAV playback, KEY0 manual switch, then KEY1 auto on/off while WAV continues; record LEDs and any display/audio regression.
 
-Rollback: E:/VSCODE-project/FPGA-ANLU/development/player_fat32_audio_probe/build/manual/AC201_player_fat32_audio_probe.bit (basic picture/WAV/internal tone passed by user feedback; KEY1 there changes audio source).
-Earlier stable fallback: E:/VSCODE-project/FPGA-ANLU/development/player_480p/build/manual/AC201_tf_hdmi_data_d1.bit.
+Rollback: ../player_fat32_audio_probe/build/manual/AC201_player_fat32_audio_probe.bit (basic picture/WAV/internal tone passed by user feedback; KEY1 there changes audio source).
+Earlier stable fallback: ../player_480p/build/manual/AC201_tf_hdmi_data_d1.bit.
 
 No TF writes, Flash programming, or assistant hardware operation. Numeric display is not connected in this step. Previous failed revisions' root cause remains unresolved.
 

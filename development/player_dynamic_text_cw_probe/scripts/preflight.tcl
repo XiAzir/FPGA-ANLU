@@ -1,5 +1,7 @@
-set root E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_cw_probe
-set trial E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_cadence_probe/build/board_feedback_20261011/chipwatcher_review/preflight
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
+set fpga_repo_root [file normalize [file join $fpga_project_root ../..]]
+set root ${fpga_project_root}
+set trial ${fpga_repo_root}/development/player_dynamic_text_cadence_probe/build/board_feedback_20261011/chipwatcher_review/preflight
 cd $root/src/td_project
 if {[catch {
  import_device eagle_s20.db -package EG4S20BG256

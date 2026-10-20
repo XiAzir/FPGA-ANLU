@@ -2,8 +2,9 @@ $ErrorActionPreference='Stop'
 $taskProject=(Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
 $taskWorkspace=(Resolve-Path (Join-Path $taskProject '../..')).Path
 $taskHdl=Join-Path $taskProject 'src/user_source/hdl_source'
-$taskIver=Join-Path $taskWorkspace 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$taskVvp=Join-Path $taskWorkspace 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
+$taskIver=(Resolve-AnluTool 'iverilog')
+$taskVvp=(Resolve-AnluTool 'vvp')
 $taskTb=Get-Content -Raw -LiteralPath (Join-Path $PSScriptRoot 'tb_waveform_integration.v')
 $taskTb=$taskTb.Replace('module tb_waveform_integration;', 'module tb_frozen_music_integration;')
 $taskTb=$taskTb.Replace('player_pcm_waveform wave_display(', 'player_pcm_waveform #(.DIAG_FREEZE_AFTER_SAMPLES(1024)) wave_display(')

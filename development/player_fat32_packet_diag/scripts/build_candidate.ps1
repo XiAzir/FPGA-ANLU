@@ -1,7 +1,8 @@
 param([ValidateSet('synthesis','physical','hold','bitstream')] [string]$Stage='synthesis')
 $ErrorActionPreference='Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $taskRoot=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-$taskTool='C:\Anlogic\TD_6.2.1_SP1_6.2.178.840\bin\td_commands_prompt.exe'
+$taskTool=(Resolve-AnluTool 'td_commands_prompt')
 $taskOutput=Join-Path $taskRoot 'build\manual'
 New-Item -ItemType Directory -Force -Path $taskOutput | Out-Null
 $taskSourceRoot=Join-Path $taskRoot 'src/user_source'
@@ -27,8 +28,15 @@ if($Stage -eq 'bitstream') {
 $taskScript=@{synthesis='build_manual_syn.tcl';physical='build_manual_phy.tcl';hold='fix_hold.tcl';bitstream='generate_bit.tcl'}[$Stage]
 $taskMarker=@{synthesis='SYNTHESIS_COMPLETE_WITH_GATE_DATABASE';physical='PLACE_ROUTE_COMPLETE_WITH_REPORTS';hold='POST_ROUTE_HOLD_FIX_COMPLETE';bitstream='BITSTREAM_GENERATED'}[$Stage]
 $taskLog=Join-Path $taskOutput ($Stage+'_console.log')
-& $taskTool ((Join-Path $PSScriptRoot $taskScript).Replace('\','/')) *> $taskLog
-$taskExit=$LASTEXITCODE
+$taskAlPath = Join-Path $taskRoot 'src/td_project/AC201_tf_hdmi.al'
+$taskAlLocation = Get-AnluProjectLocation $taskAlPath
+try {
+    & $taskTool ((Join-Path $PSScriptRoot $taskScript).Replace('\','/')) *> $taskLog
+    $taskExit=$LASTEXITCODE
+} finally {
+    # TD rewrites only this location during open_project; retain all other source guards.
+    Restore-AnluProjectLocation $taskAlPath $taskAlLocation
+}
 Get-Content -LiteralPath $taskLog -Tail 12
 if($taskExit -ne 0 -or !(Select-String -LiteralPath $taskLog -SimpleMatch $taskMarker -Quiet)) {
     throw "TD $Stage failed; see $taskLog"

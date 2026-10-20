@@ -1,11 +1,13 @@
-set output_dir E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_cw_gate_probe/build/postroute_trial
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
+set fpga_repo_root [file normalize [file join $fpga_project_root ../..]]
+set output_dir ${fpga_project_root}/build/postroute_trial
 file mkdir $output_dir
-cd E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_cw_gate_probe/src/td_project
+cd ${fpga_project_root}/src/td_project
 if {[catch {
     import_device eagle_s20.db -package EG4S20BG256
     open_project AC201_tf_hdmi.al -single_run -noanalyze
     load_run_param -run phy_1
-    import_db E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_cw_gate_probe/build/manual/AC201_tf_hdmi_pr.db
+    import_db ${fpga_project_root}/build/manual/AC201_tf_hdmi_pr.db
     phys_opt -post_route -effort high -mode reroute
     update_timing -mode final
     report_timing_status -file $output_dir/trial.ts

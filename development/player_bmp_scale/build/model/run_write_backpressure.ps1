@@ -2,8 +2,9 @@ $ErrorActionPreference='Stop'
 $taskModel=$PSScriptRoot
 $taskSource=(Resolve-Path (Join-Path $taskModel '../../src/user_source/hdl_source')).Path
 $taskRoot=(Resolve-Path (Join-Path $taskModel '../../../..')).Path
-$taskIcarus=Join-Path $taskRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$taskVvp=Join-Path $taskRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
+$taskIcarus=(Resolve-AnluTool 'iverilog')
+$taskVvp=(Resolve-AnluTool 'vvp')
 Push-Location $taskModel
 try {
  & $taskIcarus -g2012 -s tb_write_backpressure -o write_backpressure.vvp tb_write_backpressure.v "$taskSource/rgb888_word_codec.v" "$taskSource/SD/frame_read_write.v" "$taskSource/SD/frame_fifo_write.v" "$taskSource/SD/frame_fifo_read.v" "$taskSource/IP/afifo_16_32_256.v" "$taskSource/IP/afifo_32_16_256.v" *> write_backpressure_compile.log

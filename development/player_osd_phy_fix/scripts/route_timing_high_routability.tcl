@@ -1,6 +1,8 @@
+# Locate this project from the script, independently of the caller working directory.
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
 # The timing-high placement hit one routing conflict; retry routing with the
 # installed TD's supported routability effort, from its saved placement DB.
-set task_root E:/VSCODE-project/FPGA-ANLU/development/player_osd_phy_fix
+set task_root ${fpga_project_root}
 set output_dir $task_root/build/attempt_timing_high_routability
 file mkdir $output_dir
 cd $task_root/src/td_project

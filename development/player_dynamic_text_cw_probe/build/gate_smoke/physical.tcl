@@ -1,4 +1,6 @@
-cd E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_cw_probe/build/gate_smoke
+set fpga_project_root [file normalize [file join [file dirname [info script]] ../..]]
+set fpga_repo_root [file normalize [file join $fpga_project_root ../..]]
+cd ${fpga_project_root}/build/gate_smoke
 if {[catch {
     import_device eagle_s20.db -package EG4S20BG256
     import_db debugger_gate.db

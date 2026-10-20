@@ -1,7 +1,8 @@
 param([ValidateSet('synthesis','physical','hold','bitstream')] [string]$Stage='synthesis')
 $ErrorActionPreference='Stop'
 $taskRoot=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-$taskTool='C:\Anlogic\TD_6.2.1_SP1_6.2.178.840\bin\td_commands_prompt.exe'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
+$taskTool=(Resolve-AnluTool 'td_commands_prompt')
 $taskOutput=Join-Path $taskRoot 'build\manual'
 New-Item -ItemType Directory -Force -Path $taskOutput | Out-Null
 $taskSourceRoot=Join-Path $taskRoot 'src'

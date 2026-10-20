@@ -1,11 +1,12 @@
 param([switch]$VerifyFailedBaseline)
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $ErrorActionPreference='Stop'
 $task=Split-Path -Parent $PSScriptRoot
 $repo=Split-Path -Parent (Split-Path -Parent $task)
 $hdl=Join-Path $task 'src/user_source/hdl_source'
 $out=Join-Path $task 'build/model/video_contract'
-$iv=Join-Path $repo 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$vvp=Join-Path $repo 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+$iv=(Resolve-AnluTool -Name 'iverilog')
+$vvp=(Resolve-AnluTool -Name 'vvp')
 New-Item -ItemType Directory -Force $out | Out-Null
 $checks=@()
 function Invoke-Contract($Name,$Sources,[bool]$ExpectPass) {

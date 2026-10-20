@@ -1,8 +1,11 @@
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 import json, datetime
 
-root=Path(r'E:\VSCODE-project\FPGA-ANLU')
-docs=Path(r'E:\QQ CACHE\Download\安路资料\开发记录')
+root=REPOSITORY_ROOT
+docs=(DOCS_ROOT / '开发记录')
 topic=docs/'专题记录/OSD状态显示/动态字幕资源版竖线_20261009'
 old=root/'development/player_dynamic_text_axis_last_fix'
 now=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
@@ -25,7 +28,7 @@ report+=f'''\n## {now}：TLAST对照无有效实现差分，停止交付
 
 单项候选综合、布局布线完成；初始hold -0.052/-0.092ns报告与DB保存prehold，原约束fix_hold后SWNS0.505/HWNS0.024ns、TNS0、coverage99.97%。当前80项source scope逐hash通过，确认638生产源已登记且综合日志分析了该模块。
 
-独立审计从新最终DB只读write_verilog导出；与旧probe的210258行导出逐行比较，只去掉生成时间一行，其余逻辑/位置/路由元数据完全相同（0 diff），双方归一SHA256 **8E894B5FC25B745A658FCED4F98AB332C5C76B2B472C7D4DD3CCDF93F5C33AD6**。这一结果与TLAST被综合裁剪/没有可观察作用一致，但不解密或断言加密核内部如何消费接口；完整可复核方法在[最终审计](E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_axis_last_fix/build/independent_audit/final_review.md)。
+独立审计从新最终DB只读write_verilog导出；与旧probe的210258行导出逐行比较，只去掉生成时间一行，其余逻辑/位置/路由元数据完全相同（0 diff），双方归一SHA256 **8E894B5FC25B745A658FCED4F98AB332C5C76B2B472C7D4DD3CCDF93F5C33AD6**。这一结果与TLAST被综合裁剪/没有可观察作用一致，但不解密或断言加密核内部如何消费接口；完整可复核方法在[最终审计](../../../../../FPGA-ANLU/development/player_dynamic_text_axis_last_fix/build/independent_audit/final_review.md)。
 
 因此不把它当可用实板对照，**未运行bitgen、未生成下载bit/ZIP、未让用户再测试**。源码错误及模型修正证据保留；不能把模型PASS写成无信号已修复。原174/136/148/140共598文件冻结检查点及旧四份download bit逐项hash守卫通过，视频JSON及关键帧复制到本目录nosignal_evidence。
 

@@ -3,9 +3,10 @@ param(
     [switch]$SkipFourFrameRun
 )
 $ErrorActionPreference='Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $taskRoot=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $taskHdl=Join-Path $taskRoot 'src\user_source\hdl_source'
-$taskBin='E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin'
+$taskBin=(Split-Path -Parent (Resolve-AnluTool 'iverilog'))
 $taskBuild=Join-Path $taskRoot 'build\actual_card_replay'
 $taskFixture=$taskBuild
 $taskTb=Join-Path $taskRoot 'sim\tb_actual_card_replay.v'
@@ -17,12 +18,12 @@ if($LASTEXITCODE -ne 0){throw 'Actual-card fixture generation failed'}
 
 function Invoke-ActualReplay([int]$FrameTarget,[string]$Name) {
     $taskOut=Join-Path $taskBuild $Name
-    & (Join-Path $taskBin 'iverilog.exe') -g2012 -Wall -s tb_actual_card_replay -I $taskFixture `
+    & (Resolve-AnluTool 'iverilog') -g2012 -Wall -s tb_actual_card_replay -I $taskFixture `
         "-Ptb_actual_card_replay.FRAME_TARGET=$FrameTarget" "-Ptb_actual_card_replay.CARD_GAP=1" `
         -o ($taskOut+'.vvp') @taskSources *> ($taskOut+'_compile.log')
     if($LASTEXITCODE -ne 0){Get-Content ($taskOut+'_compile.log');throw "Compile failed: $Name"}
     $taskTimer=[System.Diagnostics.Stopwatch]::StartNew()
-    & (Join-Path $taskBin 'vvp.exe') ($taskOut+'.vvp') "+FIXTURE=$($taskFixture.Replace('\','/'))" *> ($taskOut+'.log')
+    & (Resolve-AnluTool 'vvp') ($taskOut+'.vvp') "+FIXTURE=$($taskFixture.Replace('\','/'))" *> ($taskOut+'.log')
     $taskExit=$LASTEXITCODE; $taskTimer.Stop()
     Get-Content ($taskOut+'.log') | ForEach-Object { Write-Host $_ }
     if($taskExit -ne 0 -or !(Select-String -LiteralPath ($taskOut+'.log') -Pattern "^PASS actual_card_replay frames=$FrameTarget/4" -Quiet)){

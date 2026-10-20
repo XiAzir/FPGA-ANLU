@@ -1,8 +1,9 @@
 $ErrorActionPreference = 'Stop'
 $ModelDir = (Resolve-Path $PSScriptRoot).Path
 $ProjectRoot = (Resolve-Path (Join-Path $ModelDir '..\..\..\..')).Path
-$Iverilog = Join-Path $ProjectRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$Vvp = Join-Path $ProjectRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
+$Iverilog = (Resolve-AnluTool 'iverilog')
+$Vvp = (Resolve-AnluTool 'vvp')
 $Hdl = Join-Path $ProjectRoot 'development\player_bmp_scale\src\user_source\hdl_source'
 $LogDir = Join-Path $ModelDir 'logs'
 New-Item -ItemType Directory -Force -Path $LogDir | Out-Null

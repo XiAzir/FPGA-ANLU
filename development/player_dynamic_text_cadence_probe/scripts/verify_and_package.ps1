@@ -1,4 +1,5 @@
 $ErrorActionPreference='Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $taskRoot=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $taskRepo=(Resolve-Path (Join-Path $taskRoot '../..')).Path
 $taskManual=Join-Path $taskRoot 'build/manual'
@@ -20,12 +21,14 @@ foreach($relative in $taskOldCheckpoints){
     $checkpoint=Join-Path "$taskRepo/development" $relative
     $entries=@(Get-Content -Raw -LiteralPath "$checkpoint/manifest.json" | ConvertFrom-Json)
     foreach($entry in $entries){
+        Assert-AnluInputFile (Join-Path $checkpoint $entry.path)
         $file=Get-Item -LiteralPath (Join-Path $checkpoint $entry.path)
         if($file.Length -ne $entry.bytes -or (Get-FileHash -LiteralPath $file.FullName).Hash -ne $entry.sha256){throw "Frozen mismatch: $($file.FullName)"}
     }
     $taskFrozen += [ordered]@{checkpoint=$checkpoint;files=$entries.Count;result='PASS'}
 }
 $taskBase=Join-Path $taskRepo 'development/player_dynamic_text_axis_probe/src/user_source'
+Assert-AnluInputFile "$taskManual/AC201_tf_hdmi_pr.db"
 $taskSource=Join-Path $taskRoot 'src/user_source'
 $taskDiff=[ordered]@{unchanged=0;changed=@();added=@();removed=@()}
 foreach($file in Get-ChildItem -LiteralPath $taskSource -Recurse -Force -File){
@@ -101,7 +104,7 @@ New-Item -ItemType Directory -Path $taskPackage | Out-Null
 Copy-Item -LiteralPath $taskDownload -Destination "$taskPackage/cadence_probe.bit"
 Copy-Item -LiteralPath $taskFallback -Destination "$taskPackage/osd_phy_fix.bit"
 Copy-Item -LiteralPath "$taskManual/AC201_player_dynamic_text_cadence_probe.info.json" -Destination "$taskPackage/cadence_probe.info.json"
-Copy-Item -LiteralPath 'E:/QQ CACHE/Download/安路资料/开发记录/专题记录/OSD状态显示/动态字幕资源版竖线_20261009/节奏诊断候选_20261010.md' -Destination "$taskPackage/README.md"
+Copy-Item -LiteralPath (Join-Path $AnluDocsRoot '开发记录/专题记录/OSD状态显示/动态字幕资源版竖线_20261009/节奏诊断候选_20261010.md') -Destination "$taskPackage/README.md"
 $taskPackageManifest=@(Get-ChildItem -LiteralPath $taskPackage -File | Sort-Object Name | ForEach-Object {
     [ordered]@{path=$_.Name;bytes=$_.Length;sha256=(Get-FileHash -LiteralPath $_.FullName).Hash}
 })

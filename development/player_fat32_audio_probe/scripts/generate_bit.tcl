@@ -1,4 +1,6 @@
-set output_dir E:/VSCODE-project/FPGA-ANLU/development/player_fat32_audio_probe/build/manual
+# Locate this project from the script, independently of the caller working directory.
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
+set output_dir ${fpga_project_root}/build/manual
 if {[catch {
     import_device eagle_s20.db -package EG4S20BG256
     import_db $output_dir/AC201_tf_hdmi_pr.db

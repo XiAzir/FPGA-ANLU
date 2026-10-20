@@ -1,6 +1,14 @@
 from pathlib import Path
+import sys
+
+for _anlu_root in Path(__file__).resolve().parents:
+    if (_anlu_root / 'scripts' / 'anlu_paths.py').is_file():
+        sys.path.insert(0, str(_anlu_root / 'scripts'))
+        break
+from anlu_paths import DOCS_ROOT, REPOSITORY_ROOT, recorded_path
+
 import hashlib,json
-root=Path('E:/VSCODE-project/FPGA-ANLU')
+root=REPOSITORY_ROOT
 p=root/'development/player_pcm_waveform_keyfreeze'
 parent=root/'development/player_pcm_waveform_freeze/checkpoints/waveform_freeze_20261012_candidate'
 def sha(f): return hashlib.sha256(f.read_bytes()).hexdigest().upper()

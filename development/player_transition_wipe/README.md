@@ -14,7 +14,7 @@ loader完整写图后发布并WAIT_DISPLAY；忙时next最多合并一次，AUTO
 
 原C11204映射保持：PLAY短KEY0下一图、短KEY1 AUTO、长KEY0切PLAY/BRI/CON，编辑短KEY0-/KEY1+；PLAY长KEY1 WAV/音阶并解除冻结；PLAY双键短按全松冻结/恢复，双长复参数默认。音乐/字幕/参数/波形应持续。TF素材不改，本机不操作远控电脑的JTAG/TF/Flash。
 
-直接回退：E:/VSCODE-project/FPGA-ANLU/download/waveform_keyfreeze.bit，C11204，SHA256 A16326B8266ED6CB52CE27E163B89DC1C2B37551B393AE5F1116BA16C6F54790。已用户反馈组合功能正常，带已知动态波形双线和低清晰度；本转场不处理这两项。
+直接回退：../../download/waveform_keyfreeze.bit，C11204，SHA256 A16326B8266ED6CB52CE27E163B89DC1C2B37551B393AE5F1116BA16C6F54790。已用户反馈组合功能正常，带已知动态波形双线和低清晰度；本转场不处理这两项。
 
 ## 验证
 

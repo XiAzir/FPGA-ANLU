@@ -1,5 +1,6 @@
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $ErrorActionPreference='Stop'
-$project='E:\VSCODE-project\FPGA-ANLU'
+$project = $AnluRepositoryRoot
 $task=Join-Path $project 'development\player_spectrum_fft_recover'
 $sim=Join-Path $task 'sim';$model=Join-Path $task 'build\model'
 $hdl=Join-Path $task 'src\user_source\hdl_source'
@@ -9,8 +10,8 @@ $overlay=Join-Path $hdl 'player_pcm_waveform.v'
 $top=Join-Path $hdl 'top_tf_hdmi_audio.v'
 $rom=Join-Path $hdl 'spectrum_coeff_rom.v'
 $vec=Join-Path $sim 'vectors\all_samples.mem'
-$iv=Join-Path $project 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp=Join-Path $project 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iv=(Resolve-AnluTool -Name 'iverilog')
+$vvp=(Resolve-AnluTool -Name 'vvp')
 foreach($f in @($tb,$rtl,$overlay,$top,$rom,$vec,$iv,$vvp)){if(!(Test-Path -LiteralPath $f)){throw "Missing required file: $f"}}
 New-Item -ItemType Directory -Force -Path $model | Out-Null
 $rtlBefore=(Get-FileHash -Algorithm SHA256 -LiteralPath $rtl).Hash.ToLower()

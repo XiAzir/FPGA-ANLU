@@ -1,4 +1,6 @@
-cd E:/VSCODE-project/FPGA-ANLU/bringup/tf_hdmi/src/td_project
+# Locate this project from the script, independently of the caller working directory.
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
+cd ${fpga_project_root}/src/td_project
 if {[catch {
     open_project AC201_tf_hdmi.al
     launch_runs syn_1 -jobs 1

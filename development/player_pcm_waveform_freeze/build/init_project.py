@@ -1,7 +1,15 @@
 from pathlib import Path
+import sys
+
+for _anlu_root in Path(__file__).resolve().parents:
+    if (_anlu_root / 'scripts' / 'anlu_paths.py').is_file():
+        sys.path.insert(0, str(_anlu_root / 'scripts'))
+        break
+from anlu_paths import DOCS_ROOT, REPOSITORY_ROOT, recorded_path
+
 import datetime, hashlib, json, shutil
 
-root = Path('E:/VSCODE-project/FPGA-ANLU')
+root = REPOSITORY_ROOT
 project = root / 'development/player_pcm_waveform_freeze'
 parent = root / 'development/player_pcm_waveform/checkpoints/pcm_waveform_20261012_candidate'
 assert not (project / 'src').exists()
@@ -29,7 +37,7 @@ for name in ['run_waveform_model.ps1', 'run_integration.ps1']:
     f = model / name
     f.write_text(f.read_text(encoding='utf-8-sig').replace('/player_pcm_waveform/', '/player_pcm_waveform_freeze/'), encoding='utf-8')
 now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
-docs = Path('E:/QQ CACHE/Download/安路资料/开发记录')
+docs = DOCS_ROOT / '开发记录'
 state = docs / '当前状态.md'
 text = state.read_text(encoding='utf-8').replace('## 当前阶段', '## 当前阶段\n\n**' + now + ' 用户“好”授权冻结波形诊断。独立player_pcm_waveform_freeze/C11203从C11202冻结133文件逐项SHA核验后复制源/脚本，未复制数据库。拟同音源约3秒有效样本后VS冻结完整front，音频照播，换音源重新采集；避开WAV开头静音。开发/模型/构建进行中，尚无位流，不作为修复版；成功基线仍C11201。未JTAG/TF/Flash。**', 1)
 state.write_text(text, encoding='utf-8')

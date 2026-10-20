@@ -6,6 +6,9 @@ import shutil
 import zipfile
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 
 project = Path(__file__).resolve().parent.parent
 root = project.parent.parent
@@ -20,7 +23,7 @@ fallback = root / 'download/osd_phy_fix.bit'
 fallback_sha = '9E893B0B6C86BF6FBEE19E74B5FB58933C1BEA6AA07F203786CCE96F3B60AE6F'
 
 def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest().upper()
+    return hashlib.sha256(require_file(path).read_bytes()).hexdigest().upper()
 
 def read_json(path):
     return json.loads(path.read_text(encoding='utf-8-sig'))
@@ -58,7 +61,7 @@ for frozen in [root / 'development/player_osd_phy_fix/checkpoints/osd_phy_fix_20
                original / 'checkpoints/dynamic_text_20261009_candidate']:
     manifest = read_json(frozen / 'manifest.json')
     for entry in manifest:
-        path = frozen / entry['path']
+        path = require_file(frozen / entry['path'])
         assert path.stat().st_size == entry['bytes'] and sha(path) == entry['sha256'], f'Frozen artifact changed: {path}'
     frozen_counts[str(frozen)] = len(manifest)
 

@@ -8,8 +8,9 @@ $workspaceRoot = (Resolve-Path (Join-Path $ProjectRoot '..\..')).Path
 $rtlPath = Join-Path $ProjectRoot 'src\user_source\hdl_source\player_pcm_waveform.v'
 $tbPath = Join-Path $modelDir 'tb_freeze_waveform.v'
 $logPath = Join-Path $modelDir 'freeze_model.log'
-$iverilog = Join-Path $workspaceRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp = Join-Path $workspaceRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $simPath = Join-Path ([System.IO.Path]::GetTempPath()) ("freeze_model_{0}.vvp" -f [guid]::NewGuid().ToString('N'))
 $lines = [System.Collections.Generic.List[string]]::new()
 $lines.Add("Freeze model run: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss K')")

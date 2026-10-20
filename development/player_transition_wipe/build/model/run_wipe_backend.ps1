@@ -2,8 +2,9 @@ $ErrorActionPreference = 'Stop'
 $modelDir = $PSScriptRoot
 $projectRoot = (Resolve-Path (Join-Path $modelDir '../..')).Path
 $workspaceRoot = (Resolve-Path (Join-Path $projectRoot '../..')).Path
-$iverilog = Join-Path $workspaceRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$vvp = Join-Path $workspaceRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $sourceRoot = Join-Path $projectRoot 'src/user_source/hdl_source'
 Push-Location $modelDir
 try {

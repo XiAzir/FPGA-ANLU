@@ -1,5 +1,9 @@
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
+$python = Resolve-AnluPython
+$pythonPrefix = @()
+if ([IO.Path]::GetFileNameWithoutExtension($python) -ieq 'py') { $pythonPrefix = @('-3') }
 $ErrorActionPreference='Stop'
-$project='E:\VSCODE-project\FPGA-ANLU'
+$project = $AnluRepositoryRoot
 $task=Join-Path $project 'development\player_spectrum_private_init'
 $sim=Join-Path $task 'sim'
 $model=Join-Path $task 'build\model'
@@ -8,12 +12,12 @@ $td=Join-Path $task 'src\td_project'
 $oracle=Join-Path $sim 'spectrum_oracle.py'
 $tb=Join-Path $sim 'tb_player_spectrum_analyzer.v'
 $rtl=Join-Path $hdl 'player_spectrum_analyzer.v'
-$iverilog=Join-Path $project 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp=Join-Path $project 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iverilog=(Resolve-AnluTool -Name 'iverilog')
+$vvp=(Resolve-AnluTool -Name 'vvp')
 $vec=Join-Path $sim 'vectors'
 foreach($file in @($oracle,$tb,$rtl,$iverilog,$vvp,(Join-Path $hdl 'spectrum_hann.mem'),(Join-Path $hdl 'spectrum_twiddle.mem'))) { if(!(Test-Path -LiteralPath $file)){throw "Missing required file: $file"} }
 New-Item -ItemType Directory -Force -Path $model | Out-Null
-python $oracle --emit | Set-Content -LiteralPath (Join-Path $model 'oracle_run.json') -Encoding utf8
+& $python @pythonPrefix $oracle --emit | Set-Content -LiteralPath (Join-Path $model 'oracle_run.json') -Encoding utf8
 if($LASTEXITCODE -ne 0){throw 'oracle failed'}
 $tag=Get-Date -Format 'yyyyMMdd_HHmmss'
 $exe=Join-Path $model "spectrum_sim_$tag.vvp"

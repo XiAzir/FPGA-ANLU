@@ -1,8 +1,9 @@
 $ErrorActionPreference = 'Stop'
-$repo = 'E:\VSCODE-project\FPGA-ANLU\development\player_fat32_packet_diag'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
+$repo = (Join-Path $AnluDocsRoot 'development/player_fat32_packet_diag')
 $sim = Join-Path $repo 'sim'
-$iverilog = 'E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp = 'E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $python = 'python'
 $result = Join-Path $sim 'test_result.txt'
 & $python (Join-Path $sim 'verify_audio_packet_vector.py') 2>&1 | Tee-Object -FilePath $result

@@ -5,7 +5,7 @@ import hashlib,json,math,struct,wave
 from pathlib import Path
 import spectrum_oracle as oracle
 
-WAV=Path(r'E:\VSCODE-project\FPGA-ANLU\deliverables\real_music_20261008\card\TEST.WAV')
+WAV=Path(__file__).resolve().parents[3] / 'deliverables' / 'real_music_20261008' / 'card' / 'TEST.WAV'
 OUT=Path(__file__).with_name('vectors')
 
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()

@@ -1,11 +1,15 @@
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
+$python = Resolve-AnluPython
+$pythonPrefix = @()
+if ([IO.Path]::GetFileNameWithoutExtension($python) -ieq 'py') { $pythonPrefix = @('-3') }
 $ErrorActionPreference='Stop'
-$project='E:\VSCODE-project\FPGA-ANLU'
+$project = $AnluRepositoryRoot
 $task=Join-Path $project 'development\player_spectrum'
 $sim=Join-Path $task 'sim';$model=Join-Path $task 'build\model';$hdl=Join-Path $task 'src\user_source\hdl_source'
 $gold=Join-Path $sim 'spectrum_render_gold.py';$tb=Join-Path $sim 'tb_spectrum_overlay_pixels.v';$rtl=Join-Path $hdl 'player_pcm_waveform.v';$analyzer=Join-Path $hdl 'player_spectrum_analyzer.v'
-$iverilog=Join-Path $project 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe';$vvp=Join-Path $project 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe';$vec=Join-Path $sim 'vectors'
+$iverilog=(Resolve-AnluTool -Name 'iverilog');$vvp=(Resolve-AnluTool -Name 'vvp');$vec=Join-Path $sim 'vectors'
 foreach($f in @($gold,$tb,$rtl,$analyzer,$iverilog,$vvp)){if(!(Test-Path -LiteralPath $f)){throw "Missing $f"}}
-$goldOutput=python $gold 2>&1
+$goldOutput=& $python @pythonPrefix $gold 2>&1
 $goldOutput | Set-Content -LiteralPath (Join-Path $model 'render_gold_run.json') -Encoding utf8
 if($LASTEXITCODE -ne 0){throw 'render gold failed'}
 $goldInfo=Get-Content -LiteralPath (Join-Path $vec 'render_gold.json') -Raw | ConvertFrom-Json

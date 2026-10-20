@@ -1,6 +1,8 @@
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
+set fpga_repo_root [file normalize [file join $fpga_project_root ../..]]
 # SWUG105 post-route fix_hold flow, with the original timing constraints.
-set output_dir E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_cw_probe/build/manual
-cd E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_cw_probe/src/td_project
+set output_dir ${fpga_project_root}/build/manual
+cd ${fpga_project_root}/src/td_project
 if {[catch {
     import_device eagle_s20.db -package EG4S20BG256
     open_project AC201_tf_hdmi.al -single_run -noanalyze

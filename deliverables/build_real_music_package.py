@@ -1,6 +1,7 @@
 """Finish and verify the ordinary-file music package. Never access a card drive."""
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
+import argparse
 import hashlib
 import json
 import struct
@@ -9,7 +10,13 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parent
 PACKAGE = ROOT / 'real_music_20261008'
-SOURCE = Path('C:/Users/PENGYUHAO/Downloads/天ノ弱 piano off vocal.m4a')
+parser = argparse.ArgumentParser(description='Reproduce the historical music package from its exact original source; existing packages are never overwritten.')
+parser.add_argument('--source', type=Path, required=True,
+                    help='Path to the original music file (the recorded SHA256 must match).')
+args = parser.parse_args()
+SOURCE = args.source.expanduser().resolve()
+if not SOURCE.is_file():
+    parser.error(f'Original music file is missing: {SOURCE}. Supply it with --source; private media is not included in Git.')
 ARCHIVE = ROOT / 'real_music_20261008.zip'
 AUDIT = ROOT / 'real_music_20261008.package_audit.json'
 SOURCE_SHA = 'C240F7169542B09304EC9B3711671F4A9C934F26A7FFA4ED8F7339DD2D497B77'

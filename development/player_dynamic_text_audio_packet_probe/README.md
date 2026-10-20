@@ -37,4 +37,4 @@ C11107 当前本地构建完成，最终SWNS +0.225ns、HWNS +0.027ns、TNS0、c
 正式packet monitor用本候选源码重跑47断言/0失败，BCH/向量重建通过；日志在build/model/packet_model.log、packet_vector.log。第一次TD项目归一化被输入哈希门槛拒绝、证据封存，第二次冻结归一化输入后四阶段绑定哈希均通过。bit SHA256: f60d473da14c2ec813b80534cde228e8b05b1e630ad81664e35b9b456b32224d。仅本地验证，不是物理根因证据。
 
 
-2026-10-11 17:15:55 实板反馈：画面/tone正常，WAV严重杂音，live info=FAIL_WAV_AUDIO_TONE_CLEAR。两视频全部页输入/包样本48000、BCH/TERC/tone检查0、CTS25000/N6144；尚未定位根因。原冻结checkpoint/ZIP保留pending历史。证据：E:/QQ CACHE/Download/安路资料/开发记录/专题记录/OSD状态显示/音频包诊断WAV杂音_20261011/README.md。
+2026-10-11 17:15:55 实板反馈：画面/tone正常，WAV严重杂音，live info=FAIL_WAV_AUDIO_TONE_CLEAR。两视频全部页输入/包样本48000、BCH/TERC/tone检查0、CTS25000/N6144；尚未定位根因。原冻结checkpoint/ZIP保留pending历史。证据：../../../FPGA-ANLU-docs/开发记录/专题记录/OSD状态显示/音频包诊断WAV杂音_20261011/README.md。

@@ -1,8 +1,9 @@
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $ErrorActionPreference='Stop'
 $taskRoot=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $projectRoot=(Resolve-Path (Join-Path $taskRoot '../..')).Path
-$iverilog=Join-Path $projectRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$vvp=Join-Path $projectRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+$iverilog=(Resolve-AnluTool -Name 'iverilog')
+$vvp=(Resolve-AnluTool -Name 'vvp')
 $model=Join-Path $taskRoot 'build/model/fault_snapshot'
 New-Item -ItemType Directory -Force $model | Out-Null
 $exe=Join-Path $model test.vvp

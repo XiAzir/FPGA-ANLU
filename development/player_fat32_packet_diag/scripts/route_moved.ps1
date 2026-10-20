@@ -1,5 +1,6 @@
 param([Parameter(Mandatory)][ValidatePattern('^x\d+y\d+$')][string]$Grid)
 $ErrorActionPreference='Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $taskRoot=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $taskSources=Join-Path $taskRoot 'src/user_source'
 $taskScopePath=Join-Path $taskRoot 'build/manual/build_source_scope.json'
@@ -13,8 +14,15 @@ if(Test-Path -LiteralPath $taskLog) {throw 'Do not overwrite a routed move attem
 Copy-Item -LiteralPath $taskScopePath -Destination $taskOutput
 $env:FPGA_DIAG_MOVE_GRID=$Grid
 try {
-    & 'C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/bin/td_commands_prompt.exe' ((Join-Path $PSScriptRoot 'route_moved.tcl').Replace('\','/')) *> $taskLog
-    $taskExit=$LASTEXITCODE
+    $taskAlPath = Join-Path $taskRoot 'src/td_project/AC201_tf_hdmi.al'
+    $taskAlLocation = Get-AnluProjectLocation $taskAlPath
+    try {
+        & (Resolve-AnluTool 'td_commands_prompt') ((Join-Path $PSScriptRoot 'route_moved.tcl').Replace('\','/')) *> $taskLog
+        $taskExit=$LASTEXITCODE
+    } finally {
+        # TD rewrites only this location during open_project; retain all other source guards.
+        Restore-AnluProjectLocation $taskAlPath $taskAlLocation
+    }
     Get-Content -LiteralPath $taskLog -Tail 12
     if($taskExit -ne 0 -or !(Select-String -LiteralPath $taskLog -SimpleMatch 'MOVED_ROUTE_HOLD_COMPLETE' -Quiet)) {throw "Moved route failed; see $taskLog"}
     Get-Content -LiteralPath (Join-Path $taskOutput 'AC201_tf_hdmi_phy.ts')

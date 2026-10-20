@@ -1,14 +1,17 @@
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 import datetime, hashlib, json, shutil, zipfile
 
-root = Path(r'E:\VSCODE-project\FPGA-ANLU')
+root = REPOSITORY_ROOT
 project = root / 'development/player_dynamic_text_axis_probe'
-docs = Path(r'E:\QQ CACHE\Download\安路资料\开发记录')
+docs = (DOCS_ROOT / '开发记录')
 topic = docs / '专题记录/OSD状态显示/动态字幕资源版竖线_20261009'
 now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
 
 def sha(p):
-    return hashlib.sha256(p.read_bytes()).hexdigest().upper()
+    return hashlib.sha256(require_file(p).read_bytes()).hexdigest().upper()
 
 def write_json(path, data):
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
@@ -142,7 +145,7 @@ player_dynamic_text_axis_probe 使用被动输入观察替换包观察，原74�
 ''')
 state_path = docs / '当前状态.md'
 state = state_path.read_text(encoding='utf-8-sig')
-state = state.replace(state.splitlines()[2], f'更新：{now}（北京时间）。项目：2026安路赛道赛题1多媒体播放器；AC601+AC201/ES8388，EG4S20BG256。开发工程在E:/VSCODE-project/FPGA-ANLU；文档/记录在E:/QQ CACHE/Download/安路资料。用户确认第三方板卡参赛获主办方认可；按需入口见项目AGENTS.md。', 1)
+state = state.replace(state.splitlines()[2], f'更新：{now}（北京时间）。项目：2026安路赛道赛题1多媒体播放器；AC601+AC201/ES8388，EG4S20BG256。工程与资料分别位于同级的FPGA-ANLU、FPGA-ANLU-docs仓库。用户确认第三方板卡参赛获主办方认可；按需入口见项目AGENTS.md。', 1)
 start = state.index('**', state.index('## 当前阶段'))
 end = state.index('\n\n', start)
 state = state[:start] + f'''**{now}输入统计诊断候选本地完成、待实板：download/axis_probe.bit，629624字节/SHA256 {bit_sha}；三帧输入模型及独立状态页24bit模型通过，81项source hash匹配，原约束最终SWNS0.280/HWNS0.027ns/TNS0、coverage99.97%，观察器在实际新route保留且与失败probe有实现差分。{len(manifest)}文件冻结checkpoint及ZIP校验通过。新候选尚未板测，不记为修复；成功基线仍osd_phy_fix。此前probe冷热无信号、TLAST候选最终网表无差分停止交付，竖线/无信号根因仍未确认。下一步冷启动下载并读取6..C输入几何/周期/ready/lock数码管页；取证步骤见[本轮诊断](专题记录/OSD状态显示/动态字幕资源版竖线_20261009/AXIS输入统计诊断_20261009.md)，背景见[无信号取证](专题记录/OSD状态显示/动态字幕资源版竖线_20261009/视频源诊断无信号.md)。**''' + state[end:]

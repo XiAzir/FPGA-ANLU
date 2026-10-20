@@ -1,4 +1,6 @@
-cd E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_cw_probe/src/td_project
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
+set fpga_repo_root [file normalize [file join $fpga_project_root ../..]]
+cd ${fpga_project_root}/src/td_project
 if {[catch {
  open_project AC201_tf_hdmi.al -noanalyze
  add_files ../user_source/hdl_source/player_count_chipwatcher.sv

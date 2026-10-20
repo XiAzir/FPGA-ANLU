@@ -1,14 +1,22 @@
 from pathlib import Path
-import hashlib, json, re, shutil, zipfile
-from datetime import datetime
-from zoneinfo import ZoneInfo
+import sys
 
-root=Path('E:/VSCODE-project/FPGA-ANLU');p=root/'development/player_bmp_scale'
+for _anlu_root in Path(__file__).resolve().parents:
+    if (_anlu_root / 'scripts' / 'anlu_paths.py').is_file():
+        sys.path.insert(0, str(_anlu_root / 'scripts'))
+        break
+from anlu_paths import DOCS_ROOT, REPOSITORY_ROOT, recorded_path
+
+import hashlib, json, re, shutil, zipfile
+from datetime import datetime, timezone, timedelta
+
+
+root=REPOSITORY_ROOT;p=root/'development/player_bmp_scale'
 out=p/'build/manual'; model=p/'build/model'; media=model/'test_media'
 parent=root/'development/player_transition_wipe/checkpoints/transition_wipe_20261012_verified'
-docs=Path('E:/QQ CACHE/Download/安路资料/开发记录')
+docs=DOCS_ROOT / '开发记录'
 topic=docs/'专题记录/图片缩放/多尺寸最近邻首版_20261012'
-now=datetime.now(ZoneInfo('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M:%S')
+now=datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
 def sha(f): return hashlib.sha256(Path(f).read_bytes()).hexdigest().upper()
 def load(f): return json.loads(Path(f).read_text(encoding='utf-8-sig'))
 def save(f,v): Path(f).write_text(json.dumps(v,ensure_ascii=False,indent=2),encoding='utf-8')

@@ -6,9 +6,10 @@ $ErrorActionPreference = 'Stop'
 $modelDir = Join-Path $ProjectRoot 'build/model'
 $hdlDir = Join-Path $ProjectRoot 'src/user_source/hdl_source'
 $workspaceRoot = (Resolve-Path (Join-Path $ProjectRoot '../..')).Path
-$iverilog = Join-Path $workspaceRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$vvp = Join-Path $workspaceRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
-$python = 'C:/Users/PENGYUHAO/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
+$python = Resolve-AnluPython
 $loader = Join-Path $hdlDir 'tf_bmp_file_player.v'
 $engine = Join-Path $hdlDir 'bmp_scale_engine.v'
 $keys = Join-Path $hdlDir 'SD/sd_card_bmp.v'
@@ -25,7 +26,9 @@ foreach ($path in @($python, $iverilog, $vvp, $loader, $engine, $keys, $tb)) {
     if (!(Test-Path -LiteralPath $path)) { throw "Required model input missing: $path" }
 }
 
-& $python (Join-Path $modelDir 'scaler_make_media.py') *> $mediaLog
+$pythonArgs = @((Join-Path $modelDir 'scaler_make_media.py'))
+if ([IO.Path]::GetFileNameWithoutExtension($python) -ieq 'py') { $pythonArgs = @('-3') + $pythonArgs }
+& $python @pythonArgs *> $mediaLog
 if ($LASTEXITCODE -ne 0) {
     Add-Content -LiteralPath $summary -Value "[$tag] MEDIA_FAIL log=$mediaLog"
     throw "Media generation failed; see $mediaLog"

@@ -1,12 +1,20 @@
 from pathlib import Path
+import sys
+
+for _anlu_root in Path(__file__).resolve().parents:
+    if (_anlu_root / 'scripts' / 'anlu_paths.py').is_file():
+        sys.path.insert(0, str(_anlu_root / 'scripts'))
+        break
+from anlu_paths import DOCS_ROOT, REPOSITORY_ROOT, recorded_path
+
 import datetime, hashlib, json, re, shutil, zipfile
 
-root = Path('E:/VSCODE-project/FPGA-ANLU')
+root = REPOSITORY_ROOT
 project = root / 'development/player_pcm_waveform_freeze'
 out = project / 'build/manual'
 model = project / 'build/model'
 parent = root / 'development/player_pcm_waveform/checkpoints/pcm_waveform_20261012_candidate'
-docs = Path('E:/QQ CACHE/Download/安路资料/开发记录')
+docs = DOCS_ROOT / '开发记录'
 topic = docs / '专题记录/音频可视化/真实PCM波形首版_20261012'
 now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
 

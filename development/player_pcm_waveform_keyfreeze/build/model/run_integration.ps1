@@ -1,8 +1,9 @@
 $ErrorActionPreference='Stop'
 $taskProject=(Resolve-Path (Join-Path $PSScriptRoot '../../../..')).Path
 $taskHdl=Join-Path $taskProject 'development/player_pcm_waveform_keyfreeze/src/user_source/hdl_source'
-$taskIver=Join-Path $taskProject 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$taskVvp=Join-Path $taskProject 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
+$taskIver=(Resolve-AnluTool 'iverilog')
+$taskVvp=(Resolve-AnluTool 'vvp')
 Push-Location $PSScriptRoot
 try {
  & $taskIver -g2012 -s tb_waveform_integration -o 'integration.vvp' 'tb_waveform_integration.v' "$taskHdl/player_pcm_waveform.v" "$taskHdl/player_rgb_adjust.v" "$taskHdl/player_adjust_osd.v" "$taskHdl/player_osd.v" "$taskHdl/player_dynamic_text.v" *> 'integration_compile.log'

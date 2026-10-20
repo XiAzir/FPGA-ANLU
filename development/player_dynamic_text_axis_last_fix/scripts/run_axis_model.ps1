@@ -1,12 +1,13 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $taskRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $taskWorkspace = (Resolve-Path (Join-Path $taskRoot '../..')).Path
 $taskSrc = Join-Path $taskRoot 'src/user_source/hdl_source'
 $taskSim = Join-Path $taskRoot 'sim/axis_protocol'
 $taskOut = Join-Path $taskRoot 'build/axis_model'
 New-Item -ItemType Directory -Force -Path $taskOut | Out-Null
-$taskIcarus = Join-Path $taskWorkspace 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$taskVvp = Join-Path $taskWorkspace 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+$taskIcarus = (Resolve-AnluTool 'iverilog')
+$taskVvp = (Resolve-AnluTool 'vvp')
 $taskSources = @(
     (Join-Path $taskSrc 'SD/color_bar.v'),
     (Join-Path $taskSrc 'SD/video_timing_data.v'),

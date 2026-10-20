@@ -1,11 +1,12 @@
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $ErrorActionPreference='Stop'
 $task=Split-Path -Parent $PSScriptRoot
 $project=Split-Path -Parent (Split-Path -Parent $task)
 $hdl=Join-Path $task 'src/user_source/hdl_source'
 $model=Join-Path $task 'build/model'
 New-Item -ItemType Directory -Force $model | Out-Null
-$iv=Join-Path $project 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$vvp=Join-Path $project 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+$iv=(Resolve-AnluTool -Name 'iverilog')
+$vvp=(Resolve-AnluTool -Name 'vvp')
 $exe=Join-Path $model 'spectrum_diag.vvp'
 Push-Location $hdl
 try {

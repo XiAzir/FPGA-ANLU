@@ -6,8 +6,9 @@ $ErrorActionPreference = 'Stop'
 $workspaceRoot = (Resolve-Path (Join-Path $ProjectRoot '../..')).Path
 $modelDir = Join-Path $ProjectRoot 'build/model'
 $hdlDir = Join-Path $ProjectRoot 'src/user_source/hdl_source'
-$iverilog = Join-Path $workspaceRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$vvp = Join-Path $workspaceRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $rtl = Join-Path $hdlDir 'player_adjust_control.v'
 $tb = Join-Path $modelDir 'tb_waveform_chord_control.v'
 $image = Join-Path $modelDir 'tb_waveform_chord_control.vvp'

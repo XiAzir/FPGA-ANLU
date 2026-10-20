@@ -1,7 +1,8 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-$iverilog = 'E:/VSCODE-project/FPGA-ANLU/bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$vvp = 'E:/VSCODE-project/FPGA-ANLU/bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $out = Join-Path $root 'build/fat_sim/mapper.vvp'
 $log = Join-Path $root 'build/fat_sim/mapper_compile.log'
 & $iverilog -g2001 -Wall -s tb_fat32_file_sector -o $out (Join-Path $root 'src/user_source/hdl_source/fat32_file_sector.v') (Join-Path $root 'sim/tb_fat32_file_sector.v') 2>&1 | Tee-Object -FilePath $log

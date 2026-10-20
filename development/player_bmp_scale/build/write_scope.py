@@ -1,5 +1,13 @@
 from pathlib import Path
-p=Path('E:/VSCODE-project/FPGA-ANLU/development/player_bmp_scale/build/model/verification_scope.md')
+import sys
+
+for _anlu_root in Path(__file__).resolve().parents:
+    if (_anlu_root / 'scripts' / 'anlu_paths.py').is_file():
+        sys.path.insert(0, str(_anlu_root / 'scripts'))
+        break
+from anlu_paths import DOCS_ROOT, REPOSITORY_ROOT, recorded_path
+
+p=REPOSITORY_ROOT / 'development/player_bmp_scale/build/model/verification_scope.md'
 p.write_text('''# C11206 验证范围
 
 父版本为C11205 verified169，manifest SHA A6B0AE1DBCAF1A92D360FA7F6E4AA935C1777A06D705940ED1364999A239A4A9。隔离工程从其逐项核验复制src/scripts，没有旧数据库。79继承源字节保持、5源改变、1新engine；正式源码范围见parent_source_audit.json。复制的旧TB与review仅作父证据材料，没有本版日志的模型未重跑。

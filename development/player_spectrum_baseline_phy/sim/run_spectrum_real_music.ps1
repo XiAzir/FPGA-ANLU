@@ -1,9 +1,13 @@
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
+$python = Resolve-AnluPython
+$pythonPrefix = @()
+if ([IO.Path]::GetFileNameWithoutExtension($python) -ieq 'py') { $pythonPrefix = @('-3') }
 $ErrorActionPreference='Stop'
-$project='E:\VSCODE-project\FPGA-ANLU';$task=Join-Path $project 'development\player_spectrum_baseline_phy';$sim=Join-Path $task 'sim';$model=Join-Path $task 'build\model';$hdl=Join-Path $task 'src\user_source\hdl_source'
+$project = $AnluRepositoryRoot;$task=Join-Path $project 'development\player_spectrum_baseline_phy';$sim=Join-Path $task 'sim';$model=Join-Path $task 'build\model';$hdl=Join-Path $task 'src\user_source\hdl_source'
 $prepare=Join-Path $sim 'prepare_real_music_vectors.py';$tb=Join-Path $sim 'tb_spectrum_real_music.v';$rtl=Join-Path $hdl 'player_spectrum_analyzer.v'
-$iverilog=Join-Path $project 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe';$vvp=Join-Path $project 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe';$vec=Join-Path $sim 'vectors'
+$iverilog=(Resolve-AnluTool -Name 'iverilog');$vvp=(Resolve-AnluTool -Name 'vvp');$vec=Join-Path $sim 'vectors'
 $exe=Join-Path $model 'spectrum_real_music.vvp';$clog=Join-Path $model 'spectrum_real_music_compile.log';$rlog=Join-Path $model 'spectrum_real_music_run.log'
-python $prepare | Set-Content -LiteralPath (Join-Path $model 'real_music_vectors_run.json') -Encoding utf8
+& $python @pythonPrefix $prepare | Set-Content -LiteralPath (Join-Path $model 'real_music_vectors_run.json') -Encoding utf8
 if($LASTEXITCODE -ne 0){throw 'real music vector preparation failed'}
 Set-Content -LiteralPath $clog -Value '' -Encoding ascii
 Push-Location $hdl
@@ -19,7 +23,7 @@ try {
 } finally {Pop-Location}
 $rtlHash=(Get-FileHash -Algorithm SHA256 -LiteralPath $rtl).Hash.ToLower();$tbHash=(Get-FileHash -Algorithm SHA256 -LiteralPath $tb).Hash.ToLower()
 $goldHash=(Get-FileHash -Algorithm SHA256 -LiteralPath (Join-Path $sim 'spectrum_oracle.py')).Hash.ToLower();$prepHash=(Get-FileHash -Algorithm SHA256 -LiteralPath $prepare).Hash.ToLower()
-$waveHash=(Get-FileHash -Algorithm SHA256 -LiteralPath 'E:\VSCODE-project\FPGA-ANLU\deliverables\real_music_20261008\card\TEST.WAV').Hash.ToLower()
+$waveHash=(Get-FileHash -Algorithm SHA256 -LiteralPath (Join-Path $project 'deliverables/real_music_20261008/card/TEST.WAV')).Hash.ToLower()
 @"
 PASS: two 1024-sample windows selected from the original 48 kHz mono PCM16 TEST.WAV and compared against the fixed-point oracle.
 Input WAV SHA256=$waveHash

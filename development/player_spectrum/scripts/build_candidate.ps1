@@ -1,8 +1,9 @@
 param([ValidateSet('synthesis','physical','hold','bitstream')] [string]$Stage='synthesis')
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 # Use this wrapper as the delivery entry point; invoking TD Tcl scripts directly bypasses stage evidence gates.
 $ErrorActionPreference='Stop'
 $taskRoot=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-$taskTool='C:\Anlogic\TD_6.2.1_SP1_6.2.178.840\bin\td_commands_prompt.exe'
+$taskTool = Resolve-AnluTool -Name 'td_commands_prompt'
 $taskOutput=Join-Path $taskRoot 'build\manual'
 New-Item -ItemType Directory -Force -Path $taskOutput | Out-Null
 . (Join-Path $PSScriptRoot 'build_evidence.ps1')
@@ -45,9 +46,15 @@ if($Stage -eq 'bitstream') {
         Move-Item -LiteralPath $taskOldBit -Destination $taskSavedBits
     }
 }
+$taskProjectFile=Join-Path $taskSourceRoot 'td_project/AC201_tf_hdmi.al'
+$taskProjectPath=Get-AnluProjectLocation $taskProjectFile
 $taskLog=Join-Path $taskOutput ($Stage+'_console.log')
-& $taskTool ((Join-Path $PSScriptRoot $taskScript).Replace('\','/')) *> $taskLog
-$taskExit=$LASTEXITCODE
+try {
+    & $taskTool ((Join-Path $PSScriptRoot $taskScript).Replace('\','/')) *> $taskLog
+    $taskExit=$LASTEXITCODE
+} finally {
+    Restore-AnluProjectLocation $taskProjectFile $taskProjectPath
+}
 Get-Content -LiteralPath $taskLog -Tail 12
 if($Stage -eq 'synthesis' -and (Select-String -LiteralPath $taskLog -Pattern 'HDL-5105|SYN-6562' -Quiet)) {
     throw 'Spectrum ROM initialization failed; reject this synthesis even when TD returns success'

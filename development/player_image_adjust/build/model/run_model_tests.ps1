@@ -2,8 +2,9 @@ $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\..')).Path
 $hdl = Join-Path $projectRoot 'development\player_image_adjust\src\user_source\hdl_source'
 $modelDir = $PSScriptRoot
-$iverilog = Join-Path $projectRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp = Join-Path $projectRoot 'bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 
 if (!(Test-Path -LiteralPath $iverilog)) { throw "iverilog not found: $iverilog" }
 if (!(Test-Path -LiteralPath $vvp)) { throw "vvp not found: $vvp" }

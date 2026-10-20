@@ -1,12 +1,20 @@
 from pathlib import Path
-from datetime import datetime
-from zoneinfo import ZoneInfo
+import sys
+
+for _anlu_root in Path(__file__).resolve().parents:
+    if (_anlu_root / 'scripts' / 'anlu_paths.py').is_file():
+        sys.path.insert(0, str(_anlu_root / 'scripts'))
+        break
+from anlu_paths import DOCS_ROOT, REPOSITORY_ROOT, recorded_path
+
+from datetime import datetime, timezone, timedelta
+
 import hashlib
 import json
 
 root=Path(__file__).resolve().parent.parent
-docs=Path('E:/QQ CACHE/Download/安路资料/开发记录')
-now=datetime.now(ZoneInfo('Asia/Shanghai'))
+docs=DOCS_ROOT / '开发记录'
+now=datetime.now(timezone(timedelta(hours=8)))
 topic=docs/'专题记录/OSD状态显示/节奏诊断实板失败_20261011/ChipWatcher准备_20261011.md'
 scope=json.loads((root/'build/manual/build_source_scope.json').read_text(encoding='utf-8-sig'))
 for item in scope:

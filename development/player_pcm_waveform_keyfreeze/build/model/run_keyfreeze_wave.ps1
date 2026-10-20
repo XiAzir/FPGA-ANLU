@@ -1,8 +1,9 @@
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
 $workspaceRoot = (Resolve-Path (Join-Path $projectRoot '../..')).Path
-$iverilog = Join-Path $workspaceRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$vvp = Join-Path $workspaceRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $rtl = Join-Path $projectRoot 'src/user_source/hdl_source/player_pcm_waveform.v'
 $testbench = Join-Path $PSScriptRoot 'tb_keyfreeze_wave.v'
 $log = Join-Path $PSScriptRoot 'keyfreeze_wave.log'

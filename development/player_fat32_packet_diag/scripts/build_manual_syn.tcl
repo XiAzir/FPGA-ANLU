@@ -1,5 +1,7 @@
-set project_dir E:/VSCODE-project/FPGA-ANLU/development/player_fat32_packet_diag/src/td_project
-set output_dir E:/VSCODE-project/FPGA-ANLU/development/player_fat32_packet_diag/build/manual
+# Locate this project from the script, independently of the caller working directory.
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
+set project_dir ${fpga_project_root}/src/td_project
+set output_dir ${fpga_project_root}/build/manual
 file mkdir $output_dir
 cd $project_dir
 if {[catch {

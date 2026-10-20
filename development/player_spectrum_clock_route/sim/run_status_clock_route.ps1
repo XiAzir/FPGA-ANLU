@@ -1,11 +1,12 @@
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $ErrorActionPreference = 'Stop'
 
 $task = Split-Path -Parent $PSScriptRoot
 $project = Split-Path -Parent (Split-Path -Parent $task)
 $hdl = Join-Path $task 'src/user_source/hdl_source'
 $model = Join-Path $task 'build/model'
-$iverilog = Join-Path $project 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$vvp = Join-Path $project 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+$iverilog = (Resolve-AnluTool -Name 'iverilog')
+$vvp = (Resolve-AnluTool -Name 'vvp')
 $image = Join-Path $model 'status_clock_route.vvp'
 $compileLog = Join-Path $model 'status_clock_route_compile.log'
 $runLog = Join-Path $model 'status_clock_route_run.log'

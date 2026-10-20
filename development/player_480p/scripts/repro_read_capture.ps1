@@ -1,9 +1,10 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $hdl = Join-Path $root 'src\user_source\hdl_source'
 $sim = Join-Path $root 'build\sim'
-$iverilog = 'E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe'
-$vvp = 'E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe'
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $sources = @('frame_buffer_rgb888.v','rgb888_word_codec.v','SD\frame_read_write.v',
     'SD\frame_fifo_write.v','SD\frame_fifo_read.v','IP\afifo_32_16_256.v',
     'IP\afifo_16_32_256.v') | ForEach-Object { Join-Path $hdl $_ }

@@ -1,5 +1,8 @@
 """Package the timing-clean OSD candidate and the verified fallback, without TF writes."""
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import recorded_path, require_file
 import hashlib
 import json
 import shutil
@@ -8,9 +11,9 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[3]
 TASK = ROOT / 'development' / 'player_osd'
 info = json.loads((TASK / 'build/manual/AC201_player_osd.info.json').read_text(encoding='utf-8-sig'))
-bit = Path(info['bitstream'])
+bit = recorded_path(info['bitstream'])
 fallback = ROOT / 'development/player_fat32_packet_diag/build/manual/AC201_player_fat32_packet_diag.bit'
-sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest().upper()
+sha = lambda p: hashlib.sha256(require_file(p).read_bytes()).hexdigest().upper()
 assert sha(bit) == info['sha256']
 assert sha(fallback) == info['baseline_bit_sha256']
 assert all(value >= 0 for value in info['timing'].values())
@@ -36,7 +39,7 @@ readme = '''OSD 第一版上板测试（2026-10-09）
 解压到纯英文路径（例如 C:/fpga_test），不要在ZIP内部直接选择bit，避免中文路径打开失败。
 
 下载：BitWriter Add 添加 firmware/osd.bit，使用现有 AL-LINK/JTAG、PROGRAM_SRAM，
-等待 Downloading succeeded!。本机也有 E:/VSCODE-project/FPGA-ANLU/download/osd.bit。
+等待 Downloading succeeded!。工程仓库中也有 download/osd.bit。
 
 预期：原图/音乐正常，左上白字黑底 IMG 1/4 MANUAL（数量按实际扫描结果显示）。
 KEY0点按切图，编号应随实际显示图片更新并循环回1。

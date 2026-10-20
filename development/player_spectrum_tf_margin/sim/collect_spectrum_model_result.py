@@ -46,7 +46,7 @@ def main():
         assert sorted(frame_bands[f])==list(range(24))
         integrated_error=max(integrated_error,max(abs(frame_bands[f][i]-ref[i]) for i in range(24)))
     assert integrated_error==0
-    music=Path(r'E:\VSCODE-project\FPGA-ANLU\deliverables\real_music_20261008\card\TEST.WAV')
+    music=Path(__file__).resolve().parents[3] / 'deliverables' / 'real_music_20261008' / 'card' / 'TEST.WAV'
     music_meta=json.loads((VEC/'real_music_windows.json').read_text(encoding='utf-8'))
     music_log=(MODEL/'spectrum_real_music_run.log').read_text(encoding='utf-8').splitlines()
     music_bands={}

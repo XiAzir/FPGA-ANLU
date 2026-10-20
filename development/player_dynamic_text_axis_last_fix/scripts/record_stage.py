@@ -1,8 +1,11 @@
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from anlu_paths import REPOSITORY_ROOT, DOCS_ROOT, recorded_path, require_file
 import datetime, json
 
-project = Path(r'E:\VSCODE-project\FPGA-ANLU')
-docs = Path(r'E:\QQ CACHE\Download\安路资料\开发记录')
+project = REPOSITORY_ROOT
+docs = (DOCS_ROOT / '开发记录')
 candidate = project/'development/player_dynamic_text_axis_last_fix'
 probe = project/'development/player_dynamic_text_video_probe'
 now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
@@ -67,7 +70,7 @@ report = f'''# 视频源诊断版无信号：取证与行结束标记对照
 
 新目录 `development/player_dynamic_text_axis_last_fix` 从probe隔离复制，76个user源中75个逐哈希不变，只把 `video_rgb_to_axis_640x480.v` 比较值639改638。非阻塞赋值读取旧计数值：一行第1像素将计数设0，到第640像素进入时旧值是638；原比较639不会发TLAST。未改变接口、像素/valid一拍延迟、SOF、PLL、引脚、SDC、卡/音频/OSD逻辑。原有成功版也有该缺陷，故它是确定接口错误，但不是已证实的本次差分根因；重构建本身会改变物理布局。
 
-实际候选源的模型已执行通过：实际color_bar/video_timing_data/video_delay连续两帧960行614400像素，旧TLAST0、新TLAST960、SOF2，数据/valid一拍对齐；另测试639像素短行、随后完整行、300像素中断复位、VS边沿重新arm。实际timing模块启动一拍X，模型额外保持转换器复位40拍后检测完整帧；不覆盖完整top启动、真实卡、加密HDMI、SDRAM电气或输出串行波形。 [模型日志](E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_axis_last_fix/build/axis_model/run.log)及source_bindings绑定实际源。综合成功；原约束布局布线进行中，板测未执行。
+实际候选源的模型已执行通过：实际color_bar/video_timing_data/video_delay连续两帧960行614400像素，旧TLAST0、新TLAST960、SOF2，数据/valid一拍对齐；另测试639像素短行、随后完整行、300像素中断复位、VS边沿重新arm。实际timing模块启动一拍X，模型额外保持转换器复位40拍后检测完整帧；不覆盖完整top启动、真实卡、加密HDMI、SDRAM电气或输出串行波形。 [模型日志](../../../../../FPGA-ANLU/development/player_dynamic_text_axis_last_fix/build/axis_model/run.log)及source_bindings绑定实际源。综合成功；原约束布局布线进行中，板测未执行。
 
 ## 接续
 

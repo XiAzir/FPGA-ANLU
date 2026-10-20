@@ -1,25 +1,62 @@
 """Index existing C11206 acceptance evidence; no build or hardware operations."""
-from pathlib import Path
+import argparse
 import datetime
 import hashlib
 import json
 import re
+import sys
+from pathlib import Path
 
-ROOT = Path('E:/VSCODE-project/FPGA-ANLU')
-DOCS = Path('E:/QQ CACHE/Download/安路资料/开发记录')
+for _anlu_root in Path(__file__).resolve().parents:
+    if (_anlu_root / 'scripts' / 'anlu_paths.py').is_file():
+        sys.path.insert(0, str(_anlu_root / 'scripts'))
+        break
+from anlu_paths import DOCS_ROOT, REPOSITORY_ROOT, recorded_path
+
+ROOT = REPOSITORY_ROOT
+DOCS = DOCS_ROOT / '开发记录'
 TOPIC = DOCS / '专题记录/整机集成/C11206五扩展验收_20261012'
 CURRENT = ROOT / 'development/player_bmp_scale/checkpoints/bmp_scale_20261012_verified'
 CANDIDATE = CURRENT.parent / 'bmp_scale_20261012_candidate'
 NOW = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
+PARSER = argparse.ArgumentParser(description=__doc__)
+PARSER.add_argument('--portable-output', action='store_true',
+                    help='write separate portable-view evidence files without replacing historical outputs')
+PORTABLE_OUTPUT = PARSER.parse_args().portable_output
+
+
+def physical_path(path):
+    return Path(recorded_path(path))
+
+
+def portable_path(path):
+    path = physical_path(path)
+    try:
+        relative = path.relative_to(ROOT)
+    except ValueError:
+        relative = path.relative_to(ROOT.parent)
+        return '../' + relative.as_posix()
+    return relative.as_posix()
+
+
+def portable_value(value):
+    """Rebase absolute paths anywhere in a portable JSON view."""
+    if isinstance(value, dict):
+        return {key: portable_value(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [portable_value(item) for item in value]
+    if isinstance(value, str) and re.match(r'^[A-Za-z]:[/\\]', value):
+        return portable_path(recorded_path(value))
+    return value
 
 
 def load(file):
-    return json.loads(Path(file).read_text(encoding='utf-8-sig'))
+    return json.loads(physical_path(file).read_text(encoding='utf-8-sig'))
 
 
 def sha(file):
     digest = hashlib.sha256()
-    with Path(file).open('rb') as stream:
+    with physical_path(file).open('rb') as stream:
         for block in iter(lambda: stream.read(1024 * 1024), b''):
             digest.update(block)
     return digest.hexdigest().upper()
@@ -30,13 +67,15 @@ def save(file, value):
 
 
 def snapshot(folder, count, expected):
+    folder = physical_path(folder)
     assert sha(folder / 'manifest.json') == expected
     items = load(folder / 'manifest.json')
     assert len(items) == count
     for item in items:
         file = folder / item['path']
         assert file.stat().st_size == item['bytes'] and sha(file) == item['sha256']
-    return {'path': str(folder), 'files': count, 'manifestSha256': expected, 'allEntriesMatched': True}
+    return {'path': portable_path(folder) if PORTABLE_OUTPUT else str(folder),
+            'files': count, 'manifestSha256': expected, 'allEntriesMatched': True}
 
 
 acceptance = load(ROOT / 'development/player_bmp_scale/build/acceptance_verified.json')
@@ -46,20 +85,20 @@ verified_check = snapshot(CURRENT, 268, acceptance['manifestSha256'])
 candidate_check = snapshot(CANDIDATE, 260, delivery['manifestSha256'])
 assert sha(ROOT / 'download/bmp_scale.bit') == bit_sha
 assert sha(CURRENT / 'build/manual/AC201_player_bmp_scale.bit') == bit_sha
-assert sha(Path(delivery['zip'])) == delivery['zipSha256']
+assert sha(recorded_path(delivery['zip'])) == delivery['zipSha256']
 
 files = {}
 
 
 def add(path, kind, version, use):
-    file = Path(path)
+    file = physical_path(path)
     assert file.is_file(), f'Missing evidence: {file}'
     name = str(file)
     if name in files:
         if use not in files[name]['uses']:
             files[name]['uses'].append(use)
         return
-    files[name] = {'path': name, 'kind': kind, 'version': version,
+    files[name] = {'path': portable_path(file) if PORTABLE_OUTPUT else name, 'kind': kind, 'version': version,
                    'bytes': file.stat().st_size, 'sha256': sha(file), 'uses': [use]}
 
 
@@ -102,7 +141,7 @@ for asset in load(CURRENT / 'build/delivery/media_manifest.json')['files']:
     add(file, 'supplied_original_bmp_not_card_readback', 'C11206', 'E03/TC21')
 feedback = load(CURRENT / 'build/board_feedback_20261012/functions_feedback.json')
 for photo in feedback['photos']:
-    project_copy, docs_copy = Path(photo['projectCopy']), Path(photo['docsCopy'])
+    project_copy, docs_copy = recorded_path(photo['projectCopy']), recorded_path(photo['docsCopy'])
     assert sha(project_copy) == sha(docs_copy) == photo['sha256']
     add(docs_copy, 'current_user_photo', 'C11206_context_association', 'E03布局/静态叠加外观；非动态或音频测量')
 
@@ -119,7 +158,9 @@ for ancestor, version, names in [
         old_file = ancestor / 'src/user_source/hdl_source' / name
         assert sha(src / name) == sha(old_file), f'Unexpected source change: {name}'
         add(old_file, 'ancestor_frozen_source', version, source_functions[name])
-        lineage.append({'module': name, 'currentSource': str(src / name), 'ancestorSource': str(old_file),
+        lineage.append({'module': name,
+                        'currentSource': portable_path(src / name) if PORTABLE_OUTPUT else str(src / name),
+                        'ancestorSource': portable_path(old_file) if PORTABLE_OUTPUT else str(old_file),
                         'ancestorVersion': version, 'sha256': sha(old_file), 'identicalBytes': True,
                         'limit': 'Source identity only; does not establish netlist equivalence or current hardware behavior.'})
 
@@ -145,6 +186,13 @@ add(ROOT / 'deliverables/real_music_20261008.package_audit.json', 'supplied_musi
 add(ROOT / 'planning/20261007/执行规划.md', 'internal_execution_plan', '20261007_with_later_notes', '范围与可选增强/稳定建议')
 add(ROOT / 'planning/20261007/source/安路赛题一_开发到提交规划_20261007.md', 'original_internal_plan', '20261007', 'T32/T33/T36/TC详细用例')
 
+original_index = TOPIC / '证据索引.json'
+original_index_sha = sha(original_index) if physical_path(original_index).is_file() else None
+if original_index_sha is None:
+    historical_receipt = TOPIC / '整理凭据.json'
+    if physical_path(historical_receipt).is_file():
+        original_index_sha = load(historical_receipt).get('evidenceIndexSha256')
+
 index = {
     'recordedBeijing': NOW, 'baseline': 'C11206', 'bitSha256': bit_sha,
     'assemblyStatus': 'COMPLETE_EXISTING_EVIDENCE_INDEX',
@@ -158,7 +206,12 @@ index = {
                'Known dynamic waveform double trace and low display resolution retained.',
                'No hardware/TF/Flash operation; no timed long-run or maximum-format hardware claim.'],
 }
-save(TOPIC / '证据索引.json', index)
+if PORTABLE_OUTPUT:
+    index.update({'originalEvidenceIndexSha256': original_index_sha,
+                  'staticRecheckDate': NOW[:10], 'portableView': True, 'view': 'portable'})
+    index = portable_value(index)
+index_path = TOPIC / ('证据索引_可移植.json' if PORTABLE_OUTPUT else '证据索引.json')
+save(index_path, index)
 
 broken = []
 links = 0
@@ -166,12 +219,12 @@ for name in ['README.md', '后续验证清单.md']:
     file = TOPIC / name
     for target in re.findall(r'\[[^\]]+\]\(([^\n)]+)\)', file.read_text(encoding='utf-8')):
         target = target.strip('<>')
-        if target == '整理凭据.json':
+        if target in {'整理凭据.json', '整理凭据_可移植.json'}:
             continue  # Written immediately below.
         if target.startswith(('http://', 'https://', '#')):
             continue
         target = re.sub(r':\d+$', '', target)
-        path = Path(target) if re.match(r'^[A-Za-z]:[/\\]', target) else file.parent / target
+        path = physical_path(target) if re.match(r'^[A-Za-z]:[/\\]', target) else physical_path(file.parent / target)
         links += 1
         if not path.exists():
             broken.append({'file': name, 'target': target})
@@ -182,11 +235,17 @@ result = {
     'baselineBitSha256': bit_sha, 'verifiedSnapshot': verified_check, 'candidateSnapshot': candidate_check,
     'originalZipSha256': delivery['zipSha256'], 'originalSourceBitSnapshotsAndZipUnchanged': True,
     'indexedFiles': len(files), 'sourceIdentityComparisons': len(lineage), 'existingLocalLinksChecked': links,
-    'evidenceIndexSha256': sha(TOPIC / '证据索引.json'),
-    'documents': [{'path': str(TOPIC / name), 'sha256': sha(TOPIC / name)} for name in ['README.md', '后续验证清单.md']],
+    'evidenceIndexSha256': sha(index_path),
+    'documents': [{'path': portable_path(TOPIC / name) if PORTABLE_OUTPUT else str(TOPIC / name),
+                   'sha256': sha(TOPIC / name)} for name in ['README.md', '后续验证清单.md']],
     'remaining': 'Waveform clarity optimization, timed stability/error regression, final dynamic demonstrations, T36 final freeze and Flash/submission remain unexecuted.',
 }
-save(TOPIC / '整理凭据.json', result)
-save(Path(__file__).parent / 'collection_receipt.json', result)
+if PORTABLE_OUTPUT:
+    result.update({'originalEvidenceIndexSha256': original_index_sha,
+                   'staticRecheckDate': NOW[:10], 'portableView': True, 'view': 'portable'})
+    result = portable_value(result)
+save(TOPIC / ('整理凭据_可移植.json' if PORTABLE_OUTPUT else '整理凭据.json'), result)
+save(Path(__file__).parent / ('collection_receipt_portable.json' if PORTABLE_OUTPUT else 'collection_receipt.json'), result)
 print(json.dumps({'status': 'PASS', 'indexedFiles': len(files), 'sourceComparisons': len(lineage),
-                  'linksChecked': links, 'indexSha256': result['evidenceIndexSha256'], 'recordedBeijing': NOW}))
+                  'linksChecked': links, 'indexSha256': result['evidenceIndexSha256'], 'recordedBeijing': NOW,
+                  'portableView': PORTABLE_OUTPUT, 'originalEvidenceIndexSha256': original_index_sha}))

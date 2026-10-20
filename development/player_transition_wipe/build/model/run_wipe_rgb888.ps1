@@ -1,8 +1,9 @@
 $ErrorActionPreference='Stop'
 $taskProject=(Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
 $taskRoot=(Resolve-Path (Join-Path $taskProject '../..')).Path
-$taskIver=Join-Path $taskRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$taskVvp=Join-Path $taskRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+. (Join-Path $PSScriptRoot '../../../../scripts/anlu_tools.ps1')
+$taskIver=(Resolve-AnluTool 'iverilog')
+$taskVvp=(Resolve-AnluTool 'vvp')
 Push-Location $PSScriptRoot
 try {
  & $taskIver -g2012 -s tb_wipe_rgb888 -o 'wipe_rgb888.vvp' 'tb_wipe_rgb888.v' "$taskProject/src/user_source/hdl_source/player_wipe_address.v" "$taskProject/src/user_source/hdl_source/rgb888_word_codec.v" *> 'wipe_rgb888_compile.log'

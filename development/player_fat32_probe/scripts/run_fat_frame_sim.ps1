@@ -1,7 +1,8 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $taskRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $taskHdl = Join-Path $taskRoot 'src\user_source\hdl_source'
-$taskBin = 'E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin'
+$taskBin = (Split-Path -Parent (Resolve-AnluTool 'iverilog'))
 $taskOutRoot = Join-Path $taskRoot 'build\fat_frame_sim'
 New-Item -ItemType Directory -Force -Path $taskOutRoot | Out-Null
 
@@ -32,14 +33,14 @@ foreach ($taskCase in @(
     $taskCompiled = Join-Path $taskOutRoot ($taskCase.Name + '.vvp')
     $taskCompileLog = Join-Path $taskOutRoot ($taskCase.Name + '_compile.log')
     $taskRunLog = Join-Path $taskOutRoot ($taskCase.Name + '.log')
-    & (Join-Path $taskBin 'iverilog.exe') -g2012 -Wall -s tb_fat_frame_integration `
+    & (Resolve-AnluTool 'iverilog') -g2012 -Wall -s tb_fat_frame_integration `
         -I $taskFixture "-Ptb_fat_frame_integration.WIDTH=$($taskCase.Width)" `
         "-Ptb_fat_frame_integration.HEIGHT=$($taskCase.Height)" `
         "-Ptb_fat_frame_integration.FRAME_COUNT=$($taskCase.Frames)" `
         -o $taskCompiled @taskSources *> $taskCompileLog
     if ($LASTEXITCODE -ne 0) { Get-Content $taskCompileLog; throw "Compile failed: $($taskCase.Name)" }
 
-    & (Join-Path $taskBin 'vvp.exe') $taskCompiled "+FIXTURE=$($taskFixture.Replace('\','/'))" *> $taskRunLog
+    & (Resolve-AnluTool 'vvp') $taskCompiled "+FIXTURE=$($taskFixture.Replace('\','/'))" *> $taskRunLog
     $taskExit = $LASTEXITCODE
     Get-Content $taskRunLog
     if ($taskExit -ne 0 -or -not (Select-String -LiteralPath $taskRunLog -Pattern '^PASS tb_fat_frame_integration' -Quiet)) {

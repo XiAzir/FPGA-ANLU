@@ -1,8 +1,9 @@
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot '../../../scripts/anlu_tools.ps1')
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $repoRoot = (Resolve-Path (Join-Path $projectRoot '../..')).Path
-$iverilog = Join-Path $repoRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe'
-$vvp = Join-Path $repoRoot 'bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe'
+$iverilog = (Resolve-AnluTool 'iverilog')
+$vvp = (Resolve-AnluTool 'vvp')
 $outDir = Join-Path $projectRoot 'build/fat_sim'
 $image = Join-Path $outDir 'catalog_tb.vvp'
 $rtl = Join-Path $projectRoot 'src/user_source/hdl_source/fat32_catalog.v'

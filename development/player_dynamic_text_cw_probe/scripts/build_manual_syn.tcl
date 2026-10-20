@@ -1,5 +1,7 @@
-set project_dir E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_cw_probe/src/td_project
-set output_dir E:/VSCODE-project/FPGA-ANLU/development/player_dynamic_text_cw_probe/build/manual
+set fpga_project_root [file normalize [file join [file dirname [info script]] ..]]
+set fpga_repo_root [file normalize [file join $fpga_project_root ../..]]
+set project_dir ${fpga_project_root}/src/td_project
+set output_dir ${fpga_project_root}/build/manual
 file mkdir $output_dir
 cd $project_dir
 if {[catch {
