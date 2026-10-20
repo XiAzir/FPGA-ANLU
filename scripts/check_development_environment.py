@@ -13,6 +13,7 @@ import subprocess
 import sys
 from pathlib import Path
 from typing import Any
+from anlu_paths import DOCS_ROOT
 
 
 REPO = Path(__file__).resolve().parents[1]
@@ -464,7 +465,7 @@ def main() -> int:
     args = parser.parse_args()
 
     docs_root = (args.docs_root.expanduser().resolve() if args.docs_root
-                 else (REPO.parent / "FPGA-ANLU-docs").resolve())
+                 else DOCS_ROOT.resolve())
     report = Report()
     print(f"工程仓：{REPO}")
     print(f"资料仓：{docs_root}")
