@@ -1,0 +1,18 @@
+--- E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_fft_recover\checkpoints\music_spectrum_fft_recover_20261014_candidate\src\user_source\hdl_source\player_spectrum_analyzer.v
++++ E:\VSCODE-project\FPGA-ANLU\development\system_verification_20261016\hdmi\period_C11310_positive_20261016_181646\player_spectrum_analyzer_compat.v
+@@ -106,6 +106,7 @@
+ 
+     // Explicit local BRAM INIT parameters retain FFT coefficients while the
+     // successful player baseline keeps global gate eram_init disabled.
++reg [8:0] twiddle_addr;
+     spectrum_coeff_rom #(.HANN_FILE(HANN_FILE), .TWIDDLE_FILE(TWIDDLE_FILE))
+     u_coefficients (
+         .clk(clk), .hann_en(state == ST_WIN_REQ), .hann_addr(win_index), .hann_q(hann_q),
+@@ -178,7 +179,6 @@
+     endfunction
+ 
+     reg [9:0] fft_addr_a, fft_addr_b;
+-    reg [8:0] twiddle_addr;
+     // The radix-2 DIT butterfly index is split into {group,j}. Insert the
+     // stage's pair-selection bit directly instead of synthesizing variable
+     // shifts and adders for each address.

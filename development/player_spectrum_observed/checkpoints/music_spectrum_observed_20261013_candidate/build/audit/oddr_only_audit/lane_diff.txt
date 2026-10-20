@@ -1,0 +1,13 @@
+diff --git a/development/player_spectrum_private_init/build/oddr_only_audit/lane_baseline.v b/development/player_spectrum_private_init/build/oddr_only_audit/lane_oddr_negedge.v
+index a0fc7fe..65108c8 100644
+--- a/development/player_spectrum_private_init/build/oddr_only_audit/lane_baseline.v
++++ b/development/player_spectrum_private_init/build/oddr_only_audit/lane_oddr_negedge.v
+@@ -65,7 +65,7 @@ module lane_lvds_10_1 #(
+                 S_shift_data <= S_shift_data << 2;
+     end
+ 
+-    always @(posedge I_serial_clk) begin
++    always @(negedge I_serial_clk) begin
+         S_oddr_data <= S_shift_data[9:8];
+     end
+ 

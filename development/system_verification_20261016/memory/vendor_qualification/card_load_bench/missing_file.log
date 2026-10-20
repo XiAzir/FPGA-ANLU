@@ -1,0 +1,26 @@
+# vsim -do {run 1 ns; quit -code 0 -f} -l missing_file.log -lib work -c -modelsimini modelsim.ini -novopt tb_missing_file 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/memory/vendor_qualification/card_load_bench/work.tb_missing_file
+# Loading work.tb_missing_file
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/memory/vendor_qualification/card_load_bench/work.sd_spi_card_model
+# Loading work.sd_spi_card_model
+# run 1 ns 
+# SD model loading 2073 mapped sectors from missing_packed_mem.mem and E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/card/lba_map.mem (geometry 67108864 bytes)
+# SD_FILECHECK_BEGIN t=0
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "missing_packed_mem.mem" for reading.
+# 
+# No such file or directory. (errno = ENOENT)    : E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/card/sd_spi_card_model.v(134)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_missing_file/dut
+# FATAL: cannot open packed sector image missing_packed_mem.mem
+# ** Fatal: Assertion error.
+#    Time: 0 ps  Scope: tb_missing_file.dut File: E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/card/sd_spi_card_model.v Line: 135
+# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/card/sd_spi_card_model.v(135)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_missing_file/dut

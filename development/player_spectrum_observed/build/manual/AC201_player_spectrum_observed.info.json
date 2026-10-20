@@ -1,0 +1,993 @@
+{
+  "version": "C11307",
+  "kind": "PCM_1024_HANN_FFT_24_BAND_SPECTRUM",
+  "createdBeijing": "2026-10-13 22:40:17",
+  "boardStatus": "FAILED_FULL_BOARD_VALIDATION_PARTIAL_PROGRESS",
+  "parent": "C11306 failed board candidate; inferred ROM read mapping restored, ODDR-only falling preparation edge, passive B/C spectrum telemetry",
+  "successfulBaseline": "C11206 bmp_scale.bit",
+  "bitSha256": "8CFD873C1B9727A18C8A3731233943B6C43D56DD56677623CDAEC0962B7A2AF4",
+  "bitBytes": 634280,
+  "resource": {
+    "LUT": 16563,
+    "reg": 9758,
+    "LE": 17926,
+    "BRAM9K": 44,
+    "DSP": 11,
+    "GCLK": 2
+  },
+  "timing": {
+    "SWNSns": 0.365,
+    "STNSns": 0.0,
+    "HWNSns": 0.024,
+    "HTNSns": 0.0
+  },
+  "stageRunIds": {
+    "synthesis": "2f6cd63c-b43a-4251-ae41-ec45c8e1336c",
+    "physical": "9e58c073-5599-4b42-9450-022b836d7420",
+    "hold": "b01c911c-9ed9-450f-b85d-67baaa9badec",
+    "bitstream": "cf01a9b8-205c-47a4-abcc-18212d46b75d"
+  },
+  "scopeHash": "14acfdf65ad24df9d4813b98e3c45c80a026fca21aa277c7a67d935fe5fe3fdd",
+  "scriptHash": "ff87a0b0f40f861460ed22ee3292a95840946b3a04c9c103312ccdabf2e2f1fd",
+  "modelResult": {
+    "schema": "fpga-anlu-spectrum-model-result/v2",
+    "status": "PASS",
+    "generated_utc": "2026-10-13T14:30:55.027835+00:00",
+    "verification_kind": "Local Icarus PRIVATE_ROM_BEHAVIORAL_SIM and independent Python gold models; coefficient primitive INIT audited separately, no official protected primitive simulation or board validation.",
+    "bound_sources": {
+      "private_coefficient_rom_rtl": {
+        "path": "development/player_spectrum_observed/src/user_source/hdl_source/spectrum_coeff_rom.v",
+        "sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04"
+      },
+      "private_rom_generator": {
+        "path": "development/player_spectrum_observed/src/user_source/hdl_source/gen_private_spectrum_rom.py",
+        "sha256": "58adf8e8d3181973de172a5b0a1a0a9d59078c975a8dc3b41afa533568739a3f"
+      },
+      "private_rom_manifest": {
+        "path": "development/player_spectrum_observed/src/user_source/hdl_source/spectrum_coeff_rom_manifest.json",
+        "sha256": "31a61e039e5b83bce3b73cc2d015bf92e0c3773071dcfa8385e2aea970a61ee1"
+      },
+      "analyzer_rtl": {
+        "path": "development/player_spectrum_observed/src/user_source/hdl_source/player_spectrum_analyzer.v",
+        "sha256": "ad4425806607c0a24634f38dd47120a41cb7e61b34d4d948eb4c135aab93dfc1"
+      },
+      "overlay_rtl": {
+        "path": "development/player_spectrum_observed/src/user_source/hdl_source/player_pcm_waveform.v",
+        "sha256": "d99e17252bead794d6fc77316e95fd5a45907e15ba38bb34c748c787ee2e9abb"
+      },
+      "top_level_rtl": {
+        "path": "development/player_spectrum_observed/src/user_source/hdl_source/top_tf_hdmi_audio.v",
+        "sha256": "af709ab0e361abd04a80d85197e7267aaf6e29d3665b1a076ae364576be93125"
+      },
+      "band_edges": {
+        "path": "development/player_spectrum_observed/src/user_source/hdl_source/player_spectrum_bands.vh",
+        "sha256": "7681a4aaae6fea83ec28cc94c8a9fdf816a17cacf8ee720200e138803b8fef4d"
+      },
+      "hann_rom": {
+        "path": "development/player_spectrum_observed/src/user_source/hdl_source/spectrum_hann.mem",
+        "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f"
+      },
+      "twiddle_rom": {
+        "path": "development/player_spectrum_observed/src/user_source/hdl_source/spectrum_twiddle.mem",
+        "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772"
+      },
+      "coefficient_generator": {
+        "path": "development/player_spectrum_observed/src/user_source/hdl_source/gen_player_spectrum_coeffs.py",
+        "sha256": "fcd5393efd771e0cc7008de8b2f8b57509c9ecf4aa94a9ce2e70763b2f795618"
+      },
+      "analyzer_tb": {
+        "path": "development/player_spectrum_observed/sim/tb_player_spectrum_analyzer.v",
+        "sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478"
+      },
+      "pixel_tb": {
+        "path": "development/player_spectrum_observed/sim/tb_spectrum_overlay_pixels.v",
+        "sha256": "6431c6100a7d079b3dd9313b8e7100f3a16ea7a8af01271f8fd44b29818bac3c"
+      },
+      "integrated_control_tb": {
+        "path": "development/player_spectrum_observed/sim/tb_spectrum_overlay_integration.v",
+        "sha256": "048392f075fb8e0112368f8a7462ff519c78cd1e1d0632a2831df2323d0aa5b1"
+      },
+      "real_music_tb": {
+        "path": "development/player_spectrum_observed/sim/tb_spectrum_real_music.v",
+        "sha256": "097886efe543787c33c8a1bbd023571bb5d26cb33a3013215f54c493277c955f"
+      },
+      "analyzer_oracle": {
+        "path": "development/player_spectrum_observed/sim/spectrum_oracle.py",
+        "sha256": "c7459ba9b0c10656ed8b68370a25b7ba97a7db9b79592cf3cd2c2c480adc2bff"
+      },
+      "pixel_gold": {
+        "path": "development/player_spectrum_observed/sim/spectrum_render_gold.py",
+        "sha256": "f3fa7908b06e559c7bf68e71bf9ca9f50836bd8d3a5be6bb76ad6a235aa2cb90"
+      },
+      "integrated_state_gold": {
+        "path": "development/player_spectrum_observed/sim/verify_spectrum_overlay_integration.py",
+        "sha256": "d4522f63fa02882927e5ee3188bb9295a7f5d195544bfb0951bfa8ea59943fa2"
+      },
+      "real_music_vector_preparer": {
+        "path": "development/player_spectrum_observed/sim/prepare_real_music_vectors.py",
+        "sha256": "13c29d69496672932e470ae1c81a0716fb7a9f359a432abd2af7fab0ea4012d3"
+      },
+      "analyzer_runner": {
+        "path": "development/player_spectrum_observed/sim/run_spectrum_model.ps1",
+        "sha256": "505717f7da56e59ed1576e2294613f563c44e792200943c45da522a3ae4da9fa"
+      },
+      "pixel_runner": {
+        "path": "development/player_spectrum_observed/sim/run_spectrum_render_pixels.ps1",
+        "sha256": "7a132fb49592c62a92a72aaee6412d43709adb69aef1adfba343c5374281833c"
+      },
+      "integrated_runner": {
+        "path": "development/player_spectrum_observed/sim/run_spectrum_overlay_integration.ps1",
+        "sha256": "edf70895a57aaeca958d237e1ed7d3d6e69c7d934eee08726776cafe7db6b41c"
+      },
+      "real_music_runner": {
+        "path": "development/player_spectrum_observed/sim/run_spectrum_real_music.ps1",
+        "sha256": "fe2cecaa902d20b0d5e4207f8c8e4df306face266800710d3b2e6ab00c496643"
+      },
+      "result_collector": {
+        "path": "development/player_spectrum_observed/sim/collect_spectrum_model_result.py",
+        "sha256": "f2a03bee5206166d9ef3efefffcf3b00a1aa2d4d17cd6f061cf849b7ebdca139"
+      },
+      "fixedpoint_vectors": {
+        "path": "development/player_spectrum_observed/sim/vectors/all_expected.mem",
+        "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0"
+      },
+      "pcm_vectors": {
+        "path": "development/player_spectrum_observed/sim/vectors/all_samples.mem",
+        "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2"
+      },
+      "pixel_vectors": {
+        "path": "development/player_spectrum_observed/sim/vectors/render_pixels.mem",
+        "sha256": "29ce25494d6cf2571d924ca1d62362dd0f8099c16a39dec2fdcedbd599deccf6"
+      },
+      "real_music_pcm_vectors": {
+        "path": "development/player_spectrum_observed/sim/vectors/real_music_samples.mem",
+        "sha256": "c3164994a08696c0359f01cf692400b54947a57c4ac29c883bc6fcd9cbadd890"
+      },
+      "real_music_expected_vectors": {
+        "path": "development/player_spectrum_observed/sim/vectors/real_music_expected.mem",
+        "sha256": "11c3ad998b4c152c0264ed7c7566bb0e2bf257e04c9511e0699a6729519ae5f7"
+      },
+      "fixedpoint_case_results": {
+        "path": "development/player_spectrum_observed/sim/vectors/oracle.json",
+        "sha256": "8ca22c80b84cea0134f76f1b8c25bc47172e1b5f88edfa7a66b20075f591ad3b"
+      },
+      "pixel_gold_results": {
+        "path": "development/player_spectrum_observed/sim/vectors/render_gold.json",
+        "sha256": "1d3c032b751db37b69363444b5f8c63853c1a8c8b1cc83eda896ec9dd733c501"
+      },
+      "real_music_windows": {
+        "path": "development/player_spectrum_observed/sim/vectors/real_music_windows.json",
+        "sha256": "d40fc9ee25da154d9fa715d48a7c032c7f2681aa9df085bb9c432cb61f641729"
+      },
+      "real_music_source": {
+        "path": "deliverables/real_music_20261008/card/TEST.WAV",
+        "sha256": "d5244fd3935052a743379d9331ee78109c8a913241ed60de472cb9e34a17fecf"
+      },
+      "telemetry_tb": {
+        "path": "development/player_spectrum_observed/sim/tb_spectrum_diag.v",
+        "sha256": "53202890dac1f04bd56dec9f5a5050c0a1f537c4c6a84cc6a9528a640d4a2101"
+      },
+      "telemetry_runner": {
+        "path": "development/player_spectrum_observed/sim/run_spectrum_diag.ps1",
+        "sha256": "508100c305457653cac696407b1c37d030a505da4bace242fa8187fdaaf0afea"
+      },
+      "model_augmenter": {
+        "path": "development/player_spectrum_observed/augment_model.py",
+        "sha256": "77c3c5814922847e622d6ce53d42fce807a06eda20e76afbfb67dd99c79aa13f"
+      }
+    },
+    "results": {
+      "analyzer": {
+        "status": "PASS",
+        "production_fft_size": 1024,
+        "sample_rate_hz": 48000,
+        "frequency_bin_hz": 46.875,
+        "vectors": 13,
+        "bands_compared": 312,
+        "fixed_model_max_abs_error": 0,
+        "direct_dft_max_abs_error": 6.999,
+        "direct_dft_asserted_bound": 16,
+        "coefficient_rom_words_formula_checked": {
+          "hann": 1024,
+          "twiddle": 512
+        },
+        "cases": [
+          "tone_low",
+          "tone_mid",
+          "tone_high",
+          "tone_low_half",
+          "two_tone",
+          "silence",
+          "dc_positive",
+          "fullscale_positive",
+          "fullscale_negative",
+          "fullscale_sine",
+          "nyquist_alternating",
+          "impulse",
+          "wideband_random"
+        ],
+        "checks": [
+          "tone peak band low/mid/high",
+          "two tone response",
+          "amplitude doubled response",
+          "silence zero",
+          "DC excluded with Hann leakage accounted",
+          "positive/negative fullscale DC",
+          "phase pi/4 fullscale sine",
+          "alternating Nyquist extremes",
+          "centered impulse",
+          "fixed seed wideband random",
+          "continuous recapture",
+          "source_change abort during capture and analysis",
+          "reset abort",
+          "one full-rate frame with 521 clock intervals"
+        ],
+        "analysis_cycles_per_frame": 55320,
+        "evidence": {
+          "text": "development/player_spectrum_observed/build/model/spectrum_evidence_20261013_223023.txt",
+          "compile": "development/player_spectrum_observed/build/model/spectrum_compile_20261013_223023.log",
+          "run": "development/player_spectrum_observed/build/model/spectrum_run_20261013_223023.log"
+        }
+      },
+      "real_music": {
+        "status": "PASS",
+        "source": {
+          "path": "deliverables/real_music_20261008/card/TEST.WAV",
+          "sha256": "d5244fd3935052a743379d9331ee78109c8a913241ed60de472cb9e34a17fecf"
+        },
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bits": 16,
+        "selected_windows": [
+          {
+            "id": 0,
+            "name": "music_moderate",
+            "start_sample": 922624,
+            "start_seconds": 19.221333333333334,
+            "rms": 1659.326,
+            "peak": 4945,
+            "fixed_bands": [
+              22,
+              70,
+              36,
+              213,
+              295,
+              67,
+              254,
+              186,
+              182,
+              101,
+              126,
+              51,
+              48,
+              20,
+              23,
+              6,
+              5,
+              3,
+              2,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "direct_dft_max_abs_error": 4.698,
+            "largest_band": 4,
+            "nonzero_bands": 15
+          },
+          {
+            "id": 1,
+            "name": "music_loud",
+            "start_sample": 1935360,
+            "start_seconds": 40.32,
+            "rms": 5005.592,
+            "peak": 11422,
+            "fixed_bands": [
+              201,
+              404,
+              774,
+              1064,
+              732,
+              324,
+              383,
+              168,
+              361,
+              300,
+              168,
+              184,
+              36,
+              29,
+              36,
+              8,
+              9,
+              3,
+              2,
+              2,
+              2,
+              2,
+              1,
+              1
+            ],
+            "direct_dft_max_abs_error": 4.329,
+            "largest_band": 3,
+            "nonzero_bands": 15
+          }
+        ],
+        "band_values_compared": 48,
+        "fixed_model_max_abs_error": 0,
+        "direct_dft_max_abs_error": 4.698,
+        "direct_dft_asserted_bound": 16,
+        "evidence": {
+          "text": "development/player_spectrum_observed/build/model/spectrum_real_music_evidence.txt",
+          "compile": "development/player_spectrum_observed/build/model/spectrum_real_music_compile.log",
+          "run": "development/player_spectrum_observed/build/model/spectrum_real_music_run.log"
+        }
+      },
+      "pixel_renderer": {
+        "status": "PASS",
+        "independent_rgb_samples": 650,
+        "coverage": [
+          "panel bounds",
+          "24 column starts/ends/gaps",
+          "baseline and maximum bar",
+          "peak marker",
+          "gridlines",
+          "SPECTRUM WAV/TONE and HOLD WAV/TONE title glyphs at pitch 16",
+          "LOW/HIGH legends at pitch 8",
+          "DE-low and outside RGB passthrough"
+        ],
+        "evidence": {
+          "text": "development/player_spectrum_observed/build/model/render_pixel_evidence_20261013_223035.txt",
+          "hashes": "development/player_spectrum_observed/build/model/render_pixel_hashes_20261013_223035.json",
+          "compile": "development/player_spectrum_observed/build/model/render_pixels_compile_20261013_223035.log",
+          "run": "development/player_spectrum_observed/build/model/render_pixels_run_20261013_223035.log"
+        }
+      },
+      "integrated_overlay": {
+        "status": "PASS",
+        "actual_pcm_frames": 3,
+        "actual_band_frames": 3,
+        "band_outputs_checked": 72,
+        "renderer_states_checked": 264,
+        "atomic_commits_observed": 4,
+        "front_stability_windows": [
+          [
+            "rise_mid",
+            24
+          ],
+          [
+            "silence_mid",
+            24
+          ],
+          [
+            "thaw_mid",
+            24
+          ],
+          [
+            "stale_mid",
+            24
+          ],
+          [
+            "source_cancel",
+            24
+          ]
+        ],
+        "snapshot_stability_windows": [
+          [
+            "real_pcm_frame",
+            24
+          ]
+        ],
+        "pixel_samples_checked": 652,
+        "checks": [
+          "actual PCM to analyzer band values versus independent fixed-point oracle",
+          "serial updater front unchanged before update_done and atomic commit",
+          "same-cycle frame_done/VS consumes previous ready frame and retains new frame_pending",
+          "attack/release, peak hold/decay and peak>=bar",
+          "HOLD freezes front while accepting frames; thaw updates latest ready frame",
+          "100ms stale zero-target update",
+          "source change cancels in-flight update and source VS clears all visible bands/title",
+          "asynchronous reset clears front and restarts private state initialization",
+          "actual analyzer-driven RGB pixel"
+        ],
+        "timeout_cycles": 2444624,
+        "limits": [
+          "Production 1024-point analyzer arithmetic is used; integrated audio capture is accelerated to one valid per clock.",
+          "Icarus ROM loading and this state model do not prove TD/FPGA hardware initialization.",
+          "Internal state arrays and update_done are inspected to check sequential control; no board display/audio test is included."
+        ],
+        "actual_analyzer_fixed_model_max_abs_error": 0,
+        "wideband_random_band23": 732,
+        "evidence": {
+          "text": "development/player_spectrum_observed/build/model/spectrum_overlay_integration_evidence.txt",
+          "hashes": "development/player_spectrum_observed/build/model/spectrum_overlay_integration_hashes.json",
+          "compile": "development/player_spectrum_observed/build/model/spectrum_overlay_integration_compile.log",
+          "run": "development/player_spectrum_observed/build/model/spectrum_overlay_integration_run.log",
+          "observations": "development/player_spectrum_observed/build/model/spectrum_overlay_integration_observed.log"
+        }
+      },
+      "passive_spectrum_telemetry": {
+        "status": "PASS",
+        "checks": [
+          "coefficients nonzero",
+          "completed FFT count",
+          "nonzero frame maximum",
+          "nonzero displayed front",
+          "HOLD keeps FFT running",
+          "source change resets telemetry",
+          "global reset clears telemetry"
+        ],
+        "compile_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\build\\model\\spectrum_diag_compile.log",
+        "run_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\build\\model\\spectrum_diag_run.log",
+        "sim_kind": "PRIVATE_ROM_BEHAVIORAL_SIM; not board coefficient readback"
+      }
+    },
+    "structural_observation": "The overlay receives PCM/VALID as inputs and returns RGB only; the top-level audio PCM outputs remain separate from this analyzer branch.",
+    "limits": [
+      "The separate analyzer 521-clock sample cadence frame exercises 48 kHz timing; integrated PCM capture is accelerated to one valid sample per main clock but uses the full 1024-point arithmetic pipeline.",
+      "The simulation defines PRIVATE_ROM_BEHAVIORAL_SIM and loads coefficient files, not the official protected BRAM model; independent gate INIT decoding is required to check hardware coefficient constants.",
+      "Renderer sequential snapshots inspect internal state arrays against an independent model.",
+      "No board playback, HDMI display, or acoustic hardware test is included."
+    ],
+    "telemetry_contract": {
+      "B": "24-bit saturating completed FFT frame count, reset on source change",
+      "C": "flags[7:0] then max_band_value[15:0] from last complete FFT frame",
+      "Cflags_bits7_to0": [
+        "PCM seen",
+        "FFT frame seen",
+        "nonzero band seen",
+        "Hann nonzero seen",
+        "twiddle nonzero seen",
+        "front commit seen",
+        "nonzero front seen",
+        "front frozen"
+      ]
+    }
+  },
+  "gateInitialization": "eram_init off globally; explicit local coefficient INIT/INITP verified, behavioral simulation does not use protected vendor primitives",
+  "overlay": {
+    "panel": [
+      16,
+      304,
+      624,
+      432
+    ],
+    "plot": [
+      128,
+      330,
+      512,
+      415
+    ],
+    "bands": 24,
+    "pitch": 16,
+    "bodyWidth": 12,
+    "heightRows": 84,
+    "peakHoldFrames": 10,
+    "updateCycles": 49,
+    "targets": "64x7 ping-pong BRAM"
+  },
+  "changed": [
+    {
+      "path": "user_source/hdl_source/gen_private_spectrum_rom.py",
+      "sha256": "58ADF8E8D3181973DE172A5B0A1A0A9D59078C975A8DC3B41AFA533568739A3F",
+      "parentSha256": "1B5AEAB3BAEC2836CE60EF9D5AF7AD927EAE701B1CAD243B7FC0B2149228D86A"
+    },
+    {
+      "path": "user_source/hdl_source/lane_lvds_10_1.v",
+      "sha256": "AB24F9EE394D3E565EA1F7B6DC76058F285B12C5F39AAAEA1805EDE9B69055B0",
+      "parentSha256": "4E2297D22452B437EE60968DAAD5D6473E1541AB1614C507EFF7F298F112BC0E"
+    },
+    {
+      "path": "user_source/hdl_source/player_pcm_waveform.v",
+      "sha256": "D99E17252BEAD794D6FC77316E95FD5A45907E15BA38BB34C748C787EE2E9ABB",
+      "parentSha256": "91C239C2E95A1DA4D0106A9040EC8279D5CBE0CF5956230A1A36BA271C0018E5"
+    },
+    {
+      "path": "user_source/hdl_source/player_spectrum_analyzer.v",
+      "sha256": "AD4425806607C0A24634F38DD47120A41CB7E61B34D4D948EB4C135AAB93DFC1",
+      "parentSha256": "4D6131343A101E32174245A415A84D707F6308A16141DCA55C081FF136A574FB"
+    },
+    {
+      "path": "user_source/hdl_source/player_status_monitor.v",
+      "sha256": "C6C149805365564F966BD7A742670A4F8CAB433F8DBEF8882698045027A84412",
+      "parentSha256": "722425C7F0864B2A0CB4F47A5732614C4E8C661C09A265C80F885E1B1DA148E5"
+    },
+    {
+      "path": "user_source/hdl_source/spectrum_coeff_rom.v",
+      "sha256": "975F99493B1A2D47E9131F0BE6B61154CC8D31E6D4017E3BF2515F63CB6FDD04",
+      "parentSha256": "C273F96DFBD4E6331B28485959AE60559FBD951FEE7DBC9C9C8EEAE6F3F5AC2F"
+    },
+    {
+      "path": "user_source/hdl_source/spectrum_coeff_rom_manifest.json",
+      "sha256": "31A61E039E5B83BCE3B73CC2D015BF92E0C3773071DCFA8385E2AEA970A61EE1",
+      "parentSha256": "14879A5B276EBAF7DE6172E5CD7F1C927D732FB4E48826E64E408608F81C72F0"
+    },
+    {
+      "path": "user_source/hdl_source/top_tf_hdmi_audio.v",
+      "sha256": "AF709AB0E361ABD04A80D85197E7267AAF6E29D3665B1A076AE364576BE93125",
+      "parentSha256": "AF282CF31BD698C9F9E992B40BBE8A4A1554B8CA782615610F2DBD60C57B80CC"
+    }
+  ],
+  "added": [],
+  "inheritedUserFiles": 85,
+  "gateRomAudit": {
+    "gate": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\build\\manual\\AC201_tf_hdmi_gate.v",
+    "gate_sha256": "e657a19978bf70ed5db4686e3150f259cd8cc8de06d186bd166adf611d44706c",
+    "synthesis_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\build\\manual\\synthesis_console.log",
+    "synthesis_log_sha256": "83f7d25ef630fe7335a4bbf297cb373ae229b28fd2726c9e3ced80f5b9ea8181",
+    "eram_init_off": true,
+    "lanes": {
+      "hann_low": {
+        "depth": 1024,
+        "width": 9,
+        "nonzero_words": 1020,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "1c712da62a5934d3ac75b855cf90893a03a236697b01ead065b7ea4ab5960d3e"
+      },
+      "hann_high": {
+        "depth": 1024,
+        "width": 9,
+        "nonzero_words": 942,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "391e9b0d2fdb3a0d8ffa004f93ac15e676f43709db0b24cc07b4f933bf0739de"
+      },
+      "twiddle_low": {
+        "depth": 512,
+        "width": 18,
+        "nonzero_words": 512,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "8f3c7aa49f84b689cf60d9e97c6e4b85700fa17be8c306149a71d087fa045d00"
+      },
+      "twiddle_high": {
+        "depth": 512,
+        "width": 18,
+        "nonzero_words": 511,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "5870f27ab4e323523d250e1a00fdd074404af3b6e523054ea400094d3d3246a8"
+      }
+    },
+    "combined_roms": {
+      "hann": {
+        "words": 1024,
+        "nonzero_words": 1020,
+        "mismatches": 0,
+        "sha256": "baf7df624b80fcd112ba3cdf1a5e6052d53a9a187aa14870d274ad8de75c9c3f"
+      },
+      "twiddle": {
+        "words": 512,
+        "nonzero_words": 512,
+        "mismatches": 0,
+        "sha256": "b7782524c8b0d3b7a42d4f5e59a8e1a34f9b5328f01795baa7779388027c5259"
+      }
+    },
+    "all_match": true
+  },
+  "routedRomAudit": {
+    "gate": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\build\\audit\\routed_implementation.v",
+    "gate_sha256": "1bbff31b4a68057807cbc04be5e1e973d33bb6b1696b6cbd2d055227cb8d7efa",
+    "synthesis_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\build\\manual\\synthesis_console.log",
+    "synthesis_log_sha256": "83f7d25ef630fe7335a4bbf297cb373ae229b28fd2726c9e3ced80f5b9ea8181",
+    "eram_init_off": true,
+    "lanes": {
+      "hann_low": {
+        "depth": 1024,
+        "width": 9,
+        "nonzero_words": 1020,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "1c712da62a5934d3ac75b855cf90893a03a236697b01ead065b7ea4ab5960d3e"
+      },
+      "hann_high": {
+        "depth": 1024,
+        "width": 9,
+        "nonzero_words": 942,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "391e9b0d2fdb3a0d8ffa004f93ac15e676f43709db0b24cc07b4f933bf0739de"
+      },
+      "twiddle_low": {
+        "depth": 512,
+        "width": 18,
+        "nonzero_words": 512,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "8f3c7aa49f84b689cf60d9e97c6e4b85700fa17be8c306149a71d087fa045d00"
+      },
+      "twiddle_high": {
+        "depth": 512,
+        "width": 18,
+        "nonzero_words": 511,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "5870f27ab4e323523d250e1a00fdd074404af3b6e523054ea400094d3d3246a8"
+      }
+    },
+    "combined_roms": {
+      "hann": {
+        "words": 1024,
+        "nonzero_words": 1020,
+        "mismatches": 0,
+        "sha256": "baf7df624b80fcd112ba3cdf1a5e6052d53a9a187aa14870d274ad8de75c9c3f"
+      },
+      "twiddle": {
+        "words": 512,
+        "nonzero_words": 512,
+        "mismatches": 0,
+        "sha256": "b7782524c8b0d3b7a42d4f5e59a8e1a34f9b5328f01795baa7779388027c5259"
+      }
+    },
+    "all_match": true
+  },
+  "romControlAudits": {
+    "gate": {
+      "status": "PASS",
+      "netlist": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\build\\manual\\AC201_tf_hdmi_gate.v",
+      "netlist_sha256": "e657a19978bf70ed5db4686e3150f259cd8cc8de06d186bd166adf611d44706c",
+      "banks": {
+        "hann_high": {
+          "compared_parameters": 27,
+          "mismatches": {},
+          "actual": {
+            "READBACK": "OFF",
+            "REGMODE_A": "NOREG",
+            "REGMODE_B": "NOREG",
+            "WRITEMODE_A": "NORMAL",
+            "WRITEMODE_B": "NORMAL",
+            "GSR": "ENABLE",
+            "RESETMODE": "ASYNC",
+            "ASYNC_RESET_RELEASE": "SYNC",
+            "CEAMUX": "SIG",
+            "CEBMUX": "0",
+            "CLKAMUX": "SIG",
+            "CLKBMUX": "SIG",
+            "CSA0": "1",
+            "CSA1": "1",
+            "CSA2": "1",
+            "CSB0": "1",
+            "CSB1": "1",
+            "CSB2": "1",
+            "OCEAMUX": "1",
+            "OCEBMUX": "0",
+            "RSTAMUX": "0",
+            "RSTBMUX": "0",
+            "WEAMUX": "0",
+            "WEBMUX": "0",
+            "MODE": "SP8K",
+            "DATA_WIDTH_A": "9",
+            "DATA_WIDTH_B": "9"
+          }
+        },
+        "hann_low": {
+          "compared_parameters": 27,
+          "mismatches": {},
+          "actual": {
+            "READBACK": "OFF",
+            "REGMODE_A": "NOREG",
+            "REGMODE_B": "NOREG",
+            "WRITEMODE_A": "NORMAL",
+            "WRITEMODE_B": "NORMAL",
+            "GSR": "ENABLE",
+            "RESETMODE": "ASYNC",
+            "ASYNC_RESET_RELEASE": "SYNC",
+            "CEAMUX": "SIG",
+            "CEBMUX": "0",
+            "CLKAMUX": "SIG",
+            "CLKBMUX": "SIG",
+            "CSA0": "1",
+            "CSA1": "1",
+            "CSA2": "1",
+            "CSB0": "1",
+            "CSB1": "1",
+            "CSB2": "1",
+            "OCEAMUX": "1",
+            "OCEBMUX": "0",
+            "RSTAMUX": "0",
+            "RSTBMUX": "0",
+            "WEAMUX": "0",
+            "WEBMUX": "0",
+            "MODE": "SP8K",
+            "DATA_WIDTH_A": "9",
+            "DATA_WIDTH_B": "9"
+          }
+        },
+        "twiddle_high": {
+          "compared_parameters": 27,
+          "mismatches": {},
+          "actual": {
+            "READBACK": "OFF",
+            "REGMODE_A": "NOREG",
+            "REGMODE_B": "NOREG",
+            "WRITEMODE_A": "NORMAL",
+            "WRITEMODE_B": "NORMAL",
+            "GSR": "ENABLE",
+            "RESETMODE": "ASYNC",
+            "ASYNC_RESET_RELEASE": "SYNC",
+            "CEAMUX": "0",
+            "CEBMUX": "1",
+            "CLKAMUX": "SIG",
+            "CLKBMUX": "SIG",
+            "CSA0": "1",
+            "CSA1": "1",
+            "CSA2": "SIG",
+            "CSB0": "1",
+            "CSB1": "1",
+            "CSB2": "SIG",
+            "OCEAMUX": "1",
+            "OCEBMUX": "1",
+            "RSTAMUX": "0",
+            "RSTBMUX": "0",
+            "WEAMUX": "1",
+            "WEBMUX": "0",
+            "MODE": "PDPW8K",
+            "DATA_WIDTH_A": "18",
+            "DATA_WIDTH_B": "18"
+          }
+        },
+        "twiddle_low": {
+          "compared_parameters": 27,
+          "mismatches": {},
+          "actual": {
+            "READBACK": "OFF",
+            "REGMODE_A": "NOREG",
+            "REGMODE_B": "NOREG",
+            "WRITEMODE_A": "NORMAL",
+            "WRITEMODE_B": "NORMAL",
+            "GSR": "ENABLE",
+            "RESETMODE": "ASYNC",
+            "ASYNC_RESET_RELEASE": "SYNC",
+            "CEAMUX": "0",
+            "CEBMUX": "1",
+            "CLKAMUX": "SIG",
+            "CLKBMUX": "SIG",
+            "CSA0": "1",
+            "CSA1": "1",
+            "CSA2": "SIG",
+            "CSB0": "1",
+            "CSB1": "1",
+            "CSB2": "SIG",
+            "OCEAMUX": "1",
+            "OCEBMUX": "1",
+            "RSTAMUX": "0",
+            "RSTBMUX": "0",
+            "WEAMUX": "1",
+            "WEBMUX": "0",
+            "MODE": "PDPW8K",
+            "DATA_WIDTH_A": "18",
+            "DATA_WIDTH_B": "18"
+          }
+        }
+      },
+      "scope": "Parameterized read control compared with TD inferred mapping. Dynamic addresses/enables connected by production generator; does not prove silicon read timing."
+    },
+    "routed": {
+      "status": "PASS",
+      "netlist": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\build\\audit\\routed_implementation.v",
+      "netlist_sha256": "1bbff31b4a68057807cbc04be5e1e973d33bb6b1696b6cbd2d055227cb8d7efa",
+      "banks": {
+        "hann_high": {
+          "compared_parameters": 27,
+          "mismatches": {},
+          "actual": {
+            "READBACK": "OFF",
+            "REGMODE_A": "NOREG",
+            "REGMODE_B": "NOREG",
+            "WRITEMODE_A": "NORMAL",
+            "WRITEMODE_B": "NORMAL",
+            "GSR": "ENABLE",
+            "RESETMODE": "ASYNC",
+            "ASYNC_RESET_RELEASE": "SYNC",
+            "CEAMUX": "SIG",
+            "CEBMUX": "0",
+            "CLKAMUX": "SIG",
+            "CLKBMUX": "SIG",
+            "CSA0": "1",
+            "CSA1": "1",
+            "CSA2": "1",
+            "CSB0": "1",
+            "CSB1": "1",
+            "CSB2": "1",
+            "OCEAMUX": "1",
+            "OCEBMUX": "0",
+            "RSTAMUX": "0",
+            "RSTBMUX": "0",
+            "WEAMUX": "0",
+            "WEBMUX": "0",
+            "MODE": "SP8K",
+            "DATA_WIDTH_A": "9",
+            "DATA_WIDTH_B": "9"
+          }
+        },
+        "hann_low": {
+          "compared_parameters": 27,
+          "mismatches": {},
+          "actual": {
+            "READBACK": "OFF",
+            "REGMODE_A": "NOREG",
+            "REGMODE_B": "NOREG",
+            "WRITEMODE_A": "NORMAL",
+            "WRITEMODE_B": "NORMAL",
+            "GSR": "ENABLE",
+            "RESETMODE": "ASYNC",
+            "ASYNC_RESET_RELEASE": "SYNC",
+            "CEAMUX": "SIG",
+            "CEBMUX": "0",
+            "CLKAMUX": "SIG",
+            "CLKBMUX": "SIG",
+            "CSA0": "1",
+            "CSA1": "1",
+            "CSA2": "1",
+            "CSB0": "1",
+            "CSB1": "1",
+            "CSB2": "1",
+            "OCEAMUX": "1",
+            "OCEBMUX": "0",
+            "RSTAMUX": "0",
+            "RSTBMUX": "0",
+            "WEAMUX": "0",
+            "WEBMUX": "0",
+            "MODE": "SP8K",
+            "DATA_WIDTH_A": "9",
+            "DATA_WIDTH_B": "9"
+          }
+        },
+        "twiddle_high": {
+          "compared_parameters": 27,
+          "mismatches": {},
+          "actual": {
+            "READBACK": "OFF",
+            "REGMODE_A": "NOREG",
+            "REGMODE_B": "NOREG",
+            "WRITEMODE_A": "NORMAL",
+            "WRITEMODE_B": "NORMAL",
+            "GSR": "ENABLE",
+            "RESETMODE": "ASYNC",
+            "ASYNC_RESET_RELEASE": "SYNC",
+            "CEAMUX": "0",
+            "CEBMUX": "1",
+            "CLKAMUX": "SIG",
+            "CLKBMUX": "SIG",
+            "CSA0": "1",
+            "CSA1": "1",
+            "CSA2": "SIG",
+            "CSB0": "1",
+            "CSB1": "1",
+            "CSB2": "SIG",
+            "OCEAMUX": "1",
+            "OCEBMUX": "1",
+            "RSTAMUX": "0",
+            "RSTBMUX": "0",
+            "WEAMUX": "1",
+            "WEBMUX": "0",
+            "MODE": "PDPW8K",
+            "DATA_WIDTH_A": "18",
+            "DATA_WIDTH_B": "18"
+          }
+        },
+        "twiddle_low": {
+          "compared_parameters": 27,
+          "mismatches": {},
+          "actual": {
+            "READBACK": "OFF",
+            "REGMODE_A": "NOREG",
+            "REGMODE_B": "NOREG",
+            "WRITEMODE_A": "NORMAL",
+            "WRITEMODE_B": "NORMAL",
+            "GSR": "ENABLE",
+            "RESETMODE": "ASYNC",
+            "ASYNC_RESET_RELEASE": "SYNC",
+            "CEAMUX": "0",
+            "CEBMUX": "1",
+            "CLKAMUX": "SIG",
+            "CLKBMUX": "SIG",
+            "CSA0": "1",
+            "CSA1": "1",
+            "CSA2": "SIG",
+            "CSB0": "1",
+            "CSB1": "1",
+            "CSB2": "SIG",
+            "OCEAMUX": "1",
+            "OCEBMUX": "1",
+            "RSTAMUX": "0",
+            "RSTBMUX": "0",
+            "WEAMUX": "1",
+            "WEBMUX": "0",
+            "MODE": "PDPW8K",
+            "DATA_WIDTH_A": "18",
+            "DATA_WIDTH_B": "18"
+          }
+        }
+      },
+      "scope": "Parameterized read control compared with TD inferred mapping. Dynamic addresses/enables connected by production generator; does not prove silicon read timing."
+    }
+  },
+  "telemetry": {
+    "B": "24-bit saturating completed FFT frame count, reset on source change",
+    "C": "flags[7:0] then max_band_value[15:0] from last complete FFT frame",
+    "Cflags_bits7_to0": [
+      "PCM seen",
+      "FFT frame seen",
+      "nonzero band seen",
+      "Hann nonzero seen",
+      "twiddle nonzero seen",
+      "front commit seen",
+      "nonzero front seen",
+      "front frozen"
+    ]
+  },
+  "algorithm": {
+    "samples": 1024,
+    "sampleRateHz": 48000,
+    "binHz": 46.875,
+    "window": "symmetric Hann Q15",
+    "proxy": "max per band of max(abs(real),abs(imag)); not power/PSD",
+    "binEdges": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      11,
+      14,
+      18,
+      23,
+      29,
+      37,
+      47,
+      60,
+      76,
+      97,
+      124,
+      158,
+      201,
+      256,
+      326,
+      415,
+      513
+    ]
+  },
+  "limits": [
+    "No local JTAG/TF/Flash or board test",
+    "HDMI external output delay and receiver eye are not measured",
+    "Frequency magnitudes are approximate; per-stage FFT quantization and peak aggregation",
+    "Capture/analysis alternate in observer branch; audio playback is not backpressured",
+    "Visual timing is initial tuning and awaits music/tone board feedback",
+    "Long-term/repeated startup pending"
+  ],
+  "boardFeedback": {
+    "createdBeijing": "2026-10-14 18:45:17",
+    "version": "C11307",
+    "status": "FAILED_FULL_BOARD_VALIDATION_PARTIAL_PROGRESS",
+    "reportedBy": "user",
+    "beforeKEY1": "WAV audible with noise; spectrum works; no BMP; IMG0/0; all four LEDs lit",
+    "afterKEY1": "Internal scale clean and spectrum works; no BMP; D3 blinking other LEDs lit",
+    "videoBefore": "E:\\QQ CACHE\\LiaoTianJiLu\\Tencent Files\\1791081637\\nt_qq\\nt_data\\Video\\2026-10\\Ori\\cd666b5cefccf78a874d16cbae9fb2ab.mp4",
+    "videoAfter": "E:\\QQ CACHE\\LiaoTianJiLu\\Tencent Files\\1791081637\\nt_qq\\nt_data\\Video\\2026-10\\Ori\\b3824e0e3d42e88e235c67a6a26fe9eb.mp4",
+    "observed": [
+      "DFC11307",
+      "1D980000",
+      "3300BB80 before",
+      "3B00BB80 after",
+      "6700F485",
+      "7700F485",
+      "8700F485",
+      "97000000",
+      "A7008000",
+      "B7000681->B70006B6 before",
+      "C7FE0000/C7FE0006 before",
+      "B7000512->B7000536 after",
+      "C7FE035F/C7FE036D after"
+    ],
+    "decode": "Filesystem ready; BMP loader error; WAV primed; no filesystem or mapper errors. FFT frames advance; coefficients/frame/front-height flags latched. IMG0/0 is no-committed-frame OSD default, not proof catalog empty.",
+    "crcScope": "Current probe SKIP_SAMPLES65536 + PREFIX32768, CRC F485 matches canonical60s WAV; old8s same window6ACD. PageA8000 is CRC sample count, not data offset; B/C repurposed for FFT.",
+    "limits": "User clean tone confirms a narrower improvement, not complete HDMI/electrical validation or proof of TF fault. CRC window does not prove entire music or physical SD file hash.",
+    "next": "C11308 TF SPI clock divisor2 (nominal6.25MHz vs12.5), passive sectorCRC counters, sticky exact BMP failure reason/mask; hardware cause unconfirmed."
+  }
+}

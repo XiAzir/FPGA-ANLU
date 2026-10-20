@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "scope": "RTL video source to AXIS boundary only; no protected HDMI core, vendor primitives, board, or electrical simulation",
+  "createdUtc": "2026-10-14T13:42:44.2999726Z",
+  "checks": [
+    {
+      "name": "baseline_missing_tlast",
+      "expectedFailure": true,
+      "exitCode": 1,
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\build\\model\\video_contract\\baseline_missing_tlast_run.log",
+      "inputs": [
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\sim\\tb_video_axis_contract.v",
+          "sha256": "88D5DACEBA5D928C3FCBB236378D077999CE5F8CFDB201E7A8B83EC739E06FFE"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\src\\user_source\\hdl_source\\video_rgb_to_axis_640x480.v",
+          "sha256": "1C8FC26C789F87227036BEA034F1AB6FC5633F2AB2684BE422C54687A290FB96"
+        }
+      ]
+    },
+    {
+      "name": "axis",
+      "expectedFailure": false,
+      "exitCode": 0,
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\build\\model\\video_contract\\axis_run.log",
+      "inputs": [
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\sim\\tb_video_axis_contract.v",
+          "sha256": "88D5DACEBA5D928C3FCBB236378D077999CE5F8CFDB201E7A8B83EC739E06FFE"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\src\\user_source\\hdl_source\\video_rgb_to_axis_640x480.v",
+          "sha256": "A762BB665612A7F9DFB91CB6ECD4C5428CA54496A8F02C4DDF0074E93BEB354A"
+        }
+      ]
+    },
+    {
+      "name": "pipeline",
+      "expectedFailure": false,
+      "exitCode": 0,
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\build\\model\\video_contract\\pipeline_run.log",
+      "inputs": [
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\sim\\tb_video_pipeline_contract.v",
+          "sha256": "BEE6D97753C0AB7C50B084F02C06C26D561889F5D3854F3942E93C87BD973507"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\src\\user_source\\hdl_source\\video_rgb_to_axis_640x480.v",
+          "sha256": "A762BB665612A7F9DFB91CB6ECD4C5428CA54496A8F02C4DDF0074E93BEB354A"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\src\\user_source\\hdl_source\\SD\\video_timing_data.v",
+          "sha256": "C6F75501E98DD5995F687AAFB40455BEFFE45B426137B5089A73AC3A036F7282"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\src\\user_source\\hdl_source\\SD\\video_delay.v",
+          "sha256": "F47C4B63F8BAA6D8874C87DCA5B72DFDADD19F4A107403DA98752BCE98936433"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\src\\user_source\\hdl_source\\SD\\color_bar.v",
+          "sha256": "AFE1F56714EC58D2477BA1717E5A36C5A0DA5FE5C07D70D11AA5ACE710C4B152"
+        }
+      ]
+    }
+  ],
+  "includeInputs": [
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_contract_fix\\src\\user_source\\hdl_source\\SD\\video_define.v",
+      "sha256": "77748966850A8F5AF0D77F2CDB08006088BA5E1A31B98391FBA6CC61C5247DA2"
+    }
+  ],
+  "runnerSha256": "AEDCA5EE67A07DE7F91FA2093B59C111A4F7EE5839496783053A7F6158A72C19",
+  "iverilogSha256": "803B8844AF2CC8ED70B5F08B07FFA749901280E81339617CA3E72CBBB852BD2B"
+}

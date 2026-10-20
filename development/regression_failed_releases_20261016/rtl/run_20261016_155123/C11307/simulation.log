@@ -1,0 +1,27 @@
+# vsim +VEC=all_samples.mem +EXP=all_expected.mem -L work -L EG4 -do {run -all; quit -f} -l simulation.log -lib work -c -modelsimini modelsim.ini -novopt work.tb_player_spectrum_analyzer EG4.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/regression_failed_releases_20261016/rtl/run_20261016_155123/C11307/work.tb_player_spectrum_analyzer
+# Loading work.tb_player_spectrum_analyzer
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/regression_failed_releases_20261016/rtl/run_20261016_155123/C11307/work.player_spectrum_analyzer
+# Loading work.player_spectrum_analyzer
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/regression_failed_releases_20261016/rtl/run_20261016_155123/C11307/work.spectrum_coeff_rom
+# Loading work.spectrum_coeff_rom
+# Loading EG4.EG_PHY_BRAM
+# Loading EG4.glbl
+# ** Warning: (vsim-3017) E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_observed/checkpoints/music_spectrum_observed_20261013_candidate/sim/tb_player_spectrum_analyzer.v(16): [TFMPC] - Too few port connections. Expected 10, found 9.
+# 
+#         Region: /tb_player_spectrum_analyzer/dut
+# ** Warning: (vsim-3722) E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_observed/checkpoints/music_spectrum_observed_20261013_candidate/sim/tb_player_spectrum_analyzer.v(16): [TFMPC] - Missing connection for port 'debug_coeff_nonzero'.
+# 
+# run -all 
+# PASS spectrum_analyzer cases=13 output_bands=312 max_fixedpoint_error=0 physical_rate_capture=521clk plus_continuous_frames=2 source_change_abort=2 reset_abort=1
+# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_observed/checkpoints/music_spectrum_observed_20261013_candidate/sim/tb_player_spectrum_analyzer.v(53)
+#    Time: 32127371 ns  Iteration: 0  Instance: /tb_player_spectrum_analyzer

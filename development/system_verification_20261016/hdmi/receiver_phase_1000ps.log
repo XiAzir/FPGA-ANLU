@@ -1,0 +1,23 @@
+# vsim +phase_ps=1000 -L EG4 -do {run -all; quit -f} -l {E:\VSCODE-project\FPGA-ANLU\development\system_verification_20261016\hdmi\receiver_phase_1000ps.log} -c -novopt work.tb_hdmi_serial_receiver work.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_hdmi_serial_receiver
+# Loading work.hdmi_phy_wrapper
+# Loading work.lane_lvds_10_1
+# Loading work.hdmi_serial_receiver
+# Loading work.hdmi_serial_packet_monitor
+# Loading work.hdmi_packet_monitor
+# Loading work.glbl
+# Loading EG4.EG_LOGIC_ODDR
+# run -all 
+# SUMMARY phase_ps=1000 sent=220 received=220 first_index=0 locked=1 malformed=0 errors=0
+# PASS: receiver reconstructed the real EG ODDR PHY serial stream
+# ** Note: $finish    : ./tb_hdmi_serial_receiver.v(118)
+#    Time: 9900 ns  Iteration: 1  Instance: /tb_hdmi_serial_receiver

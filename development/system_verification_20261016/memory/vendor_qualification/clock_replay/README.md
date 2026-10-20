@@ -1,0 +1,11 @@
+# PLL edge replay qualification
+
+This directory builds an optional simulation-only replay model from the untouched production `sys_pll.v` and `video_pll.v` wrappers driven by the existing local initialization-adapted `EG_PHY_PLL` functional model in `development/system_verification_20261016/pll/eg_phy_pll_init_adapter.v`.
+
+Run `./run.ps1 -Capture` in PowerShell 7 to recapture the vendor-model edge trace for 0–10 µs, regenerate `pll_clock_replay.v`, compile, and compare; `./run.ps1` reuses the saved trace and performs comparison and guard negative tests. All ModelSim commands use SE-64 10.1c with `-novopt` and the isolated `work` library in this folder. `summary.json` contains hashes and scope.
+
+The capture includes every value transition on sys PLL `clk0_out`, `clk1_out`, `clk2_out`, video `clk0_out`, `clk1_out`, and both `extlock` outputs. Both locks rise at 944.875 ns. After the last recorded edge, each replayed clock continues at its stable measured half-period: 10 ns for the three system clocks, 20 ns for video pixel, and 4 ns for video serial.
+
+The comparison instantiates original wrappers and the replay together for 20 µs. It checks all transitions from 1 ps onward after each event has settled by 1 ps, checks final values and event counts, and requires both locks high. ModelSim SE-64 10.1c passed with 1,932/1,932/1,933 system clock transitions, 966 pixel transitions, and 4,828 serial transitions. Negative runs confirm an 18 ns reference period triggers FATAL at 27 ns and reset-high triggers FATAL at 50 ns. ModelSim may return process status 0 after `$fatal`; the runner therefore requires the exact FATAL text in those negative logs and PASS text in the positive log.
+
+The replay checks that its external `refclk` remains exactly 50 MHz (20 ns edge intervals), has a watchdog for stopped/slow input, and fatals if reset ever differs from constant 0. The replay is valid only for the captured adapter revision, unchanged production wrappers/PLL parameters, 50 MHz reference and reset held at 0. It is an optional simulation acceleration model, not synthesizable logic, a substitute for PLL reset/lock design, a claim about unadapted encrypted-model behavior, or hardware evidence. Any change to PLL wrappers, parameters, adapter, reference frequency, or reset behavior requires a new capture and qualification.

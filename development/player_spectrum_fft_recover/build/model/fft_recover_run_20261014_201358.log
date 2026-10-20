@@ -1,0 +1,9 @@
+PASS reset_release async_assert=1 nonaligned_deassert=1 pixel_wait=3
+PASS source_change abort=1 source_count=1 accepted_reset=1
+PASS binary_illegal_state_recovery injected=17..31 recovered=15 global_reset_edges=1 source_changes=1
+PASS normal_real_rate_frame max_band=2048 accepted=1024 recovery_count=0
+PASS watchdog_timeout default=4096 recovery_count=1 source_changes=1 accepted=5120
+PASS autonomous_post_timeout_frame max_band=2048 accepted=6144 recovery_count=1 source_changes=1
+PASS telemetry_saturation recovery=255 source_change=255 accepted=000000
+PASS fft_recover production_timeout=4096 real_rate=521clk invalid_states=17..31 autonomous_recovery=1 source_feedback=none global_reset_edges=1
+E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_fft_recover\sim\tb_fft_recover.v:136: $finish called at 134780941000 (1ps)

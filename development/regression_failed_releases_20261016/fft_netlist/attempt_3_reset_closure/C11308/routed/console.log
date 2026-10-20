@@ -1,0 +1,33 @@
+Reading E:/ModelsimSE/tcl/vsim/pref.tcl 
+
+# 10.1c
+
+# vsim +VEC=all_samples.mem +EXP=all_expected.mem -L work -L eg4 -do run.do -l run.log -c -lic_noqueue -modelsimini modelsim.ini -suppress 3017,3722 -novopt work.tb_fft_cone eg4.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/regression_failed_releases_20261016/fft_netlist/attempt_3_reset_closure/C11308/routed/work.tb_fft_cone
+# Loading work.tb_fft_cone
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/regression_failed_releases_20261016/fft_netlist/attempt_3_reset_closure/C11308/routed/work.fft_cone
+# Loading work.fft_cone
+# Loading eg4.EG_PHY_LSLICE
+# Loading eg4.dff_slice
+# Loading eg4.pfb_dffctrl
+# Loading eg4.dff_slice_half
+# Loading eg4.EG_PHY_MSLICE
+# Loading eg4.EG_PHY_MULT18
+# Loading eg4.EG_PHY_BRAM
+# Loading eg4.glbl
+# do run.do 
+# INPUT_VALID samples=13312 expected=312 unknown_words=0
+# BOUNDARY original netlist primitive cone; external clk25MHz/global reset/PCM/valid/tone; accelerated capture (one PCM per clk); no SDF; excludes whole-system startup
+# CASE_RESULT case=0 outputs=0 nonzero=0 cycles=65000 errors=1
+# FAIL fft_cone errors=1
+# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/regression_failed_releases_20261016/fft_netlist/tb_fft_cone.v(44)
+#    Time: 2642181 ns  Iteration: 0  Instance: /tb_fft_cone

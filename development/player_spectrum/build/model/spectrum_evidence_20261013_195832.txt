@@ -1,0 +1,12 @@
+PASS: mathematical oracle assertions and Icarus testbench completed.
+Test scope: 9 production-sized 1024-sample frames; one sample accepted each clock for capture acceleration; RTL analysis uses its full 1024-point pipeline (~45,080 cycles per frame).
+Cases: low/mid/high exact-bin tones, half-amplitude relation, two tones, silence, positive DC, positive fullscale, negative fullscale.
+Additional checks: continuous consecutive frames, source_change abort during partial capture and during analysis, reset during analysis.
+Checks: 24 ordered bands per frame against independent fixed-point reference (absolute tolerance 12), frame_done alignment, silence zero, DC bin omitted with Hann leakage predicted, tone peak bands, two-tone response, amplitude scaling.
+Simulator: E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe; compile log E:\VSCODE-project\FPGA-ANLU\development\player_spectrum\build\model\spectrum_compile_20261013_195832.log; run log E:\VSCODE-project\FPGA-ANLU\development\player_spectrum\build\model\spectrum_run_20261013_195832.log.
+SHA256 analyzer=eb00b462aa4e7a2a53fcf73a595fe8b2553463e20870d97f398c80707f136404
+testbench=5973c6c2e71ebb5bd643ff0b98e6b4c6a53b3b6561bd39732a882c978564c5c5
+oracle=f9b22de083386c42f2a03e0279e0ffc3c5e015b02e13fb8f93858bcf7216beda
+hann_rom=56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f
+twiddle_rom=c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772
+Hardware validation: not performed by this simulation.

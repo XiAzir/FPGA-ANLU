@@ -1,0 +1,19 @@
+--- E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_clock_route\checkpoints\music_spectrum_clock_route_20261014_candidate\src\user_source\hdl_source\top_tf_hdmi_audio.v
++++ E:\VSCODE-project\FPGA-ANLU\development\system_verification_20261016\integration\run_C11309_20261016_184314\top_tf_hdmi_audio_compat.v
+@@ -20,6 +20,8 @@
+     output                      sd_mosi,
+     input                       sd_miso
+ );
++wire bmp_write_ready;
++
+ 
+ localparam DISPLAY_WIDTH = 640;
+ localparam DISPLAY_HEIGHT = 480;
+@@ -334,7 +336,6 @@
+ assign vout_data_base = vout_data_probe;
+ 
+ // RGB888 pixel API; SDRAM word layout is owned by the frame buffer.
+-wire bmp_write_ready;
+ frame_buffer_rgb888 #(
+     .FRAME_WIDTH       (DISPLAY_WIDTH),
+     .FRAME_HEIGHT      (DISPLAY_HEIGHT),

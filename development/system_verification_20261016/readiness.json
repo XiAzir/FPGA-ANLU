@@ -1,0 +1,74 @@
+{
+  "updated_beijing": "2026-10-16T18:48:06.106175+08:00",
+  "system_simulation_ready": false,
+  "status": "NOT_READY_FOR_SYSTEM_PASS",
+  "stages": [
+    {
+      "id": "original_reset_wait",
+      "status": "PASS_SCOPE",
+      "evidence": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\run_20261016_163828\\summary.json",
+      "scope": "Three archived controllers, original million-clock wait; explicit lock stimuli."
+    },
+    {
+      "id": "vendor_pll_cold_start",
+      "status": "MODEL_GAP",
+      "evidence": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\pll\\summary.json",
+      "scope": "Unmodified vendor model under original top reset=0 must match known-good hardware startup before whole-system validation."
+    },
+    {
+      "id": "pll_simulation_initialization_adapter",
+      "status": "MODEL_INIT_ADAPTER_FUNCTIONAL_PASS",
+      "evidence": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\pll\\summary.json",
+      "scope": "Simulation-only model initialization, if present, is an explicit assumption and never a production PLL change."
+    },
+    {
+      "id": "sd_pin_model_unit",
+      "status": "PASS_SCOPE",
+      "evidence": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\card\\modelsim_summary.json",
+      "scope": "Exact two-sector data, CRC and CS-interruption recovery through real SD controller; not full FAT32/BMP/WAV integration."
+    },
+    {
+      "id": "nominal_full_top_fft_matrix",
+      "status": "PASS_SCOPE",
+      "evidence": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\nominal_matrix.json",
+      "scope": "C11206/C11309/C11310 nominal TF/FAT32/BMP/WAV/framebuffer; latter two each three real FFT frames and 72 exact bands; explicit model/port-width assumptions."
+    },
+    {
+      "id": "tf_pin_model_to_real_media_consumers",
+      "status": "PASS_SCOPE",
+      "scope": "Nominal SD pin/FAT32/BMP/WAV route, original startup wait; no direct PCM injection; short test fixtures only."
+    },
+    {
+      "id": "sdram_data_and_read_timing",
+      "status": "PASS_SCOPE_APPLICATION_MODEL",
+      "scope": "Actual framebuffer/FIFO/codec with independent full-frame gold; physical SDRAM controller/model remains unqualified."
+    },
+    {
+      "id": "vendor_sdram_controller_model",
+      "status": "PASS_SCOPE_ISOLATED_GATE",
+      "evidence": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\extended_matrix.json",
+      "scope": "Unchanged production controller independently synthesized to gate, native PADs and APUG011 pin model; 1024 words/four banks/masks/post-refresh and exact one-bit negative. Whole-top still uses application model; not routed SiP timing."
+    },
+    {
+      "id": "hdmi_serial_receiver_and_payload_scoreboard",
+      "status": "PASS_SCOPE",
+      "evidence": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\extended_matrix.json",
+      "scope": "Three archived whole tops through SD/media/real core/PHY pins; strict 1536000 RGB pixels after first cold frame, ordered real-WAV stereo; FFT and visible bars in spectrum versions. Explicit model assumptions remain."
+    },
+    {
+      "id": "whole_top_startup_reset_key_source_matrix",
+      "status": "NOMINAL_ONLY",
+      "scope": "Nominal whole top verified; long KEY1 and non-nominal clock/reset/card timing matrix incomplete."
+    },
+    {
+      "id": "complete_sdf_and_constraint_coverage",
+      "status": "INCOMPLETE",
+      "scope": "Do not silently omit unsupported cells or timing checks."
+    },
+    {
+      "id": "physical_io_power_receiver",
+      "status": "HARDWARE_FINAL_ACCEPTANCE",
+      "scope": "Electrical behavior and actual external devices require final hardware acceptance."
+    }
+  ]
+}

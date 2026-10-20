@@ -1,0 +1,153 @@
+{
+  "auditStatus": "PASS",
+  "auditDate": "2026-10-13",
+  "scope": "Read-only sealed delivery audit; no RTL, checkpoint, ZIP, or prior audit report changed.",
+  "candidate": {
+    "name": "music_envelope_20261013_candidate",
+    "path": "checkpoints/music_envelope_20261013_candidate",
+    "manifestEntries": 255,
+    "manifestBytes": 44489,
+    "manifestSha256": "E135DF7110B416042301F17C54336621B77C13902D0629D1EDABC2A2DED9E9F1",
+    "verifiedEntries": 255,
+    "mismatches": 0
+  },
+  "zip": {
+    "path": "../../deliverables/music_envelope_20261013.zip",
+    "bytes": 944470,
+    "sha256": "53457C1DABF8A73F8FBC52D51EC10848D9A93FD1C76D4080526B2290C2E4D859",
+    "entryCount": 7,
+    "liveDeliveryMatches": 7,
+    "mismatches": 0,
+    "checksumManifestSha256": "858CB3CDF6AD199B403E3222CB26732111E2102641FFB0C4B74F5087C4C1F5EF",
+    "checksumRows": 6,
+    "checksumRowsMatchMembers": true
+  },
+  "bits": [
+    {
+      "name": "music_envelope.bit",
+      "bytes": 629624,
+      "sha256": "594AA169246DD480F224E9A0F4060E52CCB5642817B76522ABA040E147BD73EF",
+      "role": "C11302 candidate",
+      "canonicalBitMatches": true
+    },
+    {
+      "name": "bmp_scale.bit",
+      "bytes": 629624,
+      "sha256": "C60464C0D4396D316DB7622E4CB0B70B5DE12C25148AFE234AC7C795C818625D",
+      "role": "C11206 successful baseline / rollback",
+      "canonicalBitMatches": true
+    },
+    {
+      "name": "waveform_fine.bit",
+      "bytes": 629624,
+      "sha256": "30C45D0A9B82B9C4F78C5A14A81CEFA13C704AF9C91C34EB4C625974FDAA4B96",
+      "role": "C11301 visual comparison",
+      "canonicalBitMatches": true
+    }
+  ],
+  "info": {
+    "path": "build/delivery/music_envelope.info.json",
+    "sha256": "873C7179160A5B2FF24B30AEBEA67B3B9C7CD515DCD0C14CFBFAE8AF20BB82B0",
+    "boardStatus": "PENDING_BOARD_VALIDATION",
+    "threeBitRolesAndHashesMatch": true,
+    "expectedTonePresentation": "Approximately steady level envelope, not square-wave carrier",
+    "offlinePreviewIdentifiedAsHostReference": true
+  },
+  "source": {
+    "rtlPath": "src/user_source/hdl_source/player_pcm_waveform.v",
+    "rtlSha256": "8BBD61AD22ADCA31581A8C99E5B57641BCD2C09F22DEEA4FF3A162919E398B30",
+    "productionModelBindingMatchesCurrentRtl": true,
+    "sourceDiff": {
+      "entries": 88,
+      "changed": 3,
+      "unchanged": 85,
+      "new": 0,
+      "changedPaths": [
+        "user_source/hdl_source/player_pcm_waveform.v",
+        "user_source/hdl_source/player_status_monitor.v",
+        "user_source/hdl_source/top_tf_hdmi_audio.v"
+      ]
+    },
+    "scopeEntries": 89,
+    "canonicalScopeHash": "272709af0b8402f8745441a518990f9ad2293556d2197ff2388dea8f35c24382"
+  },
+  "model": {
+    "receipt": "build/model/envelope_binding_20261013_182739.json",
+    "receiptSha256": "8A7DBB2C264BD7262C6DC0A1449AE2534505BD096670E1D48948474BC55EAFFE",
+    "status": "PASS",
+    "frames": 128,
+    "frameCycles": 420000,
+    "nominal128FrameCoverage": true,
+    "envErrors": 0,
+    "pixelErrors": 0,
+    "controlErrors": 0,
+    "integrationStatus": "PASS",
+    "integrationRasterFrames": 3,
+    "note": "RTL model and integration simulation only; not physical board validation."
+  },
+  "timing": {
+    "report": "build/manual/AC201_tf_hdmi_pr.timing",
+    "reportSha256": "520AD537BC7C29135C60E2C94650DB2E3A3D3AE564306148DFFB2E232F44219C",
+    "stage": "final hold",
+    "setupSlackNs": 0.672,
+    "setupTnsNs": 0.0,
+    "holdSlackNs": 0.024,
+    "holdTnsNs": 0.0,
+    "coveragePercent": 99.97,
+    "interpretation": "Original-constraint TD timing report; does not establish board-level operation."
+  },
+  "resources": {
+    "report": "build/manual/AC201_tf_hdmi_phy.area",
+    "reportSha256": "EF4D957D58DEC53BA3F3FD5985EA3E185E481F6A6BA486B6F3F97DAB0D093A08",
+    "LUT": 16360,
+    "registers": 8966,
+    "LE": 17700,
+    "BRAM9K": 29,
+    "DSP": 8,
+    "GCLK": 2,
+    "historyMapping": "128x16 LUT_RAM with 16 clocked read registers; differs from planned BRAM target",
+    "traceBRAM9K": 2,
+    "pcmBRAM9K": 4
+  },
+  "parents": {
+    "C11301": {
+      "candidateManifestSha256": "F6F5DA1F9228DF3231EB46CC0113E81894D3E99B412C528F3684BBED8F0EA0EE",
+      "manifestMatchesReceipt": true,
+      "zipPath": "../../deliverables/waveform_fine_20261013.zip",
+      "zipBytes": 615896,
+      "zipSha256": "AB54BB8B8501787EA557E6FFED6934C0C5D3784A95D5CAE0D49DEA19BD48C2C2",
+      "zipEntries": 5,
+      "zipLiveDeliveryMatches": 5,
+      "bitSha256": "30C45D0A9B82B9C4F78C5A14A81CEFA13C704AF9C91C34EB4C625974FDAA4B96"
+    },
+    "C11206": {
+      "zipPath": "../../deliverables/bmp_scale_20261012.zip",
+      "zipBytes": 636284,
+      "observedZipSha256": "9371A293616AAF37FD72E2DFD9466616FADD7BCB583E06FC84357146B2D380D5",
+      "baselineBitSha256": "C60464C0D4396D316DB7622E4CB0B70B5DE12C25148AFE234AC7C795C818625D",
+      "baselineBitMatchesDelivery": true
+    }
+  },
+  "documentation": {
+    "guide": "build/delivery/README.md",
+    "boardValidationPendingClear": true,
+    "threeBitRolesClear": true,
+    "noBoardSuccessClaim": true,
+    "steadyToneEnvelopeExpectationClear": true,
+    "separateExternalOperationCardFound": false,
+    "developmentRecordStatusPendingAccurate": true,
+    "developmentRecordPaths": [
+      "E:/QQ CACHE/Download/安路资料/开发记录/当前状态.md",
+      "E:/QQ CACHE/Download/安路资料/开发记录/工作日志/2026-10-13.md",
+      "E:/QQ CACHE/Download/安路资料/开发记录/专题记录/音频可视化/波形清晰度优化_20261013/C11302包络试验/操作卡.md"
+    ]
+  },
+  "limitations": [
+    "No C11302 physical board/receiver/audio acceptance is claimed.",
+    "No long-run, repeated-startup, or Flash validation.",
+    "History storage mapped to LUT_RAM rather than planned BRAM; reported as implementation deviation."
+  ],
+  "discrepancies": [
+    "ZIP resides at project-root deliverables/music_envelope_20261013.zip, not under the development subdirectory; bytes and SHA match the requested sealed artifact."
+  ]
+}

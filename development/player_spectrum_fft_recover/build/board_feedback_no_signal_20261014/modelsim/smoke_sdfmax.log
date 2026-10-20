@@ -1,0 +1,403 @@
+# vsim -do smoke.do -l smoke_sdfmax.log -c -sdfmax /tb_routed_smoke/dut=routed.sdf -suppress 3017,3722 -novopt work.tb_routed_smoke work.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_routed_smoke
+# Loading work.top
+# Loading work.EG_PHY_PAD
+# Loading work.EG_LOGIC_IDDR
+# Loading work.EG_LOGIC_IDDRx2
+# Loading work.EG_LOGIC_ODDR
+# Loading work.EG_LOGIC_ODDRx2
+# Loading work.EG_PHY_LSLICE
+# Loading work.dff_slice
+# Loading work.pfb_dffctrl
+# Loading work.dff_slice_half
+# Loading work.EG_PHY_MSLICE
+# Loading work.EG_PHY_CONFIG
+# Loading work.EG_PHY_BANKREF
+# Loading work.EG_PHY_GCLK
+# Loading work.EG_PHY_PLL
+# Loading work.eg_dphase_sel
+# Loading work.prediv_mux
+# Loading work.eg_pll_div2
+# Loading work.eg_clko_premux
+# Loading work.eg_pll_div128
+# Loading work.eg_clko_ctrl
+# Loading work.EG_PHY_MULT18
+# Loading work.EG_PHY_BRAM
+# Loading work.EG_PHY_SDRAM_2M_32
+# Loading work.glbl
+# SDF 10.1c Compiler 2012.07 Jul 27 2012
+# 
+# Loading instances from routed.sdf
+# ** Warning: (vsim-3015) ../../audit/routed_implementation.v(13079): [PCDPC] - Port size (5 or 5) does not match connection size (1) for port 'load_reg'. The port definition is at: C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v(25).
+# 
+#         Region: /tb_routed_smoke/dut/\sys_pll_m0/pll_inst 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(109656): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/read_buf/ram_inst/ramread0_syn_25 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(109691): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/read_buf/ram_inst/ramread0_syn_6 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(111495): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/rd_addr_reg[0]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(111511): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/rd_addr_reg[1]_syn_3 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(111527): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/rd_addr_reg[3]_syn_3 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(111543): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/rd_addr_reg[5]_syn_3 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(111559): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/rd_addr_reg[7]_syn_3 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(111587): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[2]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(111608): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[3]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(111635): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[5]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(111665): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[7]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112331): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_sync_reg[0]_syn_3 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112344): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_sync_reg[1]_syn_3 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112359): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_sync_reg[2]_syn_3 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112374): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_sync_reg[4]_syn_3 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112398): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_sync_reg[6]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112422): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_sync_reg[7]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112442): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[0]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112470): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[1]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112498): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[2]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112520): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[5]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112542): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[6]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112557): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[0]_syn_3 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112572): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[1]_syn_3 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112602): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[3]_syn_4 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(112617): Port type is incompatible with connection (port 'sr').
+# 
+#         Region: /tb_routed_smoke/dut/\u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[4]_syn_3 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138461): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_524 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138461): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_524 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138493): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_534 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138493): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_534 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138525): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_544 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138525): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_544 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138557): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_554 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138557): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_554 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138589): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_564 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138589): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_564 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138653): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_584 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138653): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_584 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138685): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_594 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138685): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_594 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138717): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_604 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138717): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_604 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138749): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_614 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138749): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_614 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138781): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_624 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(138781): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/u_logic_ramfifo_syn_624 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(142578): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_video_axi_stream_receiver/u_w24_d1024_fifo/u_logic_ramfifo_syn_380 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(142578): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_video_axi_stream_receiver/u_w24_d1024_fifo/u_logic_ramfifo_syn_380 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(142610): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_video_axi_stream_receiver/u_w24_d1024_fifo/u_logic_ramfifo_syn_390 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(142610): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_video_axi_stream_receiver/u_w24_d1024_fifo/u_logic_ramfifo_syn_390 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(142642): Port type is incompatible with connection (port 'rsta').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_video_axi_stream_receiver/u_w24_d1024_fifo/u_logic_ramfifo_syn_400 
+# ** Warning: (vsim-3016) ../../audit/routed_implementation.v(142642): Port type is incompatible with connection (port 'rstb').
+# 
+#         Region: /tb_routed_smoke/dut/\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_video_axi_stream_receiver/u_w24_d1024_fifo/u_logic_ramfifo_syn_400 
+# ** Warning: (vsim-3015) ../../audit/routed_implementation.v(221485): [PCDPC] - Port size (5 or 5) does not match connection size (1) for port 'load_reg'. The port definition is at: C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v(25).
+# 
+#         Region: /tb_routed_smoke/dut/\video_pll_m0/pll_inst 
+# Loading timing data from routed.sdf
+# ** Warning: (vsim-8756) C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_lslice.v(451): Instance 'tb_routed_smoke.dut.add0_syn_122' - Negative timing check limits detected in simulation with cells modeled without delayed copies of data or reference signals.
+# 
+#         Region: /tb_routed_smoke
+# ** Warning: (vsim-3448) routed.sdf(71266): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Warning: (vsim-3448) routed.sdf(71281): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Warning: (vsim-3448) routed.sdf(71296): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Warning: (vsim-3448) routed.sdf(71311): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Warning: (vsim-3448) routed.sdf(71397): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Warning: (vsim-3448) routed.sdf(71420): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Warning: (vsim-3448) routed.sdf(71434): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Warning: (vsim-3448) routed.sdf(71448): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Warning: (vsim-3448) routed.sdf(71461): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Warning: (vsim-3448) routed.sdf(71475): Setting negative specify check constraint (-30 ps) to zero.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(71492): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(71493): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(71494): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117074): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117075): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117076): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117077): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117078): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117079): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117080): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117081): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117082): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117083): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117084): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117085): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117086): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117087): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117088): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117089): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117090): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117091): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117092): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117093): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117094): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117095): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117096): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117097): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117098): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117099): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117100): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117101): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117102): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117103): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117104): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(117105): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117109): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117110): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117111): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117112): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117113): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117114): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117115): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117116): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117117): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117118): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117119): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117120): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117121): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117122): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117123): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117124): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117125): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117126): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117127): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117128): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117129): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117130): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117131): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117132): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117133): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117134): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117135): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117136): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117137): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117138): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117139): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117140): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117141): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117142): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117143): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117144): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117145): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117146): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117147): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117148): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117149): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117150): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117151): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117152): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117153): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117154): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117155): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117156): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117157): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3262) routed.sdf(117158): Failed to find matching specify timing constraint.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(160745): Failed to find matching specify module path.
+# 
+# ** Error: (vsim-SDF-3261) routed.sdf(160746): Failed to find matching specify module path.
+# 
+# ** Fatal: (vsim-SDF-3444) Failed to annotate from SDF file "routed.sdf".
+#    Time: 0 fs  Iteration: 0  Instance: /tb_routed_smoke File: tb_routed_smoke.v
+# FATAL ERROR while loading design
+# Error loading design

@@ -1,0 +1,98 @@
+{
+  "schema": "c11310-fft-register-control-v4",
+  "mode": "full-d",
+  "status": "STOP",
+  "gate_netlist": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\build\\manual\\AC201_tf_hdmi_gate.v",
+  "gate_sha256": "3008b47357b023a1c5c787b197460b807e9b410e975d8e133144e120e0b21f73",
+  "case_count": 1,
+  "expected_case_count": 432,
+  "stable_valid_capture_cases": 0,
+  "stable_valid_capture_failures": [],
+  "actual_register_pins": {
+    "sample_count": {
+      "ce": "u_pcm_waveform/u_spectrum/mux98_syn_2[0]",
+      "sr": "u_pcm_waveform/u_spectrum/reset_pipe[1]_syn_4",
+      "d": "u_pcm_waveform/u_spectrum/sample_count_b[0]"
+    },
+    "accepted_samples": {
+      "ce": "u_pcm_waveform/u_spectrum/mux34_syn_2[23]",
+      "sr": "u_pcm_waveform/u_spectrum/reset_pipe[1]_syn_4",
+      "d": "u_pcm_waveform/u_spectrum/accepted_samples_b[0]"
+    }
+  },
+  "actual_CE_leaf_sets": {
+    "sample_count": [
+      "u_audio_probe/tone_mode",
+      "u_audio_probe/tone_valid",
+      "u_audio_probe/wav_valid",
+      "u_pcm_waveform/tone_prev",
+      "u_pcm_waveform/u_spectrum/debug_progress[19]",
+      "u_pcm_waveform/u_spectrum/debug_progress[20]",
+      "u_pcm_waveform/u_spectrum/debug_progress[21]",
+      "u_pcm_waveform/u_spectrum/debug_progress[22]",
+      "u_pcm_waveform/u_spectrum/debug_progress[23]",
+      "u_pcm_waveform/u_spectrum/emit_index[0]",
+      "u_pcm_waveform/u_spectrum/emit_index[1]",
+      "u_pcm_waveform/u_spectrum/emit_index[2]",
+      "u_pcm_waveform/u_spectrum/emit_index[3]",
+      "u_pcm_waveform/u_spectrum/emit_index[4]",
+      "u_pcm_waveform/u_spectrum/timeout_pulse"
+    ],
+    "accepted_samples": [
+      "u_audio_probe/tone_mode",
+      "u_audio_probe/tone_valid",
+      "u_audio_probe/wav_valid",
+      "u_pcm_waveform/tone_prev",
+      "u_pcm_waveform/u_spectrum/debug_accepted[0]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[10]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[11]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[12]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[13]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[14]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[15]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[16]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[17]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[18]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[19]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[1]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[20]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[21]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[22]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[23]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[2]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[3]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[4]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[5]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[6]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[7]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[8]",
+      "u_pcm_waveform/u_spectrum/debug_accepted[9]",
+      "u_pcm_waveform/u_spectrum/debug_progress[19]",
+      "u_pcm_waveform/u_spectrum/debug_progress[20]",
+      "u_pcm_waveform/u_spectrum/debug_progress[21]",
+      "u_pcm_waveform/u_spectrum/debug_progress[22]",
+      "u_pcm_waveform/u_spectrum/debug_progress[23]",
+      "u_pcm_waveform/u_spectrum/reset_pipe[1]_syn_4",
+      "u_pcm_waveform/u_spectrum/timeout_pulse"
+    ]
+  },
+  "D_cone_stop_boundaries": {
+    "sample_count": [],
+    "accepted_samples": []
+  },
+  "AL_MAP_SEQ_model_contract": {
+    "CEMUX_CE": true,
+    "SRMUX_SR": true,
+    "SRMODE_ASYNC": true,
+    "REGSET_RESET": true
+  },
+  "stop": {
+    "type": "ValueError",
+    "detail": "arithmetic cell requires vendor primitive model: \\u_pcm_waveform/u_spectrum/add4_syn_62",
+    "state": 0,
+    "sample_count": 0,
+    "accepted_samples": 0,
+    "already_evaluated_cases": 0
+  },
+  "scope": "Actual gate LUT truth on CE pins. Input matrix: state 0/1/16, sample 0/11/1023, audio/reset/source_change/timeout 0/1, accepted 0/1/ffffff. D cone is only evaluated in full-d mode and stops explicitly on unsupported EG_PHY_LSLICE SUM. The SR path is bound to local reset_pipe[1] and cross-checked against the actual AL_MAP_SEQ model source."
+}

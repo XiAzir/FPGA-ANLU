@@ -1,0 +1,14 @@
+C11301 波形精细度模型结果：PASS
+依据：build/waveform_spec.md；512列、每列2样本、图形横坐标x64..575为一列一点。
+极值：1024个有效样本逐点以独立数学floor(pcm16/64)+112并饱和到0..224计算；512个18-bit {max,min}值逐项对比。
+向量包含静音列、Q2负数向下取整边界、正负饱和与阶梯音阶电平。
+像素：完成57行×512列共29,184个实际DE图形采样；逐像素独立比较Q2区间、相邻中点连线扩展、四档精确颜色和中心背景线。
+控制：验证ready bank在VS前不变、活动bank保持完整、freeze丢弃较新ready窗、VS恢复捕获、音源切换原子换源与无替代窗清图；5周期参数化实例验证stale pending与VS清图。
+结果证据：仿真MODEL PASS checks=30229 samples=1024 tiers=17882/88/74/101；颜色计数顺序为青/3⁄4/1⁄2/1⁄4。
+RTL SHA-256：5049b5791895bd78eb147f35ca3dafb777b4edcd19aac1f6b4dadf4ebad363ef
+TB SHA-256：84771cec078043015c079e8f45bb9f8259ee96f7bc82ff083a8327100400c85a
+编译日志：wave_fine_compile.log
+仿真日志：wave_fine_sim.log
+源码绑定凭据：wave_fine_sources.json
+边界：模型验证RTL行为，不代替TD资源/时序映射与实板清晰度验证；生产默认stale门限未等待完整2.5M周期，由5周期参数实例等价验证控制路径。
+连线gold：按当前列[min,max]并入前列中点到当前列中点的闭区间；x64不取前列值；Q2垂直距离1/2/3映射3/4、1/2、1/4亮度。

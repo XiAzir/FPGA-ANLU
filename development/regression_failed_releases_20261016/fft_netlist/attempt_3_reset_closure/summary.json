@@ -1,0 +1,576 @@
+{
+  "started": "2026-10-16T16:08:59.055770+08:00",
+  "scope": "Functional FFT cones only; controlled 25MHz/global reset and accelerated PCM. No SDF, full startup, media controller or HDMI PHY.",
+  "tb": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\tb_fft_cone.v",
+    "sha256": "B5B226ACD6F892AEACB4384354DBCDE23B9212E6B1BA9680594193B72DB3ABDC"
+  },
+  "extractor_sha256": "250098E919623705BF56A89179E3015D35EDA5890C558FE319AE62B9BA661F6B",
+  "original_extractor_sha256": "4AFA48C9F3D9904E6EA6A3358FDB4B490925F9FC384C0FB014D1E85AEC5A4F01",
+  "results": [
+    {
+      "version": "C11306",
+      "stage": "routed",
+      "checkpoint": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate",
+      "manifest_sha256": "2496BA28835D656D1C121776B8A060CC12D50F735FE50A6006AC65D64A712632",
+      "bit": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate\\build\\manual\\AC201_player_spectrum_private_init.bit",
+        "sha256": "5D730E2C92602CE92560AC37FE2EE97BC6755AD20D24DDFE8F6BB9313DF881FB",
+        "manifest_match": true
+      },
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\PENGYUHAO\\AppData\\Roaming\\uv\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\extract_fft.py",
+            "--source",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate\\build\\audit\\routed_implementation.v",
+            "--out",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11306\\routed",
+            "--routed"
+          ],
+          "returncode": 0,
+          "seconds": 6.641,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11306\\routed\\extract.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlib.exe",
+            "work"
+          ],
+          "returncode": 0,
+          "seconds": 0.015,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11306\\routed\\vlib.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlog.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-work",
+            "work",
+            "fft_cone.v",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\tb_fft_cone.v"
+          ],
+          "returncode": 0,
+          "seconds": 0.141,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11306\\routed\\compile.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vsim.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-c",
+            "-lic_noqueue",
+            "-novopt",
+            "-suppress",
+            "3017,3722",
+            "-L",
+            "work",
+            "-L",
+            "eg4",
+            "work.tb_fft_cone",
+            "eg4.glbl",
+            "+VEC=all_samples.mem",
+            "+EXP=all_expected.mem",
+            "-do",
+            "run.do",
+            "-l",
+            "run.log"
+          ],
+          "returncode": 0,
+          "seconds": 7.625,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11306\\routed\\console.log"
+        }
+      ],
+      "netlist": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate\\build\\audit\\routed_implementation.v",
+        "sha256": "3DA696813090A2089142C8EF63F0E4FA9F0E81B6002060E8D8342D51A54B97A9",
+        "manifest_match": true
+      },
+      "all_samples.mem": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate\\sim\\vectors\\all_samples.mem",
+        "sha256": "04091DF69301E2BF772CE76CAFDC7B8D1AD51B93FD33C17479A3EC43E59A89D2",
+        "manifest_match": true
+      },
+      "all_expected.mem": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_private_init\\checkpoints\\music_spectrum_private_init_20261013_candidate\\sim\\vectors\\all_expected.mem",
+        "sha256": "9F43A55DB95975206099C29B83724692CD7BD98DF0DB9D76899BE0D2DDBEDDC0",
+        "manifest_match": true
+      },
+      "cone": {
+        "included": 416,
+        "primitive_counts": {
+          "EG_PHY_LSLICE": 236,
+          "EG_PHY_MSLICE": 165,
+          "EG_PHY_MULT18": 1,
+          "EG_PHY_BRAM": 14
+        },
+        "unresolved": [],
+        "sha256": "BD0A6251A25F9AF52044C367B770FA2C12E10EB1900E003A05E18D5EC8A965BC"
+      },
+      "model_loads_checked": true,
+      "markers": [
+        "# BOUNDARY original netlist primitive cone; external clk25MHz/global reset/PCM/valid/tone; accelerated capture (one PCM per clk); no SDF; excludes whole-system startup",
+        "# CASE_RESULT case=0 outputs=0 nonzero=0 cycles=65000 errors=1",
+        "# FAIL fft_cone errors=1"
+      ],
+      "input_guard_passed": true,
+      "status": "SIMULATION_FAILED_OR_INCONCLUSIVE",
+      "console_sha256": "6660F94B8D1465AFFC52608E59FB5516062D5BBEA8D0F16BACF795A3C752AA9A"
+    },
+    {
+      "version": "C11307",
+      "stage": "routed",
+      "checkpoint": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\checkpoints\\music_spectrum_observed_20261013_candidate",
+      "manifest_sha256": "B9935A54B29B31CC39CCBDE6661445F434223A42D4420C0C62BFD3E41C22730F",
+      "bit": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\checkpoints\\music_spectrum_observed_20261013_candidate\\build\\manual\\AC201_player_spectrum_observed.bit",
+        "sha256": "8CFD873C1B9727A18C8A3731233943B6C43D56DD56677623CDAEC0962B7A2AF4",
+        "manifest_match": true
+      },
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\PENGYUHAO\\AppData\\Roaming\\uv\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\extract_fft.py",
+            "--source",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\checkpoints\\music_spectrum_observed_20261013_candidate\\build\\audit\\routed_implementation.v",
+            "--out",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11307\\routed",
+            "--routed"
+          ],
+          "returncode": 0,
+          "seconds": 6.453,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11307\\routed\\extract.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlib.exe",
+            "work"
+          ],
+          "returncode": 0,
+          "seconds": 0.031,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11307\\routed\\vlib.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlog.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-work",
+            "work",
+            "fft_cone.v",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\tb_fft_cone.v"
+          ],
+          "returncode": 0,
+          "seconds": 0.125,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11307\\routed\\compile.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vsim.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-c",
+            "-lic_noqueue",
+            "-novopt",
+            "-suppress",
+            "3017,3722",
+            "-L",
+            "work",
+            "-L",
+            "eg4",
+            "work.tb_fft_cone",
+            "eg4.glbl",
+            "+VEC=all_samples.mem",
+            "+EXP=all_expected.mem",
+            "-do",
+            "run.do",
+            "-l",
+            "run.log"
+          ],
+          "returncode": 0,
+          "seconds": 13.109,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11307\\routed\\console.log"
+        }
+      ],
+      "netlist": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\checkpoints\\music_spectrum_observed_20261013_candidate\\build\\audit\\routed_implementation.v",
+        "sha256": "1BBFF31B4A68057807CBC04BE5E1E973D33BB6B1696B6CBD2D055227CB8D7EFA",
+        "manifest_match": true
+      },
+      "all_samples.mem": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\checkpoints\\music_spectrum_observed_20261013_candidate\\sim\\vectors\\all_samples.mem",
+        "sha256": "04091DF69301E2BF772CE76CAFDC7B8D1AD51B93FD33C17479A3EC43E59A89D2",
+        "manifest_match": true
+      },
+      "all_expected.mem": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_observed\\checkpoints\\music_spectrum_observed_20261013_candidate\\sim\\vectors\\all_expected.mem",
+        "sha256": "9F43A55DB95975206099C29B83724692CD7BD98DF0DB9D76899BE0D2DDBEDDC0",
+        "manifest_match": true
+      },
+      "cone": {
+        "included": 413,
+        "primitive_counts": {
+          "EG_PHY_MSLICE": 169,
+          "EG_PHY_LSLICE": 229,
+          "EG_PHY_MULT18": 1,
+          "EG_PHY_BRAM": 14
+        },
+        "unresolved": [],
+        "sha256": "229C3D02D0C95F348AFEE2FAEA178E507F35F418732DE22E2A0BADFAB32E37A2"
+      },
+      "model_loads_checked": true,
+      "markers": [
+        "# BOUNDARY original netlist primitive cone; external clk25MHz/global reset/PCM/valid/tone; accelerated capture (one PCM per clk); no SDF; excludes whole-system startup",
+        "# CASE_RESULT case=0 outputs=24 nonzero=24 cycles=55309 errors=8",
+        "# FAIL fft_cone errors=8"
+      ],
+      "input_guard_passed": true,
+      "status": "SIMULATION_FAILED_OR_INCONCLUSIVE",
+      "console_sha256": "7A159CD38A0F87A59898D0E4234D76D7FA7CB2748D022EFADAA889EB71DDD8B9"
+    },
+    {
+      "version": "C11308",
+      "stage": "routed",
+      "checkpoint": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_tf_margin\\checkpoints\\music_spectrum_tf_margin_20261014_candidate",
+      "manifest_sha256": "C3469BD0DC0B43D4E7F2054B71489436E3E4C3D3723E8F268847434C76F7D71B",
+      "bit": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_tf_margin\\checkpoints\\music_spectrum_tf_margin_20261014_candidate\\build\\manual\\AC201_player_spectrum_tf_margin.bit",
+        "sha256": "AD3C0ED07482FF88B9F252AFC3862311DE752216A511FE7164782D56E4B8C895",
+        "manifest_match": true
+      },
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\PENGYUHAO\\AppData\\Roaming\\uv\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\extract_fft.py",
+            "--source",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_tf_margin\\checkpoints\\music_spectrum_tf_margin_20261014_candidate\\build\\audit\\routed_implementation.v",
+            "--out",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11308\\routed",
+            "--routed"
+          ],
+          "returncode": 0,
+          "seconds": 7.25,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11308\\routed\\extract.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlib.exe",
+            "work"
+          ],
+          "returncode": 0,
+          "seconds": 0.031,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11308\\routed\\vlib.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlog.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-work",
+            "work",
+            "fft_cone.v",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\tb_fft_cone.v"
+          ],
+          "returncode": 0,
+          "seconds": 0.141,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11308\\routed\\compile.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vsim.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-c",
+            "-lic_noqueue",
+            "-novopt",
+            "-suppress",
+            "3017,3722",
+            "-L",
+            "work",
+            "-L",
+            "eg4",
+            "work.tb_fft_cone",
+            "eg4.glbl",
+            "+VEC=all_samples.mem",
+            "+EXP=all_expected.mem",
+            "-do",
+            "run.do",
+            "-l",
+            "run.log"
+          ],
+          "returncode": 0,
+          "seconds": 8.86,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11308\\routed\\console.log"
+        }
+      ],
+      "netlist": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_tf_margin\\checkpoints\\music_spectrum_tf_margin_20261014_candidate\\build\\audit\\routed_implementation.v",
+        "sha256": "897387353DCD78EB2489926E7D67543AC58B756EC1CA054CC4B91BB23D5F6D7B",
+        "manifest_match": true
+      },
+      "all_samples.mem": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_tf_margin\\checkpoints\\music_spectrum_tf_margin_20261014_candidate\\sim\\vectors\\all_samples.mem",
+        "sha256": "04091DF69301E2BF772CE76CAFDC7B8D1AD51B93FD33C17479A3EC43E59A89D2",
+        "manifest_match": true
+      },
+      "all_expected.mem": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_tf_margin\\checkpoints\\music_spectrum_tf_margin_20261014_candidate\\sim\\vectors\\all_expected.mem",
+        "sha256": "9F43A55DB95975206099C29B83724692CD7BD98DF0DB9D76899BE0D2DDBEDDC0",
+        "manifest_match": true
+      },
+      "cone": {
+        "included": 401,
+        "primitive_counts": {
+          "EG_PHY_LSLICE": 226,
+          "EG_PHY_MSLICE": 160,
+          "EG_PHY_MULT18": 1,
+          "EG_PHY_BRAM": 14
+        },
+        "unresolved": [],
+        "sha256": "8BBD86CD3290A3FEF8A55761AB033C8148A5D5CD4DBB4EB16833BBE928B2EB38"
+      },
+      "model_loads_checked": true,
+      "markers": [
+        "# BOUNDARY original netlist primitive cone; external clk25MHz/global reset/PCM/valid/tone; accelerated capture (one PCM per clk); no SDF; excludes whole-system startup",
+        "# CASE_RESULT case=0 outputs=0 nonzero=0 cycles=65000 errors=1",
+        "# FAIL fft_cone errors=1"
+      ],
+      "input_guard_passed": true,
+      "status": "SIMULATION_FAILED_OR_INCONCLUSIVE",
+      "console_sha256": "715EE2D06ED44ABEC484A727C484FA61383A800A37F6061C09BE159E3210F9E5"
+    },
+    {
+      "version": "C11309",
+      "stage": "routed",
+      "checkpoint": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_clock_route\\checkpoints\\music_spectrum_clock_route_20261014_candidate",
+      "manifest_sha256": "E638D0FA259E12A584A9E31CEC4BABF97F1E261EB59474C338CC8295C503F0EA",
+      "bit": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_clock_route\\checkpoints\\music_spectrum_clock_route_20261014_candidate\\build\\manual\\AC201_player_spectrum_clock_route.bit",
+        "sha256": "9171F813BDDEC5B81B7F3577BF7C7804A3F5A24138F7763B253D7D5FB8040B3F",
+        "manifest_match": true
+      },
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\PENGYUHAO\\AppData\\Roaming\\uv\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\extract_fft.py",
+            "--source",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_clock_route\\checkpoints\\music_spectrum_clock_route_20261014_candidate\\build\\audit\\routed_implementation.v",
+            "--out",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11309\\routed",
+            "--routed"
+          ],
+          "returncode": 0,
+          "seconds": 6.86,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11309\\routed\\extract.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlib.exe",
+            "work"
+          ],
+          "returncode": 0,
+          "seconds": 0.031,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11309\\routed\\vlib.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlog.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-work",
+            "work",
+            "fft_cone.v",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\tb_fft_cone.v"
+          ],
+          "returncode": 0,
+          "seconds": 0.156,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11309\\routed\\compile.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vsim.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-c",
+            "-lic_noqueue",
+            "-novopt",
+            "-suppress",
+            "3017,3722",
+            "-L",
+            "work",
+            "-L",
+            "eg4",
+            "work.tb_fft_cone",
+            "eg4.glbl",
+            "+VEC=all_samples.mem",
+            "+EXP=all_expected.mem",
+            "-do",
+            "run.do",
+            "-l",
+            "run.log"
+          ],
+          "returncode": 0,
+          "seconds": 9.078,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11309\\routed\\console.log"
+        }
+      ],
+      "netlist": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_clock_route\\checkpoints\\music_spectrum_clock_route_20261014_candidate\\build\\audit\\routed_implementation.v",
+        "sha256": "36B1F1D50EEC4EA37CDB7503CB7593B13A05C41CC456D71A176E6EBE304A1B64",
+        "manifest_match": true
+      },
+      "all_samples.mem": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_clock_route\\checkpoints\\music_spectrum_clock_route_20261014_candidate\\sim\\vectors\\all_samples.mem",
+        "sha256": "04091DF69301E2BF772CE76CAFDC7B8D1AD51B93FD33C17479A3EC43E59A89D2",
+        "manifest_match": true
+      },
+      "all_expected.mem": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_clock_route\\checkpoints\\music_spectrum_clock_route_20261014_candidate\\sim\\vectors\\all_expected.mem",
+        "sha256": "9F43A55DB95975206099C29B83724692CD7BD98DF0DB9D76899BE0D2DDBEDDC0",
+        "manifest_match": true
+      },
+      "cone": {
+        "included": 419,
+        "primitive_counts": {
+          "EG_PHY_MSLICE": 173,
+          "EG_PHY_LSLICE": 231,
+          "EG_PHY_MULT18": 1,
+          "EG_PHY_BRAM": 14
+        },
+        "unresolved": [],
+        "sha256": "88DCA13EDE5EE1D56A483FDEA4671D792399A09D8301E29782974E8D9BFF835B"
+      },
+      "model_loads_checked": true,
+      "markers": [
+        "# BOUNDARY original netlist primitive cone; external clk25MHz/global reset/PCM/valid/tone; accelerated capture (one PCM per clk); no SDF; excludes whole-system startup",
+        "# CASE_RESULT case=0 outputs=0 nonzero=0 cycles=65000 errors=1",
+        "# FAIL fft_cone errors=1"
+      ],
+      "input_guard_passed": true,
+      "status": "SIMULATION_FAILED_OR_INCONCLUSIVE",
+      "console_sha256": "9A35BA5075CD933873CF933B3F6CA82B55DF3DFCC9CA85AFF8FE0243F11B07E8"
+    },
+    {
+      "version": "C11310",
+      "stage": "routed",
+      "checkpoint": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\checkpoints\\music_spectrum_fft_recover_20261014_candidate",
+      "manifest_sha256": "B72108D1DEFF5615D322661F1306485A389B908A00E45FC18AA39F5D704B7522",
+      "bit": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\checkpoints\\music_spectrum_fft_recover_20261014_candidate\\build\\manual\\AC201_player_spectrum_fft_recover.bit",
+        "sha256": "9A076C4170DEB9BA84526B61E9F086A12EF59399DB7721EAFB5F7A80186BFA0C",
+        "manifest_match": true
+      },
+      "commands": [
+        {
+          "command": [
+            "C:\\Users\\PENGYUHAO\\AppData\\Roaming\\uv\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\extract_fft.py",
+            "--source",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\checkpoints\\music_spectrum_fft_recover_20261014_candidate\\build\\audit\\routed_implementation.v",
+            "--out",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11310\\routed",
+            "--routed"
+          ],
+          "returncode": 0,
+          "seconds": 7.39,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11310\\routed\\extract.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlib.exe",
+            "work"
+          ],
+          "returncode": 0,
+          "seconds": 0.032,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11310\\routed\\vlib.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlog.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-work",
+            "work",
+            "fft_cone.v",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\tb_fft_cone.v"
+          ],
+          "returncode": 0,
+          "seconds": 0.156,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11310\\routed\\compile.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vsim.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-c",
+            "-lic_noqueue",
+            "-novopt",
+            "-suppress",
+            "3017,3722",
+            "-L",
+            "work",
+            "-L",
+            "eg4",
+            "work.tb_fft_cone",
+            "eg4.glbl",
+            "+VEC=all_samples.mem",
+            "+EXP=all_expected.mem",
+            "-do",
+            "run.do",
+            "-l",
+            "run.log"
+          ],
+          "returncode": 0,
+          "seconds": 39.703,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\regression_failed_releases_20261016\\fft_netlist\\attempt_3_reset_closure\\C11310\\routed\\console.log"
+        }
+      ],
+      "netlist": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\checkpoints\\music_spectrum_fft_recover_20261014_candidate\\build\\audit\\routed_implementation.v",
+        "sha256": "C340972399476F9C773E8412D790EAF702BAD790197F32B1FAD92EDCBECA5A5E",
+        "manifest_match": true
+      },
+      "all_samples.mem": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\checkpoints\\music_spectrum_fft_recover_20261014_candidate\\sim\\vectors\\all_samples.mem",
+        "sha256": "04091DF69301E2BF772CE76CAFDC7B8D1AD51B93FD33C17479A3EC43E59A89D2",
+        "manifest_match": true
+      },
+      "all_expected.mem": {
+        "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\checkpoints\\music_spectrum_fft_recover_20261014_candidate\\sim\\vectors\\all_expected.mem",
+        "sha256": "9F43A55DB95975206099C29B83724692CD7BD98DF0DB9D76899BE0D2DDBEDDC0",
+        "manifest_match": true
+      },
+      "cone": {
+        "included": 427,
+        "primitive_counts": {
+          "EG_PHY_MSLICE": 185,
+          "EG_PHY_LSLICE": 227,
+          "EG_PHY_MULT18": 1,
+          "EG_PHY_BRAM": 14
+        },
+        "unresolved": [],
+        "sha256": "B2DAD314BEE6B6C551EEB309AF75C58AFDF10EF53DF97BBC7182BF1D912C0687"
+      },
+      "model_loads_checked": true,
+      "markers": [
+        "# BOUNDARY original netlist primitive cone; external clk25MHz/global reset/PCM/valid/tone; accelerated capture (one PCM per clk); no SDF; excludes whole-system startup",
+        "# CASE_RESULT case=0 outputs=24 nonzero=24 cycles=55320 errors=0",
+        "# CASE_RESULT case=1 outputs=24 nonzero=24 cycles=55320 errors=0",
+        "# CASE_RESULT case=2 outputs=24 nonzero=24 cycles=55320 errors=0",
+        "# PASS fft_cone cases=3 bands=72 max_fixedpoint_error=0 autonomous_recapture=2"
+      ],
+      "input_guard_passed": true,
+      "status": "PASS",
+      "console_sha256": "B73D49512FE79293FCF113FEE2C0B739AC0D264C40D7F1D366F87B1187C7D7C3"
+    }
+  ],
+  "updated": "2026-10-16T16:10:53.129476+08:00",
+  "completed": "2026-10-16T16:10:53.130477+08:00"
+}

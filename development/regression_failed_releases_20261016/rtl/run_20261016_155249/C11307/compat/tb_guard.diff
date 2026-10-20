@@ -1,0 +1,7 @@
+--- a/tb_player_spectrum_analyzer.v
++++ b/tb_player_spectrum_analyzer.v (isolated input-guard copy)
+         $readmemh(exp_file,expected_mem);
++        for(i=0;i<CASES*1024;i=i+1)
++            if ((^sample_mem[i]) === 1'bx) $fatal(1,"input sample vector contains unknown or unloaded word index=%0d",i);
++        for(i=0;i<CASES*24;i=i+1)
++            if ((^expected_mem[i]) === 1'bx) $fatal(1,"expected vector contains unknown or unloaded word index=%0d",i);

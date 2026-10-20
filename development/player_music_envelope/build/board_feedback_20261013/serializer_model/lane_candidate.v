@@ -1,0 +1,182 @@
+
+
+
+module lane_lvds_10_1 #(
+    parameter DEVICE = "EG",
+    parameter integer TOGGLE_DELAY_PS = 0,
+    parameter integer ODDR_D0_DELAY_PS = 0,
+    parameter integer ODDR_D1_DELAY_PS = 0,
+    parameter integer PAD_CLK_DELAY_PS = 0
+    )(
+    input wire      I_pixel_clk,
+    input wire      I_serial_clk,
+    input wire      I_rst,
+
+    input wire[9:0] I_data_in,
+
+    output wire     O_serial_out
+);
+
+    reg      S_odd_even;     
+    reg      S_odd_even_1d;  
+    reg      S_odd_even_2d;  
+    reg      S_load_en;      
+    reg      S_load_en_1d;   
+    reg      S_load_en_2d;   
+    reg[9:0] S_shift_data;   
+    reg[9:0] S_pending_data;
+    reg[1:0] S_oddr_data;    
+
+
+    // Launch the word marker halfway between adjacent serial rising edges.
+    // The PHY captures the corresponding complete TMDS word on this same
+    // pixel falling edge; serial pending capture follows three cycles later.
+    always @(negedge I_pixel_clk or posedge I_rst) begin
+        if(I_rst)
+            S_odd_even <= 1'b0;
+        else
+            #(TOGGLE_DELAY_PS) S_odd_even <= ~S_odd_even;
+    end
+
+    always @(posedge I_serial_clk) begin
+        S_odd_even_1d <= S_odd_even;
+        S_odd_even_2d <= S_odd_even_1d;
+    end
+
+    always @(posedge I_serial_clk) begin
+        S_load_en    <= S_odd_even_1d ^ S_odd_even_2d;
+        S_load_en_1d <= S_load_en;
+        S_load_en_2d <= S_load_en_1d;
+    end
+
+    // Capture the complete pixel word one serial cycle before shift loading.
+    // The original shift/ODDR output schedule stays unchanged.
+    always @(posedge I_serial_clk or posedge I_rst) begin
+        if(I_rst)
+            S_pending_data <= 10'd0;
+        else if(S_load_en_1d)
+            S_pending_data <= I_data_in;
+    end
+
+    always @(posedge I_serial_clk or posedge I_rst) begin
+        if(I_rst)
+            S_shift_data <= 'd0;
+        else
+            if(S_load_en_2d)
+                S_shift_data <= S_pending_data;
+            else 
+                S_shift_data <= S_shift_data << 2;
+    end
+
+    // EG ODDR captures both D0 and D1 at its serial rising edge.
+    // Prepare both PAD inputs on the preceding falling edge, keeping
+    // the pair stable across the capture edge on all four TMDS lanes.
+    always @(negedge I_serial_clk) begin
+        S_oddr_data <= S_shift_data[9:8];
+    end
+
+    wire S_oddr_d1_pin, S_oddr_d0_pin, S_oddr_clk_pin;
+    assign #(ODDR_D1_DELAY_PS) S_oddr_d1_pin = S_oddr_data[0];
+    assign #(ODDR_D0_DELAY_PS) S_oddr_d0_pin = S_oddr_data[1];
+    assign #(PAD_CLK_DELAY_PS) S_oddr_clk_pin = I_serial_clk;
+    generate
+        if(DEVICE == "EF2")
+            begin
+                EF2_LOGIC_ODDR U_EG4_ODDR(
+                    .clk   ( S_oddr_clk_pin ),
+                    .rst   ( I_rst          ),
+
+                    .d1    ( S_oddr_d1_pin ),
+                    .d0    ( S_oddr_d0_pin ),
+
+                    .q     ( O_serial_out   )
+                );
+            end
+        else if(DEVICE == "EF3")
+            begin
+                EF3_LOGIC_ODDR U_EG4_ODDR(
+                    .clk   ( S_oddr_clk_pin ),
+                    .rst   ( I_rst          ),
+
+                    .d1    ( S_oddr_d1_pin ),
+                    .d0    ( S_oddr_d0_pin ),
+
+                    .q     ( O_serial_out   )
+                );
+            end
+        else if(DEVICE == "EF4")
+            begin
+                EF4_LOGIC_ODDR U_EG4_ODDR(
+                    .clk   ( S_oddr_clk_pin ),
+                    .rst   ( I_rst          ),
+
+                    .d1    ( S_oddr_d1_pin ),
+                    .d0    ( S_oddr_d0_pin ),
+
+                    .q     ( O_serial_out   )
+                );
+            end
+        else if(DEVICE == "SF1")
+            begin
+                SF1_LOGIC_ODDR U_EG4_ODDR(
+                    .clk   ( S_oddr_clk_pin ),
+                    .rst   ( I_rst          ),
+
+                    .d1    ( S_oddr_d1_pin ),
+                    .d0    ( S_oddr_d0_pin ),
+
+                    .q     ( O_serial_out   )
+                );
+            end
+        else if(DEVICE == "EG")
+            begin
+                EG_LOGIC_ODDR U_EG4_ODDR(
+                    .clk   ( S_oddr_clk_pin ),
+                    .rst   ( I_rst          ),
+
+                    .d1    ( S_oddr_d1_pin ),
+                    .d0    ( S_oddr_d0_pin ),
+
+                    .q     ( O_serial_out   )
+                );
+            end
+        else if(DEVICE == "PH1A")
+            begin
+                PH1_LOGIC_ODDR U_EG4_ODDR(
+                    .clk   ( S_oddr_clk_pin ),
+                    .rst   ( I_rst          ),
+
+                    .d1    ( S_oddr_d1_pin ),
+                    .d0    ( S_oddr_d0_pin ),
+
+                    .q     ( O_serial_out   )
+                );
+            end
+        else if(DEVICE == "PH1P")
+            begin
+                PH1P_LOGIC_ODDR U_EG4_ODDR(
+                    .clk   ( S_oddr_clk_pin ),
+                    .rst   ( I_rst          ),
+
+                    .d1    ( S_oddr_d1_pin ),
+                    .d0    ( S_oddr_d0_pin ),
+
+                    .q     ( O_serial_out   )
+                );
+            end
+        else if(DEVICE == "DR1")
+            begin
+                DR1_LOGIC_ODDR U_EG4_ODDR(
+                    .clk   ( S_oddr_clk_pin ),
+                    .rst   ( I_rst          ),
+
+                    .d1    ( S_oddr_d1_pin ),
+                    .d0    ( S_oddr_d0_pin ),
+
+                    .q     ( O_serial_out   )
+                );
+            end
+    endgenerate
+    
+endmodule
+

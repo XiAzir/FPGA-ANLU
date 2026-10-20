@@ -1,0 +1,25 @@
+# vsim +VEC=all_samples.mem +EXP=all_expected.mem -L work -L eg4 -do trace.do -l trace_run.log -c -lic_noqueue -modelsimini modelsim.ini -suppress 3017,3722 -novopt work.tb_fft_cone eg4.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_fft_cone
+# Loading work.fft_cone
+# Loading eg4.EG_PHY_MSLICE
+# Loading eg4.dff_slice
+# Loading eg4.pfb_dffctrl
+# Loading eg4.dff_slice_half
+# Loading eg4.EG_PHY_LSLICE
+# Loading eg4.EG_PHY_MULT18
+# Loading eg4.EG_PHY_BRAM
+# Loading eg4.glbl
+# do trace.do 
+# INPUT_VALID samples=13312 expected=312 unknown_words=0
+# BOUNDARY original netlist primitive cone; external clk25MHz/global reset/PCM/valid/tone; accelerated capture (one PCM per clk); no SDF; excludes whole-system startup
+# ** Error: invalid command name "now"
+# Executing ONERROR command at macro ./trace.do line 11

@@ -1,0 +1,45 @@
+{
+  "format": "FAT32 MBR, partition LBA 2048, 512-byte sectors, one sector/cluster",
+  "image_bytes": 67108864,
+  "image_hex_file": "card.mem",
+  "packed_sector_file": "packed_mem.mem",
+  "lba_map_file": "lba_map.mem",
+  "expected_unit_sectors_file": "expected_sectors.mem",
+  "populated_sectors": 2073,
+  "fat32_cluster_count": 126944,
+  "fat32_fats": 2,
+  "fat32_fat_sectors": 1024,
+  "files": {
+    "PIC.BMP": {
+      "bytes": 822,
+      "sha256": "03b9e77be42c6ca9fba4275d05a1183a7a62174b826ead419ea1d35fda4f54cc",
+      "gold": "gold_bmp.bin"
+    },
+    "TEST.WAV": {
+      "bytes": 8236,
+      "sha256": "9e15700055f077ed8ab978d8b6692429e484750378c6de89e26be8208840ae89",
+      "format": "PCM16 mono 48kHz test window"
+    }
+  },
+  "wave_source": {
+    "path": "deliverables/real_music_20261008/card/TEST.WAV",
+    "sha256": "d5244fd3935052a743379d9331ee78109c8a913241ed60de472cb9e34a17fecf",
+    "data_payload_byte_offset": 262144,
+    "sample_count": 4096,
+    "nonzero_samples": 4094,
+    "window_sha256": "d3e0abad306add43e99634ee91f1bb05a34e84724e0729cf697238f2a611a339",
+    "scope": "非完整原曲，仅用于测试窗口"
+  },
+  "wave_samples_mem_sha256": "32ff709943a0eeb19763fd16803853b5d564175586e5004e4becce479e535e65",
+  "packed_sector_sha256": "425e4ab907fc88dff0fb499d6c19b60d8872e3a32ce8ccc9fac345ea80f2ae5d",
+  "lba_map_sha256": "42a172e8474adf869f6d1cd04eacf2fbb1dc049730abe8bca55afaba9c18c11a",
+  "expected_unit_sectors_sha256": "ed554521ed92d8b3c6779b75a4fda6229d39b06d7b1f793711f455b2b3dbc7f9",
+  "sector_layout": {
+    "mbr": 0,
+    "vbr": 2048,
+    "root_dir": 4128,
+    "wav_data": 4130,
+    "bmp_data_first": 4147,
+    "bmp_data_second": 4148
+  }
+}

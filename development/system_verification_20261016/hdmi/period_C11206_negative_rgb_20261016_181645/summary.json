@@ -1,0 +1,80 @@
+{
+  "status": "PASS_SCOPE",
+  "version": "C11206",
+  "case": "negative_rgb",
+  "pixel_phase_ps": 0,
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-novopt",
+      "-lic_noqueue",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "-L",
+      "hdmi",
+      "work.tb_hdmi_period_content",
+      "work.glbl",
+      "+negative_rgb",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\console.log"
+  },
+  "template_sha256": "1CA36845D670B81004A20FDC0469404CB7B94E4F05F7F91EFCEA424A5A564E3D",
+  "inputs": [
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\hdmi_phy_warpper.v",
+      "sha256": "416B082B0987001BDBC0A7E20A557CB8FB1DCA34E25DC881E6D28A8CB3CF4300"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\lane_lvds_10_1.v",
+      "sha256": "4E2297D22452B437EE60968DAAD5D6473E1541AB1614C507EFF7F298F112BC0E"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\hdmi_1_4b_transmitter_core_wrapper.enc.v",
+      "sha256": "867E0B0BDD874BC383D00918C9E1BE3FE01EDF41F343B6A0D73E262776596A63"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\video_rgb_to_axis_640x480.v",
+      "sha256": "1C8FC26C789F87227036BEA034F1AB6FC5633F2AB2684BE422C54687A290FB96"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\audio_arc_calculate.v",
+      "sha256": "552D8D86AFD237666B30AE08F31247808E89EB024EFDE5EFC670B82EB617A7DC"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\hdmi_packet_monitor.v",
+      "sha256": "E0755EEF660DF07B56C576E6A07565B9189C50E68112F885CD2A08831B38024B"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\eg_phy_glbl.v",
+      "sha256": "95B5FED81000F5844A5A3B110A5B8E82D59A941E6F0715015E38884192EE4FB7"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\hdmi_serial_receiver.v",
+      "sha256": "88F2931E7D894A6A5EFE03D50E67B0A105153F8F0DDCD68E47C56CA51FA75971"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\hdmi_serial_packet_monitor.v",
+      "sha256": "CEB362BC924B7C8161656D6E814214DB93496A3E9860004AE0CACE03CFE16CCB"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\hdmi_video_period_receiver.v",
+      "sha256": "25B0D26D40E5FD2C6D7BD09619C1DDB15D9C2B63525D52BB2152F6314DCD0F6D"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\hdmi\\period_C11206_negative_rgb_20261016_181645\\tb_hdmi_period_content.v",
+      "sha256": "CA7382EED302259C8C834D4DA39AD118D87A209F4BAF1584CBA81236E922F3E7"
+    }
+  ],
+  "scope": "Second complete decoded video frame, literal accepted-input golden queue; constant-amplitude PCM and packet BCH/TERC. No first-frame pixel guarantee, ordered variable PCM, whole media path, or physical timing claim."
+}

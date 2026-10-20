@@ -1,0 +1,117 @@
+{
+  "updated_beijing": "2026-10-16T18:46:03.953317+08:00",
+  "status": "EXTENDED_NOMINAL_PASS_WITH_ASSUMPTIONS",
+  "field_fault_reproduced": false,
+  "hardware_root_cause_confirmed": false,
+  "new_bitstream_built": false,
+  "results": [
+    {
+      "name": "whole_pins_C11206",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\run_C11206_20261016_183637",
+      "summary_sha256": "3adc98f5b6233e9048d0cab08a292bfced7b94b94199beaf52030273b5ee5cea",
+      "evidence_receipt_sha256": "42e02dd28606ffdfe26d019ca40e12340f99c599e2267b28551e63c8dbb319f2",
+      "counts": {
+        "rgb_sent": 1843200,
+        "rgb_checked": 1536000,
+        "rows": 2880,
+        "pcm_sent": 4447,
+        "pcm_checked": 4447,
+        "spectrum_visible_pixels": null
+      },
+      "fft": null
+    },
+    {
+      "name": "whole_pins_C11310",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\run_C11310_20261016_183951",
+      "summary_sha256": "08595382aaa6f6009fd7694f69054e673c1ebcb61f6cfed1c18a5ee5e1d6b720",
+      "evidence_receipt_sha256": "94dcb8f4037cb13146205b4020c595dbef0e2c4bffa564acbc3ff54323df3263",
+      "counts": {
+        "rgb_sent": 1843200,
+        "rgb_checked": 1536000,
+        "rows": 2880,
+        "pcm_sent": 4447,
+        "pcm_checked": 4446,
+        "spectrum_visible_pixels": 2844
+      },
+      "fft": {
+        "status": "PASS_SCOPE",
+        "completed_frames": 3,
+        "band_checks": 72,
+        "max_abs_error": 0,
+        "oracle_sha256": "c7459ba9b0c10656ed8b68370a25b7ba97a7db9b79592cf3cd2c2c480adc2bff",
+        "scope": "Actual full-top accepted PCM captures, real ROM/FFT, independent fixed-point band reference; nominal startup/WAV case only"
+      }
+    },
+    {
+      "name": "whole_pins_C11309",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\run_C11309_20261016_184314",
+      "summary_sha256": "e544d0e37b05c87bf16bda8df95a5d884ea28e86e59e84bdd92ec07282c56b3b",
+      "evidence_receipt_sha256": "babaf8d9020a223faee98281c1d7fa6bca8c378bbd4168c503e072f108cc1ebf",
+      "counts": {
+        "rgb_sent": 1843200,
+        "rgb_checked": 1536000,
+        "rows": 2880,
+        "pcm_sent": 4447,
+        "pcm_checked": 4446,
+        "spectrum_visible_pixels": 2844
+      },
+      "fft": {
+        "status": "PASS_SCOPE",
+        "completed_frames": 3,
+        "band_checks": 72,
+        "max_abs_error": 0,
+        "oracle_sha256": "c7459ba9b0c10656ed8b68370a25b7ba97a7db9b79592cf3cd2c2c480adc2bff",
+        "scope": "Actual full-top accepted PCM captures, real ROM/FFT, independent fixed-point band reference; nominal startup/WAV case only"
+      }
+    },
+    {
+      "name": "controller_basic",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\controller_model_20261016_183434",
+      "summary_sha256": "68cd6d5b728ab5bb8860e741cc36fd3b7521f345cd54bb32d9bc043546296ade",
+      "evidence_receipt_sha256": "a98509b1511a9fde3de631705933db56735f4c6b785e9d65d6304558b79fd5f0",
+      "counts": {
+        "checked_words": 256,
+        "mismatches": 0,
+        "data_offset_cycles": -1
+      },
+      "fft": null
+    },
+    {
+      "name": "controller_matrix",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\controller_model_20261016_184042",
+      "summary_sha256": "740c21616d3898bf0be2cbb87d6f9b59b88cfb7840e0b5b1a8a73f04db82c499",
+      "evidence_receipt_sha256": "7bc57cc750fe0d3d27feffc83a2c1a78fe1cdd77922b0b87c78406e834644550",
+      "counts": {
+        "checked_words": 1024,
+        "mismatches": 0,
+        "data_offset_cycles": -1
+      },
+      "fft": null
+    },
+    {
+      "name": "controller_negative_data",
+      "status": "PASS_SCOPE",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\controller_model_20261016_184257",
+      "summary_sha256": "b5cc53a815a024fb931f440671a6f14687f08e2610fb448234b657ccfc4b32e5",
+      "evidence_receipt_sha256": "20e60f9b82fde9128bbe4c665aa9b93b8fb5868adf4d832e6f4616161d174122",
+      "counts": {
+        "checked_words": 1024,
+        "mismatches": 1,
+        "data_offset_cycles": -1
+      },
+      "fft": null
+    }
+  ],
+  "limitations": [
+    "Full-top tests still use application-interface SDRAM model; real controller verified separately",
+    "Controller gate is isolated synthesis, not exact whole-top placed/routed implementation",
+    "PLL initialization adapter and qualified nominal edge replay; isolated FIFO count zero-extension copies",
+    "Cold-start first full serial video frame excluded; remaining frames compared without resynchronization",
+    "Non-nominal reset/clock/card timing, real long KEY1 and full SDF still incomplete"
+  ]
+}

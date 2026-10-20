@@ -1,0 +1,185 @@
+{
+  "started_beijing": "2026-10-16T16:38:28.964751+08:00",
+  "scope": "Real archived reset controller only; original 1000000-clock wait. PLL lock inputs are explicit stimuli; no entire-top or electrical guarantee.",
+  "tb_sha256": "BD949C9ABC07E25333544B7DF09FF46A36C92249B03D63B21F62B037E5553253",
+  "results": [
+    {
+      "version": "C11206",
+      "archived_top": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_bmp_scale\\checkpoints\\bmp_scale_20261012_verified\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v",
+      "archived_top_sha256": "DB211234F22FBCADCFAC039DC8D81964DC274148719B830D3B076C8D70C91F4C",
+      "manifest_match": true,
+      "exact_source_block_sha256_lf": "2f9fcc7a994c665a623e9da163b01fb73c2aaea9d9a07069a0cc62f9ded00952",
+      "derived_module_sha256": "48344C7C00457CDCC1D9C2D2591059EAE3EF48DF38500933F398BA734A2B17EE",
+      "commands": [
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlib.exe",
+            "work"
+          ],
+          "exit_code": 0,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\run_20261016_163828\\C11206\\vlib.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlog.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "startup_contract.v",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\tb_startup_contract.v"
+          ],
+          "exit_code": 0,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\run_20261016_163828\\C11206\\compile.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vsim.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-c",
+            "-lic_noqueue",
+            "-novopt",
+            "work.tb_startup_contract",
+            "-do",
+            "run.do",
+            "-l",
+            "run.log"
+          ],
+          "exit_code": 0,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\run_20261016_163828\\C11206\\console.log"
+        }
+      ],
+      "markers": [
+        "# BOUNDARY archived original 1000000-cycle controller, no counter force or shortened wait; lock inputs are explicit test stimuli, PLL/media/HDMI not included",
+        "# RESET_RELEASE n=1 cycles=1000206 consecutive_lock_edges=1000001 count=1000000",
+        "# CASE normal_cold_start PASS",
+        "# CASE post_start_lock_drop_preserves_existing_policy PASS",
+        "# RESET_RELEASE n=2 cycles=2001244 consecutive_lock_edges=1000001 count=1000000",
+        "# CASE lock_loss_during_start_restarts_full_wait PASS",
+        "# RESET_RELEASE n=3 cycles=3001250 consecutive_lock_edges=1000001 count=1000000",
+        "# CASE external_reset_repeats_full_wait PASS",
+        "# PASS startup_contract scenarios=5 releases=3 minimum_full_lock_edges=1000001 checks=3001250"
+      ],
+      "status": "PASS",
+      "console_sha256": "9B65B12ACDF883A0583D55E90EADA8C4014135DCE4F7502011DFBB3DEBB03326"
+    },
+    {
+      "version": "C11309",
+      "archived_top": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_clock_route\\checkpoints\\music_spectrum_clock_route_20261014_candidate\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v",
+      "archived_top_sha256": "CA1DA9BF01A173DB78D5A54AABEB4F8BA9FEA93C5FD04BF6DC08BFC4672B7CB0",
+      "manifest_match": true,
+      "exact_source_block_sha256_lf": "2f9fcc7a994c665a623e9da163b01fb73c2aaea9d9a07069a0cc62f9ded00952",
+      "derived_module_sha256": "48344C7C00457CDCC1D9C2D2591059EAE3EF48DF38500933F398BA734A2B17EE",
+      "commands": [
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlib.exe",
+            "work"
+          ],
+          "exit_code": 0,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\run_20261016_163828\\C11309\\vlib.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlog.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "startup_contract.v",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\tb_startup_contract.v"
+          ],
+          "exit_code": 0,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\run_20261016_163828\\C11309\\compile.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vsim.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-c",
+            "-lic_noqueue",
+            "-novopt",
+            "work.tb_startup_contract",
+            "-do",
+            "run.do",
+            "-l",
+            "run.log"
+          ],
+          "exit_code": 0,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\run_20261016_163828\\C11309\\console.log"
+        }
+      ],
+      "markers": [
+        "# BOUNDARY archived original 1000000-cycle controller, no counter force or shortened wait; lock inputs are explicit test stimuli, PLL/media/HDMI not included",
+        "# RESET_RELEASE n=1 cycles=1000206 consecutive_lock_edges=1000001 count=1000000",
+        "# CASE normal_cold_start PASS",
+        "# CASE post_start_lock_drop_preserves_existing_policy PASS",
+        "# RESET_RELEASE n=2 cycles=2001244 consecutive_lock_edges=1000001 count=1000000",
+        "# CASE lock_loss_during_start_restarts_full_wait PASS",
+        "# RESET_RELEASE n=3 cycles=3001250 consecutive_lock_edges=1000001 count=1000000",
+        "# CASE external_reset_repeats_full_wait PASS",
+        "# PASS startup_contract scenarios=5 releases=3 minimum_full_lock_edges=1000001 checks=3001250"
+      ],
+      "status": "PASS",
+      "console_sha256": "026AA84999DC1FFFA2A91EA53C6DE6078A45B484614B6AC2925CA87AE96252F6"
+    },
+    {
+      "version": "C11310",
+      "archived_top": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\checkpoints\\music_spectrum_fft_recover_20261014_candidate\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v",
+      "archived_top_sha256": "D7024877120ABA733A7376FEE60B45011FDEC54583EA62366527502873AFAC99",
+      "manifest_match": true,
+      "exact_source_block_sha256_lf": "2f9fcc7a994c665a623e9da163b01fb73c2aaea9d9a07069a0cc62f9ded00952",
+      "derived_module_sha256": "48344C7C00457CDCC1D9C2D2591059EAE3EF48DF38500933F398BA734A2B17EE",
+      "commands": [
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlib.exe",
+            "work"
+          ],
+          "exit_code": 0,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\run_20261016_163828\\C11310\\vlib.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlog.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "startup_contract.v",
+            "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\tb_startup_contract.v"
+          ],
+          "exit_code": 0,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\run_20261016_163828\\C11310\\compile.log"
+        },
+        {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vsim.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-c",
+            "-lic_noqueue",
+            "-novopt",
+            "work.tb_startup_contract",
+            "-do",
+            "run.do",
+            "-l",
+            "run.log"
+          ],
+          "exit_code": 0,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\startup\\run_20261016_163828\\C11310\\console.log"
+        }
+      ],
+      "markers": [
+        "# BOUNDARY archived original 1000000-cycle controller, no counter force or shortened wait; lock inputs are explicit test stimuli, PLL/media/HDMI not included",
+        "# RESET_RELEASE n=1 cycles=1000206 consecutive_lock_edges=1000001 count=1000000",
+        "# CASE normal_cold_start PASS",
+        "# CASE post_start_lock_drop_preserves_existing_policy PASS",
+        "# RESET_RELEASE n=2 cycles=2001244 consecutive_lock_edges=1000001 count=1000000",
+        "# CASE lock_loss_during_start_restarts_full_wait PASS",
+        "# RESET_RELEASE n=3 cycles=3001250 consecutive_lock_edges=1000001 count=1000000",
+        "# CASE external_reset_repeats_full_wait PASS",
+        "# PASS startup_contract scenarios=5 releases=3 minimum_full_lock_edges=1000001 checks=3001250"
+      ],
+      "status": "PASS",
+      "console_sha256": "947FB8879E2340DC228693E9974FB834EAD6B9A3CC023D683389EDB5B5D05D26"
+    }
+  ],
+  "completed_beijing": "2026-10-16T16:38:45.302826+08:00"
+}

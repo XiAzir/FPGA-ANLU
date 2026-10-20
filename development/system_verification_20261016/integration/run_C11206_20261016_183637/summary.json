@@ -1,0 +1,62 @@
+{
+  "status": "SYSTEM_MEDIA_PASS_WITH_MODEL_ASSUMPTIONS",
+  "version": "C11206",
+  "clock_model": "replay",
+  "serial_scoreboard": true,
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "+incdir+E:/VSCODE-project/FPGA-ANLU/development/player_bmp_scale/checkpoints/bmp_scale_20261012_verified/src/user_source/hdl_source+E:/VSCODE-project/FPGA-ANLU/development/player_bmp_scale/checkpoints/bmp_scale_20261012_verified/src/user_source/hdl_source/include+E:/VSCODE-project/FPGA-ANLU/development/player_bmp_scale/checkpoints/bmp_scale_20261012_verified/src/user_source/hdl_source/SD+E:/VSCODE-project/FPGA-ANLU/development/player_bmp_scale/checkpoints/bmp_scale_20261012_verified/src/td_project",
+      "-f",
+      "plain.f"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\run_C11206_20261016_183637\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "-L",
+      "hdmi",
+      "work.tb_system",
+      "work.glbl",
+      "+max_ms=200",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\run_C11206_20261016_183637\\console.log"
+  },
+  "fft": null,
+  "assumptions": [
+    "Qualified nominal PLL edge replay, fixed 50MHz reference/reset0 only",
+    "application-interface memory model; data leads valid by one clock",
+    "short generated BMP/WAV fixture"
+  ],
+  "unverified": [
+    "physical SDRAM",
+    "key source switching",
+    "SDF",
+    "hardware fault reproduction"
+  ],
+  "testbench_sha256": "2900D18C3EC37491415EB682F318C5CC1FB296067FFED012E3515F95A4C68775"
+}

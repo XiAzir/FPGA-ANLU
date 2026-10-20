@@ -1,0 +1,24 @@
+CASE PASS short_header_sector detail=0101ff
+CASE PASS long_header_sector detail=010201
+CASE PASS header_BM detail=020001
+CASE PASS header_DIB detail=020002
+CASE PASS header_offset detail=020004
+CASE PASS header_planes detail=020008
+CASE PASS header_bits detail=020010
+CASE PASS header_compression detail=020020
+CASE PASS header_width detail=020040
+CASE PASS header_height detail=020080
+CASE PASS _file_extent_and_declared_extent detail=020300
+CASE PASS header_declared_extent detail=020200
+CASE PASS header_declared_size_over_file detail=020400
+CASE PASS tent_and_declared_size_over_file detail=020500
+CASE PASS mapper_header detail=040002
+CASE PASS watchdog_header detail=050002
+CASE PASS write_ack_timeout detail=050004
+CASE PASS scaler_short_payload detail=030007
+CASE PASS sticky_first_header_error detail=020001
+CASE PASS first_error_sticky detail=020001
+CASE PASS reset_clears_detail
+CASE PASS valid_commit pixels=768 detail=000000
+BMP_FAILURE_DETAIL PASS cases=21 header_masks=12 sector_lengths=2 mapper=1 watchdogs=2 scaler=1 sticky=1 reset=1 valid_commit=1
+E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_tf_margin\sim\tb_tf_bmp_failure_detail.v:231: $finish called at 297500000 (1ps)

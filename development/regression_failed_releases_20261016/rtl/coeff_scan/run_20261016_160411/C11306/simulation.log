@@ -1,0 +1,22 @@
+# vsim +HAN=spectrum_hann.mem +TWI=spectrum_twiddle.mem -L work -L EG4 -do {run -all; quit -f} -l simulation.log -lib work -c -modelsimini modelsim.ini -novopt work.tb_coeff_rom_scan EG4.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/regression_failed_releases_20261016/rtl/coeff_scan/run_20261016_160411/C11306/work.tb_coeff_rom_scan
+# Loading work.tb_coeff_rom_scan
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/regression_failed_releases_20261016/rtl/coeff_scan/run_20261016_160411/C11306/work.spectrum_coeff_rom
+# Loading work.spectrum_coeff_rom
+# Loading EG4.EG_PHY_BRAM
+# Loading EG4.glbl
+# run -all 
+# SCAN Hann words=1024 unknown=0 mismatches=0 first_index=-1 first_got=xxxx first_expected=xxxx
+# SCAN Twiddle words=512 unknown=0 mismatches=512 first_index=0 first_got=00000000 first_expected=7fff0000
+# FAIL coeff_rom_scan
+# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/regression_failed_releases_20261016/rtl/coeff_scan/run_20261016_160411/C11306/tb_coeff_rom_scan.v(63)
+#    Time: 30760 ns  Iteration: 1  Instance: /tb_coeff_rom_scan

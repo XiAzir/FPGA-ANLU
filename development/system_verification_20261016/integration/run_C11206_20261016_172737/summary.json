@@ -1,0 +1,56 @@
+{
+  "status": "NOT_PASSED",
+  "version": "C11206",
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "+incdir+E:/VSCODE-project/FPGA-ANLU/development/player_bmp_scale/checkpoints/bmp_scale_20261012_verified/src/user_source/hdl_source+E:/VSCODE-project/FPGA-ANLU/development/player_bmp_scale/checkpoints/bmp_scale_20261012_verified/src/user_source/hdl_source/include+E:/VSCODE-project/FPGA-ANLU/development/player_bmp_scale/checkpoints/bmp_scale_20261012_verified/src/user_source/hdl_source/SD+E:/VSCODE-project/FPGA-ANLU/development/player_bmp_scale/checkpoints/bmp_scale_20261012_verified/src/td_project",
+      "-f",
+      "plain.f"
+    ],
+    "exit_code": 0,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\run_C11206_20261016_172737\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "-L",
+      "hdmi",
+      "work.tb_system",
+      "work.glbl",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 4294967295,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\run_C11206_20261016_172737\\console.log"
+  },
+  "assumptions": [
+    "PLL initialization adapter",
+    "application-interface memory model; data leads valid by one clock",
+    "short generated BMP/WAV fixture"
+  ],
+  "unverified": [
+    "physical SDRAM",
+    "HDMI serial content",
+    "key source switching",
+    "SDF",
+    "hardware fault reproduction"
+  ],
+  "testbench_sha256": "BBD0340FF65BBF0BE60E1254371E73B14D6BFD43C38DD3B8A25B467D061072A6"
+}

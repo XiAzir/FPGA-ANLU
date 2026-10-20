@@ -1,0 +1,61 @@
+{
+  "id": "C11306",
+  "tree": "player_spectrum_private_init",
+  "checkpoint": "music_spectrum_private_init_20261013_candidate",
+  "checkpoint_manifest_sha256": "2496ba28835d656d1c121776b8a060cc12d50f735fe50a6006ac65d64a712632",
+  "input_hashes": [
+    {
+      "path": "src/user_source/hdl_source/spectrum_coeff_rom.v",
+      "sha256": "c273f96dfbd4e6331b28485959ae60559fbd951fee7dbc9c9c8eeae6f3f5ac2f",
+      "manifest_sha256": "c273f96dfbd4e6331b28485959ae60559fbd951fee7dbc9c9c8eeae6f3f5ac2f",
+      "matches_manifest": true
+    },
+    {
+      "path": "src/user_source/hdl_source/spectrum_hann.mem",
+      "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+      "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+      "matches_manifest": true
+    },
+    {
+      "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+      "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+      "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+      "matches_manifest": true
+    }
+  ],
+  "copied_input_hashes": [
+    {
+      "path": "tb_coeff_rom_scan.v",
+      "sha256": "ed386271dd8ec1a24749497f053dd38f402cddbcfe06e8941b68299d2d96c504",
+      "matches_source": true
+    },
+    {
+      "path": "spectrum_hann.mem",
+      "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+      "matches_source": true
+    },
+    {
+      "path": "spectrum_twiddle.mem",
+      "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+      "matches_source": true
+    }
+  ],
+  "isolated_tb_sha256": "ed386271dd8ec1a24749497f053dd38f402cddbcfe06e8941b68299d2d96c504",
+  "compile_exit_code": 0,
+  "simulation_exit_code": 0,
+  "loaded_eg_phy_bram": true,
+  "loaded_glbl": true,
+  "readmem_open_failure": false,
+  "hann": null,
+  "twiddle": null,
+  "controls": {
+    "rom_version": "C11306",
+    "hann_low_and_high": "Both versions: SP8K, addra={hann_addr,3'b111}, cea=hann_en, csa=3'b111, wea=0; no meaningful read-control difference observed.",
+    "twiddle_low_and_high": "PDPW8K; A and B addresses both twiddle_addr; cea=twiddle_en and ceb=twiddle_en; csa=csb=3'b111; wea=0/web=0; outputs use doa low 9 bits plus dob upper 9 bits.",
+    "raw_rom_sha256": "c273f96dfbd4e6331b28485959ae60559fbd951fee7dbc9c9c8eeae6f3f5ac2f",
+    "raw_rom_text_has_private_sim_define": true,
+    "behavioral_branch_enabled": false
+  },
+  "status": "SCAN_FAILURE",
+  "limitations": "Standalone coefficient ROM RTL scan against frozen .mem files using the installed precompiled EG_PHY_BRAM simulation model; does not validate mapped silicon behavior, analyzer scheduling, complete top-level startup, PHY, routed timing, or board behavior."
+}

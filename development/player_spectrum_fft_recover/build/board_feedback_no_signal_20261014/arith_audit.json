@@ -1,0 +1,1565 @@
+{
+  "scope": "C11309/C11310 routed netlists; static extraction",
+  "primitive_truth": "unverified; EG4 simulation body is pragma-protected",
+  "netlists": {
+    "C11309": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_clock_route\\build\\audit\\routed_implementation.v",
+      "sample_count_adders": [
+        {
+          "name": "u_pcm_waveform/u_spectrum/add0_syn_62",
+          "line": 161977,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add0_syn_62\"",
+            "R_POSITION": "\"X0Y0Z0\"",
+            "CEMUX": "\"CE\"",
+            "CLKMUX": "\"CLK\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "DFFMODE": "\"FF\"",
+            "INIT_LUTF0": "16'h000A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\"",
+            "REG0_REGSET": "\"RESET\"",
+            "REG0_SD": "\"MI\"",
+            "REG1_REGSET": "\"RESET\"",
+            "REG1_SD": "\"MI\"",
+            "SRMODE": "\"ASYNC\"",
+            "SRMUX": "\"SR\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/sample_count [1],1'b0}",
+            "b": "{\\u_pcm_waveform/u_spectrum/sample_count [2],\\u_pcm_waveform/u_spectrum/sample_count [0]}",
+            "c": "2'b00",
+            "ce": "\\u_audio_probe/mux5_syn_2 [23]",
+            "clk": "\\u_status_monitor/sys_clk",
+            "d": "2'b01",
+            "e": "2'b01",
+            "mi": "audio_left_data[9:8]",
+            "sr": "\\u_status_monitor/startup_flags[1]_dup_4342",
+            "f": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [1],open_n156454}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add0_syn_54",
+            "fx": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [2],open_n156455}",
+            "q": "\\u_audio_probe/wav_first_sample [9:8]",
+            "v": "288"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(288)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add0_syn_63",
+          "line": 162014,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add0_syn_62\"",
+            "R_POSITION": "\"X0Y0Z1\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/sample_count [5],\\u_pcm_waveform/u_spectrum/sample_count [3]}",
+            "b": "{\\u_pcm_waveform/u_spectrum/sample_count [6],\\u_pcm_waveform/u_spectrum/sample_count [4]}",
+            "c": "2'b00",
+            "d": "2'b00",
+            "e": "2'b00",
+            "fci": "\\u_pcm_waveform/u_spectrum/add0_syn_54",
+            "f": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [5],\\u_pcm_waveform/u_spectrum/sample_count_b6 [3]}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add0_syn_58",
+            "fx": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [6],\\u_pcm_waveform/u_spectrum/sample_count_b6 [4]}",
+            "v": "288"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(288)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add0_syn_64",
+          "line": 162038,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add0_syn_62\"",
+            "R_POSITION": "\"X0Y1Z0\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/sample_count [9],\\u_pcm_waveform/u_spectrum/sample_count [7]}",
+            "b": "{open_n156474,\\u_pcm_waveform/u_spectrum/sample_count [8]}",
+            "c": "2'b00",
+            "d": "2'b00",
+            "e": "{open_n156477,1'b0}",
+            "fci": "\\u_pcm_waveform/u_spectrum/add0_syn_58",
+            "f": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [9],\\u_pcm_waveform/u_spectrum/sample_count_b6 [7]}",
+            "fx": "{open_n156493,\\u_pcm_waveform/u_spectrum/sample_count_b6 [8]}",
+            "v": "288"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(288)"
+        }
+      ],
+      "counter_registers": {
+        "sample_count_reg[": [
+          {
+            "name": "u_pcm_waveform/u_spectrum/sample_count_reg[1]_syn_4",
+            "line": 167813,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*~D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000000011110000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"SYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_reg_syn_1 [0],\\u_pcm_waveform/u_spectrum/state_reg_syn_1 [0]}",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux64_syn_3 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [1],\\u_pcm_waveform/u_spectrum/sample_count [0]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/band_index_b_n_dup_3",
+              "q": "\\u_pcm_waveform/u_spectrum/sample_count [1:0]",
+              "v": "260"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(260)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/sample_count_reg[2]_syn_4",
+            "line": 167835,
+            "type": "LSLICE",
+            "params": {
+              "LUTF0": "\"(C*D",
+              "LUTF1": "\"(C*D",
+              "LUTG0": "\"(C*D",
+              "LUTG1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUTF0": "16'b1111000000000000",
+              "INIT_LUTF1": "16'b1111000000000000",
+              "INIT_LUTG0": "16'b1111000000000000",
+              "INIT_LUTG1": "16'b1111000000000000",
+              "LSFMUX0": "\"FUNC5\"",
+              "LSFMUX1": "\"FUNC5\"",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"SYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_reg_syn_1 [0],\\u_pcm_waveform/u_spectrum/state_reg_syn_1 [0]}",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux64_syn_3 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [2],\\u_pcm_waveform/u_spectrum/sample_count_b6 [5]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/band_index_b_n_dup_3",
+              "q": "{\\u_pcm_waveform/u_spectrum/sample_count [2],\\u_pcm_waveform/u_spectrum/sample_count [5]}",
+              "v": "260"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(260)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/sample_count_reg[3]_syn_4",
+            "line": 167863,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"SYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_reg_syn_1 [0],\\u_pcm_waveform/u_spectrum/state_reg_syn_1 [0]}",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux64_syn_3 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [3],\\u_pcm_waveform/u_spectrum/sample_count_b6 [8]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/band_index_b_n_dup_3",
+              "q": "{\\u_pcm_waveform/u_spectrum/sample_count [3],\\u_pcm_waveform/u_spectrum/sample_count [8]}",
+              "v": "260"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(260)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/sample_count_reg[4]_syn_4",
+            "line": 167885,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"SYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_reg_syn_1 [0],\\u_pcm_waveform/u_spectrum/state_reg_syn_1 [0]}",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux64_syn_3 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [4],\\u_pcm_waveform/u_spectrum/sample_count_b6 [6]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/band_index_b_n_dup_2",
+              "q": "{\\u_pcm_waveform/u_spectrum/sample_count [4],\\u_pcm_waveform/u_spectrum/sample_count [6]}",
+              "v": "260"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(260)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/sample_count_reg[7]_syn_4",
+            "line": 167907,
+            "type": "LSLICE",
+            "params": {
+              "LUTF0": "\"(C*D",
+              "LUTF1": "\"(C*D",
+              "LUTG0": "\"(C*D",
+              "LUTG1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUTF0": "16'b1111000000000000",
+              "INIT_LUTF1": "16'b1111000000000000",
+              "INIT_LUTG0": "16'b1111000000000000",
+              "INIT_LUTG1": "16'b1111000000000000",
+              "LSFMUX0": "\"FUNC5\"",
+              "LSFMUX1": "\"FUNC5\"",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"SYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_reg_syn_1 [0],\\u_pcm_waveform/u_spectrum/state_reg_syn_1 [0]}",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux64_syn_3 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [7],\\u_pcm_waveform/u_spectrum/sample_count_b6 [9]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/band_index_b_n_dup_3",
+              "q": "{\\u_pcm_waveform/u_spectrum/sample_count [7],\\u_pcm_waveform/u_spectrum/sample_count [9]}",
+              "v": "260"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(260)"
+          }
+        ],
+        "accepted_samples_reg[": [],
+        "frame_age_samples_reg[": []
+      },
+      "accepted_adders": [],
+      "frame_age_adders": [],
+      "carry_check": {
+        "segments": 3,
+        "low_to_mid": true,
+        "mid_to_high": true,
+        "fco": [
+          "\\u_pcm_waveform/u_spectrum/add0_syn_54",
+          "\\u_pcm_waveform/u_spectrum/add0_syn_58",
+          ""
+        ],
+        "fci": [
+          "",
+          "\\u_pcm_waveform/u_spectrum/add0_syn_54",
+          "\\u_pcm_waveform/u_spectrum/add0_syn_58"
+        ]
+      }
+    },
+    "C11310": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\build\\audit\\routed_implementation.v",
+      "sample_count_adders": [
+        {
+          "name": "u_pcm_waveform/u_spectrum/add4_syn_62",
+          "line": 161742,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add4_syn_62\"",
+            "R_POSITION": "\"X0Y0Z0\"",
+            "CEMUX": "\"1\"",
+            "CLKMUX": "\"CLK\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "DFFMODE": "\"FF\"",
+            "INIT_LUTF0": "16'h000A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\"",
+            "REG0_REGSET": "\"RESET\"",
+            "REG0_SD": "\"MI\"",
+            "SRMODE": "\"ASYNC\"",
+            "SRMUX": "\"0\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/debug_progress [10],1'b0}",
+            "b": "{\\u_pcm_waveform/u_spectrum/debug_progress [11],\\u_pcm_waveform/u_spectrum/debug_progress [9]}",
+            "c": "2'b00",
+            "clk": "\\u_status_monitor/sys_clk",
+            "d": "2'b01",
+            "e": "2'b01",
+            "mi": "{open_n156141,\\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/S_packet_body [21]}",
+            "f": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [1],open_n156154}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add4_syn_54",
+            "fx": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [2],open_n156155}",
+            "q": "{open_n156156,\\u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/u_w96_d1024_fifo/I_fifo_wr_data [21]}",
+            "v": "338"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(338)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add4_syn_63",
+          "line": 161775,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add4_syn_62\"",
+            "R_POSITION": "\"X0Y0Z1\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/debug_progress [14],\\u_pcm_waveform/u_spectrum/debug_progress [12]}",
+            "b": "{\\u_pcm_waveform/u_spectrum/debug_progress [15],\\u_pcm_waveform/u_spectrum/debug_progress [13]}",
+            "c": "2'b00",
+            "d": "2'b00",
+            "e": "2'b00",
+            "fci": "\\u_pcm_waveform/u_spectrum/add4_syn_54",
+            "f": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [5],\\u_pcm_waveform/u_spectrum/sample_count_b6 [3]}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add4_syn_58",
+            "fx": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [6],\\u_pcm_waveform/u_spectrum/sample_count_b6 [4]}",
+            "v": "338"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(338)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add4_syn_64",
+          "line": 161799,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add4_syn_62\"",
+            "R_POSITION": "\"X0Y1Z0\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/debug_progress [18],\\u_pcm_waveform/u_spectrum/debug_progress [16]}",
+            "b": "{open_n156175,\\u_pcm_waveform/u_spectrum/debug_progress [17]}",
+            "c": "2'b00",
+            "d": "2'b00",
+            "e": "{open_n156178,1'b0}",
+            "fci": "\\u_pcm_waveform/u_spectrum/add4_syn_58",
+            "f": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [9],\\u_pcm_waveform/u_spectrum/sample_count_b6 [7]}",
+            "fx": "{open_n156194,\\u_pcm_waveform/u_spectrum/sample_count_b6 [8]}",
+            "v": "338"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(338)"
+        }
+      ],
+      "counter_registers": {
+        "sample_count_reg[": [
+          {
+            "name": "u_pcm_waveform/u_spectrum/sample_count_reg[1]_syn_4",
+            "line": 167159,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*B*D",
+              "LUT1": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000110000000000",
+              "INIT_LUT1": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [1],\\u_pcm_waveform/u_spectrum/sample_count_b6 [3]}",
+              "c": "{\\u_pcm_waveform/u_spectrum/debug_progress [22],\\u_pcm_waveform/u_spectrum/debug_progress [22]}",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux98_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/mux102_syn_dup_81 ,\\u_pcm_waveform/u_spectrum/mux102_syn_dup_81 }",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_progress [10],\\u_pcm_waveform/u_spectrum/debug_progress [12]}",
+              "v": "324"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(324)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/sample_count_reg[2]_syn_4",
+            "line": 167182,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*~B*D",
+              "LUT1": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000001100000000",
+              "INIT_LUT1": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [2],\\u_pcm_waveform/u_spectrum/debug_progress [9]}",
+              "c": "{\\u_pcm_waveform/u_spectrum/debug_progress [22],\\u_pcm_waveform/u_spectrum/debug_progress [22]}",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux98_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/mux102_syn_dup_85 ,\\u_pcm_waveform/u_spectrum/mux102_syn_dup_85 }",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_progress [11],\\u_pcm_waveform/u_spectrum/debug_progress [9]}",
+              "v": "324"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(324)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/sample_count_reg[4]_syn_4",
+            "line": 167205,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*B*D",
+              "LUT1": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000110000000000",
+              "INIT_LUT1": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [4],\\u_pcm_waveform/u_spectrum/sample_count_b6 [6]}",
+              "c": "{\\u_pcm_waveform/u_spectrum/debug_progress [22],\\u_pcm_waveform/u_spectrum/debug_progress [22]}",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux98_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/mux102_syn_dup_85 ,\\u_pcm_waveform/u_spectrum/mux102_syn_dup_85 }",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_progress [13],\\u_pcm_waveform/u_spectrum/debug_progress [15]}",
+              "v": "324"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(324)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/sample_count_reg[5]_syn_4",
+            "line": 167228,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*B*D",
+              "LUT1": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000110000000000",
+              "INIT_LUT1": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [5],\\u_pcm_waveform/u_spectrum/sample_count_b6 [7]}",
+              "c": "{\\u_pcm_waveform/u_spectrum/debug_progress [22],\\u_pcm_waveform/u_spectrum/debug_progress [22]}",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux98_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/mux102_syn_dup_85 ,\\u_pcm_waveform/u_spectrum/mux102_syn_dup_85 }",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_progress [14],\\u_pcm_waveform/u_spectrum/debug_progress [16]}",
+              "v": "324"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(324)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/sample_count_reg[8]_syn_4",
+            "line": 167251,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*B*D",
+              "LUT1": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000110000000000",
+              "INIT_LUT1": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{\\u_pcm_waveform/u_spectrum/sample_count_b6 [8],\\u_pcm_waveform/u_spectrum/sample_count_b6 [9]}",
+              "c": "{\\u_pcm_waveform/u_spectrum/debug_progress [22],\\u_pcm_waveform/u_spectrum/debug_progress [22]}",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux98_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/mux102_syn_dup_81 ,\\u_pcm_waveform/u_spectrum/mux102_syn_dup_81 }",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_progress [17],\\u_pcm_waveform/u_spectrum/debug_progress [18]}",
+              "v": "324"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(324)"
+          }
+        ],
+        "accepted_samples_reg[": [
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[10]_syn_4",
+            "line": 160798,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [10],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [5]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_accepted [10],\\u_pcm_waveform/u_spectrum/debug_accepted [5]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[11]_syn_4",
+            "line": 160820,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [11],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [6]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_accepted [11],\\u_pcm_waveform/u_spectrum/debug_accepted [6]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[12]_syn_4",
+            "line": 160842,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{open_n155340,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{open_n155341,\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [12]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{open_n155359,\\u_pcm_waveform/u_spectrum/debug_accepted [12]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[13]_syn_4",
+            "line": 160860,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [13],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [15]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_accepted [13],\\u_pcm_waveform/u_spectrum/debug_accepted [15]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[14]_syn_4",
+            "line": 160882,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [14],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [9]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_accepted [14],\\u_pcm_waveform/u_spectrum/debug_accepted [9]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[16]_syn_4",
+            "line": 160904,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [16],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [17]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_accepted [16],\\u_pcm_waveform/u_spectrum/debug_accepted [17]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[18]_syn_4",
+            "line": 160926,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [18],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [20]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_accepted [18],\\u_pcm_waveform/u_spectrum/debug_accepted [20]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[19]_syn_4",
+            "line": 160948,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [19],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [23]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_accepted [19],\\u_pcm_waveform/u_spectrum/debug_accepted [23]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[1]_syn_4",
+            "line": 160970,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [1],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [2]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_accepted [1],\\u_pcm_waveform/u_spectrum/debug_accepted [2]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[21]_syn_4",
+            "line": 160992,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [21],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [22]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_accepted [21],\\u_pcm_waveform/u_spectrum/debug_accepted [22]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[3]_syn_4",
+            "line": 161014,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [3],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [4]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_accepted [3],\\u_pcm_waveform/u_spectrum/debug_accepted [4]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/accepted_samples_reg[7]_syn_4",
+            "line": 161036,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(C*D",
+              "LUT1": "\"(C*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b1111000000000000",
+              "INIT_LUT1": "16'b1111000000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "c": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux34_syn_2 [23]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [7],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [8]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/debug_accepted [7],\\u_pcm_waveform/u_spectrum/debug_accepted [8]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          }
+        ],
+        "frame_age_samples_reg[": [
+          {
+            "name": "u_pcm_waveform/u_spectrum/frame_age_samples_reg[10]_syn_4",
+            "line": 164151,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*B*D",
+              "LUT1": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000110000000000",
+              "INIT_LUT1": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "c": "{\\u_pcm_waveform/frame_done ,\\u_pcm_waveform/frame_done }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux31_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [10:9]",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "\\u_pcm_waveform/u_spectrum/frame_age_samples [10:9]",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/frame_age_samples_reg[11]_syn_4",
+            "line": 164174,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{open_n158111,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "c": "{open_n158112,\\u_pcm_waveform/frame_done }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux31_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{open_n158113,\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [11]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{open_n158131,\\u_pcm_waveform/u_spectrum/frame_age_samples [11]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/frame_age_samples_reg[1]_syn_4",
+            "line": 164193,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{open_n158134,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "c": "{open_n158135,\\u_pcm_waveform/frame_done }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux31_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{open_n158136,\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [1]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{open_n158154,\\u_pcm_waveform/u_spectrum/frame_age_samples [1]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/frame_age_samples_reg[2]_syn_4",
+            "line": 164212,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*~B*D",
+              "LUT1": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000001100000000",
+              "INIT_LUT1": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/frame_done }",
+              "c": "{\\u_pcm_waveform/frame_done ,\\u_pcm_waveform/u_spectrum/frame_age_samples [0]}",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux31_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [2],\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/frame_age_samples [2],\\u_pcm_waveform/u_spectrum/frame_age_samples [0]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/frame_age_samples_reg[3]_syn_4",
+            "line": 164235,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*B*D",
+              "LUT1": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000110000000000",
+              "INIT_LUT1": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "c": "{\\u_pcm_waveform/frame_done ,\\u_pcm_waveform/frame_done }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux31_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [3],\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [4]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/frame_age_samples [3],\\u_pcm_waveform/u_spectrum/frame_age_samples [4]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/frame_age_samples_reg[5]_syn_4",
+            "line": 164258,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*B*D",
+              "LUT1": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000110000000000",
+              "INIT_LUT1": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "c": "{\\u_pcm_waveform/frame_done ,\\u_pcm_waveform/frame_done }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux31_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [5],\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [6]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/frame_age_samples [5],\\u_pcm_waveform/u_spectrum/frame_age_samples [6]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          },
+          {
+            "name": "u_pcm_waveform/u_spectrum/frame_age_samples_reg[7]_syn_4",
+            "line": 164281,
+            "type": "MSLICE",
+            "params": {
+              "LUT0": "\"(~C*B*D",
+              "LUT1": "\"(~C*B*D",
+              "CEMUX": "\"CE\"",
+              "CLKMUX": "\"CLK\"",
+              "DFFMODE": "\"FF\"",
+              "INIT_LUT0": "16'b0000110000000000",
+              "INIT_LUT1": "16'b0000110000000000",
+              "MODE": "\"LOGIC\"",
+              "REG0_REGSET": "\"RESET\"",
+              "REG0_SD": "\"F\"",
+              "REG1_REGSET": "\"RESET\"",
+              "REG1_SD": "\"F\"",
+              "SRMODE": "\"ASYNC\"",
+              "SRMUX": "\"SR\""
+            },
+            "ports": {
+              "b": "{\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 ,\\u_pcm_waveform/u_spectrum/state_b[1]_syn_4 }",
+              "c": "{\\u_pcm_waveform/frame_done ,\\u_pcm_waveform/frame_done }",
+              "ce": "\\u_pcm_waveform/u_spectrum/mux31_syn_2 [0]",
+              "clk": "\\u_status_monitor/sys_clk",
+              "d": "{\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [7],\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [8]}",
+              "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]",
+              "q": "{\\u_pcm_waveform/u_spectrum/frame_age_samples [7],\\u_pcm_waveform/u_spectrum/frame_age_samples [8]}",
+              "v": "71"
+            },
+            "source": "../user_source/hdl_source/player_spectrum_analyzer.v(71)"
+          }
+        ]
+      },
+      "accepted_adders": [
+        {
+          "name": "u_pcm_waveform/u_spectrum/add1_syn_146",
+          "line": 161477,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add1_syn_146\"",
+            "R_POSITION": "\"X0Y0Z0\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'h000A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/debug_accepted [1],1'b0}",
+            "b": "{\\u_pcm_waveform/u_spectrum/debug_accepted [2],\\u_pcm_waveform/u_spectrum/debug_accepted [0]}",
+            "c": "2'b00",
+            "d": "2'b01",
+            "e": "2'b01",
+            "f": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [1],open_n155906}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add1_syn_124",
+            "fx": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [2],open_n155907}",
+            "v": "81"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(81)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add1_syn_147",
+          "line": 161500,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add1_syn_146\"",
+            "R_POSITION": "\"X0Y0Z1\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/debug_accepted [5],\\u_pcm_waveform/u_spectrum/debug_accepted [3]}",
+            "b": "{\\u_pcm_waveform/u_spectrum/debug_accepted [6],\\u_pcm_waveform/u_spectrum/debug_accepted [4]}",
+            "c": "2'b00",
+            "d": "2'b00",
+            "e": "2'b00",
+            "fci": "\\u_pcm_waveform/u_spectrum/add1_syn_124",
+            "f": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [5],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [3]}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add1_syn_128",
+            "fx": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [6],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [4]}",
+            "v": "81"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(81)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add1_syn_148",
+          "line": 161524,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add1_syn_146\"",
+            "R_POSITION": "\"X0Y1Z0\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/debug_accepted [9],\\u_pcm_waveform/u_spectrum/debug_accepted [7]}",
+            "b": "{\\u_pcm_waveform/u_spectrum/debug_accepted [10],\\u_pcm_waveform/u_spectrum/debug_accepted [8]}",
+            "c": "2'b00",
+            "d": "2'b00",
+            "e": "2'b00",
+            "fci": "\\u_pcm_waveform/u_spectrum/add1_syn_128",
+            "f": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [9],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [7]}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add1_syn_132",
+            "fx": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [10],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [8]}",
+            "v": "81"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(81)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add1_syn_149",
+          "line": 161548,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add1_syn_146\"",
+            "R_POSITION": "\"X0Y1Z1\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/debug_accepted [13],\\u_pcm_waveform/u_spectrum/debug_accepted [11]}",
+            "b": "{\\u_pcm_waveform/u_spectrum/debug_accepted [14],\\u_pcm_waveform/u_spectrum/debug_accepted [12]}",
+            "c": "2'b00",
+            "d": "2'b00",
+            "e": "2'b00",
+            "fci": "\\u_pcm_waveform/u_spectrum/add1_syn_132",
+            "f": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [13],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [11]}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add1_syn_136",
+            "fx": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [14],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [12]}",
+            "v": "81"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(81)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add1_syn_150",
+          "line": 161572,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add1_syn_146\"",
+            "R_POSITION": "\"X0Y2Z0\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/debug_accepted [17],\\u_pcm_waveform/u_spectrum/debug_accepted [15]}",
+            "b": "{\\u_pcm_waveform/u_spectrum/debug_accepted [18],\\u_pcm_waveform/u_spectrum/debug_accepted [16]}",
+            "c": "2'b00",
+            "d": "2'b00",
+            "e": "2'b00",
+            "fci": "\\u_pcm_waveform/u_spectrum/add1_syn_136",
+            "f": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [17],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [15]}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add1_syn_140",
+            "fx": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [18],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [16]}",
+            "v": "81"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(81)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add1_syn_151",
+          "line": 161596,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add1_syn_146\"",
+            "R_POSITION": "\"X0Y2Z1\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/debug_accepted [21],\\u_pcm_waveform/u_spectrum/debug_accepted [19]}",
+            "b": "{\\u_pcm_waveform/u_spectrum/debug_accepted [22],\\u_pcm_waveform/u_spectrum/debug_accepted [20]}",
+            "c": "2'b00",
+            "d": "2'b00",
+            "e": "2'b00",
+            "fci": "\\u_pcm_waveform/u_spectrum/add1_syn_140",
+            "f": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [21],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [19]}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add1_syn_144",
+            "fx": "{\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [22],\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [20]}",
+            "v": "81"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(81)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add1_syn_152",
+          "line": 161620,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add1_syn_146\"",
+            "R_POSITION": "\"X0Y3Z0\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{open_n156000,\\u_pcm_waveform/u_spectrum/debug_accepted [23]}",
+            "c": "2'b00",
+            "d": "{open_n156005,1'b0}",
+            "fci": "\\u_pcm_waveform/u_spectrum/add1_syn_144",
+            "f": "{open_n156022,\\u_pcm_waveform/u_spectrum/accepted_samples_b3 [23]}",
+            "v": "81"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(81)"
+        }
+      ],
+      "frame_age_adders": [
+        {
+          "name": "u_pcm_waveform/u_spectrum/add3_syn_74",
+          "line": 161651,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add3_syn_74\"",
+            "R_POSITION": "\"X0Y0Z0\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'h000A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/frame_age_samples [1],1'b0}",
+            "b": "{\\u_pcm_waveform/u_spectrum/frame_age_samples [2],\\u_pcm_waveform/u_spectrum/frame_age_samples [0]}",
+            "c": "2'b00",
+            "d": "2'b01",
+            "e": "2'b01",
+            "f": "{\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [1],open_n156071}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add3_syn_64",
+            "fx": "{\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [2],open_n156072}",
+            "v": "87"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(87)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add3_syn_75",
+          "line": 161674,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add3_syn_74\"",
+            "R_POSITION": "\"X0Y0Z1\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/frame_age_samples [5],\\u_pcm_waveform/u_spectrum/frame_age_samples [3]}",
+            "b": "{\\u_pcm_waveform/u_spectrum/frame_age_samples [6],\\u_pcm_waveform/u_spectrum/frame_age_samples [4]}",
+            "c": "2'b00",
+            "d": "2'b00",
+            "e": "2'b00",
+            "fci": "\\u_pcm_waveform/u_spectrum/add3_syn_64",
+            "f": "{\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [5],\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [3]}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add3_syn_68",
+            "fx": "{\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [6],\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [4]}",
+            "v": "87"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(87)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add3_syn_76",
+          "line": 161698,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add3_syn_74\"",
+            "R_POSITION": "\"X0Y1Z0\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{\\u_pcm_waveform/u_spectrum/frame_age_samples [9],\\u_pcm_waveform/u_spectrum/frame_age_samples [7]}",
+            "b": "{\\u_pcm_waveform/u_spectrum/frame_age_samples [10],\\u_pcm_waveform/u_spectrum/frame_age_samples [8]}",
+            "c": "2'b00",
+            "d": "2'b00",
+            "e": "2'b00",
+            "fci": "\\u_pcm_waveform/u_spectrum/add3_syn_68",
+            "f": "{\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [9],\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [7]}",
+            "fco": "\\u_pcm_waveform/u_spectrum/add3_syn_72",
+            "fx": "{\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [10],\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [8]}",
+            "v": "87"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(87)"
+        },
+        {
+          "name": "u_pcm_waveform/u_spectrum/add3_syn_77",
+          "line": 161722,
+          "type": "LSLICE",
+          "params": {
+            "MACRO": "\"u_pcm_waveform/u_spectrum/add3_syn_74\"",
+            "R_POSITION": "\"X0Y1Z1\"",
+            "DEMUX0": "\"E\"",
+            "DEMUX1": "\"E\"",
+            "INIT_LUTF0": "16'hA55A",
+            "INIT_LUTF1": "16'hA55A",
+            "INIT_LUTG0": "16'hC33C",
+            "INIT_LUTG1": "16'hC33C",
+            "LSFMUX0": "\"SUM\"",
+            "LSFMUX1": "\"SUM\"",
+            "LSFXMUX0": "\"SUM\"",
+            "LSFXMUX1": "\"SUM\"",
+            "MODE": "\"RIPPLE\""
+          },
+          "ports": {
+            "a": "{open_n156111,\\u_pcm_waveform/u_spectrum/frame_age_samples [11]}",
+            "c": "2'b00",
+            "d": "{open_n156116,1'b0}",
+            "fci": "\\u_pcm_waveform/u_spectrum/add3_syn_72",
+            "f": "{open_n156133,\\u_pcm_waveform/u_spectrum/frame_age_samples_b5 [11]}",
+            "v": "87"
+          },
+          "source": "../user_source/hdl_source/player_spectrum_analyzer.v(87)"
+        }
+      ],
+      "carry_check": {
+        "segments": 3,
+        "low_to_mid": true,
+        "mid_to_high": true,
+        "fco": [
+          "\\u_pcm_waveform/u_spectrum/add4_syn_54",
+          "\\u_pcm_waveform/u_spectrum/add4_syn_58",
+          ""
+        ],
+        "fci": [
+          "",
+          "\\u_pcm_waveform/u_spectrum/add4_syn_54",
+          "\\u_pcm_waveform/u_spectrum/add4_syn_58"
+        ]
+      }
+    }
+  },
+  "reference_test": {
+    "width": 10,
+    "states": 1024,
+    "transitions": 1024,
+    "mismatches": [],
+    "status": "PASS",
+    "scope": "ideal unsigned modulo increment only; not EG4 LSLICE simulation"
+  },
+  "primitive_simulation": {
+    "tool": "ModelSim SE-64 10.1c",
+    "vendor_library": "TD EG4 precompiled work library; EG_PHY_LSLICE loaded via -L EG4",
+    "testbench": "modelsim/arith_modelsim/tb_arith_routed_cells.v",
+    "sample_count": "PASS",
+    "accepted_samples": "PASS",
+    "coverage": "C11310 routed sample_count low/mid/high LSLICE and accepted_samples low/mid/high LSLICE. Actual port parameters/connections copied from routed cells. Open bit-0 sum ports are excluded; carry boundaries checked.",
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_fft_recover\\build\\board_feedback_no_signal_20261014\\modelsim\\arith_modelsim\\sim.log"
+  }
+}

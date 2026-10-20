@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "candidateLaneSha256": "0FCAC19590D7C03BC11CB0A02E86049540786C67BEAFBCC0224D22CF6DB19805",
+  "candidateWrapperSha256": "BCA68A59F5564B54C8BB326F81A02E89B5EC2DCEB2B068B28E9F489EC7C6E763",
+  "baselineLaneSha256": "4E2297D22452B437EE60968DAAD5D6473E1541AB1614C507EFF7F298F112BC0E",
+  "baselineWrapperSha256": "416B082B0987001BDBC0A7E20A557CB8FB1DCA34E25DC881E6D28A8CB3CF4300",
+  "officialOddrSha256": "3EEF9298B0496750534698232F87BE61982B759C92DF6BEE7E04DE3EBA979245",
+  "caseCount": 56,
+  "candidateCaseCount": 28,
+  "baselineCaseCount": 28,
+  "wordChecks": 5077,
+  "candidateWordChecks": 5077,
+  "wordErrors": 0,
+  "serialBitErrors": 0,
+  "sourceSequenceErrors": 0,
+  "targetErrors": 0,
+  "captureErrors": 0,
+  "wordChecksDefinition": "Candidate only: each post-lock 10-bit word position is counted once across the remaining stream; per-lane mismatches contribute to wordErrors.",
+  "serialBitErrorsDefinition": "Candidate only: individual output bit mismatches against recorded shift-load words after the fixed common alignment.",
+  "sourceSequenceErrorsDefinition": "Candidate only: at each shift load, S_shift_data is checked against reverse(pat(n-1,lane)); the source index n-1 must increase by exactly one per load and resets at each asynchronous reset.",
+  "nMinusOneRationale": "n increments on pixel rising edges; the wrapper captures the word on the subsequent pixel falling edge together with the marker. The corresponding shift load arrives after the next pixel rising edge but before the next falling edge, so n is one ahead of the word held by the wrapper.",
+  "alignmentRule": "One shared bit offset and one shared shift-load index for all four lanes, found from five consecutive matching 10-bit words, then held fixed through all remaining complete output words.",
+  "resetCount": 2,
+  "resetCountPerCase": 2,
+  "resetCountSeeds": [
+    1,
+    37,
+    97
+  ],
+  "candidateBoundary": "SUMMARY candidate=1 phase_ps=0 toggle_delay_ps=0 d0_delay_ps=50 d1_delay_ps=1500 pad_clk_delay_ps=1000 seed=1 reset_count=2 align_bit=19 align_word=0 captured_words=188,188,188,188 word_checks=181 word_errors=0 serial_bit_errors=0 target_errors=0 capture_errors=0 source_sequence_errors=0",
+  "baselineCounterexample": {
+    "case": "D0 pin delay 50 ps, D1 pin delay 1500 ps, PAD clock delay 1000 ps; 4 lanes",
+    "result": "No common 5-word alignment found for baseline. Candidate used one common alignment, then passed 181 complete words with zero word and bit errors.",
+    "baselineSummary": "SUMMARY candidate=0 phase_ps=0 toggle_delay_ps=0 d0_delay_ps=50 d1_delay_ps=1500 pad_clk_delay_ps=1000 seed=1 reset_count=2 align_bit=-1 align_word=-1 captured_words=188,188,188,188 word_checks=0 word_errors=1 serial_bit_errors=0 target_errors=0 capture_errors=0 source_sequence_errors=0",
+    "candidateSummary": "SUMMARY candidate=1 phase_ps=0 toggle_delay_ps=0 d0_delay_ps=50 d1_delay_ps=1500 pad_clk_delay_ps=1000 seed=1 reset_count=2 align_bit=19 align_word=0 captured_words=188,188,188,188 word_checks=181 word_errors=0 serial_bit_errors=0 target_errors=0 capture_errors=0 source_sequence_errors=0",
+    "modeledOnly": true
+  },
+  "modelLimits": [
+    "Icarus Verilog functional model reproduces the installed official EG_LOGIC_ODDR behavior: D0 and D1 sampled on internal posedge; D1 staging released on negedge; output mux delayed 100 ps.",
+    "Official model global glbl.gsrn omitted; design asynchronous reset asserted/released twice per case.",
+    "Ideal 25 MHz pixel and 125 MHz serial clocks; phase offset swept -1 ns, 0, +1 ns around pixel falling edge; no jitter or metastability model.",
+    "Each input bit gets deterministic per-bit/lane propagation skew in 0..2 ns. Boundary case applies external ODDR D0/D1 pin delays and PAD-clock delay; these are hypotheses and not measured board delays.",
+    "No electrical output, receiver sampling, pin routing, STA, synthesis, bitstream, or on-board behavior is proven.",
+    "Old invalid D1-on-negedge stub summaries and logs are archived under early_stub_invalid and excluded."
+  ]
+}

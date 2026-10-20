@@ -1,0 +1,95 @@
+{
+  "id": "C11306",
+  "source_tree": "player_spectrum_private_init",
+  "checkpoint": "music_spectrum_private_init_20261013_candidate",
+  "manifest_sha256": "2496ba28835d656d1c121776b8a060cc12d50f735fe50a6006ac65d64a712632",
+  "manifest_inputs": [
+    {
+      "path": "sim/tb_player_spectrum_analyzer.v",
+      "sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+      "manifest_sha256": "5833c019efd3bff781859537d7dde360a9dc027d97dfa53fd938011dff069478",
+      "matches_manifest": true
+    },
+    {
+      "path": "src/user_source/hdl_source/player_spectrum_analyzer.v",
+      "sha256": "4d6131343a101e32174245a415a84d707f6308a16141dca55c081ff136a574fb",
+      "manifest_sha256": "4d6131343a101e32174245a415a84d707f6308a16141dca55c081ff136a574fb",
+      "matches_manifest": true
+    },
+    {
+      "path": "sim/vectors/all_samples.mem",
+      "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+      "manifest_sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+      "matches_manifest": true
+    },
+    {
+      "path": "sim/vectors/all_expected.mem",
+      "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+      "manifest_sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+      "matches_manifest": true
+    },
+    {
+      "path": "src/user_source/hdl_source/spectrum_hann.mem",
+      "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+      "manifest_sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+      "matches_manifest": true
+    },
+    {
+      "path": "src/user_source/hdl_source/spectrum_twiddle.mem",
+      "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+      "manifest_sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+      "matches_manifest": true
+    },
+    {
+      "path": "src/user_source/hdl_source/spectrum_coeff_rom.v",
+      "sha256": "c273f96dfbd4e6331b28485959ae60559fbd951fee7dbc9c9c8eeae6f3f5ac2f",
+      "manifest_sha256": "c273f96dfbd4e6331b28485959ae60559fbd951fee7dbc9c9c8eeae6f3f5ac2f",
+      "matches_manifest": true
+    }
+  ],
+  "independent_rom_present": true,
+  "compatibility_relocation": {
+    "applied": true,
+    "change": "Moved reg [8:0] twiddle_addr declaration before the first module instance to avoid ModelSim 10.1c implicit-net redeclaration failure.",
+    "original_sha256": "4d6131343a101e32174245a415a84d707f6308a16141dca55c081ff136a574fb",
+    "compatibility_copy_sha256": "e0984f2f6198b29f8912e0f11ef9f0c937f437dbbf2e00fa33b34a4c00e61bdf",
+    "inverse_transform_matches_original": true
+  },
+  "compile_exit_code": 0,
+  "compile_started": "2026-10-16T15:51:30.9854183+08:00",
+  "compile_ended": "2026-10-16T15:51:31.1172544+08:00",
+  "simulation_exit_code": 0,
+  "simulation_started": "2026-10-16T15:51:31.1175036+08:00",
+  "simulation_ended": "2026-10-16T15:51:33.9217671+08:00",
+  "compile_error_signature": null,
+  "simulator_loaded_eg_phy_bram": true,
+  "simulator_loaded_glbl": true,
+  "private_rom_behavioral_sim_defined": false,
+  "copied_runtime_inputs": [
+    {
+      "path": "all_samples.mem",
+      "sha256": "04091df69301e2bf772ce76cafdc7b8d1ad51b93fd33c17479a3ec43e59a89d2",
+      "matches_source": true
+    },
+    {
+      "path": "all_expected.mem",
+      "sha256": "9f43a55db95975206099c29b83724692cd7bd98df0db9d76899be0d2ddbeddc0",
+      "matches_source": true
+    },
+    {
+      "path": "spectrum_hann.mem",
+      "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+      "matches_source": true
+    },
+    {
+      "path": "spectrum_twiddle.mem",
+      "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+      "matches_source": true
+    }
+  ],
+  "readmem_open_failure": false,
+  "pass_signature": "",
+  "failure_signatures": [],
+  "status": "SIMULATION_FAILURE",
+  "limitation": "RTL-only controlled audio-input test; no whole-system startup, PHY, routed SDF, or hardware validation."
+}

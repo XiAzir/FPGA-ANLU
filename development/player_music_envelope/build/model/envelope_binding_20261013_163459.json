@@ -1,0 +1,38 @@
+{
+  "task": "C11302 independent integer envelope reference and RTL pixel comparison",
+  "status": "COMPILE_FAIL",
+  "compile_exit": 7,
+  "run_exit": null,
+  "avg_log2": 8,
+  "avg_samples_per_event": 256,
+  "frame_cycles": 420000,
+  "nominal_frame_cycles": 420000,
+  "nominal_128_frame_coverage": true,
+  "simulator": {
+    "iverilog": "E:\\VSCODE-project\\FPGA-ANLU\\bringup\\tf_wav_hdmi\\tools\\iverilog\\app\\bin\\iverilog.exe",
+    "vvp": "E:\\VSCODE-project\\FPGA-ANLU\\bringup\\tf_wav_hdmi\\tools\\iverilog\\app\\bin\\vvp.exe"
+  },
+  "files": {
+    "spec": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_music_envelope\\build\\envelope_spec.md",
+      "sha256": "D97A5005A543B4B26F1A09009CE236926BEDE048168341B10B5E2F1784C2FEB9"
+    },
+    "rtl": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_music_envelope\\src\\user_source\\hdl_source\\player_pcm_waveform.v",
+      "sha256": "82F43FB61DBC09F016CB9E265E7D2D948F01E8AD38E8780B4F3848B609697CBB"
+    },
+    "testbench": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_music_envelope\\build\\model\\tb_music_envelope.v",
+      "sha256": "61A445B661E5CDE100BD5156C2B42628C9BD89DCB8CB2672A24FFDD2B3CEE13A"
+    },
+    "runner": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_music_envelope\\build\\model\\run_envelope_model.ps1",
+      "sha256": "929BC09193D30870E17683FA595A839A3D4DB41727E0053B6501EF21ED7EA787"
+    },
+    "compile_log": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_music_envelope\\build\\model\\envelope_compile_20261013_163459.log",
+      "sha256": "F6C2E216B988E220B48F6542C53BE241F89D864140B2BA0A6CEE0B340648E055"
+    }
+  },
+  "note": "RTL simulation evidence only; no synthesis, HDMI link, or board test."
+}

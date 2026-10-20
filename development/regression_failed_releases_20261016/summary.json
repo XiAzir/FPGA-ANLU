@@ -1,0 +1,111 @@
+{
+  "completed_beijing": "2026-10-16T16:26:20.977271+08:00",
+  "simulator": "ModelSim SE-64 10.1c",
+  "source": "Archived RTL and official gate/routed netlists corresponding to delivered old bits; not direct .bit execution",
+  "matrix": [
+    {
+      "version": "C11304",
+      "board_feedback": "黑屏无信号",
+      "rtl": "通过",
+      "gate": "通过",
+      "routed": "无封存网表",
+      "video_control": "通过"
+    },
+    {
+      "version": "C11305",
+      "board_feedback": "默认无图无声、切音源后无信号",
+      "rtl": "通过",
+      "gate": "通过",
+      "routed": "无封存网表",
+      "video_control": "未测"
+    },
+    {
+      "version": "C11306",
+      "board_feedback": "频谱不动、音画异常",
+      "rtl": "失败：24段全零",
+      "gate": "失败：24段全零",
+      "routed": "失败：24段全零",
+      "video_control": "未测"
+    },
+    {
+      "version": "C11307",
+      "board_feedback": "无BMP、WAV杂音，音阶/频谱正常",
+      "rtl": "通过",
+      "gate": "通过",
+      "routed": "通过",
+      "video_control": "未测"
+    },
+    {
+      "version": "C11308",
+      "board_feedback": "绿条、无声，频谱运动",
+      "rtl": "通过",
+      "gate": "通过",
+      "routed": "通过",
+      "video_control": "通过"
+    },
+    {
+      "version": "C11309",
+      "board_feedback": "音画正常，频谱为空",
+      "rtl": "通过",
+      "gate": "通过",
+      "routed": "通过",
+      "video_control": "未测"
+    },
+    {
+      "version": "C11310",
+      "board_feedback": "黑屏无信号",
+      "rtl": "通过",
+      "gate": "通过",
+      "routed": "通过",
+      "video_control": "通过"
+    }
+  ],
+  "archived_files_checked": 1795,
+  "archived_manifest_mismatches": 0,
+  "evidence": [
+    {
+      "path": "archive_integrity.json",
+      "sha256": "48B7B7B6AB2CA2FCB3C8D0117C85F37F67B98CB91427BF058984687EFB3ECF1A"
+    },
+    {
+      "path": "rtl/summary.json",
+      "sha256": "829627EDAD9CAF0DFF9058B6BD68941F376173BB78850F29EEFC37D842DF41BA"
+    },
+    {
+      "path": "rtl/coeff_scan/summary.json",
+      "sha256": "A29A95C223B0BA76FB1610A75BB83D2C98A73CABA02CE59885093273286094DE"
+    },
+    {
+      "path": "video/summary.json",
+      "sha256": "1BA9CF25301DFE87192B08DC8E8D48298B80A039CED20175C3BF102AE00EA86B"
+    },
+    {
+      "path": "fft_netlist/attempt_2_guarded/summary.json",
+      "sha256": "2653CC107F482CE38F777130B86355CFA8B5285E12CF976F7DD5575B15A8FFA4"
+    },
+    {
+      "path": "fft_netlist/attempt_4_boundary_outputs/summary.json",
+      "sha256": "0AD554EB0003A25312A0A3E890DDBAA3E7C4AB6779D8036298D23D450E0EC77D"
+    },
+    {
+      "path": "fft_netlist/negative_controls/summary.json",
+      "sha256": "D565A8B3ADDFF55EE65C2FCFD4D66033CC9E0CCF376A19D0C75561CE3F4271C0"
+    },
+    {
+      "path": "fft_netlist/extract_fft.py",
+      "sha256": "83B00DA7BE2DAFCB0C959CF5837C3DB1AE318AAF29F090FB908D936B20E8F13C"
+    },
+    {
+      "path": "fft_netlist/tb_fft_cone.v",
+      "sha256": "B5B226ACD6F892AEACB4384354DBCDE23B9212E6B1BA9680594193B72DB3ABDC"
+    }
+  ],
+  "limits": [
+    "Controlled functional cones, not whole-system board startup",
+    "No complete SDF",
+    "Video test excludes pixel FIFO/PHY/receiver",
+    "C11206 gate not included in verified manifest",
+    "No production RTL/bit/ZIP changes; no new synthesis or hardware operation",
+    "C11310 board no-signal and C11309 board empty-spectrum root causes remain unproven"
+  ]
+}

@@ -1,0 +1,13 @@
+PASS: mathematical oracle assertions and Icarus testbench completed.
+Fast mathematical capture explicitly sets FRAME_TIMEOUT_SAMPLES=0; this run does not verify the production 4096-sample watchdog.
+Test scope: 13 production-sized 1024-sample vectors (accelerated capture), plus one full-rate 521-clock frame (48 kHz at 25 MHz); full 1024-point RTL analysis uses 55,320 cycles per frame.
+Cases: low/mid/high exact-bin tones, half-amplitude relation, two tones, silence, positive DC, positive/negative fullscale DC, phase-pi/4 fullscale sine, alternating Nyquist extremes, centered impulse, fixed-seed wideband random.
+Additional checks: continuous consecutive frames, source_change abort during partial capture and during analysis, reset during analysis.
+Checks: independent direct DFT and integer FFT reference; all 1024 Hann and 512 twiddle ROM words against formulas; 24 ordered bands per frame against fixed-point reference (bit exact; max absolute error 0); frame_done alignment; silence zero; DC bin omitted with Hann leakage predicted; tone peak bands; two-tone response; amplitude scaling; direct DFT quantization error asserted <=16 for every vector.
+Simulator: E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe; compile log E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_fft_recover\build\model\spectrum_compile_20261014_201315.log; run log E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_fft_recover\build\model\spectrum_run_20261014_201315.log.
+SHA256 analyzer=e4c631e7b8c3f0e8510711333edecc7d4c363dcb5377d126ef389f18a739b619
+testbench=09cd117b009be33c079675928755bf23e8a2e05f3223034bf5d3d24dc5a9cac0
+oracle=c7459ba9b0c10656ed8b68370a25b7ba97a7db9b79592cf3cd2c2c480adc2bff
+hann_rom=56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f
+twiddle_rom=c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772
+Hardware validation: not performed by this simulation.

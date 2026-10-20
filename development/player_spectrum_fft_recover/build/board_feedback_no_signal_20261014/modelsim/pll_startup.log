@@ -1,0 +1,48 @@
+# vsim -do smoke.do -l pll_startup.log -c -suppress 3017,3722 work.tb_pll_startup work.glbl 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# ** Warning: ../../../src/user_source/hdl_source/ip/sys_pll.v(94): (vopt-2241) Connection width does not match width of port 'load_reg'. The port definition is at: C:\Anlogic\TD_6.2.1_SP1_6.2.178.840\sim_release\eg4\eg_phy_pll.v(25).
+# 
+# ** Warning: ../../../src/user_source/hdl_source/ip/video_pll.v(87): (vopt-2241) Connection width does not match width of port 'load_reg'. The port definition is at: C:\Anlogic\TD_6.2.1_SP1_6.2.178.840\sim_release\eg4\eg_phy_pll.v(25).
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_pll_startup(fast)
+# Loading work.EG_PHY_PLL(fast)
+# Loading work.EG_PHY_PLL(fast__1)
+# Loading work.glbl(fast)
+# ** Warning: (vsim-3015) ../../../src/user_source/hdl_source/ip/sys_pll.v(94): [PCDPC] - Port size (5 or 5) does not match connection size (1) for port 'load_reg'.
+# 
+#         Region: /tb_pll_startup/spll/pll_inst
+# ** Warning: (vsim-3015) ../../../src/user_source/hdl_source/ip/video_pll.v(87): [PCDPC] - Port size (5 or 5) does not match connection size (1) for port 'load_reg'.
+# 
+#         Region: /tb_pll_startup/vpll/pll_inst
+# do smoke.do 
+# ******************** : The Attribute            REFCLK_DIV on pll instance tb_pll_startup.spll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             FBCLK_DIV on pll instance tb_pll_startup.spll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC0_DIV on pll instance tb_pll_startup.spll.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC1_DIV on pll instance tb_pll_startup.spll.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC2_DIV on pll instance tb_pll_startup.spll.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC3_DIV on pll instance tb_pll_startup.spll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC4_DIV on pll instance tb_pll_startup.spll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute            REFCLK_DIV on pll instance tb_pll_startup.vpll.pll_inst.para_int_range_chk is set to           2.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             FBCLK_DIV on pll instance tb_pll_startup.vpll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC0_DIV on pll instance tb_pll_startup.vpll.pll_inst.para_int_range_chk is set to          40.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC1_DIV on pll instance tb_pll_startup.vpll.pll_inst.para_int_range_chk is set to           8.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC2_DIV on pll instance tb_pll_startup.vpll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC3_DIV on pll instance tb_pll_startup.vpll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC4_DIV on pll instance tb_pll_startup.vpll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# PLL_LOCK t=0 sys=0 video=0
+# PLL_100US sys=0 video=0 pc=2484 sc=12415
+# PLL_2MS sys=0 video=0 pc=49984 sc=249915
+# PLL_25MS sys=0 video=0 pc=624984 sc=3124915
+# FAIL original PLL model lock
+# ** Note: $finish    : tb_pll_startup.v(17)
+#    Time: 25 ms  Iteration: 0  Instance: /tb_pll_startup

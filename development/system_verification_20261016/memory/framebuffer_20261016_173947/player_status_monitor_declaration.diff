@@ -1,0 +1,19 @@
+--- E:\VSCODE-project\FPGA-ANLU\development\player_bmp_scale\checkpoints\bmp_scale_20261012_verified\src\user_source\hdl_source\player_status_monitor.v
++++ E:\VSCODE-project\FPGA-ANLU\development\system_verification_20261016\memory\framebuffer_20261016_173947\player_status_monitor_compat.v
+@@ -22,6 +22,8 @@
+     output wire [9:0] cw_count_data,
+     output wire cw_count_trigger
+ );
++reg request_toggle, ack_sync0, ack_sync1;
++
+     assign window_toggle_out=request_toggle;
+     localparam integer PAGE_CYCLES=SYS_HZ*PAGE_SECONDS;
+     localparam integer PAGE_BITS=(PAGE_CYCLES<=1)?1:$clog2(PAGE_CYCLES);
+@@ -30,7 +32,6 @@
+     reg frame_seen;
+     reg [23:0] audio_count;
+     reg [27:0] mailbox, received;
+-    reg request_toggle, ack_sync0, ack_sync1;
+     reg request_sync0, request_sync1, ack_toggle;
+     reg [3:0] startup_sync0, startup_sync1;
+     reg [23:0] file_sync0, file_sync1;

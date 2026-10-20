@@ -1,0 +1,26 @@
+# vsim -do run.do -l run.log -c -lic_noqueue -modelsimini modelsim.ini -novopt work.tb_startup_contract 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/startup/run_20261016_163828/C11309/work.tb_startup_contract
+# Loading work.tb_startup_contract
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/startup/run_20261016_163828/C11309/work.startup_contract
+# Loading work.startup_contract
+# do run.do 
+# BOUNDARY archived original 1000000-cycle controller, no counter force or shortened wait; lock inputs are explicit test stimuli, PLL/media/HDMI not included
+# RESET_RELEASE n=1 cycles=1000206 consecutive_lock_edges=1000001 count=1000000
+# CASE normal_cold_start PASS
+# CASE post_start_lock_drop_preserves_existing_policy PASS
+# RESET_RELEASE n=2 cycles=2001244 consecutive_lock_edges=1000001 count=1000000
+# CASE lock_loss_during_start_restarts_full_wait PASS
+# RESET_RELEASE n=3 cycles=3001250 consecutive_lock_edges=1000001 count=1000000
+# CASE external_reset_repeats_full_wait PASS
+# PASS startup_contract scenarios=5 releases=3 minimum_full_lock_edges=1000001 checks=3001250
+# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/system_verification_20261016/startup/tb_startup_contract.v(69)
+#    Time: 60025 us  Iteration: 1  Instance: /tb_startup_contract
