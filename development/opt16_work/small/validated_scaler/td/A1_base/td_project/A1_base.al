@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project Version="3" Minor="2" Path=".">
+<Project Version="3" Minor="2" Path="E:/VSCODE-project/FPGA-ANLU/development/opt16_work/small/validated_scaler/td/A1_base/td_project">
 <TD_Version>6.2.178840</TD_Version><Name>A1_base</Name>
 <HardWare><Family>EG4</Family><Device>EG4S20BG256</Device><Speed></Speed></HardWare>
 <Source_Files><Verilog>

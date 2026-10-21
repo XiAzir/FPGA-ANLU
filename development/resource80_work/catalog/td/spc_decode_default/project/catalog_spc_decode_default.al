@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project Version="3" Minor="2" Path=".">
+<Project Version="3" Minor="2" Path="development/resource80_work/catalog/td/spc_decode_default/project">
     <Project_Created_Time></Project_Created_Time>
     <TD_Version>6.2.178840</TD_Version>
     <Name>catalog_spc_decode_default</Name>
