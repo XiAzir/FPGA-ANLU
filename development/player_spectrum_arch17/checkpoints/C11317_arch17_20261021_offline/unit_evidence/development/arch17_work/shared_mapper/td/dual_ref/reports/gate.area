@@ -1,0 +1,41 @@
+standard
+***Report Model: mapper_pair_dual_ref Device: EG4S20BG256***
+
+IO Statistics
+#IO                       379   out of    188  201.60%
+  #input                  308
+  #output                  71
+  #inout                    0
+
+LUT Statistics
+#Total_luts              1318
+  #lut4                   597
+  #lut5                   276
+  #lut6                   445
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                     2029   out of  19600   10.35%
+#reg                      642   out of  19600    3.28%
+#bram                       0   out of     64    0.00%
+  #bram9k                   0
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                      379   out of    188  201.60%
+  #ireg                    69
+  #oreg                    62
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+Report Hierarchy Area:
++-------------------------------------------------------------------------------+
+|Instance    |Module               |lut     |ripple  |seq     |bram    |dsp     |
++-------------------------------------------------------------------------------+
+|top         |mapper_pair_dual_ref |1896    |133     |773     |0       |0       |
+|  u_arbiter |sd_sector_arbiter    |42      |0       |7       |0       |0       |
+|  u_bmp     |fat32_file_sector    |968     |71      |318     |0       |0       |
+|  u_wav     |fat32_file_sector    |885     |62      |317     |0       |0       |
++-------------------------------------------------------------------------------+

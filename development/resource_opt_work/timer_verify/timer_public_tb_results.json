@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "candidate_main_modified_by_this_agent": false,
+  "td_run": false,
+  "source_diff_files": [
+    {
+      "file": "fat32_file_sector.v",
+      "reference_sha256": "650bec7bedd7939a4059079eafb5ab5a84613ab8e9e0de5ec89be384c0b70e27",
+      "timer_candidate_sha256": "fd97864aad278d95124b7ca3a24912513dab1c100e374e4b2637aebddb5d405c",
+      "main_candidate_sha256": "fd97864aad278d95124b7ca3a24912513dab1c100e374e4b2637aebddb5d405c"
+    },
+    {
+      "file": "player_audio_probe.v",
+      "reference_sha256": "2999639280b4782dca0aa364c8bc4576baa684e190ed8de2f995d137044bd9fc",
+      "timer_candidate_sha256": "ba551524c667b080f0bef59306323dbba171d4fcf48133f09a834716c98a1ecc",
+      "main_candidate_sha256": "ba551524c667b080f0bef59306323dbba171d4fcf48133f09a834716c98a1ecc"
+    },
+    {
+      "file": "SD/sd_card_bmp.v",
+      "reference_sha256": "cd4e975f9e4acdc6545317df0fce7f5370c085a5b9a585b8effb7bc3e9c7f903",
+      "timer_candidate_sha256": "154ed002de05184b7be60632c44f3f254c63032e45dae6b6d47c1866adf166f3",
+      "main_candidate_sha256": "154ed002de05184b7be60632c44f3f254c63032e45dae6b6d47c1866adf166f3"
+    },
+    {
+      "file": "tf_bmp_file_player.v",
+      "reference_sha256": "e902f65baba30712402b3c39cdc9be01adaf66aaf0bdb4c462d205e4ece84642",
+      "timer_candidate_sha256": "de832c5bbccde4ec60017a04b59ad9c741b1135fd4fb0faabf38a4fa63ccfc56",
+      "main_candidate_sha256": "de832c5bbccde4ec60017a04b59ad9c741b1135fd4fb0faabf38a4fa63ccfc56"
+    }
+  ],
+  "source_diff_exactly_targeted_files": true,
+  "proposal_script": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_proposal.py",
+  "proposal_sha256": "c01b8ef1bb48c28aab658dda75903941ac7b065021c80381751d20d0176c025a",
+  "proof_report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\timer_range_proof.json",
+  "proof_report_sha256": "f302c38b010c7bc49e8435763a3666c90a5873cd64f17bdbb4f715fd3583a59f",
+  "estimated_default_ff_bit_reduction": 52,
+  "td_area_measured": false,
+  "public_tests": [
+    {
+      "name": "bmp_failure_detail_21",
+      "status": "PASS",
+      "outputs_identical": true,
+      "reference_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\bmp_failure_detail_21.reference.log",
+      "candidate_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\bmp_failure_detail_21.timer_candidate.log"
+    },
+    {
+      "name": "tb_mapper_edges",
+      "status": "PASS",
+      "outputs_identical": true,
+      "reference_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\tb_mapper_edges.reference.log",
+      "candidate_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\tb_mapper_edges.timer_candidate.log"
+    },
+    {
+      "name": "tb_mapper_long_equiv",
+      "status": "PASS",
+      "outputs_identical": true,
+      "reference_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\tb_mapper_long_equiv.reference.log",
+      "candidate_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\tb_mapper_long_equiv.timer_candidate.log"
+    },
+    {
+      "name": "mapper_public",
+      "status": "PASS",
+      "outputs_identical": true,
+      "reference_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\mapper_public.reference.log",
+      "candidate_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\mapper_public.timer_candidate.log"
+    },
+    {
+      "name": "key_debounce_audio_control",
+      "status": "PASS",
+      "outputs_identical": true,
+      "reference_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\key_debounce_audio_control.reference.log",
+      "candidate_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\key_debounce_audio_control.timer_candidate.log"
+    },
+    {
+      "name": "audio_probe",
+      "status": "PASS",
+      "outputs_identical": true,
+      "reference_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\audio_probe.reference.log",
+      "candidate_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\audio_probe.timer_candidate.log"
+    },
+    {
+      "name": "key_debounce_small_cycle_diff",
+      "status": "PASS",
+      "outputs_identical": true,
+      "reference_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\key_debounce_small_cycle_diff.reference.log",
+      "candidate_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\key_debounce_small_cycle_diff.timer_candidate.log"
+    },
+    {
+      "name": "audio_blink_small_cycle_diff",
+      "status": "PASS",
+      "outputs_identical": true,
+      "reference_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\audio_blink_small_cycle_diff.reference.log",
+      "candidate_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268\\audio_blink_small_cycle_diff.timer_candidate.log"
+    }
+  ],
+  "cycle_diff_tests": [
+    "key debounce: 42 cycles, CLK_FREQ_HZ=1000, DEBOUNCE_MS=1 and 3",
+    "audio blink: 25 cycles, PIXEL_HZ=8, five blink transitions"
+  ],
+  "parameter_elaboration": "PASS; zero/max/negative fallback and default-width examples are in tb_timer_param_elab.v and param_elab.compile.log",
+  "final_run_directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\timer_verify\\run_20261020_210553_268"
+}

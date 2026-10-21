@@ -1,0 +1,582 @@
+--- C11317/td_project/AC201_tf_hdmi.al
++++ C11318/td_project/AC201_tf_hdmi.al
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<Project Version="3" Minor="2" Path="E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_arch17/src/td_project">
++<Project Version="3" Minor="2" Path="E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_ctrl18/src/td_project">
+     <Project_Created_Time></Project_Created_Time>
+     <TD_Version>6.2.178840</TD_Version>
+     <Name>AC201_tf_hdmi</Name>
+@@ -363,34 +363,34 @@
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+                     <Attr Name="BelongTo" Val="design_1"/>
++                    <Attr Name="CompileOrder" Val="50"/>
++                </FileInfo>
++            </File>
++            <File Path="../user_source/hdl_source/player_status_monitor.v">
++                <FileInfo>
++                    <Attr Name="UsedInSyn" Val="true"/>
++                    <Attr Name="UsedInP&R" Val="true"/>
++                    <Attr Name="BelongTo" Val="design_1"/>
++                    <Attr Name="CompileOrder" Val="48"/>
++                </FileInfo>
++            </File>
++            <File Path="../user_source/hdl_source/status_hex595.v">
++                <FileInfo>
++                    <Attr Name="UsedInSyn" Val="true"/>
++                    <Attr Name="UsedInP&R" Val="true"/>
++                    <Attr Name="BelongTo" Val="design_1"/>
++                    <Attr Name="CompileOrder" Val="49"/>
++                </FileInfo>
++            </File>
++            <File Path="../user_source/hdl_source/player_osd.v">
++                <FileInfo>
++                    <Attr Name="UsedInSyn" Val="true"/>
++                    <Attr Name="UsedInP&R" Val="true"/>
++                    <Attr Name="BelongTo" Val="design_1"/>
+                     <Attr Name="CompileOrder" Val="51"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_status_monitor.v">
+-                <FileInfo>
+-                    <Attr Name="UsedInSyn" Val="true"/>
+-                    <Attr Name="UsedInP&R" Val="true"/>
+-                    <Attr Name="BelongTo" Val="design_1"/>
+-                    <Attr Name="CompileOrder" Val="48"/>
+-                </FileInfo>
+-            </File>
+-            <File Path="../user_source/hdl_source/player_status_mailbox.v">
+-                <FileInfo>
+-                    <Attr Name="UsedInSyn" Val="true"/>
+-                    <Attr Name="UsedInP&R" Val="true"/>
+-                    <Attr Name="BelongTo" Val="design_1"/>
+-                    <Attr Name="CompileOrder" Val="50"/>
+-                </FileInfo>
+-            </File>
+-            <File Path="../user_source/hdl_source/status_hex595.v">
+-                <FileInfo>
+-                    <Attr Name="UsedInSyn" Val="true"/>
+-                    <Attr Name="UsedInP&R" Val="true"/>
+-                    <Attr Name="BelongTo" Val="design_1"/>
+-                    <Attr Name="CompileOrder" Val="49"/>
+-                </FileInfo>
+-            </File>
+-            <File Path="../user_source/hdl_source/player_osd.v">
++            <File Path="../user_source/hdl_source/player_osd_state.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -398,7 +398,7 @@
+                     <Attr Name="CompileOrder" Val="52"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_osd_state.v">
++            <File Path="../user_source/hdl_source/player_dynamic_text.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -406,7 +406,7 @@
+                     <Attr Name="CompileOrder" Val="53"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_dynamic_text.v">
++            <File Path="../user_source/hdl_source/player_video_source_probe.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -414,7 +414,7 @@
+                     <Attr Name="CompileOrder" Val="54"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_video_source_probe.v">
++            <File Path="../user_source/hdl_source/player_cadence_probe.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -422,7 +422,7 @@
+                     <Attr Name="CompileOrder" Val="55"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_cadence_probe.v">
++            <File Path="../user_source/hdl_source/player_bit17_led_probe.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -430,7 +430,7 @@
+                     <Attr Name="CompileOrder" Val="56"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_bit17_led_probe.v">
++            <File Path="../user_source/hdl_source/player_pcm_prefix_probe.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -438,7 +438,7 @@
+                     <Attr Name="CompileOrder" Val="57"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_pcm_prefix_probe.v">
++            <File Path="../user_source/hdl_source/player_adjust_control.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -446,7 +446,7 @@
+                     <Attr Name="CompileOrder" Val="58"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_adjust_control.v">
++            <File Path="../user_source/hdl_source/player_rgb_adjust.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -454,7 +454,7 @@
+                     <Attr Name="CompileOrder" Val="59"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_rgb_adjust.v">
++            <File Path="../user_source/hdl_source/player_adjust_osd.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -462,7 +462,7 @@
+                     <Attr Name="CompileOrder" Val="60"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_adjust_osd.v">
++            <File Path="../user_source/hdl_source/player_pcm_waveform.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -470,7 +470,7 @@
+                     <Attr Name="CompileOrder" Val="61"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_pcm_waveform.v">
++            <File Path="../user_source/hdl_source/player_wipe_address.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -478,7 +478,7 @@
+                     <Attr Name="CompileOrder" Val="62"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_wipe_address.v">
++            <File Path="../user_source/hdl_source/bmp_scale_engine.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -486,7 +486,7 @@
+                     <Attr Name="CompileOrder" Val="63"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/bmp_scale_engine.v">
++            <File Path="../user_source/hdl_source/player_spectrum_analyzer.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -494,7 +494,7 @@
+                     <Attr Name="CompileOrder" Val="64"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/player_spectrum_analyzer.v">
++            <File Path="../user_source/hdl_source/spectrum_coeff_rom.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+@@ -502,20 +502,12 @@
+                     <Attr Name="CompileOrder" Val="65"/>
+                 </FileInfo>
+             </File>
+-            <File Path="../user_source/hdl_source/spectrum_coeff_rom.v">
++            <File Path="../user_source/hdl_source/player_fault_snapshot.v">
+                 <FileInfo>
+                     <Attr Name="UsedInSyn" Val="true"/>
+                     <Attr Name="UsedInP&R" Val="true"/>
+                     <Attr Name="BelongTo" Val="design_1"/>
+                     <Attr Name="CompileOrder" Val="66"/>
+-                </FileInfo>
+-            </File>
+-            <File Path="../user_source/hdl_source/player_fault_snapshot.v">
+-                <FileInfo>
+-                    <Attr Name="UsedInSyn" Val="true"/>
+-                    <Attr Name="UsedInP&R" Val="true"/>
+-                    <Attr Name="BelongTo" Val="design_1"/>
+-                    <Attr Name="CompileOrder" Val="67"/>
+                 </FileInfo>
+             </File>
+         </Verilog>
+--- C11317/user_source/hdl_source/player_adjust_control.v
++++ C11318/user_source/hdl_source/player_adjust_control.v
+@@ -10,8 +10,10 @@
+     input wire vs,
+     input wire key0_n,
+     input wire key1_n,
+-    output reg next_n,
+-    output reg auto_n,
++    output reg next_req_toggle,
++    input wire next_ack_async,
++    output reg auto_req_toggle,
++    input wire auto_ack_async,
+     output reg tone_press,
+     output reg waveform_toggle,
+     output reg [1:0] mode,
+@@ -22,18 +24,19 @@
+     localparam [1:0] MODE_PLAY = 2'd0;
+     localparam [1:0] MODE_BRIGHTNESS = 2'd1;
+     localparam [1:0] MODE_CONTRAST = 2'd2;
+-    // Widen before multiplying: the production 25 MHz hold count is 37.5 M.
+     localparam [63:0] DB_CYCLES = ((64'd1 * CLK_FREQ_HZ * DEBOUNCE_MS) / 1000 < 1) ? 1 : ((64'd1 * CLK_FREQ_HZ * DEBOUNCE_MS) / 1000);
+     localparam [63:0] HOLD_CYCLES = ((64'd1 * CLK_FREQ_HZ * HOLD_MS) / 1000 < 1) ? 1 : ((64'd1 * CLK_FREQ_HZ * HOLD_MS) / 1000);
+     localparam [63:0] PULSE_CYCLES = ((64'd1 * CLK_FREQ_HZ * PULSE_MS) / 1000 < 1) ? 1 : ((64'd1 * CLK_FREQ_HZ * PULSE_MS) / 1000);
+     localparam [63:0] GAP_CYCLES = ((64'd1 * CLK_FREQ_HZ * LEGACY_GAP_MS) / 1000 < 1) ? 1 : ((64'd1 * CLK_FREQ_HZ * LEGACY_GAP_MS) / 1000);
++    localparam [63:0] EVENT_INTERVAL_CYCLES = PULSE_CYCLES + GAP_CYCLES;
+     localparam integer DB_W = (DB_CYCLES <= 1) ? 1 : $clog2(DB_CYCLES + 1);
+     localparam integer HOLD_W = (HOLD_CYCLES <= 1) ? 1 : $clog2(HOLD_CYCLES + 1);
+-    localparam integer PULSE_W = (PULSE_CYCLES <= 1) ? 1 : $clog2(PULSE_CYCLES + 1);
+-    localparam integer GAP_W = (GAP_CYCLES <= 1) ? 1 : $clog2(GAP_CYCLES + 1);
++    localparam integer EVENT_W = (EVENT_INTERVAL_CYCLES <= 1) ? 1 : $clog2(EVENT_INTERVAL_CYCLES + 1);
+ 
+     (* async_reg = "true" *) reg [1:0] key0_sync;
+     (* async_reg = "true" *) reg [1:0] key1_sync;
++    (* async_reg = "true" *) reg [1:0] next_ack_sync;
++    (* async_reg = "true" *) reg [1:0] auto_ack_sync;
+     reg key0_pressed;
+     reg key1_pressed;
+     reg key0_pressed_d;
+@@ -50,18 +53,17 @@
+     reg [HOLD_W-1:0] key0_hold_count;
+     reg [HOLD_W-1:0] key1_hold_count;
+     reg [HOLD_W-1:0] chord_hold_count;
+-    reg [PULSE_W-1:0] next_pulse_count;
+-    reg [PULSE_W-1:0] auto_pulse_count;
+-    reg [GAP_W-1:0] next_gap_count;
+-    reg [GAP_W-1:0] auto_gap_count;
++    reg [EVENT_W-1:0] next_event_cooldown;
++    reg [EVENT_W-1:0] auto_event_cooldown;
+     reg next_pending;
+     reg auto_pending;
+     reg [3:0] brightness_pending;
+     reg [2:0] contrast_pending;
+     reg vs_d;
+ 
+-    // Active-low asynchronous inputs are synchronized first, then accepted only
+-    // after DB_CYCLES consecutive samples disagree with the debounced state.
++    wire next_req_busy = (next_req_toggle != next_ack_sync[1]);
++    wire auto_req_busy = (auto_req_toggle != auto_ack_sync[1]);
++
+     always @(posedge clk or posedge rst) begin
+         if (rst) begin
+             key0_sync <= 2'b00;
+@@ -94,7 +96,6 @@
+         end
+     end
+ 
+-    // The video-facing adjustment values are committed atomically at a VS rise.
+     always @(posedge clk or posedge rst) begin
+         if (rst) begin
+             brightness_index <= 4'd4;
+@@ -111,8 +112,10 @@
+ 
+     always @(posedge clk or posedge rst) begin
+         if (rst) begin
+-            next_n <= 1'b1;
+-            auto_n <= 1'b1;
++            next_req_toggle <= 1'b0;
++            auto_req_toggle <= 1'b0;
++            next_ack_sync <= 2'b00;
++            auto_ack_sync <= 2'b00;
+             tone_press <= 1'b0;
+             waveform_toggle <= 1'b0;
+             mode <= MODE_PLAY;
+@@ -125,10 +128,8 @@
+             key0_hold_count <= {HOLD_W{1'b0}};
+             key1_hold_count <= {HOLD_W{1'b0}};
+             chord_hold_count <= {HOLD_W{1'b0}};
+-            next_pulse_count <= {PULSE_W{1'b0}};
+-            auto_pulse_count <= {PULSE_W{1'b0}};
+-            next_gap_count <= {GAP_W{1'b0}};
+-            auto_gap_count <= {GAP_W{1'b0}};
++            next_event_cooldown <= {EVENT_W{1'b0}};
++            auto_event_cooldown <= {EVENT_W{1'b0}};
+             next_pending <= 1'b0;
+             auto_pending <= 1'b0;
+             brightness_pending <= 4'd4;
+@@ -136,43 +137,31 @@
+             key0_pressed_d <= 1'b0;
+             key1_pressed_d <= 1'b0;
+         end else begin
++            next_ack_sync <= {next_ack_sync[0], next_ack_async};
++            auto_ack_sync <= {auto_ack_sync[0], auto_ack_async};
+             key0_pressed_d <= key0_pressed;
+             key1_pressed_d <= key1_pressed;
+             tone_press <= 1'b0;
+             waveform_toggle <= 1'b0;
+ 
+-            if (next_pulse_count != 0) begin
+-                next_pulse_count <= next_pulse_count - 1'b1;
+-                if (next_pulse_count == 1) begin
+-                    next_n <= 1'b1;
+-                    next_gap_count <= GAP_CYCLES;
+-                end
+-            end
+-            if (auto_pulse_count != 0) begin
+-                auto_pulse_count <= auto_pulse_count - 1'b1;
+-                if (auto_pulse_count == 1) begin
+-                    auto_n <= 1'b1;
+-                    auto_gap_count <= GAP_CYCLES;
+-                end
+-            end
+-            if (next_gap_count != 0) next_gap_count <= next_gap_count - 1'b1;
+-            if (auto_gap_count != 0) auto_gap_count <= auto_gap_count - 1'b1;
+-
+-            // A one-entry coalescing queue preserves a short tap during the
+-            // low pulse or the 100 ms high recovery required by the old input.
+-            if (next_pending && next_pulse_count == 0 && next_gap_count == 0) begin
+-                next_n <= 1'b0;
+-                next_pulse_count <= PULSE_CYCLES;
++            if (next_event_cooldown != 0)
++                next_event_cooldown <= next_event_cooldown - 1'b1;
++            if (auto_event_cooldown != 0)
++                auto_event_cooldown <= auto_event_cooldown - 1'b1;
++
++            // One request is held until the destination acknowledges it.
++            // A separate one-bit pending flag preserves legacy coalescing.
++            if (next_pending && next_event_cooldown == 0 && !next_req_busy) begin
++                next_req_toggle <= ~next_req_toggle;
++                next_event_cooldown <= EVENT_INTERVAL_CYCLES;
+                 next_pending <= 1'b0;
+             end
+-            if (auto_pending && auto_pulse_count == 0 && auto_gap_count == 0) begin
+-                auto_n <= 1'b0;
+-                auto_pulse_count <= PULSE_CYCLES;
++            if (auto_pending && auto_event_cooldown == 0 && !auto_req_busy) begin
++                auto_req_toggle <= ~auto_req_toggle;
++                auto_event_cooldown <= EVENT_INTERVAL_CYCLES;
+                 auto_pending <= 1'b0;
+             end
+ 
+-            // A chord is latched as soon as both debounced keys are down. It
+-            // remains latched until both are up, suppressing both release taps.
+             if (chord_active) begin
+                 key0_hold_count <= {HOLD_W{1'b0}};
+                 key1_hold_count <= {HOLD_W{1'b0}};
+@@ -211,8 +200,6 @@
+                 key0_hold_count <= {HOLD_W{1'b0}};
+                 key1_hold_count <= {HOLD_W{1'b0}};
+             end else begin
+-                // Independent key hold timers classify one-key holds. A chord
+-                // detected before this threshold takes precedence.
+                 if (key0_pressed && !key0_pressed_d) begin
+                     key0_armed <= 1'b1;
+                     key0_long_done <= 1'b0;
+@@ -254,14 +241,12 @@
+                     key1_hold_count <= {HOLD_W{1'b0}};
+                 end
+ 
+-                // Short actions happen once on debounced release. The armed
+-                // bit prevents repeats until that key has been released.
+                 if (key0_pressed_d && !key0_pressed && !chord_active && key0_armed && !key0_long_done) begin
+                     case (mode)
+                         MODE_PLAY: begin
+-                            if (next_pulse_count == 0 && next_gap_count == 0 && !next_pending) begin
+-                                next_n <= 1'b0;
+-                                next_pulse_count <= PULSE_CYCLES;
++                            if (next_event_cooldown == 0 && !next_pending && !next_req_busy) begin
++                                next_req_toggle <= ~next_req_toggle;
++                                next_event_cooldown <= EVENT_INTERVAL_CYCLES;
+                             end else next_pending <= 1'b1;
+                         end
+                         MODE_BRIGHTNESS: if (brightness_pending != 0) brightness_pending <= brightness_pending - 1'b1;
+@@ -273,9 +258,9 @@
+                 if (key1_pressed_d && !key1_pressed && !chord_active && key1_armed && !key1_long_done) begin
+                     case (mode)
+                         MODE_PLAY: begin
+-                            if (auto_pulse_count == 0 && auto_gap_count == 0 && !auto_pending) begin
+-                                auto_n <= 1'b0;
+-                                auto_pulse_count <= PULSE_CYCLES;
++                            if (auto_event_cooldown == 0 && !auto_pending && !auto_req_busy) begin
++                                auto_req_toggle <= ~auto_req_toggle;
++                                auto_event_cooldown <= EVENT_INTERVAL_CYCLES;
+                             end else auto_pending <= 1'b1;
+                         end
+                         MODE_BRIGHTNESS: if (brightness_pending < 8) brightness_pending <= brightness_pending + 1'b1;
+@@ -284,9 +269,6 @@
+                     endcase
+                 end
+             end
+-
+-            // Release of only one chord key does not re-arm anything. Both
+-            // stable releases are required before another press is accepted.
+         end
+     end
+ 
+--- C11317/user_source/hdl_source/player_status_mailbox.v
++++ C11318/user_source/hdl_source/player_status_mailbox.v
+@@ -1,31 +0,0 @@
+-// Atomic status transport between the pixel monitor and system-clock 595.
+-// The source holds all 32 bits until the destination's acknowledgement returns.
+-module player_status_mailbox (
+-    input source_clk, destination_clk, rst,
+-    input [31:0] source_hex,
+-    output reg [31:0] destination_hex
+-);
+-reg [31:0] held_hex;
+-reg request_toggle, acknowledgement_toggle;
+-(* ASYNC_REG="TRUE" *) reg [1:0] acknowledgement_sync, request_sync;
+-always @(posedge source_clk or posedge rst) begin
+-    if(rst) begin held_hex<=0;request_toggle<=0;acknowledgement_sync<=0;end
+-    else begin
+-        acknowledgement_sync<={acknowledgement_sync[0],acknowledgement_toggle};
+-        if(acknowledgement_sync[1]==request_toggle) begin
+-            held_hex<=source_hex;
+-            request_toggle<=~request_toggle;
+-        end
+-    end
+-end
+-always @(posedge destination_clk or posedge rst) begin
+-    if(rst) begin destination_hex<=0;request_sync<=0;acknowledgement_toggle<=0;end
+-    else begin
+-        request_sync<={request_sync[0],request_toggle};
+-        if(request_sync[1]!=acknowledgement_toggle) begin
+-            destination_hex<=held_hex;
+-            acknowledgement_toggle<=request_sync[1];
+-        end
+-    end
+-end
+-endmodule
+--- C11317/user_source/hdl_source/player_status_monitor.v
++++ C11318/user_source/hdl_source/player_status_monitor.v
+@@ -4,7 +4,7 @@
+     parameter integer SYS_HZ=50000000,
+     parameter integer PAGE_SECONDS=2,
+     parameter integer SHOW_SELF_TEST=1,
+-    parameter [23:0] BUILD_ID=24'hC11317
++    parameter [23:0] BUILD_ID=24'hC11318
+ )(
+     input pixel_clk, sys_clk, rst, sys_rst,
+     input [23:0] axis_rgb,
+--- C11317/user_source/hdl_source/tf_bmp_file_player.v
++++ C11318/user_source/hdl_source/tf_bmp_file_player.v
+@@ -6,7 +6,9 @@
+     parameter integer FRAME_HEIGHT=480,
+     parameter integer WAIT_LIMIT=50000000
+ )(
+-    input clk, rst, key_next, key_auto,
++    input clk, rst,
++    input key_next_req_toggle, key_auto_req_toggle,
++    output wire key_next_ack_toggle, key_auto_ack_toggle,
+     input catalog_ready, input [2:0] bmp_count,
+     input [127:0] bmp_clusters, bmp_sizes,
+     output reg [31:0] file_cluster, file_size,
+@@ -99,11 +101,11 @@
+ // These observations expose committed state; they never control the loader.
+ assign current_image_index=image_index;
+ assign auto_mode=auto_enabled;
+-key_press_debounce #(.CLK_FREQ_HZ(CLK_FREQ_HZ),.DEBOUNCE_MS(50)) u_next
+-    (.clk(clk),.rst(rst),.button_in(key_next),.press_pulse(next_press));
+-key_press_debounce #(.CLK_FREQ_HZ(CLK_FREQ_HZ),.DEBOUNCE_MS(50)) u_auto
+-    (.clk(clk),.rst(rst),.button_in(key_auto),.press_pulse(auto_press));
+-
++key_event_mailbox_sink u_key_event_mailbox (
++    .clk(clk),.rst(rst),
++    .next_req_toggle(key_next_req_toggle),.next_ack_toggle(key_next_ack_toggle),.next_press(next_press),
++    .auto_req_toggle(key_auto_req_toggle),.auto_ack_toggle(key_auto_ack_toggle),.auto_press(auto_press)
++);
+ bmp_scale_engine #(.HEADER_VALIDATED(1),.FRAME_WIDTH(FRAME_WIDTH),.FRAME_HEIGHT(FRAME_HEIGHT),
+     .MAX_SOURCE_WIDTH(1024),.MAX_SOURCE_HEIGHT(768),.PIXEL_INTERVAL(10)) u_scale(
+     .clk(clk),.rst(rst),.start(scale_start),.source_width({5'd0,width_low}),
+@@ -249,3 +251,36 @@
+     end
+ end
+ endmodule
++
++module key_event_mailbox_sink (
++    input wire clk,
++    input wire rst,
++    input wire next_req_toggle,
++    output reg next_ack_toggle,
++    output reg next_press,
++    input wire auto_req_toggle,
++    output reg auto_ack_toggle,
++    output reg auto_press
++);
++(* async_reg = "true" *) reg [1:0] next_req_sync;
++(* async_reg = "true" *) reg [1:0] auto_req_sync;
++always @(posedge clk or posedge rst) begin
++    if(rst) begin
++        next_req_sync<=2'b00; auto_req_sync<=2'b00;
++        next_ack_toggle<=1'b0; auto_ack_toggle<=1'b0;
++        next_press<=1'b0; auto_press<=1'b0;
++    end else begin
++        next_req_sync<={next_req_sync[0],next_req_toggle};
++        auto_req_sync<={auto_req_sync[0],auto_req_toggle};
++        next_press<=1'b0; auto_press<=1'b0;
++        if(next_req_sync[1]!=next_ack_toggle) begin
++            next_ack_toggle<=next_req_sync[1];
++            next_press<=1'b1;
++        end
++        if(auto_req_sync[1]!=auto_ack_toggle) begin
++            auto_ack_toggle<=auto_req_sync[1];
++            auto_press<=1'b1;
++        end
++    end
++end
++endmodule
+--- C11317/user_source/hdl_source/top_tf_hdmi_audio.v
++++ C11318/user_source/hdl_source/top_tf_hdmi_audio.v
+@@ -70,7 +70,7 @@
+ wire [2:0]  osd_image_count;
+ wire        bmp_auto_mode, osd_auto_mode, osd_frame_valid;
+ wire        probe_mode, probe_tone_toggle, probe_key0_active;
+-wire        bmp_key_next, bmp_key_auto;
++wire bmp_key_next_req,bmp_key_auto_req,bmp_key_next_ack,bmp_key_auto_ack;
+ 
+ wire hs_0;
+ wire vs_0;
+@@ -221,7 +221,9 @@
+ );
+ tf_bmp_file_player #(.CLK_FREQ_HZ(50000000),
+     .FRAME_WIDTH(DISPLAY_WIDTH),.FRAME_HEIGHT(DISPLAY_HEIGHT)) u_bmp_file_player (
+-    .clk(sd_card_clk),.rst(rst_all),.key_next(bmp_key_next),.key_auto(bmp_key_auto),
++    .clk(sd_card_clk),.rst(rst_all),
++    .key_next_req_toggle(bmp_key_next_req),.key_auto_req_toggle(bmp_key_auto_req),
++    .key_next_ack_toggle(bmp_key_next_ack),.key_auto_ack_toggle(bmp_key_auto_ack),
+     .catalog_ready(fs_ready),.bmp_count(fs_bmp_count),
+     .bmp_clusters(fs_bmp_clusters),.bmp_sizes(fs_bmp_sizes),
+     .file_cluster(bmp_file_cluster),.file_size(bmp_file_size),
+@@ -311,7 +313,8 @@
+ wire waveform_toggle;
+ player_adjust_control u_adjust_control (
+  .clk(video_clk),.rst(rst_all),.vs(vs),.key0_n(key1),.key1_n(key2),
+- .next_n(bmp_key_next),.auto_n(bmp_key_auto),.tone_press(debug_tone_press),
++ .next_req_toggle(bmp_key_next_req),.next_ack_async(bmp_key_next_ack),
++ .auto_req_toggle(bmp_key_auto_req),.auto_ack_async(bmp_key_auto_ack),.tone_press(debug_tone_press),
+  .mode(adjust_mode),.brightness_index(brightness_index),.contrast_index(contrast_index),
+  .waveform_toggle(waveform_toggle)
+ );
+@@ -554,7 +557,7 @@
+  .snapshot_prev_accepted(snapshot_prev_accepted),.snapshot_accepted(snapshot_accepted),
+  .snapshot_frames(snapshot_frames),.snapshot_events(snapshot_events)
+ );
+-player_status_monitor #(.SYS_HZ(25000000),.BUILD_ID(24'hC11317)) u_status_monitor (
++player_status_monitor #(.SYS_HZ(25000000),.BUILD_ID(24'hC11318)) u_status_monitor (
+     .pixel_clk(video_clk),.sys_clk(status_clk),.rst(rst_all),.sys_rst(status_sys_rst),
+     .axis_rgb(axis_s_data),.axis_valid(axis_s_valid),.axis_user(axis_s_user),
+     .hdmi_locked(hdmi_video_locked),.audio_valid(audio_valid),
+@@ -575,13 +578,8 @@
+     .snapshot_prev_accepted(snapshot_prev_accepted),.snapshot_accepted(snapshot_accepted),
+     .snapshot_frames(snapshot_frames),.snapshot_events(snapshot_events)
+ );
+-wire [31:0] status_hex_system;
+-player_status_mailbox u_status_mailbox (
+-    .source_clk(video_clk),.destination_clk(sd_card_clk),.rst(rst_all),
+-    .source_hex(status_hex),.destination_hex(status_hex_system)
+-);
+-status_hex595 #(.CLK_HZ(50000000)) u_status_hex (
+-    .clk(sd_card_clk),.rst(rst_all),.hex_value(status_hex_system),
++status_hex595 #(.CLK_HZ(25000000)) u_status_hex (
++    .clk(video_clk),.rst(rst_all),.hex_value(status_hex),
+     .seg7_dio(seg7_dio),.seg7_sclk(seg7_sclk),.seg7_rclk(seg7_rclk)
+ );
+ endmodule

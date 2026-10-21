@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "default_widths": {
+    "tf_watchdog": 26,
+    "tf_auto_count": 26,
+    "mapper_wait_count_each": 26,
+    "key_debounce_cnt_each_tf_loader": 22,
+    "audio_blink_count": 24
+  },
+  "default_counter_reductions": {
+    "tf_watchdog": 6,
+    "tf_auto_count": 6,
+    "mapper_wait_count_each_x2": 12,
+    "key_debounce_cnt_each_tf_loader_x2": 20,
+    "audio_blink_count": 8,
+    "total_ff_bits": 52
+  },
+  "parameter_edge_widths": {
+    "watchdog_zero": 1,
+    "watchdog_u32max": 32,
+    "watchdog_wrap_edge": 32,
+    "autotick_zero_hz": 32,
+    "autotick_one_hz": 1,
+    "autotick_u32max_hz": 32,
+    "mapper_zero_limit": 32,
+    "mapper_one_limit": 1,
+    "mapper_u32max_limit": 32,
+    "debounce_zero_cycles": 32,
+    "debounce_one_cycle": 1,
+    "debounce_sd_card_100mhz_50ms": 23,
+    "blink_zero_hz": 32,
+    "blink_one_hz": 32,
+    "blink_two_hz": 1
+  },
+  "proof_notes": [
+    "watchdog reaches WAIT_LIMIT+1 on the edge that observes the old value at WAIT_LIMIT; range width uses WAIT_LIMIT+2",
+    "auto_count reaches the original 32-bit target CLK_FREQ_HZ-1 and resets on that tick",
+    "mapper wait_count resets in fail() on the threshold edge and otherwise reaches at most WAIT_LIMIT-1",
+    "positive debounce cycles reach at most DEBOUNCE_CYCLES-1 before reset; nonpositive cases retain 32 bits",
+    "positive audio blink half-period reaches at most floor(PIXEL_HZ/2)-1; zero/negative thresholds retain 32 bits",
+    "all parameter-dependent widths have a one-bit minimum; over-32-bit required ranges select 32 bits"
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "schema": "area-high-routed-rom-validation-v1",
+  "status": "PASS",
+  "snapshot": "attempts/10_area_high",
+  "synthesis_run_id": "8cc1efb7-2c4a-41db-b788-2eb62ca373d7",
+  "physical_run_id": "57779295-8e99-4bef-ba48-653f94dce9a4",
+  "routed_netlist": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\build\\attempts\\10_area_high\\audit\\routed_implementation.v",
+  "routed_netlist_sha256": "8413bb97470f07b4c8f421073c1a47bfd81b808c85e0a58e10a2254d5e76cde9",
+  "synthesis_record_sha256": "e66dded32f3d88e72ccf6a5982eacb2355f314cded8664da0e89ddb1fd287a9e",
+  "physical_record_sha256": "3b0d4ca51a29eeb190d36c1fb84184ab3fce3598d5e3efff3759059719472f24",
+  "routed_clock_audit_sha256": "d1c69b08b634d12f8660b4e51ab3b79fb85d83262c012ea4cd6925d4ae93d999",
+  "rom_initialization": {
+    "status": "PASS",
+    "audit_script": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_trace\\build\\audit\\audit_private_rom_init.py",
+    "audit_script_sha256": "7c2545ad7ccc61199b2f82aa56db5d7be3d55afc31832b87dc1ad5d2ade06a3e",
+    "report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\build\\gate_verify\\routed_rom_init.json",
+    "report_sha256": "cf1e4e32bac5ca0d5e7b1fe04c27db78d3d806a0ceb6669065aeb79150b84409",
+    "stdout_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\build\\gate_verify\\routed_rom_init.log",
+    "stdout_sha256": "cf1e4e32bac5ca0d5e7b1fe04c27db78d3d806a0ceb6669065aeb79150b84409",
+    "eram_init_off_proven": true,
+    "lanes": {
+      "hann_low": {
+        "depth": 1024,
+        "width": 9,
+        "nonzero_words": 1020,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "1c712da62a5934d3ac75b855cf90893a03a236697b01ead065b7ea4ab5960d3e"
+      },
+      "hann_high": {
+        "depth": 1024,
+        "width": 9,
+        "nonzero_words": 942,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "391e9b0d2fdb3a0d8ffa004f93ac15e676f43709db0b24cc07b4f933bf0739de"
+      },
+      "twiddle_low": {
+        "depth": 512,
+        "width": 18,
+        "nonzero_words": 512,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "8f3c7aa49f84b689cf60d9e97c6e4b85700fa17be8c306149a71d087fa045d00"
+      },
+      "twiddle_high": {
+        "depth": 512,
+        "width": 18,
+        "nonzero_words": 511,
+        "mismatches": 0,
+        "first_mismatch_addresses": [],
+        "sha256": "5870f27ab4e323523d250e1a00fdd074404af3b6e523054ea400094d3d3246a8"
+      }
+    },
+    "combined_roms": {
+      "hann": {
+        "words": 1024,
+        "nonzero_words": 1020,
+        "mismatches": 0,
+        "sha256": "baf7df624b80fcd112ba3cdf1a5e6052d53a9a187aa14870d274ad8de75c9c3f"
+      },
+      "twiddle": {
+        "words": 512,
+        "nonzero_words": 512,
+        "mismatches": 0,
+        "sha256": "b7782524c8b0d3b7a42d4f5e59a8e1a34f9b5328f01795baa7779388027c5259"
+      }
+    },
+    "all_match": true
+  },
+  "normalized_control": {
+    "status": "PASS",
+    "report_sha256": "33b8c566016c9d89eac5f7dc3e7335703cd456d0db59f5c70a6a9f7be00d41ce",
+    "checker": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\build\\gate_verify\\prove_routed_rom_polarity.ps1",
+    "checker_sha256": "207a7e44a387c900a55d9015e9497c6dd665b48d1e837ada8e7d70a416f16271",
+    "strict_parameter_audit": {
+      "status": "FAIL",
+      "sha256": "77c4c39c66fc6394a39bc3c8fbb3b7ec8fae797b9b4476ab104e52da71e5e0bf",
+      "mismatches": {
+        "hann_high": {
+          "CEAMUX": {
+            "expected": "SIG",
+            "actual": "INV"
+          }
+        },
+        "hann_low": {
+          "CEAMUX": {
+            "expected": "SIG",
+            "actual": "INV"
+          }
+        },
+        "twiddle_high": {
+          "CSA2": {
+            "expected": "SIG",
+            "actual": "INV"
+          },
+          "CSB2": {
+            "expected": "SIG",
+            "actual": "INV"
+          }
+        },
+        "twiddle_low": {
+          "CSA2": {
+            "expected": "SIG",
+            "actual": "INV"
+          },
+          "CSB2": {
+            "expected": "SIG",
+            "actual": "INV"
+          }
+        }
+      },
+      "preserved": true
+    },
+    "method": "Evaluate routed gate LUT control cones for all 32 source-state values. Apply the actual INV mux polarity and compare to active-high request state predicates without changing strict parameter expectations.",
+    "state_constants": {
+      "ST_WIN_REQ": 1,
+      "ST_FFT_ISSUE": 4
+    },
+    "checks": 192,
+    "controls": {
+      "hann_high": [
+        {
+          "port": "cea",
+          "net": "u_pcm_waveform/u_spectrum/eq15_syn_33",
+          "parameter": "CEAMUX",
+          "value": "INV",
+          "inverted": true,
+          "request_state": "ST_WIN_REQ",
+          "truth_rows": 32,
+          "pass": true
+        }
+      ],
+      "hann_low": [
+        {
+          "port": "cea",
+          "net": "u_pcm_waveform/u_spectrum/eq15_syn_33",
+          "parameter": "CEAMUX",
+          "value": "INV",
+          "inverted": true,
+          "request_state": "ST_WIN_REQ",
+          "truth_rows": 32,
+          "pass": true
+        }
+      ],
+      "twiddle_high": [
+        {
+          "port": "csa[2]",
+          "net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+          "parameter": "CSA2",
+          "value": "INV",
+          "inverted": true,
+          "request_state": "ST_FFT_ISSUE",
+          "truth_rows": 32,
+          "pass": true
+        },
+        {
+          "port": "csb[2]",
+          "net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+          "parameter": "CSB2",
+          "value": "INV",
+          "inverted": true,
+          "request_state": "ST_FFT_ISSUE",
+          "truth_rows": 32,
+          "pass": true
+        }
+      ],
+      "twiddle_low": [
+        {
+          "port": "csa[2]",
+          "net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+          "parameter": "CSA2",
+          "value": "INV",
+          "inverted": true,
+          "request_state": "ST_FFT_ISSUE",
+          "truth_rows": 32,
+          "pass": true
+        },
+        {
+          "port": "csb[2]",
+          "net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+          "parameter": "CSB2",
+          "value": "INV",
+          "inverted": true,
+          "request_state": "ST_FFT_ISSUE",
+          "truth_rows": 32,
+          "pass": true
+        }
+      ]
+    },
+    "state_ff_q_bindings": {
+      "19": {
+        "q_cell_type": "EG_PHY_LSLICE",
+        "instance": "u_pcm_waveform/u_spectrum/state_reg[0]_syn_4",
+        "dffmode": "FF"
+      },
+      "20": {
+        "q_cell_type": "EG_PHY_MSLICE",
+        "instance": "u_pcm_waveform/u_spectrum/state_reg[2]_syn_4",
+        "dffmode": "FF"
+      },
+      "21": {
+        "q_cell_type": "EG_PHY_MSLICE",
+        "instance": "u_pcm_waveform/u_spectrum/state_reg[2]_syn_4",
+        "dffmode": "FF"
+      },
+      "22": {
+        "q_cell_type": "EG_PHY_MSLICE",
+        "instance": "u_pcm_waveform/u_spectrum/frame_done_reg_syn_5",
+        "dffmode": "FF"
+      },
+      "23": {
+        "q_cell_type": "EG_PHY_LSLICE",
+        "instance": "u_pcm_waveform/u_spectrum/state_b[1]_syn_56",
+        "dffmode": "FF"
+      }
+    }
+  },
+  "source_sha256": {
+    "player_spectrum_analyzer.v": "2edfffb8678fe071428f62f0325ecb6a2e35a7568d84e766f87257f9d486c98e",
+    "spectrum_coeff_rom.v": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+    "spectrum_coeff_rom_manifest.json": "31a61e039e5b83bce3b73cc2d015bf92e0c3773071dcfa8385e2aea970a61ee1"
+  },
+  "corresponding_gate_fft_regression": {
+    "status": "PASS",
+    "gate_sha256": "1e596dab71a324e224eb6dfc623640515ad84b705569a84287f0d19568a1432f",
+    "report_sha256": "0c07f7921edf9e688f26b143fc74ea9ad9f3a8251bbcde07af9281948961d1a2",
+    "scope": "same synthesis run; 3 frames / 72 bands, original EG4 primitive library, max fixed-point error 0"
+  }
+}

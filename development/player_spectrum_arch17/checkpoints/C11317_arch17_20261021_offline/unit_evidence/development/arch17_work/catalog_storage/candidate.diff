@@ -1,0 +1,47 @@
+--- fat32_catalog_baseline.v
++++ fat32_catalog_candidate.v
+@@ -50,7 +50,7 @@
+ // Match the 8.3 names while consuming each entry. Only match/skip flags
+ // are used at byte 31; retaining eleven raw name bytes is unnecessary.
+ reg dir_first_zero, dir_deleted, dir_skip, bmp_name_match, wav_name_match;
+-reg [7:0] dir_clhi_b[0:1], dir_cllo_b[0:1], dir_size_b[0:3];
++reg [7:0] dir_clhi_b[0:1], dir_cllo_b[0:1];
+ wire [31:0] total32 = {total32_b[3],total32_b[2],total32_b[1],total32_b[0]};
+ wire [31:0] fatsz32 = {fatsz32_b[3],fatsz32_b[2],fatsz32_b[1],fatsz32_b[0]};
+ wire [31:0] root32 = {root_b[3],root_b[2],root_b[1],root_b[0]};
+@@ -133,7 +133,7 @@
+    for(i=0;i<4;i=i+1) begin total32_b[i]<=0; fatsz32_b[i]<=0;root_b[i]<=0; end
+    dir_first_zero<=1; dir_deleted<=0; dir_skip<=0; bmp_name_match<=0; wav_name_match<=0;
+    for(i=0;i<2;i=i+1) begin dir_clhi_b[i]<=0;dir_cllo_b[i]<=0; end
+-   for(i=0;i<4;i=i+1) dir_size_b[i]<=0;
++   
+  end else begin
+    case(state)
+    S_WAIT_INIT: if(sd_init_done) begin issue_sector(S_READ_BOOT,0); end
+@@ -190,7 +190,7 @@
+              11: dir_skip<=sd_data==8'h0f || sd_data[3] || sd_data[4];
+              20: dir_clhi_b[0]<=sd_data; 21: dir_clhi_b[1]<=sd_data;
+              26: dir_cllo_b[0]<=sd_data; 27: dir_cllo_b[1]<=sd_data;
+-             28: dir_size_b[0]<=sd_data; 29: dir_size_b[1]<=sd_data; 30: dir_size_b[2]<=sd_data; 31: dir_size_b[3]<=sd_data;
++             28: fat_entry_value[7:0]<=sd_data; 29: fat_entry_value[15:8]<=sd_data; 30: fat_entry_value[23:16]<=sd_data; 31: fat_entry_value[31:24]<=sd_data;
+              default: begin end
+            endcase
+            if(byte_index[4:0]==31) begin
+@@ -198,13 +198,13 @@
+               else if(!root_end_marker && !dir_deleted && !dir_skip) begin
+                if(bmp_name_match) begin
+                  if(bmp_count<4) begin
+-                   if(({dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}<2) || {sd_data,dir_size_b[2],dir_size_b[1],dir_size_b[0]}==0 || {dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}>cluster_count+1) fail(E_ENTRY);
+-                   else begin bmp_clusters[bmp_count*32 +:32]<={dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}; bmp_sizes[bmp_count*32 +:32]<={sd_data,dir_size_b[2],dir_size_b[1],dir_size_b[0]}; bmp_count<=bmp_count+1'b1; end
++                   if(({dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}<2) || {sd_data,fat_entry_value[23:0]}==0 || {dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}>cluster_count+1) fail(E_ENTRY);
++                   else begin bmp_clusters[bmp_count*32 +:32]<={dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}; bmp_sizes[bmp_count*32 +:32]<={sd_data,fat_entry_value[23:0]}; bmp_count<=bmp_count+1'b1; end
+                  end
+                end
+                if(wav_name_match) begin
+-                 if(({dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}<2) || {sd_data,dir_size_b[2],dir_size_b[1],dir_size_b[0]}==0 || {dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}>cluster_count+1) fail(E_ENTRY);
+-                 else begin wav_found<=1; wav_cluster<={dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}; wav_size<={sd_data,dir_size_b[2],dir_size_b[1],dir_size_b[0]}; end
++                 if(({dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}<2) || {sd_data,fat_entry_value[23:0]}==0 || {dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}>cluster_count+1) fail(E_ENTRY);
++                 else begin wav_found<=1; wav_cluster<={dir_clhi_b[1],dir_clhi_b[0],dir_cllo_b[1],dir_cllo_b[0]}; wav_size<={sd_data,fat_entry_value[23:0]}; end
+                end
+              end
+            end

@@ -1,0 +1,51 @@
+--- a/tf_bmp_file_player.v
++++ b/tf_bmp_file_player.v
+@@ -51,9 +51,11 @@
+     (height_high_one && !height_sign) || (abs_height==0) ||
+     (height_sign && height_low==0) || (abs_height>10'd768);
+ wire [9:0] stride_words = {1'b0,width_low[10:2]} + {width_low[10:2],1'b0} + {8'd0,width_low[1:0]};
+-wire [11:0] source_stride={stride_words,2'b00};
++reg [9:0] stride_words_q;
++wire [11:0] source_stride={stride_words_q,2'b00};
+ wire [21:0] source_image_bytes={10'd0,source_stride}*{12'd0,abs_height[9:0]};
+-wire [32:0] pixel_end={1'b0,pixel_offset}+{11'd0,source_image_bytes};
++reg [32:0] pixel_end_work;
++wire [32:0] pixel_end=pixel_end_work;
+ wire scale_card_read, scale_pixel_valid, scale_done, scale_error;
+ wire [7:0] scale_failure_code;
+ wire [31:0] scale_card_addr;
+@@ -122,6 +124,7 @@
+         auto_enabled<=0; next_pending<=0; write_done<=0; finish_sync<=0;
+         display_finish_sync<=0;
+         magic_ok<=1; planes_ok<=1; bit_count_ok<=1; compression_ok<=1;
++        stride_words_q<=0; pixel_end_work<=0;
+         declared_size<=0; dib_size<=0;
+         pixel_offset<=0; width_low<=0; width_high_nonzero<=0;
+         height_low<=0; height_sign<=0; height_high_one<=0; height_high_zero<=0;
+@@ -159,6 +162,7 @@
+                     next_pending<=0; auto_count<=0; write_done<=0;
+                     scale_active<=0;
+                     magic_ok<=1; planes_ok<=1; bit_count_ok<=1; compression_ok<=1;
++                    stride_words_q<=0; pixel_end_work<=0;
+                     declared_size<=0;
+                     dib_size<=0; pixel_offset<=0; width_low<=0; width_high_nonzero<=0;
+                     height_low<=0; height_sign<=0; height_high_one<=0; height_high_zero<=0;
+@@ -182,7 +186,7 @@
+                         end
+                         20: width_high_nonzero<=width_high_nonzero || (|card_data);
+                         21: width_high_nonzero<=width_high_nonzero || (|card_data);
+-                        22: height_low[7:0]<=card_data; 23: begin
++                        22: begin height_low[7:0]<=card_data; stride_words_q<=stride_words; end 23: begin
+                             height_low[9:8]<=card_data[1:0];
+                             height_high_one<=|card_data[7:2];
+                             height_high_zero<=~&card_data[7:2];
+@@ -196,7 +200,8 @@
+                             height_high_one<=height_high_one || (|card_data[6:0]);
+                             height_high_zero<=height_high_zero || (~&card_data[6:0]);
+                         end
+-                        26: planes_ok<=planes_ok && (card_data==8'd1); 27: planes_ok<=planes_ok && (card_data==8'd0);
++                        26: begin planes_ok<=planes_ok && (card_data==8'd1); pixel_end_work<={11'd0,source_image_bytes}; end
++                        27: begin planes_ok<=planes_ok && (card_data==8'd0); pixel_end_work<={1'b0,pixel_offset}+pixel_end_work; end
+                         28: bit_count_ok<=bit_count_ok && (card_data==8'd24); 29: bit_count_ok<=bit_count_ok && (card_data==8'd0);
+                         30: compression_ok<=compression_ok && (card_data==8'd0); 31: compression_ok<=compression_ok && (card_data==8'd0);
+                         32: compression_ok<=compression_ok && (card_data==8'd0); 33: compression_ok<=compression_ok && (card_data==8'd0);

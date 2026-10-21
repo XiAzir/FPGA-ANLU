@@ -1,0 +1,56 @@
+--- C11314/td_project/AC201_tf_hdmi.al
++++ C11315/td_project/AC201_tf_hdmi.al
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<Project Version="3" Minor="2" Path="E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_resource_80/src/td_project">
++<Project Version="3" Minor="2" Path="E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_spi12p5/src/td_project">
+     <Project_Created_Time></Project_Created_Time>
+     <TD_Version>6.2.178840</TD_Version>
+     <Name>AC201_tf_hdmi</Name>
+--- C11314/user_source/hdl_source/player_status_monitor.v
++++ C11315/user_source/hdl_source/player_status_monitor.v
+@@ -4,7 +4,7 @@
+     parameter integer SYS_HZ=50000000,
+     parameter integer PAGE_SECONDS=2,
+     parameter integer SHOW_SELF_TEST=1,
+-    parameter [23:0] BUILD_ID=24'hC11314
++    parameter [23:0] BUILD_ID=24'hC11315
+ )(
+     input pixel_clk, sys_clk, rst, sys_rst,
+     input [23:0] axis_rgb,
+--- C11314/user_source/hdl_source/SD/sd_card_sec_read_write.v
++++ C11315/user_source/hdl_source/SD/sd_card_sec_read_write.v
+@@ -185,7 +185,7 @@
+ 					sec_addr <= sd_sec_read_addr;
+ 				end
+ 
+-				spi_clk_div <= 16'd0;
++				spi_clk_div <= SPI_HIGH_SPEED_DIV[15:0];
+ 			end
+ 			S_CMD24:
+ 			begin
+@@ -252,4 +252,4 @@
+ 				state <= S_IDLE;
+ 		endcase
+ end
+-endmodule+endmodule
+--- C11314/user_source/hdl_source/top_tf_hdmi_audio.v
++++ C11315/user_source/hdl_source/top_tf_hdmi_audio.v
+@@ -447,7 +447,7 @@
+ assign arb_card_valid=fs_ready && shared_card_valid;
+ assign arb_card_end=fs_ready && shared_card_end;
+ 
+-sd_card_top #(.SPI_HIGH_SPEED_DIV(2)) u_shared_card (
++sd_card_top #(.SPI_HIGH_SPEED_DIV(0)) u_shared_card (
+     .clk(sd_card_clk), .rst(rst_all),
+     .SD_nCS(sd_ncs), .SD_DCLK(sd_dclk), .SD_MOSI(sd_mosi), .SD_MISO(sd_miso),
+     .sd_init_done(card_init_done),
+@@ -570,7 +570,7 @@
+  .snapshot_prev_accepted(snapshot_prev_accepted),.snapshot_accepted(snapshot_accepted),
+  .snapshot_frames(snapshot_frames),.snapshot_events(snapshot_events)
+ );
+-player_status_monitor #(.SYS_HZ(25000000),.BUILD_ID(24'hC11314)) u_status_monitor (
++player_status_monitor #(.SYS_HZ(25000000),.BUILD_ID(24'hC11315)) u_status_monitor (
+     .pixel_clk(video_clk),.sys_clk(status_clk),.rst(rst_all),.sys_rst(status_sys_rst),
+     .axis_rgb(axis_s_data),.axis_valid(axis_s_valid),.axis_user(axis_s_user),
+     .hdmi_locked(hdmi_video_locked),.audio_valid(audio_valid),

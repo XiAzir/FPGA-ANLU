@@ -1,0 +1,12 @@
+--- a/tf_bmp_file_player.v
++++ b/tf_bmp_file_player.v
+@@ -50,7 +50,8 @@
+ wire height_invalid=height_high_zero && height_sign ? 1'b1 :
+     (height_high_one && !height_sign) || (abs_height==0) ||
+     (height_sign && height_low==0) || (abs_height>10'd768);
+-wire [11:0] source_stride=((({1'b0,width_low}*14'd3)+14'd3)>>2)<<2;
++wire [9:0] stride_words = {1'b0,width_low[10:2]} + {width_low[10:2],1'b0} + {8'd0,width_low[1:0]};
++wire [11:0] source_stride={stride_words,2'b00};
+ wire [21:0] source_image_bytes={10'd0,source_stride}*{12'd0,abs_height[9:0]};
+ wire [32:0] pixel_end={1'b0,pixel_offset}+{11'd0,source_image_bytes};
+ wire scale_card_read, scale_pixel_valid, scale_done, scale_error;

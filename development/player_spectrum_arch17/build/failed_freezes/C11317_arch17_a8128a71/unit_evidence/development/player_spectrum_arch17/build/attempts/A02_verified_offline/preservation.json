@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "parent_source_files": 169,
+  "parent_frozen_files": 500,
+  "parent_manifest_sha256": "cb4730c01a5eb5ccc4503d7df4c0e847e538b1db846f926bce2eb66bd1dc3fb1",
+  "protected_bits": {
+    "bmp_scale.bit": "c60464c0d4396d316db7622e4cb0b70b5de12c25148afe234ac7c795c818625d",
+    "spectrum_trace.bit": "60ae6b971ce1f9ed09d76bec14cf88dfc25cdfe7cbbebe5dd9fc070115b812ce",
+    "spectrum_resource_fit.bit": "3d85e5cdda40f1a91697ddf3c0275c52cf7bcee76d31af20503293b5a7428ca1",
+    "spectrum_resource_80.bit": "60ed79eecfcbd271bbc2b9a9333d5da03668e00b580a6be751ebcd61f0fa4d28",
+    "spectrum_spi12p5.bit": "a9de55c166cd730db1203fc9d1d882eee885237cec68fd389dad26d0d972e22f",
+    "spectrum_opt16.bit": "1de561dda1428c86c2f3127cf55b4b391cae8598c51111394ef9bde0ee971afa"
+  },
+  "changed_candidate_scope": [
+    "td_project/AC201_tf_hdmi.al",
+    "user_source/hdl_source/fat32_file_sector.v",
+    "user_source/hdl_source/player_status_monitor.v",
+    "user_source/hdl_source/rgb888_word_codec.v",
+    "user_source/hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "selected_algorithm_changes": {
+    "user_source/hdl_source/fat32_file_sector.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\mapper_lifetime\\fat32_file_sector.v",
+      "sha256": "8ccab08e31761d8e9c35e31de206ccff7050ce8513f06de503df13a70c6c0a1e",
+      "reason": "94-bit working/cache lifetime merge per mapper; no interface-cycle changes"
+    },
+    "user_source/hdl_source/rgb888_word_codec.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\codec_hold\\rgb888_word_codec.v",
+      "sha256": "414a74a76a828b45f9baa2f0c56f5f80d5c6311b21001e309246d2f60a333552",
+      "reason": "Reuse held normal-FIFO word for high reservoir suffix; exact same read/pixel timing; 32 fewer local FF"
+    }
+  },
+  "hardware_status": "BOARD_NOT_TESTED"
+}

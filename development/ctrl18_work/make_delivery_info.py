@@ -1,0 +1,21 @@
+from pathlib import Path
+from datetime import datetime
+import json,re,hashlib,argparse
+R=Path(__file__).resolve().parents[2];C=R/'development/player_spectrum_ctrl18'
+def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+a=argparse.ArgumentParser();a.add_argument('--system',type=Path,required=True);args=a.parse_args()
+b=read(C/'build/final_binding.json');assert b['status']=='PASS'
+s=read(args.system/'summary.json');p=read(args.system/'spi_performance.json')
+area=(C/'build/manual/AC201_tf_hdmi_phy.area').read_text()
+resources={k:int(re.search(r'^\s*#'+key+r'\s+(\d+)',area,re.M)[1]) for k,key in [('lut','lut'),('FF','reg'),('LE','le'),('BRAM9K','bram9k'),('DSP','dsp'),('PLL','pll'),('GCLK','gclk')]}
+resources.update(slice=b['slices'],slice_percent=b['slice_percent'])
+timing=[float(x) for x in re.findall(r'(?:SWNS|STNS|HWNS|HTNS):\s*([-\d.]+)ns',b['timing'])];assert len(timing)==4
+info={'build_id':'C11318','created_local':datetime.now().astimezone().isoformat(),'status':'OFFLINE_RESOURCE_OPTIMIZED','hardware_status':'BOARD_NOT_TESTED','selected_variant':'A01_key_events','bitstream_sha256':b['bit_sha256'],'bitstream_bytes':(R/'download/spectrum_ctrl18.bit').stat().st_size,'resources':resources,'timing':dict(zip(('setup_wns_ns','setup_tns_ns','hold_wns_ns','hold_tns_ns'),timing)),'STA_coverage':re.search(r'STA coverage\s*:\s*(\S+)',(C/'build/manual/AC201_tf_hdmi_pr.timing').read_text())[1],'baseline':{'build_id':'C11317','slice':7231,'slice_reduction':7231-b['slices'],'bitstream_sha256':read(C/'build/baseline/receipt.json')['parent_bit_sha256']},'same_id_control':{'slice':7050,'slice_reduction':7050-b['slices'],'gate_LUT':12140,'gate_FF':7348},'optimizations':['Replace synthesized long key levels and repeat debouncing with two request/acknowledgement event channels; retain per-key coalescing, hold/chord classification and one cooldown timer per key.'],'behavior_change':'The loader receives the same classified source events about 50 ms earlier because the second input debounce is removed; busy-boundary arrival may consequently move. Existing loader one-bit pending behavior is retained.','status_display':'Original 50 MHz scanner and status mailbox retained; the 25 MHz experiment passed protocol tests but increased physical slices by 28 in the combined candidate.','spi':{'mode':3,'system_nominal_MHz':50,'data_nominal_MHz':12.5,'simulated_payload_sclk_period_ns':p['min_sclk_period_ns']},'system_results':{'duration_ms':122,'overrides':b['selected_overrides'],'serial_RGB_checked':1536000,'PCM_pairs_checked':4447,'FFT_frames':s['fft']['completed_frames'],'FFT_bands':s['fft']['band_checks'],'FFT_max_error':s['fft']['max_abs_error'],'CRC_checked':p['crc_checked'],'CRC_bad':p['crc_bad'],'underflow':p['underruns'],'commit_ns':p['commit_ns']},'unit_results':{'key_differential_assertions':76,'loader_event_assertions':35,'key_sink_pulses_before_reset':{'next':7,'auto':3},'stale_after_common_reset':0},'checkpoint':'development/player_spectrum_ctrl18/checkpoints/C11318_ctrl18_20261021_offline','checkpoint_files':b['checkpoint_files'],'manifest_sha256':b['manifest_sha256'],'validation_binding':'development/player_spectrum_ctrl18/build/final_binding.json','validation_binding_sha256':sha(C/'build/final_binding.json'),'stage_run_ids':b['stage_run_ids'],'model_assumptions':s['assumptions']+['First cold video frame excluded from serial RGB comparison'],'unverified':s['unverified'],'report':'E:/QQ CACHE/Download/安路资料/开发记录/专题记录/资源优化/C11318_20261021/README.md'}
+clock=read(C/'build/audit/routed_clock_audit.json')
+info['gate_route_audit']={'gate_FFT_bands':72,'gate_control_truth_rows':192,'routed_control_truth_rows':192,'ROM_logical_words':1536,'ROM_lane_entries':3072,'clock_checks_pass':sum(x[0]=='PASS' for x in clock['checks']),'raw_SIG_INV_mismatches_retained':6}
+info['unit_evidence_files']=len(read(C/'build/unit_evidence.json')['files'])
+out=json.dumps(info,ensure_ascii=False,indent=2)+'\n'
+(R/'download/spectrum_ctrl18.info.json').write_text(out,encoding='utf-8')
+D=Path(info['report']).parent;D.mkdir(parents=True,exist_ok=True);(D/'delivery_receipt.json').write_text(out,encoding='utf-8')
+print('DELIVERY_INFO',resources['slice'],b['bit_sha256'])

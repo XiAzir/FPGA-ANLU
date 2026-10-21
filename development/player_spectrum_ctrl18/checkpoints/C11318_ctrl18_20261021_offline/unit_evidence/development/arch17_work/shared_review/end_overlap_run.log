@@ -1,0 +1,4 @@
+PASS data byte 512 and sd_end overlap: both emit byte then report E_SHORT (old count is 511)
+PASS data byte 513 and sd_end overlap: both suppress byte and report E_SHORT
+OBSERVED only on malformed FAT 513th-valid+end same-edge: reference re-enters FAT walk and asserts sd_read after E_SHORT; shared candidate remains idle after E_SHORT
+development\arch17_work\shared_review\tb_review_end_overlap.v:60: $finish called at 226000 (1ps)

@@ -1,0 +1,70 @@
+--- a/fat32_catalog.v
++++ b/fat32_catalog.v
+@@ -36,7 +36,6 @@
+ reg partition_found;
+ reg [1:0] selected_partition;
+ reg [31:0] selected_start, selected_size;
+-reg [31:0] chosen_start, chosen_size;
+ reg is_mbr;
+ reg [31:0] fat_entry_value;
+ reg [8:0] fat_offset;
+@@ -65,12 +64,12 @@
+ // Exact bounds of sums from raw BPB bytes (including malformed BPBs).
+ reg [33:0] fat_area_end_p0;
+ wire [38:0] fat_capacity_p0 = {fatsz32,7'd0};
+-wire [32:0] volume_end_p0 = {1'b0,(is_mbr?chosen_start:32'd0)}+{1'b0,total32};
+-wire [32:0] partition_end_p0 = {1'b0,chosen_start}+{1'b0,chosen_size};
++wire [32:0] volume_end_p0 = {1'b0,(is_mbr?selected_start:32'd0)}+{1'b0,total32};
++wire [32:0] partition_end_p0 = {1'b0,selected_start}+{1'b0,selected_size};
+ wire [31:0] active_fat_offset_p0 =
+     ((extflags&16'h0080)!=0 && (extflags&16'h000f)==1)?fatsz32:32'd0;
+ wire [33:0] data_sector_count_p1 = {2'b0,total32}-fat_area_end_p0;
+-wire [32:0] fat_lba_base_p1 = {1'b0,(is_mbr?chosen_start:32'd0)}+{17'd0,reserved_hi,reserved_lo};
++wire [32:0] fat_lba_base_p1 = {1'b0,(is_mbr?selected_start:32'd0)}+{17'd0,reserved_hi,reserved_lo};
+ reg [33:0] data_lba_p1, cluster_count_p2, fat_lba_p2;
+ reg [35:0] root_lba_p2;
+ wire [32:0] fat_span = (fats==2) ? {fatsz32,1'b0} : {1'b0,fatsz32};
+@@ -120,7 +119,7 @@
+    data_lba_p1<=0; cluster_count_p2<=0; fat_lba_p2<=0; root_lba_p2<=0;
+    bmp_count<=0; bmp_clusters<=0; bmp_sizes<=0; wav_found<=0; wav_cluster<=0; wav_size<=0;
+    byte_index<=0; wait_count<=0; gap_count<=0;
+-   is_mbr<=0; chosen_start<=0; chosen_size<=0;
++   is_mbr<=0;
+    partition_found<=0; selected_partition<=0; selected_start<=0; selected_size<=0;
+     fat_entry_value<=0; fat_offset<=0;
+     current_root_cluster<=0; root_clusters_read<=0; root_sector_in_cluster<=0; root_end_marker<=0;
+@@ -153,7 +152,7 @@
+              44,45,46,47: root_b[byte_index-44]<=sd_data;
+              510: signature_lo<=sd_data; 511: signature_hi<=sd_data;
+              default: begin
+-               if(byte_index>=446 && byte_index<510) begin
++               if(!is_mbr && byte_index>=446 && byte_index<510) begin
+                  if(partition_byte==0) begin
+                    partition_found<=0; selected_start<=0; selected_size<=0;
+                  end
+@@ -229,7 +228,7 @@
+      state<=S_BPB_PREP1;
+    end
+    S_BPB_PREP1: begin
+-     data_lba_p1<={2'b0,(is_mbr?chosen_start:32'd0)}+fat_area_end_p0;
++     data_lba_p1<={2'b0,(is_mbr?selected_start:32'd0)}+fat_area_end_p0;
+      state<=S_BPB_PREP2;
+    end
+    S_BPB_PREP2: begin
+@@ -245,7 +244,6 @@
+        if(selected_start==0 || selected_size==0 ||
+           ({1'b0,selected_start}+{1'b0,selected_size})>33'h100000000) fail(E_RANGE);
+        else begin
+-         chosen_start<=selected_start; chosen_size<=selected_size;
+          is_mbr<=1;
+          issue_sector(S_READ_BOOT,selected_start);
+        end
+@@ -256,7 +254,7 @@
+      else if(fatsz32==0 || root_cluster_masked<2 || fat_area_end_p0>=total32 ||
+              cluster_count_p2<65525 || cluster_count_p2>32'h0ffffff5 ||
+              root_cluster_masked>cluster_count_p2+1 || fat_capacity_p0<cluster_count_p2+2 ||
+-             (is_mbr && total32>chosen_size) || (extflags&16'h0070)!=0 ||
++             (is_mbr && total32>selected_size) || (extflags&16'h0070)!=0 ||
+              ((extflags&16'h0080)!=0 && (extflags&16'h000f)>=fats) ||
+              fat_lba_p2>64'h00000000ffffffff || data_lba_p1>64'h00000000ffffffff ||
+              root_lba_p2>64'h00000000ffffffff) fail(E_BPB);

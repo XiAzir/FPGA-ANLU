@@ -1,0 +1,186 @@
+{
+  "schema": "candidate-gate-rom-normalized-control-proof-v1",
+  "status": "PASS",
+  "synthesis_run_id": "902267aa-e0ab-4b4a-9cae-9c16b481d2e6",
+  "gate_netlist": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\manual\\AC201_tf_hdmi_gate.v",
+  "gate_netlist_sha256": "87ecabb0c28d1e913338d8592517083296031576884d8342e332ebd07e3fb254",
+  "strict_parameter_audit": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\audit\\gate_rom_control.json",
+    "sha256": "904705ee0e63ff55bc644a54d45ec77eebb31b159ad94fcd51de8b1c2bf12d67",
+    "status": "FAIL",
+    "observed_mismatches": {
+      "hann_high": {
+        "CEAMUX": {
+          "expected": "SIG",
+          "actual": "INV"
+        }
+      },
+      "hann_low": {
+        "CEAMUX": {
+          "expected": "SIG",
+          "actual": "INV"
+        }
+      },
+      "twiddle_high": {
+        "CSA2": {
+          "expected": "SIG",
+          "actual": "INV"
+        },
+        "CSB2": {
+          "expected": "SIG",
+          "actual": "INV"
+        }
+      },
+      "twiddle_low": {
+        "CSA2": {
+          "expected": "SIG",
+          "actual": "INV"
+        },
+        "CSB2": {
+          "expected": "SIG",
+          "actual": "INV"
+        }
+      }
+    },
+    "preserved": true,
+    "interpretation": "Strict parameter comparison is preserved verbatim as PASS or FAIL; the separate proof passes only when actual gate LUT plus mux polarity matches the source request for every state and open gate leaf."
+  },
+  "source_contract": {
+    "analyzer_rtl_sha256": "2edfffb8678fe071428f62f0325ecb6a2e35a7568d84e766f87257f9d486c98e",
+    "coefficient_rom_rtl_sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+    "rom_manifest_sha256": "31a61e039e5b83bce3b73cc2d015bf92e0c3773071dcfa8385e2aea970a61ee1",
+    "state_constants": {
+      "ST_WIN_REQ": 1,
+      "ST_FFT_ISSUE": 4
+    },
+    "active_high_requests": {
+      "hann_en": "state == ST_WIN_REQ",
+      "twiddle_en": "state == ST_FFT_ISSUE"
+    },
+    "state_observation": "debug_progress[23:19] aliases state[4:0]; all five bits have one FF Q driver in the current gate cone."
+  },
+  "normalized_equivalence": {
+    "method": "Parse current gate EG_PHY_BRAM control pins and mux parameters; recursively evaluate the actual gate LUT cone for every state value 0..31; compare effective pin value (raw pin XOR INV setting) with the active-high source request predicate. No expected primitive parameter values were rewritten.",
+    "state_values_per_control": 32,
+    "control_truth_rows_compared": 192,
+    "controls": {
+      "hann_high": [
+        {
+          "primitive_port": "cea",
+          "gate_net": "u_pcm_waveform/u_spectrum/eq15_syn_33",
+          "parameter": "CEAMUX",
+          "setting": "INV",
+          "inversion_applied": true,
+          "expected_request_state": "ST_WIN_REQ",
+          "truth_rows": 32,
+          "pass": true
+        }
+      ],
+      "hann_low": [
+        {
+          "primitive_port": "cea",
+          "gate_net": "u_pcm_waveform/u_spectrum/eq15_syn_33",
+          "parameter": "CEAMUX",
+          "setting": "INV",
+          "inversion_applied": true,
+          "expected_request_state": "ST_WIN_REQ",
+          "truth_rows": 32,
+          "pass": true
+        }
+      ],
+      "twiddle_high": [
+        {
+          "primitive_port": "csa[2]",
+          "gate_net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+          "parameter": "CSA2",
+          "setting": "INV",
+          "inversion_applied": true,
+          "expected_request_state": "ST_FFT_ISSUE",
+          "truth_rows": 32,
+          "pass": true
+        },
+        {
+          "primitive_port": "csb[2]",
+          "gate_net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+          "parameter": "CSB2",
+          "setting": "INV",
+          "inversion_applied": true,
+          "expected_request_state": "ST_FFT_ISSUE",
+          "truth_rows": 32,
+          "pass": true
+        }
+      ],
+      "twiddle_low": [
+        {
+          "primitive_port": "csa[2]",
+          "gate_net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+          "parameter": "CSA2",
+          "setting": "INV",
+          "inversion_applied": true,
+          "expected_request_state": "ST_FFT_ISSUE",
+          "truth_rows": 32,
+          "pass": true
+        },
+        {
+          "primitive_port": "csb[2]",
+          "gate_net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+          "parameter": "CSB2",
+          "setting": "INV",
+          "inversion_applied": true,
+          "expected_request_state": "ST_FFT_ISSUE",
+          "truth_rows": 32,
+          "pass": true
+        }
+      ]
+    },
+    "q_bindings": {
+      "19": {
+        "q_cell_type": "AL_MAP_SEQ",
+        "instance": "u_pcm_waveform/u_spectrum/state_reg[0]",
+        "dffmode": "FF"
+      },
+      "20": {
+        "q_cell_type": "AL_MAP_SEQ",
+        "instance": "u_pcm_waveform/u_spectrum/state_reg[1]",
+        "dffmode": "FF"
+      },
+      "21": {
+        "q_cell_type": "AL_MAP_SEQ",
+        "instance": "u_pcm_waveform/u_spectrum/state_reg[2]",
+        "dffmode": "FF"
+      },
+      "22": {
+        "q_cell_type": "AL_MAP_SEQ",
+        "instance": "u_pcm_waveform/u_spectrum/state_reg[3]",
+        "dffmode": "FF"
+      },
+      "23": {
+        "q_cell_type": "AL_MAP_SEQ",
+        "instance": "u_pcm_waveform/u_spectrum/state_reg[4]",
+        "dffmode": "FF"
+      }
+    },
+    "all_controls_match": true
+  },
+  "rom_image_audit": {
+    "status": "PASS",
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\audit\\gate_rom_init.json",
+    "sha256": "58665212dd5e31510dc3814f449fbfa70e4307b3febcfdcb132946a1912b2c63",
+    "logical_rom_words": 1536,
+    "lane_entries": 3072,
+    "rom_banks": 4
+  },
+  "dynamic_gate_regression": {
+    "status": "PASS",
+    "manifest": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\gate_verify\\input_manifest.json",
+    "manifest_sha256": "42f04b81494aaa9bea65849a5e5b326812f8b064e6683a5dbbf931636540c3a8",
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\gate_verify\\console.log",
+    "log_sha256": "55559a6976223c9e3bbe4b5f7a46179d2072332e97970dc19736c16fc7241fd5",
+    "frames": 3,
+    "bands": 72,
+    "model": "original EG4 compiled primitive library",
+    "coefficient_reading": "real gate BRAM instances and initialized contents; no coefficient data forced"
+  },
+  "proof_artifact_sha256": "c9d995c4c5c8e22f7b81cbb399ec07de04b23d0302558dd5ce2411efc1cf3079",
+  "checker_sha256": "8135215a7fe035afc39c7f8731b98b822635fa5beca0961671a5cd912b598e03"
+}

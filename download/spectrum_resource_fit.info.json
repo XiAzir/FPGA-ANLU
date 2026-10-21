@@ -1,0 +1,72 @@
+{
+  "build_id": "C11313",
+  "status": "OFFLINE_RESOURCE_CANDIDATE",
+  "hardware_status": "USER_REPORTED_FUNCTION_AND_SPECTRUM_PASS",
+  "created": "2026-10-20T21:21:53.0234664+08:00",
+  "bitstream_sha256": "3d85e5cdda40f1a91697ddf3c0275c52cf7bcee76d31af20503293b5a7428ca1",
+  "bitstream_bytes": 634280,
+  "selected_variant": "A10 AreaOptimizeHigh",
+  "resources": {
+    "slice": 8243,
+    "slice_percent": 84.11,
+    "lut": 14644,
+    "register": 8492,
+    "LE": 15746,
+    "BRAM9K": 45,
+    "DSP": 11,
+    "GCLK": 3,
+    "PLL": 2
+  },
+  "timing": {
+    "setup_wns_ns": 0.101,
+    "hold_wns_ns": 0.011,
+    "setup_tns_ns": 0,
+    "hold_tns_ns": 0,
+    "coverage": "99.98%"
+  },
+  "checkpoint": "development/player_spectrum_resource_fit/checkpoints/C11313_resource_fit_20261020_offline",
+  "manifest_sha256": "f4096189b2e417a6816a3f024101b0f0bc1fc4655dd5b7d1fd7dc5c8dac3b46a",
+  "stage_pointers": {
+    "synthesis": {
+      "stage": "synthesis",
+      "status": "success",
+      "runId": "8cc1efb7-2c4a-41db-b788-2eb62ca373d7",
+      "record": "synthesis_8cc1efb7-2c4a-41db-b788-2eb62ca373d7.json"
+    },
+    "physical": {
+      "stage": "physical",
+      "status": "success",
+      "runId": "57779295-8e99-4bef-ba48-653f94dce9a4",
+      "record": "physical_57779295-8e99-4bef-ba48-653f94dce9a4.json"
+    },
+    "bitstream": {
+      "stage": "bitstream",
+      "status": "success",
+      "runId": "e8d44e8e-e7cf-4aff-8540-291a660f3ebb",
+      "record": "bitstream_e8d44e8e-e7cf-4aff-8540-291a660f3ebb.json"
+    }
+  },
+  "validation_binding": "development/player_spectrum_resource_fit/build/final_binding.json",
+  "system_verification": "development/player_spectrum_resource_fit/build/system_20261020_204059",
+  "report": "E:/QQ CACHE/Download/安路资料/开发记录/专题记录/资源优化/C11313_20261020/README.md",
+  "tools": {
+    "Icarus": "12.0 devel s20150603-1539-g2693dd32b",
+    "TD": "6.2.1_SP1_6.2.178.840",
+    "ModelSim": "SE-64 10.1c 2012.07"
+  },
+  "pending": [
+    "真实板卡启动/图片/声音/频谱/按键/持续运行",
+    "80%资源目标尚差403 Slice"
+  ],
+  "original_bits_preserved": true,
+  "board_feedback": {
+    "created": "2026-10-20T21:37:22.851268+08:00",
+    "source": "用户本轮明确反馈",
+    "text": "目前的功能一切正常，包括频谱图也正常运转。继续压缩slice到80%以下",
+    "associated_version": "C11313",
+    "association": "按本对话上一轮交付版本关联；用户未另读出Build ID或SHA",
+    "bit_sha256": "3d85e5cdda40f1a91697ddf3c0275c52cf7bcee76d31af20503293b5a7428ca1",
+    "validation": "USER_REPORTED_FUNCTION_AND_SPECTRUM_PASS",
+    "next_target_max_slice": 7839
+  }
+}

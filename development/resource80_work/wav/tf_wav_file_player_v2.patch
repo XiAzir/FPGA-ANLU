@@ -1,0 +1,217 @@
+diff --git a/development/player_spectrum_resource_80/src/user_source/hdl_source/tf_wav_file_player.v b/development/resource80_work/wav/tf_wav_file_player_v2.v
+index 8a04246205364a3ada031977c08b69fed769dcc8..d9772de9c32e252d61957b3d6b87884661d6c0f3 100644
+--- a/development/player_spectrum_resource_80/src/user_source/hdl_source/tf_wav_file_player.v
++++ b/development/resource80_work/wav/tf_wav_file_player_v2.v
+@@ -49,18 +49,16 @@ module tf_wav_file_player #(
+         P_FMT=4, P_SKIP=5, P_DONE=6;
+     reg [2:0] field_index;
+     reg [31:0] field_acc;
+-    reg [31:0] chunk_id, chunk_size;
+-    reg [31:0] chunk_payload, chunk_next;
+-    reg [31:0] fmt_index;
+-    reg [15:0] fmt_tag, fmt_channels, fmt_align, fmt_bits;
+-    reg [31:0] fmt_rate, fmt_byterate;
++    reg [31:0] chunk_id;
++    reg [31:0] chunk_next;
++    reg [4:0] fmt_index;
++    reg fmt_fields_valid;
+     reg fmt_found, data_found;
+-    reg [31:0] data_offset, data_length;
+-    reg [31:0] skip_target;
+-    reg [31:0] scan_byte_limit;
+-    reg [31:0] riff_size;
+-    reg [31:0] scan_step_target;
+-    wire [31:0] current_chunk_size = {scan_byte,field_acc[23:0]};
++    reg [31:0] data_offset, data_end;
++    // The data chunk is validated as nonempty and even before this endpoint
++    // is latched. Its extent is already bounded by riff_end in P_CHUNK_SIZE.
++    reg [23:0] riff_size_lo;
++    wire [31:0] current_chunk_size = {scan_byte,field_acc[31:8]};
+     reg [31:0] wait_count;
+ 
+     reg [31:0] play_pos;
+@@ -83,7 +81,7 @@ module tf_wav_file_player #(
+     wire [12:0] fifo_after_pop = fifo_count - (fifo_pop ? 13'd1 : 13'd0);
+     wire fifo_space_sector = (DEPTH_COUNT - fifo_count) >= 13'd256;
+     wire play_in_range = (play_pos >= data_offset) &&
+-                         (play_pos < (data_offset + data_length));
++                         (play_pos < data_end);
+     wire play_push_req = (state == ST_PLAY_ACTIVE) && sd_valid &&
+                          play_in_range && play_pos[0];
+     wire play_push = play_push_req && ((fifo_count < DEPTH_COUNT) || fifo_pop);
+@@ -93,8 +91,9 @@ module tf_wav_file_player #(
+     wire prefetch_bypass = play_push && (wr_ptr == prefetch_ptr);
+     wire [15:0] prefetch_value = {sd_data, low_byte};
+     wire fifo_load_head = prefetch_needed && fifo_next_count!=0;
+-    reg [31:0] playable_samples;
+-    wire [12:0] prime_target = (playable_samples < PRIME_LEVEL) ? playable_samples[12:0] : PRIME_LEVEL;
++    // Legal FIFO depths cap PRIME_LEVEL at 2048. Thirteen bits hold every
++    // unsaturated sample count below that threshold; larger lengths clamp.
++    reg [12:0] prime_target;
+ 
+     assign sample_data = fifo_head;
+     assign sample_available = fifo_head_valid && (fifo_count != 0);
+@@ -104,12 +103,6 @@ module tf_wav_file_player #(
+     assign debug_push_pos=play_pos;
+     assign debug_data_offset=data_offset;
+ 
+-    function [31:0] sat_add32;
+-        input [31:0] a,b;
+-        reg [32:0] t;
+-        begin t={1'b0,a}+{1'b0,b}; sat_add32=t[32]?32'hffffffff:t[31:0]; end
+-    endfunction
+-
+     // Keep the RAM ports in canonical independent clocked processes so TD can
+     // map the attributed array to an EG4 block RAM.
+     always @(posedge clk) begin
+@@ -138,15 +131,13 @@ module tf_wav_file_player #(
+             scan_byte_pos<=0; scan_byte_valid<=0;
+             loaded_sector<=0; loaded_sector_valid<=0; scan_pos<=0; riff_end<=0;
+             scan_phase<=P_RIFF; field_index<=0; field_acc<=0; chunk_id<=0;
+-            chunk_size<=0; chunk_payload<=0; chunk_next<=0; fmt_index<=0;
+-            fmt_tag<=0; fmt_channels<=0; fmt_align<=0; fmt_bits<=0;
+-            fmt_rate<=0; fmt_byterate<=0; fmt_found<=0; data_found<=0;
+-            data_offset<=0; data_length<=0; skip_target<=0; scan_byte_limit<=0;
+-            riff_size<=0; scan_step_target<=0; play_pos<=0; play_byte<=0;
++            chunk_next<=0; fmt_index<=0;
++            fmt_fields_valid<=0; fmt_found<=0; data_found<=0;
++            data_offset<=0; data_end<=0; riff_size_lo<=0; prime_target<=0; play_pos<=0; play_byte<=0;
+             wait_count<=0;
+             low_byte<=0; low_valid<=0; wr_ptr<=0; rd_ptr<=0; fifo_count<=0;
+             fifo_head_bypass<=0;fifo_bypass_word<=0;
+-            fifo_head_valid<=0; playable_samples<=0;
++            fifo_head_valid<=0;
+             primed<=0; error<=0;
+         end else begin
+             if (file_error) begin error<=1; sd_read<=0; state<=ST_HALTED; end
+@@ -210,17 +201,15 @@ module tf_wav_file_player #(
+                     sd_read<=0;
+                     if (scan_pos >= file_size || (riff_end!=0 && scan_pos>=riff_end)) begin
+                         if (!fmt_found || !data_found || riff_end>file_size ||
+-                            data_length==0 || data_length[0] ||
+-                            (data_offset+data_length>riff_end) ||
++                            data_end==data_offset || (data_end[0]!=data_offset[0]) ||
++                            (data_end>riff_end) ||
+                             (scan_pos >= riff_end &&
+                              (scan_phase != P_CHUNK_ID || field_index != 0))) begin
+                             error<=1; state<=ST_HALTED;
+                         end else begin
+-                            if (fmt_tag!=1 || fmt_channels!=1 || fmt_rate!=48000 ||
+-                                fmt_byterate!=96000 || fmt_align!=2 || fmt_bits!=16 || data_offset[0]) begin
++                            if (!fmt_fields_valid || data_offset[0]) begin
+                                 error<=1; state<=ST_HALTED;
+                             end else begin
+-                                playable_samples<=data_length>>1;
+                                 play_pos<=data_offset; play_byte<=data_offset[8:0];
+                                 low_valid<=0; loaded_sector_valid<=0; state<=ST_PLAY_REQ;
+                             end
+@@ -248,52 +237,72 @@ module tf_wav_file_player #(
+                                      (scan_pos==9 && scan_byte!=8'h41) ||
+                                      (scan_pos==10 && scan_byte!=8'h56) ||
+                                      (scan_pos==11 && scan_byte!=8'h45))) begin error<=1; state<=ST_HALTED; end
+-                                if (scan_pos==4) riff_size[7:0]<=scan_byte;
+-                                if (scan_pos==5) riff_size[15:8]<=scan_byte;
+-                                if (scan_pos==6) riff_size[23:16]<=scan_byte;
++                                if (scan_pos==4) riff_size_lo[7:0]<=scan_byte;
++                                if (scan_pos==5) riff_size_lo[15:8]<=scan_byte;
++                                if (scan_pos==6) riff_size_lo[23:16]<=scan_byte;
+                                 if (scan_pos==7) begin
+-                                    riff_size<= {scan_byte,riff_size[23:0]};
+-                                    riff_end<= {scan_byte,riff_size[23:0]}+8;
+-                                    if ({scan_byte,riff_size[23:0]}<4 ||
+-                                        file_size<8 || {scan_byte,riff_size[23:0]}>file_size-8) begin error<=1; state<=ST_HALTED; end
++                                    riff_end<= {scan_byte,riff_size_lo}+8;
++                                    if ({scan_byte,riff_size_lo}<4 ||
++                                        file_size<8 || {scan_byte,riff_size_lo}>file_size-8) begin error<=1; state<=ST_HALTED; end
+                                 end
+                                 if (scan_pos==11) begin scan_phase<=P_CHUNK_ID; field_index<=0; chunk_id<=0; end
+                                 scan_pos<=scan_pos+1;
+                             end
+                             P_CHUNK_ID: begin
+-                                chunk_id[8*field_index +: 8]<=scan_byte;
++                                // Little-endian ID bytes arrive low first; shift
++                                // the accumulated word toward its final order.
++                                chunk_id<={scan_byte,chunk_id[31:8]};
+                                 scan_pos<=scan_pos+1;
+                                 if(field_index==3) begin field_index<=0; field_acc<=0; scan_phase<=P_CHUNK_SIZE; end
+                                 else field_index<=field_index+1;
+                             end
+                             P_CHUNK_SIZE: begin
+-                                field_acc[8*field_index +: 8]<=scan_byte;
++                                field_acc<={scan_byte,field_acc[31:8]};
+                                 scan_pos<=scan_pos+1;
+                                 if(field_index==3) begin
+-                                    chunk_size<=current_chunk_size;
+-                                    chunk_payload<=scan_pos+1;
+                                     chunk_next<=scan_pos+1+current_chunk_size+current_chunk_size[0];
+                                     field_index<=0; fmt_index<=0;
+                                     if (scan_pos>=riff_end || current_chunk_size>riff_end-(scan_pos+1) ||
+                                         current_chunk_size[0]>riff_end-(scan_pos+1+current_chunk_size)) begin error<=1; state<=ST_HALTED; end
+                                     else if(chunk_id==32'h20746d66) begin
+                                         if (current_chunk_size<16) begin error<=1; state<=ST_HALTED; end
+-                                        else begin scan_phase<=P_FMT; fmt_tag<=0; fmt_channels<=0; fmt_rate<=0; fmt_byterate<=0; fmt_align<=0; fmt_bits<=0; end
++                                        else begin scan_phase<=P_FMT; fmt_fields_valid<=1; end
+                                     end else if(chunk_id==32'h61746164) begin
+                                         if (current_chunk_size==0 || current_chunk_size[0]) begin error<=1; state<=ST_HALTED; end
+-                                        else if(!data_found) begin data_found<=1; data_offset<=scan_pos+1; data_length<=current_chunk_size; scan_pos<=scan_pos+1+current_chunk_size+current_chunk_size[0]; scan_phase<=P_CHUNK_ID; chunk_id<=0; end
++                                        else if(!data_found) begin
++                                            data_found<=1; data_offset<=scan_pos+1; data_end<=scan_pos+1+current_chunk_size;
++                                            // The validated even length divided by two is
++                                            // exact in [13:1] below 8192 samples; any upper
++                                            // bit or a count at PRIME_LEVEL saturates here.
++                                            prime_target <= (current_chunk_size[31:14] != 0 || current_chunk_size[13:1] >= PRIME_LEVEL)
++                                                ? PRIME_LEVEL : current_chunk_size[13:1];
++                                            scan_pos<=scan_pos+1+current_chunk_size+current_chunk_size[0]; scan_phase<=P_CHUNK_ID; chunk_id<=0;
++                                        end
+                                         else begin error<=1; state<=ST_HALTED; end
+                                     end else begin scan_pos<=scan_pos+1+current_chunk_size+current_chunk_size[0]; scan_phase<=P_CHUNK_ID; chunk_id<=0; end
+                                 end else field_index<=field_index+1;
+                             end
+                             P_FMT: begin
++                                // The supported WAVE profile is fixed. Reduce
++                                // each base fmt byte into one sticky validity bit
++                                // instead of storing 128 bits for final equality tests.
+                                 case(fmt_index)
+-                                    0:fmt_tag[7:0]<=scan_byte; 1:fmt_tag[15:8]<=scan_byte;
+-                                    2:fmt_channels[7:0]<=scan_byte; 3:fmt_channels[15:8]<=scan_byte;
+-                                    4:fmt_rate[7:0]<=scan_byte; 5:fmt_rate[15:8]<=scan_byte; 6:fmt_rate[23:16]<=scan_byte; 7:fmt_rate[31:24]<=scan_byte;
+-                                    8:fmt_byterate[7:0]<=scan_byte; 9:fmt_byterate[15:8]<=scan_byte; 10:fmt_byterate[23:16]<=scan_byte; 11:fmt_byterate[31:24]<=scan_byte;
+-                                    12:fmt_align[7:0]<=scan_byte; 13:fmt_align[15:8]<=scan_byte;
+-                                    14:fmt_bits[7:0]<=scan_byte; 15:fmt_bits[15:8]<=scan_byte;
++                                    0: if(scan_byte!=8'h01) fmt_fields_valid<=0;
++                                    1: if(scan_byte!=8'h00) fmt_fields_valid<=0;
++                                    2: if(scan_byte!=8'h01) fmt_fields_valid<=0;
++                                    3: if(scan_byte!=8'h00) fmt_fields_valid<=0;
++                                    4: if(scan_byte!=8'h80) fmt_fields_valid<=0;
++                                    5: if(scan_byte!=8'hbb) fmt_fields_valid<=0;
++                                    6: if(scan_byte!=8'h00) fmt_fields_valid<=0;
++                                    7: if(scan_byte!=8'h00) fmt_fields_valid<=0;
++                                    8: if(scan_byte!=8'h00) fmt_fields_valid<=0;
++                                    9: if(scan_byte!=8'h77) fmt_fields_valid<=0;
++                                    10: if(scan_byte!=8'h01) fmt_fields_valid<=0;
++                                    11: if(scan_byte!=8'h00) fmt_fields_valid<=0;
++                                    12: if(scan_byte!=8'h02) fmt_fields_valid<=0;
++                                    13: if(scan_byte!=8'h00) fmt_fields_valid<=0;
++                                    14: if(scan_byte!=8'h10) fmt_fields_valid<=0;
++                                    15: if(scan_byte!=8'h00) fmt_fields_valid<=0;
+                                 endcase
+                                 scan_pos<=scan_pos+1; fmt_index<=fmt_index+1;
+                                 // Only the 16-byte PCM base fmt fields are needed.
+@@ -327,7 +336,7 @@ module tf_wav_file_player #(
+                                 if (!play_pos[0]) begin low_byte<=sd_data; low_valid<=1; end
+                                 else if(low_valid) low_valid<=0;
+                             end
+-                            if (play_pos < data_offset+data_length) play_pos<=play_pos+1;
++                            if (play_pos < data_end) play_pos<=play_pos+1;
+                         end
+                     end else if (!sd_end) begin
+                         if (wait_count>=WAIT_LIMIT) begin error<=1; sd_read<=0; state<=ST_HALTED; end
+@@ -347,7 +356,7 @@ module tf_wav_file_player #(
+                     // The payload ends at an even byte boundary. If the data
+                     // chunk ends inside this sector, immediately loop to its
+                     // first sector after honoring the required request gap.
+-                    if (play_pos >= data_offset+data_length) begin
++                    if (play_pos >= data_end) begin
+                         play_pos<=data_offset; state<=ST_PLAY_REQ;
+                     end else state<=ST_PLAY_REQ;
+                 end

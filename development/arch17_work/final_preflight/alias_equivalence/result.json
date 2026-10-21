@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "netlist": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_arch17\\build\\audit\\routed_implementation.v",
+  "netlist_sha256": "5ad73bac35a528f6f67d55bffddd7c24d300238dcb1ea1ee9686d8ce78de0a6f",
+  "canonical": {
+    "instance": "\\u_pcm_waveform/u_spectrum/state_reg[0]_syn_4",
+    "line": 141517,
+    "active_q": "\\u_pcm_waveform/u_spectrum/debug_progress [19]"
+  },
+  "duplicate": {
+    "instance": "\\u_pcm_waveform/u_spectrum/state_reg[0]_syn_5",
+    "line": 141547,
+    "active_q": "\\u_pcm_waveform/u_spectrum/debug_progress[19]_dup_103"
+  },
+  "primitive": "EG_PHY_LSLICE",
+  "compared_parameters": {
+    "CEMUX": "\"1\"",
+    "CLKMUX": "\"CLK\"",
+    "DFFMODE": "\"FF\"",
+    "INIT_LUTF0": "16'b1010101010101010",
+    "INIT_LUTF1": "16'b1010101010101010",
+    "INIT_LUTG0": "16'b1010101010101010",
+    "INIT_LUTG1": "16'b1110101010101010",
+    "LSFMUX0": "\"FUNC5\"",
+    "LSFMUX1": "\"FUNC5\"",
+    "LSFXMUX0": "\"FUNC6\"",
+    "MODE": "\"LOGIC\"",
+    "REG0_REGSET": "\"RESET\"",
+    "REG0_SD": "\"FX\"",
+    "SRMODE": "\"ASYNC\"",
+    "SRMUX": "\"SR\""
+  },
+  "compared_active_inputs": {
+    "a": "{\\u_pcm_waveform/u_spectrum/state_b[0]_syn_8 ,\\u_pcm_waveform/u_spectrum/state_b[0]_syn_8 }",
+    "b": "{\\u_pcm_waveform/u_spectrum/butterfly [8],\\u_pcm_waveform/u_spectrum/butterfly [8]}",
+    "c": "{\\u_pcm_waveform/u_spectrum/fft_stage [0],\\u_pcm_waveform/u_spectrum/fft_stage [0]}",
+    "d": "{\\u_pcm_waveform/u_spectrum/mux6_syn_111 ,\\u_pcm_waveform/u_spectrum/mux6_syn_111 }",
+    "e": "{\\u_pcm_waveform/u_spectrum/mux100_syn_19 ,\\u_pcm_waveform/u_spectrum/mux100_syn_19 }",
+    "mi": "{open_n120749,\\u_pcm_waveform/u_spectrum/add10_syn_50 }",
+    "clk": "\\u_status_monitor/sys_clk",
+    "sr": "\\u_pcm_waveform/u_spectrum/reset_pipe [1]"
+  },
+  "equivalence_basis": "same EG_PHY_LSLICE, parameters, duplicated a-e function inputs, active MI, clock, async reset and reset state; only open upper lane names and active Q alias differ",
+  "negative_controls": {
+    "data_input_d": {
+      "rejected": true,
+      "reason": "data-function input d differs"
+    },
+    "clock": {
+      "rejected": true,
+      "reason": "clk differs"
+    },
+    "async_reset": {
+      "rejected": true,
+      "reason": "sr differs"
+    },
+    "active_mi_input": {
+      "rejected": true,
+      "reason": "active MI lane differs"
+    },
+    "selected_dff_data": {
+      "rejected": true,
+      "reason": "primitive parameters differ"
+    },
+    "reset_mode": {
+      "rejected": true,
+      "reason": "primitive parameters differ"
+    }
+  }
+}

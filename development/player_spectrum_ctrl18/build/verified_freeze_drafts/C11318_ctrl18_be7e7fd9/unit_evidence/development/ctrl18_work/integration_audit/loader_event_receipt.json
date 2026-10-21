@@ -1,0 +1,71 @@
+{
+  "schema": "C11318-loader-event-integration-audit-v1",
+  "status": "PASS",
+  "created_utc": "2026-10-21T06:38:11.257167+00:00",
+  "test": "tb_loader_event",
+  "checks": 35,
+  "delivered_sink_pulses_before_reset": {
+    "next": 7,
+    "auto": 3
+  },
+  "stale_sink_pulses_after_common_reset": {
+    "next": 0,
+    "auto": 0
+  },
+  "coverage": [
+    "WAIT_CATALOG event discard without catalog and queue on catalog arrival",
+    "IDLE pending consumption into HEADER",
+    "PAYLOAD busy next_pending retention and one-bit coalescing",
+    "auto event toggles independently while PAYLOAD is active",
+    "WAIT_DISPLAY completion coincident with next_press, then deferred IDLE launch",
+    "two-phase request synchronization, acknowledgement rearm, and common reset"
+  ],
+  "scope_note": "The test instantiates the selected C11318 loader and scaler. Testbench-only hierarchical state deposits select loader states; all next/auto requests traverse the real key_event_mailbox_sink. It does not run the full media system or Tang Dynasty.",
+  "loader_state_machine_body": "byte-identical to C11317",
+  "commands": [
+    "iverilog.exe -g2012 -Wall -s tb_loader_event -o tb_loader_event.vvp tb_loader_event.v tf_bmp_file_player.v bmp_scale_engine.v",
+    "vvp.exe tb_loader_event.vvp"
+  ],
+  "compiled_inputs_and_evidence": [
+    {
+      "path": "development/player_spectrum_ctrl18/src/user_source/hdl_source/tf_bmp_file_player.v",
+      "sha256": "e46169101374f6d28094d4ad408ff7f2b399908d0cb6fa30e613edebe5fe5ab4",
+      "bytes": 14939
+    },
+    {
+      "path": "development/player_spectrum_arch17/src/user_source/hdl_source/tf_bmp_file_player.v",
+      "sha256": "8c4c61c8f8474ae44115c3ac0a056910886996302cd0845b775cf00a8b28f5b7",
+      "bytes": 13770
+    },
+    {
+      "path": "development/player_spectrum_ctrl18/src/user_source/hdl_source/bmp_scale_engine.v",
+      "sha256": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2",
+      "bytes": 13698
+    },
+    {
+      "path": "development/ctrl18_work/integration_audit/tb_loader_event.v",
+      "sha256": "274cbbfcd35d37bbe4c032bcbb6c44b78d0b468bebc2b645a80f6b5315757b4d",
+      "bytes": 11733
+    },
+    {
+      "path": "bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe",
+      "sha256": "803b8844af2cc8ed70b5f08b07ffa749901280e81339617ca3e72cbbb852bd2b",
+      "bytes": 88064
+    },
+    {
+      "path": "bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe",
+      "sha256": "e2f442f4d5aa76e55c85c3ff77e4446fbfdb9946b7cfe8a2dff87f275da17b62",
+      "bytes": 945664
+    },
+    {
+      "path": "development/ctrl18_work/integration_audit/loader_event_compile.log",
+      "sha256": "eb8d7104e5fde901dd05da5e941be8320b3b84dea726f6a0455b93d8264c404e",
+      "bytes": 983
+    },
+    {
+      "path": "development/ctrl18_work/integration_audit/tb_loader_event.vvp",
+      "sha256": "e04cadc4a0d4f984d6d8fd9ed13eebc66eac9a3e1e7ffc505a058fc6381f744e",
+      "bytes": 210814
+    }
+  ]
+}

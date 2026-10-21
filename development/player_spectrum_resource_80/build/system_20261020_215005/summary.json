@@ -1,0 +1,70 @@
+{
+  "status": "SYSTEM_MEDIA_PASS_WITH_MODEL_ASSUMPTIONS",
+  "version": "C11312",
+  "clock_model": "replay",
+  "serial_scoreboard": true,
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "+incdir+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/user_source/hdl_source+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/user_source/hdl_source/include+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/user_source/hdl_source/SD+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/td_project",
+      "+define+HAS_FFT",
+      "-f",
+      "plain.f"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\system_20261020_215005\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "-L",
+      "hdmi",
+      "work.tb_system",
+      "work.glbl",
+      "+max_ms=200",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\system_20261020_215005\\console.log"
+  },
+  "fft": {
+    "status": "PASS_SCOPE",
+    "completed_frames": 3,
+    "band_checks": 72,
+    "max_abs_error": 0,
+    "oracle_sha256": "c7459ba9b0c10656ed8b68370a25b7ba97a7db9b79592cf3cd2c2c480adc2bff",
+    "scope": "Actual full-top accepted PCM captures, real ROM/FFT, independent fixed-point band reference; nominal startup/WAV case only"
+  },
+  "assumptions": [
+    "Qualified nominal PLL edge replay, fixed 50MHz reference/reset0 only",
+    "application-interface memory model; data leads valid by one clock",
+    "short generated BMP/WAV fixture"
+  ],
+  "unverified": [
+    "physical SDRAM",
+    "key source switching",
+    "SDF",
+    "hardware fault reproduction"
+  ],
+  "testbench_sha256": "31A28BCF704FDA6E992A22197BDEBB99632FBEF835C2E52FBEDE33DAEE0867DD"
+}

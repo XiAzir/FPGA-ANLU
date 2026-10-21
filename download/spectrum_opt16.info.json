@@ -1,0 +1,97 @@
+{
+  "build_id": "C11316",
+  "created": "2026-10-21T11:24:09.009064+08:00",
+  "status": "OFFLINE_RESOURCE_OPTIMIZED",
+  "hardware_status": "BOARD_NOT_TESTED",
+  "conclusion": "LOWER_SLICE_AND_DSP_WITH_EQUIVALENT_MEDIA_BEHAVIOR_OFFLINE",
+  "bitstream_sha256": "1de561dda1428c86c2f3127cf55b4b391cae8598c51111394ef9bde0ee971afa",
+  "bitstream_bytes": 634280,
+  "spi": {
+    "mode": 3,
+    "system_nominal_MHz": 50,
+    "low_div": 248,
+    "low_nominal_kHz": 100,
+    "high_div": 0,
+    "data_nominal_MHz": 12.5,
+    "simulated_payload_sclk_period_ns": 80
+  },
+  "resources": {
+    "slice": 7584,
+    "slice_percent": 77.38775510204081,
+    "lut": 13708,
+    "register": 7768,
+    "LE": 14461,
+    "BRAM9K": 45,
+    "DSP": 9,
+    "GCLK": 3,
+    "PLL": 2
+  },
+  "timing": {
+    "setup_wns_ns": 0.649,
+    "setup_tns_ns": 0.0,
+    "hold_wns_ns": 0.024,
+    "hold_tns_ns": 0.0
+  },
+  "STA_coverage": "99.98%",
+  "baseline": {
+    "build_id": "C11315",
+    "slice": 7632,
+    "slice_reduction": 48,
+    "DSP_reduction": 1,
+    "bitstream_sha256": "a9de55c166cd730db1203fc9d1d882eee885237cec68fd389dad26d0d972e22f"
+  },
+  "optimizations": [
+    "four fixed BPB fields reduced to byte-stream match flags",
+    "compile-time removal of duplicate scaler bounds checks under the validated production caller contract"
+  ],
+  "system_results": {
+    "duration_ms": 122,
+    "overrides": 11,
+    "serial_RGB_checked": 1536000,
+    "PCM_pairs_checked": 4447,
+    "FFT_frames": 3,
+    "FFT_bands": 72,
+    "FFT_max_error": 0,
+    "CRC_checked": 58,
+    "CRC_bad": 0,
+    "underflow": 0,
+    "commit_ns": 95044789,
+    "performance_identical_to_C11315": true
+  },
+  "unit_results": {
+    "paired_images": 6,
+    "paired_pixels": 1843200,
+    "loader_public_outputs": "cycle identical",
+    "header_diagnostics": 538,
+    "catalog_field_variants": 15,
+    "geometry_bound_pairs": 786432,
+    "unit_evidence_files": 166
+  },
+  "gate_route_audit": {
+    "gate_FFT_bands": 72,
+    "max_error": 0,
+    "ROM_logical_words": 1536,
+    "ROM_lane_entries": 3072,
+    "gate_control_truth_rows": 192,
+    "routed_control_truth_rows": 192,
+    "clock_checks_pass": 45,
+    "raw_SIG_INV_mismatches_retained": 6
+  },
+  "model_assumptions": [
+    "nominal PLL edge replay",
+    "application SDRAM interface model; data leads valid one clock",
+    "first cold video frame excluded from RGB pin score"
+  ],
+  "checkpoint": "development/player_spectrum_opt16/checkpoints/C11316_opt16_20261021_offline",
+  "checkpoint_files": 500,
+  "manifest_sha256": "cb4730c01a5eb5ccc4503d7df4c0e847e538b1db846f926bce2eb66bd1dc3fb1",
+  "validation_binding": "development/player_spectrum_opt16/build/final_binding.json",
+  "validation_binding_sha256": "3a02c1635c565a796c3f6d9c5a42f1f1c35d903fe2f3240f5334b92ac777f3fd",
+  "stage_run_ids": {
+    "synthesis": "ec6c76a1-fe11-4a53-baae-41e0e5e1be43",
+    "physical": "aef7acca-be50-4426-9d6f-aef5bf4764b0",
+    "bitstream": "4a0690ac-f488-44b3-836e-60926fb38c9c"
+  },
+  "report": "E:\\QQ CACHE\\Download\\安路资料\\开发记录\\专题记录\\资源优化\\C11316_20261021\\README.md",
+  "next": "Board verify C11316 Build ID, cold boot, multi-image switching, audio, spectrum, keys and sustained operation."
+}

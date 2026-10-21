@@ -1,0 +1,48 @@
+{
+  "strategy": {
+    "description": "Transforms more adder chains to luts by using larger threshold targeting for flexible placement.",
+    "is_syn": "syn",
+    "params": [
+      {
+        "step": "gate",
+        "param": "mapper_lut_delay",
+        "val": "1600"
+      },
+      {
+        "step": "rtl",
+        "param": "min_ripple_len",
+        "val": "18"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "module": "fat32_catalog",
+      "variant": "baseline",
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\src\\user_source\\hdl_source\\fat32_catalog.v",
+      "sha256": "05491010b67651b8b1bb1cb77a1cb985a9e2ea5838f6e8ddaae5af4523241968",
+      "al": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\adder_threshold\\runs\\fat32_catalog_baseline\\td_project\\fat32_catalog_baseline.al"
+    },
+    {
+      "module": "fat32_catalog",
+      "variant": "adder_chain_threshold_high",
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\src\\user_source\\hdl_source\\fat32_catalog.v",
+      "sha256": "05491010b67651b8b1bb1cb77a1cb985a9e2ea5838f6e8ddaae5af4523241968",
+      "al": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\adder_threshold\\runs\\fat32_catalog_adder_chain_threshold_high\\td_project\\fat32_catalog_adder_chain_threshold_high.al"
+    },
+    {
+      "module": "fat32_file_sector",
+      "variant": "baseline",
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\src\\user_source\\hdl_source\\fat32_file_sector.v",
+      "sha256": "650bec7bedd7939a4059079eafb5ab5a84613ab8e9e0de5ec89be384c0b70e27",
+      "al": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\adder_threshold\\runs\\fat32_file_sector_baseline\\td_project\\fat32_file_sector_baseline.al"
+    },
+    {
+      "module": "fat32_file_sector",
+      "variant": "adder_chain_threshold_high",
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\src\\user_source\\hdl_source\\fat32_file_sector.v",
+      "sha256": "650bec7bedd7939a4059079eafb5ab5a84613ab8e9e0de5ec89be384c0b70e27",
+      "al": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource_opt_work\\adder_threshold\\runs\\fat32_file_sector_adder_chain_threshold_high\\td_project\\fat32_file_sector_adder_chain_threshold_high.al"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "inputs": [
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_opt16\\src\\user_source\\hdl_source\\rgb888_word_codec.v",
+      "sha256": "1ebe462b52a0f4a08e22bff98e8b8c10c67fba7857006cf2e5a2cb5004de9c93"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_opt16\\src\\user_source\\hdl_source\\SD\\frame_read_write.v",
+      "sha256": "e9672c35c1982e756788f600954c169d52e581a9d47bfa6cb93b07d47936cb39"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_opt16\\src\\user_source\\hdl_source\\IP\\afifo_32_16_256.v",
+      "sha256": "7c3ee41f30be75ae686c9abff3a840fc5439209cda077e4aa275eac0dab9f564"
+    }
+  ],
+  "candidate_sha256": "414a74a76a828b45f9baa2f0c56f5f80d5c6311b21001e309246d2f60a333552",
+  "proof": "normal non-showahead FIFO re-gates synchronous dob_tmp, held until next pop; word_pop requires post-edge count<=4. For count5/6/7/8, high reservoir is last word_data high1/2/3/4 bytes. New response can replace word_data only when post-state high reservoir is empty. Exact same word_pop, occupancy, pixel/underflow/reset/clear behavior."
+}

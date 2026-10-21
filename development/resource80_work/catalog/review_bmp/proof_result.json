@@ -1,0 +1,41 @@
+{
+  "baseline": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\src\\user_source\\hdl_source\\tf_bmp_file_player.v",
+  "baseline_sha256": "e902f65baba30712402b3c39cdc9be01adaf66aaf0bdb4c462d205e4ece84642",
+  "candidate": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\bmp\\tf_bmp_file_player.header.v",
+  "candidate_sha256": "94543758ef1dfaece9dd6d21aa3e7412cc041f5de2fa4e6c317dedc1eab0f3f2",
+  "checks": {
+    "width_raw32_equivalence_classes": 4096,
+    "height_raw32_equivalence_classes": 6144,
+    "all_16bit_values_for_magic_planes_bit_count": 65536
+  },
+  "compression_proof": "All four raw bytes are independently ANDed against zero; result equals compression==0 for every uint32 value.",
+  "geometry_proof": "Both RTLs form source_stride only from raw width[10:0], and source_image_bytes only from abs_height[9:0]. Candidate width_low is exactly width[10:0], and two's-complement negation modulo 2^10 equals the low 10 bits of the baseline 32-bit negation. Therefore stride, image byte count, pixel_end, file-extent mask bit 8 and declared-extent mask bit 9 match for every raw width/height and pixel_offset/file_size/declared_size.",
+  "height_class_reason": "For sign=0, any one in raw height[30:10] makes height > 768; for sign=1, any zero in those bits makes abs(height) >= 1024. Only all-zero positive and all-one negative high regions need low-bit magnitude checks. Candidate flags encode exactly these classes.",
+  "explicit_edges": {
+    "0x80000000": {
+      "abs": "0x80000000",
+      "invalid_ref": true
+    },
+    "0xfffffcff": {
+      "abs": "0x301",
+      "invalid_ref": true
+    },
+    "0xfffffc00": {
+      "abs": "0x400",
+      "invalid_ref": true
+    },
+    "0x301": {
+      "abs": "0x301",
+      "invalid_ref": true
+    },
+    "0x400": {
+      "abs": "0x400",
+      "invalid_ref": true
+    },
+    "0x300": {
+      "abs": "0x300",
+      "invalid_ref": false
+    }
+  },
+  "result": "PASS"
+}

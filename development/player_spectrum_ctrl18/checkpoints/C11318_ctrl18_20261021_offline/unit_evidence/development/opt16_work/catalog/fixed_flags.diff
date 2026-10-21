@@ -1,0 +1,77 @@
+--- fat32_catalog_baseline.v
++++ fat32_catalog_candidate_fixed_flags.v
+@@ -27,10 +27,14 @@
+ reg [9:0] byte_index;
+ reg [$clog2(SECTOR_TIMEOUT_CYCLES+1)-1:0] wait_count;
+ reg [2:0] gap_count;
+-reg [7:0] bps_lo, bps_hi, spc, reserved_lo, reserved_hi, fats, rootent0, rootent1;
+-reg [7:0] fat16_0, fat16_1, total16_0,total16_1, total32_b[0:3];
+-reg [7:0] fatsz32_b[0:3], root_b[0:3], extflags_lo, extflags_hi, version_lo,version_hi;
++reg [7:0] spc, reserved_lo, reserved_hi, fats;
++reg [7:0] total16_0,total16_1, total32_b[0:3];
++reg [7:0] fatsz32_b[0:3], root_b[0:3], extflags_lo, extflags_hi;
+ reg [7:0] signature_lo, signature_hi;
++reg bps_fixed_valid;
++reg rootent_fixed_valid;
++reg fat16_fixed_valid;
++reg version_fixed_valid;
+ // The first FAT32 partition wins. Capture it as bytes arrive; later
+ // partitions cannot affect selection, including when the first is invalid.
+ reg partition_found;
+@@ -79,10 +83,10 @@
+ wire [34:0] root_sector_offset = {7'd0,root_cluster_minus_two} << spc_shift_calc;
+ // MBR bytes 446..509: two partition-index bits and two byte-lane bits.
+ wire [5:0] partition_byte = byte_index[5:0]-6'd62;
+-wire bpb_header_candidate = (bps_lo==0 && bps_hi==2) && spc!=0 &&
++wire bpb_header_candidate = (bps_fixed_valid) && spc!=0 &&
+     ((spc & (spc-1'b1))==0) && spc<=128 && reserved32!=0 &&
+-    (fats==1 || fats==2) && {rootent1,rootent0}==0 &&
+-    fat16_0==0 && fat16_1==0 && version_lo==0 && version_hi==0 &&
++    (fats==1 || fats==2) && rootent_fixed_valid &&
++    fat16_fixed_valid && version_fixed_valid &&
+     total32!=0 && fatsz32!=0 && root_cluster_masked>=2 &&
+     fat_area_end_p0<total32 && cluster_count_p2>=65525 &&
+     cluster_count_p2<=32'h0ffffff5 &&
+@@ -123,9 +127,9 @@
+    partition_found<=0; selected_partition<=0; selected_start<=0; selected_size<=0;
+     fat_entry_value<=0; fat_offset<=0;
+     current_root_cluster<=0; root_clusters_read<=0; root_sector_in_cluster<=0; root_end_marker<=0;
+-   bps_lo<=0; bps_hi<=0; spc<=0; reserved_lo<=0; reserved_hi<=0; fats<=0;
+-   rootent0<=0;rootent1<=0;fat16_0<=0;fat16_1<=0;total16_0<=0;total16_1<=0;
+-   extflags_lo<=0;extflags_hi<=0;version_lo<=0;version_hi<=0;signature_lo<=0;signature_hi<=0;
++   bps_fixed_valid<=0;  spc<=0; reserved_lo<=0; reserved_hi<=0; fats<=0;
++   rootent_fixed_valid<=0;fat16_fixed_valid<=0;total16_0<=0;total16_1<=0;
++   extflags_lo<=0;extflags_hi<=0;version_fixed_valid<=0;signature_lo<=0;signature_hi<=0;
+    for(i=0;i<4;i=i+1) begin total32_b[i]<=0; fatsz32_b[i]<=0;root_b[i]<=0; end
+    dir_first_zero<=1; dir_deleted<=0; dir_skip<=0; bmp_name_match<=0; wav_name_match<=0;
+    for(i=0;i<2;i=i+1) begin dir_clhi_b[i]<=0;dir_cllo_b[i]<=0; end
+@@ -142,13 +146,13 @@
+        if(byte_index<512) begin
+          if(state==S_READ_BOOT) begin
+            case(byte_index)
+-             11: bps_lo<=sd_data; 12: bps_hi<=sd_data; 13: spc<=sd_data;
++             11: bps_fixed_valid<=(sd_data==0); 12: bps_fixed_valid<=bps_fixed_valid && (sd_data==2); 13: spc<=sd_data;
+              14: reserved_lo<=sd_data; 15: reserved_hi<=sd_data; 16: fats<=sd_data;
+-             17: rootent0<=sd_data; 18: rootent1<=sd_data; 22: fat16_0<=sd_data; 23: fat16_1<=sd_data;
++             17: rootent_fixed_valid<=(sd_data==0); 18: rootent_fixed_valid<=rootent_fixed_valid && (sd_data==0); 22: fat16_fixed_valid<=(sd_data==0); 23: fat16_fixed_valid<=fat16_fixed_valid && (sd_data==0);
+              19: total16_0<=sd_data; 20: total16_1<=sd_data;
+              32,33,34,35: total32_b[byte_index-32]<=sd_data;
+              36,37,38,39: fatsz32_b[byte_index-36]<=sd_data;
+-             40: extflags_lo<=sd_data; 41: extflags_hi<=sd_data; 42: version_lo<=sd_data; 43: version_hi<=sd_data;
++             40: extflags_lo<=sd_data; 41: extflags_hi<=sd_data; 42: version_fixed_valid<=(sd_data==0); 43: version_fixed_valid<=version_fixed_valid && (sd_data==0);
+              44,45,46,47: root_b[byte_index-44]<=sd_data;
+              510: signature_lo<=sd_data; 511: signature_hi<=sd_data;
+              default: begin
+@@ -247,9 +251,9 @@
+          is_mbr<=1;
+          issue_sector(S_READ_BOOT,selected_start);
+        end
+-     end else if(bps_lo!=0 || bps_hi!=2 || spc==0 || (spc & (spc-1'b1))!=0 || spc>128 || reserved32==0 ||
+-                 (fats!=1 && fats!=2) || {rootent1,rootent0}!=0 || fat16_0!=0 || fat16_1!=0 ||
+-                 version_lo!=0 || version_hi!=0 || total32==0) fail(E_BPB);
++     end else if(!bps_fixed_valid || spc==0 || (spc & (spc-1'b1))!=0 || spc>128 || reserved32==0 ||
++                 (fats!=1 && fats!=2) || !rootent_fixed_valid || !fat16_fixed_valid ||
++                 !version_fixed_valid || total32==0) fail(E_BPB);
+      else if(volume_end_p0>64'h0000000100000000 || (is_mbr && partition_end_p0>64'h0000000100000000)) fail(E_RANGE);
+      else if(fatsz32==0 || root_cluster_masked<2 || fat_area_end_p0>=total32 ||
+              cluster_count_p2<65525 || cluster_count_p2>32'h0ffffff5 ||

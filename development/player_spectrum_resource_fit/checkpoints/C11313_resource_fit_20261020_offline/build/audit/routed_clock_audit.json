@@ -1,0 +1,967 @@
+{
+  "status": "PASS",
+  "netlist": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\build\\audit\\routed_implementation.v",
+  "netlist_sha256": "8413bb97470f07b4c8f421073c1a47bfd81b808c85e0a58e10a2254d5e76cde9",
+  "checks": [
+    [
+      "INFO",
+      "netlist SHA256=8413bb97470f07b4c8f421073c1a47bfd81b808c85e0a58e10a2254d5e76cde9"
+    ],
+    [
+      "INFO",
+      "PLL clkc1 raw=hdmi_5x_clk_raw"
+    ],
+    [
+      "INFO",
+      "GCLK 数量=3；实例=\\sys_pll_m0/bufg_feedback, u_hdmi_serial_bufg, \\video_pll_m0/bufg_feedback"
+    ],
+    [
+      "PASS",
+      "EG_PHY_PLL \\video_pll_m0/pll_inst 的 clkc[1] 映射为 hdmi_5x_clk_raw"
+    ],
+    [
+      "PASS",
+      "clkc1 raw → u_hdmi_serial_bufg EG_PHY_GCLK → \\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk"
+    ],
+    [
+      "PASS",
+      "物理网表保留 3 个 EG_PHY_GCLK（含 serializer buffer）"
+    ],
+    [
+      "PASS",
+      "HDMI_CLK_P: ODDRMODE=DDRX1, IOTYPE=LVDS33_E"
+    ],
+    [
+      "PASS",
+      "HDMI_CLK_P.osclk=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk（serializer GCLK 输出）"
+    ],
+    [
+      "PASS",
+      "HDMI_D0_P: ODDRMODE=DDRX1, IOTYPE=LVDS33_E"
+    ],
+    [
+      "PASS",
+      "HDMI_D0_P.osclk=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk（serializer GCLK 输出）"
+    ],
+    [
+      "PASS",
+      "HDMI_D1_P: ODDRMODE=DDRX1, IOTYPE=LVDS33_E"
+    ],
+    [
+      "PASS",
+      "HDMI_D1_P.osclk=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk（serializer GCLK 输出）"
+    ],
+    [
+      "PASS",
+      "HDMI_D2_P: ODDRMODE=DDRX1, IOTYPE=LVDS33_E"
+    ],
+    [
+      "PASS",
+      "HDMI_D2_P.osclk=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk（serializer GCLK 输出）"
+    ],
+    [
+      "PASS",
+      "lane0 sync: 2 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=CLK; 有效边沿/时钟匹配"
+    ],
+    [
+      "PASS",
+      "lane0 load_en: 1 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=CLK; 有效边沿/时钟匹配"
+    ],
+    [
+      "PASS",
+      "lane0 pending_data: 10 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=CLK; 有效边沿/时钟匹配"
+    ],
+    [
+      "PASS",
+      "lane0 shift_data: 9 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=CLK; 有效边沿/时钟匹配"
+    ],
+    [
+      "PASS",
+      "lane0 oddr_data: 1 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=INV; 有效边沿/时钟匹配"
+    ],
+    [
+      "INFO",
+      "lane1 sync: 网表中无独立寄存器，可能由跨 lane 共享控制或常量数据优化消除"
+    ],
+    [
+      "INFO",
+      "lane1 load_en: 网表中无独立寄存器，可能由跨 lane 共享控制或常量数据优化消除"
+    ],
+    [
+      "PASS",
+      "lane1 pending_data: 7 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=CLK; 有效边沿/时钟匹配"
+    ],
+    [
+      "PASS",
+      "lane1 shift_data: 5 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=CLK; 有效边沿/时钟匹配"
+    ],
+    [
+      "PASS",
+      "lane1 oddr_data: 1 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=INV; 有效边沿/时钟匹配"
+    ],
+    [
+      "INFO",
+      "lane2 sync: 网表中无独立寄存器，可能由跨 lane 共享控制或常量数据优化消除"
+    ],
+    [
+      "INFO",
+      "lane2 load_en: 网表中无独立寄存器，可能由跨 lane 共享控制或常量数据优化消除"
+    ],
+    [
+      "PASS",
+      "lane2 pending_data: 9 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=CLK; 有效边沿/时钟匹配"
+    ],
+    [
+      "PASS",
+      "lane2 shift_data: 9 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=CLK; 有效边沿/时钟匹配"
+    ],
+    [
+      "PASS",
+      "lane2 oddr_data: 1 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=INV; 有效边沿/时钟匹配"
+    ],
+    [
+      "INFO",
+      "lane3 sync: 网表中无独立寄存器，可能由跨 lane 共享控制或常量数据优化消除"
+    ],
+    [
+      "INFO",
+      "lane3 load_en: 网表中无独立寄存器，可能由跨 lane 共享控制或常量数据优化消除"
+    ],
+    [
+      "PASS",
+      "lane3 pending_data: 1 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=CLK; 有效边沿/时钟匹配"
+    ],
+    [
+      "PASS",
+      "lane3 shift_data: 2 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=CLK; 有效边沿/时钟匹配"
+    ],
+    [
+      "PASS",
+      "lane3 oddr_data: 2 cell(s), CLK=\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk, CLKMUX=INV; 有效边沿/时钟匹配"
+    ],
+    [
+      "PASS",
+      "lane aggregate sync: 2 explicit register cell(s)"
+    ],
+    [
+      "PASS",
+      "lane aggregate load_en: 1 explicit register cell(s)"
+    ],
+    [
+      "PASS",
+      "lane aggregate pending_data: 27 explicit register cell(s)"
+    ],
+    [
+      "PASS",
+      "lane aggregate shift_data: 25 explicit register cell(s)"
+    ],
+    [
+      "PASS",
+      "lane aggregate oddr_data: 5 explicit register cell(s)"
+    ],
+    [
+      "PASS",
+      "seg7_dio.osclk=\\u_bmp_file_mapper/clk（system PLL GCLK 输出）"
+    ],
+    [
+      "PASS",
+      "seg7_sclk.osclk=\\u_bmp_file_mapper/clk（system PLL GCLK 输出）"
+    ],
+    [
+      "PASS",
+      "seg7_rclk.osclk=\\u_bmp_file_mapper/clk（system PLL GCLK 输出）"
+    ],
+    [
+      "PASS",
+      "mailbox source/video: 27 FF cell(s), CLK=\\u_status_monitor/sys_clk"
+    ],
+    [
+      "PASS",
+      "mailbox destination/system: 26 FF cell(s), CLK=\\u_bmp_file_mapper/clk"
+    ],
+    [
+      "PASS",
+      "source manifest 与当前源文件一致；scopeHash=bf5cc5e59a584187bcf578c87b974cb4e9e605829b4e9c1eb68bdac955bd7b52"
+    ],
+    [
+      "PASS",
+      "synthesis evidence PASS：runId=8cc1efb7-2c4a-41db-b788-2eb62ca373d7"
+    ],
+    [
+      "PASS",
+      "gate database hash 匹配：f80446b50ac081a51948deb000ad468bf6bb113bd2361263f11ec8f9ddc917ab"
+    ],
+    [
+      "PASS",
+      "physical evidence success; synthesisRunId/gateDbHash/scopeHash 匹配"
+    ],
+    [
+      "PASS",
+      "timing report hash 匹配 physical evidence：AC201_tf_hdmi_pr.timing"
+    ],
+    [
+      "PASS",
+      "HDMI_CLK_P: DDRMODE/IOTYPE/reset 与 C11308 基线一致 (reset \\u_status_monitor/startup_flags[1]_dup_4309 → \\u_status_monitor/startup_flags[1]_dup_3349)"
+    ],
+    [
+      "PASS",
+      "HDMI_D0_P: DDRMODE/IOTYPE/reset 与 C11308 基线一致 (reset \\u_status_monitor/startup_flags[1]_dup_4309 → \\u_status_monitor/startup_flags[1]_dup_3217)"
+    ],
+    [
+      "PASS",
+      "HDMI_D1_P: DDRMODE/IOTYPE/reset 与 C11308 基线一致 (reset \\u_status_monitor/startup_flags[1]_dup_4309 → \\u_status_monitor/startup_flags[1]_dup_3349)"
+    ],
+    [
+      "PASS",
+      "HDMI_D2_P: DDRMODE/IOTYPE/reset 与 C11308 基线一致 (reset \\u_status_monitor/startup_flags[1]_dup_4309 → \\u_status_monitor/startup_flags[1]_dup_3217)"
+    ],
+    [
+      "PASS",
+      "timing summary 属于 C11313，SHA256=c0a9606a63225542e594033058b99fd44b206addf2472052a0996ecb22fc173d"
+    ]
+  ],
+  "topology": {
+    "expected": {
+      "plls": [
+        {
+          "instance": "\\sys_pll_m0/pll_inst",
+          "clkc0": "\\sys_pll_m0/clk0_buf",
+          "clkc1": "\\u_frame_buffer/u_legacy_frame_backend/frame_fifo_read_m0/mem_clk"
+        },
+        {
+          "instance": "\\video_pll_m0/pll_inst",
+          "clkc0": "\\video_pll_m0/clk0_buf",
+          "clkc1": "hdmi_5x_clk_raw"
+        }
+      ],
+      "video_pll": {
+        "instance": "\\video_pll_m0/pll_inst",
+        "clkc0": "\\video_pll_m0/clk0_buf",
+        "clkc1": "hdmi_5x_clk_raw"
+      },
+      "system_pll": {
+        "instance": "\\sys_pll_m0/pll_inst",
+        "clkc0": "\\sys_pll_m0/clk0_buf",
+        "clkc1": "\\u_frame_buffer/u_legacy_frame_backend/frame_fifo_read_m0/mem_clk"
+      },
+      "gclks": [
+        {
+          "instance": "\\sys_pll_m0/bufg_feedback",
+          "clki": "\\sys_pll_m0/clk0_buf",
+          "clko": "\\u_bmp_file_mapper/clk"
+        },
+        {
+          "instance": "u_hdmi_serial_bufg",
+          "clki": "hdmi_5x_clk_raw",
+          "clko": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk"
+        },
+        {
+          "instance": "\\video_pll_m0/bufg_feedback",
+          "clki": "\\video_pll_m0/clk0_buf",
+          "clko": "\\u_status_monitor/sys_clk"
+        }
+      ],
+      "serial_raw": "hdmi_5x_clk_raw",
+      "serial_buffer": {
+        "instance": "u_hdmi_serial_bufg",
+        "clki": "hdmi_5x_clk_raw",
+        "clko": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk"
+      },
+      "serial": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+      "pixel": "\\u_status_monitor/sys_clk",
+      "system": "\\u_bmp_file_mapper/clk"
+    },
+    "pads": {
+      "HDMI_CLK_P": {
+        "instance": "HDMI_CLK_P_syn_2",
+        "ddrmode": "\"DDRX1\"",
+        "iotype": "\"LVDS33_E\"",
+        "reset": "\\u_status_monitor/startup_flags[1]_dup_3349",
+        "osclk": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "out_s_clk_mux": "\"CLK\"",
+        "do": "{open_n1,open_n2,\\u_hdmi2phy_wrapper/u3_lane_lvds_8_1/S_oddr_data [0],\\u_hdmi2phy_wrapper/u3_lane_lvds_8_1/S_oddr_data [1]}"
+      },
+      "HDMI_D0_P": {
+        "instance": "HDMI_D0_P_syn_2",
+        "ddrmode": "\"DDRX1\"",
+        "iotype": "\"LVDS33_E\"",
+        "reset": "\\u_status_monitor/startup_flags[1]_dup_3217",
+        "osclk": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "out_s_clk_mux": "\"CLK\"",
+        "do": "{open_n34,open_n35,\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_oddr_data [0],\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_oddr_data [1]}"
+      },
+      "HDMI_D1_P": {
+        "instance": "HDMI_D1_P_syn_2",
+        "ddrmode": "\"DDRX1\"",
+        "iotype": "\"LVDS33_E\"",
+        "reset": "\\u_status_monitor/startup_flags[1]_dup_3349",
+        "osclk": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "out_s_clk_mux": "\"CLK\"",
+        "do": "{open_n67,open_n68,\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_oddr_data [0],\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_oddr_data [1]}"
+      },
+      "HDMI_D2_P": {
+        "instance": "HDMI_D2_P_syn_2",
+        "ddrmode": "\"DDRX1\"",
+        "iotype": "\"LVDS33_E\"",
+        "reset": "\\u_status_monitor/startup_flags[1]_dup_3217",
+        "osclk": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "out_s_clk_mux": "\"CLK\"",
+        "do": "{open_n100,open_n101,\\u_hdmi2phy_wrapper/u2_lane_lvds_8_1/S_oddr_data [0],\\u_hdmi2phy_wrapper/u2_lane_lvds_8_1/S_oddr_data [1]}"
+      }
+    },
+    "lane_registers": [
+      {
+        "lane": "0",
+        "role": "sync",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_odd_even_1d_reg_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "sync",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_odd_even_2d_reg_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "load_en",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_load_en_reg_syn_5",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[0]_syn_3",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[1]_syn_3",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[2]_syn_3",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[3]_syn_3",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[4]_syn_3",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[5]_syn_3",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[6]_syn_3",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[7]_syn_3",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[8]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[0]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[1]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[2]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[3]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[4]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[5]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[6]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[7]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[8]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "0",
+        "role": "oddr_data",
+        "cell": "\\u_pcm_waveform/sub4_syn_103",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"INV\""
+      },
+      {
+        "lane": "1",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[2]_syn_3",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_pending_data_reg[0]_syn_3",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_pending_data_reg[1]_syn_3",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_pending_data_reg[2]_syn_3",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_pending_data_reg[4]_syn_3",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_pending_data_reg[8]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "pending_data",
+        "cell": "\\u_pcm_waveform/add3_syn_122",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_shift_data_reg[0]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_shift_data_reg[2]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_shift_data_reg[4]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_shift_data_reg[6]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_shift_data_reg[8]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "1",
+        "role": "oddr_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_oddr_data_reg[0]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"INV\""
+      },
+      {
+        "lane": "2",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[0]_syn_3",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[1]_syn_3",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[3]_syn_3",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[4]_syn_3",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[5]_syn_3",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_pending_data_reg[8]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_pending_data_reg[2]_syn_3",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u2_lane_lvds_8_1/S_pending_data_reg[7]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[0]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[1]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[2]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[3]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[4]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[5]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[6]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/S_shift_data_reg[7]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u2_lane_lvds_8_1/S_shift_data_reg[8]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "2",
+        "role": "oddr_data",
+        "cell": "\\u_hdmi2phy_wrapper/u2_lane_lvds_8_1/S_oddr_data_reg[0]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"INV\""
+      },
+      {
+        "lane": "3",
+        "role": "pending_data",
+        "cell": "\\u_hdmi2phy_wrapper/u3_lane_lvds_8_1/S_pending_data_reg[5]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "3",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u3_lane_lvds_8_1/S_shift_data_reg[5]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "3",
+        "role": "shift_data",
+        "cell": "\\u_hdmi2phy_wrapper/u3_lane_lvds_8_1/S_shift_data_reg[7]_syn_4",
+        "kind": "EG_PHY_MSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"CLK\""
+      },
+      {
+        "lane": "3",
+        "role": "oddr_data",
+        "cell": "\\u_hdmi2phy_wrapper/u3_lane_lvds_8_1/S_oddr_data_reg[0]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"INV\""
+      },
+      {
+        "lane": "3",
+        "role": "oddr_data",
+        "cell": "\\u_hdmi2phy_wrapper/u3_lane_lvds_8_1/S_oddr_data_reg[1]_syn_4",
+        "kind": "EG_PHY_LSLICE",
+        "clock": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk",
+        "clkmux": "\"INV\""
+      }
+    ],
+    "gclk_count": 3
+  },
+  "timing": {
+    "available": true,
+    "fresh": true,
+    "reason": "",
+    "path": "development\\player_spectrum_resource_fit\\build\\manual\\AC201_tf_hdmi_pr.timing",
+    "sha256": "c0a9606a63225542e594033058b99fd44b206addf2472052a0996ecb22fc173d",
+    "constraint": "E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_resource_fit/src/user_source/constraints_source/timing.sdc",
+    "report_stats": {
+      "SWNS": "0.101",
+      "STNS": "0.000",
+      "HWNS": "0.011",
+      "HTNS": "0.000",
+      "Period Check WNS": "0.000"
+    },
+    "serial_clock": {
+      "line": "clk4           local            0.000      4.000                 8.000         125.000                 6.680         149.701            0.660      0.000            0.244      0.000            0.254               49                1             no       no",
+      "name": "clk4",
+      "frequency_mhz": "125.000",
+      "rise_ns": "0.000",
+      "fall_ns": "4.000",
+      "swns_ns": "0.660",
+      "hwns_ns": "0.244",
+      "skew_ns": "0.254",
+      "fanout": "49"
+    },
+    "pad_do_paths": [
+      {
+        "endpoint": "HDMI_D2_P_syn_2.do[0] (rising edge triggered by clock hdmi_5x_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })",
+        "slack_ns": "2.790",
+        "begin": "u_hdmi2phy_wrapper/u2_lane_lvds_8_1/S_oddr_data_reg[0]_syn_4.clk (falling edge triggered by clock hdmi_5x_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })",
+        "check": "setup",
+        "skew_ns": "0.277",
+        "budget": "4.000ns { hdmi_5x_clk rising@8.000ns - hdmi_5x_clk falling@4.000ns }"
+      },
+      {
+        "endpoint": "HDMI_D0_P_syn_2.do[0] (rising edge triggered by clock hdmi_5x_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })",
+        "slack_ns": "2.825",
+        "begin": "u_pcm_waveform/sub4_syn_103.clk (falling edge triggered by clock hdmi_5x_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })",
+        "check": "setup",
+        "skew_ns": "0.277",
+        "budget": "4.000ns { hdmi_5x_clk rising@8.000ns - hdmi_5x_clk falling@4.000ns }"
+      },
+      {
+        "endpoint": "HDMI_CLK_P_syn_2.do[1] (rising edge triggered by clock hdmi_5x_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })",
+        "slack_ns": "2.928",
+        "begin": "u_hdmi2phy_wrapper/u3_lane_lvds_8_1/S_oddr_data_reg[0]_syn_4.clk (falling edge triggered by clock hdmi_5x_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })",
+        "check": "setup",
+        "skew_ns": "0.254",
+        "budget": "4.000ns { hdmi_5x_clk rising@8.000ns - hdmi_5x_clk falling@4.000ns }"
+      },
+      {
+        "endpoint": "HDMI_D1_P_syn_2.do[0] (rising edge triggered by clock hdmi_5x_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })",
+        "slack_ns": "0.285",
+        "begin": "u_hdmi2phy_wrapper/u1_lane_lvds_8_1/S_oddr_data_reg[0]_syn_4.clk (falling edge triggered by clock hdmi_5x_clk  { rise@0.000000ns  fall@4.000000ns  period=8.000000 })",
+        "check": "setup",
+        "skew_ns": "0.277",
+        "budget": "4.000ns { hdmi_5x_clk rising@8.000ns - hdmi_5x_clk falling@4.000ns }"
+      }
+    ]
+  },
+  "evidence": {
+    "checks": [
+      [
+        "PASS",
+        "source manifest 与当前源文件一致；scopeHash=bf5cc5e59a584187bcf578c87b974cb4e9e605829b4e9c1eb68bdac955bd7b52"
+      ],
+      [
+        "PASS",
+        "synthesis evidence PASS：runId=8cc1efb7-2c4a-41db-b788-2eb62ca373d7"
+      ],
+      [
+        "PASS",
+        "gate database hash 匹配：f80446b50ac081a51948deb000ad468bf6bb113bd2361263f11ec8f9ddc917ab"
+      ],
+      [
+        "PASS",
+        "physical evidence success; synthesisRunId/gateDbHash/scopeHash 匹配"
+      ]
+    ],
+    "record": {
+      "stage": "synthesis",
+      "status": "success",
+      "runId": "8cc1efb7-2c4a-41db-b788-2eb62ca373d7",
+      "synthesisRunId": null,
+      "scopeHash": "bf5cc5e59a584187bcf578c87b974cb4e9e605829b4e9c1eb68bdac955bd7b52",
+      "scriptHash": "d01d9aae5f9d7758cc81765fb7eb537d1e5c67a1e3b3566680f34384f88d481b",
+      "scripts": [
+        {
+          "path": "build_candidate.ps1",
+          "sha256": "c0a05f203f9eeff93f2ded9ad3e89cbb00dac56912e29ef0cdebfffdec93de06"
+        },
+        {
+          "path": "build_evidence.ps1",
+          "sha256": "59547bf85a22de584ef7ea376f51dedc348a385c89aa575d2350ece592ccef86"
+        },
+        {
+          "path": "build_manual_phy.tcl",
+          "sha256": "c87ca6c70c2212e95eeac219e43ea317b6e4a61566a9a0172299add3e37a1f07"
+        },
+        {
+          "path": "build_manual_syn.tcl",
+          "sha256": "b9ebacc886553c41fcfa0fef24e919fd443ead395061dc74ca80e6e7e397e284"
+        },
+        {
+          "path": "fix_hold.tcl",
+          "sha256": "a2b71d760f2d28b3279abb2e582c9b0f20fbaaa446456f8ab09378aad56cf115"
+        },
+        {
+          "path": "generate_bit.tcl",
+          "sha256": "08e5c1aefb6bbf5f85f996b1a922a969a4b21ca0429bfeb468bc0b7ff7b4f958"
+        }
+      ],
+      "gateDbHash": "f80446b50ac081a51948deb000ad468bf6bb113bd2361263f11ec8f9ddc917ab",
+      "startedUtc": "2026-10-20T12:53:18.9532498Z",
+      "completedUtc": "2026-10-20T12:57:30.3140921Z"
+    },
+    "scope_hash": "bf5cc5e59a584187bcf578c87b974cb4e9e605829b4e9c1eb68bdac955bd7b52",
+    "gate_db_hash": "f80446b50ac081a51948deb000ad468bf6bb113bd2361263f11ec8f9ddc917ab",
+    "physical": {
+      "stage": "physical",
+      "status": "success",
+      "runId": "57779295-8e99-4bef-ba48-653f94dce9a4",
+      "synthesisRunId": "8cc1efb7-2c4a-41db-b788-2eb62ca373d7",
+      "scopeHash": "bf5cc5e59a584187bcf578c87b974cb4e9e605829b4e9c1eb68bdac955bd7b52",
+      "scriptHash": "d01d9aae5f9d7758cc81765fb7eb537d1e5c67a1e3b3566680f34384f88d481b",
+      "scripts": [
+        {
+          "path": "build_candidate.ps1",
+          "sha256": "c0a05f203f9eeff93f2ded9ad3e89cbb00dac56912e29ef0cdebfffdec93de06"
+        },
+        {
+          "path": "build_evidence.ps1",
+          "sha256": "59547bf85a22de584ef7ea376f51dedc348a385c89aa575d2350ece592ccef86"
+        },
+        {
+          "path": "build_manual_phy.tcl",
+          "sha256": "c87ca6c70c2212e95eeac219e43ea317b6e4a61566a9a0172299add3e37a1f07"
+        },
+        {
+          "path": "build_manual_syn.tcl",
+          "sha256": "b9ebacc886553c41fcfa0fef24e919fd443ead395061dc74ca80e6e7e397e284"
+        },
+        {
+          "path": "fix_hold.tcl",
+          "sha256": "a2b71d760f2d28b3279abb2e582c9b0f20fbaaa446456f8ab09378aad56cf115"
+        },
+        {
+          "path": "generate_bit.tcl",
+          "sha256": "08e5c1aefb6bbf5f85f996b1a922a969a4b21ca0429bfeb468bc0b7ff7b4f958"
+        }
+      ],
+      "gateDbHash": "f80446b50ac081a51948deb000ad468bf6bb113bd2361263f11ec8f9ddc917ab",
+      "startedUtc": "2026-10-20T12:57:54.4211058Z",
+      "artifacts": {
+        "AC201_tf_hdmi_pr.db": "3889f970259a28ba40d23eff9272daa8ea5de6dfdeb75fb20e96e904c23ee908",
+        "AC201_tf_hdmi_phy.ts": "60968b10e387a46e37bdbfd29b5f0fe60a0fdb83112076366bac48249f814920",
+        "AC201_tf_hdmi_pr.timing": "c0a9606a63225542e594033058b99fd44b206addf2472052a0996ecb22fc173d",
+        "AC201_tf_hdmi_chk.timing": "a9195f5eced0c2d40679b30a4d3b0a2846388f0cf5f63435a429b5b3d834e50e",
+        "AC201_tf_hdmi_exception.timing": "0040937bfaa1270ff70680e9f5a694de9ef6124f3e69709b5b9306d500fec10d",
+        "AC201_tf_hdmi_phy.area": "387064a9732bf96a577457b6c0982d1d35cd7d4f26e78b7badff9f1bbb72b571"
+      },
+      "completedUtc": "2026-10-20T13:00:17.3440317Z"
+    },
+    "physical_pointer": {
+      "stage": "physical",
+      "status": "success",
+      "runId": "57779295-8e99-4bef-ba48-653f94dce9a4",
+      "record": "physical_57779295-8e99-4bef-ba48-653f94dce9a4.json"
+    }
+  },
+  "limits": "Clock topology and reported paths only; not full electrical or reset equivalence."
+}

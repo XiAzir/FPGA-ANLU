@@ -1,0 +1,153 @@
+{
+  "purpose": "host-only independently generated gold; do not copy preview/gold to TF",
+  "output": [
+    640,
+    480
+  ],
+  "assets": [
+    {
+      "bmp": "bmp_320x240_bottomup.bmp",
+      "source_width": 320,
+      "source_height": 240,
+      "height_sign": "positive/bottom-up",
+      "stride": 960,
+      "file_size": 230454,
+      "pixel_offset": 54,
+      "row_padding_bytes": 0,
+      "geometry": {
+        "dw": 640,
+        "dh": 480,
+        "offx": 0,
+        "offy": 0
+      },
+      "source_bytes_mem": "bmp_320x240_bottomup_source_bytes.mem",
+      "expected_mem": "bmp_320x240_bottomup_expected_bottomup_rgb24.mem",
+      "preview_ppm": "bmp_320x240_bottomup_preview_gold.ppm",
+      "role": "320x240 bottom-up 放大到640x480",
+      "sha256": "d5bd5a31eb4fef3bf93b5eeb2e6494f071e0980f1b18f83cba1d5cf8ef65fdae"
+    },
+    {
+      "bmp": "bmp_800x600_bottomup.bmp",
+      "source_width": 800,
+      "source_height": 600,
+      "height_sign": "positive/bottom-up",
+      "stride": 2400,
+      "file_size": 1440054,
+      "pixel_offset": 54,
+      "row_padding_bytes": 0,
+      "geometry": {
+        "dw": 640,
+        "dh": 480,
+        "offx": 0,
+        "offy": 0
+      },
+      "source_bytes_mem": "bmp_800x600_bottomup_source_bytes.mem",
+      "expected_mem": "bmp_800x600_bottomup_expected_bottomup_rgb24.mem",
+      "preview_ppm": "bmp_800x600_bottomup_preview_gold.ppm",
+      "role": "800x600 bottom-up 非整数缩小",
+      "sha256": "3e1cecfab75839594dfcc4bd37e7a1178a7d0ebf6e95618f60885df0f1b44735"
+    },
+    {
+      "bmp": "bmp_191x321_topdown.bmp",
+      "source_width": 191,
+      "source_height": 321,
+      "height_sign": "negative/top-down",
+      "stride": 576,
+      "file_size": 184950,
+      "pixel_offset": 54,
+      "row_padding_bytes": 3,
+      "geometry": {
+        "dw": 285,
+        "dh": 480,
+        "offx": 177,
+        "offy": 0
+      },
+      "source_bytes_mem": "bmp_191x321_topdown_source_bytes.mem",
+      "expected_mem": "bmp_191x321_topdown_expected_bottomup_rgb24.mem",
+      "preview_ppm": "bmp_191x321_topdown_preview_gold.ppm",
+      "role": "191x321 top-down 奇数宽且每行padding3字节",
+      "sha256": "f3beeef3add7904620b10d3d70561a2e65df295abfefcddc667c3cc8ce23e7de"
+    },
+    {
+      "bmp": "bmp_512x128_bottomup.bmp",
+      "source_width": 512,
+      "source_height": 128,
+      "height_sign": "positive/bottom-up",
+      "stride": 1536,
+      "file_size": 196662,
+      "pixel_offset": 54,
+      "row_padding_bytes": 0,
+      "geometry": {
+        "dw": 640,
+        "dh": 160,
+        "offx": 0,
+        "offy": 160
+      },
+      "source_bytes_mem": "bmp_512x128_bottomup_source_bytes.mem",
+      "expected_mem": "bmp_512x128_bottomup_expected_bottomup_rgb24.mem",
+      "preview_ppm": "bmp_512x128_bottomup_preview_gold.ppm",
+      "role": "512x128 bottom-up 居中黑边",
+      "sha256": "e14b2fd1a28cc1617750d09e8fcccbfe38c424d4c49942c769d8475bea45ebcb"
+    },
+    {
+      "bmp": "scaler_native_640x480.bmp",
+      "source_width": 640,
+      "source_height": 480,
+      "height_sign": "positive/bottom-up",
+      "stride": 1920,
+      "file_size": 921654,
+      "pixel_offset": 54,
+      "row_padding_bytes": 0,
+      "geometry": {
+        "dw": 640,
+        "dh": 480,
+        "offx": 0,
+        "offy": 0
+      },
+      "source_bytes_mem": "scaler_native_640x480_source_bytes.mem",
+      "expected_mem": "scaler_native_640x480_expected_bottomup_rgb24.mem",
+      "preview_ppm": "scaler_native_640x480_preview_gold.ppm",
+      "role": "独立原生分辨率回归素材，仅用于native独立TB",
+      "sha256": "738d09ccde4f6ead183b8967f91d008b92d68c442ba68fed082389b63c2ec721"
+    },
+    {
+      "bmp": "scaler_odd_vertical_800x599.bmp",
+      "source_width": 800,
+      "source_height": 599,
+      "height_sign": "positive/bottom-up",
+      "stride": 2400,
+      "file_size": 1437654,
+      "pixel_offset": 54,
+      "row_padding_bytes": 0,
+      "geometry": {
+        "dw": 640,
+        "dh": 479,
+        "offx": 0,
+        "offy": 0
+      },
+      "source_bytes_mem": "scaler_odd_vertical_800x599_source_bytes.mem",
+      "expected_mem": "scaler_odd_vertical_800x599_expected_bottomup_rgb24.mem",
+      "preview_ppm": "scaler_odd_vertical_800x599_preview_gold.ppm",
+      "role": "独立奇数垂直留边回归素材：dh479，上黑边0行、下黑边1行",
+      "sha256": "c286d37ae4335c126cbfed5ff3c41221ecc06737aca4473ce892281b27f28394"
+    }
+  ],
+  "error_fixtures": [
+    {
+      "file": "bad_zero_width.bmp",
+      "case": "invalid zero dimension in BMP header"
+    },
+    {
+      "file": "bad_unsupported_width.bmp",
+      "case": "width exceeds supported maximum 1024"
+    },
+    {
+      "file": "short_sector",
+      "case": "sector transport ends after 511 bytes"
+    },
+    {
+      "file": "bad_truncated_payload.bmp",
+      "case": "transport error after valid header during payload"
+    }
+  ]
+}

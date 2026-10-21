@@ -1,0 +1,233 @@
+--- C11316/td_project/AC201_tf_hdmi.al
++++ C11317/td_project/AC201_tf_hdmi.al
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<Project Version="3" Minor="2" Path="E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_opt16/src/td_project">
++<Project Version="3" Minor="2" Path="E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_arch17/src/td_project">
+     <Project_Created_Time></Project_Created_Time>
+     <TD_Version>6.2.178840</TD_Version>
+     <Name>AC201_tf_hdmi</Name>
+--- C11316/user_source/hdl_source/fat32_file_sector.v
++++ C11317/user_source/hdl_source/fat32_file_sector.v
+@@ -1,3 +1,7 @@
++// Working walk and completed-sector cache share their storage. Cache
++// contents are consulted only at request setup, before overwriting a walk.
++// An unsuccessful walk is sticky-failed until reset, so its old cache has
++// no later consumer. Successful data completion retains the live walk state.
+ // Brent cycle tracking is carried with the sequential cluster cache. The first
+ // repeated anchor may be reported after a short transient; every walk is also
+ // bounded by 4096 FAT hops, and files requiring more than 4096 clusters fail early.
+@@ -34,9 +38,10 @@
+     wire [31:0] rq_size = (STATIC_FILE || REQUEST_STABLE) ? file_size : rq_size_q;
+     reg [27:0] current_cluster;
+     reg [11:0] target_index, walk_index;
+-    reg [27:0] cache_cluster, cache_start;
++    wire [27:0] cache_cluster=current_cluster;
++    reg [27:0] cache_start;
+     reg [31:0] cache_size;
+-    reg [11:0] cache_index;
++    wire [11:0] cache_index=walk_index;
+     reg cache_valid;
+     wire [12:0] walk_count = {1'b0, walk_index};
+     wire [12:0] cache_walk_count = {1'b0, cache_index};
+@@ -44,9 +49,12 @@
+     // Brent's O(1)-storage cycle tracker. State describes current_cluster.
+     // Safe bound: accepted files are limited to 4096 clusters/hops; Brent power <= 4096.
+     // Keep 13 bits for length+1 so the boundary comparison can represent 4096.
+-    reg [27:0] brent_anchor, cache_brent_anchor;
+-    reg [12:0] brent_power, cache_brent_power;
+-    reg [12:0] brent_length, cache_brent_length;
++    reg [27:0] brent_anchor;
++    wire [27:0] cache_brent_anchor=brent_anchor;
++    reg [12:0] brent_power;
++    wire [12:0] cache_brent_power=brent_power;
++    reg [12:0] brent_length;
++    wire [12:0] cache_brent_length=brent_length;
+ 
+     reg [9:0] byte_count;
+     reg [8:0] wanted_offset;
+@@ -102,8 +110,7 @@
+             current_cluster <= 0;
+             target_index <= 0;
+             walk_index <= 0;
+-            cache_cluster <= 0;
+-            cache_index <= 0;
++
+             cache_start <= 0;
+             cache_size <= 0;
+             cache_valid <= 0;
+@@ -112,9 +119,7 @@
+             brent_anchor <= 0;
+             brent_power <= 1;
+             brent_length <= 0;
+-            cache_brent_anchor <= 0;
+-            cache_brent_power <= 1;
+-            cache_brent_length <= 0;
++
+             byte_count <= 0;
+             wanted_offset <= 0;
+ 
+@@ -276,16 +281,12 @@
+                     end else begin
+                         file_end <= 1;
+                         cache_valid <= 1;
+-                        cache_cluster <= current_cluster;
+-                        cache_index <= target_index;
++
+                         if (!STATIC_FILE) begin
+                             cache_start <= rq_start;
+                             cache_size <= rq_size;
+                         end
+ 
+-                        cache_brent_anchor <= brent_anchor;
+-                        cache_brent_power <= brent_power;
+-                        cache_brent_length <= brent_length;
+                         state <= S_IDLE;
+                     end
+                 end else if (!sd_valid && (wait_count >= WAIT_LIMIT - 1'b1)) begin
+--- C11316/user_source/hdl_source/player_status_monitor.v
++++ C11317/user_source/hdl_source/player_status_monitor.v
+@@ -4,7 +4,7 @@
+     parameter integer SYS_HZ=50000000,
+     parameter integer PAGE_SECONDS=2,
+     parameter integer SHOW_SELF_TEST=1,
+-    parameter [23:0] BUILD_ID=24'hC11316
++    parameter [23:0] BUILD_ID=24'hC11317
+ )(
+     input pixel_clk, sys_clk, rst, sys_rst,
+     input [23:0] axis_rgb,
+--- C11316/user_source/hdl_source/rgb888_word_codec.v
++++ C11317/user_source/hdl_source/rgb888_word_codec.v
+@@ -58,68 +58,70 @@
+ // a FIFO read whose data appears one rising edge later, matching the normal
+ // (non-show-ahead) FIFO interface. The 64-bit reservoir includes capacity
+ // reserved for a read already in flight and for the next requested read.
++// Byte-aligned reservoir: one response appends four bytes, one pixel
++// consumes three. A pending response is admitted only with at most four
++// resident bytes, so insertion has exactly five fixed wiring positions.
+ module rgb888_unpack32 (
+-    input         clk,
+-    input         rst,
+-    input         clear,
+-    input         pixel_en,
++    input clk, input rst, input clear, input pixel_en,
+     output reg [23:0] pixel_rgb,
+-    input         word_empty,
+-    output        word_pop,
+-    input  [31:0] word_data,
+-    output reg    underflow
++    input word_empty, output word_pop, input [31:0] word_data,
++    output reg underflow
+ );
+-    reg [63:0] reservoir;
+-    reg [6:0] bit_count;
+-    reg        pop_pending;
+-
++    reg [31:0] reservoir_low;
++    reg [31:0] reservoir_high;
++    wire [63:0] reservoir={reservoir_high,reservoir_low};
++    reg [3:0] byte_count;
++    reg pop_pending;
+     reg [63:0] merged;
+-    reg [6:0] merged_count;
+-    reg        have_pixel;
++    reg [3:0] merged_count;
++    reg have_pixel;
+     reg [23:0] selected_pixel;
+-
+-    // Predict occupancy after this edge. A pop is allowed only when its
+-    // one-cycle-later response will fit, including a response arriving now.
++    // The normal FIFO holds word_data when re=0. If count>4, the high
++    // reservoir bytes are the high suffix of that last FIFO response.
++    // A new pop requires post-edge count<=4, so replacing word_data can
++    // never invalidate a live high suffix. Keep only the low 32 bits here.
+     always @* begin
+-        merged = reservoir;
+-        merged_count = bit_count;
+-        if (pop_pending) begin
+-            merged = reservoir | ({32'b0, word_data} << bit_count);
+-            merged_count = bit_count + 7'd32;
++        case(byte_count)
++            5: reservoir_high={24'd0,word_data[31:24]};
++            6: reservoir_high={16'd0,word_data[31:16]};
++            7: reservoir_high={8'd0,word_data[31:8]};
++            8: reservoir_high=word_data;
++            default: reservoir_high=0;
++        endcase
++    end
++    always @* begin
++        merged=reservoir;
++        merged_count=byte_count;
++        if(pop_pending) begin
++            case(byte_count)
++                0: merged={32'd0,word_data};
++                1: merged={24'd0,word_data,reservoir[7:0]};
++                2: merged={16'd0,word_data,reservoir[15:0]};
++                3: merged={8'd0,word_data,reservoir[23:0]};
++                4: merged={word_data,reservoir[31:0]};
++                default: merged=reservoir;
++            endcase
++            merged_count=byte_count+4'd4;
+         end
+-
+-        have_pixel = (merged_count >= 7'd24);
+-        selected_pixel = merged[23:0];
+-        if (pixel_en && have_pixel) begin
+-            merged = merged >> 24;
+-            merged_count = merged_count - 7'd24;
++        have_pixel=(merged_count>=4'd3);
++        selected_pixel=merged[23:0];
++        if(pixel_en && have_pixel) begin
++            merged=merged>>24;
++            merged_count=merged_count-4'd3;
+         end
+     end
+-
+-    assign word_pop = !(rst || clear || word_empty || (merged_count > 7'd32));
+-
++    assign word_pop=!(rst || clear || word_empty || (merged_count>4'd4));
+     always @(posedge clk) begin
+-        if (rst || clear) begin
+-            reservoir <= 64'b0;
+-            bit_count <= 7'b0;
+-            pop_pending <= 1'b0;
+-            pixel_rgb <= 24'b0;
+-            underflow <= 1'b0;
++        if(rst || clear) begin
++            reservoir_low<=0;byte_count<=0;pop_pending<=0;
++            pixel_rgb<=0;underflow<=0;
+         end else begin
+-            pop_pending <= word_pop;
+-            reservoir <= merged;
+-            bit_count <= merged_count;
+-
+-            if (pixel_en) begin
+-                if (have_pixel)
+-                    pixel_rgb <= selected_pixel;
+-                else begin
+-                    pixel_rgb <= 24'b0;
+-                    underflow <= 1'b1;
+-                end
+-            end else begin
+-                pixel_rgb <= 24'b0;
+-            end
++            reservoir_low<=merged[31:0];byte_count<=merged_count;
++            pop_pending<=word_pop;
++            if(pixel_en) begin
++                if(have_pixel) pixel_rgb<=selected_pixel;
++                else begin pixel_rgb<=0;underflow<=1;end
++            end else pixel_rgb<=0;
+         end
+     end
+ endmodule
+--- C11316/user_source/hdl_source/top_tf_hdmi_audio.v
++++ C11317/user_source/hdl_source/top_tf_hdmi_audio.v
+@@ -570,7 +570,7 @@
+  .snapshot_prev_accepted(snapshot_prev_accepted),.snapshot_accepted(snapshot_accepted),
+  .snapshot_frames(snapshot_frames),.snapshot_events(snapshot_events)
+ );
+-player_status_monitor #(.SYS_HZ(25000000),.BUILD_ID(24'hC11316)) u_status_monitor (
++player_status_monitor #(.SYS_HZ(25000000),.BUILD_ID(24'hC11317)) u_status_monitor (
+     .pixel_clk(video_clk),.sys_clk(status_clk),.rst(rst_all),.sys_rst(status_sys_rst),
+     .axis_rgb(axis_s_data),.axis_valid(axis_s_valid),.axis_user(axis_s_user),
+     .hdmi_locked(hdmi_video_locked),.audio_valid(audio_valid),

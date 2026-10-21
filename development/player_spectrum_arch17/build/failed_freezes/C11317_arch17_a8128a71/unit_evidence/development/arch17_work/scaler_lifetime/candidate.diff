@@ -1,0 +1,56 @@
+--- bmp_scale_engine_baseline.v
++++ bmp_scale_engine_candidate.v
+@@ -44,9 +44,32 @@
+ localparam integer Y_PHASE_W = $clog2(FRAME_HEIGHT+SOURCE_HEIGHT_CAP);
+ localparam integer INTERVAL_W = PIXEL_INTERVAL > 1 ? $clog2(PIXEL_INTERVAL) : 1;
+ reg [4:0] state;
+-reg [10:0] src_w;
+-reg [9:0] src_h;
+-reg [11:0] stride;
++wire [10:0] src_w;
++wire [9:0] src_h;
++wire [11:0] stride;
++// The validated production caller holds all parsed header fields from start
++// through scaler completion. Reuse those stable inputs instead of snapshot FFs.
++generate if (HEADER_VALIDATED != 0) begin : g_live_header
++    assign src_w = source_width[10:0];
++    assign src_h = source_height[9:0];
++    assign stride = ((({5'd0,source_width}*16'd3)+16'd3)>>2)<<2;
++end else begin : g_latched_header
++    reg [10:0] src_w_q;
++    reg [9:0] src_h_q;
++    reg [11:0] stride_q;
++    assign src_w = src_w_q;
++    assign src_h = src_h_q;
++    assign stride = stride_q;
++    always @(posedge clk or posedge rst) begin
++        if (rst) begin
++            src_w_q<=0; src_h_q<=0; stride_q<=0;
++        end else if (state==S_IDLE && start) begin
++            src_w_q<=source_width[10:0];
++            src_h_q<=source_height[9:0];
++            stride_q<=((({5'd0,source_width}*16'd3)+16'd3)>>2)<<2;
++        end
++    end
++end endgenerate
+ reg [X_EDGE_W-1:0] dw, offx;
+ reg [Y_EDGE_W-1:0] dh, offy;
+ reg [DIVIDEND_W-1:0] numerator;
+@@ -114,7 +137,7 @@
+ always @(posedge clk or posedge rst) begin
+     if (rst) begin
+         state<=S_IDLE; card_read<=0; card_addr<=0; pixel_valid<=0;
+-        pixel_rgb<=0; done<=0; error<=0; src_w<=0; src_h<=0; stride<=0;
++        pixel_rgb<=0; done<=0; error<=0;
+         dw<=0; dh<=0; offx<=0; offy<=0; numerator<=0; denominator<=1;
+         quotient<=0; remainder<=0; div_bit<=0; div_for_width<=0;
+         sector_count<=0; sector_raddr<=0; sector_tag<=0;
+@@ -133,8 +156,6 @@
+         S_IDLE: if (start) begin
+             done<=0; error<=0; card_read<=0; card_addr<=0; failure_code<=0;
+             sector_tag_valid<=0; row_tag_valid<=0;
+-            src_w<={16'd0,source_width}; src_h<={16'd0,source_height};
+-            stride<=((({5'd0,source_width}*16'd3)+16'd3)>>2)<<2;
+             if (!HEADER_VALIDATED && (source_width==0 || source_height==0 ||
+                 source_width>MAX_SOURCE_WIDTH || source_width>1024 ||
+                 source_height>MAX_SOURCE_HEIGHT || source_height>768)) begin

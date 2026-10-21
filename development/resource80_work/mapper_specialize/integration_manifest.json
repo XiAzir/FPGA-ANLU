@@ -1,0 +1,50 @@
+{
+  "task": "fat32_file_sector specialization",
+  "applied_sources": [
+    {
+      "path": "development/player_spectrum_resource_80/src/user_source/hdl_source/fat32_file_sector.v",
+      "pre_sha256": "A889BC80AAF9065D3D6FCDE3CC05D22E5C4787D3E8C221EFBC00D8E871745D37",
+      "post_sha256": "DF0C358C07806E09E113FE8DB863467AFEBB79430D55003269A25D8D418BF897"
+    },
+    {
+      "path": "development/player_spectrum_resource_80/src/user_source/hdl_source/top_tf_hdmi_audio.v",
+      "pre_sha256": "16435445AC6551017966CFF75F5CA5CC8F511B3D304DEDED93A825DF358FE700",
+      "post_sha256": "A253B47A8098F497A8A881544314564F5143EDE0D7DD9D7C0F6A1B46F6A45432"
+    }
+  ],
+  "patch_sha256": {
+    "mapper": "0D3439194EA6E1C2E5CAD8E06210408E264CD93B61BFCD95C91885EB9345AFCC",
+    "top": "EE0386EDA37A0CAF5DAB200B6785ED7E0588F68F9237D6C8201ABD73BA5ACE67"
+  },
+  "standalone_pair": {
+    "delta_ff": -121,
+    "generic_lut": 1364,
+    "specialized_ff": 569,
+    "bram": 0,
+    "dsp": 0,
+    "delta_device_lut": -54,
+    "specialized_device_lut": 2015,
+    "generic_ff": 690,
+    "specialized_generic_lut": 1280,
+    "generic_device_lut": 2069
+  },
+  "tests": [
+    {
+      "sectors": 12295,
+      "log": "development/resource80_work/mapper_specialize/td/long_bmp101.log",
+      "result": "PASS",
+      "cycles": 6381198,
+      "mode": "BMP101"
+    },
+    {
+      "result": "PASS",
+      "log": "development/resource80_work/mapper_specialize/td/long_wav111.log",
+      "mode": "WAV111",
+      "cycles": 6381201,
+      "sectors": 12295
+    }
+  ],
+  "source_receipt": "development/player_spectrum_resource_80/build/system_20261020_222306/source_receipt.json",
+  "source_receipt_override_count": 10,
+  "source_receipt_sha_mismatches": 0
+}
