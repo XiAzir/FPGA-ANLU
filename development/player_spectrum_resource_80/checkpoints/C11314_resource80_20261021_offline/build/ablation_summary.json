@@ -1,0 +1,732 @@
+{
+  "created": "2026-10-21T10:09:39.917387+08:00",
+  "baseline": {
+    "build_id": "C11313",
+    "slices": 8243,
+    "slice_capacity": 9800,
+    "setup_wns_ns": 0.101,
+    "hold_wns_ns": 0.011
+  },
+  "goal": {
+    "strictly_below_percent": 80,
+    "maximum_slices": 7839
+  },
+  "full_top": [
+    {
+      "path": "development\\player_spectrum_resource_80\\build\\attempts\\01_mapper_wav\\summary.json",
+      "sha256": "aee73692059835e6f3e52dd7d69cf425412388fc379eb26e4e0e18af7ab7a002",
+      "data": {
+        "created": "2026-10-20T21:57:19.800728+08:00",
+        "notes": "Mapper四项状态精简+WAV v2，AreaHigh，整机122ms通过",
+        "synthesis": {
+          "stage": "synthesis",
+          "status": "success",
+          "runId": "4e0c9e67-b70e-472c-bf59-06dd09dd201c",
+          "record": "synthesis_4e0c9e67-b70e-472c-bf59-06dd09dd201c.json"
+        },
+        "gate": {
+          "lut": 13998,
+          "reg": 8206,
+          "dsp": 11,
+          "Total_luts": 8872
+        },
+        "physical": {
+          "stage": "physical",
+          "status": "success",
+          "runId": "8337a0a3-ed4d-43f7-a7da-cdb2827084a0",
+          "record": "physical_8337a0a3-ed4d-43f7-a7da-cdb2827084a0.json"
+        },
+        "physical_bound_to_selected_synthesis": true,
+        "slices": 8232,
+        "physical_area": {
+          "lut": 14781,
+          "reg": 8271,
+          "le": 15719,
+          "dsp": 11
+        },
+        "timing": "SWNS: 0.126ns, STNS: 0.000ns.\nHWNS: 0.003ns, HTNS: 0.000ns."
+      }
+    },
+    {
+      "path": "development\\player_spectrum_resource_80\\build\\attempts\\02_adder18\\summary.json",
+      "sha256": "43dc488826811e67ce63ea7706e6d9332dec868e26c302d3a20ab8f83d6f0103",
+      "data": {
+        "created": "2026-10-20T22:05:42.340363+08:00",
+        "notes": "Same B01 RTL with official AdderChainThresholdHigh18+AreaHigh",
+        "synthesis": {
+          "stage": "synthesis",
+          "status": "success",
+          "runId": "835b1051-dff7-4104-91a0-5b88d0d9c110",
+          "record": "synthesis_835b1051-dff7-4104-91a0-5b88d0d9c110.json"
+        },
+        "gate": {
+          "lut": 13322,
+          "reg": 8206,
+          "dsp": 11,
+          "Total_luts": 9011
+        },
+        "physical": {
+          "stage": "physical",
+          "status": "success",
+          "runId": "2876feb1-16cc-434f-91b3-aff24988f3d7",
+          "record": "physical_2876feb1-16cc-434f-91b3-aff24988f3d7.json"
+        },
+        "physical_bound_to_selected_synthesis": true,
+        "slices": 7837,
+        "physical_area": {
+          "lut": 14134,
+          "reg": 8272,
+          "le": 14924,
+          "dsp": 11
+        },
+        "timing": "SWNS: -1.364ns, STNS: -6.019ns.\nHWNS: 0.003ns, HTNS: 0.000ns."
+      }
+    },
+    {
+      "path": "development\\player_spectrum_resource_80\\build\\attempts\\03_header_catalog_stride\\summary.json",
+      "sha256": "972a6c2eaaf36d3304ffe7819ce409ce7007f96e1fba68fd35eb07bccc842f00",
+      "data": {
+        "created": "2026-10-20T22:20:13.350446+08:00",
+        "notes": "Header compression, catalog selected latch and stride identity; setup recovered; 7892 slices still above strict 80pct goal. System_221028 used archived WAV: corrected replay pending.",
+        "synthesis": {
+          "stage": "synthesis",
+          "status": "success",
+          "runId": "902267aa-e0ab-4b4a-9cae-9c16b481d2e6",
+          "record": "synthesis_902267aa-e0ab-4b4a-9cae-9c16b481d2e6.json"
+        },
+        "gate": {
+          "lut": 13225,
+          "reg": 8019,
+          "dsp": 10,
+          "Total_luts": 8971
+        },
+        "physical": {
+          "stage": "physical",
+          "status": "success",
+          "runId": "7cb25f4f-9dc1-4cfc-a0dd-ea2276613907",
+          "record": "physical_7cb25f4f-9dc1-4cfc-a0dd-ea2276613907.json"
+        },
+        "physical_bound_to_selected_synthesis": true,
+        "slices": 7892,
+        "physical_area": {
+          "lut": 14047,
+          "reg": 8081,
+          "le": 15036,
+          "dsp": 10
+        },
+        "timing": "SWNS: 0.687ns, STNS: 0.000ns.\nHWNS: 0.012ns, HTNS: 0.000ns."
+      }
+    },
+    {
+      "path": "development\\player_spectrum_resource_80\\build\\attempts\\04_mapper_specialized\\summary.json",
+      "sha256": "5589c7e044f703ac19affb2fe17b5e7fafebdc247b6afcf47cc2a1920616de2b",
+      "data": {
+        "created": "2026-10-21T10:08:57.932210+08:00",
+        "notes": "Selected B04: 7748 slices 79.0612pct, setup +0.633 hold +0.011 TNS0, 10-source full system and gate/routed audits PASS; generated new offline bit.",
+        "synthesis": {
+          "stage": "synthesis",
+          "status": "success",
+          "runId": "619c41c8-338e-4143-92b2-799c3122013c",
+          "record": "synthesis_619c41c8-338e-4143-92b2-799c3122013c.json"
+        },
+        "gate": {
+          "lut": 13151,
+          "reg": 7793,
+          "dsp": 10,
+          "Total_luts": 8868
+        },
+        "physical": {
+          "stage": "physical",
+          "status": "success",
+          "runId": "99966ac9-088e-4f3e-ab6d-232d2bc71ad6",
+          "record": "physical_99966ac9-088e-4f3e-ab6d-232d2bc71ad6.json"
+        },
+        "physical_bound_to_selected_synthesis": true,
+        "slices": 7748,
+        "physical_area": {
+          "lut": 13976,
+          "reg": 7858,
+          "le": 14779,
+          "dsp": 10
+        },
+        "timing": "SWNS: 0.633ns, STNS: 0.000ns.\nHWNS: 0.011ns, HTNS: 0.000ns."
+      }
+    }
+  ],
+  "standalone": [
+    {
+      "path": "development\\resource80_work\\mapper_synthesis\\summary.json",
+      "sha256": "3ab3a3ac63a86bd8d4d37b8f147c5212483919d0f848fd32bef158784ab20e6b",
+      "data": [
+        {
+          "variant": "baseline",
+          "source_sha256": "54486bb2f9b7ef677b5b9dfd8a090cfb54f97fbb459cfe542d17734c51aec789",
+          "device_lut": 1129,
+          "device_reg": 397,
+          "generic_lut": 702,
+          "report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_synthesis\\runs\\fat32_file_sector_baseline\\reports\\gate.area"
+        },
+        {
+          "variant": "counters",
+          "source_sha256": "18f82ef68cd434c1a960bab1e42f0a71c718f26ed2fec01bd603bdf0395d21e8",
+          "device_lut": 1097,
+          "device_reg": 371,
+          "generic_lut": 691,
+          "report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_synthesis\\runs\\fat32_file_sector_counters\\reports\\gate.area"
+        },
+        {
+          "variant": "cluster_width",
+          "source_sha256": "c3b535d3acc2eb6cc91a666b0c673b6ea2acf6bf26485fce5d5ab67f242019cd",
+          "device_lut": 1108,
+          "device_reg": 375,
+          "generic_lut": 690,
+          "report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_synthesis\\runs\\fat32_file_sector_cluster_width\\reports\\gate.area"
+        },
+        {
+          "variant": "subtract",
+          "source_sha256": "468e9a4dc537f01277a154b604a60b4dd01257be1bed710defd5684e37a153b4",
+          "device_lut": 1126,
+          "device_reg": 397,
+          "generic_lut": 717,
+          "report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_synthesis\\runs\\fat32_file_sector_subtract\\reports\\gate.area"
+        },
+        {
+          "variant": "mask",
+          "source_sha256": "926bd500d4b347957f10c5a745dcef1d183cd26b54e9480bf55c671e097e2358",
+          "device_lut": 1105,
+          "device_reg": 393,
+          "generic_lut": 693,
+          "report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_synthesis\\runs\\fat32_file_sector_mask\\reports\\gate.area"
+        },
+        {
+          "variant": "combined",
+          "source_sha256": "a889bc80aaf9065d3d6fcde3cc05d22e5c4787d3e8c221efbc00d8e871745d37",
+          "device_lut": 1080,
+          "device_reg": 345,
+          "generic_lut": 670,
+          "report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_synthesis\\runs\\fat32_file_sector_combined\\reports\\gate.area"
+        }
+      ]
+    },
+    {
+      "path": "development\\resource80_work\\mapper\\simulation.json",
+      "sha256": "3a6557f4473c5bfac8b8a1d855c14af98d9c6c7acada90f3e3aea0880a6485c5",
+      "data": [
+        {
+          "variant": "counters",
+          "test": "tb_mapper_edges",
+          "status": "PASS",
+          "source_sha256": "cc88bd39c5d283653bc359c36f3d3ae00ba5afc6b5f589f7ec1e37632be3384d"
+        },
+        {
+          "variant": "cluster_width",
+          "test": "tb_mapper_edges",
+          "status": "PASS",
+          "source_sha256": "d2ced7893cd16a16d2abe0b54cea83d1308f56b74caf9ee282f09cb15903f91e"
+        },
+        {
+          "variant": "subtract",
+          "test": "tb_mapper_edges",
+          "status": "PASS",
+          "source_sha256": "cc9f4d87cce3a740837076765531269cc3496124ef0caca5851ab5296d1deab0"
+        },
+        {
+          "variant": "mask",
+          "test": "tb_mapper_edges",
+          "status": "PASS",
+          "source_sha256": "3b41e5dc988728bbecf5ad8e3c787b4ce5e5c696472310a104d49ce4e9aada3d"
+        },
+        {
+          "variant": "combined",
+          "test": "tb_mapper_edges",
+          "status": "PASS",
+          "source_sha256": "a58c11648e0039a50a6e65ce4e8d0f3ce89cccc21936658b256e04c693602d0e"
+        },
+        {
+          "variant": "combined",
+          "test": "tb_mapper_long_equiv",
+          "status": "PASS",
+          "source_sha256": "a58c11648e0039a50a6e65ce4e8d0f3ce89cccc21936658b256e04c693602d0e"
+        }
+      ]
+    },
+    {
+      "path": "development\\resource80_work\\catalog\\td_area_high\\summary.json",
+      "sha256": "17f65214b0e823744f6d665003c08a4e1dc9e639949cfdc2e60b7ff340ac3133",
+      "data": [
+        {
+          "variant": "baseline",
+          "device_lut": 2131,
+          "device_reg": 837,
+          "generic_lut": 1347,
+          "ripple": 226,
+          "seq": 1283,
+          "sha256": "05491010b67651b8b1bb1cb77a1cb985a9e2ea5838f6e8ddaae5af4523241968",
+          "console": "development\\resource80_work\\catalog\\td_area_high\\baseline\\console.log",
+          "area_report": "development\\resource80_work\\catalog\\td_area_high\\baseline\\reports\\gate.area"
+        },
+        {
+          "variant": "spc_decode",
+          "device_lut": 2071,
+          "device_reg": 834,
+          "generic_lut": 1294,
+          "ripple": 221,
+          "seq": 1277,
+          "sha256": "b0da7e73678b3af6ef32b1af7c65bd388a6de76dd0c77ad4c260af17924f60d7",
+          "console": "development\\resource80_work\\catalog\\td_area_high\\spc_decode\\console.log",
+          "area_report": "development\\resource80_work\\catalog\\td_area_high\\spc_decode\\reports\\gate.area"
+        },
+        {
+          "variant": "partition_shift",
+          "device_lut": 2136,
+          "device_reg": 838,
+          "generic_lut": 1345,
+          "ripple": 228,
+          "seq": 1300,
+          "sha256": "0c7d0f33f929ea6400e21d7b7e91f2b0d4ba019d99b3d2d393d289064d906fda",
+          "console": "development\\resource80_work\\catalog\\td_area_high\\partition_shift\\console.log",
+          "area_report": "development\\resource80_work\\catalog\\td_area_high\\partition_shift\\reports\\gate.area"
+        },
+        {
+          "variant": "fat_shift",
+          "device_lut": 2170,
+          "device_reg": 835,
+          "generic_lut": 1362,
+          "ripple": 228,
+          "seq": 1282,
+          "sha256": "93ebcd0aec29cb87004efa9088b484615903e95f5814bcc6e69723d8d4f59a0e",
+          "console": "development\\resource80_work\\catalog\\td_area_high\\fat_shift\\console.log",
+          "area_report": "development\\resource80_work\\catalog\\td_area_high\\fat_shift\\reports\\gate.area"
+        },
+        {
+          "variant": "cluster32",
+          "device_lut": 2088,
+          "device_reg": 832,
+          "generic_lut": 1296,
+          "ripple": 226,
+          "seq": 1275,
+          "sha256": "84455c2c928d528d34004afa83719969c91efc5e99d4c7c2d7ee1c5209996c1d",
+          "console": "development\\resource80_work\\catalog\\td_area_high\\cluster32\\console.log",
+          "area_report": "development\\resource80_work\\catalog\\td_area_high\\cluster32\\reports\\gate.area"
+        },
+        {
+          "variant": "selected_latch",
+          "device_lut": 2021,
+          "device_reg": 773,
+          "generic_lut": 1247,
+          "ripple": 217,
+          "seq": 1219,
+          "sha256": "e3c66a3b3a44d1386c966baf09f286a46bf13ab691331340e42e107677fc8cc0",
+          "console": "development\\resource80_work\\catalog\\td_area_high\\selected_latch\\console.log",
+          "area_report": "development\\resource80_work\\catalog\\td_area_high\\selected_latch\\reports\\gate.area"
+        },
+        {
+          "variant": "spc_cluster32",
+          "device_lut": 2087,
+          "device_reg": 832,
+          "generic_lut": 1297,
+          "ripple": 221,
+          "seq": 1275,
+          "sha256": "219561016e81b0b0a8f397f07c5ea38036906c5dd82eaf1255c71086388b447f",
+          "console": "development\\resource80_work\\catalog\\td_area_high\\spc_cluster32\\console.log",
+          "area_report": "development\\resource80_work\\catalog\\td_area_high\\spc_cluster32\\reports\\gate.area"
+        },
+        {
+          "variant": "combined",
+          "device_lut": 2101,
+          "device_reg": 829,
+          "generic_lut": 1323,
+          "ripple": 221,
+          "seq": 1272,
+          "sha256": "fdc5f6f3956e66faac89e750a790e704415e72f1338c5c9c691275346e027756",
+          "console": "development\\resource80_work\\catalog\\td_area_high\\combined\\console.log",
+          "area_report": "development\\resource80_work\\catalog\\td_area_high\\combined\\reports\\gate.area"
+        },
+        {
+          "variant": "selected_spc",
+          "device_lut": 2042,
+          "device_reg": 774,
+          "generic_lut": 1272,
+          "ripple": 214,
+          "seq": 1221,
+          "sha256": "f249dc23192d2ecdf980db8a062704ae4c0d0e93d0d84dadee46089b5c6e74dc",
+          "console": "development\\resource80_work\\catalog\\td_area_high\\selected_spc\\console.log",
+          "area_report": "development\\resource80_work\\catalog\\td_area_high\\selected_spc\\reports\\gate.area"
+        },
+        {
+          "variant": "selected_spc_cluster32",
+          "device_lut": 2033,
+          "device_reg": 772,
+          "generic_lut": 1251,
+          "ripple": 214,
+          "seq": 1234,
+          "sha256": "8bb543fecac592139e441af61ec2aba19038e7d84e0f6e829ae19781e02a2692",
+          "console": "development\\resource80_work\\catalog\\td_area_high\\selected_spc_cluster32\\console.log",
+          "area_report": "development\\resource80_work\\catalog\\td_area_high\\selected_spc_cluster32\\reports\\gate.area"
+        }
+      ]
+    },
+    {
+      "path": "development\\resource80_work\\catalog\\build\\selected_latch_diff_result.json",
+      "sha256": "bfd13dc5ca023c1850aa57d3863a4eadb18e48c0e78071c882356ad93e7630d7",
+      "data": {
+        "reference_source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\fat32_catalog_baseline.v",
+        "reference_sha256": "05491010b67651b8b1bb1cb77a1cb985a9e2ea5838f6e8ddaae5af4523241968",
+        "candidate_source": "development\\resource80_work\\catalog\\fat32_catalog_candidate_selected_latch.v",
+        "candidate_sha256": "e3c66a3b3a44d1386c966baf09f286a46bf13ab691331340e42e107677fc8cc0",
+        "geometry_testbench": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\tb_catalog_geometry.v",
+        "geometry_testbench_sha256": "d1275c332dfc6ea2e04d9621d592a58cf2d7716cfc4ad281e427eca186cd3a56",
+        "names_testbench_source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\tb_fat32_catalog_names_base.v",
+        "results": {
+          "geometry": {
+            "trace_records": 1810,
+            "trace_sha256": "34d15f8efe76bf75dd6ec5efa59b5df307215b14a153b0f520f4e84edb7fd189",
+            "equal": true,
+            "reference_log": "build/geometry_reference.log",
+            "candidate_log": "build/geometry_shared36.log"
+          },
+          "names": {
+            "trace_records": 525,
+            "trace_sha256": "739bddabdb9628368fab9637427a62a1c8a14fcab75973437027651d3f23adde",
+            "equal": true,
+            "reference_log": "build/names_reference.log",
+            "candidate_log": "build/names_shared36.log"
+          }
+        }
+      }
+    },
+    {
+      "path": "development\\resource80_work\\catalog\\review_bmp\\proof_result.json",
+      "sha256": "1dd4395931ac3dde27009a8efbd7d00e6ea2a624ccbb4a22a3a3901d6c7c9e67",
+      "data": {
+        "baseline": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\src\\user_source\\hdl_source\\tf_bmp_file_player.v",
+        "baseline_sha256": "e902f65baba30712402b3c39cdc9be01adaf66aaf0bdb4c462d205e4ece84642",
+        "candidate": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\bmp\\tf_bmp_file_player.header.v",
+        "candidate_sha256": "94543758ef1dfaece9dd6d21aa3e7412cc041f5de2fa4e6c317dedc1eab0f3f2",
+        "checks": {
+          "width_raw32_equivalence_classes": 4096,
+          "height_raw32_equivalence_classes": 6144,
+          "all_16bit_values_for_magic_planes_bit_count": 65536
+        },
+        "compression_proof": "All four raw bytes are independently ANDed against zero; result equals compression==0 for every uint32 value.",
+        "geometry_proof": "Both RTLs form source_stride only from raw width[10:0], and source_image_bytes only from abs_height[9:0]. Candidate width_low is exactly width[10:0], and two's-complement negation modulo 2^10 equals the low 10 bits of the baseline 32-bit negation. Therefore stride, image byte count, pixel_end, file-extent mask bit 8 and declared-extent mask bit 9 match for every raw width/height and pixel_offset/file_size/declared_size.",
+        "height_class_reason": "For sign=0, any one in raw height[30:10] makes height > 768; for sign=1, any zero in those bits makes abs(height) >= 1024. Only all-zero positive and all-one negative high regions need low-bit magnitude checks. Candidate flags encode exactly these classes.",
+        "explicit_edges": {
+          "0x80000000": {
+            "abs": "0x80000000",
+            "invalid_ref": true
+          },
+          "0xfffffcff": {
+            "abs": "0x301",
+            "invalid_ref": true
+          },
+          "0xfffffc00": {
+            "abs": "0x400",
+            "invalid_ref": true
+          },
+          "0x301": {
+            "abs": "0x301",
+            "invalid_ref": true
+          },
+          "0x400": {
+            "abs": "0x400",
+            "invalid_ref": true
+          },
+          "0x300": {
+            "abs": "0x300",
+            "invalid_ref": false
+          }
+        },
+        "result": "PASS"
+      }
+    },
+    {
+      "path": "development\\resource80_work\\catalog\\stride_experiment\\result_manifest.json",
+      "sha256": "9af957d3c2cbe8f8bc93061dfa2d8e498d43476328fb321328b4ae196e1c8a70",
+      "data": {
+        "baseline_sha256": "94543758ef1dfaece9dd6d21aa3e7412cc041f5de2fa4e6c317dedc1eab0f3f2",
+        "production_candidate_sha256": "093c86171d75dd5f9df66da51bbc0830bc391b70b4c5ae627d3bf4d0d8111dc6",
+        "simulation_candidate_sha256": "e2c6b4e1f27a829e5adc8cf6ab208d852b1e23dfc95dc745eb908264656aa0d0",
+        "formula_test_log_sha256": "ac6d22479db2d6e7039e10f8f8b0c5c6dc2d71fcbadef4e852e2c90171ce8b57",
+        "mask_test_log_sha256": "219fbe286d8af0dcd27b50c28dc607ec75e1617e0cca869b094fc69eadc90062",
+        "patch_sha256": "6abd27d9dea7ed31da0617dcb11e4d4545599e5d7cf6faaae62ac7f5caeccda3",
+        "area_high_adder_threshold18": {
+          "baseline": {
+            "device_lut": 2014,
+            "device_reg": 699,
+            "generic_lut": 1370,
+            "total_dsp": 6,
+            "top_hier_dsp": 6,
+            "scale_hier_dsp": 4,
+            "loader_hier_dsp": 2,
+            "ripple": 146,
+            "seq": 804,
+            "rtl_sha256": "94543758ef1dfaece9dd6d21aa3e7412cc041f5de2fa4e6c317dedc1eab0f3f2"
+          },
+          "header_stride": {
+            "device_lut": 2064,
+            "device_reg": 699,
+            "generic_lut": 1365,
+            "total_dsp": 6,
+            "top_hier_dsp": 6,
+            "scale_hier_dsp": 5,
+            "loader_hier_dsp": 1,
+            "ripple": 152,
+            "seq": 804,
+            "rtl_sha256": "093c86171d75dd5f9df66da51bbc0830bc391b70b4c5ae627d3bf4d0d8111dc6"
+          }
+        }
+      }
+    },
+    {
+      "path": "development\\resource80_work\\bmp\\synthesis_loader\\area_summary.json",
+      "sha256": "e1aa534582a2758ddde283c1d02f1bf5995a9fd313b9010cae908979eecf94dc",
+      "data": {
+        "device": "EG4S20BG256",
+        "clock_period_ns": 20,
+        "strategy": "AreaHigh: gate add_map_lut_struct=high, map_mode=area_prior, opt_area=high, map_mux41=on, multi_thread_mapping=partition; rtl resource_sharing=auto, shifter_style=shifter_reg",
+        "variants": {
+          "base": {
+            "source_sha256": {
+              "loader_sha256": "e902f65baba30712402b3c39cdc9be01adaf66aaf0bdb4c462d205e4ece84642",
+              "engine_sha256": "1916cf21f554e64d476d3697973cdba33f66c0acefbdbab5b48341cbeea29519",
+              "debounce_sha256": "4b8f1818517f495385d4c67166f4e6a6469132a7f5474b37c98d92ba9ef96b4f",
+              "project": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\bmp\\synthesis_loader\\base\\td_project\\bmp_loader_base.al"
+            },
+            "generic_lut": 1386,
+            "device_lut": 2173,
+            "device_reg": 814,
+            "bram": 4,
+            "dsp": 7,
+            "gate_area_sha256": "8ba8bf859b014bc52be7ffe93d8ec321cec56021412afd3d1c26fbb28f21464a",
+            "console_sha256": "5c443792df8558d13aa7854bcf14f9be15489cbbedd520fed75149978d5005a9"
+          },
+          "header": {
+            "source_sha256": {
+              "loader_sha256": "94543758ef1dfaece9dd6d21aa3e7412cc041f5de2fa4e6c317dedc1eab0f3f2",
+              "engine_sha256": "1916cf21f554e64d476d3697973cdba33f66c0acefbdbab5b48341cbeea29519",
+              "debounce_sha256": "4b8f1818517f495385d4c67166f4e6a6469132a7f5474b37c98d92ba9ef96b4f",
+              "project": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\bmp\\synthesis_loader\\header\\td_project\\bmp_loader_header.al"
+            },
+            "generic_lut": 1308,
+            "device_lut": 2052,
+            "device_reg": 699,
+            "bram": 4,
+            "dsp": 6,
+            "gate_area_sha256": "42a0d516c5149e027324ee45fd4d9e3b20119c5041adc3404a0baabd74551ecb",
+            "console_sha256": "19f89fceb35f722335a3810b02ef94ced192d146250ccb94df2cdad86779f403"
+          }
+        },
+        "delta_header_minus_base": {
+          "generic_lut": -78,
+          "device_lut": -121,
+          "device_reg": -115,
+          "bram": 0,
+          "dsp": -1
+        }
+      }
+    },
+    {
+      "path": "development\\resource80_work\\mapper_specialize\\build\\summary.json",
+      "sha256": "413cc748980667a577ed6abd20e675f82b1e7411f1395ee933c40671b45c3d6a",
+      "data": [
+        {
+          "mode": "generic",
+          "geometry": 0,
+          "static_file": 0,
+          "request_stable": 0,
+          "result": "PASS",
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\build\\generic.log"
+        },
+        {
+          "mode": "catalog",
+          "geometry": 1,
+          "static_file": 0,
+          "request_stable": 0,
+          "result": "PASS",
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\build\\catalog.log"
+        },
+        {
+          "mode": "static_file",
+          "geometry": 0,
+          "static_file": 1,
+          "request_stable": 0,
+          "result": "PASS",
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\build\\static_file.log"
+        },
+        {
+          "mode": "request_stable",
+          "geometry": 0,
+          "static_file": 0,
+          "request_stable": 1,
+          "result": "PASS",
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\build\\request_stable.log"
+        },
+        {
+          "mode": "catalog_static",
+          "geometry": 1,
+          "static_file": 1,
+          "request_stable": 0,
+          "result": "PASS",
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\build\\catalog_static.log"
+        },
+        {
+          "mode": "catalog_request",
+          "geometry": 1,
+          "static_file": 0,
+          "request_stable": 1,
+          "result": "PASS",
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\build\\catalog_request.log"
+        },
+        {
+          "mode": "static_request",
+          "geometry": 0,
+          "static_file": 1,
+          "request_stable": 1,
+          "result": "PASS",
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\build\\static_request.log"
+        },
+        {
+          "mode": "all_specialized",
+          "geometry": 1,
+          "static_file": 1,
+          "request_stable": 1,
+          "result": "PASS",
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\build\\all_specialized.log"
+        }
+      ]
+    },
+    {
+      "path": "development\\resource80_work\\wav\\td_runs\\summary.json",
+      "sha256": "4f9d2141ff4aa00c1b9511b2d7693bb2e37fb6baa89a997a56e0ec46b9cc6d8f",
+      "data": [
+        {
+          "variant": "wav_candidate_default",
+          "source_sha256": "6baa637832cd6ce4722803b6c8a0c0d2abd9706a192a2f15f7107d201993cbf9",
+          "device_lut": 1265,
+          "device_reg": 468,
+          "ripple": 310,
+          "seq": 613,
+          "generic_lut": 645,
+          "dsp": 0,
+          "area_report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\wav\\td_runs\\wav_candidate_default\\reports\\gate.area",
+          "actualparams_rtl": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\wav\\td_runs\\wav_candidate_default\\reports\\actualparams.rtl.log",
+          "actualparams_gate": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\wav\\td_runs\\wav_candidate_default\\reports\\actualparams.gate.log",
+          "console": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\wav\\td_runs\\wav_candidate_default\\console.log"
+        },
+        {
+          "variant": "wav_candidate_area_high",
+          "source_sha256": "6baa637832cd6ce4722803b6c8a0c0d2abd9706a192a2f15f7107d201993cbf9",
+          "device_lut": 1291,
+          "device_reg": 468,
+          "ripple": 146,
+          "seq": 613,
+          "generic_lut": 759,
+          "dsp": 0,
+          "area_report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\wav\\td_runs\\wav_candidate_area_high\\reports\\gate.area",
+          "actualparams_rtl": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\wav\\td_runs\\wav_candidate_area_high\\reports\\actualparams.rtl.log",
+          "actualparams_gate": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\wav\\td_runs\\wav_candidate_area_high\\reports\\actualparams.gate.log",
+          "console": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\wav\\td_runs\\wav_candidate_area_high\\console.log"
+        }
+      ]
+    },
+    {
+      "path": "development\\resource80_work\\mapper_specialize\\integration_manifest.json",
+      "sha256": "822ba0cc837fefd98e4b604f14e2a6efd2ed66257c6b14110aec49500f6bfc08",
+      "data": {
+        "task": "fat32_file_sector specialization",
+        "applied_sources": [
+          {
+            "path": "development/player_spectrum_resource_80/src/user_source/hdl_source/fat32_file_sector.v",
+            "pre_sha256": "A889BC80AAF9065D3D6FCDE3CC05D22E5C4787D3E8C221EFBC00D8E871745D37",
+            "post_sha256": "DF0C358C07806E09E113FE8DB863467AFEBB79430D55003269A25D8D418BF897"
+          },
+          {
+            "path": "development/player_spectrum_resource_80/src/user_source/hdl_source/top_tf_hdmi_audio.v",
+            "pre_sha256": "16435445AC6551017966CFF75F5CA5CC8F511B3D304DEDED93A825DF358FE700",
+            "post_sha256": "A253B47A8098F497A8A881544314564F5143EDE0D7DD9D7C0F6A1B46F6A45432"
+          }
+        ],
+        "patch_sha256": {
+          "mapper": "0D3439194EA6E1C2E5CAD8E06210408E264CD93B61BFCD95C91885EB9345AFCC",
+          "top": "EE0386EDA37A0CAF5DAB200B6785ED7E0588F68F9237D6C8201ABD73BA5ACE67"
+        },
+        "standalone_pair": {
+          "delta_ff": -121,
+          "generic_lut": 1364,
+          "specialized_ff": 569,
+          "bram": 0,
+          "dsp": 0,
+          "delta_device_lut": -54,
+          "specialized_device_lut": 2015,
+          "generic_ff": 690,
+          "specialized_generic_lut": 1280,
+          "generic_device_lut": 2069
+        },
+        "tests": [
+          {
+            "sectors": 12295,
+            "log": "development/resource80_work/mapper_specialize/td/long_bmp101.log",
+            "result": "PASS",
+            "cycles": 6381198,
+            "mode": "BMP101"
+          },
+          {
+            "result": "PASS",
+            "log": "development/resource80_work/mapper_specialize/td/long_wav111.log",
+            "mode": "WAV111",
+            "cycles": 6381201,
+            "sectors": 12295
+          }
+        ],
+        "source_receipt": "development/player_spectrum_resource_80/build/system_20261020_222306/source_receipt.json",
+        "source_receipt_override_count": 10,
+        "source_receipt_sha_mismatches": 0
+      }
+    },
+    {
+      "path": "development\\resource80_work\\mapper_specialize\\td\\runs\\summary.json",
+      "sha256": "601a8d31a9cae75f96af67a0a0ca50698808844d602aacbab25f36e5735b0a7b",
+      "data": [
+        {
+          "variant": "generic_000",
+          "top": "mapper_pair_generic",
+          "rtl_sha256": "df0c358c07806e09e113fe8db863467afebb79430d55003269a25d8d418bf897",
+          "wrapper_sha256": "dd445ece3a9110250fae1997b0d9dfae4231da9f8d20617cca0aba3018f5e9eb",
+          "device_lut": 2069,
+          "device_reg": 690,
+          "generic_lut": 1364,
+          "dsp": 0,
+          "bram": 0,
+          "area_report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\td\\runs\\generic_000\\reports\\gate.area",
+          "actualparams_rtl": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\td\\runs\\generic_000\\reports\\actualparams.rtl.log",
+          "actualparams_gate": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\td\\runs\\generic_000\\reports\\actualparams.gate.log",
+          "console": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\td\\runs\\generic_000\\console.log"
+        },
+        {
+          "variant": "top_specialized",
+          "top": "mapper_pair_specialized",
+          "rtl_sha256": "df0c358c07806e09e113fe8db863467afebb79430d55003269a25d8d418bf897",
+          "wrapper_sha256": "dd445ece3a9110250fae1997b0d9dfae4231da9f8d20617cca0aba3018f5e9eb",
+          "device_lut": 2015,
+          "device_reg": 569,
+          "generic_lut": 1280,
+          "dsp": 0,
+          "bram": 0,
+          "area_report": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\td\\runs\\top_specialized\\reports\\gate.area",
+          "actualparams_rtl": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\td\\runs\\top_specialized\\reports\\actualparams.rtl.log",
+          "actualparams_gate": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\td\\runs\\top_specialized\\reports\\actualparams.gate.log",
+          "console": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\mapper_specialize\\td\\runs\\top_specialized\\console.log"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Standalone comparisons share their own documented strategy; full-top routing determines slice count.",
+    "B02 has negative setup and was rejected despite its 7837 slices.",
+    "B04 selects mapper specialization. Optional 43-FF BMP header pipeline stays unselected; B03/B04 timing already passes.",
+    "WAV v1 rejected for AreaHigh LUT regression; rowstep scaler rejected for +71 LUT/+11 FF despite saving one DSP.",
+    "WAV v2 AreaHigh baseline 1347 LUT/641 FF -> 1291 LUT/468 FF; logs and source hashes in wav/td_runs/summary.json.",
+    "Initial B01/B03 system replays omitted WAV candidate; source override list was corrected to ten entries and every changed source is now asserted. Final system replay is separately bound."
+  ]
+}

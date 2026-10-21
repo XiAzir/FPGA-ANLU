@@ -1,0 +1,2625 @@
+{
+  "schema": "rom-polarity-evidence-v2",
+  "status": "PASS",
+  "conclusion": "All four BRAM instances in gate and routed netlists connect the expected analyzer control net to the inverted mux, and each bound 32-state LUT proof matches the RTL.",
+  "bound_files": [
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\build\\gate_verify\\routed_polarity_stage\\build\\audit\\gate_rom_control.json",
+      "sha256": "77c4c39c66fc6394a39bc3c8fbb3b7ec8fae797b9b4476ab104e52da71e5e0bf"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\build\\gate_verify\\routed_polarity_stage\\build\\manual\\AC201_tf_hdmi_gate.v",
+      "sha256": "8413bb97470f07b4c8f421073c1a47bfd81b808c85e0a58e10a2254d5e76cde9"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\build\\gate_verify\\routed_polarity_stage\\src\\user_source\\hdl_source\\player_spectrum_analyzer.v",
+      "sha256": "2edfffb8678fe071428f62f0325ecb6a2e35a7568d84e766f87257f9d486c98e"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\build\\gate_verify\\routed_polarity_stage\\src\\user_source\\hdl_source\\spectrum_coeff_rom.v",
+      "sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\build\\gate_verify\\routed_polarity_stage\\src\\user_source\\hdl_source\\spectrum_coeff_rom_manifest.json",
+      "sha256": "31a61e039e5b83bce3b73cc2d015bf92e0c3773071dcfa8385e2aea970a61ee1"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_fit\\build\\gate_verify\\routed_polarity_stage\\build\\audit\\prove_rom_polarity.ps1",
+      "sha256": "207a7e44a387c900a55d9015e9497c6dd665b48d1e837ada8e7d70a416f16271"
+    }
+  ],
+  "source_conditions": {
+    "ST_WIN_REQ_value": 1,
+    "ST_FFT_ISSUE_value": 4,
+    "RTL_enable_connections_verified": true,
+    "state_debug_alias": "debug_progress[23:19] = state[4:0]"
+  },
+  "state_ff_q_bindings": {
+    "gate": {
+      "19": {
+        "q_cell_type": "EG_PHY_LSLICE",
+        "instance": "u_pcm_waveform/u_spectrum/state_reg[0]_syn_4",
+        "dffmode": "FF"
+      },
+      "20": {
+        "q_cell_type": "EG_PHY_MSLICE",
+        "instance": "u_pcm_waveform/u_spectrum/state_reg[2]_syn_4",
+        "dffmode": "FF"
+      },
+      "21": {
+        "q_cell_type": "EG_PHY_MSLICE",
+        "instance": "u_pcm_waveform/u_spectrum/state_reg[2]_syn_4",
+        "dffmode": "FF"
+      },
+      "22": {
+        "q_cell_type": "EG_PHY_MSLICE",
+        "instance": "u_pcm_waveform/u_spectrum/frame_done_reg_syn_5",
+        "dffmode": "FF"
+      },
+      "23": {
+        "q_cell_type": "EG_PHY_LSLICE",
+        "instance": "u_pcm_waveform/u_spectrum/state_b[1]_syn_56",
+        "dffmode": "FF"
+      }
+    }
+  },
+  "netlists": {
+    "gate": {
+      "netlist_sha256": "8413bb97470f07b4c8f421073c1a47bfd81b808c85e0a58e10a2254d5e76cde9",
+      "raw_audit_status": "FAIL",
+      "banks": {
+        "hann_high": {
+          "raw_mismatches": {
+            "CEAMUX": {
+              "expected": "SIG",
+              "actual": "INV"
+            }
+          },
+          "primitive": "u_pcm_waveform/u_spectrum/u_coefficients/u_hann_high",
+          "primitive_parameters": {
+            "CEAMUX": "INV"
+          },
+          "port_proofs": [
+            {
+              "port": "cea",
+              "net": "u_pcm_waveform/u_spectrum/eq15_syn_33",
+              "mux_parameter": "CEAMUX",
+              "mux_value": "INV",
+              "inverted": true,
+              "truth_table": [
+                {
+                  "state": 0,
+                  "state_bits": "0b00000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 1,
+                  "state_bits": "0b00001",
+                  "expected": true,
+                  "effective": 1,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 2,
+                  "state_bits": "0b00010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 3,
+                  "state_bits": "0b00011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 4,
+                  "state_bits": "0b00100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 5,
+                  "state_bits": "0b00101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 6,
+                  "state_bits": "0b00110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 7,
+                  "state_bits": "0b00111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 8,
+                  "state_bits": "0b01000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 9,
+                  "state_bits": "0b01001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 10,
+                  "state_bits": "0b01010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 11,
+                  "state_bits": "0b01011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 12,
+                  "state_bits": "0b01100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 13,
+                  "state_bits": "0b01101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 14,
+                  "state_bits": "0b01110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 15,
+                  "state_bits": "0b01111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 16,
+                  "state_bits": "0b10000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 17,
+                  "state_bits": "0b10001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 18,
+                  "state_bits": "0b10010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 19,
+                  "state_bits": "0b10011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 20,
+                  "state_bits": "0b10100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 21,
+                  "state_bits": "0b10101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 22,
+                  "state_bits": "0b10110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 23,
+                  "state_bits": "0b10111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 24,
+                  "state_bits": "0b11000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 25,
+                  "state_bits": "0b11001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 26,
+                  "state_bits": "0b11010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 27,
+                  "state_bits": "0b11011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 28,
+                  "state_bits": "0b11100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 29,
+                  "state_bits": "0b11101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 30,
+                  "state_bits": "0b11110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 31,
+                  "state_bits": "0b11111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                }
+              ],
+              "enumerated_open_or_leaf_inputs": [
+                "open_n128399",
+                "open_n128400",
+                "open_n53308",
+                "open_n76198"
+              ],
+              "passes": true
+            }
+          ],
+          "verdict": "PASS_POLARITY_EQUIVALENT"
+        },
+        "hann_low": {
+          "raw_mismatches": {
+            "CEAMUX": {
+              "expected": "SIG",
+              "actual": "INV"
+            }
+          },
+          "primitive": "u_pcm_waveform/u_spectrum/u_coefficients/u_hann_low",
+          "primitive_parameters": {
+            "CEAMUX": "INV"
+          },
+          "port_proofs": [
+            {
+              "port": "cea",
+              "net": "u_pcm_waveform/u_spectrum/eq15_syn_33",
+              "mux_parameter": "CEAMUX",
+              "mux_value": "INV",
+              "inverted": true,
+              "truth_table": [
+                {
+                  "state": 0,
+                  "state_bits": "0b00000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 1,
+                  "state_bits": "0b00001",
+                  "expected": true,
+                  "effective": 1,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 2,
+                  "state_bits": "0b00010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 3,
+                  "state_bits": "0b00011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 4,
+                  "state_bits": "0b00100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 5,
+                  "state_bits": "0b00101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 6,
+                  "state_bits": "0b00110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 7,
+                  "state_bits": "0b00111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 8,
+                  "state_bits": "0b01000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 9,
+                  "state_bits": "0b01001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 10,
+                  "state_bits": "0b01010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 11,
+                  "state_bits": "0b01011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 12,
+                  "state_bits": "0b01100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 13,
+                  "state_bits": "0b01101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 14,
+                  "state_bits": "0b01110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 15,
+                  "state_bits": "0b01111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 16,
+                  "state_bits": "0b10000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 17,
+                  "state_bits": "0b10001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 18,
+                  "state_bits": "0b10010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 19,
+                  "state_bits": "0b10011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 20,
+                  "state_bits": "0b10100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 21,
+                  "state_bits": "0b10101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 22,
+                  "state_bits": "0b10110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 23,
+                  "state_bits": "0b10111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 24,
+                  "state_bits": "0b11000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 25,
+                  "state_bits": "0b11001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 26,
+                  "state_bits": "0b11010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 27,
+                  "state_bits": "0b11011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 28,
+                  "state_bits": "0b11100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 29,
+                  "state_bits": "0b11101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 30,
+                  "state_bits": "0b11110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                },
+                {
+                  "state": 31,
+                  "state_bits": "0b11111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 4,
+                  "leaves": [
+                    "open_n128399",
+                    "open_n128400",
+                    "open_n53308",
+                    "open_n76198"
+                  ]
+                }
+              ],
+              "enumerated_open_or_leaf_inputs": [
+                "open_n128399",
+                "open_n128400",
+                "open_n53308",
+                "open_n76198"
+              ],
+              "passes": true
+            }
+          ],
+          "verdict": "PASS_POLARITY_EQUIVALENT"
+        },
+        "twiddle_high": {
+          "raw_mismatches": {
+            "CSA2": {
+              "expected": "SIG",
+              "actual": "INV"
+            },
+            "CSB2": {
+              "expected": "SIG",
+              "actual": "INV"
+            }
+          },
+          "primitive": "u_pcm_waveform/u_spectrum/u_coefficients/u_twiddle_high",
+          "primitive_parameters": {
+            "CSA2": "INV",
+            "CSB2": "INV"
+          },
+          "port_proofs": [
+            {
+              "port": "csa[2]",
+              "net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+              "mux_parameter": "CSA2",
+              "mux_value": "INV",
+              "inverted": true,
+              "truth_table": [
+                {
+                  "state": 0,
+                  "state_bits": "0b00000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 1,
+                  "state_bits": "0b00001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 2,
+                  "state_bits": "0b00010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 3,
+                  "state_bits": "0b00011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 4,
+                  "state_bits": "0b00100",
+                  "expected": true,
+                  "effective": 1,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 5,
+                  "state_bits": "0b00101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 6,
+                  "state_bits": "0b00110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 7,
+                  "state_bits": "0b00111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 8,
+                  "state_bits": "0b01000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 9,
+                  "state_bits": "0b01001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 10,
+                  "state_bits": "0b01010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 11,
+                  "state_bits": "0b01011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 12,
+                  "state_bits": "0b01100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 13,
+                  "state_bits": "0b01101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 14,
+                  "state_bits": "0b01110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 15,
+                  "state_bits": "0b01111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 16,
+                  "state_bits": "0b10000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 17,
+                  "state_bits": "0b10001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 18,
+                  "state_bits": "0b10010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 19,
+                  "state_bits": "0b10011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 20,
+                  "state_bits": "0b10100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 21,
+                  "state_bits": "0b10101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 22,
+                  "state_bits": "0b10110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 23,
+                  "state_bits": "0b10111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 24,
+                  "state_bits": "0b11000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 25,
+                  "state_bits": "0b11001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 26,
+                  "state_bits": "0b11010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 27,
+                  "state_bits": "0b11011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 28,
+                  "state_bits": "0b11100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 29,
+                  "state_bits": "0b11101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 30,
+                  "state_bits": "0b11110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 31,
+                  "state_bits": "0b11111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                }
+              ],
+              "enumerated_open_or_leaf_inputs": [
+                "open_n1459",
+                "open_n1461",
+                "open_n76605"
+              ],
+              "passes": true
+            },
+            {
+              "port": "csb[2]",
+              "net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+              "mux_parameter": "CSB2",
+              "mux_value": "INV",
+              "inverted": true,
+              "truth_table": [
+                {
+                  "state": 0,
+                  "state_bits": "0b00000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 1,
+                  "state_bits": "0b00001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 2,
+                  "state_bits": "0b00010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 3,
+                  "state_bits": "0b00011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 4,
+                  "state_bits": "0b00100",
+                  "expected": true,
+                  "effective": 1,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 5,
+                  "state_bits": "0b00101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 6,
+                  "state_bits": "0b00110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 7,
+                  "state_bits": "0b00111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 8,
+                  "state_bits": "0b01000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 9,
+                  "state_bits": "0b01001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 10,
+                  "state_bits": "0b01010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 11,
+                  "state_bits": "0b01011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 12,
+                  "state_bits": "0b01100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 13,
+                  "state_bits": "0b01101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 14,
+                  "state_bits": "0b01110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 15,
+                  "state_bits": "0b01111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 16,
+                  "state_bits": "0b10000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 17,
+                  "state_bits": "0b10001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 18,
+                  "state_bits": "0b10010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 19,
+                  "state_bits": "0b10011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 20,
+                  "state_bits": "0b10100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 21,
+                  "state_bits": "0b10101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 22,
+                  "state_bits": "0b10110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 23,
+                  "state_bits": "0b10111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 24,
+                  "state_bits": "0b11000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 25,
+                  "state_bits": "0b11001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 26,
+                  "state_bits": "0b11010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 27,
+                  "state_bits": "0b11011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 28,
+                  "state_bits": "0b11100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 29,
+                  "state_bits": "0b11101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 30,
+                  "state_bits": "0b11110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 31,
+                  "state_bits": "0b11111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                }
+              ],
+              "enumerated_open_or_leaf_inputs": [
+                "open_n1459",
+                "open_n1461",
+                "open_n76605"
+              ],
+              "passes": true
+            }
+          ],
+          "verdict": "PASS_POLARITY_EQUIVALENT"
+        },
+        "twiddle_low": {
+          "raw_mismatches": {
+            "CSA2": {
+              "expected": "SIG",
+              "actual": "INV"
+            },
+            "CSB2": {
+              "expected": "SIG",
+              "actual": "INV"
+            }
+          },
+          "primitive": "u_pcm_waveform/u_spectrum/u_coefficients/u_twiddle_low",
+          "primitive_parameters": {
+            "CSA2": "INV",
+            "CSB2": "INV"
+          },
+          "port_proofs": [
+            {
+              "port": "csa[2]",
+              "net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+              "mux_parameter": "CSA2",
+              "mux_value": "INV",
+              "inverted": true,
+              "truth_table": [
+                {
+                  "state": 0,
+                  "state_bits": "0b00000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 1,
+                  "state_bits": "0b00001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 2,
+                  "state_bits": "0b00010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 3,
+                  "state_bits": "0b00011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 4,
+                  "state_bits": "0b00100",
+                  "expected": true,
+                  "effective": 1,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 5,
+                  "state_bits": "0b00101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 6,
+                  "state_bits": "0b00110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 7,
+                  "state_bits": "0b00111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 8,
+                  "state_bits": "0b01000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 9,
+                  "state_bits": "0b01001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 10,
+                  "state_bits": "0b01010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 11,
+                  "state_bits": "0b01011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 12,
+                  "state_bits": "0b01100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 13,
+                  "state_bits": "0b01101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 14,
+                  "state_bits": "0b01110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 15,
+                  "state_bits": "0b01111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 16,
+                  "state_bits": "0b10000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 17,
+                  "state_bits": "0b10001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 18,
+                  "state_bits": "0b10010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 19,
+                  "state_bits": "0b10011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 20,
+                  "state_bits": "0b10100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 21,
+                  "state_bits": "0b10101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 22,
+                  "state_bits": "0b10110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 23,
+                  "state_bits": "0b10111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 24,
+                  "state_bits": "0b11000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 25,
+                  "state_bits": "0b11001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 26,
+                  "state_bits": "0b11010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 27,
+                  "state_bits": "0b11011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 28,
+                  "state_bits": "0b11100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 29,
+                  "state_bits": "0b11101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 30,
+                  "state_bits": "0b11110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 31,
+                  "state_bits": "0b11111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                }
+              ],
+              "enumerated_open_or_leaf_inputs": [
+                "open_n1459",
+                "open_n1461",
+                "open_n76605"
+              ],
+              "passes": true
+            },
+            {
+              "port": "csb[2]",
+              "net": "u_pcm_waveform/u_spectrum/eq16_syn_33",
+              "mux_parameter": "CSB2",
+              "mux_value": "INV",
+              "inverted": true,
+              "truth_table": [
+                {
+                  "state": 0,
+                  "state_bits": "0b00000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 1,
+                  "state_bits": "0b00001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 2,
+                  "state_bits": "0b00010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 3,
+                  "state_bits": "0b00011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 4,
+                  "state_bits": "0b00100",
+                  "expected": true,
+                  "effective": 1,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 5,
+                  "state_bits": "0b00101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 6,
+                  "state_bits": "0b00110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 7,
+                  "state_bits": "0b00111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 8,
+                  "state_bits": "0b01000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 9,
+                  "state_bits": "0b01001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 10,
+                  "state_bits": "0b01010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 11,
+                  "state_bits": "0b01011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 12,
+                  "state_bits": "0b01100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 13,
+                  "state_bits": "0b01101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 14,
+                  "state_bits": "0b01110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 15,
+                  "state_bits": "0b01111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 16,
+                  "state_bits": "0b10000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 17,
+                  "state_bits": "0b10001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 18,
+                  "state_bits": "0b10010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 19,
+                  "state_bits": "0b10011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 20,
+                  "state_bits": "0b10100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 21,
+                  "state_bits": "0b10101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 22,
+                  "state_bits": "0b10110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 23,
+                  "state_bits": "0b10111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 24,
+                  "state_bits": "0b11000",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 25,
+                  "state_bits": "0b11001",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 26,
+                  "state_bits": "0b11010",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 27,
+                  "state_bits": "0b11011",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 28,
+                  "state_bits": "0b11100",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 29,
+                  "state_bits": "0b11101",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 30,
+                  "state_bits": "0b11110",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                },
+                {
+                  "state": 31,
+                  "state_bits": "0b11111",
+                  "expected": false,
+                  "effective": 0,
+                  "independent_leaves": 3,
+                  "leaves": [
+                    "open_n1459",
+                    "open_n1461",
+                    "open_n76605"
+                  ]
+                }
+              ],
+              "enumerated_open_or_leaf_inputs": [
+                "open_n1459",
+                "open_n1461",
+                "open_n76605"
+              ],
+              "passes": true
+            }
+          ],
+          "verdict": "PASS_POLARITY_EQUIVALENT"
+        }
+      }
+    }
+  },
+  "raw_mismatch_policy": {
+    "allowed_hann": {
+      "CEAMUX": {
+        "expected": "SIG",
+        "actual": "INV"
+      }
+    },
+    "allowed_twiddle": {
+      "CSA2": {
+        "expected": "SIG",
+        "actual": "INV"
+      },
+      "CSB2": {
+        "expected": "SIG",
+        "actual": "INV"
+      }
+    },
+    "all_raw_diffs_exactly_match_allowlist": true
+  },
+  "parser_method": "Resolves each EG_PHY_BRAM .cea/.csa[2]/.csb[2] actual connection; derives polarity from its mux parameter; recursively parses per-lane f/fx LUTs with concat rightmost lane0 and LUT index {d,c,b,a}; enumerates every open or unresolved leaf over 0/1; verifies each debug_progress[19:23] has exactly one FF Q driver.",
+  "failures": []
+}

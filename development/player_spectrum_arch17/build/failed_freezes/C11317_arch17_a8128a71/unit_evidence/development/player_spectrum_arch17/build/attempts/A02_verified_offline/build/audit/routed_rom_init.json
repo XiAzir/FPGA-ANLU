@@ -1,0 +1,82 @@
+{
+  "schema": "c11317-current-success-routed-rom-init-audit-v1",
+  "status": "PASS",
+  "synthesis_run_id": "aba70119-fd9b-434c-9993-bc0034907adf",
+  "physical_run_id": "d1d7b595-442c-4427-be31-f7fbfd7c49a9",
+  "physical_marker": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_arch17\\build\\manual\\stage_evidence\\latest_physical.json",
+  "physical_marker_sha256": "be7b58546f250221f40351a5a0b4929b3d36d9ebc5d2d3d990bf24a3d88059e8",
+  "physical_record": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_arch17\\build\\manual\\stage_evidence\\physical_d1d7b595-442c-4427-be31-f7fbfd7c49a9.json",
+  "physical_record_sha256": "55143f9374e2efb35136fe6a798ccd7038f4401db34ee182db40ddfaf1d53c99",
+  "route_database_sha256": "76e786aaaf1516897f15a99201bbdd69d44e739fe75367cfc88bce7a2e921c0c",
+  "synthesis_marker": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_arch17\\build\\manual\\stage_evidence\\latest_synthesis.json",
+  "synthesis_marker_sha256": "767ef2bd4653f677c0f5b3e4b1d9d6b3ad4fe0b805a912a81d9e7ac95212467d",
+  "synthesis_record": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_arch17\\build\\manual\\stage_evidence\\synthesis_aba70119-fd9b-434c-9993-bc0034907adf.json",
+  "synthesis_record_sha256": "365ce11830acd508ba8c7fa10d2b16d534abee04438212fb8f4907eca174dfd9",
+  "synthesis_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_arch17\\build\\manual\\synthesis_console.log",
+  "synthesis_log_sha256": "259dd18a3672e75ef06d4e7b99bd322be7a85e36cbc0f6f553ae1ce72b20ffae",
+  "routed_netlist": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_arch17\\build\\audit\\routed_implementation.v",
+  "routed_netlist_sha256": "51a6e792cce6234f94c3d28298f3c1cb6d075f4cd367dc9082b9a50ef67aaf11",
+  "manifest_sha256": "31a61e039e5b83bce3b73cc2d015bf92e0c3773071dcfa8385e2aea970a61ee1",
+  "source_rom_sha256": {
+    "hann": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+    "twiddle": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772"
+  },
+  "checker_sha256": "81d13bcffbf94fdfa896df08517b602415a9a5556718263b6d5a6938d10817b5",
+  "decoder_sha256": "7c2545ad7ccc61199b2f82aa56db5d7be3d55afc31832b87dc1ad5d2ade06a3e",
+  "source_rom_paths": {
+    "hann": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_arch17\\src\\user_source\\hdl_source\\spectrum_hann.mem",
+    "twiddle": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_arch17\\src\\user_source\\hdl_source\\spectrum_twiddle.mem"
+  },
+  "logical_rom_words": 1536,
+  "lane_entries": 3072,
+  "lanes": {
+    "hann_low": {
+      "depth": 1024,
+      "width": 9,
+      "nonzero_words": 1020,
+      "mismatches": 0,
+      "first_mismatch_addresses": [],
+      "sha256": "1c712da62a5934d3ac75b855cf90893a03a236697b01ead065b7ea4ab5960d3e"
+    },
+    "hann_high": {
+      "depth": 1024,
+      "width": 9,
+      "nonzero_words": 942,
+      "mismatches": 0,
+      "first_mismatch_addresses": [],
+      "sha256": "391e9b0d2fdb3a0d8ffa004f93ac15e676f43709db0b24cc07b4f933bf0739de"
+    },
+    "twiddle_low": {
+      "depth": 512,
+      "width": 18,
+      "nonzero_words": 512,
+      "mismatches": 0,
+      "first_mismatch_addresses": [],
+      "sha256": "8f3c7aa49f84b689cf60d9e97c6e4b85700fa17be8c306149a71d087fa045d00"
+    },
+    "twiddle_high": {
+      "depth": 512,
+      "width": 18,
+      "nonzero_words": 511,
+      "mismatches": 0,
+      "first_mismatch_addresses": [],
+      "sha256": "5870f27ab4e323523d250e1a00fdd074404af3b6e523054ea400094d3d3246a8"
+    }
+  },
+  "combined_roms": {
+    "hann": {
+      "words": 1024,
+      "nonzero_words": 1020,
+      "mismatches": 0,
+      "sha256": "baf7df624b80fcd112ba3cdf1a5e6052d53a9a187aa14870d274ad8de75c9c3f"
+    },
+    "twiddle": {
+      "words": 512,
+      "nonzero_words": 512,
+      "mismatches": 0,
+      "sha256": "b7782524c8b0d3b7a42d4f5e59a8e1a34f9b5328f01795baa7779388027c5259"
+    }
+  },
+  "all_match": true,
+  "method": "Reused the reference INIT/INITP extraction and decode functions. Bound to the selected successful C11317 synthesis and physical marker/record, verified synthesis linkage, physical completion freshness, current gate database and synthesis log; checked every routed bank-lane entry against current source ROM images and manifest hashes."
+}

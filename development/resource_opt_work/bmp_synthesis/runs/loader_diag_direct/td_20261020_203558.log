@@ -1,0 +1,401 @@
+============================================================
+   Tang Dynasty, V6.2.178840
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/bin/td_commands_prompt.exe
+   Built at =   14:07:58 Sep  4 2025
+   Run by =     PENGYUHAO
+   Run Date =   Tue Oct 20 20:35:58 2026
+
+   Run on =     DESKTOP-3CITPT4
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20BG256"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :            OPTION            |          IO          |   SETTING   
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  T3/R11/T10/P10/S11  |    gpio    
+ARC-1001 :             done             |         P13          |    gpio    
+ARC-1001 :           program_b          |          T2          |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |   C12/A15/C14/E14    |  dedicate  
+ARC-1001 : ------------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "open_project bmp_loader_diag_direct.al -single_run"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file ../hdl_source/tf_bmp_file_player.v
+HDL-1007 : analyze verilog file ../hdl_source/bmp_scale_engine.v
+HDL-1007 : analyze verilog file ../hdl_source/key_press_debounce.v
+PRJ-1401 : Successfully analyzed 3 source files.
+RUN-1002 : start command "load_run_param -run syn_1"
+RUN-1002 : start command "elaborate -top tf_bmp_file_player"
+HDL-1007 : elaborate module tf_bmp_file_player in ../hdl_source/tf_bmp_file_player.v(3)
+HDL-1007 : elaborate module key_press_debounce(CLK_FREQ_HZ=50000000,DEBOUNCE_MS=50) in ../hdl_source/key_press_debounce.v(1)
+HDL-1007 : elaborate module bmp_scale_engine in ../hdl_source/bmp_scale_engine.v(3)
+HDL-1007 : extracting RAM for identifier 'sector_mem' in ../hdl_source/bmp_scale_engine.v(68)
+HDL-1007 : extracting RAM for identifier 'row_mem' in ../hdl_source/bmp_scale_engine.v(69)
+HDL-1200 : Current top model is tf_bmp_file_player
+HDL-1100 : Inferred 2 RAMs.
+RUN-1002 : start command "read_sdc ../standalone.sdc"
+RUN-1002 : start command "commit_param -step rtl"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Rtl Property
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :         Parameters        |  Settings  |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :        fix_undriven       |     0      |        0         |        
+RUN-1001 :   gated_clock_conversion  |    off     |       off        |        
+RUN-1001 :         infer_fsm         |    auto    |       auto       |        
+RUN-1001 :         infer_gsr         |    off     |       off        |        
+RUN-1001 :         infer_rom         |     on     |        on        |        
+RUN-1001 :       keep_hierarchy      |    auto    |       auto       |        
+RUN-1001 :        merge_equal        |     on     |        on        |        
+RUN-1001 :      min_control_set      |     8      |        8         |        
+RUN-1001 :       min_ripple_len      |    auto    |       auto       |        
+RUN-1001 :          seq_syn          |     on     |        on        |        
+RUN-1001 : -------------------------------------------------------------------
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.000764s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 118, reserved = 102, peak = 118;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 3735, Total nets: 12162.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 0.139127s wall, 0.140625s user + 0.000000s system = 0.140625s CPU (101.1%); Memory(MB): used = 118, reserved = 102, peak = 118;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 952, Total nets: 9059.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model tf_bmp_file_player
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.019429s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (80.4%); Memory(MB): used = 119, reserved = 102, peak = 119;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 969, Total nets: 9018.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-5025 WARNING: Using 0 for all undriven pins and nets
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.004871s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 119, reserved = 112, peak = 119;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 965, Total nets: 9013.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1066 : Inferred FSM for state register 'u_scale/state_reg' in module 'tf_bmp_file_player'
+------------------------------------------------------
+     Previous Encoding               New Encoding
+------------------------------------------------------
+                000000     0000000000000000000001
+                000011     0000000000000000000010
+                000001     0000000000000000000100
+                000010     0000000000000000001000
+                000100     0000000000000000010000
+                000101     0000000000000000100000
+                000110     0000000000000001000000
+                000111     0000000000000010000000
+                001010     0000000000000100000000
+                001011     0000000000001000000000
+                001100     0000000000010000000000
+                010100     0000000000100000000000
+                001101     0000000001000000000000
+                001110     0000000010000000000000
+                001111     0000000100000000000000
+                010001     0000001000000000000000
+                010011     0000010000000000000000
+                001000     0000100000000000000000
+                010000     0001000000000000000000
+                010010     0010000000000000000000
+                001001     0100000000000000000000
+                010101     1000000000000000000000
+------------------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_scale/state_reg' using encoding 'one_hot' in model 'tf_bmp_file_player'
+SYN-1057 : Inferred 1 FSM(s)
+SYN-1001 : Optimize 6 less-than instances
+SYN-1032 : 9394/162 useful/useless nets, 934/0 useful/useless insts
+SYN-1068 : Optimized 14 binary mux instances.
+SYN-1019 : Optimized 2 mux instances.
+SYN-1021 : Optimized 9 onehot mux instances.
+SYN-1016 : Merged 930 instances.
+SYN-1025 : Merged 32 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_scale/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 512 x 8	 write mode: NORMAL
+	 port b size: 512 x 8	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_scale/ramread1_syn_4)
+	 port mode: single dual port
+	 port a size: 1024 x 24	 write mode: NORMAL
+	 port b size: 1024 x 24	 write mode: READBEFOREWRITE
+SYN-1023 : Infer 0 Logic DRAMs, 2 Logic BRAMs.
+SYN-1016 : Merged 1031 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 1.490276s wall, 1.375000s user + 0.031250s system = 1.406250s CPU (94.4%); Memory(MB): used = 240, reserved = 223, peak = 240;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 3968, Total nets: 5207.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1014 : Optimize round 1
+SYN-1017 : Remove 11 const input seq instances
+SYN-1018 : Transformed 1 mux instances.
+SYN-1019 : Optimized 4 mux instances.
+SYN-1020 : Optimized 360 distributor mux.
+SYN-1001 : Optimize 8 less-than instances
+SYN-2595 : bram inst: u_scale/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_scale/ramread1_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-1016 : Merged 890 instances.
+SYN-1015 : Optimize round 1, 18649 better
+SYN-1014 : Optimize round 2
+SYN-1044 : Optimized 8 inv instances.
+SYN-1016 : Merged 1 instances.
+SYN-1015 : Optimize round 2, 42 better
+SYN-3010 : Optimized 1 DFF(s)
+SYN-1014 : Optimize round 1
+SYN-1016 : Merged 2 instances.
+SYN-1015 : Optimize round 1, 87 better
+SYN-1014 : Optimize round 2
+SYN-1015 : Optimize round 2, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 2.741682s wall, 2.562500s user + 0.093750s system = 2.656250s CPU (96.9%); Memory(MB): used = 226, reserved = 218, peak = 252;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 5085, Total nets: 6314.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.000458s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 226, reserved = 218, peak = 252;
+
+SYN-1079 : finish stage Check Design. Total instances: 5085, Total nets: 6314.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 4.397114s wall, 4.093750s user + 0.125000s system = 4.218750s CPU (95.9%); Memory(MB): used = 226, reserved = 218, peak = 252;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 5085, Total nets: 6314.
+
+RUN-1003 : finish command "optimize_rtl" in  4.404664s wall, 4.109375s user + 0.125000s system = 4.234375s CPU (96.1%)
+
+RUN-1004 : used memory is 226 MB, reserved memory is 218 MB, peak memory is 252 MB
+RUN-1002 : start command "commit_param -step gate"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Gate Property
+RUN-1001 : -----------------------------------------------------------
+RUN-1001 :     Parameters    |  Settings  |  Default Values  |  Note  
+RUN-1001 : -----------------------------------------------------------
+RUN-1001 :     eram_init     |    off     |       off        |        
+RUN-1001 :      map_mode     |    auto    |       auto       |        
+RUN-1001 :    pack_effort    |   medium   |      medium      |        
+RUN-1001 :   pack_seq_in_io  |    auto    |       auto       |        
+RUN-1001 :       report      |  standard  |     standard     |        
+RUN-1001 : -----------------------------------------------------------
+RUN-1002 : start command "optimize_gate -packarea E:/VSCODE-project/FPGA-ANLU/development/resource_opt_work/bmp_synthesis/runs/loader_diag_direct/reports/gate.area"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.058615s wall, 0.062500s user + 0.000000s system = 0.062500s CPU (106.6%); Memory(MB): used = 226, reserved = 218, peak = 252;
+
+SYN-1079 : finish stage Map Reg. Total instances: 5085, Total nets: 6314.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2001 : Map 439 IOs to PADs of model 'tf_bmp_file_player'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.693864s wall, 0.671875s user + 0.000000s system = 0.671875s CPU (96.8%); Memory(MB): used = 227, reserved = 218, peak = 252;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module tf_bmp_file_player"
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-6562 WARNING: The init value of "u_scale/ramread0_syn_4(../hdl_source/bmp_scale_engine.v(84))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_scale/ramread1_syn_4(../hdl_source/bmp_scale_engine.v(85))" will be ignored since gate eram_init is set to off
+SYN-2571 : Map 7 macro multiplier
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-2571 : Optimize after map_dsp, round 1, 0 better
+SYN-1001 : Throwback 35 control mux instances
+SYN-1001 : Generate 2 bigger adders
+SYN-1001 : Convert 1 adder
+SYN-1001 : Optimize 8 adders
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 17 instances.
+SYN-2501 : Optimize round 1, 411 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Optimize round 1
+SYN-2501 : Optimize round 1, 0 better
+SYN-2501 : Map 73 macro adder(s)
+SYN-1019 : Optimized 9 mux instances.
+SYN-1016 : Merged 42 instances.
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 1.569515s wall, 1.484375s user + 0.031250s system = 1.515625s CPU (96.6%); Memory(MB): used = 239, reserved = 220, peak = 252;
+
+SYN-1079 : finish stage Map Macro. Total instances: 7597, Total nets: 8791.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-3001 : Collect 1487 PI 981 PO (40 timing unconstrained) for mapping
+SYN-2581 : Mapping with K=5, #lut = 1435 (3.15), #lev = 9 (2.76), #crit_level = 0
+SYN-2551 : Post LUT mapping optimization.
+SYN-2581 : Mapping with K=5, #lut = 1435 (3.15), #lev = 9 (2.74), #crit_level = 0
+SYN-3001 : Logic optimization opt = 0.46 sec, map = 0.10 sec, post map opt = 0.30 sec.
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 1.647466s wall, 1.593750s user + 0.000000s system = 1.593750s CPU (96.7%); Memory(MB): used = 248, reserved = 229, peak = 252;
+
+SYN-1001 : Packing model "tf_bmp_file_player" ...
+SYN-4010 : Pack lib has 59 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 1084 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 34 carry chain into lslice
+SYN-4007 : Packing 985 adder to BLE ...
+SYN-4008 : Packed 985 adder and 1 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+TMR-2502 : Net delay update with mode: Synthesized
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |          641                |
+|     Setup TNS             |            0                |
+|     Num of violated S-EP  |            0                |
+|     Hold WNS              |          471                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |         1083                |
+|     #luts                 |         1435                |
+|     #lut1                 |            8                |
+|     #lut1(~A)             |            8                |
+|     #slices               |          733                |
+|     slices percentage     |        7.48%                |
+|     #RAMs                 |            4                |
+|     #DSPs                 |            7                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |           69                |
+|     #insts in MACRO       |          733                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |            0                |
+|     #keep_hier            |            0                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |        38.51                |
+| dff(single fanout)->dff   |            0                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total Number          |            0                |
+|     Total Exceed Level    |            0                |
+|     Worst Level Slack     |            7                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 1000ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+---------------------------------------------------------------------------------------------------------------------------------
+  Clock  |  Period            |  0    |  1    |  2    |  3    |  4    |  5    |  6    |  7    |  8   |  9   |  10  |  11  |  12
+---------------------------------------------------------------------------------------------------------------------------------
+  clk    |  20.000ns (50MHz)  |  100  |  185  |  311  |  302  |  141  |  184  |  240  |  501  |  82  |  90  |  11  |  9   |  60
+---------------------------------------------------------------------------------------------------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(2216 paths analyzed)
+
+Hierarchical Rent Exponent Report
++---------------------------------------------------------------------+
+|Inst      |Model              |Rent     |Cell     |Pin     |Term     |
++---------------------------------------------------------------------+
+|top       |tf_bmp_file_player |0.24     |3701     |16279   |31       |
+|  u_scale |bmp_scale_engine_3 |0.47     |1874     |9191    |169      |
++---------------------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+RUN-1002 : start command "report_area -file E:/VSCODE-project/FPGA-ANLU/development/resource_opt_work/bmp_synthesis/runs/loader_diag_direct/reports/gate.area"
+RUN-1001 : standard
+***Report Model: tf_bmp_file_player Device: EG4S20BG256***
+
+IO Statistics
+#IO                       439   out of    188  233.51%
+  #input                  279
+  #output                 160
+  #inout                    0
+
+LUT Statistics
+#Total_luts              1435
+  #lut4                  1318
+  #lut5                   117
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                     2901   out of  19600   14.80%
+#reg                     1084   out of  19600    5.53%
+#bram                       4   out of     64    6.25%
+  #bram9k                   4
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        7   out of     29   24.14%
+#pad                      439   out of    188  233.51%
+  #ireg                     4
+  #oreg                   101
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 4.514957s wall, 4.343750s user + 0.031250s system = 4.375000s CPU (96.9%); Memory(MB): used = 249, reserved = 230, peak = 252;
+
+RUN-1003 : finish command "optimize_gate -packarea E:/VSCODE-project/FPGA-ANLU/development/resource_opt_work/bmp_synthesis/runs/loader_diag_direct/reports/gate.area" in  4.526190s wall, 4.359375s user + 0.031250s system = 4.390625s CPU (97.0%)
+
+RUN-1004 : used memory is 249 MB, reserved memory is 230 MB, peak memory is 252 MB
+RUN-1002 : start command "close_project"

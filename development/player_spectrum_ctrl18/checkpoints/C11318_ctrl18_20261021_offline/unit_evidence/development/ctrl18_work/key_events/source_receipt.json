@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-21",
+  "scope": "isolated key-event candidate; no formal project or baseline source modified",
+  "baseline": {
+    "player_adjust_control.v": {
+      "path": "development/player_spectrum_arch17/src/user_source/hdl_source/player_adjust_control.v",
+      "sha256": "653375957BC72C2AE0DCAADEAC634A40267DE3E521B8B8EFCECEE1148764E1F7"
+    },
+    "tf_bmp_file_player.v": {
+      "path": "development/player_spectrum_arch17/src/user_source/hdl_source/tf_bmp_file_player.v",
+      "sha256": "8C4C61C8F8474AE44115C3AC0A056910886996302CD0845B775CF00A8B28F5B7"
+    }
+  },
+  "candidate": {
+    "player_adjust_control.v": {
+      "path": "development/ctrl18_work/key_events/player_adjust_control.v",
+      "sha256": "17977380E33EDC3844B98C207BC0435C584E2BCC628EFF27E0C9ADCD9D7E56AB"
+    },
+    "tf_bmp_file_player_event_candidate.v": {
+      "path": "development/ctrl18_work/key_events/tf_bmp_file_player_event_candidate.v",
+      "sha256": "E46169101374F6D28094D4AD408FF7F2B399908D0CB6FA30E613EDEBE5FE5AB4"
+    }
+  },
+  "verification": {
+    "reference_player_adjust_control.v": {
+      "path": "development/ctrl18_work/key_events/reference_player_adjust_control.v",
+      "sha256": "EF9C2C4BE805D4EC32AAE82B2A6DF5CEEE94EFD7C1290AE9D554C938249FD483",
+      "source": "baseline player_adjust_control.v copied and module identifier renamed for side-by-side simulation"
+    },
+    "tb_key_events.v": {
+      "path": "development/ctrl18_work/key_events/tb_key_events.v",
+      "sha256": "4C8FCD8053102E9AECF1916E7F0E60C34F1845435FEBBE99EAA80061982C3EDF"
+    },
+    "run_key_events.ps1": {
+      "path": "development/ctrl18_work/key_events/run_key_events.ps1",
+      "sha256": "3F2374BDB3210F6BEDBE694DE36E6284404066BAD4D010D84B75EA0C590CCE04"
+    },
+    "top_tf_hdmi_audio_event_wiring.patch": {
+      "path": "development/ctrl18_work/key_events/top_tf_hdmi_audio_event_wiring.patch",
+      "sha256": "F051A6B1D4355079C8E9CD641EA5156C5B2C089F1AAC9C7DB166E135F4F05D03"
+    },
+    "iverilog": "12.0 (devel) (s20150603-1539-g2693dd32b)",
+    "result": "PASS; 76 assertions; reference and candidate pre-reset event counts match: next=3, auto=1; first response gain=686 ns in the 10 ns/14 ns asynchronous clock model"
+  }
+}

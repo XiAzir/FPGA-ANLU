@@ -1,0 +1,140 @@
+{
+  "experiment": "arch17_scaler_lifetime_full_six_paired",
+  "baseline_engine_source": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_opt16\\src\\user_source\\hdl_source\\bmp_scale_engine.v",
+    "sha256": "f3d77c0dcaac1a43c59e30deb51b06988a81a9d91f0c6135f0eb17158057c04c"
+  },
+  "candidate_engine_source": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\scaler_lifetime\\bmp_scale_engine_candidate.v",
+    "sha256": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2"
+  },
+  "shared_c11316_loader_source": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_opt16\\src\\user_source\\hdl_source\\tf_bmp_file_player.v",
+    "sha256": "8c4c61c8f8474ae44115c3ac0a056910886996302cd0845b775cf00a8b28f5b7"
+  },
+  "baseline_engine_as_run": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\scaler_lifetime\\full_six\\bmp_scale_engine_base_pair.v",
+    "sha256": "1d91d9e6a16c0465fb2e591f455909253659244c63e64af47dee1e5354ccdad5"
+  },
+  "candidate_engine_as_run": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\scaler_lifetime\\full_six\\bmp_scale_engine_candidate_pair.v",
+    "sha256": "0c68f996ca609f3139c2a612eece41c401d4fdecc6bf01b2df5cf630ad63439e"
+  },
+  "baseline_loader_as_run": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\scaler_lifetime\\full_six\\tf_bmp_file_player_base_pair.v",
+    "sha256": "649da309d20e27a7bea2eb24082a6a811f81a9aad401929f0b34d62067a01c15"
+  },
+  "candidate_loader_as_run": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\scaler_lifetime\\full_six\\tf_bmp_file_player_candidate_pair.v",
+    "sha256": "cb7acf73a6c11005e275e63abf1048d1a98211e12b2ff94d487334cb41f5b900"
+  },
+  "testbench_template": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\scaler_lifetime\\tb_full_paired.v",
+    "sha256": "d08b8d01dc9776e1773e7509c3c724381786f16cc6b06b4435c631b90e689611"
+  },
+  "testbench_as_run": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\scaler_lifetime\\full_six\\tb_full_six.v",
+    "sha256": "803f64fa30bf116776ff6ba60f47e44c7700117e8dba987e4f38ee6f23d699e4"
+  },
+  "production_parameter": {
+    "HEADER_VALIDATED": 1,
+    "FRAME_WIDTH": 640,
+    "FRAME_HEIGHT": 480,
+    "WAIT_LIMIT": 50000000
+  },
+  "comparison": "All loader public outputs packed in observation are compared cycle-by-cycle for each of six paired image drivers; each pair independently checks all 307200 24-bit pixels against its RGB golden.",
+  "expected_total_pixels": 1843200,
+  "images": [
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\bmp_191x321_topdown_expected_bottomup_rgb24.mem",
+      "bytes": 2150400,
+      "sha256": "22e7c085cc0f3f70d16fa546af9341b7f3a919530a0cf29b7aaa7ff4a2d87701"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\bmp_191x321_topdown_source_bytes.mem",
+      "bytes": 554850,
+      "sha256": "11a7e5e689d129b61094756dedc4c7101994c283123358609c6f9ea62b52e946"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\bmp_320x240_bottomup_expected_bottomup_rgb24.mem",
+      "bytes": 2150400,
+      "sha256": "750e0431edb09b49cee3f99d8d2c30e61e6ac2fb06e2aca43fd2ec5c5619d1b9"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\bmp_320x240_bottomup_source_bytes.mem",
+      "bytes": 691362,
+      "sha256": "4078df66212fe3e0931267b4831f04206d167e01383eb23df8291371fc5ed4b0"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\bmp_512x128_bottomup_expected_bottomup_rgb24.mem",
+      "bytes": 2150400,
+      "sha256": "31c19228cddfb210d12ca261624516a6938fc879c627d30d5258d6974b1bfcd9"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\bmp_512x128_bottomup_source_bytes.mem",
+      "bytes": 589986,
+      "sha256": "b94903867833aee3bfb35ffd5b11abee25965c5169234c17b859c85b34a217f6"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\bmp_800x600_bottomup_expected_bottomup_rgb24.mem",
+      "bytes": 2150400,
+      "sha256": "958001b1aab1de4f472d91905c9a45db587d7431616206794254ddc4df0500cd"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\bmp_800x600_bottomup_source_bytes.mem",
+      "bytes": 4320162,
+      "sha256": "d28a7f2f6a284f3a1ef95d036aab4b7717e5d1f65421e849204216308b08db6c"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\scaler_native_640x480_expected_bottomup_rgb24.mem",
+      "bytes": 2150400,
+      "sha256": "8231d3cf670bfca0dc423aded9c261813edac3f19dd65f069e4cda4a00cb8895"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\scaler_native_640x480_source_bytes.mem",
+      "bytes": 2764962,
+      "sha256": "b1c1defbfc1221f762c6d55c8639c029173e285e12d73c0e80879b90a68dae8f"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\scaler_odd_vertical_800x599_expected_bottomup_rgb24.mem",
+      "bytes": 2150400,
+      "sha256": "c2113b42de7532fe541d8d686322dc3668fcf85493cc58a4ed05e37230b02de4"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\test_media\\scaler_odd_vertical_800x599_source_bytes.mem",
+      "bytes": 4312962,
+      "sha256": "61f920a35364feca90c2d12f83a2e9a343cc937de26de664737a38783bf229d1"
+    }
+  ],
+  "simulation": {
+    "tool": "Icarus Verilog from repository bringup/tf_wav_hdmi/tools/iverilog/app/bin",
+    "compile_flags": [
+      "-g2001",
+      "-s",
+      "tb_scaler_full_loader"
+    ],
+    "result": "PASS",
+    "command": "pwsh -NoProfile -File development/arch17_work/scaler_lifetime/full_six/run_full_six.ps1",
+    "started_beijing": "2026-10-21 12:33:36",
+    "completed_beijing_log_last_write": "2026-10-21 12:49:53",
+    "exit_code": 0,
+    "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run_log_sha256": "401e6a95bd8e3d5f9f6408637c672b75209c5d7091cb3e34bf683d0eae782cbc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compiled_vvp_sha256": "7d2f4a145408bd2105de1efe908f616523fbe0344b70608244f44a64a975288c",
+    "final_pass_line": "SCALER_INTEGRATION PASS images=6 pairs=C11316/CANDIDATE_HEADER_VALIDATED1 pixels=1843200 cycle_outputs=matched native=1 odd_vertical=1",
+    "finish_time_ps": 86204775000,
+    "asset_pass_records": 12,
+    "per_pair_pixels": 307200,
+    "public_output_compare_width_bits": 160,
+    "compile_attempt1": "Compile-only failure because copied legacy debug message referenced pre-rename hierarchy dut.u_scale.*; no simulation executed. Preserved as compile_attempt1_hierarchy.log. Removed that diagnostic-only hierarchical probe in the generated TB and recompiled successfully."
+  },
+  "reproduction": {
+    "prepare_command": "python development/arch17_work/scaler_lifetime/full_six/prepare_full_six.py",
+    "prepare_script_sha256": "beea8f621d0c190bce0ed9f8678b599384d521fbf0393a6e86dbf2f06ff8138a",
+    "run_command": "pwsh -NoProfile -File development/arch17_work/scaler_lifetime/full_six/run_full_six.ps1",
+    "runner_sha256": "b3f390b39f7ad1f320cd7cc64090c07bb443d3293972fbc7f463a465275740b1",
+    "compile_command": "iverilog -g2001 -s tb_scaler_full_loader -o full_six.vvp bmp_scale_engine_base_pair.v bmp_scale_engine_candidate_pair.v tf_bmp_file_player_base_pair.v tf_bmp_file_player_candidate_pair.v ../key_press_debounce.v tb_full_six.v",
+    "runtime_command": "vvp full_six.vvp"
+  }
+}

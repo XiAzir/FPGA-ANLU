@@ -1,0 +1,35 @@
+{
+  "source": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\doc\\strategies\\official_strategy_ph1.json",
+  "source_sha256": "b264a5c4ae939a4be0fcf5d2c242a8005132c4812f01d4d060590adee2030729",
+  "strategy": {
+    "description": "Does mapping with pursuing lowest area as much as possible",
+    "is_syn": "syn",
+    "params": [
+      {
+        "step": "gate",
+        "param": "add_map_lut_struct",
+        "val": "high"
+      },
+      {
+        "step": "gate",
+        "param": "map_mode",
+        "val": "area_prior"
+      },
+      {
+        "step": "gate",
+        "param": "multi_thread_mapping",
+        "val": "partition"
+      },
+      {
+        "step": "rtl",
+        "param": "resource_sharing",
+        "val": "auto"
+      },
+      {
+        "step": "rtl",
+        "param": "shifter_style",
+        "val": "shifter_reg"
+      }
+    ]
+  }
+}

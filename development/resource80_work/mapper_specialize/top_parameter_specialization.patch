@@ -1,0 +1,21 @@
+diff --git a/development/player_spectrum_resource_80/src/user_source/hdl_source/top_tf_hdmi_audio.v b/development/player_spectrum_resource_80/src/user_source/hdl_source/top_tf_hdmi_audio.v
+--- a/development/player_spectrum_resource_80/src/user_source/hdl_source/top_tf_hdmi_audio.v
++++ b/development/player_spectrum_resource_80/src/user_source/hdl_source/top_tf_hdmi_audio.v
+@@ -239,7 +239,7 @@
+     .current_image_index(current_image_index),.auto_mode(bmp_auto_mode),
+     .failure_detail(bmp_failure_detail)
+ );
+-fat32_file_sector u_bmp_file_mapper (
++fat32_file_sector #(.CATALOG_GEOMETRY(1),.REQUEST_STABLE(1)) u_bmp_file_mapper (
+     .clk(sd_card_clk),.rst(rst_all),.enable(fs_ready && !fs_error),
+     .fat_lba(fs_fat_lba),.data_lba(fs_data_lba),.cluster_count(fs_cluster_count),
+     .sectors_per_cluster_shift(fs_cluster_shift),
+@@ -250,7 +250,7 @@
+     .sd_read(bmp_phy_read),.sd_addr(bmp_phy_addr),
+     .sd_data(bmp_phy_data),.sd_valid(bmp_phy_valid),.sd_end(bmp_phy_end)
+ );
+-fat32_file_sector u_wav_file_mapper (
++fat32_file_sector #(.CATALOG_GEOMETRY(1),.STATIC_FILE(1),.REQUEST_STABLE(1)) u_wav_file_mapper (
+     .clk(sd_card_clk),.rst(rst_all),.enable(fs_ready && fs_wav_found && !fs_error),
+     .fat_lba(fs_fat_lba),.data_lba(fs_data_lba),.cluster_count(fs_cluster_count),
+     .sectors_per_cluster_shift(fs_cluster_shift),

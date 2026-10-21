@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "parent_source_files": 169,
+  "parent_frozen_files": 500,
+  "parent_manifest_sha256": "cb4730c01a5eb5ccc4503d7df4c0e847e538b1db846f926bce2eb66bd1dc3fb1",
+  "protected_bits": {
+    "bmp_scale.bit": "c60464c0d4396d316db7622e4cb0b70b5de12c25148afe234ac7c795c818625d",
+    "spectrum_trace.bit": "60ae6b971ce1f9ed09d76bec14cf88dfc25cdfe7cbbebe5dd9fc070115b812ce",
+    "spectrum_resource_fit.bit": "3d85e5cdda40f1a91697ddf3c0275c52cf7bcee76d31af20503293b5a7428ca1",
+    "spectrum_resource_80.bit": "60ed79eecfcbd271bbc2b9a9333d5da03668e00b580a6be751ebcd61f0fa4d28",
+    "spectrum_spi12p5.bit": "a9de55c166cd730db1203fc9d1d882eee885237cec68fd389dad26d0d972e22f",
+    "spectrum_opt16.bit": "1de561dda1428c86c2f3127cf55b4b391cae8598c51111394ef9bde0ee971afa"
+  },
+  "changed_candidate_scope": [
+    "td_project/AC201_tf_hdmi.al",
+    "user_source/hdl_source/bmp_scale_engine.v",
+    "user_source/hdl_source/fat32_dual_file_sector.v",
+    "user_source/hdl_source/fat32_file_sector.v",
+    "user_source/hdl_source/player_status_monitor.v",
+    "user_source/hdl_source/rgb888_word_codec.v",
+    "user_source/hdl_source/sd_sector_arbiter.v",
+    "user_source/hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "selected_algorithm_changes": {
+    "user_source/hdl_source/fat32_file_sector.v": {
+      "action": "remove",
+      "parent_sha256": "df0c358c07806e09e113fe8db863467afebb79430d55003269a25d8d418bf897",
+      "reason": "Replaced by one dual-client execution engine; original retained in parent/reference only"
+    },
+    "user_source/hdl_source/rgb888_word_codec.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\codec_hold\\rgb888_word_codec.v",
+      "sha256": "414a74a76a828b45f9baa2f0c56f5f80d5c6311b21001e309246d2f60a333552",
+      "reason": "Reuse held normal-FIFO word for high reservoir suffix; exact same read/pixel timing; 32 fewer local FF"
+    },
+    "user_source/hdl_source/sd_sector_arbiter.v": {
+      "action": "remove",
+      "parent_sha256": "fc0833681cc67bfe92aab7beccadb8f8d00a5b7946359588dc1b72b3a17ba8e6",
+      "reason": "Replaced by one dual-client execution engine; original retained in parent/reference only"
+    },
+    "user_source/hdl_source/fat32_dual_file_sector.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\shared_mapper\\candidate.v",
+      "sha256": "084b7dc884b1b33e3ebc2804283bc820b0e5a38eb248e7dc14a6303d70f67bfb",
+      "reason": "Shared FAT execution and sector arbitration, independent client context and watchdog"
+    },
+    "user_source/hdl_source/top_tf_hdmi_audio.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\integration\\top_tf_hdmi_audio.v",
+      "sha256": "bfca70b431b5b6c17e73f27d9e896f3724847c3967a46e97a9abf2151306de93",
+      "reason": "Replace both mapper instances and arbiter with shared core; remove unused physical-client wires; Build ID C11317"
+    },
+    "td_project/AC201_tf_hdmi.al": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\integration\\AC201_tf_hdmi.al",
+      "sha256": "fcbf8ba7f9996206c5172a0a1454558d87db2b850c5e13b9f1aaff55e3707443",
+      "reason": "Replace mapper source and remove retired arbiter source; unchanged constraints/IP recipe"
+    },
+    "user_source/hdl_source/bmp_scale_engine.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\arch17_work\\scaler_lifetime\\bmp_scale_engine_candidate.v",
+      "sha256": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2",
+      "reason": "HEADER_VALIDATED=1 uses parent-held header width/height/stride; generic0 retains original latches"
+    }
+  },
+  "hardware_status": "BOARD_NOT_TESTED"
+}

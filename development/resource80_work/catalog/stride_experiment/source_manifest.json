@@ -1,0 +1,8 @@
+{
+  "baseline": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\bmp\\tf_bmp_file_player.header.v",
+  "baseline_sha256": "94543758ef1dfaece9dd6d21aa3e7412cc041f5de2fa4e6c317dedc1eab0f3f2",
+  "candidate": "E:\\VSCODE-project\\FPGA-ANLU\\development\\resource80_work\\catalog\\stride_experiment\\tf_bmp_file_player.header_stride.v",
+  "candidate_sha256": "e2c6b4e1f27a829e5adc8cf6ab208d852b1e23dfc95dc745eb908264656aa0d0",
+  "expression_old": "wire [11:0] source_stride=((({1'b0,width_low}*14'd3)+14'd3)>>2)<<2;",
+  "expression_new": "wire [9:0] stride_words = {1'b0,width_low[10:2]} + {width_low[10:2],1'b0} + {8'd0,width_low[1:0]};\nwire [11:0] source_stride={stride_words,2'b00};"
+}

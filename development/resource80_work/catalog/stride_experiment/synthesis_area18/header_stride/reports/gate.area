@@ -1,0 +1,41 @@
+standard
+***Report Model: tf_bmp_file_player Device: EG4S20BG256***
+
+IO Statistics
+#IO                       439   out of    188  233.51%
+  #input                  279
+  #output                 160
+  #inout                    0
+
+LUT Statistics
+#Total_luts              1365
+  #lut4                   782
+  #lut5                   188
+  #lut6                   395
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                     2064   out of  19600   10.53%
+#reg                      699   out of  19600    3.57%
+#bram                       4   out of     64    6.25%
+  #bram9k                   4
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        6   out of     29   20.69%
+#pad                      439   out of    188  233.51%
+  #ireg                     4
+  #oreg                   101
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+Report Hierarchy Area:
++---------------------------------------------------------------------------+
+|Instance  |Module             |lut     |ripple  |seq     |bram    |dsp     |
++---------------------------------------------------------------------------+
+|top       |tf_bmp_file_player |1912    |152     |804     |4       |6       |
+|  u_auto  |key_press_debounce |44      |12      |25      |0       |0       |
+|  u_next  |key_press_debounce |44      |12      |25      |0       |0       |
+|  u_scale |bmp_scale_engine   |888     |87      |380     |4       |5       |
++---------------------------------------------------------------------------+

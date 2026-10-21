@@ -1,0 +1,16 @@
+{"status": "FAIL", "kind": "gate", "run_id": "99d7e67a-5594-480a-a2e2-1ef24b0e895c", "netlist_sha256": "d7a2c1ca87549fa730e08c7a9f73f9a905600668230f5c0d05546558582313e9", "banks": {"hann_high": {"CEAMUX": {"expected": "SIG", "actual": "INV"}}, "hann_low": {"CEAMUX": {"expected": "SIG", "actual": "INV"}}, "twiddle_high": {"CSA2": {"expected": "SIG", "actual": "INV"}, "CSB2": {"expected": "SIG", "actual": "INV"}}, "twiddle_low": {"CSA2": {"expected": "SIG", "actual": "INV"}, "CSB2": {"expected": "SIG", "actual": "INV"}}}}
+{"status": "PASS", "run_id": "99d7e67a-5594-480a-a2e2-1ef24b0e895c", "gate_sha256": "d7a2c1ca87549fa730e08c7a9f73f9a905600668230f5c0d05546558582313e9", "logical_rom_words": 1536, "lane_entries": 3072, "mismatches": {"hann_low": 0, "hann_high": 0, "twiddle_low": 0, "twiddle_high": 0, "hann": 0, "twiddle": 0}}
+{"status": "PASS", "failures": [], "banks": {"gate/hann_high": true, "gate/hann_low": true, "gate/twiddle_high": true, "gate/twiddle_low": true}}
+{"status": "PASS", "controls": 192, "banks": ["hann_high", "hann_low", "twiddle_high", "twiddle_low"], "gate_sha256": "d7a2c1ca87549fa730e08c7a9f73f9a905600668230f5c0d05546558582313e9", "raw_strict_status": "FAIL"}
+{"status": "PASS", "run_id": "99d7e67a-5594-480a-a2e2-1ef24b0e895c", "gate_sha256": "d7a2c1ca87549fa730e08c7a9f73f9a905600668230f5c0d05546558582313e9", "controls": 192, "raw_strict_status": "FAIL", "logical_rom_words": 1536, "lane_entries": 3072, "fft": "PASS"}
+Exception: E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_ctrl18\build\gate_verify\run_c11317_routed_audit.ps1:19
+Line |
+  19 |  …  $routed)){ throw "Missing parent-exported routed netlist: $routed" } …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Missing parent-exported routed netlist:
+     | E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_ctrl18\build\audit\routed_implementation.v
+Exception: E:\VSCODE-project\FPGA-ANLU\development\ctrl18_work\run_final_audits.ps1:30
+Line |
+  30 |  if($LASTEXITCODE -ne 0){throw 'Routed ROM/clock checks failed'}
+     |                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Routed ROM/clock checks failed

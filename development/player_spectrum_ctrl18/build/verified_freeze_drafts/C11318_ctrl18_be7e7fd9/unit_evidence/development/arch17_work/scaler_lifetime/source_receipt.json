@@ -1,0 +1,110 @@
+{
+  "experiment": "arch17_scaler_header_lifetime",
+  "tool": "Tang Dynasty 6.2.1_SP1 6.2.178.840",
+  "device": "EG4S20BG256",
+  "clock_sdc": "create_clock -name clk -period 20 -waveform {0 10} [get_ports {clk}]",
+  "synthesis_recipe": {
+    "strategy": "AreaHigh",
+    "min_ripple_len": 18,
+    "mapper_lut_delay": 1600,
+    "add_map_lut_struct": "high",
+    "map_mode": "area_prior",
+    "multi_thread_mapping": "partition",
+    "resource_sharing": "auto",
+    "shifter_style": "shifter_reg"
+  },
+  "source_binding": {
+    "c11316_engine_input_sha256": "f3d77c0dcaac1a43c59e30deb51b06988a81a9d91f0c6135f0eb17158057c04c",
+    "c11316_loader_input_sha256": "8c4c61c8f8474ae44115c3ac0a056910886996302cd0845b775cf00a8b28f5b7",
+    "baseline_engine_sha256": "f3d77c0dcaac1a43c59e30deb51b06988a81a9d91f0c6135f0eb17158057c04c",
+    "candidate_engine_sha256": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2",
+    "candidate_diff_sha256": "f8a74ddf2c5c39ed7b80e19a5c80e8f885427a5fb732ee047e294da98e3410cc",
+    "baseline_as_run_engine_sha256": "f3d77c0dcaac1a43c59e30deb51b06988a81a9d91f0c6135f0eb17158057c04c",
+    "candidate_as_run_engine_sha256": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2",
+    "loader_c16_sha256": "8c4c61c8f8474ae44115c3ac0a056910886996302cd0845b775cf00a8b28f5b7",
+    "baseline_as_run_loader_sha256": "8c4c61c8f8474ae44115c3ac0a056910886996302cd0845b775cf00a8b28f5b7",
+    "candidate_as_run_loader_sha256": "8c4c61c8f8474ae44115c3ac0a056910886996302cd0845b775cf00a8b28f5b7"
+  },
+  "tests": {
+    "default_13case": {
+      "result": "PASS",
+      "coverage": "7 legal geometry cases + 6 invalid/transfer cases, cycle comparison",
+      "run_log_sha256": "d98f33a127e93535d1b831bfab266897d740e60a953c9965427b30c5d51d066b"
+    },
+    "validated_7case": {
+      "result": "PASS",
+      "coverage": "7 legal production-domain geometries, cycle comparison with HEADER_VALIDATED=1",
+      "run_log_sha256": "299f29c47d0d644cc3bebd6e1374c7e032227503de9df19bd7e9e4d6030aad45"
+    },
+    "loader_538_plus_sequential": {
+      "result": "PASS",
+      "coverage": "538 existing C11316 loader diagnostics plus two images (32x24 then 17x13) through one loader/scaler without reset; public outputs compared each cycle; live header and derived input wires monitored while active; IDLE field reload exercised",
+      "run_log_sha256": "1964cb7a55afd95c36d6d9bed944c80ed66c203eea3986f41699aeae25662427",
+      "sequential_starts_including_short_payload_case": 3
+    }
+  },
+  "td": {
+    "baseline": {
+      "device_lut": 1868,
+      "registers": 698,
+      "generic_lut": 1290,
+      "bram": 4,
+      "dsp": 5,
+      "area_report_sha256": "25c05baf24cf2bb011efcc7c68fc5f9986a3b282459099d7569c277bf2c2cca8",
+      "actualparams_rtl_sha256": "e9d24e2806b826f25501112410f8fed6f4bebbd83f0335857435e3d3dd2444bb",
+      "actualparams_gate_sha256": "e9d24e2806b826f25501112410f8fed6f4bebbd83f0335857435e3d3dd2444bb",
+      "console_sha256": "9e0173914e9defd246611910bdc34b2dabff6f9c2d8d74cd7464a8226cdf96df"
+    },
+    "candidate": {
+      "device_lut": 1866,
+      "registers": 677,
+      "generic_lut": 1262,
+      "bram": 4,
+      "dsp": 5,
+      "area_report_sha256": "4f4e08d90f0096fbf8f6a55e76ad4d76905fb5cabf0fd6e9e8dc77a9e4317668",
+      "actualparams_rtl_sha256": "e9d24e2806b826f25501112410f8fed6f4bebbd83f0335857435e3d3dd2444bb",
+      "actualparams_gate_sha256": "e9d24e2806b826f25501112410f8fed6f4bebbd83f0335857435e3d3dd2444bb",
+      "console_sha256": "c1ac6a16bc3a8efa99981be338124393d706a6039adec96a5c5a28c5033d21a5"
+    }
+  },
+  "td_complete": {
+    "baseline": true,
+    "candidate": true
+  },
+  "initial_td_xml_attempt": "First baseline open_project attempt failed PRJ-8601 because generated .al omitted required empty TD project sections; no synthesis ran. Project XML was corrected using the accepted C11315 project structure. Subsequent baseline and candidate used separate fresh TD processes and both completed.",
+  "merge_status": "candidate remains isolated for root full-top combination decision; no C11316 parent source, freeze, or bit changed.",
+  "reproduction": {
+    "simulation_command": "pwsh -NoProfile -File development/arch17_work/scaler_lifetime/run_tests.ps1",
+    "run_tests_ps1_sha256": "a1237f82d71e619f95324da3507036a7178168993abf596fd35c1991d950fef2",
+    "testbench_sha256": {
+      "tb_default_13case.v": "9f3b4126e0650194bed1d40ea4887e8edee7da6b619556e4388611948a5cf81c",
+      "tb_valid_domain.v": "b5e67ad42bc50702953cd0aaf894837656265da93887d4c9db58c9e9ec78981d",
+      "tb_538_diagnostic.v": "673c68aac57cd6f9450691bacde079e5b13a1fe115ad18d09acc5242cc082040"
+    },
+    "supporting_rtl_sha256": {
+      "bmp_scale_engine_base_test.v": "5a7a2222ca3946e038e18d476ec428a3055eebfa28a0da4ce95661dcf1b6218a",
+      "bmp_scale_engine_candidate_dut.v": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2",
+      "bmp_scale_engine_candidate_test.v": "e728f4ef70444b801874216ea2ea0e9f59d101a90957e3c6de4bba233c1a0d4e",
+      "tf_bmp_file_player_base_test.v": "9a50671c74e14be56856844697372ffda2e9021c5b6760527d09b26b51d1aad4",
+      "tf_bmp_file_player_candidate_test.v": "f763f088d7a83b6c2f66e4f69465c098e6a9fe0baccdf328565a75da308531af",
+      "key_press_debounce.v": "fcc8917d239506f1fe6966b5cc8410fd5d8663b5356d26ee006adbd9d0359fbf"
+    },
+    "td_baseline_tcl_sha256": "c8440b12ab2d2cbf755b9f05555d765bd1be20c56a21ac3222769a648713cec2",
+    "td_candidate_tcl_sha256": "365a7325f0e557907610f2944700ee3bcf794fb9b45c8c809a2e294574dc666a",
+    "td_sdc_sha256": {
+      "baseline": "49605419c0dc1881d2a3d58e4b1b3e4d174aa7382dac42145192b4c0b56d4f06",
+      "candidate": "49605419c0dc1881d2a3d58e4b1b3e4d174aa7382dac42145192b4c0b56d4f06"
+    },
+    "log_sha256": {
+      "default_13case_run.log": "d98f33a127e93535d1b831bfab266897d740e60a953c9965427b30c5d51d066b",
+      "valid_domain_run.log": "299f29c47d0d644cc3bebd6e1374c7e032227503de9df19bd7e9e4d6030aad45",
+      "diagnostic_538_run.log": "1964cb7a55afd95c36d6d9bed944c80ed66c203eea3986f41699aeae25662427",
+      "default_13case_compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "valid_domain_compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "diagnostic_538_compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "readme_sha256": "79e687b06c468be84a792d488664748e53aa104c3de5baa518fc5e31e53548c6",
+    "area_summary_csv_sha256": "41aa9bc90ac51aa4ed1f6141deec4b36668ab61a21a315d9c62f1bb4995ebe66",
+    "candidate_diff_sha256": "f8a74ddf2c5c39ed7b80e19a5c80e8f885427a5fb732ee047e294da98e3410cc"
+  }
+}

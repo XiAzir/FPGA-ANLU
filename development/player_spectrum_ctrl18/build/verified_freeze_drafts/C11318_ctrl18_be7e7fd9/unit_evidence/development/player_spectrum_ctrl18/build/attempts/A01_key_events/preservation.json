@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "parent_source_files": 168,
+  "parent_frozen_files": 1809,
+  "parent_manifest_sha256": "d9ac3d0354ed3c8c2f27044deff2ef1923bae0cf68010a19700bb34c89add169",
+  "protected_bits": {
+    "bmp_scale.bit": "c60464c0d4396d316db7622e4cb0b70b5de12c25148afe234ac7c795c818625d",
+    "spectrum_trace.bit": "60ae6b971ce1f9ed09d76bec14cf88dfc25cdfe7cbbebe5dd9fc070115b812ce",
+    "spectrum_resource_fit.bit": "3d85e5cdda40f1a91697ddf3c0275c52cf7bcee76d31af20503293b5a7428ca1",
+    "spectrum_resource_80.bit": "60ed79eecfcbd271bbc2b9a9333d5da03668e00b580a6be751ebcd61f0fa4d28",
+    "spectrum_spi12p5.bit": "a9de55c166cd730db1203fc9d1d882eee885237cec68fd389dad26d0d972e22f",
+    "spectrum_opt16.bit": "1de561dda1428c86c2f3127cf55b4b391cae8598c51111394ef9bde0ee971afa",
+    "spectrum_arch17.bit": "09cb0c482796cd2a7c113be8a7cd27e038646582db8be91ba0cce91e3e70d97a"
+  },
+  "changed_candidate_scope": [
+    "td_project/AC201_tf_hdmi.al",
+    "user_source/hdl_source/player_adjust_control.v",
+    "user_source/hdl_source/player_status_monitor.v",
+    "user_source/hdl_source/tf_bmp_file_player.v",
+    "user_source/hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "selected_algorithm_changes": {
+    "user_source/hdl_source/player_adjust_control.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\ctrl18_work\\key_events\\player_adjust_control.v",
+      "sha256": "17977380e33edc3844b98c207bc0435c584e2bcc628eff27e0c9adcd9d7e56ab",
+      "reason": "Event request/ack transport; one per-button cooldown preserves legacy coalescing"
+    },
+    "user_source/hdl_source/tf_bmp_file_player.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\ctrl18_work\\key_events\\tf_bmp_file_player_event_candidate.v",
+      "sha256": "e46169101374f6d28094d4ad408ff7f2b399908d0cb6fa30e613edebe5fe5ab4",
+      "reason": "Receive synchronized key events directly instead of debouncing synthesized key levels"
+    },
+    "user_source/hdl_source/top_tf_hdmi_audio.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\ctrl18_work\\top_keys.v",
+      "sha256": "9dca6b5209c160cda2d6b8f28ef6ab1655b6f2a136aaa52850da9ffc8129ea53",
+      "reason": "C11318 keys control interface integration"
+    }
+  },
+  "hardware_status": "BOARD_NOT_TESTED"
+}

@@ -1,0 +1,27 @@
+WAV END err=0 code=00 cycle=2614
+WAV END err=0 code=00 cycle=4176
+BMP END err=0 code=00 cycle=2135586
+BMP END err=0 code=00 cycle=2136107
+PASS concurrent 4096-cluster BMP plus cached BMP repeat and WAV seek; transactions=4100 BMP FAT hops=4095 WAV burst max=2 cycles=2136107
+BMP END err=0 code=00 cycle=2137205
+BMP END err=0 code=00 cycle=2138778
+BMP END err=0 code=00 cycle=2139302
+PASS disable/rearm, seek and file identity switching with payload checks
+BMP END err=1 code=07 cycle=2140358
+BMP END err=1 code=08 cycle=2141935
+BMP END err=1 code=06 cycle=2142470
+BMP END err=1 code=05 cycle=2142616
+BMP END err=1 code=05 cycle=2143146
+BMP END err=1 code=05 cycle=2143676
+BMP END err=1 code=0a cycle=2146690
+BMP END err=1 code=0a cycle=2149704
+WAV END err=1 code=0a cycle=2149708
+PASS independent timeout classification for both pending clients
+BMP END err=0 code=00 cycle=2150297
+WAV END err=0 code=00 cycle=2150817
+PASS reset aborts in-flight owner and fresh dual requests complete
+BMP END err=1 code=0a cycle=2150832
+WAV END err=0 code=00 cycle=2151348
+PASS BMP watchdog edge concurrent with WAV dispatch preserves WAV transaction
+PASS: reference contract suite complete
+E:\VSCODE-project\FPGA-ANLU\development\arch17_work\mapper_tests\tb_dual_mapper_transactions.v:357: $finish called at 21513480000 (1ps)

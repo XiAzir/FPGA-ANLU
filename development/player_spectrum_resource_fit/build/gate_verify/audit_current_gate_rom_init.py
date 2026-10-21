@@ -1,0 +1,83 @@
+from __future__ import annotations
+import argparse, hashlib, importlib.util, json, sys
+from pathlib import Path
+
+here = Path(__file__).resolve()
+project = here.parents[4]
+candidate = project / 'development/player_spectrum_resource_fit'
+trace = project / 'development/player_spectrum_trace'
+module_path = trace / 'build/audit/audit_private_rom_init.py'
+spec = importlib.util.spec_from_file_location('private_rom_audit', module_path)
+mod = importlib.util.module_from_spec(spec)
+sys.modules[spec.name] = mod
+spec.loader.exec_module(mod)
+ap = argparse.ArgumentParser()
+ap.add_argument('--run-id', required=True)
+ap.add_argument('--output', type=Path, default=candidate / 'build/regression/gate_rom_init.json')
+args = ap.parse_args()
+manual = candidate / 'build/manual'
+marker_path = manual / 'stage_evidence/latest_synthesis.json'
+marker = json.loads(marker_path.read_text(encoding='utf-8-sig'))
+if marker.get('stage') != 'synthesis' or marker.get('status') != 'success' or marker.get('runId') != args.run_id:
+    raise SystemExit(f'latest synthesis marker does not match requested success run: {marker}')
+record_path = marker_path.parent / marker['record']
+record = json.loads(record_path.read_text(encoding='utf-8-sig'))
+if record.get('status') != 'success' or record.get('runId') != args.run_id or record.get('stage') != 'synthesis':
+    raise SystemExit(f'synthesis record does not match requested run: {record_path}')
+log_path = manual / 'synthesis_console.log'
+log = log_path.read_text(encoding='utf-8', errors='replace')
+if 'SYNTHESIS_COMPLETE_WITH_GATE_DATABASE' not in log:
+    raise SystemExit('current synthesis log lacks successful gate-database completion marker')
+gate = manual / 'AC201_tf_hdmi_gate.v'
+if gate.stat().st_mtime < __import__('datetime').datetime.fromisoformat(record['startedUtc'].replace('Z','+00:00')).timestamp():
+    raise SystemExit('gate netlist predates requested synthesis run')
+gate_text = gate.read_text(encoding='utf-8', errors='replace')
+blocks = mod.extract_blocks(gate_text)
+expected_banks = {'hann_low','hann_high','twiddle_low','twiddle_high'}
+if set(blocks) != expected_banks:
+    raise SystemExit(f'expected four coefficient BRAMs; found {sorted(blocks)}')
+manifest_path = candidate / 'src/user_source/hdl_source/spectrum_coeff_rom_manifest.json'
+manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+hann_path = trace / 'src/user_source/hdl_source/spectrum_hann.mem'
+twiddle_path = trace / 'src/user_source/hdl_source/spectrum_twiddle.mem'
+hann, twiddle = mod.read_words(hann_path), mod.read_words(twiddle_path)
+if len(hann) != 1024 or len(twiddle) != 512:
+    raise SystemExit('source ROM dimensions are not 1024 Hann and 512 twiddle words')
+source_hashes = {k: hashlib.sha256(p.read_bytes()).hexdigest() for k,p in [('hann',hann_path),('twiddle',twiddle_path)]}
+if source_hashes != manifest['source_sha256']:
+    raise SystemExit(f'source ROM hashes differ from coefficient manifest: {source_hashes}')
+lanes = {
+ 'hann_low': (hann,1024,9,lambda w:w & 0x1ff),
+ 'hann_high':(hann,1024,9,lambda w:(w>>9)&0x7f),
+ 'twiddle_low':(twiddle,512,18,lambda w:w & 0x3ffff),
+ 'twiddle_high':(twiddle,512,18,lambda w:(w>>18)&0x3fff),
+}
+reconstructed={}; lane_result={}
+for name,(source,depth,width,select) in lanes.items():
+    actual=mod.decode(blocks[name],depth,width)
+    if len(actual)!=depth: raise SystemExit(f'{name} decoded unexpected depth {len(actual)}')
+    mismatches=[i for i,(a,e) in enumerate(zip(actual,(select(w) for w in source))) if a!=e]
+    reconstructed[name]=actual
+    lane_result[name]={'depth':depth,'width':width,'nonzero_words':sum(bool(v) for v in actual),'mismatches':len(mismatches),'first_mismatch_addresses':mismatches[:8],'sha256':hashlib.sha256(b''.join(v.to_bytes(4,'big') for v in actual)).hexdigest()}
+combined={
+ 'hann':[reconstructed['hann_low'][i] | reconstructed['hann_high'][i]<<9 for i in range(1024)],
+ 'twiddle':[reconstructed['twiddle_low'][i] | reconstructed['twiddle_high'][i]<<18 for i in range(512)],
+}
+combined_result={}
+for name,actual,expected in [('hann',combined['hann'],hann),('twiddle',combined['twiddle'],twiddle)]:
+    mismatches=sum(a!=e for a,e in zip(actual,expected))
+    combined_result[name]={'words':len(actual),'nonzero_words':sum(bool(v) for v in actual),'mismatches':mismatches,'sha256':hashlib.sha256(b''.join(v.to_bytes(4,'big') for v in actual)).hexdigest()}
+result={
+ 'schema':'current-success-gate-rom-init-audit-v1','status':'PASS' if all(x['mismatches']==0 for x in lane_result.values()) and all(x['mismatches']==0 for x in combined_result.values()) else 'FAIL',
+ 'synthesis_run_id':args.run_id,'synthesis_marker':str(marker_path.resolve()),'synthesis_marker_sha256':hashlib.sha256(marker_path.read_bytes()).hexdigest(),
+ 'synthesis_record':str(record_path.resolve()),'synthesis_record_sha256':hashlib.sha256(record_path.read_bytes()).hexdigest(),
+ 'synthesis_log':str(log_path.resolve()),'synthesis_log_sha256':hashlib.sha256(log_path.read_bytes()).hexdigest(),
+ 'gate':str(gate.resolve()),'gate_sha256':hashlib.sha256(gate.read_bytes()).hexdigest(),
+ 'manifest_sha256':hashlib.sha256(manifest_path.read_bytes()).hexdigest(),'source_rom_sha256':source_hashes,
+ 'source_rom_paths':{'hann':str(hann_path.resolve()),'twiddle':str(twiddle_path.resolve())},
+ 'decoded_rom_words':1536,'lanes':lane_result,'combined_roms':combined_result,'all_match':all(x['mismatches']==0 for x in lane_result.values()) and all(x['mismatches']==0 for x in combined_result.values()),
+ 'method':'Reused the reference INIT/INITP extraction and decode functions. Bound to the current successful synthesis marker/record/log; checked every word against source ROM images and manifest hashes.'}
+args.output.parent.mkdir(parents=True,exist_ok=True)
+args.output.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+print(json.dumps({'status':result['status'],'run_id':args.run_id,'gate_sha256':result['gate_sha256'],'decoded_words':result['decoded_rom_words'],'mismatches':{**{k:v['mismatches'] for k,v in lane_result.items()},**{k:v['mismatches'] for k,v in combined_result.items()}}},ensure_ascii=False))
+raise SystemExit(0 if result['status']=='PASS' else 1)

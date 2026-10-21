@@ -1,0 +1,124 @@
+diff --git "a/development\\player_spectrum_resource_80\\src\\user_source\\hdl_source\\fat32_file_sector.v" "b/development\\resource80_work\\mapper_specialize\\fat32_file_sector.v"
+index 2ce038fa53379379fb8cb155e43bb4efa5bdb2f8..76b7cee14562556152b1b6cf0742c029100c89ae 100644
+--- "a/development\\player_spectrum_resource_80\\src\\user_source\\hdl_source\\fat32_file_sector.v"
++++ "b/development\\resource80_work\\mapper_specialize\\fat32_file_sector.v"
+@@ -2,7 +2,10 @@
+ // repeated anchor may be reported after a short transient; every walk is also
+ // bounded by 4096 FAT hops, and files requiring more than 4096 clusters fail early.
+ module fat32_file_sector #(
+-    parameter [31:0] WAIT_LIMIT = 32'd50000000
++    parameter [31:0] WAIT_LIMIT = 32'd50000000,
++    parameter integer CATALOG_GEOMETRY = 0,
++    parameter integer STATIC_FILE = 0,
++    parameter integer REQUEST_STABLE = 0
+ )(
+     input wire clk, input wire rst, input wire enable,
+     input wire [31:0] fat_lba, input wire [31:0] data_lba,
+@@ -23,7 +26,12 @@ module fat32_file_sector #(
+ 
+     reg [3:0] state;
+     reg armed;
+-    reg [31:0] rq_sector, rq_start, rq_size;
++    // Specialization modes are elaboration-time contracts. Zero keeps the
++    // original request snapshots, geometry checks and file identity tags.
++    reg [31:0] rq_sector_q, rq_start_q, rq_size_q;
++    wire [31:0] rq_sector = REQUEST_STABLE ? file_sector : rq_sector_q;
++    wire [31:0] rq_start = (STATIC_FILE || REQUEST_STABLE) ? start_cluster : rq_start_q;
++    wire [31:0] rq_size = (STATIC_FILE || REQUEST_STABLE) ? file_size : rq_size_q;
+     reg [27:0] current_cluster;
+     reg [11:0] target_index, walk_index;
+     reg [27:0] cache_cluster, cache_start;
+@@ -58,6 +66,20 @@ module fat32_file_sector #(
+     wire [23:0] sectors_needed =
+         {1'b0, rq_size[31:9]} + {23'd0, (|rq_size[8:0])};
+ 
++    wire catalog_geometry_bad;
++    wire catalog_cluster_limit_bad;
++    generate
++        if (CATALOG_GEOMETRY != 0) begin : g_catalog_geometry
++            assign catalog_geometry_bad = 1'b0;
++            assign catalog_cluster_limit_bad = 1'b0;
++        end else begin : g_generic_geometry
++            assign catalog_geometry_bad = (sectors_per_cluster_shift > 7) ||
++                (cluster_count == 0) || (fat_lba == 32'hffffffff) ||
++                (data_lba == 32'hffffffff);
++            assign catalog_cluster_limit_bad = (cluster_count > 32'h0ffffff5);
++        end
++    endgenerate
++
+     task fail;
+         input [7:0] code;
+         begin
+@@ -74,9 +96,9 @@ module fat32_file_sector #(
+         if (rst) begin
+             state <= S_IDLE;
+             armed <= 0;
+-            rq_sector <= 0;
+-            rq_start <= 0;
+-            rq_size <= 0;
++            rq_sector_q <= 0;
++            rq_start_q <= 0;
++            rq_size_q <= 0;
+             current_cluster <= 0;
+             target_index <= 0;
+             walk_index <= 0;
+@@ -129,27 +151,28 @@ module fat32_file_sector #(
+                     armed <= 1;
+                 if (file_read && armed && !error) begin
+                     armed <= 0;
+-                    rq_sector <= file_sector;
+-                    rq_start <= start_cluster;
+-                    rq_size <= file_size;
++                    if (!REQUEST_STABLE) rq_sector_q <= file_sector;
++                    if (!STATIC_FILE && !REQUEST_STABLE) begin
++                        rq_start_q <= start_cluster;
++                        rq_size_q <= file_size;
++                    end
+                     state <= S_CHECK;
+                 end
+             end else if (state == S_CHECK) begin
+                 if ((rq_size == 0) || ({1'b0, rq_sector} >= sectors_needed)) begin
+                     fail(E_RANGE);
+-                end else if ((sectors_per_cluster_shift > 7) || (cluster_count == 0) ||
+-                             (fat_lba == 32'hffffffff) || (data_lba == 32'hffffffff)) begin
++                end else if (catalog_geometry_bad) begin
+                     fail(E_GEOM);
+                 end else if (sectors_needed >
+                              (33'd4096 << sectors_per_cluster_shift)) begin
+                     fail(E_LIMIT);
+                 end else if ((rq_start < 2) || (rq_start > cluster_count + 1) ||
+-                             (cluster_count > 32'h0ffffff5)) begin
++                             catalog_cluster_limit_bad) begin
+                     fail(E_CLUSTER);
+                 end else begin
+                     target_index <= rq_sector >> sectors_per_cluster_shift;
+-                    if (cache_valid && (cache_start == rq_start) &&
+-                        (cache_size == rq_size) &&
++                    if (cache_valid && (STATIC_FILE ||
++                        ((cache_start == rq_start) && (cache_size == rq_size))) &&
+                         ((rq_sector >> sectors_per_cluster_shift) >= cache_index)) begin
+                         current_cluster <= cache_cluster;
+                         walk_index <= cache_index;
+@@ -165,7 +188,8 @@ module fat32_file_sector #(
+                         brent_power <= 1;
+                         brent_length <= 0;
+                     end
+-                    if (cache_valid && ((cache_start != rq_start) || (cache_size != rq_size)))
++                    if (cache_valid && !STATIC_FILE &&
++                        ((cache_start != rq_start) || (cache_size != rq_size)))
+                         cache_valid <= 0;
+                     state <= S_SELECT;
+                 end
+@@ -254,8 +278,10 @@ module fat32_file_sector #(
+                         cache_valid <= 1;
+                         cache_cluster <= current_cluster;
+                         cache_index <= target_index;
+-                        cache_start <= rq_start;
+-                        cache_size <= rq_size;
++                        if (!STATIC_FILE) begin
++                            cache_start <= rq_start;
++                            cache_size <= rq_size;
++                        end
+ 
+                         cache_brent_anchor <= brent_anchor;
+                         cache_brent_power <= brent_power;

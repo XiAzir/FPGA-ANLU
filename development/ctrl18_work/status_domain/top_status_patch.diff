@@ -1,0 +1,20 @@
+diff --git a/development/player_spectrum_arch17/src/user_source/hdl_source/top_tf_hdmi_audio.v b/development/player_spectrum_arch17/src/user_source/hdl_source/top_tf_hdmi_audio.v
+index 6c21a2e..9b437d7 100644
+--- a/development/player_spectrum_arch17/src/user_source/hdl_source/top_tf_hdmi_audio.v
++++ b/development/player_spectrum_arch17/src/user_source/hdl_source/top_tf_hdmi_audio.v
+@@ -575,13 +575,8 @@ player_status_monitor #(.SYS_HZ(25000000),.BUILD_ID(24'hC11317)) u_status_monito
+     .snapshot_prev_accepted(snapshot_prev_accepted),.snapshot_accepted(snapshot_accepted),
+     .snapshot_frames(snapshot_frames),.snapshot_events(snapshot_events)
+ );
+-wire [31:0] status_hex_system;
+-player_status_mailbox u_status_mailbox (
+-    .source_clk(video_clk),.destination_clk(sd_card_clk),.rst(rst_all),
+-    .source_hex(status_hex),.destination_hex(status_hex_system)
+-);
+-status_hex595 #(.CLK_HZ(50000000)) u_status_hex (
+-    .clk(sd_card_clk),.rst(rst_all),.hex_value(status_hex_system),
++status_hex595 #(.CLK_HZ(25000000)) u_status_hex (
++    .clk(video_clk),.rst(rst_all),.hex_value(status_hex),
+     .seg7_dio(seg7_dio),.seg7_sclk(seg7_sclk),.seg7_rclk(seg7_rclk)
+ );
+ endmodule

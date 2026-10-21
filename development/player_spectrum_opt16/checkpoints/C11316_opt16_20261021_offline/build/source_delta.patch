@@ -1,0 +1,164 @@
+--- C11315/td_project/AC201_tf_hdmi.al
++++ C11316/td_project/AC201_tf_hdmi.al
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<Project Version="3" Minor="2" Path="E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_spi12p5/src/td_project">
++<Project Version="3" Minor="2" Path="E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_opt16/src/td_project">
+     <Project_Created_Time></Project_Created_Time>
+     <TD_Version>6.2.178840</TD_Version>
+     <Name>AC201_tf_hdmi</Name>
+--- C11315/user_source/hdl_source/bmp_scale_engine.v
++++ C11316/user_source/hdl_source/bmp_scale_engine.v
+@@ -5,7 +5,8 @@
+     parameter integer FRAME_HEIGHT=480,
+     parameter integer MAX_SOURCE_WIDTH=1024,
+     parameter integer MAX_SOURCE_HEIGHT=768,
+-    parameter integer PIXEL_INTERVAL=10
++    parameter integer PIXEL_INTERVAL=10,
++    parameter integer HEADER_VALIDATED=0
+ )(
+     input wire clk, input wire rst, input wire start,
+     input wire [15:0] source_width, input wire [15:0] source_height,
+@@ -134,14 +135,14 @@
+             sector_tag_valid<=0; row_tag_valid<=0;
+             src_w<={16'd0,source_width}; src_h<={16'd0,source_height};
+             stride<=((({5'd0,source_width}*16'd3)+16'd3)>>2)<<2;
+-            if (source_width==0 || source_height==0 ||
++            if (!HEADER_VALIDATED && (source_width==0 || source_height==0 ||
+                 source_width>MAX_SOURCE_WIDTH || source_width>1024 ||
+-                source_height>MAX_SOURCE_HEIGHT || source_height>768) begin
++                source_height>MAX_SOURCE_HEIGHT || source_height>768)) begin
+                 error<=1; state<=S_TERMINAL; failure_code<=8'h02;
+             end else state<=S_SETUP;
+         end
+         S_SETUP: begin
+-            if (image_end> {1'b0,file_size}) begin
++            if (!HEADER_VALIDATED && image_end> {1'b0,file_size}) begin
+                 error<=1; state<=S_TERMINAL; failure_code<=8'h03;
+             end else if ((src_w*FRAME_HEIGHT)>=(src_h*FRAME_WIDTH)) begin
+                 dw<=FRAME_WIDTH; numerator<=src_h*FRAME_WIDTH;
+@@ -198,12 +199,12 @@
+             if (row_tag_valid && row_tag==physical_row) state<=S_X_BEGIN;
+             else begin
+                 row_base<=row_address_wide[31:0];
+-                if (row_address_wide[32]) begin error<=1; state<=S_TERMINAL; failure_code<=8'h04; end
++                if (!HEADER_VALIDATED && row_address_wide[32]) begin error<=1; state<=S_TERMINAL; failure_code<=8'h04; end
+                 else begin src_col<=0; component<=0; state<=S_BYTE; end
+             end
+         end
+         S_BYTE: begin
+-            if (byte_address_wide[32] || byte_address_wide[31:0]>=file_size) begin
++            if (!HEADER_VALIDATED && (byte_address_wide[32] || byte_address_wide[31:0]>=file_size)) begin
+                 error<=1; state<=S_TERMINAL; failure_code<=8'h05;
+             end else if (sector_tag_valid && sector_tag==byte_address_wide[31:9]) begin
+                 sector_raddr<=byte_address_wide[8:0]; state<=S_MEM_WAIT;
+--- C11315/user_source/hdl_source/fat32_catalog.v
++++ C11316/user_source/hdl_source/fat32_catalog.v
+@@ -27,10 +27,14 @@
+ reg [9:0] byte_index;
+ reg [$clog2(SECTOR_TIMEOUT_CYCLES+1)-1:0] wait_count;
+ reg [2:0] gap_count;
+-reg [7:0] bps_lo, bps_hi, spc, reserved_lo, reserved_hi, fats, rootent0, rootent1;
+-reg [7:0] fat16_0, fat16_1, total16_0,total16_1, total32_b[0:3];
+-reg [7:0] fatsz32_b[0:3], root_b[0:3], extflags_lo, extflags_hi, version_lo,version_hi;
++reg [7:0] spc, reserved_lo, reserved_hi, fats;
++reg [7:0] total16_0,total16_1, total32_b[0:3];
++reg [7:0] fatsz32_b[0:3], root_b[0:3], extflags_lo, extflags_hi;
+ reg [7:0] signature_lo, signature_hi;
++reg bps_fixed_valid;
++reg rootent_fixed_valid;
++reg fat16_fixed_valid;
++reg version_fixed_valid;
+ // The first FAT32 partition wins. Capture it as bytes arrive; later
+ // partitions cannot affect selection, including when the first is invalid.
+ reg partition_found;
+@@ -79,10 +83,10 @@
+ wire [34:0] root_sector_offset = {7'd0,root_cluster_minus_two} << spc_shift_calc;
+ // MBR bytes 446..509: two partition-index bits and two byte-lane bits.
+ wire [5:0] partition_byte = byte_index[5:0]-6'd62;
+-wire bpb_header_candidate = (bps_lo==0 && bps_hi==2) && spc!=0 &&
++wire bpb_header_candidate = (bps_fixed_valid) && spc!=0 &&
+     ((spc & (spc-1'b1))==0) && spc<=128 && reserved32!=0 &&
+-    (fats==1 || fats==2) && {rootent1,rootent0}==0 &&
+-    fat16_0==0 && fat16_1==0 && version_lo==0 && version_hi==0 &&
++    (fats==1 || fats==2) && rootent_fixed_valid &&
++    fat16_fixed_valid && version_fixed_valid &&
+     total32!=0 && fatsz32!=0 && root_cluster_masked>=2 &&
+     fat_area_end_p0<total32 && cluster_count_p2>=65525 &&
+     cluster_count_p2<=32'h0ffffff5 &&
+@@ -123,9 +127,9 @@
+    partition_found<=0; selected_partition<=0; selected_start<=0; selected_size<=0;
+     fat_entry_value<=0; fat_offset<=0;
+     current_root_cluster<=0; root_clusters_read<=0; root_sector_in_cluster<=0; root_end_marker<=0;
+-   bps_lo<=0; bps_hi<=0; spc<=0; reserved_lo<=0; reserved_hi<=0; fats<=0;
+-   rootent0<=0;rootent1<=0;fat16_0<=0;fat16_1<=0;total16_0<=0;total16_1<=0;
+-   extflags_lo<=0;extflags_hi<=0;version_lo<=0;version_hi<=0;signature_lo<=0;signature_hi<=0;
++   bps_fixed_valid<=0;  spc<=0; reserved_lo<=0; reserved_hi<=0; fats<=0;
++   rootent_fixed_valid<=0;fat16_fixed_valid<=0;total16_0<=0;total16_1<=0;
++   extflags_lo<=0;extflags_hi<=0;version_fixed_valid<=0;signature_lo<=0;signature_hi<=0;
+    for(i=0;i<4;i=i+1) begin total32_b[i]<=0; fatsz32_b[i]<=0;root_b[i]<=0; end
+    dir_first_zero<=1; dir_deleted<=0; dir_skip<=0; bmp_name_match<=0; wav_name_match<=0;
+    for(i=0;i<2;i=i+1) begin dir_clhi_b[i]<=0;dir_cllo_b[i]<=0; end
+@@ -142,13 +146,13 @@
+        if(byte_index<512) begin
+          if(state==S_READ_BOOT) begin
+            case(byte_index)
+-             11: bps_lo<=sd_data; 12: bps_hi<=sd_data; 13: spc<=sd_data;
++             11: bps_fixed_valid<=(sd_data==0); 12: bps_fixed_valid<=bps_fixed_valid && (sd_data==2); 13: spc<=sd_data;
+              14: reserved_lo<=sd_data; 15: reserved_hi<=sd_data; 16: fats<=sd_data;
+-             17: rootent0<=sd_data; 18: rootent1<=sd_data; 22: fat16_0<=sd_data; 23: fat16_1<=sd_data;
++             17: rootent_fixed_valid<=(sd_data==0); 18: rootent_fixed_valid<=rootent_fixed_valid && (sd_data==0); 22: fat16_fixed_valid<=(sd_data==0); 23: fat16_fixed_valid<=fat16_fixed_valid && (sd_data==0);
+              19: total16_0<=sd_data; 20: total16_1<=sd_data;
+              32,33,34,35: total32_b[byte_index-32]<=sd_data;
+              36,37,38,39: fatsz32_b[byte_index-36]<=sd_data;
+-             40: extflags_lo<=sd_data; 41: extflags_hi<=sd_data; 42: version_lo<=sd_data; 43: version_hi<=sd_data;
++             40: extflags_lo<=sd_data; 41: extflags_hi<=sd_data; 42: version_fixed_valid<=(sd_data==0); 43: version_fixed_valid<=version_fixed_valid && (sd_data==0);
+              44,45,46,47: root_b[byte_index-44]<=sd_data;
+              510: signature_lo<=sd_data; 511: signature_hi<=sd_data;
+              default: begin
+@@ -247,9 +251,9 @@
+          is_mbr<=1;
+          issue_sector(S_READ_BOOT,selected_start);
+        end
+-     end else if(bps_lo!=0 || bps_hi!=2 || spc==0 || (spc & (spc-1'b1))!=0 || spc>128 || reserved32==0 ||
+-                 (fats!=1 && fats!=2) || {rootent1,rootent0}!=0 || fat16_0!=0 || fat16_1!=0 ||
+-                 version_lo!=0 || version_hi!=0 || total32==0) fail(E_BPB);
++     end else if(!bps_fixed_valid || spc==0 || (spc & (spc-1'b1))!=0 || spc>128 || reserved32==0 ||
++                 (fats!=1 && fats!=2) || !rootent_fixed_valid || !fat16_fixed_valid ||
++                 !version_fixed_valid || total32==0) fail(E_BPB);
+      else if(volume_end_p0>64'h0000000100000000 || (is_mbr && partition_end_p0>64'h0000000100000000)) fail(E_RANGE);
+      else if(fatsz32==0 || root_cluster_masked<2 || fat_area_end_p0>=total32 ||
+              cluster_count_p2<65525 || cluster_count_p2>32'h0ffffff5 ||
+--- C11315/user_source/hdl_source/player_status_monitor.v
++++ C11316/user_source/hdl_source/player_status_monitor.v
+@@ -4,7 +4,7 @@
+     parameter integer SYS_HZ=50000000,
+     parameter integer PAGE_SECONDS=2,
+     parameter integer SHOW_SELF_TEST=1,
+-    parameter [23:0] BUILD_ID=24'hC11315
++    parameter [23:0] BUILD_ID=24'hC11316
+ )(
+     input pixel_clk, sys_clk, rst, sys_rst,
+     input [23:0] axis_rgb,
+--- C11315/user_source/hdl_source/tf_bmp_file_player.v
++++ C11316/user_source/hdl_source/tf_bmp_file_player.v
+@@ -104,7 +104,7 @@
+ key_press_debounce #(.CLK_FREQ_HZ(CLK_FREQ_HZ),.DEBOUNCE_MS(50)) u_auto
+     (.clk(clk),.rst(rst),.button_in(key_auto),.press_pulse(auto_press));
+ 
+-bmp_scale_engine #(.FRAME_WIDTH(FRAME_WIDTH),.FRAME_HEIGHT(FRAME_HEIGHT),
++bmp_scale_engine #(.HEADER_VALIDATED(1),.FRAME_WIDTH(FRAME_WIDTH),.FRAME_HEIGHT(FRAME_HEIGHT),
+     .MAX_SOURCE_WIDTH(1024),.MAX_SOURCE_HEIGHT(768),.PIXEL_INTERVAL(10)) u_scale(
+     .clk(clk),.rst(rst),.start(scale_start),.source_width({5'd0,width_low}),
+     .source_height({6'd0,abs_height}),.source_top_down(height_sign),
+--- C11315/user_source/hdl_source/top_tf_hdmi_audio.v
++++ C11316/user_source/hdl_source/top_tf_hdmi_audio.v
+@@ -570,7 +570,7 @@
+  .snapshot_prev_accepted(snapshot_prev_accepted),.snapshot_accepted(snapshot_accepted),
+  .snapshot_frames(snapshot_frames),.snapshot_events(snapshot_events)
+ );
+-player_status_monitor #(.SYS_HZ(25000000),.BUILD_ID(24'hC11315)) u_status_monitor (
++player_status_monitor #(.SYS_HZ(25000000),.BUILD_ID(24'hC11316)) u_status_monitor (
+     .pixel_clk(video_clk),.sys_clk(status_clk),.rst(rst_all),.sys_rst(status_sys_rst),
+     .axis_rgb(axis_s_data),.axis_valid(axis_s_valid),.axis_user(axis_s_user),
+     .hdmi_locked(hdmi_video_locked),.audio_valid(audio_valid),

@@ -1,0 +1,412 @@
+{
+  "status": "PASS",
+  "hardware_status": "BOARD_NOT_TESTED",
+  "variants": {
+    "baseline_C11315": {
+      "slices": 7632,
+      "physical_area": {
+        "lut": 13896,
+        "reg": 7864,
+        "bram9k": 45,
+        "dsp": 10
+      },
+      "gate_area": {
+        "lut": 13054,
+        "reg": 7791,
+        "bram9k": 45,
+        "dsp": 10
+      },
+      "summary": {
+        "status": "SYSTEM_MEDIA_PASS_WITH_MODEL_ASSUMPTIONS",
+        "version": "C11312",
+        "clock_model": "replay",
+        "serial_scoreboard": true,
+        "compile": {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlog.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-work",
+            "work",
+            "+incdir+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/user_source/hdl_source+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/user_source/hdl_source/include+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/user_source/hdl_source/SD+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/td_project",
+            "+define+HAS_FFT",
+            "-f",
+            "plain.f"
+          ],
+          "exit_code": 0,
+          "timed_out": false,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_spi12p5\\build\\system_fast_20261021_103000\\compile.log"
+        },
+        "simulation": {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vsim.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-c",
+            "-lic_noqueue",
+            "-novopt",
+            "-suppress",
+            "3017,3722",
+            "-L",
+            "work",
+            "-L",
+            "eg4",
+            "-L",
+            "hdmi",
+            "work.tb_system",
+            "work.glbl",
+            "+max_ms=200",
+            "-do",
+            "run.do",
+            "-l",
+            "run.log"
+          ],
+          "exit_code": 0,
+          "timed_out": false,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_spi12p5\\build\\system_fast_20261021_103000\\console.log"
+        },
+        "fft": {
+          "status": "PASS_SCOPE",
+          "completed_frames": 3,
+          "band_checks": 72,
+          "max_abs_error": 0,
+          "oracle_sha256": "c7459ba9b0c10656ed8b68370a25b7ba97a7db9b79592cf3cd2c2c480adc2bff",
+          "scope": "Actual full-top accepted PCM captures, real ROM/FFT, independent fixed-point band reference; nominal startup/WAV case only"
+        },
+        "assumptions": [
+          "Qualified nominal PLL edge replay, fixed 50MHz reference/reset0 only",
+          "application-interface memory model; data leads valid by one clock",
+          "short generated BMP/WAV fixture"
+        ],
+        "unverified": [
+          "physical SDRAM",
+          "key source switching",
+          "SDF",
+          "hardware fault reproduction"
+        ],
+        "testbench_sha256": "19B188ED822EB29BC5148CA2FCF39515A3F88E7A111EB5AE8A41E0C4ECBF2A99"
+      },
+      "performance": {
+        "status": "PASS",
+        "time_unit": "ns",
+        "init_ns": 23999139,
+        "fs_ns": 25139839,
+        "primed_ns": 29340739,
+        "first_pixel_ns": 26655859,
+        "commit_ns": 95044789,
+        "card_sectors": 58,
+        "card_bytes": 29696,
+        "card_max_service_ns": 383940,
+        "card_total_service_ns": 21937920,
+        "bmp_sectors": 4,
+        "bmp_max_service_ns": 756360,
+        "bmp_total_service_ns": 2268280,
+        "wav_sectors": 51,
+        "wav_max_service_ns": 756260,
+        "wav_total_service_ns": 20040580,
+        "crc_checked": 58,
+        "crc_bad": 0,
+        "fifo_min_after_prime": 1023,
+        "underruns": 0,
+        "first_data_ns": 24013719,
+        "last_data_ns": 120283679,
+        "min_sclk_period_ns": 80,
+        "sclk_target_MHz": 12.5,
+        "variant": "fast_C11315"
+      },
+      "performance_sha256": "b2d468b92fd2b5fcbf2d9785522b371f041788f6e57b0bc5d6845975337b1443",
+      "source_receipt_sha256": "004f4fc32d14f3a5b0200805a1305e95bcc7bff2dc071aec7ee6f2773543d8c8"
+    },
+    "fast_C11316": {
+      "slices": 7584,
+      "physical_area": {
+        "lut": 13708,
+        "reg": 7768,
+        "bram9k": 45,
+        "dsp": 9
+      },
+      "gate_area": {
+        "lut": 12815,
+        "reg": 7708,
+        "bram9k": 45,
+        "dsp": 9
+      },
+      "summary": {
+        "status": "SYSTEM_MEDIA_PASS_WITH_MODEL_ASSUMPTIONS",
+        "version": "C11312",
+        "clock_model": "replay",
+        "serial_scoreboard": true,
+        "compile": {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vlog.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-work",
+            "work",
+            "+incdir+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/user_source/hdl_source+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/user_source/hdl_source/include+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/user_source/hdl_source/SD+E:/VSCODE-project/FPGA-ANLU/development/player_spectrum_trace/checkpoints/music_spectrum_trace_20261015_candidate/src/td_project",
+            "+define+HAS_FFT",
+            "-f",
+            "plain.f"
+          ],
+          "exit_code": 0,
+          "timed_out": false,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_opt16\\build\\system_fast_20261021_111126\\compile.log"
+        },
+        "simulation": {
+          "command": [
+            "E:\\ModelsimSE\\win64\\vsim.exe",
+            "-modelsimini",
+            "modelsim.ini",
+            "-c",
+            "-lic_noqueue",
+            "-novopt",
+            "-suppress",
+            "3017,3722",
+            "-L",
+            "work",
+            "-L",
+            "eg4",
+            "-L",
+            "hdmi",
+            "work.tb_system",
+            "work.glbl",
+            "+max_ms=200",
+            "-do",
+            "run.do",
+            "-l",
+            "run.log"
+          ],
+          "exit_code": 0,
+          "timed_out": false,
+          "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_opt16\\build\\system_fast_20261021_111126\\console.log"
+        },
+        "fft": {
+          "status": "PASS_SCOPE",
+          "completed_frames": 3,
+          "band_checks": 72,
+          "max_abs_error": 0,
+          "oracle_sha256": "c7459ba9b0c10656ed8b68370a25b7ba97a7db9b79592cf3cd2c2c480adc2bff",
+          "scope": "Actual full-top accepted PCM captures, real ROM/FFT, independent fixed-point band reference; nominal startup/WAV case only"
+        },
+        "assumptions": [
+          "Qualified nominal PLL edge replay, fixed 50MHz reference/reset0 only",
+          "application-interface memory model; data leads valid by one clock",
+          "short generated BMP/WAV fixture"
+        ],
+        "unverified": [
+          "physical SDRAM",
+          "key source switching",
+          "SDF",
+          "hardware fault reproduction"
+        ],
+        "testbench_sha256": "E709EB85BFF93ADC8FB23974ABD1619C27DBACEB7DCD364BD71AF270E33FCCAE"
+      },
+      "performance": {
+        "status": "PASS",
+        "time_unit": "ns",
+        "init_ns": 23999139,
+        "fs_ns": 25139839,
+        "primed_ns": 29340739,
+        "first_pixel_ns": 26655859,
+        "commit_ns": 95044789,
+        "card_sectors": 58,
+        "card_bytes": 29696,
+        "card_max_service_ns": 383940,
+        "card_total_service_ns": 21937920,
+        "bmp_sectors": 4,
+        "bmp_max_service_ns": 756360,
+        "bmp_total_service_ns": 2268280,
+        "wav_sectors": 51,
+        "wav_max_service_ns": 756260,
+        "wav_total_service_ns": 20040580,
+        "crc_checked": 58,
+        "crc_bad": 0,
+        "fifo_min_after_prime": 1023,
+        "underruns": 0,
+        "first_data_ns": 24013719,
+        "last_data_ns": 120283679,
+        "min_sclk_period_ns": 80,
+        "sclk_target_MHz": 12.5,
+        "variant": "fast_C11316"
+      },
+      "performance_sha256": "8862da6b5bbb4c8ebeea9acb44ec59ea024e603e63e51dd3777f83490e690189",
+      "source_receipt_sha256": "4a519d9de92e5cccae13d5a15013eb551e52df58a3ff4eb4274172fd762a566e"
+    }
+  },
+  "experiments": [
+    {
+      "name": "small",
+      "evidence": [
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\small\\README.md",
+          "sha256": "7bb4a462e446e3e41a6f713bbb9a9e2f7ea461e18c808d89fb27058d5ffcb025"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\small\\validated_scaler\\README.md",
+          "sha256": "2982d6e1a4adbd4135c9b2f17ad996a6c9c745e38013cd5b510a246ab76aa6b5"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\small\\validated_scaler\\source_receipt.json",
+          "sha256": "83968e2de29f9a70487e532210969c3b7bc667142e7778776f5fca1268cc53a8"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\small\\baseline\\run\\reports\\gate.area",
+          "sha256": "875250b67691a41300d223701504217fff5695794945af10ef24a3b8108ee63d"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\small\\candidate\\run\\reports\\gate.area",
+          "sha256": "d991cde72d17d6680ef4a79a13ff6bf38c22242548a91d2ad9fe758eb67dde39"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\small\\validated_scaler\\c11315\\README.md",
+          "sha256": "1e3874c0f504a02cfda2418b6a217c18a67df092b5c16ab883028e8abe857851"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\small\\validated_scaler\\c11315\\source_receipt.json",
+          "sha256": "a78b059693cb5da7cf32b57ab502599d46c5a3d89d4b22f71a1f7f6b970aefcb"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\small\\validated_scaler\\c11315\\td\\A1_base\\reports\\gate.area",
+          "sha256": "d4206c482db5cfdd0373e5ca003e99b67b2137b5b7749d71bee870297da4b645"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\small\\validated_scaler\\c11315\\td\\A2_validated\\reports\\gate.area",
+          "sha256": "25c05baf24cf2bb011efcc7c68fc5f9986a3b282459099d7569c277bf2c2cca8"
+        }
+      ]
+    },
+    {
+      "name": "mapper",
+      "evidence": [
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\mapper\\README.md",
+          "sha256": "6644773118e67e50c1020c27f99601d586a92e364009d0aeda1f51d58a0569d3"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\mapper\\td\\candidate\\reports\\gate.area",
+          "sha256": "83ca6ae072c63c8e34b4c6d1cabaf11ad499dde537ee6226ebd85e406f283c7a"
+        }
+      ]
+    },
+    {
+      "name": "catalog",
+      "evidence": [
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\build\\matrix_summary.json",
+          "sha256": "1b00120671eb4e35847c337011d5a41a6f10d85e6277403dd55727bfa438a17c"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\area_summary.json",
+          "sha256": "99d7aac69053ecbcf8fd879b65f21df0af7eb67e11ad4e495c275f142be39f21"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\baseline\\reports\\gate.area",
+          "sha256": "76a44954898193532c809daa164eeb664f13ef628cc1c2d1cb70b4fb6c0a8aec"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\bps\\reports\\gate.area",
+          "sha256": "6e6e69f9b852faae297698f28be8882e7876abca21706cb4ff3ff2e93bc656e0"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\bps+fat16\\reports\\gate.area",
+          "sha256": "ef1687b3cc21d08aa0d92efae1a10c5447c96e2d79e1dccecd1bf027f91a294a"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\bps+fat16+version\\reports\\gate.area",
+          "sha256": "dab64e23e1cd6143e6e208906af7b9c0808d122f76fb3e14348f9f8ae145a118"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\bps+rootent\\reports\\gate.area",
+          "sha256": "715cdc6406b87a9694979f57d8df1c15dc8674d779ab20db418ce3aa20cb09d8"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\bps+rootent+fat16\\reports\\gate.area",
+          "sha256": "fa73bebc34bcfd466a47d2b6d54757f34df89fa036cc8a48e3ab76daf00b2043"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\bps+rootent+fat16+version\\reports\\gate.area",
+          "sha256": "13358f19e15cb258284339f27e61e0e0c1a632e0f28b1769b39d7814ee9f592e"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\bps+rootent+version\\reports\\gate.area",
+          "sha256": "ddd1cd887fad7315ce895f18aaee688ba26c3cc57c080dbde639048b7ff45dc6"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\bps+version\\reports\\gate.area",
+          "sha256": "593e6b29a999e1da54ad77f3cbdb32077250460e48949b0634dc131075516ed8"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\clean_combined\\reports\\gate.area",
+          "sha256": "13358f19e15cb258284339f27e61e0e0c1a632e0f28b1769b39d7814ee9f592e"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\fat16\\reports\\gate.area",
+          "sha256": "25b3617d12d599dfe61a18c1a1f3ee788ddf0119020421651207a0b0bcbb4672"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\fat16+version\\reports\\gate.area",
+          "sha256": "32877023ffe6ec84a5c0726e357b12d00a7721f53000baa707c4c69108faf23d"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\rootent\\reports\\gate.area",
+          "sha256": "674d329ad75ca70ad414c19b7e156f780a80ff7377a803690763d6a8cc7d6013"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\rootent+fat16\\reports\\gate.area",
+          "sha256": "18f46ed0102ec51af539386cbd59160d3343fc097550eb155aa31b313467c316"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\rootent+fat16+version\\reports\\gate.area",
+          "sha256": "fc3719f6d02cfcf49a33b33ca32df2ff1aab30e3805bc86df5071631850864cf"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\rootent+version\\reports\\gate.area",
+          "sha256": "ea7a8f634a79abdbdee8dcf401895b874e687404ebeccf2c7711dea730094ace"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\td_area_high\\version\\reports\\gate.area",
+          "sha256": "f9aeed52ba9e2ab05b53e072ea76563487745ec2e01bc5e8757c6d4b62ec3a63"
+        }
+      ]
+    },
+    {
+      "name": "scaler",
+      "evidence": [
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\scaler\\source_receipt.json",
+          "sha256": "8c8276db70a2473c85263257ad281a755cb17adc802fcbc69b7bc03f2c0fef9a"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\scaler\\td\\base\\reports\\gate.area",
+          "sha256": "b4c08c71a2d3ae12596689c67a512942564ce9ea3b80f66aa56dd531e97f221a"
+        },
+        {
+          "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\scaler\\td\\shared\\reports\\gate.area",
+          "sha256": "71e11f778a3b92322729e3cdf560032bd0ba6de611b64190c92d50806eb695c9"
+        }
+      ]
+    }
+  ],
+  "selected_changes": {
+    "user_source/hdl_source/bmp_scale_engine.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\selected\\bmp_scale_engine.v",
+      "sha256": "f3d77c0dcaac1a43c59e30deb51b06988a81a9d91f0c6135f0eb17158057c04c",
+      "experiment_source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\small\\validated_scaler\\c11315\\bmp_scale_engine.v",
+      "experiment_source_sha256": "f3d77c0dcaac1a43c59e30deb51b06988a81a9d91f0c6135f0eb17158057c04c"
+    },
+    "user_source/hdl_source/tf_bmp_file_player.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\selected\\tf_bmp_file_player.v",
+      "sha256": "8c4c61c8f8474ae44115c3ac0a056910886996302cd0845b775cf00a8b28f5b7",
+      "experiment_source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\small\\validated_scaler\\c11315\\tf_bmp_file_player_validated.v",
+      "experiment_source_sha256": "d5f7fdba6c944d62e00c1b92e2084f1b644069b33812bfb5c07d434e260fdbc8"
+    },
+    "user_source/hdl_source/fat32_catalog.v": {
+      "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\selected\\fat32_catalog.v",
+      "sha256": "c73d62f6a4eae3bcedcf60f40ff29898e5c3489655e171d6b373abd670d1151a",
+      "experiment_source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\opt16_work\\catalog\\fat32_catalog_candidate_fixed_flags.v",
+      "experiment_source_sha256": "c73d62f6a4eae3bcedcf60f40ff29898e5c3489655e171d6b373abd670d1151a"
+    }
+  },
+  "slice_saved": 48,
+  "limits": "nominal replay clocks and digital SD/SDRAM models; no hardware timing claim"
+}

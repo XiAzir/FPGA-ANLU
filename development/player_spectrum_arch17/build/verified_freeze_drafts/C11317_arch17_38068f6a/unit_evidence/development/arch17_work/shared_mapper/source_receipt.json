@@ -1,0 +1,119 @@
+{
+  "task": "arch17 shared two-client FAT mapper candidate",
+  "candidate": {
+    "module": "fat32_dual_file_sector",
+    "path": "development/arch17_work/shared_mapper/candidate.v",
+    "sha256": "084B7DC884B1B33E3EBC2804283BC820B0E5A38EB248E7DC14A6303D70F67BFB",
+    "production_parameters": {
+      "REQUEST_STABLE": 1,
+      "WAV_STATIC_FILE": 1,
+      "AUDIO_BURST_MAX": 2,
+      "WAIT_LIMIT": 50000000
+    }
+  },
+  "reference_sources": [
+    {
+      "path": "development/player_spectrum_opt16/src/user_source/hdl_source/fat32_file_sector.v",
+      "sha256": "DF0C358C07806E09E113FE8DB863467AFEBB79430D55003269A25D8D418BF897"
+    },
+    {
+      "path": "development/player_spectrum_opt16/src/user_source/hdl_source/top_tf_hdmi_audio.v",
+      "sha256": "B133DDE27C760021064DB0D4660E75A6590CD60C1F2702F69BA89AE9B79A8E33"
+    },
+    {
+      "path": "development/player_spectrum_opt16/src/user_source/hdl_source/sd_sector_arbiter.v",
+      "sha256": "FC0833681CC67BFE92AAB7BECCADB8F8D00A5B7946359588DC1B72B3A17BA8E6"
+    }
+  ],
+  "functional_verification": [
+    {
+      "testbench": "development/arch17_work/shared_mapper/tb_fat32_dual_file_sector.v",
+      "command": "iverilog -g2012 -Wall -s tb_fat32_dual_file_sector -o mapper_tb.vvp candidate.v tb_fat32_dual_file_sector.v; vvp mapper_tb.vvp",
+      "result": "PASS: WAV two-sector burst cap, BMP interleave, two-step FAT walk, 512-byte client streams"
+    },
+    {
+      "testbench": "development/arch17_work/shared_mapper/tb_fat32_dual_timeout.v",
+      "command": "iverilog -g2012 -Wall -s tb_fat32_dual_timeout -o timeout_tb.vvp candidate.v tb_fat32_dual_timeout.v; vvp timeout_tb.vvp",
+      "result": "PASS: independent owner/queued timeout, sticky code, reset clear"
+    },
+    {
+      "testbench": "development/arch17_work/shared_mapper/tb_fat32_dual_disable_drain.v",
+      "result": "PASS: disable during a physical sector, re-enable/re-arm, discard old payload, defer request until sd_end"
+    },
+    {
+      "testbench": "development/arch17_work/shared_mapper/tb_fat32_sd_end_edge.v",
+      "result": "PASS: reference and candidate both report E_SHORT when sd_valid and sd_end coincide at byte counts 511 and 512"
+    },
+    {
+      "testbench": "development/arch17_work/shared_mapper/tb_cidle_peer_timeout_race.v",
+      "candidate_sha256": "084B7DC884B1B33E3EBC2804283BC820B0E5A38EB248E7DC14A6303D70F67BFB",
+      "result": "PASS: both requests are accepted through real arm/read handshakes; only the prior BMP wait_count is deposited to WAIT_LIMIT-1; BMP timeout no longer cancels WAV dispatch"
+    },
+    {
+      "testbench": "development/arch17_work/shared_mapper/tb_cidle_timeout_natural.v",
+      "candidate_sha256": "084B7DC884B1B33E3EBC2804283BC820B0E5A38EB248E7DC14A6303D70F67BFB",
+      "result": "PASS: natural simultaneous BMP/WAV requests at WAIT_LIMIT=1 and 2 do not orphan WAV; both clients timeout in this no-card-response setup"
+    },
+    {
+      "testbench": "development/arch17_work/mapper_tests/",
+      "candidate_sha256": "084B7DC884B1B33E3EBC2804283BC820B0E5A38EB248E7DC14A6303D70F67BFB",
+      "result": "PASS: 4095-hop concurrent BMP, BMP same-sector cache hit and file-change/seek payload, WAV sector0-to1 cache continuation, disable/re-arm, bad FAT/EOC/loop/short, hung-card dual-pending timeout, reset abort/re-arm, FAT/data final-byte plus sd_end same-cycle E_SHORT, WAV streak <= 2"
+    }
+  ],
+  "timeout_race_scope": {
+    "classification": "parameter-boundary scheduling race",
+    "minimal_repro": "Real arm/read handshakes create both busy/queued clients; only the prior BMP wait_count is deposited to WAIT_LIMIT-1. The old B9 leaves WAV selected, busy, unqueued, and the engine idle; current 084 lets WAV dispatch proceed.",
+    "natural_wait_limit_1_and_2": "Both clients time out without card responses; neither version leaves an orphaned WAV request.",
+    "default_wait_limit_50000000": "Reachability in the production transaction schedule is unproven. Prior sd_end resets the current owner's watchdog, and no claim is made that this was a production failure."
+  },
+  "independent_review": {
+    "path": "development/arch17_work/shared_review/review.md",
+    "candidate_sha256": "084B7DC884B1B33E3EBC2804283BC820B0E5A38EB248E7DC14A6303D70F67BFB",
+    "result": "PASS: C_IDLE timeout race reproduces on B9 and is fixed on 084; WAV proceeds into C_DATA_WAIT and issues LBA 100. Natural WAIT_LIMIT=1/2 tests do not orphan a queue. Prior drain/data-boundary/cache review found no new issue; default 50M aged-counter reachability remains unproven."
+  },
+  "area_high": {
+    "tool": "TD 6.2.1_SP1_6.2.178.840, td_commands_prompt.exe",
+    "constraint": "20 ns clock",
+    "settings": "gate map_mode=area_prior, add_map_lut_struct=high, rtl resource_sharing=auto, min_ripple_len=18, mapper_lut_delay=1600",
+    "reference": {
+      "path": "development/arch17_work/shared_mapper/td/dual_ref/reports/gate.area",
+      "sha256": "9CE43A14C939132E5044EC8633277048F5B7B92F36ADF63F5044FD47B2DBA007",
+      "lut": 2029,
+      "registers": 642,
+      "bram": 0,
+      "dsp": 0,
+      "completion_marker": "SYNTHESIS_COMPLETE"
+    },
+    "shared": {
+      "path": "development/arch17_work/shared_mapper/td/shared/reports/gate.area",
+      "candidate_sha256": "084B7DC884B1B33E3EBC2804283BC820B0E5A38EB248E7DC14A6303D70F67BFB",
+      "measured_candidate_is_current": true,
+      "sha256": "3BBB4F7D110754575F1A52FBE714B80CA52B0241E6695F3832523A45E577CFC3",
+      "actualparams_rtl_sha256": "47D88E388F1968CAA2FEA8D1FE7AE7DE6F08CDCFD14D121715365792D9A89EBE",
+      "lut": 1494,
+      "registers": 396,
+      "bram": 0,
+      "dsp": 0,
+      "completion_marker": "SYNTHESIS_COMPLETE"
+    },
+    "pre_audit_attempt": {
+      "candidate_sha256": "6A8E96FD63E7A6CE933916305460BE0D9BC65D5E6F5C653A01FCB09A57FC00A3",
+      "report_path": "development/arch17_work/shared_mapper/td/shared/attempts/preaudit_6A8E96FD/reports/gate.area",
+      "lut": 1467,
+      "registers": 396
+    },
+    "pre_cidle_guard_attempt": {
+      "candidate_sha256": "B9A9E3D7FEDCEA5ECF7B1D3272FD5846C54DB2CD2C20EAB4BDE56350A5EB8993",
+      "report_path": "development/arch17_work/shared_mapper/td/shared/attempts/pre_cidle_guard_B9/reports/gate.area",
+      "lut": 1519,
+      "registers": 396
+    },
+    "delta": {
+      "lut": -535,
+      "registers": -246,
+      "bram": 0,
+      "dsp": 0
+    },
+    "limit": "Standalone mapper-pair synthesis was freshly run on the exact current candidate SHA. No full-top, place-route, timing, or board result is claimed. Prior B9 and 6A8E reports are preserved under td/shared/attempts/."
+  }
+}

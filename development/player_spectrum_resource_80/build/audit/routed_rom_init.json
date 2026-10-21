@@ -1,0 +1,82 @@
+{
+  "schema": "c11314-current-success-routed-rom-init-audit-v1",
+  "status": "PASS",
+  "synthesis_run_id": "619c41c8-338e-4143-92b2-799c3122013c",
+  "physical_run_id": "99966ac9-088e-4f3e-ab6d-232d2bc71ad6",
+  "physical_marker": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\manual\\stage_evidence\\latest_physical.json",
+  "physical_marker_sha256": "15cfe5c272e565d926f614999345e108f288014975a6d533560b61adb5b703cb",
+  "physical_record": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\manual\\stage_evidence\\physical_99966ac9-088e-4f3e-ab6d-232d2bc71ad6.json",
+  "physical_record_sha256": "31915b26067da207c6e0013649e5e4cd85cdee62d13141316d44c0a53e1b8e48",
+  "route_database_sha256": "e77ff3efd79146adc97928d15c0385e241ddc36274def039183998af91ca75b3",
+  "synthesis_marker": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\manual\\stage_evidence\\latest_synthesis.json",
+  "synthesis_marker_sha256": "1755b9e747e1ef47f0d6ab8c3a7ae8fdbcf0fb41b3e54260a921d01b2fc7f879",
+  "synthesis_record": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\manual\\stage_evidence\\synthesis_619c41c8-338e-4143-92b2-799c3122013c.json",
+  "synthesis_record_sha256": "e80223327b1b134fc5ed95346aa19da6c4b651082d907a05e0f7ba0eec70afc9",
+  "synthesis_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\manual\\synthesis_console.log",
+  "synthesis_log_sha256": "b9174d6ec027893c4e39456af37309d0a541795675d3e1851ac3b3f208389ea9",
+  "routed_netlist": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\build\\audit\\routed_implementation.v",
+  "routed_netlist_sha256": "c3a771d48afae3bb174ca028435ac09e52810f3a5bd9cb9b71d83ba241b57098",
+  "manifest_sha256": "31a61e039e5b83bce3b73cc2d015bf92e0c3773071dcfa8385e2aea970a61ee1",
+  "source_rom_sha256": {
+    "hann": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+    "twiddle": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772"
+  },
+  "checker_sha256": "7d1accc7a2557027430551c993a35e48547ebf912f0db919a4a53ce079a16c7d",
+  "decoder_sha256": "7c2545ad7ccc61199b2f82aa56db5d7be3d55afc31832b87dc1ad5d2ade06a3e",
+  "source_rom_paths": {
+    "hann": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\src\\user_source\\hdl_source\\spectrum_hann.mem",
+    "twiddle": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_spectrum_resource_80\\src\\user_source\\hdl_source\\spectrum_twiddle.mem"
+  },
+  "logical_rom_words": 1536,
+  "lane_entries": 3072,
+  "lanes": {
+    "hann_low": {
+      "depth": 1024,
+      "width": 9,
+      "nonzero_words": 1020,
+      "mismatches": 0,
+      "first_mismatch_addresses": [],
+      "sha256": "1c712da62a5934d3ac75b855cf90893a03a236697b01ead065b7ea4ab5960d3e"
+    },
+    "hann_high": {
+      "depth": 1024,
+      "width": 9,
+      "nonzero_words": 942,
+      "mismatches": 0,
+      "first_mismatch_addresses": [],
+      "sha256": "391e9b0d2fdb3a0d8ffa004f93ac15e676f43709db0b24cc07b4f933bf0739de"
+    },
+    "twiddle_low": {
+      "depth": 512,
+      "width": 18,
+      "nonzero_words": 512,
+      "mismatches": 0,
+      "first_mismatch_addresses": [],
+      "sha256": "8f3c7aa49f84b689cf60d9e97c6e4b85700fa17be8c306149a71d087fa045d00"
+    },
+    "twiddle_high": {
+      "depth": 512,
+      "width": 18,
+      "nonzero_words": 511,
+      "mismatches": 0,
+      "first_mismatch_addresses": [],
+      "sha256": "5870f27ab4e323523d250e1a00fdd074404af3b6e523054ea400094d3d3246a8"
+    }
+  },
+  "combined_roms": {
+    "hann": {
+      "words": 1024,
+      "nonzero_words": 1020,
+      "mismatches": 0,
+      "sha256": "baf7df624b80fcd112ba3cdf1a5e6052d53a9a187aa14870d274ad8de75c9c3f"
+    },
+    "twiddle": {
+      "words": 512,
+      "nonzero_words": 512,
+      "mismatches": 0,
+      "sha256": "b7782524c8b0d3b7a42d4f5e59a8e1a34f9b5328f01795baa7779388027c5259"
+    }
+  },
+  "all_match": true,
+  "method": "Reused the reference INIT/INITP extraction and decode functions. Bound to the selected successful C11314 synthesis and physical marker/record, verified synthesis linkage, physical completion freshness, current gate database and synthesis log; checked every routed bank-lane entry against current source ROM images and manifest hashes."
+}

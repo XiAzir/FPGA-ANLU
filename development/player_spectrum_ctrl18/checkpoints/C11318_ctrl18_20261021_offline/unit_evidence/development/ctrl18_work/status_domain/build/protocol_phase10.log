@@ -1,0 +1,13 @@
+Icarus command: E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe -o E:\VSCODE-project\FPGA-ANLU\development\ctrl18_work\status_domain\build\protocol_phase10.vvp -g2012 -s tb_status_domain -Ptb_status_domain.PHASE_NS=10 status_hex595.v E:\VSCODE-project\FPGA-ANLU\development\player_spectrum_arch17\src\user_source\hdl_source\player_status_mailbox.v status_word_checker.v tb_status_domain.v
+Run command: E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe E:\VSCODE-project\FPGA-ANLU\development\ctrl18_work\status_domain\build\protocol_phase10.vvp
+FRAME id=0 index=0 value=00000000 time=7261870000 ns
+FRAME id=1 index=0 value=01234567 time=7277840000 ns
+FRAME id=0 index=1 value=89abcdef time=15523630000 ns
+FRAME id=1 index=1 value=89abcdef time=15555600000 ns
+FRAME id=0 index=2 value=00000000 time=23818010000 ns
+FRAME id=1 index=2 value=89abcdef time=23834000000 ns
+FRAME id=0 index=3 value=89abcdef time=32079770000 ns
+METRIC id=0 sclk_high_ns=500..500 sclk_low_ns=520..520 rise_period_ns=1020..1020 dio_setup_min_ns=500 rclk_high_ns=20..20 blank_to_data_ns=16360..16360 blank_to_blank_slot_ns=1032720..1032720 frame_period_ns=8261760..8261760 frames=4
+METRIC id=1 sclk_high_ns=520..520 sclk_low_ns=560..560 rise_period_ns=1080..1080 dio_setup_min_ns=520 rclk_high_ns=40..40 blank_to_data_ns=17360..17360 blank_to_blank_slot_ns=1034720..1034720 frame_period_ns=8277760..8277760 frames=3
+PASS tb_status_domain phase_ns=10 patterns=01234567/89ABCDEF reset=async_mid_sclk frames=4/3
+tb_status_domain.v:153: $finish called at 32079771000 (1ps)

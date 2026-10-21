@@ -1,0 +1,26 @@
+--- a/development/player_spectrum_arch17/src/user_source/hdl_source/top_tf_hdmi_audio.v
++++ b/development/player_spectrum_arch17/src/user_source/hdl_source/top_tf_hdmi_audio.v
+@@ -70,5 +70,6 @@
+ wire [2:0]  osd_image_count;
+ wire        bmp_auto_mode, osd_auto_mode, osd_frame_valid;
+ wire        probe_mode, probe_tone_toggle, probe_key0_active;
+-wire        bmp_key_next, bmp_key_auto;
++wire        bmp_key_next_req, bmp_key_auto_req;
++wire        bmp_key_next_ack, bmp_key_auto_ack;
+ 
+@@ -222,4 +223,6 @@
+ tf_bmp_file_player #(.CLK_FREQ_HZ(50000000),
+     .FRAME_WIDTH(DISPLAY_WIDTH),.FRAME_HEIGHT(DISPLAY_HEIGHT)) u_bmp_file_player (
+-    .clk(sd_card_clk),.rst(rst_all),.key_next(bmp_key_next),.key_auto(bmp_key_auto),
++    .clk(sd_card_clk),.rst(rst_all),
++    .key_next_req_toggle(bmp_key_next_req),.key_auto_req_toggle(bmp_key_auto_req),
++    .key_next_ack_toggle(bmp_key_next_ack),.key_auto_ack_toggle(bmp_key_auto_ack),
+     .catalog_ready(fs_ready),.bmp_count(fs_bmp_count),
+@@ -312,4 +315,6 @@
+ player_adjust_control u_adjust_control (
+  .clk(video_clk),.rst(rst_all),.vs(vs),.key0_n(key1),.key1_n(key2),
+- .next_n(bmp_key_next),.auto_n(bmp_key_auto),.tone_press(debug_tone_press),
++ .next_req_toggle(bmp_key_next_req),.next_ack_async(bmp_key_next_ack),
++ .auto_req_toggle(bmp_key_auto_req),.auto_ack_async(bmp_key_auto_ack),
++ .tone_press(debug_tone_press),
+  .mode(adjust_mode),.brightness_index(brightness_index),.contrast_index(contrast_index),

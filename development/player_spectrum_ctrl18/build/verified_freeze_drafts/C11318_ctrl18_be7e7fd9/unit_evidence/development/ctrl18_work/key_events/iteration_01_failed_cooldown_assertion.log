@@ -1,0 +1,17 @@
+Command: iverilog -g2012 -s tb_key_events ...
+Command: vvp tb_key_events.vvp
+Icarus: 12.0 (devel) (s20150603-1539-g2693dd32b)
+
+SOURCE_TIMING ref0=740000 ref1=2750000 cand0=740000 cand1=2750000 interval=2010000
+FAIL combined cooldown dispatches the queued event after the legacy 201 source cycles at 5314000
+FATAL: development/ctrl18_work/key_events/tb_key_events.v:206:
+       Time: 5314000  Scope: tb_key_events.check
+Exit code: 1
+
+Cause and correction: the testbench stored `$time` in `time` variables. With
+`timescale 1ns/1ps`, Icarus displays `%0t` values scaled to ps, while arithmetic
+on those variables is in ns. The observed interval was 2010 ns (201 source
+cycles), displayed as 2010000 ps. The first assertion compared the arithmetic
+value against 2010000; it now compares against 2010. The latency bounds were
+also corrected to arithmetic ns units (560..900 ns), matching the 40..65
+destination-clock interval at the testbench's 14 ns destination period.

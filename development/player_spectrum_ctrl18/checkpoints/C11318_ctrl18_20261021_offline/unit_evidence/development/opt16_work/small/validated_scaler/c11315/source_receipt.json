@@ -1,0 +1,107 @@
+{
+  "production_scaler_sha256": "1916cf21f554e64d476d3697973cdba33f66c0acefbdbab5b48341cbeea29519",
+  "production_loader_sha256": "093c86171d75dd5f9df66da51bbc0830bc391b70b4c5ae627d3bf4d0d8111dc6",
+  "candidate_scaler_sha256": "f3d77c0dcaac1a43c59e30deb51b06988a81a9d91f0c6135f0eb17158057c04c",
+  "candidate_loader_sha256": "d5f7fdba6c944d62e00c1b92e2084f1b644069b33812bfb5c07d434e260fdbc8",
+  "a1_a2_settings": "TD 6.2.1_SP1; EG4S20BG256; AreaHigh; min_ripple_len=18; mapper_lut_delay=1600; 20ns SDC",
+  "area": {
+    "A1": {
+      "generic_lut": 1365,
+      "device_lut": 2064,
+      "reg": 699,
+      "bram": 4,
+      "dsp": 6
+    },
+    "A2": {
+      "generic_lut": 1290,
+      "device_lut": 1868,
+      "reg": 698,
+      "bram": 4,
+      "dsp": 5
+    }
+  },
+  "tests": {
+    "default_13case": "PASS, HEADER_VALIDATED=0, 7 valid + 6 error/fault cases, cycle compare",
+    "valid_domain": "PASS, HEADER_VALIDATED=1, 7 valid geometry cases, cycle compare",
+    "diagnostic_538": "PASS, 538 cases, cycle compare",
+    "full_paired": "PASS, 6 images, 1843200 pixels per loader, 160-bit public output cycle compare"
+  },
+  "artifacts": [
+    {
+      "path": "bmp_scale_engine.v",
+      "sha256": "f3d77c0dcaac1a43c59e30deb51b06988a81a9d91f0c6135f0eb17158057c04c"
+    },
+    {
+      "path": "bmp_scale_engine_base.v",
+      "sha256": "e3ecaf0c0aa66e641db091004c74b7df93f9f31b4bdb5698aff4d21bf6e253c7"
+    },
+    {
+      "path": "tf_bmp_file_player_validated.v",
+      "sha256": "d5f7fdba6c944d62e00c1b92e2084f1b644069b33812bfb5c07d434e260fdbc8"
+    },
+    {
+      "path": "tf_bmp_file_player_param.v",
+      "sha256": "acfd1fd8c5ec7534b26ce0f5cf4b6eb7629c109656d1be50bd4f256265dc92f5"
+    },
+    {
+      "path": "tb_default_13case.v",
+      "sha256": "9f3b4126e0650194bed1d40ea4887e8edee7da6b619556e4388611948a5cf81c"
+    },
+    {
+      "path": "tb_valid_domain.v",
+      "sha256": "b5e67ad42bc50702953cd0aaf894837656265da93887d4c9db58c9e9ec78981d"
+    },
+    {
+      "path": "tb_538_diagnostic.v",
+      "sha256": "fae229446e5e7793afafe4562d15a165a8330f57c2afaaf69117572046e2a08b"
+    },
+    {
+      "path": "tb_full_paired.v",
+      "sha256": "d08b8d01dc9776e1773e7509c3c724381786f16cc6b06b4435c631b90e689611"
+    },
+    {
+      "path": "default_13case_run.log",
+      "sha256": "2f979fcc12dde50490a57f0ee8fe95d03ce6e0d4297144e2ee1365fd7edae822"
+    },
+    {
+      "path": "valid_domain_run.log",
+      "sha256": "9b716582a95f07da68e5fd6ed9947230cbd92fcf13135eb5e597106f5f4da98f"
+    },
+    {
+      "path": "diagnostic_538_run.log",
+      "sha256": "2537732455d7f6fb37925459c3f6cf15346bb1c95790b4235b343ca6d135df10"
+    },
+    {
+      "path": "full_paired_run.log",
+      "sha256": "3793575ad705cb66957868ab93fe0bf5f42cc27cbbf5a36f4799fd0f8bf46e9e"
+    },
+    {
+      "path": "full_paired_run.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "td/A1_base/hdl_source/bmp_scale_engine.v",
+      "sha256": "f3d77c0dcaac1a43c59e30deb51b06988a81a9d91f0c6135f0eb17158057c04c"
+    },
+    {
+      "path": "td/A1_base/hdl_source/tf_bmp_file_player.v",
+      "sha256": "5a060c18ecaef65739edc9025126bd5e4bc9e0c0a5b0294ec52496221b847c2b"
+    },
+    {
+      "path": "td/A2_validated/hdl_source/bmp_scale_engine.v",
+      "sha256": "f3d77c0dcaac1a43c59e30deb51b06988a81a9d91f0c6135f0eb17158057c04c"
+    },
+    {
+      "path": "td/A2_validated/hdl_source/tf_bmp_file_player.v",
+      "sha256": "8c4c61c8f8474ae44115c3ac0a056910886996302cd0845b775cf00a8b28f5b7"
+    },
+    {
+      "path": "td/A1_base/reports/gate.area",
+      "sha256": "d4206c482db5cfdd0373e5ca003e99b67b2137b5b7749d71bee870297da4b645"
+    },
+    {
+      "path": "td/A2_validated/reports/gate.area",
+      "sha256": "25c05baf24cf2bb011efcc7c68fc5f9986a3b282459099d7569c277bf2c2cca8"
+    }
+  ]
+}
