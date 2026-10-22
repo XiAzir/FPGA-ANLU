@@ -1,0 +1,215 @@
+{
+  "status": "PASS",
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "+incdir+E:/VSCODE-project/FPGA-ANLU/development/player_video20/build/video_system_20261021_215350+E:/VSCODE-project/FPGA-ANLU/development/player_video20/build/video_system_20261021_215350/frozen/src/user_source/hdl_source+E:/VSCODE-project/FPGA-ANLU/development/player_video20/build/video_system_20261021_215350/frozen/src/user_source/hdl_source/include+E:/VSCODE-project/FPGA-ANLU/development/player_video20/build/video_system_20261021_215350/frozen/src/user_source/hdl_source/SD+E:/VSCODE-project/FPGA-ANLU/development/player_video20/build/video_system_20261021_215350/frozen/src/td_project",
+      "-f",
+      "plain.f"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\video_system_20261021_215350\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "-L",
+      "hdmi",
+      "-g/tb_video_system/MAPPED_SECTORS=29686",
+      "-g/tb_video_system/IMAGE_BYTES=536870912",
+      "-g/tb_video_system/CHECK_FRAMES=2",
+      "work.tb_video_system",
+      "work.glbl",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log",
+      "+AUDIO_PHASE=800"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\video_system_20261021_215350\\console.log"
+  },
+  "assumptions": [
+    "Qualified nominal PLL edge replay",
+    "Application-interface SDRAM model",
+    "Source-selection event injected before media starts"
+  ],
+  "hardware": "Pending board test",
+  "card_metadata": {
+    "format": "FAT32 MBR, SDHC 512MiB, 512-byte sectors, eight sectors per cluster",
+    "image_bytes": 536870912,
+    "total_sectors": 1048576,
+    "partition_start_lba": 2048,
+    "partition_sectors": 1046528,
+    "sectors_per_cluster": 8,
+    "reserved_sectors": 32,
+    "fat_count": 2,
+    "fat_sectors_per_copy": 1024,
+    "fat32_data_clusters": 130556,
+    "root_cluster": 2,
+    "root_directory_lba": 4128,
+    "populated_sectors": 29686,
+    "files": [
+      {
+        "name": "VIDEO.MJP",
+        "sha256": "68c97202f8df0501834e222f30cc111bbcdaf97a6a43c62ef26f1c7752b06d8d",
+        "source_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\output\\VIDEO.MJP",
+        "source_sha256": "68c97202f8df0501834e222f30cc111bbcdaf97a6a43c62ef26f1c7752b06d8d",
+        "start_cluster": 4,
+        "end_cluster": 2084,
+        "cluster_count": 2081,
+        "sector_count": 16644,
+        "allocated_sector_count": 16648,
+        "start_lba": 4144,
+        "end_lba": 20787,
+        "allocated_end_lba": 20791,
+        "bytes": 8521728,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\card_image\\golden\\VIDEO.MJP"
+      },
+      {
+        "name": "TEST.WAV",
+        "sha256": "30eaf10a6ff1800163cecb3225cce685873b38c9a8e42635f1e5c92b0e95b5de",
+        "source_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\output\\TEST.WAV",
+        "source_sha256": "30eaf10a6ff1800163cecb3225cce685873b38c9a8e42635f1e5c92b0e95b5de",
+        "start_cluster": 2085,
+        "end_cluster": 2553,
+        "cluster_count": 469,
+        "sector_count": 3751,
+        "allocated_sector_count": 3752,
+        "start_lba": 20792,
+        "end_lba": 24542,
+        "allocated_end_lba": 24543,
+        "bytes": 1920078,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\card_image\\golden\\TEST.WAV"
+      },
+      {
+        "name": "00_APPLE.BMP",
+        "sha256": "31a508b43bc3ec44f5814382a6dd12b5f379ca248b633120c25f1a6bf85239e1",
+        "source_path": "E:\\QQ CACHE\\Download\\\u5b89\u8def\u8d44\u6599\\\u8d5b\u98981_\u5de5\u4f5c\u8d44\u6599\\05_\u8865\u5145\u53c2\u8003\u5de5\u7a0b\\\u5b98\u65b9\u8d5b\u98981_\u5eb7\u82af2026\\lab_ex4_tf\\doc\\TF\u5361\u56fe\u7247\\\u82f9\u679c_640x480_24bit_\u663e\u793a\u6b63\u5e38_\u5de5\u7a0b\u9002\u914d\u7248.bmp",
+        "source_sha256": "31a508b43bc3ec44f5814382a6dd12b5f379ca248b633120c25f1a6bf85239e1",
+        "start_cluster": 2554,
+        "end_cluster": 2779,
+        "cluster_count": 226,
+        "sector_count": 1801,
+        "allocated_sector_count": 1808,
+        "start_lba": 24544,
+        "end_lba": 26344,
+        "allocated_end_lba": 26351,
+        "bytes": 921654,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\card_image\\golden\\00_APPLE.BMP"
+      },
+      {
+        "name": "01_BERRY.BMP",
+        "sha256": "a51b868d9e1c08ce599095a9a40048174cd35ce1c6ea3c74e370d3e6a6d87c2e",
+        "source_path": "E:\\QQ CACHE\\Download\\\u5b89\u8def\u8d44\u6599\\\u8d5b\u98981_\u5de5\u4f5c\u8d44\u6599\\05_\u8865\u5145\u53c2\u8003\u5de5\u7a0b\\\u5b98\u65b9\u8d5b\u98981_\u5eb7\u82af2026\\lab_ex4_tf\\doc\\TF\u5361\u56fe\u7247\\\u8349\u8393_640x480_24bit_\u663e\u793a\u6b63\u5e38_\u5de5\u7a0b\u9002\u914d\u7248.bmp",
+        "source_sha256": "a51b868d9e1c08ce599095a9a40048174cd35ce1c6ea3c74e370d3e6a6d87c2e",
+        "start_cluster": 2780,
+        "end_cluster": 3005,
+        "cluster_count": 226,
+        "sector_count": 1801,
+        "allocated_sector_count": 1808,
+        "start_lba": 26352,
+        "end_lba": 28152,
+        "allocated_end_lba": 28159,
+        "bytes": 921654,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\card_image\\golden\\01_BERRY.BMP"
+      },
+      {
+        "name": "02_MELON.BMP",
+        "sha256": "bc7170e5c0d33b07c7f7a1622cd7a58084c2e4c7478d11b5ed29ee4ba8ec4297",
+        "source_path": "E:\\QQ CACHE\\Download\\\u5b89\u8def\u8d44\u6599\\\u8d5b\u98981_\u5de5\u4f5c\u8d44\u6599\\05_\u8865\u5145\u53c2\u8003\u5de5\u7a0b\\\u5b98\u65b9\u8d5b\u98981_\u5eb7\u82af2026\\lab_ex4_tf\\doc\\TF\u5361\u56fe\u7247\\\u897f\u74dc_640x480_24bit_\u663e\u793a\u6b63\u5e38_\u5de5\u7a0b\u9002\u914d\u7248.bmp",
+        "source_sha256": "bc7170e5c0d33b07c7f7a1622cd7a58084c2e4c7478d11b5ed29ee4ba8ec4297",
+        "start_cluster": 3006,
+        "end_cluster": 3231,
+        "cluster_count": 226,
+        "sector_count": 1801,
+        "allocated_sector_count": 1808,
+        "start_lba": 28160,
+        "end_lba": 29960,
+        "allocated_end_lba": 29967,
+        "bytes": 921654,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\card_image\\golden\\02_MELON.BMP"
+      },
+      {
+        "name": "03_ROSE.BMP",
+        "sha256": "78c9692b7c47af62e82220ba294e71548507da16990aa04f7c3dd58987b3ca06",
+        "source_path": "E:\\QQ CACHE\\Download\\\u5b89\u8def\u8d44\u6599\\\u8d5b\u98981_\u5de5\u4f5c\u8d44\u6599\\05_\u8865\u5145\u53c2\u8003\u5de5\u7a0b\\\u5b98\u65b9\u8d5b\u98981_\u5eb7\u82af2026\\lab_ex4_tf\\doc\\TF\u5361\u56fe\u7247\\A_\u5de5\u7a0b\u9002\u914d\u7248.bmp",
+        "source_sha256": "78c9692b7c47af62e82220ba294e71548507da16990aa04f7c3dd58987b3ca06",
+        "start_cluster": 3232,
+        "end_cluster": 3457,
+        "cluster_count": 226,
+        "sector_count": 1801,
+        "allocated_sector_count": 1808,
+        "start_lba": 29968,
+        "end_lba": 31768,
+        "allocated_end_lba": 31775,
+        "bytes": 921654,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\card_image\\golden\\03_ROSE.BMP"
+      }
+    ],
+    "sector_lba_map": {
+      "mbr": 0,
+      "vbr": 2048,
+      "root_directory": 4128,
+      "video_first": 4144,
+      "video_last": 20787,
+      "wav_first": 20792,
+      "wav_last": 24542,
+      "bmp_files": [
+        {
+          "name": "00_APPLE.BMP",
+          "first": 24544,
+          "last": 26344
+        },
+        {
+          "name": "01_BERRY.BMP",
+          "first": 26352,
+          "last": 28152
+        },
+        {
+          "name": "02_MELON.BMP",
+          "first": 28160,
+          "last": 29960
+        },
+        {
+          "name": "03_ROSE.BMP",
+          "first": 29968,
+          "last": 31768
+        }
+      ],
+      "fat1_first": 2080,
+      "fat1_last": 3103,
+      "fat2_first": 3104,
+      "fat2_last": 4127
+    },
+    "hashes": {
+      "card.mem": "ebff143b29ebbaea4d3a8ff20acd92a24cadf5eb29527299afd5417c143a4996",
+      "packed_mem.mem": "f18bb49c18b6dfa3c6131527b5a2f937258368c9a374bf21523d3306d9a3635f",
+      "lba_map.mem": "5f8869db56f174c4ea1b63a4d7e7d9cfa0a16c09e0d7e79ab74282c0abde9f21"
+    },
+    "mapped_sectors": 29686,
+    "image_hex_file": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\card_image\\card.mem",
+    "packed_sector_file": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\card_image\\packed_mem.mem",
+    "lba_map_file": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\card_image\\lba_map.mem",
+    "manifest_file": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\peak_phase\\card_image\\manifest.json"
+  },
+  "startup_model_errors_before_1us": [],
+  "runtime_model_errors": []
+}

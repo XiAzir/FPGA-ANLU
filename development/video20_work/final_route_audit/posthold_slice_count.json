@@ -1,0 +1,35 @@
+{
+  "schema": "c11320-posthold-slice-count-v1",
+  "design": "player_video20 / C11320",
+  "stage": "explicit hold-repair final PR DB routed netlist",
+  "post_explicit_hold_routed_netlist_counts": {
+    "EG_PHY_MSLICE": 4334,
+    "EG_PHY_LSLICE": 4303,
+    "total_slice_primitives": 8637,
+    "EG_PHY_BRAM": 62
+  },
+  "physical_auto_hold_route_console": {
+    "pre_hold_packed_mslices_lslices": [
+      4332,
+      4303
+    ],
+    "reported_final_auto_hold_slices": 8637
+  },
+  "explicit_hold_log_evidence": {
+    "0_of_2_endpoints_fixed_by_lut_bridge": true,
+    "2_of_2_endpoints_fixed_by_pin_delay": true,
+    "final_timing": "SWNS: 0.795ns, STNS: 0.000ns.\nHWNS: 0.024ns, HTNS: 0.000ns."
+  },
+  "hashes": {
+    "development/video20_work/final_route_audit/AC201_tf_hdmi_c11320_pr_routed.v": "d03f45350bb285fc3288957497afbe3cc35bc4f14d2ee148731320e69996bcc7",
+    "development/player_video20/build/manual/physical_console.log": "c8dd1d27dab6dc65cf83e6479501e131d671d1ccb2e30d858f2ea8e84e0f9179",
+    "development/player_video20/build/manual/hold_console.log": "574e9cf38e52cf2cdfd86656875f7408b72e5b5cde764c4407fc96b4389449e9",
+    "development/player_video20/build/manual/AC201_tf_hdmi_phy.area": "8514747c552f3c4a9886112a605e3a48bff991cef826b2bb33614f3788dedd33",
+    "development/player_video20/build/manual/AC201_tf_hdmi_phy.ts": "e2cec0231c736d72ab817961bc41bead83cee2ac2cfecdaf8c70ae5edabb317f",
+    "development/player_video20/build/manual/AC201_tf_hdmi_pr.db": "73b4ffa8e61a9ea61a162573025214080ec392657799ac24dcd34019cbc3c7c5"
+  },
+  "conclusion": {
+    "known": "The final explicit-hold routed netlist contains 8637 slice primitives (4334 MSLICE + 4303 LSLICE). The auto-hold physical console also reports 8637 final slices; its pre-hold packed count is 4332 + 4303 = 8635. The explicit hold log reports both remaining endpoints fixed by pin delay and zero fixed by LUT bridge.",
+    "inference": "The matching 8637 count and pin-delay-only fix indicate no additional slice primitive was added by the explicit hold pass. A pre-explicit-hold database snapshot is retained in whole/D02/prehold; this audit counts the final exported netlist and does not compare placement movement."
+  }
+}

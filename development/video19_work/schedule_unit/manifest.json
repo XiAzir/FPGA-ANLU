@@ -1,0 +1,22 @@
+{
+  "status": "PREPARED",
+  "scope": "schedule + OSD ownership/control simulation; reader, framebuffer and audio source are protocol models",
+  "rtl_sources": [
+    {
+      "name": "player_video_schedule.v",
+      "sha256": "e40f6788061d5b37f459c26810c06032b0753bbc0e6ee445024d4a366c003ecc"
+    },
+    {
+      "name": "player_osd_state.v",
+      "sha256": "5dc4cb7eca4acd2aced6aba341608c107bb7d99d5971922b9710bf63ad72c3a7"
+    }
+  ],
+  "testbench": {
+    "name": "schedule_osd_tb.v",
+    "sha256": "e965f21df02baa792f1af2d809395004a9bcb60ed0d392766c38488d7eb59339"
+  },
+  "simulator": "@veriflow/iverilog-wasm@0.1.4 (Icarus Verilog WASM), generation 2005",
+  "formal_audio_frames": 602,
+  "samples_per_audio_frame": 3200,
+  "reset_restart": "one reset between two 301-frame phases"
+}

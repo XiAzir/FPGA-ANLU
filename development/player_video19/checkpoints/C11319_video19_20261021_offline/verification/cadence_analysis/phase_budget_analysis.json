@@ -1,0 +1,57 @@
+{
+  "schema": "video19-cadence-phase-analysis-v1",
+  "classification": "integer phase model + byte-linear decode estimate; not a decoder simulation",
+  "source_index": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\stream_loop\\runs\\stream_loop_20261021_192205_098862\\input\\index.json",
+  "source_index_sha256": "4d0e3dbdc870b5a45e28ebccb8d12f86dbef81efd53e5a89479b4ae9dea78517",
+  "frame_count": 300,
+  "samples_per_content_frame": 3200,
+  "abstract_ticks_per_sample": 5,
+  "content_period_ticks": 16000,
+  "refresh_ticks": 4032,
+  "refresh_period_ms": 16.8,
+  "phase_origin_ticks": 128,
+  "phase_origin_provenance": "selected to reproduce preliminary parent budget frame62≈50.95ms/frame63≈50.42ms; absolute hardware phase is run-dependent",
+  "phase_step_ticks": 3904,
+  "phase_cycle_frames": 63,
+  "max_wait_ticks": 3968,
+  "min_available_decode_ticks": 12032,
+  "min_available_decode_ms": 50.133333,
+  "reference_decode_ms": 52.48111,
+  "reference_max_jpeg_bytes": 43231,
+  "reference_byte_scaled_decode_ticks": 12596,
+  "pre_cascade_estimated_miss_indices": [
+    62,
+    63
+  ],
+  "frame62": {
+    "frame_index": 62,
+    "jpeg_bytes": 42270,
+    "due_phase_ticks": 256,
+    "wait_to_next_refresh_ticks": 3776,
+    "available_decode_ticks": 12224,
+    "available_decode_ms": 50.933333,
+    "byte_scaled_decode_ticks": 12316,
+    "byte_scaled_decode_ms": 51.316667,
+    "margin_ticks_before_cascade": -92,
+    "would_meet_deadline_if_prior_frames_on_time": false
+  },
+  "frame63": {
+    "frame_index": 63,
+    "jpeg_bytes": 42480,
+    "due_phase_ticks": 128,
+    "wait_to_next_refresh_ticks": 3904,
+    "available_decode_ticks": 12096,
+    "available_decode_ms": 50.4,
+    "byte_scaled_decode_ticks": 12378,
+    "byte_scaled_decode_ms": 51.575,
+    "margin_ticks_before_cascade": -282,
+    "would_meet_deadline_if_prior_frames_on_time": false
+  },
+  "q90": {
+    "max_jpeg_bytes": 31115,
+    "byte_scaled_decode_ticks": 9066,
+    "byte_scaled_decode_ms": 37.775,
+    "margin_at_minimum_window_ms": 12.358333
+  },
+  "phase_csv": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\cadence_analysis\\phase_budget_analysis.csv"
+}

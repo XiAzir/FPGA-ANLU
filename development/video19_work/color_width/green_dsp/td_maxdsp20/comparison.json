@@ -1,0 +1,44 @@
+{
+  "status": "COMPLETED",
+  "setting_correction": {
+    "initial_setting": "max_dsp=17",
+    "corrected_setting": "max_dsp=20",
+    "reason": "The initial ceiling was below the live core's 18 DSP result, so the initial comparison did not match the C03/C04 20-DSP budget."
+  },
+  "settings": "TD 6.2.1 SP1; EG4S20BG256; AreaHigh; 50 MHz / 20 ns SDC; min_ripple_len=18; mapper_lut_delay=1600; add_map_lut_struct=high; map_mode=area_prior; multi_thread_mapping=partition; resource_sharing=auto; shifter_style=shifter_reg; max_dsp=20",
+  "source": {
+    "parent_jpeg_output_sha256": "3806a1aa079bf0f0060750111e04dc40bacfe03f07c1cf44253fef00b2c08bbf",
+    "candidate_jpeg_output_sha256": "6521e05eb857076b203c5ab696a3c82c09eeb5518e8be60a21bcb7ff12c9f5cf",
+    "changed_file": "jpeg_output.v"
+  },
+  "control": {
+    "status": "PASS",
+    "LUT": 5021,
+    "slices": 1000,
+    "BRAM9K": 16,
+    "DSP": 18,
+    "setup_WNS_ps": -2802,
+    "setup_TNS_ps": -22416,
+    "run_directory": "green_control20"
+  },
+  "candidate": {
+    "status": "PASS",
+    "LUT": 5095,
+    "slices": 1056,
+    "BRAM9K": 16,
+    "DSP": 18,
+    "setup_WNS_ps": -4401,
+    "setup_TNS_ps": -41881,
+    "run_directory": "green_candidate20"
+  },
+  "delta_candidate_minus_control": {
+    "LUT": 74,
+    "slices": 56,
+    "BRAM9K": 0,
+    "DSP": 0,
+    "setup_WNS_ps": -1599,
+    "setup_TNS_ps": -19465
+  },
+  "interpretation": "The max_dsp=20 rerun reproduces the 17-cap result. jpeg_output remains at 2 DSPs and the green products map into logic; this candidate shows no core-area or setup-timing improvement.",
+  "not_run": ["full-top synthesis", "full-top PNR", "hardware test"]
+}

@@ -1,0 +1,47 @@
+{
+  "status": "FAILED",
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "-sv",
+      "-f",
+      "sources.f"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\stream_frontend\\runs\\reader_jpeg_core_modelsim_20261021_180946\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "work.tb_mjp_jpeg_core",
+      "+CARD_HEX=mjp_sector_prefix.hex",
+      "+CARD_BYTES=77824",
+      "+CARD_PERIOD=36",
+      "+SECTOR_REQUESTS=152",
+      "+FRAME0_BYTES=37704",
+      "+FRAME1_BYTES=37905",
+      "+FRAME0_CRC=2e7f68e2",
+      "+FRAME1_CRC=4ffde223",
+      "+OUT=pixels_xy_rgb.bin",
+      "+SUMMARY=frame_summary.txt",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\stream_frontend\\runs\\reader_jpeg_core_modelsim_20261021_180946\\console.log"
+  },
+  "console_tail": "e=3513207 lba=130 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3533178 lba=131 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3553149 lba=132 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3573120 lba=133 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3593091 lba=134 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3613062 lba=135 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3633033 lba=136 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3653004 lba=137 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3672975 lba=138 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3692946 lba=139 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3712917 lba=140 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3732888 lba=141 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3752859 lba=142 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3772830 lba=143 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3792801 lba=144 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3812772 lba=145 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3832743 lba=146 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3852714 lba=147 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3872685 lba=148 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3892656 lba=149 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3912627 lba=150 file_ready=1 reader_state=5\n# CARD_SECTOR_END cycle=3932598 lba=151 file_ready=1 reader_state=5\n# JPEG_INPUT frame=1 bytes=37905 crc32=4ffde223\n# PROGRESS cycles=4000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=5000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=6000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=7000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=8000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=9000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=10000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=11000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=12000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=13000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=14000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=15000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=16000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=17000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=18000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=19000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# PROGRESS cycles=20000000 frame=1 frame_pixels=217344 card_bytes=77824 requests=152 file_ready=1 last_index=299 next_frame=0 reader_state=2 card_valid=0 card_end=0 core_idle=0\n# ** Fatal: timeout frame=1 pixels=217344\n#    Time: 400000130 ns  Scope: tb_mjp_jpeg_core File: E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180946/tb_mjp_jpeg_core.sv Line: 257\n# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180946/tb_mjp_jpeg_core.sv(257)\n#    Time: 400000130 ns  Iteration: 1  Instance: /tb_mjp_jpeg_core\n"
+}

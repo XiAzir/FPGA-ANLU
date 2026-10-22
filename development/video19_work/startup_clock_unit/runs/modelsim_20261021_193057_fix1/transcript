@@ -1,0 +1,21 @@
+# vsim -do {run -all; quit -f} -lib work -c tb_startup_clock 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_startup_clock(fast)
+# Loading work.pll_clock_replay(fast)
+# run -all 
+# UNSTABLE_LOCK_CLEAR_PASS old_cnt=0 new_cnt=0
+# FULL_COUNT_PASS old_edges=1000001 new_edges=1000001 old_cnt=1000000 new_cnt=1000000
+# ** Fatal: new reset released early at edge 1000000 count=1000000
+#    Time: 40003369201 ps  Scope: tb_startup_clock File: E:/VSCODE-project/FPGA-ANLU/development/video19_work/startup_clock_unit/runs/modelsim_20261021_193057_fix1/tb_startup_clock.v Line: 51
+# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/video19_work/startup_clock_unit/runs/modelsim_20261021_193057_fix1/tb_startup_clock.v(51)
+#    Time: 40003369201 ps  Iteration: 0  Instance: /tb_startup_clock

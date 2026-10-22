@@ -1,0 +1,52 @@
+{
+  "status": "DIAGNOSTIC_BOARD_PENDING",
+  "build_id": "00C11324",
+  "clock": "SD data SPI6.25MHz; initialization100kHz; system/pixel clocks unchanged",
+  "purpose": "Compare C23 cold mount timeout against slower SPI transfer",
+  "bit_sha256": "cf4e0c1b15979ea4b1a0027f00af802a0f3a9afacaa6466cc321951932330949",
+  "changed_from_c23": [
+    "hdl_source/player_compact_status_pages.v",
+    "hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "other_user_source_identical": 121,
+  "timing_ns": {
+    "setup_wns": 1.256,
+    "setup_tns": 0.0,
+    "hold_wns": 0.02,
+    "hold_tns": 0.0
+  },
+  "slice_used": 9010,
+  "slice_percent": 91.93877551020408,
+  "routed_slices": {
+    "EG_PHY_MSLICE": 4502,
+    "EG_PHY_LSLICE": 4508
+  },
+  "physical": {
+    "lut": 17155,
+    "reg": 9390,
+    "bram": 62,
+    "dsp": 26,
+    "pll": 2,
+    "gclk": 3
+  },
+  "sd_phase_crc_test": {
+    "status": "PASS",
+    "period_ns": 160,
+    "period_checks": 35980,
+    "phases": 6,
+    "cmd0_count_after_all": 1,
+    "crc_bad_before_negative": 0,
+    "crc_bad_after_one_bit_negative": 1,
+    "log_sha256": "aeb9dd7e0447e4ac43785fa7a09a9bcc6362a114fc8b0120bec0a89553bb1cf9"
+  },
+  "video_15fps_regression": {
+    "status": "FAILED",
+    "reason": "decode missed 15fps content deadline at244ms",
+    "summary": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video24_spi6p25_diag\\build\\video_system_20261022_140549\\summary.json",
+    "log_sha256": "e9a0532e04fd171da247fef9a0169aced98692005de1f2132e2962de0446bdaf",
+    "prior_observations": "Two JPEG frames committed; original PCM matched until failure, no PCM mismatch reported"
+  },
+  "board_result": "Pending",
+  "audio_noise": "Unchanged audio/HDMI sources; original noise remains under investigation",
+  "full_stage_binding_sha256": "4e5fb53ea307b36df82de2bc9b77ef300fc838429fb0985401bca45d131618bc"
+}

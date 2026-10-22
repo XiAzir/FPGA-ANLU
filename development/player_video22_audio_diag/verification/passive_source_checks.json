@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "unchanged_user_source_files": 115,
+  "changed_existing_files": [
+    "hdl_source\\player_audio_probe.v",
+    "hdl_source\\player_compact_status_pages.v",
+    "hdl_source\\tf_wav_file_player.v",
+    "hdl_source\\top_tf_hdmi_audio.v",
+    "hdl_source\\wav_pcm_bridge.v"
+  ],
+  "new_files": [
+    "hdl_source\\player_pcm_crc_probe.v"
+  ],
+  "exact_revert_checks": [
+    {
+      "name": "bridge_control_unchanged_after_removing_output_tap",
+      "passed": true
+    },
+    {
+      "name": "wav_control_unchanged_after_removing_output_tap",
+      "passed": true
+    },
+    {
+      "name": "audio_probe_control_unchanged_after_removing_output_tap",
+      "passed": true
+    },
+    {
+      "name": "status_logic_unchanged_except_build_id",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+Table of Contents
+-----------------
+1. checking no clock(0) (HIGH)
+2. checking clock definition(0) (HIGH)
+3. checking dummy node(4) (HIGH)
+4. checking invalid constraint(0) (HIGH)
+5. checking pll/clock buffer clock constraints(0) (HIGH)
+6. checking combinational loops(0) (HIGH)
+7. checking soft fifo timing exception constraints(0) (HIGH)
+8. checking no path constraints(0) (MEDIUM)
+9. checking shadowed/ignored timing exception constraints(0) (MEDIUM)
+10. checking no input delay(4) (MEDIUM)
+11. checking no output delay(14) (MEDIUM)
+12. checking partial input delay(0) (MEDIUM)
+13. checking partial output delay(0) (MEDIUM)
+14. checking abnormal input delay(0) (MEDIUM)
+
+
+1. checking nets with no clock driven. (HIGH)
+---------------------------------------------
+2. checking clock definition problems. (HIGH)
+---------------------------------------------
+2.1 There are 0 leaf clock pins driven by multiple clocks. (HIGH)
+
+
+2.2 There are 0 clocks created on internal clock network. (HIGH)
+
+
+2.3 There are 0 unexpandable clock sets. (HIGH)
+
+
+2.4 There are 0 local clocks. (HIGH)
+
+
+2.5 There are 0 generated clocks that are not connected to their master clocks. (HIGH)
+
+
+3. checking dummy nodes. (HIGH)
+---------------------------------------------
+There are 4 nodes are dangling. (HIGH)
+
+DummyNode in Model: EG_PHY_LSLICE
+	rst_all_reg_reg_syn_83.mi[1]
+	rst_all_reg_reg_syn_81.mi[1]
+	rst_all_reg_reg_syn_75.mi[1]
+	rst_all_reg_reg_syn_62.mi[1]
+	u_jpeg_core/u_jpeg_input/img_mode_q_reg[0]_syn_139.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u2_hdmi_tmds_encode/S_video_data_1d_reg[4]_syn_4.d[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/O_video_data_ch0_reg[1]_syn_4.d[1]
+	video_delay_m0/vs_d_reg[1]_syn_4.d[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_rd_addr_3d_reg[7]_syn_4.d[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_1d_reg[25]_syn_4.d[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_3d_reg[25]_syn_4.d[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/i0_reg[0]_syn_4.d[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_4d_reg[11]_syn_4.d[1]
+	sd_crc_sync1_reg[3]_syn_4.d[1]
+	sd_crc_sync1_reg[3]_syn_4.d[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/S_packet_body_1d_reg[16]_syn_4.c[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_17.e[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_17.e[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_valid_q_reg_syn_4.e[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_valid_q_reg_syn_4.e[0]
+	rst_all_reg_reg_syn_54.e[1]
+	rst_all_reg_reg_syn_54.e[0]
+	video_mode_sd_sync_reg[1]_syn_24.mi[1]
+	video_mode_sd_sync_reg[1]_syn_27.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u2_hdmi_tmds_encode/S_video_data_1d_reg[4]_syn_4.c[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/O_video_data_ch0_reg[1]_syn_4.c[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_rd_addr_3d_reg[7]_syn_4.c[0]
+	video_delay_m0/vs_d_reg[1]_syn_4.c[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_1d_reg[25]_syn_4.c[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_3d_reg[25]_syn_4.c[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/i0_reg[0]_syn_4.c[1]
+	sd_crc_sync1_reg[3]_syn_4.c[0]
+	sd_crc_sync1_reg[3]_syn_4.c[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_4d_reg[11]_syn_4.c[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_1d_reg[20]_syn_4.b[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_1d_reg[20]_syn_4.a[1]
+	u_catalog/bmp_sizes_reg[45]_syn_4.c[1]
+	u_catalog/video_cluster_reg[10]_syn_4.c[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_1d_reg[20]_syn_4.d[1]
+	u_catalog/bmp_sizes_reg[45]_syn_4.b[1]
+	u_catalog/video_cluster_reg[10]_syn_4.b[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_1d_reg[20]_syn_4.c[1]
+	u_catalog/bmp_sizes_reg[45]_syn_4.d[1]
+	u_catalog/video_cluster_reg[10]_syn_4.d[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/U_audio_sample_packet_2_channel/S_packet_body_1d_reg[16]_syn_4.d[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_valid_q_reg_syn_4.a[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_valid_q_reg_syn_4.a[0]
+	rst_all_reg_reg_syn_54.a[0]
+	rst_all_reg_reg_syn_54.a[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_17.a[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_17.a[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/sdr_t_reg_syn_62.mi[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/sdr_t_reg_syn_40.mi[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_5d_reg[25]_syn_4.mi[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/sdr_t_reg_syn_55.mi[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/sdr_t_reg_syn_46.mi[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_6d_reg[14]_syn_4.mi[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/sdr_t_reg_syn_51.mi[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/sdr_t_reg_syn_44.mi[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/sdr_t_reg_syn_67.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_28.mi[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_42.mi[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_38.mi[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_36.mi[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u0_reset_sync/O_sync_reset_reg_syn_50.mi[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_idx_q_reg[1]_syn_14.mi[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/sdr_t_reg_syn_68.d[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/sdr_t_reg_syn_68.c[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_17.mi[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_valid_q_reg_syn_4.mi[0]
+	rst_all_reg_reg_syn_54.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_17.c[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_valid_q_reg_syn_4.c[0]
+	rst_all_reg_reg_syn_54.c[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_17.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_valid_q_reg_syn_4.c[1]
+	rst_all_reg_reg_syn_54.c[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_17.b[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_valid_q_reg_syn_4.b[0]
+	rst_all_reg_reg_syn_54.b[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_17.b[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_valid_q_reg_syn_4.b[1]
+	rst_all_reg_reg_syn_54.b[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_valid_q_reg_syn_4.d[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_17.d[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_valid_q_reg_syn_4.d[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_17.d[0]
+	rst_all_reg_reg_syn_54.d[0]
+	rst_all_reg_reg_syn_54.d[1]
+
+DummyNode in Model: EG_PHY_MSLICE
+	rst_all_reg_reg_syn_90.mi[1]
+	rst_all_reg_reg_syn_90.mi[0]
+	u_jpeg_core/u_jpeg_idct/u_input/u_ram0/data0_i[6]_syn_16.mi[0]
+	sd_crc_sync1_reg[18]_syn_4.d[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u1_hdmi_tmds_encode/S_data_island_code_3d_reg[5]_syn_4.d[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u1_hdmi_tmds_encode/S_data_island_code_3d_reg[9]_syn_4.d[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u1_hdmi_tmds_encode/S_data_island_code_3d_reg[9]_syn_4.d[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u1_hdmi_tmds_encode/S_data_island_code_3d_reg[5]_syn_4.d[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[18]_syn_4.d[0]
+	u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[7]_syn_4.d[0]
+	u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_sync_reg[5]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[49]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[49]_syn_4.d[1]
+	u_catalog/bmp_sizes_reg[47]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[44]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[39]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[43]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[42]_syn_4.d[0]
+	u_frame_buffer/u_sdram/u2_ram/u1_init_ref/sdr_init_cnt_reg[24]_syn_4.d[0]
+	u_frame_buffer/u_legacy_frame_backend/frame_fifo_write_m0/jpeg_mode_sync_reg[1]_syn_4.d[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_addr_2d_reg[6]_syn_4.d[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_4d_reg[31]_syn_4.d[0]
+	u_file_mapper/brent_length_reg[21]_syn_4.d[0]
+	u_file_mapper/brent_anchor_reg[5]_syn_4.d[0]
+	u_catalog/signature_lo_reg[3]_syn_4.d[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[15]_syn_4.d[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[15]_syn_4.d[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/block_out_reg[201]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/o_s7_reg[17]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/i0_reg[6]_syn_4.d[0]
+	u_wav_player/loaded_sector_reg[16]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/o_t7_reg[2]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/block_out_reg[168]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/o_t5_6_reg[22]_syn_4.d[0]
+	u_video_reader/header_jpeg_length_reg[27]_syn_4.d[1]
+	u_video_reader/total_frames_reg[5]_syn_4.d[0]
+	u_video_reader/header_jpeg_length_reg[27]_syn_4.d[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_4d_reg[13]_syn_4.d[1]
+	u_wav_player/mux170_syn_154.d[0]
+	u_wav_player/fifo_head_valid_reg_syn_416.d[1]
+	u_wav_player/fifo_head_valid_reg_syn_416.d[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_4d_reg[13]_syn_4.d[0]
+	u_video_reader/header_jpeg_length_reg[13]_syn_4.d[1]
+	u_video_reader/header_jpeg_length_reg[13]_syn_4.d[0]
+	u_video_reader/frame_index_reg[3]_syn_4.d[0]
+	u_video_reader/frame_index_reg[3]_syn_4.d[1]
+	u_catalog/bmp_clusters_reg[111]_syn_4.c[0]
+	u_frame_buffer/u_pack/carry_reg[12]_syn_4.c[0]
+	u_frame_buffer/u_video_pack/word_data_reg[4]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[3]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[110]_syn_4.c[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_2d_reg[5]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[74]_syn_4.c[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/u_audio_clock_regeneration_packet/S_acr_cts_lock_reg[4]_syn_4.c[1]
+	u_wav_player/fifo_head_valid_reg_syn_430.mi[0]
+	video_mode_sd_sync_reg[1]_syn_35.mi[0]
+	u_catalog/left_shift6_syn_522.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u1_hdmi_tmds_encode/S_data_island_code_3d_reg[5]_syn_4.c[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u1_hdmi_tmds_encode/S_data_island_code_3d_reg[9]_syn_4.c[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u1_hdmi_tmds_encode/S_data_island_code_3d_reg[5]_syn_4.c[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u1_hdmi_tmds_encode/S_data_island_code_3d_reg[9]_syn_4.c[1]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[18]_syn_4.c[0]
+	u_frame_buffer/u_sdram/u2_ram/u1_init_ref/sdr_init_cnt_reg[24]_syn_4.c[0]
+	u_file_mapper/brent_length_reg[21]_syn_4.c[0]
+	u_frame_buffer/u_legacy_frame_backend/frame_fifo_write_m0/jpeg_mode_sync_reg[1]_syn_4.c[1]
+	u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_sync_reg[5]_syn_4.c[0]
+	u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[7]_syn_4.c[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_addr_2d_reg[6]_syn_4.c[1]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_4d_reg[31]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/o_t5_6_reg[22]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/block_out_reg[168]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/block_out_reg[201]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/i0_reg[6]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/o_s7_reg[17]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/o_t7_reg[2]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[42]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[47]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[43]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[49]_syn_4.c[1]
+	u_catalog/bmp_sizes_reg[49]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[44]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[39]_syn_4.c[0]
+	u_file_mapper/brent_anchor_reg[5]_syn_4.c[0]
+	u_wav_player/loaded_sector_reg[16]_syn_4.c[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_4d_reg[13]_syn_4.c[0]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[15]_syn_4.c[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_4d_reg[13]_syn_4.c[1]
+	u_frame_buffer/u_legacy_frame_backend/sdr_read_data_d1_reg[15]_syn_4.c[1]
+	u_catalog/signature_lo_reg[3]_syn_4.c[0]
+	sd_crc_sync1_reg[18]_syn_4.c[0]
+	u_video_reader/frame_index_reg[3]_syn_4.c[0]
+	u_video_reader/frame_index_reg[3]_syn_4.c[1]
+	u_video_reader/header_jpeg_length_reg[13]_syn_4.c[0]
+	u_video_reader/header_jpeg_length_reg[13]_syn_4.c[1]
+	u_video_reader/header_jpeg_length_reg[27]_syn_4.c[0]
+	u_video_reader/header_jpeg_length_reg[27]_syn_4.c[1]
+	u_video_reader/total_frames_reg[5]_syn_4.c[0]
+	u_wav_player/fifo_head_valid_reg_syn_416.c[0]
+	u_wav_player/mux170_syn_154.c[0]
+	u_wav_player/fifo_head_valid_reg_syn_416.c[1]
+	u_osd_state/held_sd_reg[0]_syn_4.d[0]
+	u_osd_state/held_sd_reg[0]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[95]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[89]_syn_4.c[0]
+	u_catalog/bmp_sizes_reg[90]_syn_4.c[0]
+	u_catalog/root_lba_p2_reg[25]_syn_4.a[0]
+	u_catalog/sd_read_reg_syn_42.a[1]
+	u_catalog/root_lba_p2_reg[12]_syn_4.a[0]
+	u_catalog/state_reg[5]_syn_12.mi[1]
+	u_catalog/state_reg[5]_syn_10.mi[1]
+	u_catalog/bmp_sizes_reg[95]_syn_4.b[0]
+	u_catalog/bmp_sizes_reg[89]_syn_4.b[0]
+	u_catalog/bmp_sizes_reg[90]_syn_4.b[0]
+	u_catalog/bmp_sizes_reg[95]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[89]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[90]_syn_4.d[0]
+	u_catalog/sectors_per_cluster_shift_reg[1]_syn_14.mi[0]
+	u_catalog/sectors_per_cluster_shift_reg[2]_syn_14.mi[1]
+	u_catalog/sectors_per_cluster_shift_reg[1]_syn_14.mi[1]
+	u_catalog/mux315_syn_1108.mi[0]
+	u_file_mapper/active_client_reg_syn_36.mi[1]
+	u_file_mapper/active_client_reg_syn_29.mi[1]
+	u_file_mapper/active_client_reg_syn_29.mi[0]
+	u_file_mapper/active_client_reg_syn_36.mi[0]
+	u_file_mapper/active_client_reg_syn_32.mi[1]
+	u_catalog/bmp_sizes_reg[50]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[110]_syn_4.d[0]
+	u_frame_buffer/u_sdram/u2_ram/u2_wrrd/app_wr_din_2d_reg[5]_syn_4.d[0]
+	u_frame_buffer/u_video_pack/word_data_reg[4]_syn_4.d[0]
+	u_catalog/bmp_clusters_reg[111]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[3]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[74]_syn_4.d[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_gen/u_audio_clock_regeneration_packet/S_acr_cts_lock_reg[4]_syn_4.d[1]
+	u_frame_buffer/u_pack/carry_reg[12]_syn_4.d[0]
+	u_catalog/bmp_sizes_reg[50]_syn_4.c[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_20.mi[1]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_23.mi[0]
+	u_hdmi_1_4b_transmitter_core_wrapper/u_hdmi_tx_controller_wrapper/u_hdmi_island_data_assemble/S_island_packet_req_2d_reg_syn_23.mi[1]
+	u_jpeg_core/u_jpeg_output/u_ram_y/count_q_reg[14]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_output/u_ram_y/count_q_reg[7]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/mul3_q_reg[18]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/mul3_q_reg[8]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/mul1_reg[2]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/mul1_reg[14]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_mcu_proc/prev_dc_coeff_q_reg[48]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_idct/u_id_fifo/ramread0_syn_13.c[0]
+	u_jpeg_core/u_jpeg_idct/u_id_fifo/ramread0_syn_13.c[1]
+	u_jpeg_core/u_jpeg_idct/u_id_fifo/ramread0_syn_13.b[0]
+	u_jpeg_core/u_jpeg_idct/u_id_fifo/ramread0_syn_13.b[1]
+	u_jpeg_core/u_jpeg_idct/u_id_fifo/ramread0_syn_13.a[0]
+	u_jpeg_core/u_jpeg_idct/u_id_fifo/ramread0_syn_13.a[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/out_stg2_idx_q_reg[2]_syn_19.mi[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/out_stg2_idx_q_reg[1]_syn_13.mi[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/out_stg2_idx_q_reg[1]_syn_15.mi[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/o_t7_reg[5]_syn_4.c[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/o_t7_reg[5]_syn_4.b[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/o_t7_reg[5]_syn_4.d[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/mul1_reg[14]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/mul3_q_reg[18]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_mcu_proc/prev_dc_coeff_q_reg[48]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_output/u_ram_y/count_q_reg[7]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_output/u_ram_y/count_q_reg[14]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/mul3_q_reg[8]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_x/mul1_reg[2]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_idx_q_reg[2]_syn_19.mi[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_idx_q_reg[2]_syn_15.mi[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_idx_q_reg[2]_syn_22.mi[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg2_idx_q_reg[1]_syn_17.mi[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/o_t5_reg[1]_syn_4.c[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg1_idx_q_reg[0]_syn_4.c[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg1_idx_q_reg[0]_syn_4.b[1]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/o_t5_reg[1]_syn_4.b[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/o_t5_reg[1]_syn_4.d[0]
+	u_jpeg_core/u_jpeg_idct/u_idct_y/out_stg1_idx_q_reg[0]_syn_4.d[1]
+	u_catalog/root_lba_p2_reg[25]_syn_4.b[0]
+	u_catalog/sd_read_reg_syn_42.b[1]
+	u_catalog/root_lba_p2_reg[12]_syn_4.b[0]
+	u_catalog/root_lba_p2_reg[25]_syn_4.c[0]
+	u_catalog/sd_read_reg_syn_42.c[1]
+	u_catalog/root_lba_p2_reg[12]_syn_4.c[0]
+	u_catalog/root_lba_p2_reg[25]_syn_4.d[0]
+	u_catalog/sd_read_reg_syn_42.d[1]
+	u_catalog/root_lba_p2_reg[12]_syn_4.d[0]
+
+DummyNode in Model: EG_PHY_MULT18
+	u_pcm_waveform/mult0_syn_4.a[8]
+	u_pcm_waveform/mult0_syn_4.a[7]
+	u_pcm_waveform/mult2_syn_3.a[13]
+	u_pcm_waveform/mult2_syn_3.a[14]
+	u_pcm_waveform/mult2_syn_3.a[15]
+	u_pcm_waveform/mult2_syn_3.a[16]
+	u_pcm_waveform/mult2_syn_3.a[17]
+
+DummyNode in Model: EG_PHY_PAD
+	u_frame_buffer/u_sdram/sdram_syn_5.opad
+	u_frame_buffer/u_sdram/sdram_syn_10.opad
+
+4. checking invalid constraints. (HIGH)
+---------------------------------------------
+There are 0 invalid constraints. (HIGH)
+
+
+5. checking PLL/buffer clocks. (HIGH)
+---------------------------------------------
+PLL/buffer inst: sys_pll_m0/pll_inst
+{
+	There are 0 clock pins that have no clock constraints. (HIGH)
+
+
+	There are 0 clocks whose clock frequency do not match the PLL setting. (HIGH)
+
+
+}
+
+PLL/buffer inst: video_pll_m0/pll_inst
+{
+	There are 0 clock pins that have no clock constraints. (HIGH)
+
+
+	There are 0 clocks whose clock frequency do not match the PLL setting. (HIGH)
+
+
+}
+
+6. checking combinational loops. (HIGH)
+---------------------------------------------
+There are 0 combinational loops. (HIGH)
+
+
+7. checking soft fifo set_max_delay constraints. (HIGH)
+---------------------------------------------
+There are 0 max-delay datapath-only paths that are part of the provided async clock paths, whereas the timing between other registers is not relaxed or ignored. (HIGH)
+
+
+8. checking no path constraints. (MEDIUM)
+---------------------------------------------
+There are 0 constraints that have no timing paths. (MEDIUM)
+
+
+9. checking path exception constraints shadowed/ignored by other constraints. (MEDIUM)
+---------------------------------------------
+
+MCP/SMD Summary
+--------------------
+
+		Max Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+		        36           36            0            0   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 19.700
+		        36           36            0            0   set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 19.700
+
+		Min Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+
+10. checking no input delay (MEDIUM)
+--------------------------
+There are 4 input ports that with no input delay specified. (MEDIUM)
+
+	key1
+	key2
+	rst_n
+	sd_miso
+
+11. checking no output delay (MEDIUM)
+--------------------------
+There are 14 output ports that with no output delay specified. (MEDIUM)
+
+	HDMI_CLK_P
+	HDMI_D0_P
+	HDMI_D1_P
+	HDMI_D2_P
+	led[3]
+	led[2]
+	led[1]
+	led[0]
+	sd_dclk
+	sd_mosi
+	sd_ncs
+	seg7_dio
+	seg7_rclk
+	seg7_sclk
+
+12. checking partial input delay (MEDIUM)
+--------------------------
+There are 0 input ports with partial input delay specified. (MEDIUM)
+
+
+13. checking partial output delay (MEDIUM)
+--------------------------
+There are 0 output ports with partial output delay specified. (MEDIUM)
+
+
+14. checking abnormal set_input_delay constraints. (MEDIUM)
+---------------------------------------------
+There are 0 abnormal set_input_delay constraints. (MEDIUM)
+
+

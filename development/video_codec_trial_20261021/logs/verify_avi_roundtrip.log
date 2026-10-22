@@ -1,0 +1,30 @@
+[aist#0:1/pcm_s16le @ 000001CFFA5255C0] Guessed Channel Layout: mono
+Input #0, avi, from 'E:/VSCODE-project/FPGA-ANLU/development/video_codec_trial_20261021/media/candidate_640x480_15fps_q95_original_audio.avi':
+  Metadata:
+    software        : Lavf61.1.100
+    avi_has_index   : true
+  Duration: 00:00:39.94, start: 0.000000, bitrate: 2699 kb/s
+  Stream #0:0: Video: mjpeg (Baseline) (MJPG / 0x47504A4D), yuvj420p(pc, bt470bg/unknown/unknown), 640x480 [SAR 1:1 DAR 4:3], 4625 kb/s, 30 fps, 30 tbr, 30 tbn
+  Stream #0:1: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, mono, s16, 768 kb/s
+Stream mapping:
+  Stream #0:1 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+  Stream #0:0 -> #1:0 (copy)
+Output #1, mjpeg, to 'E:/VSCODE-project/FPGA-ANLU/development/video_codec_trial_20261021/results/avi_video_roundtrip.mjpg':
+  Metadata:
+    software        : Lavf61.1.100
+    avi_has_index   : true
+    encoder         : Lavf61.1.100
+  Stream #1:0: Video: mjpeg (Baseline) (MJPG / 0x47504A4D), yuvj420p(pc, bt470bg/unknown/unknown), 640x480 [SAR 1:1 DAR 4:3], q=2-31, 4625 kb/s, 30 fps, 30 tbr, 30 tbn
+Output #0, s16le, to 'E:/VSCODE-project/FPGA-ANLU/development/video_codec_trial_20261021/results/avi_audio_roundtrip.pcm':
+  Metadata:
+    software        : Lavf61.1.100
+    avi_has_index   : true
+    encoder         : Lavf61.1.100
+  Stream #0:0: Audio: pcm_s16le, 48000 Hz, mono, s16, 768 kb/s
+      Metadata:
+        encoder         : Lavc61.3.100 pcm_s16le
+[avi @ 000001CFFA512140] Switching to NI mode, due to poor interleaving
+size=    1792KiB time=N/A bitrate=N/A speed=N/A    
+[out#0/s16le @ 000001CFFA53E180] video:0KiB audio:1875KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.000000%
+[out#1/mjpeg @ 000001CFFA53E740] video:10034KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.000000%
+size=    1875KiB time=00:00:19.96 bitrate= 769.3kbits/s speed=1.66e+03x    

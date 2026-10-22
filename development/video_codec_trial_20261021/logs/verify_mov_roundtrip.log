@@ -1,0 +1,58 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'E:/VSCODE-project/FPGA-ANLU/development/video_codec_trial_20261021/media/candidate_640x480_15fps_q95_original_audio.mov':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 512
+    compatible_brands: qt  
+    creation_time   : 2026-10-21T09:04:15.000000Z
+    modification_time: 2026-10-21T09:04:15.000000Z
+    encoder         : Lavf61.1.100
+    mp4_data_incomplete: false
+  Duration: 00:00:20.00, start: 0.000000, bitrate: 5380 kb/s
+  Stream #0:0[0x1]: Video: mjpeg (Baseline) (jpeg / 0x6765706A), yuvj420p(pc, bt470bg/unknown/unknown), 640x480 [SAR 1:1 DAR 4:3], 4610 kb/s, 15 fps, 15 tbr, 15k tbn (default)
+      Metadata:
+        creation_time   : 2026-10-21T09:04:15.000000Z
+        modification_time: 2026-10-21T09:04:15.000000Z
+        handler_name    : VideoHandler
+        vendor_id       : FFMP
+  Stream #0:1[0x2]: Audio: pcm_s16le (sowt / 0x74776F73), 48000 Hz, mono, s16, 768 kb/s (default)
+      Metadata:
+        creation_time   : 2026-10-21T09:04:15.000000Z
+        modification_time: 2026-10-21T09:04:15.000000Z
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:1 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+  Stream #0:0 -> #1:0 (copy)
+Output #1, mjpeg, to 'E:/VSCODE-project/FPGA-ANLU/development/video_codec_trial_20261021/results/mov_video_roundtrip.mjpg':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 512
+    compatible_brands: qt  
+    mp4_data_incomplete: false
+    modification_time: 2026-10-21T09:04:15.000000Z
+    encoder         : Lavf61.1.100
+  Stream #1:0: Video: mjpeg (Baseline) (jpeg / 0x6765706A), yuvj420p(pc, bt470bg/unknown/unknown), 640x480 [SAR 1:1 DAR 4:3], q=2-31, 4610 kb/s, 15 fps, 15 tbr, 15k tbn (default)
+      Metadata:
+        creation_time   : 2026-10-21T09:04:15.000000Z
+        modification_time: 2026-10-21T09:04:15.000000Z
+        handler_name    : VideoHandler
+        vendor_id       : FFMP
+Output #0, s16le, to 'E:/VSCODE-project/FPGA-ANLU/development/video_codec_trial_20261021/results/mov_audio_roundtrip.pcm':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 512
+    compatible_brands: qt  
+    mp4_data_incomplete: false
+    modification_time: 2026-10-21T09:04:15.000000Z
+    encoder         : Lavf61.1.100
+  Stream #0:0: Audio: pcm_s16le, 48000 Hz, mono, s16, 768 kb/s (default)
+      Metadata:
+        creation_time   : 2026-10-21T09:04:15.000000Z
+        modification_time: 2026-10-21T09:04:15.000000Z
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.3.100 pcm_s16le
+size=    1792KiB time=00:00:19.96 bitrate= 735.2kbits/s speed=2.35e+03x    
+[out#0/s16le @ 0000014B4DF1B9C0] video:0KiB audio:1875KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.000000%
+[out#1/mjpeg @ 0000014B4DF8A1C0] video:11256KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.000000%
+size=    1875KiB time=00:00:20.00 bitrate= 768.0kbits/s speed=2.1e+03x    

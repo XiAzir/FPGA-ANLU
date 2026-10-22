@@ -1,0 +1,223 @@
+diff --git a/development/video19_work/color_pipeline/sim/jpeg_output_C03_before_pipeline.v b/development/video19_work/color_pipeline/candidate_src/C03/jpeg_output.v
+index 3b97f97..af50c88 100644
+--- a/development/video19_work/color_pipeline/sim/jpeg_output_C03_before_pipeline.v
++++ b/development/video19_work/color_pipeline/candidate_src/C03/jpeg_output.v
+@@ -70,9 +70,6 @@ localparam JPEG_YCBCR_444   = 2'd1;
+ localparam JPEG_YCBCR_420   = 2'd2;
+ localparam JPEG_UNSUPPORTED = 2'd3;
+ 
+-reg valid_r;
+-wire output_space_w = (!outport_valid_o || outport_accept_i);
+-
+ //-----------------------------------------------------------------
+ // FIFO: Y
+ //-----------------------------------------------------------------
+@@ -193,7 +190,7 @@ if (rst_i)
+     idx_q <= 6'b0;
+ else if (img_start_i)
+     idx_q <= 6'b0;
+-else if (valid_r && output_space_w)
++else if (color_input_fire_w)
+     idx_q <= idx_q + 6'd1;
+ 
+ //-----------------------------------------------------------------
+@@ -206,7 +203,7 @@ if (rst_i)
+     subsmpl_q <= 2'b0;
+ else if (img_start_i)
+     subsmpl_q <= 2'b0;
+-else if (valid_r && output_space_w && img_mode_i == JPEG_YCBCR_420 && idx_q == 6'd63)
++else if (color_input_fire_w && img_mode_i == JPEG_YCBCR_420 && idx_q == 6'd63)
+     subsmpl_q <= subsmpl_q + 2'd1;
+ 
+ //-----------------------------------------------------------------
+@@ -214,6 +211,41 @@ else if (valid_r && output_space_w && img_mode_i == JPEG_YCBCR_420 && idx_q == 6
+ //-----------------------------------------------------------------
+ reg active_q;
+ 
++reg        color_s1_valid_q;
++reg        color_s1_emit_q;
++reg        color_s1_mono_q;
++reg [31:0] color_s1_y_q;
++reg signed [31:0] color_s1_cr_1402_q;
++reg signed [31:0] color_s1_cr_0714_q;
++reg signed [31:0] color_s1_cb_0344_q;
++reg signed [31:0] color_s1_cb_1772_q;
++reg [15:0] color_s1_x_q;
++reg [15:0] color_s1_ycoord_q;
++
++reg        color_s2_valid_q;
++reg [15:0] pixel_x_q;
++reg [15:0] pixel_y_q;
++reg [7:0]  pixel_r_q;
++reg [7:0]  pixel_g_q;
++reg [7:0]  pixel_b_q;
++
++wire color_s2_ready_w = !color_s2_valid_q || outport_accept_i;
++wire color_s1_ready_w = !color_s1_valid_q || color_s2_ready_w;
++wire color_input_fire_w = active_q && color_s1_ready_w;
++
++wire signed [31:0] cr_1_402_product_w = $signed(cr_value_w) * 32'sd5743;
++wire signed [31:0] cr_1_402_w = cr_1_402_product_w >>> 12; // cr_value_w * 1.402
++(* dsp_style = "no" *) wire signed [31:0] cr_0_714_product_w = ($signed(cr_value_w) <<< 12) - ($signed(cr_value_w) <<< 10) - ($signed(cr_value_w) <<< 7) - ($signed(cr_value_w) <<< 4) - ($signed(cr_value_w) <<< 2) + $signed(cr_value_w);
++(* dsp_style = "no" *) wire signed [31:0] cr_0_714_w = cr_0_714_product_w >>> 12; // cr_value_w * 0.71414
++(* dsp_style = "no" *) wire signed [31:0] cb_0_344_product_w = ($signed(cb_value_w) <<< 10) + ($signed(cb_value_w) <<< 8) + ($signed(cb_value_w) <<< 7) + ($signed(cb_value_w) <<< 1);
++(* dsp_style = "no" *) wire signed [31:0] cb_0_344_w = cb_0_344_product_w >>> 12; // cb_value_w * 0.34414
++wire signed [31:0] cb_1_772_product_w = $signed(cb_value_w) * 32'sd7258;
++wire signed [31:0] cb_1_772_w = cb_1_772_product_w >>> 12; // cb_value_w * 1.772
++
++wire signed [31:0] color_s2_r_w = color_s1_mono_q ? (32'sd128 + $signed(color_s1_y_q)) : (32'sd128 + $signed(color_s1_y_q) + color_s1_cr_1402_q);
++wire signed [31:0] color_s2_g_w = color_s1_mono_q ? (32'sd128 + $signed(color_s1_y_q)) : (32'sd128 + $signed(color_s1_y_q) - color_s1_cb_0344_q - color_s1_cr_0714_q);
++wire signed [31:0] color_s2_b_w = color_s1_mono_q ? (32'sd128 + $signed(color_s1_y_q)) : (32'sd128 + $signed(color_s1_y_q) + color_s1_cb_1772_q);
++
+ always @ (posedge clk_i )
+ if (rst_i)
+     active_q <= 1'b0;
+@@ -230,96 +262,64 @@ begin
+     else // 420
+         active_q <= (y_level_w >= 32'd256) && (cb_level_w >= 32'd256) && (cr_level_w >= 32'd256);
+ end
+-else if (valid_r && output_space_w && idx_q == 6'd63)
++else if (color_input_fire_w && idx_q == 6'd63)
+     active_q <= 1'b0;
+-
+-reg signed [31:0] r_conv_r;
+-reg signed [31:0] g_conv_r;
+-reg signed [31:0] b_conv_r;
+-
+-wire signed [31:0] cr_1_402_product_w = $signed(cr_value_w) * 32'sd5743;
+-wire signed [31:0] cr_1_402_w = cr_1_402_product_w >>> 12; // cr_value_w * 1.402
+-(* dsp_style = "no" *) wire signed [31:0] cr_0_714_product_w = ($signed(cr_value_w) <<< 12) - ($signed(cr_value_w) <<< 10) - ($signed(cr_value_w) <<< 7) - ($signed(cr_value_w) <<< 4) - ($signed(cr_value_w) <<< 2) + $signed(cr_value_w);
+-(* dsp_style = "no" *) wire signed [31:0] cr_0_714_w = cr_0_714_product_w >>> 12; // cr_value_w * 0.71414
+-(* dsp_style = "no" *) wire signed [31:0] cb_0_344_product_w = ($signed(cb_value_w) <<< 10) + ($signed(cb_value_w) <<< 8) + ($signed(cb_value_w) <<< 7) + ($signed(cb_value_w) <<< 1);
+-(* dsp_style = "no" *) wire signed [31:0] cb_0_344_w = cb_0_344_product_w >>> 12; // cb_value_w * 0.34414
+-wire signed [31:0] cb_1_772_product_w = $signed(cb_value_w) * 32'sd7258;
+-wire signed [31:0] cb_1_772_w = cb_1_772_product_w >>> 12; // cb_value_w * 1.772
+-
+-always @ *
+-begin
+-    valid_r  = active_q;
+-    r_conv_r = 32'b0;
+-    g_conv_r = 32'b0;
+-    b_conv_r = 32'b0;
+-
+-    if (img_mode_i == JPEG_MONOCHROME)
+-    begin
+-        r_conv_r = 128 + y_value_w;
+-        g_conv_r = 128 + y_value_w;
+-        b_conv_r = 128 + y_value_w;
+-    end
+-    else// if (img_mode_i == JPEG_YCBCR_444)
+-    begin
+-        r_conv_r = 128 + y_value_w + cr_1_402_w;
+-        g_conv_r = 128 + y_value_w - cb_0_344_w - cr_0_714_w;
+-        b_conv_r = 128 + y_value_w + cb_1_772_w;
+-    end
+-end
+-
+-assign y_pop_w  = output_space_w && active_q;
+-assign cb_pop_w = output_space_w && active_q;
+-assign cr_pop_w = output_space_w && active_q;
+-assign id_pop_w = output_space_w && (idx_q == 6'd63);
+-
+-//-----------------------------------------------------------------
+-// Outputs
+-//-----------------------------------------------------------------
+-reg        valid_q;
+-reg [15:0] pixel_x_q;
+-reg [15:0] pixel_y_q;
+-reg [7:0]  pixel_r_q;
+-reg [7:0]  pixel_g_q;
+-reg [7:0]  pixel_b_q;
+-
+-always @ (posedge clk_i )
+-if (rst_i)
+-    valid_q <= 1'b0;
+-else if (output_space_w)
+-    valid_q <= valid_r && (id_value_w[31:30] != BLOCK_EOF);
++assign y_pop_w  = color_input_fire_w;
++assign cb_pop_w = color_input_fire_w;
++assign cr_pop_w = color_input_fire_w;
++assign id_pop_w = color_input_fire_w && (idx_q == 6'd63);
+ 
+ wire [31:0] x_start_w = {13'b0, id_value_w[15:0],3'b0};
+ wire [31:0] y_start_w = {15'b0, id_value_w[29:16],3'b0};
+ 
+-always @ (posedge clk_i )
+-if (rst_i)
++always @ (posedge clk_i)
++if (rst_i || img_start_i)
+ begin
++    color_s1_valid_q <= 1'b0;
++    color_s1_emit_q <= 1'b0;
++    color_s2_valid_q <= 1'b0;
+     pixel_x_q <= 16'b0;
+     pixel_y_q <= 16'b0;
+-end
+-else if (output_space_w)
+-begin
+-    /* verilator lint_off WIDTH */
+-    pixel_x_q <= x_start_w + (idx_q % 8);
+-    pixel_y_q <= y_start_w + (idx_q / 8);
+-    /* verilator lint_on WIDTH */
+-end
+-
+-always @ (posedge clk_i )
+-if (rst_i)
+-begin
+     pixel_r_q <= 8'b0;
+     pixel_g_q <= 8'b0;
+     pixel_b_q <= 8'b0;
+ end
+-else if (output_space_w)
++else
+ begin
+-    pixel_r_q <= (|r_conv_r[31:8]) ? (r_conv_r[31:24] ^ 8'hff) : r_conv_r[7:0];
+-    pixel_g_q <= (|g_conv_r[31:8]) ? (g_conv_r[31:24] ^ 8'hff) : g_conv_r[7:0];
+-    pixel_b_q <= (|b_conv_r[31:8]) ? (b_conv_r[31:24] ^ 8'hff) : b_conv_r[7:0];
++    if (color_s2_ready_w)
++        color_s2_valid_q <= color_s1_valid_q && color_s1_emit_q;
++    if (color_s1_valid_q && color_s2_ready_w)
++    begin
++        pixel_x_q <= color_s1_x_q;
++        pixel_y_q <= color_s1_ycoord_q;
++        pixel_r_q <= (|color_s2_r_w[31:8]) ? (color_s2_r_w[31:24] ^ 8'hff) : color_s2_r_w[7:0];
++        pixel_g_q <= (|color_s2_g_w[31:8]) ? (color_s2_g_w[31:24] ^ 8'hff) : color_s2_g_w[7:0];
++        pixel_b_q <= (|color_s2_b_w[31:8]) ? (color_s2_b_w[31:24] ^ 8'hff) : color_s2_b_w[7:0];
++    end
++    if (color_s1_ready_w)
++    begin
++        color_s1_valid_q <= color_input_fire_w;
++        if (color_input_fire_w)
++        begin
++            color_s1_emit_q <= (id_value_w[31:30] != BLOCK_EOF);
++            color_s1_mono_q <= (img_mode_i == JPEG_MONOCHROME);
++            color_s1_y_q <= y_value_w;
++            color_s1_cr_1402_q <= cr_1_402_w;
++            color_s1_cr_0714_q <= cr_0_714_w;
++            color_s1_cb_0344_q <= cb_0_344_w;
++            color_s1_cb_1772_q <= cb_1_772_w;
++            /* verilator lint_off WIDTH */
++            color_s1_x_q <= x_start_w + (idx_q % 8);
++            color_s1_ycoord_q <= y_start_w + (idx_q / 8);
++            /* verilator lint_on WIDTH */
++        end
++    end
+ end
+ 
+-assign outport_valid_o   = valid_q;
++//-----------------------------------------------------------------
++// Outputs
++//-----------------------------------------------------------------
++assign outport_valid_o   = color_s2_valid_q;
+ assign outport_pixel_x_o = pixel_x_q;
+ assign outport_pixel_y_o = pixel_y_q;
+ assign outport_width_o   = img_width_i;
+@@ -341,7 +341,7 @@ else if (img_start_i)
+ else if (id_valid_w && id_value_w[31:30] == BLOCK_EOF)
+     idle_q <= 1'b1;
+ 
+-assign idle_o = idle_q;
++assign idle_o = idle_q && !color_s1_valid_q && !color_s2_valid_q;
+ 
+ 
+ endmodule

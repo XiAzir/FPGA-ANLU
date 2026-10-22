@@ -1,0 +1,134 @@
+{
+  "status": "NOT_QUALIFIED",
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "work.tb_controller_gate",
+      "work.glbl",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\jpeg_unit\\memory_jump\\runs\\jpeg420_gate_20261021_175700\\console.log"
+  },
+  "checked_words": 8192,
+  "checked_written_addresses": 768,
+  "expected_words": 8192,
+  "mismatch_count": 432,
+  "first_mismatches": [
+    {
+      "read_index": 4,
+      "address": 4,
+      "got": "48a66026",
+      "expected": "7e3d1c2c"
+    },
+    {
+      "read_index": 5,
+      "address": 5,
+      "got": "49ab6731",
+      "expected": "7f3e2337"
+    },
+    {
+      "read_index": 8,
+      "address": 8,
+      "got": "4c927c52",
+      "expected": "48a66026"
+    },
+    {
+      "read_index": 9,
+      "address": 9,
+      "got": "4d97835d",
+      "expected": "49ab6731"
+    },
+    {
+      "read_index": 16,
+      "address": 16,
+      "got": "8eeda866",
+      "expected": "bc60646c"
+    },
+    {
+      "read_index": 17,
+      "address": 17,
+      "got": "8feeaf71",
+      "expected": "bd656b77"
+    },
+    {
+      "read_index": 20,
+      "address": 20,
+      "got": "82d9c492",
+      "expected": "8eeda866"
+    },
+    {
+      "read_index": 21,
+      "address": 21,
+      "got": "83dacb9d",
+      "expected": "8feeaf71"
+    },
+    {
+      "read_index": 28,
+      "address": 28,
+      "got": "cd10f0a6",
+      "expected": "f2a7acac"
+    },
+    {
+      "read_index": 29,
+      "address": 29,
+      "got": "c215f7b1",
+      "expected": "f3a8b3b7"
+    },
+    {
+      "read_index": 32,
+      "address": 32,
+      "got": "c11f0cd2",
+      "expected": "cd10f0a6"
+    },
+    {
+      "read_index": 33,
+      "address": 33,
+      "got": "c60013dd",
+      "expected": "c215f7b1"
+    },
+    {
+      "read_index": 40,
+      "address": 40,
+      "got": "035638e6",
+      "expected": "30eaf4ec"
+    },
+    {
+      "read_index": 41,
+      "address": 41,
+      "got": "005b3ff1",
+      "expected": "31effbf7"
+    },
+    {
+      "read_index": 44,
+      "address": 44,
+      "got": "07425512",
+      "expected": "035638e6"
+    },
+    {
+      "read_index": 45,
+      "address": 45,
+      "got": "04475c1d",
+      "expected": "005b3ff1"
+    }
+  ],
+  "controller_gate_sha256_after": "89F949EBA178DED57A4CF5BC65BC0743BE6ECAA235CA895718EDCC4BA4A9C443",
+  "limitations": [
+    "APUG011 pin-level reference model is not a SiP electrical timing guarantee",
+    "No SDF or routed full-top timing simulation"
+  ]
+}

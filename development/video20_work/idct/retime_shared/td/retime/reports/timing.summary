@@ -1,0 +1,1731 @@
+Created by          : Tang Dynasty v6.2.178840
+                    : Copyright (c) 2012-2025 Anlogic Inc.
+Generated           : Wed Oct 21 21:52:03 2026
+
+Top Model           : idct_y_area_top
+Device              : EG4S20BG256
+Speed               : NA
+STA coverage        : 85.14%
+Constraint File     : E:/VSCODE-project/FPGA-ANLU/development/video20_work/idct/retime_shared/td/retime/idct_y_area.sdc;
+Confidence          : Synthesized
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min     
+------------------------------------
+Slow     | yes      yes     
+Fast     | yes      yes     
+
+
+Timing Status
+--------------------
+	SWNS: 9.641ns, STNS: 0.000ns
+	HWNS: 0.571ns, HTNS: 0.000ns
+	Period Check WNS: 0.000ns
+
+
+Clock Summary
+--------------------
+
+       Clock-Id:       C-Freq       Fanout   Clock-Name
+--------------------------------------------------------------------------------
+           clk0:       50.000          830   clk_i
+--------------------------------------------------------------------------------
+
+       Name            Type         Rise(ns)   Fall(ns)          C-Period(ns)     C-Freq(MHz)          R-Period(ns)     R-Freq(MHz)         SWNS(ns)   STNS(ns)         HWNS(ns)   HTNS(ns)         Skew(ns)           Fanout        Max-Level        CC-From    CC-To
+       clk0           local            0.000     10.000                20.000          50.000                10.359          96.534            9.641      0.000            0.571      0.000            0.000              830                9             no       no
+
+Notes
+----------
+C-Period  :  constraint period
+C-Freq    :  constraint freq
+R-Period  :  report min period
+R-Freq    :  report fmax
+CC-From   :  has path(s) from cross-domain clock
+CC-To     :  has path(s) to cross-domain clock
+
+
+*   Clock R-Period data only takes intra-clock timing. SWNS/STNS/HWNS/HTNS take both intra-clock and inter-clock timing.
+*   If there is mismatch between R-Period and SWNS, check inter-clock timing of this clock as capture clock.
+*   SWNS/STNS/HWNS/HTNS of timing exception (SMCP/SMD) only counted in global Timing Status, not counted in Clock Summary.
+
+Intra clock domain timing
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     clk_i -> clk_i
+Type           :     Self
+From Clock     :     clk_i
+To Clock       :     clk_i
+Min Period     :     10.359ns
+Fmax           :     96.534MHz
+
+Statistics:
+Max            : SWNS      9.641ns, STNS      0.000ns,         0 Viol Endpoints,      1346 Total Endpoints,   3059809 Paths Analyzed
+Min            : HWNS      0.571ns, HTNS      0.000ns,         0 Viol Endpoints,      1346 Total Endpoints,   3059809 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 9.641ns
+Begin Point         : u_y/o_t5_6_reg[0].clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/o_s5_reg[30].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_i rising@20.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 10.243ns (cell 6.257ns (61%), net 3.986ns (39%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=8  LUT5=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_t5_6_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_y/o_t5_6_reg[0].q
+net (fo=10)                             0.869          1.015          net: u_y/scale181_1_w[0],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add0_syn_856.a[1]
+ADDER                                   0.627    f     1.642       1  pin: u_y/add0_syn_856.fco
+net (fo=1)                              0.000          1.642          net: u_y/add0_syn_372,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_859.fci
+ADDER                                   0.073    f     1.715          pin: u_y/add0_syn_859.fco
+net (fo=1)                              0.000          1.715          net: u_y/add0_syn_374,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_862.fci
+ADDER                                   0.073    f     1.788          pin: u_y/add0_syn_862.fco
+net (fo=1)                              0.000          1.788          net: u_y/add0_syn_376,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_865.fci
+ADDER                                   0.073    f     1.861          pin: u_y/add0_syn_865.fco
+net (fo=1)                              0.000          1.861          net: u_y/add0_syn_378,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_868.fci
+ADDER                                   0.073    f     1.934          pin: u_y/add0_syn_868.fco
+net (fo=1)                              0.000          1.934          net: u_y/add0_syn_380,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_871.fci
+ADDER                                   0.073    f     2.007          pin: u_y/add0_syn_871.fco
+net (fo=1)                              0.000          2.007          net: u_y/add0_syn_382,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_874.fci
+ADDER                                   0.073    f     2.080          pin: u_y/add0_syn_874.fco
+net (fo=1)                              0.000          2.080          net: u_y/add0_syn_384,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_877.fci
+ADDER                                   0.073    f     2.153          pin: u_y/add0_syn_877.fco
+net (fo=1)                              0.000          2.153          net: u_y/add0_syn_386,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_880.fci
+ADDER                                   0.073    f     2.226          pin: u_y/add0_syn_880.fco
+net (fo=1)                              0.000          2.226          net: u_y/add0_syn_388,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_883.fci
+ADDER                                   0.073    f     2.299          pin: u_y/add0_syn_883.fco
+net (fo=1)                              0.000          2.299          net: u_y/add0_syn_390,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_886.fci
+ADDER                                   0.355    f     2.654       2  pin: u_y/add0_syn_886.f[1]
+net (fo=1)                              0.562          3.216          net: u_y/add0_syn_29[20],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_931.b[0]
+ADDER                                   0.627    f     3.843       3  pin: u_y/add0_syn_931.fco
+net (fo=1)                              0.000          3.843          net: u_y/add0_syn_542,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_934.fci
+ADDER                                   0.355    f     4.198       4  pin: u_y/add0_syn_934.f[1]
+net (fo=1)                              0.562          4.760          net: u_y/add0_syn_57[24],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_981.b[1]
+ADDER                                   0.539    f     5.299       5  pin: u_y/add0_syn_981.fco
+net (fo=1)                              0.000          5.299          net: u_y/add0_syn_697,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_984.fci
+ADDER                                   0.073    f     5.372          pin: u_y/add0_syn_984.fco
+net (fo=1)                              0.000          5.372          net: u_y/add0_syn_699,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_986.fci
+ADDER                                   0.144    f     5.516       6  pin: u_y/add0_syn_986.f[0]
+net (fo=10)                             0.869          6.385          net: u_y/scale181_0_w[31],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/mux7_syn_878.a
+LUT5                                    0.424    f     6.809       7  pin: u_y/mux7_syn_878.o
+net (fo=1)                              0.562          7.371          net: u_y/mux7_syn_605,  ../src_v/jpeg_idct_y.v(263)
+                                                                      pin: u_y/sub2_syn_169.a[0]
+ADDER                                   0.947    r     8.318       8  pin: u_y/sub2_syn_169.fco
+net (fo=1)                              0.000          8.318          net: u_y/sub2_syn_138,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_170.fci
+ADDER                                   0.132    f     8.450          pin: u_y/sub2_syn_170.fco
+net (fo=1)                              0.000          8.450          net: u_y/sub2_syn_142,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_171.fci
+ADDER                                   0.132    f     8.582          pin: u_y/sub2_syn_171.fco
+net (fo=1)                              0.000          8.582          net: u_y/sub2_syn_146,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_172.fci
+ADDER                                   0.132    f     8.714          pin: u_y/sub2_syn_172.fco
+net (fo=1)                              0.000          8.714          net: u_y/sub2_syn_150,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_173.fci
+ADDER                                   0.132    f     8.846          pin: u_y/sub2_syn_173.fco
+net (fo=1)                              0.000          8.846          net: u_y/sub2_syn_154,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_174.fci
+ADDER                                   0.132    f     8.978          pin: u_y/sub2_syn_174.fco
+net (fo=1)                              0.000          8.978          net: u_y/sub2_syn_158,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_175.fci
+ADDER                                   0.132    f     9.110          pin: u_y/sub2_syn_175.fco
+net (fo=1)                              0.000          9.110          net: u_y/sub2_syn_162,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_176.fci
+ADDER                                   0.453    f     9.563       9  pin: u_y/sub2_syn_176.fx[1]
+net (fo=1)                              0.562         10.125          net: u_y/o_s5_b1[30],  NOFILE(0)
+                                                                      pin: u_y/o_s5_reg[30].d
+SEQ (reg)                               0.118    f    10.243          net: u_y/o_s5[30],  ../src_v/jpeg_idct_y.v(228)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.243               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_s5_reg[30].clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.641               
+
+Slack               : 9.707ns
+Begin Point         : u_y/o_t5_6_reg[0].clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/o_s5_reg[28].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_i rising@20.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 10.177ns (cell 6.191ns (60%), net 3.986ns (40%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=8  LUT5=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_t5_6_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_y/o_t5_6_reg[0].q
+net (fo=10)                             0.869          1.015          net: u_y/scale181_1_w[0],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add0_syn_856.a[1]
+ADDER                                   0.627    f     1.642       1  pin: u_y/add0_syn_856.fco
+net (fo=1)                              0.000          1.642          net: u_y/add0_syn_372,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_859.fci
+ADDER                                   0.073    f     1.715          pin: u_y/add0_syn_859.fco
+net (fo=1)                              0.000          1.715          net: u_y/add0_syn_374,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_862.fci
+ADDER                                   0.073    f     1.788          pin: u_y/add0_syn_862.fco
+net (fo=1)                              0.000          1.788          net: u_y/add0_syn_376,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_865.fci
+ADDER                                   0.073    f     1.861          pin: u_y/add0_syn_865.fco
+net (fo=1)                              0.000          1.861          net: u_y/add0_syn_378,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_868.fci
+ADDER                                   0.073    f     1.934          pin: u_y/add0_syn_868.fco
+net (fo=1)                              0.000          1.934          net: u_y/add0_syn_380,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_871.fci
+ADDER                                   0.073    f     2.007          pin: u_y/add0_syn_871.fco
+net (fo=1)                              0.000          2.007          net: u_y/add0_syn_382,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_874.fci
+ADDER                                   0.073    f     2.080          pin: u_y/add0_syn_874.fco
+net (fo=1)                              0.000          2.080          net: u_y/add0_syn_384,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_877.fci
+ADDER                                   0.073    f     2.153          pin: u_y/add0_syn_877.fco
+net (fo=1)                              0.000          2.153          net: u_y/add0_syn_386,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_880.fci
+ADDER                                   0.073    f     2.226          pin: u_y/add0_syn_880.fco
+net (fo=1)                              0.000          2.226          net: u_y/add0_syn_388,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_883.fci
+ADDER                                   0.073    f     2.299          pin: u_y/add0_syn_883.fco
+net (fo=1)                              0.000          2.299          net: u_y/add0_syn_390,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_886.fci
+ADDER                                   0.355    f     2.654       2  pin: u_y/add0_syn_886.f[1]
+net (fo=1)                              0.562          3.216          net: u_y/add0_syn_29[20],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_931.b[0]
+ADDER                                   0.627    f     3.843       3  pin: u_y/add0_syn_931.fco
+net (fo=1)                              0.000          3.843          net: u_y/add0_syn_542,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_934.fci
+ADDER                                   0.355    f     4.198       4  pin: u_y/add0_syn_934.f[1]
+net (fo=1)                              0.562          4.760          net: u_y/add0_syn_57[24],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_981.b[1]
+ADDER                                   0.539    f     5.299       5  pin: u_y/add0_syn_981.fco
+net (fo=1)                              0.000          5.299          net: u_y/add0_syn_697,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_984.fci
+ADDER                                   0.073    f     5.372          pin: u_y/add0_syn_984.fco
+net (fo=1)                              0.000          5.372          net: u_y/add0_syn_699,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_986.fci
+ADDER                                   0.144    f     5.516       6  pin: u_y/add0_syn_986.f[0]
+net (fo=10)                             0.869          6.385          net: u_y/scale181_0_w[31],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/mux7_syn_878.a
+LUT5                                    0.424    f     6.809       7  pin: u_y/mux7_syn_878.o
+net (fo=1)                              0.562          7.371          net: u_y/mux7_syn_605,  ../src_v/jpeg_idct_y.v(263)
+                                                                      pin: u_y/sub2_syn_169.a[0]
+ADDER                                   0.947    r     8.318       8  pin: u_y/sub2_syn_169.fco
+net (fo=1)                              0.000          8.318          net: u_y/sub2_syn_138,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_170.fci
+ADDER                                   0.132    f     8.450          pin: u_y/sub2_syn_170.fco
+net (fo=1)                              0.000          8.450          net: u_y/sub2_syn_142,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_171.fci
+ADDER                                   0.132    f     8.582          pin: u_y/sub2_syn_171.fco
+net (fo=1)                              0.000          8.582          net: u_y/sub2_syn_146,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_172.fci
+ADDER                                   0.132    f     8.714          pin: u_y/sub2_syn_172.fco
+net (fo=1)                              0.000          8.714          net: u_y/sub2_syn_150,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_173.fci
+ADDER                                   0.132    f     8.846          pin: u_y/sub2_syn_173.fco
+net (fo=1)                              0.000          8.846          net: u_y/sub2_syn_154,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_174.fci
+ADDER                                   0.132    f     8.978          pin: u_y/sub2_syn_174.fco
+net (fo=1)                              0.000          8.978          net: u_y/sub2_syn_158,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_175.fci
+ADDER                                   0.132    f     9.110          pin: u_y/sub2_syn_175.fco
+net (fo=1)                              0.000          9.110          net: u_y/sub2_syn_162,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_176.fci
+ADDER                                   0.387    f     9.497       9  pin: u_y/sub2_syn_176.fx[0]
+net (fo=1)                              0.562         10.059          net: u_y/o_s5_b1[28],  NOFILE(0)
+                                                                      pin: u_y/o_s5_reg[28].d
+SEQ (reg)                               0.118    f    10.177          net: u_y/o_s5[28],  ../src_v/jpeg_idct_y.v(228)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.177               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_s5_reg[28].clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.707               
+
+Slack               : 9.752ns
+Begin Point         : u_y/o_t5_6_reg[0].clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/o_s6_reg[30].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_i rising@20.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 10.132ns (cell 6.146ns (60%), net 3.986ns (40%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=8  LUT5=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_t5_6_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_y/o_t5_6_reg[0].q
+net (fo=10)                             0.869          1.015          net: u_y/scale181_1_w[0],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_856.a[1]
+ADDER                                   0.627    f     1.642       1  pin: u_y/add4_syn_856.fco
+net (fo=1)                              0.000          1.642          net: u_y/add4_syn_372,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_859.fci
+ADDER                                   0.073    f     1.715          pin: u_y/add4_syn_859.fco
+net (fo=1)                              0.000          1.715          net: u_y/add4_syn_374,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_862.fci
+ADDER                                   0.073    f     1.788          pin: u_y/add4_syn_862.fco
+net (fo=1)                              0.000          1.788          net: u_y/add4_syn_376,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_865.fci
+ADDER                                   0.073    f     1.861          pin: u_y/add4_syn_865.fco
+net (fo=1)                              0.000          1.861          net: u_y/add4_syn_378,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_868.fci
+ADDER                                   0.073    f     1.934          pin: u_y/add4_syn_868.fco
+net (fo=1)                              0.000          1.934          net: u_y/add4_syn_380,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_871.fci
+ADDER                                   0.073    f     2.007          pin: u_y/add4_syn_871.fco
+net (fo=1)                              0.000          2.007          net: u_y/add4_syn_382,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_874.fci
+ADDER                                   0.073    f     2.080          pin: u_y/add4_syn_874.fco
+net (fo=1)                              0.000          2.080          net: u_y/add4_syn_384,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_877.fci
+ADDER                                   0.073    f     2.153          pin: u_y/add4_syn_877.fco
+net (fo=1)                              0.000          2.153          net: u_y/add4_syn_386,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_880.fci
+ADDER                                   0.073    f     2.226          pin: u_y/add4_syn_880.fco
+net (fo=1)                              0.000          2.226          net: u_y/add4_syn_388,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_883.fci
+ADDER                                   0.073    f     2.299          pin: u_y/add4_syn_883.fco
+net (fo=1)                              0.000          2.299          net: u_y/add4_syn_390,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_886.fci
+ADDER                                   0.073    f     2.372          pin: u_y/add4_syn_886.fco
+net (fo=1)                              0.000          2.372          net: u_y/add4_syn_392,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_889.fci
+ADDER                                   0.355    f     2.727       2  pin: u_y/add4_syn_889.f[1]
+net (fo=1)                              0.562          3.289          net: u_y/add4_syn_29[22],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_934.b[0]
+ADDER                                   0.627    f     3.916       3  pin: u_y/add4_syn_934.fco
+net (fo=1)                              0.000          3.916          net: u_y/add4_syn_544,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_937.fci
+ADDER                                   0.355    f     4.271       4  pin: u_y/add4_syn_937.f[1]
+net (fo=1)                              0.562          4.833          net: u_y/add4_syn_57[26],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_984.b[1]
+ADDER                                   0.539    f     5.372       5  pin: u_y/add4_syn_984.fco
+net (fo=1)                              0.000          5.372          net: u_y/add4_syn_699,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_986.fci
+ADDER                                   0.144    f     5.516       6  pin: u_y/add4_syn_986.f[0]
+net (fo=10)                             0.869          6.385          net: u_y/scale181_1_w[31],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/mux8_syn_800.b
+LUT5                                    0.424    f     6.809       7  pin: u_y/mux8_syn_800.o
+net (fo=1)                              0.562          7.371          net: u_y/mux8_syn_531,  ../src_v/jpeg_idct_y.v(263)
+                                                                      pin: u_y/add17_syn_166.b[0]
+ADDER                                   0.836    f     8.207       8  pin: u_y/add17_syn_166.fco
+net (fo=1)                              0.000          8.207          net: u_y/add17_syn_136,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_167.fci
+ADDER                                   0.132    f     8.339          pin: u_y/add17_syn_167.fco
+net (fo=1)                              0.000          8.339          net: u_y/add17_syn_140,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_168.fci
+ADDER                                   0.132    f     8.471          pin: u_y/add17_syn_168.fco
+net (fo=1)                              0.000          8.471          net: u_y/add17_syn_144,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_169.fci
+ADDER                                   0.132    f     8.603          pin: u_y/add17_syn_169.fco
+net (fo=1)                              0.000          8.603          net: u_y/add17_syn_148,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_170.fci
+ADDER                                   0.132    f     8.735          pin: u_y/add17_syn_170.fco
+net (fo=1)                              0.000          8.735          net: u_y/add17_syn_152,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_171.fci
+ADDER                                   0.132    f     8.867          pin: u_y/add17_syn_171.fco
+net (fo=1)                              0.000          8.867          net: u_y/add17_syn_156,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_172.fci
+ADDER                                   0.132    f     8.999          pin: u_y/add17_syn_172.fco
+net (fo=1)                              0.000          8.999          net: u_y/add17_syn_160,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_173.fci
+ADDER                                   0.453    f     9.452       9  pin: u_y/add17_syn_173.fx[1]
+net (fo=1)                              0.562         10.014          net: u_y/o_s6_b1[30],  NOFILE(0)
+                                                                      pin: u_y/o_s6_reg[30].d
+SEQ (reg)                               0.118    f    10.132          net: u_y/o_s6[30],  ../src_v/jpeg_idct_y.v(229)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.132               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_s6_reg[30].clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.752               
+
+Slack               : 9.764ns
+Begin Point         : u_y/o_t5_6_reg[0].clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/o_s5_reg[31].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_i rising@20.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 10.120ns (cell 6.134ns (60%), net 3.986ns (40%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=8  LUT5=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_t5_6_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_y/o_t5_6_reg[0].q
+net (fo=10)                             0.869          1.015          net: u_y/scale181_1_w[0],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add0_syn_856.a[1]
+ADDER                                   0.627    f     1.642       1  pin: u_y/add0_syn_856.fco
+net (fo=1)                              0.000          1.642          net: u_y/add0_syn_372,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_859.fci
+ADDER                                   0.073    f     1.715          pin: u_y/add0_syn_859.fco
+net (fo=1)                              0.000          1.715          net: u_y/add0_syn_374,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_862.fci
+ADDER                                   0.073    f     1.788          pin: u_y/add0_syn_862.fco
+net (fo=1)                              0.000          1.788          net: u_y/add0_syn_376,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_865.fci
+ADDER                                   0.073    f     1.861          pin: u_y/add0_syn_865.fco
+net (fo=1)                              0.000          1.861          net: u_y/add0_syn_378,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_868.fci
+ADDER                                   0.073    f     1.934          pin: u_y/add0_syn_868.fco
+net (fo=1)                              0.000          1.934          net: u_y/add0_syn_380,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_871.fci
+ADDER                                   0.073    f     2.007          pin: u_y/add0_syn_871.fco
+net (fo=1)                              0.000          2.007          net: u_y/add0_syn_382,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_874.fci
+ADDER                                   0.073    f     2.080          pin: u_y/add0_syn_874.fco
+net (fo=1)                              0.000          2.080          net: u_y/add0_syn_384,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_877.fci
+ADDER                                   0.073    f     2.153          pin: u_y/add0_syn_877.fco
+net (fo=1)                              0.000          2.153          net: u_y/add0_syn_386,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_880.fci
+ADDER                                   0.073    f     2.226          pin: u_y/add0_syn_880.fco
+net (fo=1)                              0.000          2.226          net: u_y/add0_syn_388,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_883.fci
+ADDER                                   0.073    f     2.299          pin: u_y/add0_syn_883.fco
+net (fo=1)                              0.000          2.299          net: u_y/add0_syn_390,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_886.fci
+ADDER                                   0.355    f     2.654       2  pin: u_y/add0_syn_886.f[1]
+net (fo=1)                              0.562          3.216          net: u_y/add0_syn_29[20],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_931.b[0]
+ADDER                                   0.627    f     3.843       3  pin: u_y/add0_syn_931.fco
+net (fo=1)                              0.000          3.843          net: u_y/add0_syn_542,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_934.fci
+ADDER                                   0.355    f     4.198       4  pin: u_y/add0_syn_934.f[1]
+net (fo=1)                              0.562          4.760          net: u_y/add0_syn_57[24],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_981.b[1]
+ADDER                                   0.539    f     5.299       5  pin: u_y/add0_syn_981.fco
+net (fo=1)                              0.000          5.299          net: u_y/add0_syn_697,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_984.fci
+ADDER                                   0.073    f     5.372          pin: u_y/add0_syn_984.fco
+net (fo=1)                              0.000          5.372          net: u_y/add0_syn_699,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_986.fci
+ADDER                                   0.144    f     5.516       6  pin: u_y/add0_syn_986.f[0]
+net (fo=10)                             0.869          6.385          net: u_y/scale181_0_w[31],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/mux7_syn_878.a
+LUT5                                    0.424    f     6.809       7  pin: u_y/mux7_syn_878.o
+net (fo=1)                              0.562          7.371          net: u_y/mux7_syn_605,  ../src_v/jpeg_idct_y.v(263)
+                                                                      pin: u_y/sub2_syn_169.a[0]
+ADDER                                   0.947    r     8.318       8  pin: u_y/sub2_syn_169.fco
+net (fo=1)                              0.000          8.318          net: u_y/sub2_syn_138,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_170.fci
+ADDER                                   0.132    f     8.450          pin: u_y/sub2_syn_170.fco
+net (fo=1)                              0.000          8.450          net: u_y/sub2_syn_142,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_171.fci
+ADDER                                   0.132    f     8.582          pin: u_y/sub2_syn_171.fco
+net (fo=1)                              0.000          8.582          net: u_y/sub2_syn_146,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_172.fci
+ADDER                                   0.132    f     8.714          pin: u_y/sub2_syn_172.fco
+net (fo=1)                              0.000          8.714          net: u_y/sub2_syn_150,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_173.fci
+ADDER                                   0.132    f     8.846          pin: u_y/sub2_syn_173.fco
+net (fo=1)                              0.000          8.846          net: u_y/sub2_syn_154,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_174.fci
+ADDER                                   0.132    f     8.978          pin: u_y/sub2_syn_174.fco
+net (fo=1)                              0.000          8.978          net: u_y/sub2_syn_158,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_175.fci
+ADDER                                   0.132    f     9.110          pin: u_y/sub2_syn_175.fco
+net (fo=1)                              0.000          9.110          net: u_y/sub2_syn_162,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_176.fci
+ADDER                                   0.132    f     9.242          pin: u_y/sub2_syn_176.fco
+net (fo=1)                              0.000          9.242          net: u_y/sub2_syn_166,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_177.fci
+ADDER                                   0.198    r     9.440       9  pin: u_y/sub2_syn_177.f[0]
+net (fo=1)                              0.562         10.002          net: u_y/o_s5_b1[31],  NOFILE(0)
+                                                                      pin: u_y/o_s5_reg[31].d
+SEQ (reg)                               0.118    f    10.120          net: u_y/o_s5[31],  ../src_v/jpeg_idct_y.v(228)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.120               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_s5_reg[31].clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.764               
+
+Slack               : 9.773ns
+Begin Point         : u_y/o_t5_6_reg[0].clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/o_s5_reg[26].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_i rising@20.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 10.111ns (cell 6.125ns (60%), net 3.986ns (40%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=8  LUT5=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_t5_6_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_y/o_t5_6_reg[0].q
+net (fo=10)                             0.869          1.015          net: u_y/scale181_1_w[0],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add0_syn_856.a[1]
+ADDER                                   0.627    f     1.642       1  pin: u_y/add0_syn_856.fco
+net (fo=1)                              0.000          1.642          net: u_y/add0_syn_372,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_859.fci
+ADDER                                   0.073    f     1.715          pin: u_y/add0_syn_859.fco
+net (fo=1)                              0.000          1.715          net: u_y/add0_syn_374,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_862.fci
+ADDER                                   0.073    f     1.788          pin: u_y/add0_syn_862.fco
+net (fo=1)                              0.000          1.788          net: u_y/add0_syn_376,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_865.fci
+ADDER                                   0.073    f     1.861          pin: u_y/add0_syn_865.fco
+net (fo=1)                              0.000          1.861          net: u_y/add0_syn_378,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_868.fci
+ADDER                                   0.073    f     1.934          pin: u_y/add0_syn_868.fco
+net (fo=1)                              0.000          1.934          net: u_y/add0_syn_380,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_871.fci
+ADDER                                   0.073    f     2.007          pin: u_y/add0_syn_871.fco
+net (fo=1)                              0.000          2.007          net: u_y/add0_syn_382,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_874.fci
+ADDER                                   0.073    f     2.080          pin: u_y/add0_syn_874.fco
+net (fo=1)                              0.000          2.080          net: u_y/add0_syn_384,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_877.fci
+ADDER                                   0.073    f     2.153          pin: u_y/add0_syn_877.fco
+net (fo=1)                              0.000          2.153          net: u_y/add0_syn_386,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_880.fci
+ADDER                                   0.073    f     2.226          pin: u_y/add0_syn_880.fco
+net (fo=1)                              0.000          2.226          net: u_y/add0_syn_388,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_883.fci
+ADDER                                   0.073    f     2.299          pin: u_y/add0_syn_883.fco
+net (fo=1)                              0.000          2.299          net: u_y/add0_syn_390,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_886.fci
+ADDER                                   0.355    f     2.654       2  pin: u_y/add0_syn_886.f[1]
+net (fo=1)                              0.562          3.216          net: u_y/add0_syn_29[20],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_931.b[0]
+ADDER                                   0.627    f     3.843       3  pin: u_y/add0_syn_931.fco
+net (fo=1)                              0.000          3.843          net: u_y/add0_syn_542,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_934.fci
+ADDER                                   0.355    f     4.198       4  pin: u_y/add0_syn_934.f[1]
+net (fo=1)                              0.562          4.760          net: u_y/add0_syn_57[24],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_981.b[1]
+ADDER                                   0.539    f     5.299       5  pin: u_y/add0_syn_981.fco
+net (fo=1)                              0.000          5.299          net: u_y/add0_syn_697,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_984.fci
+ADDER                                   0.073    f     5.372          pin: u_y/add0_syn_984.fco
+net (fo=1)                              0.000          5.372          net: u_y/add0_syn_699,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_986.fci
+ADDER                                   0.144    f     5.516       6  pin: u_y/add0_syn_986.f[0]
+net (fo=10)                             0.869          6.385          net: u_y/scale181_0_w[31],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/mux7_syn_878.a
+LUT5                                    0.424    f     6.809       7  pin: u_y/mux7_syn_878.o
+net (fo=1)                              0.562          7.371          net: u_y/mux7_syn_605,  ../src_v/jpeg_idct_y.v(263)
+                                                                      pin: u_y/sub2_syn_169.a[0]
+ADDER                                   0.947    r     8.318       8  pin: u_y/sub2_syn_169.fco
+net (fo=1)                              0.000          8.318          net: u_y/sub2_syn_138,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_170.fci
+ADDER                                   0.132    f     8.450          pin: u_y/sub2_syn_170.fco
+net (fo=1)                              0.000          8.450          net: u_y/sub2_syn_142,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_171.fci
+ADDER                                   0.132    f     8.582          pin: u_y/sub2_syn_171.fco
+net (fo=1)                              0.000          8.582          net: u_y/sub2_syn_146,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_172.fci
+ADDER                                   0.132    f     8.714          pin: u_y/sub2_syn_172.fco
+net (fo=1)                              0.000          8.714          net: u_y/sub2_syn_150,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_173.fci
+ADDER                                   0.132    f     8.846          pin: u_y/sub2_syn_173.fco
+net (fo=1)                              0.000          8.846          net: u_y/sub2_syn_154,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_174.fci
+ADDER                                   0.132    f     8.978          pin: u_y/sub2_syn_174.fco
+net (fo=1)                              0.000          8.978          net: u_y/sub2_syn_158,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_175.fci
+ADDER                                   0.453    f     9.431       9  pin: u_y/sub2_syn_175.fx[1]
+net (fo=1)                              0.562          9.993          net: u_y/o_s5_b1[26],  NOFILE(0)
+                                                                      pin: u_y/o_s5_reg[26].d
+SEQ (reg)                               0.118    f    10.111          net: u_y/o_s5[26],  ../src_v/jpeg_idct_y.v(228)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.111               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_s5_reg[26].clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.773               
+
+Slack               : 9.818ns
+Begin Point         : u_y/o_t5_6_reg[0].clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/o_s6_reg[28].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_i rising@20.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 10.066ns (cell 6.080ns (60%), net 3.986ns (40%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=8  LUT5=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_t5_6_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_y/o_t5_6_reg[0].q
+net (fo=10)                             0.869          1.015          net: u_y/scale181_1_w[0],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_856.a[1]
+ADDER                                   0.627    f     1.642       1  pin: u_y/add4_syn_856.fco
+net (fo=1)                              0.000          1.642          net: u_y/add4_syn_372,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_859.fci
+ADDER                                   0.073    f     1.715          pin: u_y/add4_syn_859.fco
+net (fo=1)                              0.000          1.715          net: u_y/add4_syn_374,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_862.fci
+ADDER                                   0.073    f     1.788          pin: u_y/add4_syn_862.fco
+net (fo=1)                              0.000          1.788          net: u_y/add4_syn_376,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_865.fci
+ADDER                                   0.073    f     1.861          pin: u_y/add4_syn_865.fco
+net (fo=1)                              0.000          1.861          net: u_y/add4_syn_378,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_868.fci
+ADDER                                   0.073    f     1.934          pin: u_y/add4_syn_868.fco
+net (fo=1)                              0.000          1.934          net: u_y/add4_syn_380,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_871.fci
+ADDER                                   0.073    f     2.007          pin: u_y/add4_syn_871.fco
+net (fo=1)                              0.000          2.007          net: u_y/add4_syn_382,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_874.fci
+ADDER                                   0.073    f     2.080          pin: u_y/add4_syn_874.fco
+net (fo=1)                              0.000          2.080          net: u_y/add4_syn_384,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_877.fci
+ADDER                                   0.073    f     2.153          pin: u_y/add4_syn_877.fco
+net (fo=1)                              0.000          2.153          net: u_y/add4_syn_386,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_880.fci
+ADDER                                   0.073    f     2.226          pin: u_y/add4_syn_880.fco
+net (fo=1)                              0.000          2.226          net: u_y/add4_syn_388,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_883.fci
+ADDER                                   0.073    f     2.299          pin: u_y/add4_syn_883.fco
+net (fo=1)                              0.000          2.299          net: u_y/add4_syn_390,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_886.fci
+ADDER                                   0.073    f     2.372          pin: u_y/add4_syn_886.fco
+net (fo=1)                              0.000          2.372          net: u_y/add4_syn_392,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_889.fci
+ADDER                                   0.355    f     2.727       2  pin: u_y/add4_syn_889.f[1]
+net (fo=1)                              0.562          3.289          net: u_y/add4_syn_29[22],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_934.b[0]
+ADDER                                   0.627    f     3.916       3  pin: u_y/add4_syn_934.fco
+net (fo=1)                              0.000          3.916          net: u_y/add4_syn_544,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_937.fci
+ADDER                                   0.355    f     4.271       4  pin: u_y/add4_syn_937.f[1]
+net (fo=1)                              0.562          4.833          net: u_y/add4_syn_57[26],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_984.b[1]
+ADDER                                   0.539    f     5.372       5  pin: u_y/add4_syn_984.fco
+net (fo=1)                              0.000          5.372          net: u_y/add4_syn_699,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_986.fci
+ADDER                                   0.144    f     5.516       6  pin: u_y/add4_syn_986.f[0]
+net (fo=10)                             0.869          6.385          net: u_y/scale181_1_w[31],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/mux8_syn_800.b
+LUT5                                    0.424    f     6.809       7  pin: u_y/mux8_syn_800.o
+net (fo=1)                              0.562          7.371          net: u_y/mux8_syn_531,  ../src_v/jpeg_idct_y.v(263)
+                                                                      pin: u_y/add17_syn_166.b[0]
+ADDER                                   0.836    f     8.207       8  pin: u_y/add17_syn_166.fco
+net (fo=1)                              0.000          8.207          net: u_y/add17_syn_136,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_167.fci
+ADDER                                   0.132    f     8.339          pin: u_y/add17_syn_167.fco
+net (fo=1)                              0.000          8.339          net: u_y/add17_syn_140,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_168.fci
+ADDER                                   0.132    f     8.471          pin: u_y/add17_syn_168.fco
+net (fo=1)                              0.000          8.471          net: u_y/add17_syn_144,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_169.fci
+ADDER                                   0.132    f     8.603          pin: u_y/add17_syn_169.fco
+net (fo=1)                              0.000          8.603          net: u_y/add17_syn_148,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_170.fci
+ADDER                                   0.132    f     8.735          pin: u_y/add17_syn_170.fco
+net (fo=1)                              0.000          8.735          net: u_y/add17_syn_152,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_171.fci
+ADDER                                   0.132    f     8.867          pin: u_y/add17_syn_171.fco
+net (fo=1)                              0.000          8.867          net: u_y/add17_syn_156,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_172.fci
+ADDER                                   0.132    f     8.999          pin: u_y/add17_syn_172.fco
+net (fo=1)                              0.000          8.999          net: u_y/add17_syn_160,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_173.fci
+ADDER                                   0.387    f     9.386       9  pin: u_y/add17_syn_173.fx[0]
+net (fo=1)                              0.562          9.948          net: u_y/o_s6_b1[28],  NOFILE(0)
+                                                                      pin: u_y/o_s6_reg[28].d
+SEQ (reg)                               0.118    f    10.066          net: u_y/o_s6[28],  ../src_v/jpeg_idct_y.v(229)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.066               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_s6_reg[28].clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.818               
+
+Slack               : 9.830ns
+Begin Point         : u_y/o_t5_6_reg[0].clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/o_s5_reg[29].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_i rising@20.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 10.054ns (cell 6.068ns (60%), net 3.986ns (40%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=8  LUT5=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_t5_6_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_y/o_t5_6_reg[0].q
+net (fo=10)                             0.869          1.015          net: u_y/scale181_1_w[0],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add0_syn_856.a[1]
+ADDER                                   0.627    f     1.642       1  pin: u_y/add0_syn_856.fco
+net (fo=1)                              0.000          1.642          net: u_y/add0_syn_372,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_859.fci
+ADDER                                   0.073    f     1.715          pin: u_y/add0_syn_859.fco
+net (fo=1)                              0.000          1.715          net: u_y/add0_syn_374,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_862.fci
+ADDER                                   0.073    f     1.788          pin: u_y/add0_syn_862.fco
+net (fo=1)                              0.000          1.788          net: u_y/add0_syn_376,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_865.fci
+ADDER                                   0.073    f     1.861          pin: u_y/add0_syn_865.fco
+net (fo=1)                              0.000          1.861          net: u_y/add0_syn_378,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_868.fci
+ADDER                                   0.073    f     1.934          pin: u_y/add0_syn_868.fco
+net (fo=1)                              0.000          1.934          net: u_y/add0_syn_380,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_871.fci
+ADDER                                   0.073    f     2.007          pin: u_y/add0_syn_871.fco
+net (fo=1)                              0.000          2.007          net: u_y/add0_syn_382,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_874.fci
+ADDER                                   0.073    f     2.080          pin: u_y/add0_syn_874.fco
+net (fo=1)                              0.000          2.080          net: u_y/add0_syn_384,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_877.fci
+ADDER                                   0.073    f     2.153          pin: u_y/add0_syn_877.fco
+net (fo=1)                              0.000          2.153          net: u_y/add0_syn_386,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_880.fci
+ADDER                                   0.073    f     2.226          pin: u_y/add0_syn_880.fco
+net (fo=1)                              0.000          2.226          net: u_y/add0_syn_388,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_883.fci
+ADDER                                   0.073    f     2.299          pin: u_y/add0_syn_883.fco
+net (fo=1)                              0.000          2.299          net: u_y/add0_syn_390,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_886.fci
+ADDER                                   0.355    f     2.654       2  pin: u_y/add0_syn_886.f[1]
+net (fo=1)                              0.562          3.216          net: u_y/add0_syn_29[20],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_931.b[0]
+ADDER                                   0.627    f     3.843       3  pin: u_y/add0_syn_931.fco
+net (fo=1)                              0.000          3.843          net: u_y/add0_syn_542,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_934.fci
+ADDER                                   0.355    f     4.198       4  pin: u_y/add0_syn_934.f[1]
+net (fo=1)                              0.562          4.760          net: u_y/add0_syn_57[24],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_981.b[1]
+ADDER                                   0.539    f     5.299       5  pin: u_y/add0_syn_981.fco
+net (fo=1)                              0.000          5.299          net: u_y/add0_syn_697,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_984.fci
+ADDER                                   0.073    f     5.372          pin: u_y/add0_syn_984.fco
+net (fo=1)                              0.000          5.372          net: u_y/add0_syn_699,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_986.fci
+ADDER                                   0.144    f     5.516       6  pin: u_y/add0_syn_986.f[0]
+net (fo=10)                             0.869          6.385          net: u_y/scale181_0_w[31],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/mux7_syn_878.a
+LUT5                                    0.424    f     6.809       7  pin: u_y/mux7_syn_878.o
+net (fo=1)                              0.562          7.371          net: u_y/mux7_syn_605,  ../src_v/jpeg_idct_y.v(263)
+                                                                      pin: u_y/sub2_syn_169.a[0]
+ADDER                                   0.947    r     8.318       8  pin: u_y/sub2_syn_169.fco
+net (fo=1)                              0.000          8.318          net: u_y/sub2_syn_138,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_170.fci
+ADDER                                   0.132    f     8.450          pin: u_y/sub2_syn_170.fco
+net (fo=1)                              0.000          8.450          net: u_y/sub2_syn_142,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_171.fci
+ADDER                                   0.132    f     8.582          pin: u_y/sub2_syn_171.fco
+net (fo=1)                              0.000          8.582          net: u_y/sub2_syn_146,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_172.fci
+ADDER                                   0.132    f     8.714          pin: u_y/sub2_syn_172.fco
+net (fo=1)                              0.000          8.714          net: u_y/sub2_syn_150,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_173.fci
+ADDER                                   0.132    f     8.846          pin: u_y/sub2_syn_173.fco
+net (fo=1)                              0.000          8.846          net: u_y/sub2_syn_154,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_174.fci
+ADDER                                   0.132    f     8.978          pin: u_y/sub2_syn_174.fco
+net (fo=1)                              0.000          8.978          net: u_y/sub2_syn_158,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_175.fci
+ADDER                                   0.132    f     9.110          pin: u_y/sub2_syn_175.fco
+net (fo=1)                              0.000          9.110          net: u_y/sub2_syn_162,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_176.fci
+ADDER                                   0.264    r     9.374       9  pin: u_y/sub2_syn_176.f[1]
+net (fo=1)                              0.562          9.936          net: u_y/o_s5_b1[29],  NOFILE(0)
+                                                                      pin: u_y/o_s5_reg[29].d
+SEQ (reg)                               0.118    f    10.054          net: u_y/o_s5[29],  ../src_v/jpeg_idct_y.v(228)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.054               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_s5_reg[29].clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.830               
+
+Slack               : 9.839ns
+Begin Point         : u_y/o_t5_6_reg[0].clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/o_s5_reg[24].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_i rising@20.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 10.045ns (cell 6.059ns (60%), net 3.986ns (40%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=8  LUT5=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_t5_6_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_y/o_t5_6_reg[0].q
+net (fo=10)                             0.869          1.015          net: u_y/scale181_1_w[0],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add0_syn_856.a[1]
+ADDER                                   0.627    f     1.642       1  pin: u_y/add0_syn_856.fco
+net (fo=1)                              0.000          1.642          net: u_y/add0_syn_372,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_859.fci
+ADDER                                   0.073    f     1.715          pin: u_y/add0_syn_859.fco
+net (fo=1)                              0.000          1.715          net: u_y/add0_syn_374,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_862.fci
+ADDER                                   0.073    f     1.788          pin: u_y/add0_syn_862.fco
+net (fo=1)                              0.000          1.788          net: u_y/add0_syn_376,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_865.fci
+ADDER                                   0.073    f     1.861          pin: u_y/add0_syn_865.fco
+net (fo=1)                              0.000          1.861          net: u_y/add0_syn_378,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_868.fci
+ADDER                                   0.073    f     1.934          pin: u_y/add0_syn_868.fco
+net (fo=1)                              0.000          1.934          net: u_y/add0_syn_380,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_871.fci
+ADDER                                   0.073    f     2.007          pin: u_y/add0_syn_871.fco
+net (fo=1)                              0.000          2.007          net: u_y/add0_syn_382,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_874.fci
+ADDER                                   0.073    f     2.080          pin: u_y/add0_syn_874.fco
+net (fo=1)                              0.000          2.080          net: u_y/add0_syn_384,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_877.fci
+ADDER                                   0.073    f     2.153          pin: u_y/add0_syn_877.fco
+net (fo=1)                              0.000          2.153          net: u_y/add0_syn_386,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_880.fci
+ADDER                                   0.073    f     2.226          pin: u_y/add0_syn_880.fco
+net (fo=1)                              0.000          2.226          net: u_y/add0_syn_388,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_883.fci
+ADDER                                   0.073    f     2.299          pin: u_y/add0_syn_883.fco
+net (fo=1)                              0.000          2.299          net: u_y/add0_syn_390,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_886.fci
+ADDER                                   0.355    f     2.654       2  pin: u_y/add0_syn_886.f[1]
+net (fo=1)                              0.562          3.216          net: u_y/add0_syn_29[20],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_931.b[0]
+ADDER                                   0.627    f     3.843       3  pin: u_y/add0_syn_931.fco
+net (fo=1)                              0.000          3.843          net: u_y/add0_syn_542,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_934.fci
+ADDER                                   0.355    f     4.198       4  pin: u_y/add0_syn_934.f[1]
+net (fo=1)                              0.562          4.760          net: u_y/add0_syn_57[24],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_981.b[1]
+ADDER                                   0.539    f     5.299       5  pin: u_y/add0_syn_981.fco
+net (fo=1)                              0.000          5.299          net: u_y/add0_syn_697,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_984.fci
+ADDER                                   0.073    f     5.372          pin: u_y/add0_syn_984.fco
+net (fo=1)                              0.000          5.372          net: u_y/add0_syn_699,  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/add0_syn_986.fci
+ADDER                                   0.144    f     5.516       6  pin: u_y/add0_syn_986.f[0]
+net (fo=10)                             0.869          6.385          net: u_y/scale181_0_w[31],  ../src_v/jpeg_idct_y.v(241)
+                                                                      pin: u_y/mux7_syn_878.a
+LUT5                                    0.424    f     6.809       7  pin: u_y/mux7_syn_878.o
+net (fo=1)                              0.562          7.371          net: u_y/mux7_syn_605,  ../src_v/jpeg_idct_y.v(263)
+                                                                      pin: u_y/sub2_syn_169.a[0]
+ADDER                                   0.947    r     8.318       8  pin: u_y/sub2_syn_169.fco
+net (fo=1)                              0.000          8.318          net: u_y/sub2_syn_138,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_170.fci
+ADDER                                   0.132    f     8.450          pin: u_y/sub2_syn_170.fco
+net (fo=1)                              0.000          8.450          net: u_y/sub2_syn_142,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_171.fci
+ADDER                                   0.132    f     8.582          pin: u_y/sub2_syn_171.fco
+net (fo=1)                              0.000          8.582          net: u_y/sub2_syn_146,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_172.fci
+ADDER                                   0.132    f     8.714          pin: u_y/sub2_syn_172.fco
+net (fo=1)                              0.000          8.714          net: u_y/sub2_syn_150,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_173.fci
+ADDER                                   0.132    f     8.846          pin: u_y/sub2_syn_173.fco
+net (fo=1)                              0.000          8.846          net: u_y/sub2_syn_154,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_174.fci
+ADDER                                   0.132    f     8.978          pin: u_y/sub2_syn_174.fco
+net (fo=1)                              0.000          8.978          net: u_y/sub2_syn_158,  ../src_v/jpeg_idct_y.v(282)
+                                                                      pin: u_y/sub2_syn_175.fci
+ADDER                                   0.387    f     9.365       9  pin: u_y/sub2_syn_175.fx[0]
+net (fo=1)                              0.562          9.927          net: u_y/o_s5_b1[24],  NOFILE(0)
+                                                                      pin: u_y/o_s5_reg[24].d
+SEQ (reg)                               0.118    f    10.045          net: u_y/o_s5[24],  ../src_v/jpeg_idct_y.v(228)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.045               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_s5_reg[24].clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.839               
+
+Slack               : 9.875ns
+Begin Point         : u_y/o_t5_6_reg[0].clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/o_s6_reg[31].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_i rising@20.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 10.009ns (cell 6.023ns (60%), net 3.986ns (40%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=8  LUT5=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_t5_6_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_y/o_t5_6_reg[0].q
+net (fo=10)                             0.869          1.015          net: u_y/scale181_1_w[0],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_856.a[1]
+ADDER                                   0.627    f     1.642       1  pin: u_y/add4_syn_856.fco
+net (fo=1)                              0.000          1.642          net: u_y/add4_syn_372,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_859.fci
+ADDER                                   0.073    f     1.715          pin: u_y/add4_syn_859.fco
+net (fo=1)                              0.000          1.715          net: u_y/add4_syn_374,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_862.fci
+ADDER                                   0.073    f     1.788          pin: u_y/add4_syn_862.fco
+net (fo=1)                              0.000          1.788          net: u_y/add4_syn_376,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_865.fci
+ADDER                                   0.073    f     1.861          pin: u_y/add4_syn_865.fco
+net (fo=1)                              0.000          1.861          net: u_y/add4_syn_378,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_868.fci
+ADDER                                   0.073    f     1.934          pin: u_y/add4_syn_868.fco
+net (fo=1)                              0.000          1.934          net: u_y/add4_syn_380,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_871.fci
+ADDER                                   0.073    f     2.007          pin: u_y/add4_syn_871.fco
+net (fo=1)                              0.000          2.007          net: u_y/add4_syn_382,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_874.fci
+ADDER                                   0.073    f     2.080          pin: u_y/add4_syn_874.fco
+net (fo=1)                              0.000          2.080          net: u_y/add4_syn_384,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_877.fci
+ADDER                                   0.073    f     2.153          pin: u_y/add4_syn_877.fco
+net (fo=1)                              0.000          2.153          net: u_y/add4_syn_386,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_880.fci
+ADDER                                   0.073    f     2.226          pin: u_y/add4_syn_880.fco
+net (fo=1)                              0.000          2.226          net: u_y/add4_syn_388,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_883.fci
+ADDER                                   0.073    f     2.299          pin: u_y/add4_syn_883.fco
+net (fo=1)                              0.000          2.299          net: u_y/add4_syn_390,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_886.fci
+ADDER                                   0.073    f     2.372          pin: u_y/add4_syn_886.fco
+net (fo=1)                              0.000          2.372          net: u_y/add4_syn_392,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_889.fci
+ADDER                                   0.355    f     2.727       2  pin: u_y/add4_syn_889.f[1]
+net (fo=1)                              0.562          3.289          net: u_y/add4_syn_29[22],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_934.b[0]
+ADDER                                   0.627    f     3.916       3  pin: u_y/add4_syn_934.fco
+net (fo=1)                              0.000          3.916          net: u_y/add4_syn_544,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_937.fci
+ADDER                                   0.355    f     4.271       4  pin: u_y/add4_syn_937.f[1]
+net (fo=1)                              0.562          4.833          net: u_y/add4_syn_57[26],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_984.b[1]
+ADDER                                   0.539    f     5.372       5  pin: u_y/add4_syn_984.fco
+net (fo=1)                              0.000          5.372          net: u_y/add4_syn_699,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_986.fci
+ADDER                                   0.144    f     5.516       6  pin: u_y/add4_syn_986.f[0]
+net (fo=10)                             0.869          6.385          net: u_y/scale181_1_w[31],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/mux8_syn_800.b
+LUT5                                    0.424    f     6.809       7  pin: u_y/mux8_syn_800.o
+net (fo=1)                              0.562          7.371          net: u_y/mux8_syn_531,  ../src_v/jpeg_idct_y.v(263)
+                                                                      pin: u_y/add17_syn_166.b[0]
+ADDER                                   0.836    f     8.207       8  pin: u_y/add17_syn_166.fco
+net (fo=1)                              0.000          8.207          net: u_y/add17_syn_136,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_167.fci
+ADDER                                   0.132    f     8.339          pin: u_y/add17_syn_167.fco
+net (fo=1)                              0.000          8.339          net: u_y/add17_syn_140,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_168.fci
+ADDER                                   0.132    f     8.471          pin: u_y/add17_syn_168.fco
+net (fo=1)                              0.000          8.471          net: u_y/add17_syn_144,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_169.fci
+ADDER                                   0.132    f     8.603          pin: u_y/add17_syn_169.fco
+net (fo=1)                              0.000          8.603          net: u_y/add17_syn_148,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_170.fci
+ADDER                                   0.132    f     8.735          pin: u_y/add17_syn_170.fco
+net (fo=1)                              0.000          8.735          net: u_y/add17_syn_152,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_171.fci
+ADDER                                   0.132    f     8.867          pin: u_y/add17_syn_171.fco
+net (fo=1)                              0.000          8.867          net: u_y/add17_syn_156,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_172.fci
+ADDER                                   0.132    f     8.999          pin: u_y/add17_syn_172.fco
+net (fo=1)                              0.000          8.999          net: u_y/add17_syn_160,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_173.fci
+ADDER                                   0.132    f     9.131          pin: u_y/add17_syn_173.fco
+net (fo=1)                              0.000          9.131          net: u_y/add17_syn_164,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_174.fci
+ADDER                                   0.198    r     9.329       9  pin: u_y/add17_syn_174.f[0]
+net (fo=1)                              0.562          9.891          net: u_y/o_s6_b1[31],  NOFILE(0)
+                                                                      pin: u_y/o_s6_reg[31].d
+SEQ (reg)                               0.118    f    10.009          net: u_y/o_s6[31],  ../src_v/jpeg_idct_y.v(229)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.009               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_s6_reg[31].clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.875               
+
+Slack               : 9.884ns
+Begin Point         : u_y/o_t5_6_reg[0].clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/o_s6_reg[26].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_i rising@20.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 10.000ns (cell 6.014ns (60%), net 3.986ns (40%))
+Clock Skew          : 0.000ns
+Logic Level         : 9 ( ADDER=8  LUT5=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_t5_6_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: u_y/o_t5_6_reg[0].q
+net (fo=10)                             0.869          1.015          net: u_y/scale181_1_w[0],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_856.a[1]
+ADDER                                   0.627    f     1.642       1  pin: u_y/add4_syn_856.fco
+net (fo=1)                              0.000          1.642          net: u_y/add4_syn_372,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_859.fci
+ADDER                                   0.073    f     1.715          pin: u_y/add4_syn_859.fco
+net (fo=1)                              0.000          1.715          net: u_y/add4_syn_374,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_862.fci
+ADDER                                   0.073    f     1.788          pin: u_y/add4_syn_862.fco
+net (fo=1)                              0.000          1.788          net: u_y/add4_syn_376,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_865.fci
+ADDER                                   0.073    f     1.861          pin: u_y/add4_syn_865.fco
+net (fo=1)                              0.000          1.861          net: u_y/add4_syn_378,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_868.fci
+ADDER                                   0.073    f     1.934          pin: u_y/add4_syn_868.fco
+net (fo=1)                              0.000          1.934          net: u_y/add4_syn_380,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_871.fci
+ADDER                                   0.073    f     2.007          pin: u_y/add4_syn_871.fco
+net (fo=1)                              0.000          2.007          net: u_y/add4_syn_382,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_874.fci
+ADDER                                   0.073    f     2.080          pin: u_y/add4_syn_874.fco
+net (fo=1)                              0.000          2.080          net: u_y/add4_syn_384,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_877.fci
+ADDER                                   0.073    f     2.153          pin: u_y/add4_syn_877.fco
+net (fo=1)                              0.000          2.153          net: u_y/add4_syn_386,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_880.fci
+ADDER                                   0.073    f     2.226          pin: u_y/add4_syn_880.fco
+net (fo=1)                              0.000          2.226          net: u_y/add4_syn_388,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_883.fci
+ADDER                                   0.073    f     2.299          pin: u_y/add4_syn_883.fco
+net (fo=1)                              0.000          2.299          net: u_y/add4_syn_390,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_886.fci
+ADDER                                   0.073    f     2.372          pin: u_y/add4_syn_886.fco
+net (fo=1)                              0.000          2.372          net: u_y/add4_syn_392,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_889.fci
+ADDER                                   0.355    f     2.727       2  pin: u_y/add4_syn_889.f[1]
+net (fo=1)                              0.562          3.289          net: u_y/add4_syn_29[22],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_934.b[0]
+ADDER                                   0.627    f     3.916       3  pin: u_y/add4_syn_934.fco
+net (fo=1)                              0.000          3.916          net: u_y/add4_syn_544,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_937.fci
+ADDER                                   0.355    f     4.271       4  pin: u_y/add4_syn_937.f[1]
+net (fo=1)                              0.562          4.833          net: u_y/add4_syn_57[26],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_984.b[1]
+ADDER                                   0.539    f     5.372       5  pin: u_y/add4_syn_984.fco
+net (fo=1)                              0.000          5.372          net: u_y/add4_syn_699,  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/add4_syn_986.fci
+ADDER                                   0.144    f     5.516       6  pin: u_y/add4_syn_986.f[0]
+net (fo=10)                             0.869          6.385          net: u_y/scale181_1_w[31],  ../src_v/jpeg_idct_y.v(242)
+                                                                      pin: u_y/mux8_syn_800.b
+LUT5                                    0.424    f     6.809       7  pin: u_y/mux8_syn_800.o
+net (fo=1)                              0.562          7.371          net: u_y/mux8_syn_531,  ../src_v/jpeg_idct_y.v(263)
+                                                                      pin: u_y/add17_syn_166.b[0]
+ADDER                                   0.836    f     8.207       8  pin: u_y/add17_syn_166.fco
+net (fo=1)                              0.000          8.207          net: u_y/add17_syn_136,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_167.fci
+ADDER                                   0.132    f     8.339          pin: u_y/add17_syn_167.fco
+net (fo=1)                              0.000          8.339          net: u_y/add17_syn_140,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_168.fci
+ADDER                                   0.132    f     8.471          pin: u_y/add17_syn_168.fco
+net (fo=1)                              0.000          8.471          net: u_y/add17_syn_144,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_169.fci
+ADDER                                   0.132    f     8.603          pin: u_y/add17_syn_169.fco
+net (fo=1)                              0.000          8.603          net: u_y/add17_syn_148,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_170.fci
+ADDER                                   0.132    f     8.735          pin: u_y/add17_syn_170.fco
+net (fo=1)                              0.000          8.735          net: u_y/add17_syn_152,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_171.fci
+ADDER                                   0.132    f     8.867          pin: u_y/add17_syn_171.fco
+net (fo=1)                              0.000          8.867          net: u_y/add17_syn_156,  ../src_v/jpeg_idct_y.v(306)
+                                                                      pin: u_y/add17_syn_172.fci
+ADDER                                   0.453    f     9.320       9  pin: u_y/add17_syn_172.fx[1]
+net (fo=1)                              0.562          9.882          net: u_y/o_s6_b1[26],  NOFILE(0)
+                                                                      pin: u_y/o_s6_reg[26].d
+SEQ (reg)                               0.118    f    10.000          net: u_y/o_s6[26],  ../src_v/jpeg_idct_y.v(229)
+--------------------------------------------------------------------  ---------------
+Arrival                                               10.000               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/o_s6_reg[26].clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                  9.884               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 0.571ns
+Begin Point         : u_y/i0_reg[18]_syn_4.clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/mult3_syn_81.b[17] (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk_i rising@0.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 0.671ns (cell 0.109ns (16%), net 0.562ns (84%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( MULT18=1 )
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/i0_reg[18]_syn_4.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+ADDER (clk2q)                           0.109    f     0.109          pin: u_y/i0_reg[18]_syn_4.q[0]
+net (fo=1)                              0.562          0.671          net: u_y/i0[17],  ../src_v/jpeg_idct_y.v(81)
+                                                                      pin: u_y/mult3_syn_81.b[17]
+MULT18 (reg)                            0.000    f     0.671       1       
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.671               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/mult3_syn_81.clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.100          0.100               
+clock uncertainty                       0.000          0.100               
+clock pessimism                         0.000          0.100               
+--------------------------------------------------------------------  ---------------
+Required                                               0.100               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.571               
+
+Slack               : 0.571ns
+Begin Point         : u_y/i0_reg[26]_syn_4.clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/mult3_syn_82.b[8] (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk_i rising@0.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 0.671ns (cell 0.109ns (16%), net 0.562ns (84%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( MULT18=1 )
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/i0_reg[26]_syn_4.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+ADDER (clk2q)                           0.109    f     0.109          pin: u_y/i0_reg[26]_syn_4.q[1]
+net (fo=1)                              0.562          0.671          net: u_y/i0[26],  ../src_v/jpeg_idct_y.v(81)
+                                                                      pin: u_y/mult3_syn_82.b[8]
+MULT18 (reg)                            0.000    f     0.671       1       
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.671               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/mult3_syn_82.clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.100          0.100               
+clock uncertainty                       0.000          0.100               
+clock pessimism                         0.000          0.100               
+--------------------------------------------------------------------  ---------------
+Required                                               0.100               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.571               
+
+Slack               : 0.694ns
+Begin Point         : u_y/out_stg1_valid_q_reg.clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/out_stg3_valid_q_reg.d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk_i rising@0.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/out_stg1_valid_q_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: u_y/out_stg1_valid_q_reg.q
+net (fo=1)                              0.562          0.671          net: u_y/out_stg1_valid_q,  ../src_v/jpeg_idct_y.v(213)
+                                                                      pin: u_y/out_stg3_valid_q_reg.d
+SEQ (reg)                               0.084    r     0.755          net: u_y/out_stg3_valid_q,  ../src_v/jpeg_idct_y.v(311)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/out_stg3_valid_q_reg.clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_y/block_out_tmp_reg[1]_syn_4.clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/block_out_reg[0].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk_i rising@0.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_tmp_reg[1]_syn_4.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+ADDER (clk2q)                           0.109    f     0.109          pin: u_y/block_out_tmp_reg[1]_syn_4.q[0]
+net (fo=1)                              0.562          0.671          net: u_y/block_out_tmp[0],  ../src_v/jpeg_idct_y.v(327)
+                                                                      pin: u_y/block_out_reg[0].d
+SEQ (reg)                               0.084    r     0.755          net: u_y/block_out[7][0],  ../src_v/jpeg_idct_y.v(326)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_reg[0].clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_y/block_out_tmp_reg[1]_syn_4.clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/block_out_reg[1].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk_i rising@0.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_tmp_reg[1]_syn_4.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+ADDER (clk2q)                           0.109    f     0.109          pin: u_y/block_out_tmp_reg[1]_syn_4.q[1]
+net (fo=1)                              0.562          0.671          net: u_y/block_out_tmp[1],  ../src_v/jpeg_idct_y.v(327)
+                                                                      pin: u_y/block_out_reg[1].d
+SEQ (reg)                               0.084    r     0.755          net: u_y/block_out[7][1],  ../src_v/jpeg_idct_y.v(326)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_reg[1].clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_y/block_out_tmp_reg[3]_syn_4.clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/block_out_reg[2].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk_i rising@0.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_tmp_reg[3]_syn_4.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+ADDER (clk2q)                           0.109    f     0.109          pin: u_y/block_out_tmp_reg[3]_syn_4.q[0]
+net (fo=1)                              0.562          0.671          net: u_y/block_out_tmp[2],  ../src_v/jpeg_idct_y.v(327)
+                                                                      pin: u_y/block_out_reg[2].d
+SEQ (reg)                               0.084    r     0.755          net: u_y/block_out[7][2],  ../src_v/jpeg_idct_y.v(326)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_reg[2].clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_y/block_out_tmp_reg[3]_syn_4.clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/block_out_reg[3].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk_i rising@0.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_tmp_reg[3]_syn_4.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+ADDER (clk2q)                           0.109    f     0.109          pin: u_y/block_out_tmp_reg[3]_syn_4.q[1]
+net (fo=1)                              0.562          0.671          net: u_y/block_out_tmp[3],  ../src_v/jpeg_idct_y.v(327)
+                                                                      pin: u_y/block_out_reg[3].d
+SEQ (reg)                               0.084    r     0.755          net: u_y/block_out[7][3],  ../src_v/jpeg_idct_y.v(326)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_reg[3].clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_y/block_out_tmp_reg[5]_syn_4.clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/block_out_reg[4].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk_i rising@0.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_tmp_reg[5]_syn_4.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+ADDER (clk2q)                           0.109    f     0.109          pin: u_y/block_out_tmp_reg[5]_syn_4.q[0]
+net (fo=1)                              0.562          0.671          net: u_y/block_out_tmp[4],  ../src_v/jpeg_idct_y.v(327)
+                                                                      pin: u_y/block_out_reg[4].d
+SEQ (reg)                               0.084    r     0.755          net: u_y/block_out[7][4],  ../src_v/jpeg_idct_y.v(326)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_reg[4].clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_y/block_out_tmp_reg[5]_syn_4.clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/block_out_reg[5].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk_i rising@0.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_tmp_reg[5]_syn_4.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+ADDER (clk2q)                           0.109    f     0.109          pin: u_y/block_out_tmp_reg[5]_syn_4.q[1]
+net (fo=1)                              0.562          0.671          net: u_y/block_out_tmp[5],  ../src_v/jpeg_idct_y.v(327)
+                                                                      pin: u_y/block_out_reg[5].d
+SEQ (reg)                               0.084    r     0.755          net: u_y/block_out[7][5],  ../src_v/jpeg_idct_y.v(326)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_reg[5].clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+Slack               : 0.694ns
+Begin Point         : u_y/block_out_tmp_reg[7]_syn_4.clk (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : u_y/block_out_reg[6].d (rising edge triggered by clock clk_i  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk_i rising@0.000ns - clk_i rising@0.000ns }
+Data Path Delay     : 0.755ns (cell 0.193ns (25%), net 0.562ns (75%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_tmp_reg[7]_syn_4.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+ADDER (clk2q)                           0.109    f     0.109          pin: u_y/block_out_tmp_reg[7]_syn_4.q[0]
+net (fo=1)                              0.562          0.671          net: u_y/block_out_tmp[6],  ../src_v/jpeg_idct_y.v(327)
+                                                                      pin: u_y/block_out_reg[6].d
+SEQ (reg)                               0.084    r     0.755          net: u_y/block_out[7][6],  ../src_v/jpeg_idct_y.v(326)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.755               
+
+source latency                          0.000          0.000               
+port                                    0.000          0.000          pin: clk_i
+hierarchy                               0.000          0.000          pin: clk_i_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_i_syn_2.di
+net (fo=830)                            0.000          0.000          net: clk_i_dup_1,  ../src_v/idct_y_area_top.v(2)
+                                                                      pin: u_y/block_out_reg[6].clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.694               
+
+
+Inter clock domain timing
+--------------------------------------------------
+
+IP timing
+--------------------------------------------------

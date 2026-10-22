@@ -1,0 +1,255 @@
+{
+  "schema": "c11320-routed-clock-static-audit-v1",
+  "status": "PASS",
+  "generated": "2026-10-21T22:10:47+08:00",
+  "run_ids": {
+    "synthesis": "3ad0291b-3f04-444e-b43c-ccbe8caf6f55",
+    "physical": "1a4b9f3a-541b-4b4a-969b-8bb74b578b99",
+    "hold": "3a5afb62-ab26-4bd9-9bc1-83a4e41c8ff4"
+  },
+  "hashes": {
+    "synthesis_record": "891e8ed565c647bf2de077456c7d217cac21b26a09ef5990dbfa659b744902f9",
+    "physical_record": "c8eb2df7faf98b8a69d0a91069a17603c375115769e2cb70d634683dd1745ea3",
+    "hold_record": "a61e2d60ec450be45d005df95f8cd55cf0415c53ab6258535e8887c291962133",
+    "route_db": "73b4ffa8e61a9ea61a162573025214080ec392657799ac24dcd34019cbc3c7c5",
+    "timing_report": "247d404d6a69b27a6ae194912a533fdc47972e870bc7ef3d3ac8ea9d0789bc0e",
+    "source_scope": "99342fd072b4559d6245806d36036fb9ae3d0b0a9d3c089a59153812e9fc40c9",
+    "netlist": "d03f45350bb285fc3288957497afbe3cc35bc4f14d2ee148731320e69996bcc7",
+    "sdc": "977abcdb8b6c4df93cbd8fe407d5dfa5ab2710ce45214d7713f583f91a732146",
+    "rom_proof": "279b309704c20e606642b6b912b3f99ba70404cfd218fb94f8f6bf51b54827af"
+  },
+  "db_and_timing_sha256": {
+    "route_db": "73b4ffa8e61a9ea61a162573025214080ec392657799ac24dcd34019cbc3c7c5",
+    "timing_report": "247d404d6a69b27a6ae194912a533fdc47972e870bc7ef3d3ac8ea9d0789bc0e",
+    "routed_netlist": "d03f45350bb285fc3288957497afbe3cc35bc4f14d2ee148731320e69996bcc7"
+  },
+  "checks": [
+    {
+      "status": "PASS",
+      "label": "synthesis-record",
+      "detail": "selected C11320 synthesis record is successful"
+    },
+    {
+      "status": "PASS",
+      "label": "physical-link",
+      "detail": "selected physical route links to selected synthesis"
+    },
+    {
+      "status": "PASS",
+      "label": "hold-link",
+      "detail": "selected final hold-repaired route links to selected synthesis"
+    },
+    {
+      "status": "PASS",
+      "label": "receipt-run-ids",
+      "detail": "export receipt run IDs={'synthesis': '3ad0291b-3f04-444e-b43c-ccbe8caf6f55', 'physical': '1a4b9f3a-541b-4b4a-969b-8bb74b578b99', 'hold': '3a5afb62-ab26-4bd9-9bc1-83a4e41c8ff4'}"
+    },
+    {
+      "status": "PASS",
+      "label": "final-route-db",
+      "detail": "final PR DB SHA256=73b4ffa8e61a9ea61a162573025214080ec392657799ac24dcd34019cbc3c7c5"
+    },
+    {
+      "status": "PASS",
+      "label": "routed-timing",
+      "detail": "routed timing SHA256=247d404d6a69b27a6ae194912a533fdc47972e870bc7ef3d3ac8ea9d0789bc0e"
+    },
+    {
+      "status": "PASS",
+      "label": "netlist-export",
+      "detail": "exported routed netlist SHA256=d03f45350bb285fc3288957497afbe3cc35bc4f14d2ee148731320e69996bcc7"
+    },
+    {
+      "status": "PASS",
+      "label": "source-scope",
+      "detail": "common scopeHash=0c3bbcc4f678a6124407fa5cded2b0e09095f61e4b9091a5376f12d3bb39d560"
+    },
+    {
+      "status": "PASS",
+      "label": "rom-proof-binding",
+      "detail": "ROM truth proof PASS bound to this PR DB and timing report"
+    },
+    {
+      "status": "PASS",
+      "label": "pll-cells",
+      "detail": "found 2 routed PLLs; sys/video instances present"
+    },
+    {
+      "status": "PASS",
+      "label": "gclk-cells",
+      "detail": "found 3 routed EG_PHY_GCLK cells"
+    },
+    {
+      "status": "PASS",
+      "label": "sys-pll-gclk",
+      "detail": "sys CLKC[0] sys_pll_m0/clk0_buf buffered to JPEG/core clock"
+    },
+    {
+      "status": "PASS",
+      "label": "video-pll-gclk",
+      "detail": "video CLKC[0] video_pll_m0/clk0_buf buffered to pixel/control clock"
+    },
+    {
+      "status": "PASS",
+      "label": "hdmi-serial-gclk",
+      "detail": "video CLKC[1] hdmi_5x_clk_raw buffered to HDMI serializer clock"
+    },
+    {
+      "status": "PASS",
+      "label": "sdc-root-clock",
+      "detail": "50 MHz input clk is constrained at 20 ns"
+    },
+    {
+      "status": "PASS",
+      "label": "sdc-renamed-clocks",
+      "detail": "declared PLL clocks=['ext_mem_clk', 'ext_mem_clk_sft', 'hdmi_5x_clk', 'sd_card_clk', 'video_clk']"
+    },
+    {
+      "status": "PASS",
+      "label": "sta-clock-summary",
+      "detail": "routed timing contains exactly six declared clocks: ['clk', 'ext_mem_clk', 'ext_mem_clk_sft', 'hdmi_5x_clk', 'sd_card_clk', 'video_clk']"
+    },
+    {
+      "status": "PASS",
+      "label": "sdc-route:sd_card_clk",
+      "detail": "SDC pin=sys_pll_m0/pll_inst.clkc[0]; routed PLL output=sys_pll_m0/clk0_buf"
+    },
+    {
+      "status": "PASS",
+      "label": "sdc-route:ext_mem_clk",
+      "detail": "SDC pin=sys_pll_m0/pll_inst.clkc[1]; routed PLL output=u_frame_buffer/u_legacy_frame_backend/frame_fifo_read_m0/mem_clk"
+    },
+    {
+      "status": "PASS",
+      "label": "sdc-route:ext_mem_clk_sft",
+      "detail": "SDC pin=sys_pll_m0/pll_inst.clkc[2]; routed PLL output=u_frame_buffer/u_sdram/u2_ram/SDRAM_CLK"
+    },
+    {
+      "status": "PASS",
+      "label": "sdc-route:video_clk",
+      "detail": "SDC pin=video_pll_m0/pll_inst.clkc[0]; routed PLL output=video_pll_m0/clk0_buf"
+    },
+    {
+      "status": "PASS",
+      "label": "sdc-route:hdmi_5x_clk",
+      "detail": "SDC pin=video_pll_m0/pll_inst.clkc[1]; routed PLL output=hdmi_5x_clk_raw"
+    },
+    {
+      "status": "PASS",
+      "label": "clock-row:sd_card_clk",
+      "detail": "source=sys_pll_m0/pll_inst.clkc[0], STA frequency=50.0 MHz, true report fanout=3317"
+    },
+    {
+      "status": "PASS",
+      "label": "clock-row:ext_mem_clk",
+      "detail": "source=sys_pll_m0/pll_inst.clkc[1], STA frequency=50.0 MHz, true report fanout=581"
+    },
+    {
+      "status": "PASS",
+      "label": "clock-row:ext_mem_clk_sft",
+      "detail": "source=sys_pll_m0/pll_inst.clkc[2], STA frequency=50.0 MHz, true report fanout=1"
+    },
+    {
+      "status": "PASS",
+      "label": "clock-row:video_clk",
+      "detail": "source=video_pll_m0/pll_inst.clkc[0], STA frequency=25.0 MHz, true report fanout=1931"
+    },
+    {
+      "status": "PASS",
+      "label": "clock-row:hdmi_5x_clk",
+      "detail": "source=video_pll_m0/pll_inst.clkc[1], STA frequency=125.0 MHz, true report fanout=56"
+    },
+    {
+      "status": "PASS",
+      "label": "clock-row:clk",
+      "detail": "source=clk, STA frequency=50.0 MHz, true report fanout=5"
+    }
+  ],
+  "topology": {
+    "pll_count": 2,
+    "gclk_count": 3,
+    "pll_outputs": {
+      "sys_pll_m0": {
+        "clkc0": "sys_pll_m0/clk0_buf",
+        "clkc1": "u_frame_buffer/u_legacy_frame_backend/frame_fifo_read_m0/mem_clk",
+        "clkc2": "u_frame_buffer/u_sdram/u2_ram/SDRAM_CLK"
+      },
+      "video_pll_m0": {
+        "clkc0": "video_pll_m0/clk0_buf",
+        "clkc1": "hdmi_5x_clk_raw"
+      }
+    },
+    "global_clock_buffers": [
+      {
+        "instance": "sys_pll_m0/bufg_feedback",
+        "clki": "\\sys_pll_m0/clk0_buf",
+        "clko": "\\u_jpeg_core/u_jpeg_output/u_ram_y/u_ram/clk1_i"
+      },
+      {
+        "instance": "u_hdmi_serial_bufg",
+        "clki": "hdmi_5x_clk_raw",
+        "clko": "\\u_hdmi2phy_wrapper/u0_lane_lvds_8_1/I_serial_clk"
+      },
+      {
+        "instance": "video_pll_m0/bufg_feedback",
+        "clki": "\\video_pll_m0/clk0_buf",
+        "clko": "\\u_adjust_control/clk"
+      }
+    ],
+    "timing_report_clock_rows": {
+      "sd_card_clk": {
+        "clock_id": "clk0",
+        "frequency_mhz": 50.0,
+        "fanout": 3317,
+        "raw": "clk0:       50.000         3317   sd_card_clk"
+      },
+      "video_clk": {
+        "clock_id": "clk1",
+        "frequency_mhz": 25.0,
+        "fanout": 1931,
+        "raw": "clk1:       25.000         1931   video_clk"
+      },
+      "ext_mem_clk": {
+        "clock_id": "clk2",
+        "frequency_mhz": 50.0,
+        "fanout": 581,
+        "raw": "clk2:       50.000          581   ext_mem_clk"
+      },
+      "hdmi_5x_clk": {
+        "clock_id": "clk3",
+        "frequency_mhz": 125.0,
+        "fanout": 56,
+        "raw": "clk3:      125.000           56   hdmi_5x_clk"
+      },
+      "clk": {
+        "clock_id": "clk4",
+        "frequency_mhz": 50.0,
+        "fanout": 5,
+        "raw": "clk4:       50.000            5   clk"
+      },
+      "ext_mem_clk_sft": {
+        "clock_id": "clk5",
+        "frequency_mhz": 50.0,
+        "fanout": 1,
+        "raw": "clk5:       50.000            1   ext_mem_clk_sft"
+      }
+    },
+    "sdc_rename_clock_names": [
+      "ext_mem_clk",
+      "ext_mem_clk_sft",
+      "hdmi_5x_clk",
+      "sd_card_clk",
+      "video_clk"
+    ],
+    "sdc_rename_clock_sources": {
+      "sd_card_clk": "sys_pll_m0/pll_inst.clkc[0]",
+      "ext_mem_clk": "sys_pll_m0/pll_inst.clkc[1]",
+      "ext_mem_clk_sft": "sys_pll_m0/pll_inst.clkc[2]",
+      "video_clk": "video_pll_m0/pll_inst.clkc[0]",
+      "hdmi_5x_clk": "video_pll_m0/pll_inst.clkc[1]"
+    },
+    "constraints_note": "SDC exposes clk + five renamed PLL output clocks; reported fanout is taken directly from the final hold-routed STA Clock Summary."
+  },
+  "failures": [],
+  "limits": "Read-only static topology and report audit. Frequencies/fanouts are routed STA report fields; this does not establish board-level SPI delays or analog clock quality."
+}

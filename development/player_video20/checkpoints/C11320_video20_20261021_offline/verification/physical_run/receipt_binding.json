@@ -1,0 +1,2323 @@
+{
+  "status": "PASS",
+  "scope": "File identity, build-stage linkage, and recorded simulation compatibility only",
+  "stages": {
+    "synthesis": {
+      "record": {
+        "stage": "synthesis",
+        "status": "success",
+        "runId": "3ad0291b-3f04-444e-b43c-ccbe8caf6f55",
+        "synthesisRunId": null,
+        "scopeHash": "0c3bbcc4f678a6124407fa5cded2b0e09095f61e4b9091a5376f12d3bb39d560",
+        "scriptHash": "2ca2a1b1850f2cc1b259e4b442d137d03ffe15c7d43247cd4257315400a47be9",
+        "scripts": [
+          {
+            "path": "build_candidate.ps1",
+            "sha256": "23bc80ce6dca30e6e34857499f79e2a815463c9ed80877476205d26f9d52e882"
+          },
+          {
+            "path": "build_evidence.ps1",
+            "sha256": "c18c1e811e19721055c8c46e8648e8eb7fac6338013a39225e880ea3e3e99ada"
+          },
+          {
+            "path": "build_manual_phy.tcl",
+            "sha256": "6e54703a870bc61617e867cde9c574ea5b8a492c9c2cb8c0e23d306b15a93274"
+          },
+          {
+            "path": "build_manual_syn.tcl",
+            "sha256": "29d945ec18441703044b51210b3085cf76dfe061c5b9b9ccd771804a1cdf1b82"
+          },
+          {
+            "path": "fix_hold.tcl",
+            "sha256": "a2b71d760f2d28b3279abb2e582c9b0f20fbaaa446456f8ab09378aad56cf115"
+          },
+          {
+            "path": "generate_bit.tcl",
+            "sha256": "acfbcb1368771fedb528c2840c8814acc9e7daea31c6adaa661a3f2b0b71e4f3"
+          }
+        ],
+        "gateDbHash": "80f660baf89350a28c839f7c7faae040853a3551fc8a55a10f9027b7ba988e65",
+        "startedUtc": "2026-10-21T13:52:13.1448436Z",
+        "completedUtc": "2026-10-21T13:59:44.3205152Z"
+      },
+      "record_sha256": "891e8ed565c647bf2de077456c7d217cac21b26a09ef5990dbfa659b744902f9"
+    },
+    "physical": {
+      "record": {
+        "stage": "physical",
+        "status": "success",
+        "runId": "1a4b9f3a-541b-4b4a-969b-8bb74b578b99",
+        "synthesisRunId": "3ad0291b-3f04-444e-b43c-ccbe8caf6f55",
+        "scopeHash": "0c3bbcc4f678a6124407fa5cded2b0e09095f61e4b9091a5376f12d3bb39d560",
+        "scriptHash": "2ca2a1b1850f2cc1b259e4b442d137d03ffe15c7d43247cd4257315400a47be9",
+        "scripts": [
+          {
+            "path": "build_candidate.ps1",
+            "sha256": "23bc80ce6dca30e6e34857499f79e2a815463c9ed80877476205d26f9d52e882"
+          },
+          {
+            "path": "build_evidence.ps1",
+            "sha256": "c18c1e811e19721055c8c46e8648e8eb7fac6338013a39225e880ea3e3e99ada"
+          },
+          {
+            "path": "build_manual_phy.tcl",
+            "sha256": "6e54703a870bc61617e867cde9c574ea5b8a492c9c2cb8c0e23d306b15a93274"
+          },
+          {
+            "path": "build_manual_syn.tcl",
+            "sha256": "29d945ec18441703044b51210b3085cf76dfe061c5b9b9ccd771804a1cdf1b82"
+          },
+          {
+            "path": "fix_hold.tcl",
+            "sha256": "a2b71d760f2d28b3279abb2e582c9b0f20fbaaa446456f8ab09378aad56cf115"
+          },
+          {
+            "path": "generate_bit.tcl",
+            "sha256": "acfbcb1368771fedb528c2840c8814acc9e7daea31c6adaa661a3f2b0b71e4f3"
+          }
+        ],
+        "gateDbHash": "80f660baf89350a28c839f7c7faae040853a3551fc8a55a10f9027b7ba988e65",
+        "startedUtc": "2026-10-21T14:00:10.7417836Z",
+        "artifacts": {
+          "AC201_tf_hdmi_pr.db": "e5a715929c3463d9987e187e1fde7128cd1be11776488248ca3da63204831276",
+          "AC201_tf_hdmi_phy.ts": "8861d9aa9d897a97a350bc425a0df971c77d272f1b36131407976d1fec5435a5",
+          "AC201_tf_hdmi_pr.timing": "0088cde1b7df764e0998a001d135e2d472121e4aa96f71681ca2f66060edb2cf",
+          "AC201_tf_hdmi_chk.timing": "ff2857eb563144449b9b9870a078baaef4509fa0a15dbcdf70c6a0d3bb294b52",
+          "AC201_tf_hdmi_exception.timing": "c6786e7f4580e1b79be3e7a15893da78f3aa208a630ba859b6d53aa71a09769a",
+          "AC201_tf_hdmi_phy.area": "8514747c552f3c4a9886112a605e3a48bff991cef826b2bb33614f3788dedd33"
+        },
+        "completedUtc": "2026-10-21T14:03:40.6603611Z"
+      },
+      "record_sha256": "c8eb2df7faf98b8a69d0a91069a17603c375115769e2cb70d634683dd1745ea3"
+    },
+    "hold": {
+      "record": {
+        "stage": "hold",
+        "status": "success",
+        "runId": "3a5afb62-ab26-4bd9-9bc1-83a4e41c8ff4",
+        "synthesisRunId": "3ad0291b-3f04-444e-b43c-ccbe8caf6f55",
+        "scopeHash": "0c3bbcc4f678a6124407fa5cded2b0e09095f61e4b9091a5376f12d3bb39d560",
+        "scriptHash": "2ca2a1b1850f2cc1b259e4b442d137d03ffe15c7d43247cd4257315400a47be9",
+        "scripts": [
+          {
+            "path": "build_candidate.ps1",
+            "sha256": "23bc80ce6dca30e6e34857499f79e2a815463c9ed80877476205d26f9d52e882"
+          },
+          {
+            "path": "build_evidence.ps1",
+            "sha256": "c18c1e811e19721055c8c46e8648e8eb7fac6338013a39225e880ea3e3e99ada"
+          },
+          {
+            "path": "build_manual_phy.tcl",
+            "sha256": "6e54703a870bc61617e867cde9c574ea5b8a492c9c2cb8c0e23d306b15a93274"
+          },
+          {
+            "path": "build_manual_syn.tcl",
+            "sha256": "29d945ec18441703044b51210b3085cf76dfe061c5b9b9ccd771804a1cdf1b82"
+          },
+          {
+            "path": "fix_hold.tcl",
+            "sha256": "a2b71d760f2d28b3279abb2e582c9b0f20fbaaa446456f8ab09378aad56cf115"
+          },
+          {
+            "path": "generate_bit.tcl",
+            "sha256": "acfbcb1368771fedb528c2840c8814acc9e7daea31c6adaa661a3f2b0b71e4f3"
+          }
+        ],
+        "gateDbHash": "80f660baf89350a28c839f7c7faae040853a3551fc8a55a10f9027b7ba988e65",
+        "startedUtc": "2026-10-21T14:05:05.0265858Z",
+        "artifacts": {
+          "AC201_tf_hdmi_pr.db": "73b4ffa8e61a9ea61a162573025214080ec392657799ac24dcd34019cbc3c7c5",
+          "AC201_tf_hdmi_phy.ts": "e2cec0231c736d72ab817961bc41bead83cee2ac2cfecdaf8c70ae5edabb317f",
+          "AC201_tf_hdmi_pr.timing": "247d404d6a69b27a6ae194912a533fdc47972e870bc7ef3d3ac8ea9d0789bc0e",
+          "AC201_tf_hdmi_chk.timing": "ff2857eb563144449b9b9870a078baaef4509fa0a15dbcdf70c6a0d3bb294b52",
+          "AC201_tf_hdmi_exception.timing": "a87ae075314f24a55e5ae7b4581abb703129dcc57f3ceceb5a18d9bfffb9ee3b",
+          "AC201_tf_hdmi_phy.area": "8514747c552f3c4a9886112a605e3a48bff991cef826b2bb33614f3788dedd33"
+        },
+        "completedUtc": "2026-10-21T14:05:21.8867582Z"
+      },
+      "record_sha256": "a61e2d60ec450be45d005df95f8cd55cf0415c53ab6258535e8887c291962133"
+    },
+    "bitstream": {
+      "record": {
+        "stage": "bitstream",
+        "status": "success",
+        "runId": "4991f333-5904-4ac0-99d5-f76a0d5cf8ff",
+        "synthesisRunId": "3ad0291b-3f04-444e-b43c-ccbe8caf6f55",
+        "routeStage": "hold",
+        "scopeHash": "0c3bbcc4f678a6124407fa5cded2b0e09095f61e4b9091a5376f12d3bb39d560",
+        "scriptHash": "2ca2a1b1850f2cc1b259e4b442d137d03ffe15c7d43247cd4257315400a47be9",
+        "scripts": [
+          {
+            "path": "build_candidate.ps1",
+            "sha256": "23bc80ce6dca30e6e34857499f79e2a815463c9ed80877476205d26f9d52e882"
+          },
+          {
+            "path": "build_evidence.ps1",
+            "sha256": "c18c1e811e19721055c8c46e8648e8eb7fac6338013a39225e880ea3e3e99ada"
+          },
+          {
+            "path": "build_manual_phy.tcl",
+            "sha256": "6e54703a870bc61617e867cde9c574ea5b8a492c9c2cb8c0e23d306b15a93274"
+          },
+          {
+            "path": "build_manual_syn.tcl",
+            "sha256": "29d945ec18441703044b51210b3085cf76dfe061c5b9b9ccd771804a1cdf1b82"
+          },
+          {
+            "path": "fix_hold.tcl",
+            "sha256": "a2b71d760f2d28b3279abb2e582c9b0f20fbaaa446456f8ab09378aad56cf115"
+          },
+          {
+            "path": "generate_bit.tcl",
+            "sha256": "acfbcb1368771fedb528c2840c8814acc9e7daea31c6adaa661a3f2b0b71e4f3"
+          }
+        ],
+        "gateDbHash": "80f660baf89350a28c839f7c7faae040853a3551fc8a55a10f9027b7ba988e65",
+        "startedUtc": "2026-10-21T14:09:16.1694209Z",
+        "bitHash": "2c97c1152d69a1a7a9b7681d543f3834c2a4fdd4a0f15ec0982bc90579310e6d",
+        "completedUtc": "2026-10-21T14:09:26.8085014Z"
+      },
+      "record_sha256": "e4b6b2e6da43ccc17aa7aae2c7306bdd40e781701424169b58d4dd0e46783f6a"
+    }
+  },
+  "receipts": [
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\source_receipt.json",
+      "sha256": "f4e8d9ea649dc09f8611e6a8efda437a56e781eb2a88ec2c694b9e4acf720b66",
+      "inputs": 83
+    }
+  ],
+  "checks": [
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\td_project\\AC201_tf_hdmi.al",
+      "scope": "synthesized source scope",
+      "expected": "e855cbce776d88cc3b86d8728d79556abbb747c27b05425c36e633815017eb83",
+      "sha256": "e855cbce776d88cc3b86d8728d79556abbb747c27b05425c36e633815017eb83",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\td_project\\al_ip\\PLL.ipc",
+      "scope": "synthesized source scope",
+      "expected": "8cb6df3a1bb99cf2f95f9a535d7f33213b837207b36e336848a6ed0db29ab8b5",
+      "sha256": "8cb6df3a1bb99cf2f95f9a535d7f33213b837207b36e336848a6ed0db29ab8b5",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\td_project\\al_ip\\PLL.v",
+      "scope": "synthesized source scope",
+      "expected": "4e873eef9499fa93508d8cf2cac90eea0e16c6f649ae29502cdc4c5886cd32aa",
+      "sha256": "4e873eef9499fa93508d8cf2cac90eea0e16c6f649ae29502cdc4c5886cd32aa",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\td_project\\al_ip\\PLL.vhd",
+      "scope": "synthesized source scope",
+      "expected": "e46792bb3d2b72621b18b323c472213fd5880eb29e5e85f0b7d50e5117e47494",
+      "sha256": "e46792bb3d2b72621b18b323c472213fd5880eb29e5e85f0b7d50e5117e47494",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\constraints_source\\.edid_debug_bak.cwc",
+      "scope": "synthesized source scope",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\constraints_source\\edid_debug.cwc",
+      "scope": "synthesized source scope",
+      "expected": "6716411e2346de08976e0ad8ed2e09eb93bdc0f60efc31bf75ba70e6cebe1f95",
+      "sha256": "6716411e2346de08976e0ad8ed2e09eb93bdc0f60efc31bf75ba70e6cebe1f95",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\constraints_source\\pin.adc",
+      "scope": "synthesized source scope",
+      "expected": "234048b30cb6bb3bfc76ae081cbdcad4b2596ff55dca81ad8e7856cd9e3bf759",
+      "sha256": "234048b30cb6bb3bfc76ae081cbdcad4b2596ff55dca81ad8e7856cd9e3bf759",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\constraints_source\\timing.sdc",
+      "scope": "synthesized source scope",
+      "expected": "977abcdb8b6c4df93cbd8fe407d5dfa5ab2710ce45214d7713f583f91a732146",
+      "sha256": "977abcdb8b6c4df93cbd8fe407d5dfa5ab2710ce45214d7713f583f91a732146",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\audio_arc_calculate.v",
+      "scope": "synthesized source scope",
+      "expected": "552d8d86afd237666b30ae08f31247808e89eb024efde5efc670b82eb617a7dc",
+      "sha256": "552d8d86afd237666b30ae08f31247808e89eb024efde5efc670b82eb617a7dc",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\bmp_scale_engine.v",
+      "scope": "synthesized source scope",
+      "expected": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2",
+      "sha256": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\fat32_catalog.v",
+      "scope": "synthesized source scope",
+      "expected": "ceba12aab36ad403d789fdfe8cf6692b841f83888a6622752657f47066cf7aa5",
+      "sha256": "ceba12aab36ad403d789fdfe8cf6692b841f83888a6622752657f47066cf7aa5",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\fat32_dual_file_sector.v",
+      "scope": "synthesized source scope",
+      "expected": "084b7dc884b1b33e3ebc2804283bc820b0e5a38eb248e7dc14a6303d70f67bfb",
+      "sha256": "084b7dc884b1b33e3ebc2804283bc820b0e5a38eb248e7dc14a6303d70f67bfb",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\frame_buffer_rgb888.v",
+      "scope": "synthesized source scope",
+      "expected": "4ad0302bdc152056c42d82e84f274069c79899b4085c33b16f371f3101c22501",
+      "sha256": "4ad0302bdc152056c42d82e84f274069c79899b4085c33b16f371f3101c22501",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\gen_player_spectrum_coeffs.py",
+      "scope": "synthesized source scope",
+      "expected": "fcd5393efd771e0cc7008de8b2f8b57509c9ecf4aa94a9ce2e70763b2f795618",
+      "sha256": "fcd5393efd771e0cc7008de8b2f8b57509c9ecf4aa94a9ce2e70763b2f795618",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\gen_private_spectrum_rom.py",
+      "scope": "synthesized source scope",
+      "expected": "58adf8e8d3181973de172a5b0a1a0a9d59078c975a8dc3b41afa533568739a3f",
+      "sha256": "58adf8e8d3181973de172a5b0a1a0a9d59078c975a8dc3b41afa533568739a3f",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\hdmi_audio_tone_pcm_scale.v",
+      "scope": "synthesized source scope",
+      "expected": "0ff1ab2b39e1294c3aae814bf5a252c47c284c2cdb9568adf02d3c6cfd8ddd0b",
+      "sha256": "0ff1ab2b39e1294c3aae814bf5a252c47c284c2cdb9568adf02d3c6cfd8ddd0b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\hdmi_packet_monitor.v",
+      "scope": "synthesized source scope",
+      "expected": "e0755eef660df07b56c576e6a07565b9189c50e68112f885cd2a08831b38024b",
+      "sha256": "e0755eef660df07b56c576e6a07565b9189c50e68112f885cd2a08831b38024b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\hdmi_phy_warpper.v",
+      "scope": "synthesized source scope",
+      "expected": "416b082b0987001bdbc0a7e20a557cb8fb1dca34e25dc881e6d28a8cb3cf4300",
+      "sha256": "416b082b0987001bdbc0a7e20a557cb8fb1dca34e25dc881e6d28a8cb3cf4300",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\hdmi1.4b_transmitter_core\\hdmi_1_4b_transmitter_core_wrapper.enc.v",
+      "scope": "synthesized source scope",
+      "expected": "867e0b0bdd874bc383d00918c9e1be3fe01edf41f343b6a0d73e262776596a63",
+      "sha256": "867e0b0bdd874bc383d00918c9e1be3fe01edf41f343b6a0d73e262776596a63",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\include\\global_def.v",
+      "scope": "synthesized source scope",
+      "expected": "da6a16ac7e3b8d3415f45b9f18847d8e6170c7f9eb6e192c417f730977072583",
+      "sha256": "da6a16ac7e3b8d3415f45b9f18847d8e6170c7f9eb6e192c417f730977072583",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\include\\sdr_as_ram.enc.v",
+      "scope": "synthesized source scope",
+      "expected": "767dbdfbd83d42223b77dfa7deab42ce8216a8fd6f6cb41b7e7593d9a345ba57",
+      "sha256": "767dbdfbd83d42223b77dfa7deab42ce8216a8fd6f6cb41b7e7593d9a345ba57",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\include\\sdr_init_ref.enc.v",
+      "scope": "synthesized source scope",
+      "expected": "6da5945f4af793610d0d64c65c7e5d2d1c86ed4c11bc5fdeacd27eb03178b9f6",
+      "sha256": "6da5945f4af793610d0d64c65c7e5d2d1c86ed4c11bc5fdeacd27eb03178b9f6",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\include\\sdr_wrrd.enc.v",
+      "scope": "synthesized source scope",
+      "expected": "c7d7fe07d75f66aa88d9f986b3006319c995162434f104f9990664b374cdfdd2",
+      "sha256": "c7d7fe07d75f66aa88d9f986b3006319c995162434f104f9990664b374cdfdd2",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_16_256_sim.v",
+      "scope": "synthesized source scope",
+      "expected": "55b81ab3aa699902b6f11fe766658b852e0740844879a942dca81cd57b40f729",
+      "sha256": "55b81ab3aa699902b6f11fe766658b852e0740844879a942dca81cd57b40f729",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_16_256.tcl",
+      "scope": "synthesized source scope",
+      "expected": "5807155b00f2f749328339e01a85b4bb836f91598286dd167513836b60af33db",
+      "sha256": "5807155b00f2f749328339e01a85b4bb836f91598286dd167513836b60af33db",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_16_256.v",
+      "scope": "synthesized source scope",
+      "expected": "dab43a76a35e21df4064a25edb940699b041427d70bae89cc03c5280b7bf4bf8",
+      "sha256": "dab43a76a35e21df4064a25edb940699b041427d70bae89cc03c5280b7bf4bf8",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_16_256.vhd",
+      "scope": "synthesized source scope",
+      "expected": "50d6d10017b63e1ce5a77bad4a80e9a3de81402909d30ca0818674a1887eb46d",
+      "sha256": "50d6d10017b63e1ce5a77bad4a80e9a3de81402909d30ca0818674a1887eb46d",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_16_32_256.ipc",
+      "scope": "synthesized source scope",
+      "expected": "9df57c0b914f2f6222f88e356528947224fddb866be2468f1391c26d4e60d371",
+      "sha256": "9df57c0b914f2f6222f88e356528947224fddb866be2468f1391c26d4e60d371",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_16_32_256.tcl",
+      "scope": "synthesized source scope",
+      "expected": "5807155b00f2f749328339e01a85b4bb836f91598286dd167513836b60af33db",
+      "sha256": "5807155b00f2f749328339e01a85b4bb836f91598286dd167513836b60af33db",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_16_32_256.v",
+      "scope": "synthesized source scope",
+      "expected": "3d29b06655482184a9ad157b9bd71b79032debe3199168d3b4d9570fdac31835",
+      "sha256": "3d29b06655482184a9ad157b9bd71b79032debe3199168d3b4d9570fdac31835",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_32_16_256.ipc",
+      "scope": "synthesized source scope",
+      "expected": "a74955dc68a02bbfb36780127008c4737ec80e0888a4648e98e6eac9f5d2c349",
+      "sha256": "a74955dc68a02bbfb36780127008c4737ec80e0888a4648e98e6eac9f5d2c349",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_32_16_256.tcl",
+      "scope": "synthesized source scope",
+      "expected": "5807155b00f2f749328339e01a85b4bb836f91598286dd167513836b60af33db",
+      "sha256": "5807155b00f2f749328339e01a85b4bb836f91598286dd167513836b60af33db",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_32_16_256.v",
+      "scope": "synthesized source scope",
+      "expected": "7c3ee41f30be75ae686c9abff3a840fc5439209cda077e4aa275eac0dab9f564",
+      "sha256": "7c3ee41f30be75ae686c9abff3a840fc5439209cda077e4aa275eac0dab9f564",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\sdram.ipc",
+      "scope": "synthesized source scope",
+      "expected": "c3092876d4a66739dfc52cbda4fe84eab75099218f65db7e7d922c41dee1c201",
+      "sha256": "c3092876d4a66739dfc52cbda4fe84eab75099218f65db7e7d922c41dee1c201",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\sdram.v",
+      "scope": "synthesized source scope",
+      "expected": "1487e8583bbf52fe6d079a2854c10ebff2e569a3872a9088c1c9717ba14d17fe",
+      "sha256": "1487e8583bbf52fe6d079a2854c10ebff2e569a3872a9088c1c9717ba14d17fe",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\sdram.vhd",
+      "scope": "synthesized source scope",
+      "expected": "853170e99291fb6b2b1bf3f5f20cd1dd0cc723052864147810b674e18cd70705",
+      "sha256": "853170e99291fb6b2b1bf3f5f20cd1dd0cc723052864147810b674e18cd70705",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\sys_pll.ipc",
+      "scope": "synthesized source scope",
+      "expected": "080f09567af222192413dc6ee75c9fda3accbfc9b79444d3c779d8b6946086b5",
+      "sha256": "080f09567af222192413dc6ee75c9fda3accbfc9b79444d3c779d8b6946086b5",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\sys_pll.v",
+      "scope": "synthesized source scope",
+      "expected": "4a410fc8776c9c116695b7dd8a84012317f9d88aa654b8287a89bdc1f88d0b4e",
+      "sha256": "4a410fc8776c9c116695b7dd8a84012317f9d88aa654b8287a89bdc1f88d0b4e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\sys_pll.vhd",
+      "scope": "synthesized source scope",
+      "expected": "ec237133a9ef4b2bf806d3c4514420ed0db3b6b556c563dad6e2c5746116b3e0",
+      "sha256": "ec237133a9ef4b2bf806d3c4514420ed0db3b6b556c563dad6e2c5746116b3e0",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\video_pll.ipc",
+      "scope": "synthesized source scope",
+      "expected": "b717f646067025a69b4021ed85adeeb6531fad881bce5a49fcb2171ccf401076",
+      "sha256": "b717f646067025a69b4021ed85adeeb6531fad881bce5a49fcb2171ccf401076",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\video_pll.v",
+      "scope": "synthesized source scope",
+      "expected": "57e45a062814673e97773cf6c58ff1629fa45895e30de9d2c2b6bdd30bd9bb13",
+      "sha256": "57e45a062814673e97773cf6c58ff1629fa45895e30de9d2c2b6bdd30bd9bb13",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\video_pll.vhd",
+      "scope": "synthesized source scope",
+      "expected": "4c23a8a81b28c81bed4834e1e9a757db01eebd360c7fe3a7066f8f8f7b6a36c4",
+      "sha256": "4c23a8a81b28c81bed4834e1e9a757db01eebd360c7fe3a7066f8f8f7b6a36c4",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_bitbuffer.v",
+      "scope": "synthesized source scope",
+      "expected": "b4cfe631350b982e3f348610999f94596f9ec4cdc911799030af535adf58bf22",
+      "sha256": "b4cfe631350b982e3f348610999f94596f9ec4cdc911799030af535adf58bf22",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_core.v",
+      "scope": "synthesized source scope",
+      "expected": "0062463bde0ca4ac5036e89b9f4b20d79846824edad8e97104d9ba7121b3d315",
+      "sha256": "0062463bde0ca4ac5036e89b9f4b20d79846824edad8e97104d9ba7121b3d315",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_cx_ac.v",
+      "scope": "synthesized source scope",
+      "expected": "b3a64b9576cc88ef6127f8ced66007437089f9eb64f4891d1a058932f9eb518a",
+      "sha256": "b3a64b9576cc88ef6127f8ced66007437089f9eb64f4891d1a058932f9eb518a",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_cx_dc.v",
+      "scope": "synthesized source scope",
+      "expected": "eea1c4a670e2b4920944faf63fa24e93c37c8d5c22ae059b494d85cb90ba729b",
+      "sha256": "eea1c4a670e2b4920944faf63fa24e93c37c8d5c22ae059b494d85cb90ba729b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_y_ac.v",
+      "scope": "synthesized source scope",
+      "expected": "bf4597ee2f7386adf503ae5d00081fcc9aeecb21d66a88c210140c8b6790c559",
+      "sha256": "bf4597ee2f7386adf503ae5d00081fcc9aeecb21d66a88c210140c8b6790c559",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_y_dc.v",
+      "scope": "synthesized source scope",
+      "expected": "5275231a2ac4f2dd47a4f42109fa8d0e7a8e045eab729f5852c855628e6e68bf",
+      "sha256": "5275231a2ac4f2dd47a4f42109fa8d0e7a8e045eab729f5852c855628e6e68bf",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht.v",
+      "scope": "synthesized source scope",
+      "expected": "fbd890def4b7ac3effb38b7da52f544311759f091bf62d5fe29cb5dc16c53d5f",
+      "sha256": "fbd890def4b7ac3effb38b7da52f544311759f091bf62d5fe29cb5dc16c53d5f",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dqt.v",
+      "scope": "synthesized source scope",
+      "expected": "e99bb750bf20903b9cf80407aa1e8274170296c3366e43be0030265a08afcb99",
+      "sha256": "e99bb750bf20903b9cf80407aa1e8274170296c3366e43be0030265a08afcb99",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_fifo.v",
+      "scope": "synthesized source scope",
+      "expected": "487d095dc70369d4bb7c9a27e6f27cc4db082b95e9bb6ce13292dc31fb2cf5e0",
+      "sha256": "487d095dc70369d4bb7c9a27e6f27cc4db082b95e9bb6ce13292dc31fb2cf5e0",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_ram_dp.v",
+      "scope": "synthesized source scope",
+      "expected": "191622cc6447224294c1cfe98aef9fbb329b3a8b00932ed1b33920e90d2b61ea",
+      "sha256": "191622cc6447224294c1cfe98aef9fbb329b3a8b00932ed1b33920e90d2b61ea",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_ram.v",
+      "scope": "synthesized source scope",
+      "expected": "e5b95dd53fa8a8e8138bd400ced622f9f39f0aadd8ee1af79e6929f8f1d2b20f",
+      "sha256": "e5b95dd53fa8a8e8138bd400ced622f9f39f0aadd8ee1af79e6929f8f1d2b20f",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_transpose_logic_ram.v",
+      "scope": "synthesized source scope",
+      "expected": "8c527b21e399e0e950c94e74417ce52751eb76cac52344b33d93303c97c49684",
+      "sha256": "8c527b21e399e0e950c94e74417ce52751eb76cac52344b33d93303c97c49684",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_transpose_ram.v",
+      "scope": "synthesized source scope",
+      "expected": "308e4b0791ee562ca87c7fc923d34f0aff51064d188fea703a1bbf94903be45e",
+      "sha256": "308e4b0791ee562ca87c7fc923d34f0aff51064d188fea703a1bbf94903be45e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_transpose.v",
+      "scope": "synthesized source scope",
+      "expected": "e4d3f6ab7f70781be95bf5c5e74cfe44ad5f3060ef2b5dcd8c1049f6845138e7",
+      "sha256": "e4d3f6ab7f70781be95bf5c5e74cfe44ad5f3060ef2b5dcd8c1049f6845138e7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_x.v",
+      "scope": "synthesized source scope",
+      "expected": "14b29d01930d68bd2ea3f28060ad008e7204cdde6100d43e3949522fe9323914",
+      "sha256": "14b29d01930d68bd2ea3f28060ad008e7204cdde6100d43e3949522fe9323914",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_y.v",
+      "scope": "synthesized source scope",
+      "expected": "58b15a0afaefd830e9cf61a0a7bab17f87f69d74d632a6a9ec755d76f8e0abe2",
+      "sha256": "58b15a0afaefd830e9cf61a0a7bab17f87f69d74d632a6a9ec755d76f8e0abe2",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct.v",
+      "scope": "synthesized source scope",
+      "expected": "3635c2b1d9421a69e389c388d40c4171790d7898ca04bc37401b2f0cd55469ce",
+      "sha256": "3635c2b1d9421a69e389c388d40c4171790d7898ca04bc37401b2f0cd55469ce",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_input.v",
+      "scope": "synthesized source scope",
+      "expected": "b49e4b133852428e245fbeb88f39b3d29ef0e73629a0fc894348d6d1e172aadd",
+      "sha256": "b49e4b133852428e245fbeb88f39b3d29ef0e73629a0fc894348d6d1e172aadd",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_mcu_id.v",
+      "scope": "synthesized source scope",
+      "expected": "450c780bf08b337238395c8c4b2cd1e9a075b4b2f0a1398e41110238f01859b9",
+      "sha256": "450c780bf08b337238395c8c4b2cd1e9a075b4b2f0a1398e41110238f01859b9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_mcu_proc.v",
+      "scope": "synthesized source scope",
+      "expected": "cfd8b35fe75a29c02950f5cfcc1493419bee6da155d253d0062aff91493d43af",
+      "sha256": "cfd8b35fe75a29c02950f5cfcc1493419bee6da155d253d0062aff91493d43af",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_output_cx_ram.v",
+      "scope": "synthesized source scope",
+      "expected": "d82bbc1fbf0af82b4af951637f30954268571b4f881304b55b7f4c1fde9a0250",
+      "sha256": "d82bbc1fbf0af82b4af951637f30954268571b4f881304b55b7f4c1fde9a0250",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_output_fifo.v",
+      "scope": "synthesized source scope",
+      "expected": "66cde6db3c4f8c8b64ab35f80c7ef0b383b13d3e395114b9cff5e7ba0d22be72",
+      "sha256": "66cde6db3c4f8c8b64ab35f80c7ef0b383b13d3e395114b9cff5e7ba0d22be72",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_output_y_ram.v",
+      "scope": "synthesized source scope",
+      "expected": "4ea4afeed9909b6ea509a42d20778375b76c0827b68b7a811b985d1256cf951b",
+      "sha256": "4ea4afeed9909b6ea509a42d20778375b76c0827b68b7a811b985d1256cf951b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_output.v",
+      "scope": "synthesized source scope",
+      "expected": "b9539ff30324ca6a6ffceedfaf0a865bcb16dd6948cecf2899f8bd8126cb012d",
+      "sha256": "b9539ff30324ca6a6ffceedfaf0a865bcb16dd6948cecf2899f8bd8126cb012d",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\LICENSE",
+      "scope": "synthesized source scope",
+      "expected": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg420_word_address.v",
+      "scope": "synthesized source scope",
+      "expected": "3b8c2a641e23711826cbf51f2b0ce343e92e3f0a80b45b69906754e017c7f175",
+      "sha256": "3b8c2a641e23711826cbf51f2b0ce343e92e3f0a80b45b69906754e017c7f175",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\key_remove_shakes.v",
+      "scope": "synthesized source scope",
+      "expected": "8832f59e7ba94bfb8cf31e4f5a772ef7177d5257a5a2532d53cbfa1d9b7f5cd9",
+      "sha256": "8832f59e7ba94bfb8cf31e4f5a772ef7177d5257a5a2532d53cbfa1d9b7f5cd9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\lane_lvds_10_1.v",
+      "scope": "synthesized source scope",
+      "expected": "ab24f9ee394d3e565ea1f7b6dc76058f285b12c5f39aaaea1805ede9b69055b0",
+      "sha256": "ab24f9ee394d3e565ea1f7b6dc76058f285b12c5f39aaaea1805ede9b69055b0",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\mjp_file_reader.v",
+      "scope": "synthesized source scope",
+      "expected": "cad1b31de5c3b62f482ec5bed8db8eca802621f315d5d4a525db3411bf737018",
+      "sha256": "cad1b31de5c3b62f482ec5bed8db8eca802621f315d5d4a525db3411bf737018",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_adjust_control.v",
+      "scope": "synthesized source scope",
+      "expected": "6fdd3102fd22e04fcbdbbc10c892759b4e1186db6dc9d45fc325e3b4f6529c37",
+      "sha256": "6fdd3102fd22e04fcbdbbc10c892759b4e1186db6dc9d45fc325e3b4f6529c37",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_adjust_osd.v",
+      "scope": "synthesized source scope",
+      "expected": "b4bbb95b2b98949dc25eb0feef1116bcd3e35898c4d999fef57f73893bc3be41",
+      "sha256": "b4bbb95b2b98949dc25eb0feef1116bcd3e35898c4d999fef57f73893bc3be41",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_audio_probe.v",
+      "scope": "synthesized source scope",
+      "expected": "c4b72dd0c351e8321333160e6044553cc1950a3b6ef48d0b5a991109414bf319",
+      "sha256": "c4b72dd0c351e8321333160e6044553cc1950a3b6ef48d0b5a991109414bf319",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_bit17_led_probe.v",
+      "scope": "synthesized source scope",
+      "expected": "f3b29d6feecfb2fa2f95a9d744d10a7492c689326a6f420ec798d01d6cb88772",
+      "sha256": "f3b29d6feecfb2fa2f95a9d744d10a7492c689326a6f420ec798d01d6cb88772",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_cadence_probe.v",
+      "scope": "synthesized source scope",
+      "expected": "209907f85c97d54a53b70e8a9f761b6a84de624539a81920ba69438ea6b0a712",
+      "sha256": "209907f85c97d54a53b70e8a9f761b6a84de624539a81920ba69438ea6b0a712",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_compact_status_pages.v",
+      "scope": "synthesized source scope",
+      "expected": "c74cb63109acf552b55530b52f03c89e2a4a6cdf5f6b0fec5d8769acdc0a9f85",
+      "sha256": "c74cb63109acf552b55530b52f03c89e2a4a6cdf5f6b0fec5d8769acdc0a9f85",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_debug_monitor.v",
+      "scope": "synthesized source scope",
+      "expected": "8d7325b79bf30aa03cfb6164d18365c5425db5dfdd242a2f2bccb0ce072387a7",
+      "sha256": "8d7325b79bf30aa03cfb6164d18365c5425db5dfdd242a2f2bccb0ce072387a7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_debug_overlay.v",
+      "scope": "synthesized source scope",
+      "expected": "2ab88c6f08257dcd601d0a3deafeb8850c30875501fa32e31d759f470613ac54",
+      "sha256": "2ab88c6f08257dcd601d0a3deafeb8850c30875501fa32e31d759f470613ac54",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_dynamic_text.v",
+      "scope": "synthesized source scope",
+      "expected": "8cd40dcc12f7a1b88c3a2f7fc0cad62c7dbf198fe9c9d735c5b75bc40e4fed3b",
+      "sha256": "8cd40dcc12f7a1b88c3a2f7fc0cad62c7dbf198fe9c9d735c5b75bc40e4fed3b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_osd_state.v",
+      "scope": "synthesized source scope",
+      "expected": "5dc4cb7eca4acd2aced6aba341608c107bb7d99d5971922b9710bf63ad72c3a7",
+      "sha256": "5dc4cb7eca4acd2aced6aba341608c107bb7d99d5971922b9710bf63ad72c3a7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_osd.v",
+      "scope": "synthesized source scope",
+      "expected": "baf10da3489a8eacebaf2bcad44f978ee708c0843d2fdf4ffbfb6ae0546e37d7",
+      "sha256": "baf10da3489a8eacebaf2bcad44f978ee708c0843d2fdf4ffbfb6ae0546e37d7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_pcm_waveform.v",
+      "scope": "synthesized source scope",
+      "expected": "4ded2b8f6fcdf3c4b185ffb999de2503e4efa22624f480964029d53fd593b3ab",
+      "sha256": "4ded2b8f6fcdf3c4b185ffb999de2503e4efa22624f480964029d53fd593b3ab",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_rgb_adjust.v",
+      "scope": "synthesized source scope",
+      "expected": "5dbe265ffd13b73563c1e374b54a106e79640a8d794458faf2202235d3478739",
+      "sha256": "5dbe265ffd13b73563c1e374b54a106e79640a8d794458faf2202235d3478739",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_spectrum_analyzer.v",
+      "scope": "synthesized source scope",
+      "expected": "2edfffb8678fe071428f62f0325ecb6a2e35a7568d84e766f87257f9d486c98e",
+      "sha256": "2edfffb8678fe071428f62f0325ecb6a2e35a7568d84e766f87257f9d486c98e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_spectrum_bands.vh",
+      "scope": "synthesized source scope",
+      "expected": "7681a4aaae6fea83ec28cc94c8a9fdf816a17cacf8ee720200e138803b8fef4d",
+      "sha256": "7681a4aaae6fea83ec28cc94c8a9fdf816a17cacf8ee720200e138803b8fef4d",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_video_schedule.v",
+      "scope": "synthesized source scope",
+      "expected": "e40f6788061d5b37f459c26810c06032b0753bbc0e6ee445024d4a366c003ecc",
+      "sha256": "e40f6788061d5b37f459c26810c06032b0753bbc0e6ee445024d4a366c003ecc",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_video_source_probe.v",
+      "scope": "synthesized source scope",
+      "expected": "8b8df6af3c328079b2cfdf6f3cc68f3d5e4b9d5e925f77cff1aff53607af348e",
+      "sha256": "8b8df6af3c328079b2cfdf6f3cc68f3d5e4b9d5e925f77cff1aff53607af348e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_wipe_address.v",
+      "scope": "synthesized source scope",
+      "expected": "8712e3490c0ec01fdf1a719bb74eee2bc2d7269ae51119e338f0eb0fbd143f4f",
+      "sha256": "8712e3490c0ec01fdf1a719bb74eee2bc2d7269ae51119e338f0eb0fbd143f4f",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\rgb565_word_codec.v",
+      "scope": "synthesized source scope",
+      "expected": "971ab7800db69c06c078160c010778ef4b208620e005e150301e3a4b857b5021",
+      "sha256": "971ab7800db69c06c078160c010778ef4b208620e005e150301e3a4b857b5021",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\rgb888_word_codec.v",
+      "scope": "synthesized source scope",
+      "expected": "414a74a76a828b45f9baa2f0c56f5f80d5c6311b21001e309246d2f60a333552",
+      "sha256": "414a74a76a828b45f9baa2f0c56f5f80d5c6311b21001e309246d2f60a333552",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\ax_debounce.v",
+      "scope": "synthesized source scope",
+      "expected": "93aa6dd38051250cc7f777c88466ac180afe9bcdce7838b9ea506455d8cbc9b8",
+      "sha256": "93aa6dd38051250cc7f777c88466ac180afe9bcdce7838b9ea506455d8cbc9b8",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\bmp_read.v",
+      "scope": "synthesized source scope",
+      "expected": "ca3f998fc71b06c9409d2f21f47136bb2dcfe9bf56dcb033da63b431fcbe68f1",
+      "sha256": "ca3f998fc71b06c9409d2f21f47136bb2dcfe9bf56dcb033da63b431fcbe68f1",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\color_bar.v",
+      "scope": "synthesized source scope",
+      "expected": "afe1f56714ec58d2477ba1717e5a36c5a0da5fe5c07d70d11aa5ace710c4b152",
+      "sha256": "afe1f56714ec58d2477ba1717e5a36c5a0da5fe5c07d70d11aa5ace710c4b152",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\frame_fifo_read.v",
+      "scope": "synthesized source scope",
+      "expected": "9413d48c5a44efdbed0a038679b848b5aa7bc7d3769763515e5c8021e7b96f40",
+      "sha256": "9413d48c5a44efdbed0a038679b848b5aa7bc7d3769763515e5c8021e7b96f40",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\frame_fifo_write.v",
+      "scope": "synthesized source scope",
+      "expected": "4f14b7161aa93e9f99f98e523078d4f2c1aa38ed6c19a33d3677e5cf9177ad84",
+      "sha256": "4f14b7161aa93e9f99f98e523078d4f2c1aa38ed6c19a33d3677e5cf9177ad84",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\frame_read_write.v",
+      "scope": "synthesized source scope",
+      "expected": "f4118820280bff4dda4da524422e414acbcf994c6f96fbe6945413e5e4565115",
+      "sha256": "f4118820280bff4dda4da524422e414acbcf994c6f96fbe6945413e5e4565115",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\sd_card_bmp.v",
+      "scope": "synthesized source scope",
+      "expected": "cd4e975f9e4acdc6545317df0fce7f5370c085a5b9a585b8effb7bc3e9c7f903",
+      "sha256": "cd4e975f9e4acdc6545317df0fce7f5370c085a5b9a585b8effb7bc3e9c7f903",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\sd_card_cmd.v",
+      "scope": "synthesized source scope",
+      "expected": "617ac307a4daee159a09de5aa87e52ba3d978b78ff8ec60b8701fa5dc4554bd0",
+      "sha256": "617ac307a4daee159a09de5aa87e52ba3d978b78ff8ec60b8701fa5dc4554bd0",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\sd_card_sec_read_write.v",
+      "scope": "synthesized source scope",
+      "expected": "2b2bf70bbbef57945eaf202073d0f6fad7fa86a41453fa33cec0cdfac7e2833d",
+      "sha256": "2b2bf70bbbef57945eaf202073d0f6fad7fa86a41453fa33cec0cdfac7e2833d",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\sd_card_top.v",
+      "scope": "synthesized source scope",
+      "expected": "0e9df60abd3a08a99d7d9fb0cd3ddb4c5169ae3e095d1dbb6a09c1d9ef9de1d8",
+      "sha256": "0e9df60abd3a08a99d7d9fb0cd3ddb4c5169ae3e095d1dbb6a09c1d9ef9de1d8",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\sdram.v",
+      "scope": "synthesized source scope",
+      "expected": "2d985c2477384e677c25714241e1a50206def8916aa03189a5b313b2d22dfc99",
+      "sha256": "2d985c2477384e677c25714241e1a50206def8916aa03189a5b313b2d22dfc99",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\seg_decoder.v",
+      "scope": "synthesized source scope",
+      "expected": "62a2664be7db6d0dace31fc97a8faef0c43f44b639b1d5a6a2c49773812a3b5e",
+      "sha256": "62a2664be7db6d0dace31fc97a8faef0c43f44b639b1d5a6a2c49773812a3b5e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\seg_scan.v",
+      "scope": "synthesized source scope",
+      "expected": "c61d6b6808e06dd0edc6db2d8f214426a1fb96d546556ecd1f74ea9ca6889f52",
+      "sha256": "c61d6b6808e06dd0edc6db2d8f214426a1fb96d546556ecd1f74ea9ca6889f52",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\spi_master.v",
+      "scope": "synthesized source scope",
+      "expected": "37f7a21144fa5cca3cc5c3b5f68a5ad40b3108336b600e45a1367734ac61403c",
+      "sha256": "37f7a21144fa5cca3cc5c3b5f68a5ad40b3108336b600e45a1367734ac61403c",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\video_define.v",
+      "scope": "synthesized source scope",
+      "expected": "77748966850a8f5af0d77f2cdb08006088ba5e1a31b98391fba6cc61c5247da2",
+      "sha256": "77748966850a8f5af0d77f2cdb08006088ba5e1a31b98391fba6cc61c5247da2",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\video_delay.v",
+      "scope": "synthesized source scope",
+      "expected": "f47c4b63f8baa6d8874c87dca5b72dfdadd19f4a107403da98752bce98936433",
+      "sha256": "f47c4b63f8baa6d8874c87dca5b72dfdadd19f4a107403da98752bce98936433",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\video_timing_data.v",
+      "scope": "synthesized source scope",
+      "expected": "c6f75501e98dd5995f687aafb40455beffe45b426137b5089a73ac3a036f7282",
+      "sha256": "c6f75501e98dd5995f687aafb40455beffe45b426137b5089a73ac3a036f7282",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\spectrum_coeff_rom_manifest.json",
+      "scope": "synthesized source scope",
+      "expected": "31a61e039e5b83bce3b73cc2d015bf92e0c3773071dcfa8385e2aea970a61ee1",
+      "sha256": "31a61e039e5b83bce3b73cc2d015bf92e0c3773071dcfa8385e2aea970a61ee1",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\spectrum_coeff_rom.v",
+      "scope": "synthesized source scope",
+      "expected": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+      "sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\spectrum_hann.mem",
+      "scope": "synthesized source scope",
+      "expected": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+      "sha256": "56541dd5f3fb244efbf913046049b82e15da33484e61ffead975c35beff69f3f",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\spectrum_twiddle.mem",
+      "scope": "synthesized source scope",
+      "expected": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+      "sha256": "c760d33a88c692b2ea87a748cec155e94a97bdfbe2176fd9e64d666b90edc772",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\startup_pulse.v",
+      "scope": "synthesized source scope",
+      "expected": "396e1e56febb8028339e646bc2f06b83e07ab11ef840e447422fb941956741c9",
+      "sha256": "396e1e56febb8028339e646bc2f06b83e07ab11ef840e447422fb941956741c9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\status_hex595.v",
+      "scope": "synthesized source scope",
+      "expected": "aff2a8b7eb9ccb6d5e2785728dce86bd8e87c4a96f33c20fa4b08fdc151852b9",
+      "sha256": "aff2a8b7eb9ccb6d5e2785728dce86bd8e87c4a96f33c20fa4b08fdc151852b9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\tf_bmp_file_player.v",
+      "scope": "synthesized source scope",
+      "expected": "e46169101374f6d28094d4ad408ff7f2b399908d0cb6fa30e613edebe5fe5ab4",
+      "sha256": "e46169101374f6d28094d4ad408ff7f2b399908d0cb6fa30e613edebe5fe5ab4",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\tf_wav_file_player.v",
+      "scope": "synthesized source scope",
+      "expected": "6baa637832cd6ce4722803b6c8a0c0d2abd9706a192a2f15f7107d201993cbf9",
+      "sha256": "6baa637832cd6ce4722803b6c8a0c0d2abd9706a192a2f15f7107d201993cbf9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\tf_wav_player.v",
+      "scope": "synthesized source scope",
+      "expected": "cf4c37013d41734806bfa444f0e7998183c0ce3e00333f964380fcea2261f27e",
+      "sha256": "cf4c37013d41734806bfa444f0e7998183c0ce3e00333f964380fcea2261f27e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v",
+      "scope": "synthesized source scope",
+      "expected": "d5d95654ef2a8ab3903bfd571f9995b2183d2021d34a35bfa0c0131792f60141",
+      "sha256": "d5d95654ef2a8ab3903bfd571f9995b2183d2021d34a35bfa0c0131792f60141",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\video_rgb_to_axis_640x480.v",
+      "scope": "synthesized source scope",
+      "expected": "1c8fc26c789f87227036bea034f1ab6fc5633f2ab2684be422c54687a290fb96",
+      "sha256": "1c8fc26c789f87227036bea034f1ab6fc5633f2ab2684be422c54687a290fb96",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\video_source_test.v",
+      "scope": "synthesized source scope",
+      "expected": "39cc05c9684a594d4254d11e66e97344053ab75bdb00f3f5a301643fd7aadbfc",
+      "sha256": "39cc05c9684a594d4254d11e66e97344053ab75bdb00f3f5a301643fd7aadbfc",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\wav_pcm_bridge.v",
+      "scope": "synthesized source scope",
+      "expected": "71d4099d517708372e84c7a14664b4a07bdb417e2efb6f07bc754f73a0f1bf6a",
+      "sha256": "71d4099d517708372e84c7a14664b4a07bdb417e2efb6f07bc754f73a0f1bf6a",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\ip_source\\pll.ipc",
+      "scope": "synthesized source scope",
+      "expected": "5d632bad332785258c35ca41ce2b4a2a550e6bfd75be0b63a3f72403ca2ce11e",
+      "sha256": "5d632bad332785258c35ca41ce2b4a2a550e6bfd75be0b63a3f72403ca2ce11e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\ip_source\\pll.v",
+      "scope": "synthesized source scope",
+      "expected": "202799f886f12cfc1d837afa932328b636c6c3dee70167be68c084133647b39c",
+      "sha256": "202799f886f12cfc1d837afa932328b636c6c3dee70167be68c084133647b39c",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\ip_source\\pll.vhd",
+      "scope": "synthesized source scope",
+      "expected": "a8166865b5aef9caaee525d4633aa1dec4172244a7bbff239e0d658c0ca775e4",
+      "sha256": "a8166865b5aef9caaee525d4633aa1dec4172244a7bbff239e0d658c0ca775e4",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\scripts\\build_candidate.ps1",
+      "scope": "build script",
+      "expected": "23bc80ce6dca30e6e34857499f79e2a815463c9ed80877476205d26f9d52e882",
+      "sha256": "23bc80ce6dca30e6e34857499f79e2a815463c9ed80877476205d26f9d52e882",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\scripts\\build_evidence.ps1",
+      "scope": "build script",
+      "expected": "c18c1e811e19721055c8c46e8648e8eb7fac6338013a39225e880ea3e3e99ada",
+      "sha256": "c18c1e811e19721055c8c46e8648e8eb7fac6338013a39225e880ea3e3e99ada",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\scripts\\build_manual_phy.tcl",
+      "scope": "build script",
+      "expected": "6e54703a870bc61617e867cde9c574ea5b8a492c9c2cb8c0e23d306b15a93274",
+      "sha256": "6e54703a870bc61617e867cde9c574ea5b8a492c9c2cb8c0e23d306b15a93274",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\scripts\\build_manual_syn.tcl",
+      "scope": "build script",
+      "expected": "29d945ec18441703044b51210b3085cf76dfe061c5b9b9ccd771804a1cdf1b82",
+      "sha256": "29d945ec18441703044b51210b3085cf76dfe061c5b9b9ccd771804a1cdf1b82",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\scripts\\fix_hold.tcl",
+      "scope": "build script",
+      "expected": "a2b71d760f2d28b3279abb2e582c9b0f20fbaaa446456f8ab09378aad56cf115",
+      "sha256": "a2b71d760f2d28b3279abb2e582c9b0f20fbaaa446456f8ab09378aad56cf115",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\scripts\\generate_bit.tcl",
+      "scope": "build script",
+      "expected": "acfbcb1368771fedb528c2840c8814acc9e7daea31c6adaa661a3f2b0b71e4f3",
+      "sha256": "acfbcb1368771fedb528c2840c8814acc9e7daea31c6adaa661a3f2b0b71e4f3",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\manual\\AC201_tf_hdmi_gate.db",
+      "scope": "selected gate database",
+      "expected": "80f660baf89350a28c839f7c7faae040853a3551fc8a55a10f9027b7ba988e65",
+      "sha256": "80f660baf89350a28c839f7c7faae040853a3551fc8a55a10f9027b7ba988e65",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\manual\\AC201_tf_hdmi_pr.db",
+      "scope": "final post-hold routed artifact",
+      "expected": "73b4ffa8e61a9ea61a162573025214080ec392657799ac24dcd34019cbc3c7c5",
+      "sha256": "73b4ffa8e61a9ea61a162573025214080ec392657799ac24dcd34019cbc3c7c5",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\manual\\AC201_tf_hdmi_phy.ts",
+      "scope": "final post-hold routed artifact",
+      "expected": "e2cec0231c736d72ab817961bc41bead83cee2ac2cfecdaf8c70ae5edabb317f",
+      "sha256": "e2cec0231c736d72ab817961bc41bead83cee2ac2cfecdaf8c70ae5edabb317f",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\manual\\AC201_tf_hdmi_pr.timing",
+      "scope": "final post-hold routed artifact",
+      "expected": "247d404d6a69b27a6ae194912a533fdc47972e870bc7ef3d3ac8ea9d0789bc0e",
+      "sha256": "247d404d6a69b27a6ae194912a533fdc47972e870bc7ef3d3ac8ea9d0789bc0e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\manual\\AC201_tf_hdmi_chk.timing",
+      "scope": "final post-hold routed artifact",
+      "expected": "ff2857eb563144449b9b9870a078baaef4509fa0a15dbcdf70c6a0d3bb294b52",
+      "sha256": "ff2857eb563144449b9b9870a078baaef4509fa0a15dbcdf70c6a0d3bb294b52",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\manual\\AC201_tf_hdmi_exception.timing",
+      "scope": "final post-hold routed artifact",
+      "expected": "a87ae075314f24a55e5ae7b4581abb703129dcc57f3ceceb5a18d9bfffb9ee3b",
+      "sha256": "a87ae075314f24a55e5ae7b4581abb703129dcc57f3ceceb5a18d9bfffb9ee3b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\manual\\AC201_tf_hdmi_phy.area",
+      "scope": "final post-hold routed artifact",
+      "expected": "8514747c552f3c4a9886112a605e3a48bff991cef826b2bb33614f3788dedd33",
+      "sha256": "8514747c552f3c4a9886112a605e3a48bff991cef826b2bb33614f3788dedd33",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\manual\\AC201_player_video20.bit",
+      "scope": "generated bitstream",
+      "expected": "2c97c1152d69a1a7a9b7681d543f3834c2a4fdd4a0f15ec0982bc90579310e6d",
+      "sha256": "2c97c1152d69a1a7a9b7681d543f3834c2a4fdd4a0f15ec0982bc90579310e6d",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\hdmi_phy_warpper.v",
+      "scope": "simulation original input",
+      "expected": "416b082b0987001bdbc0a7e20a557cb8fb1dca34e25dc881e6d28a8cb3cf4300",
+      "sha256": "416b082b0987001bdbc0a7e20a557cb8fb1dca34e25dc881e6d28a8cb3cf4300",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\hdmi_phy_warpper.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "416b082b0987001bdbc0a7e20a557cb8fb1dca34e25dc881e6d28a8cb3cf4300",
+      "sha256": "416b082b0987001bdbc0a7e20a557cb8fb1dca34e25dc881e6d28a8cb3cf4300",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\lane_lvds_10_1.v",
+      "scope": "simulation original input",
+      "expected": "ab24f9ee394d3e565ea1f7b6dc76058f285b12c5f39aaaea1805ede9b69055b0",
+      "sha256": "ab24f9ee394d3e565ea1f7b6dc76058f285b12c5f39aaaea1805ede9b69055b0",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\lane_lvds_10_1.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "ab24f9ee394d3e565ea1f7b6dc76058f285b12c5f39aaaea1805ede9b69055b0",
+      "sha256": "ab24f9ee394d3e565ea1f7b6dc76058f285b12c5f39aaaea1805ede9b69055b0",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\hdmi1.4b_transmitter_core\\hdmi_1_4b_transmitter_core_wrapper.enc.v",
+      "scope": "simulation original input",
+      "expected": "867e0b0bdd874bc383d00918c9e1be3fe01edf41f343b6a0d73e262776596a63",
+      "sha256": "867e0b0bdd874bc383d00918c9e1be3fe01edf41f343b6a0d73e262776596a63",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\hdmi1.4b_transmitter_core\\hdmi_1_4b_transmitter_core_wrapper.enc.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "867e0b0bdd874bc383d00918c9e1be3fe01edf41f343b6a0d73e262776596a63",
+      "sha256": "867e0b0bdd874bc383d00918c9e1be3fe01edf41f343b6a0d73e262776596a63",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v",
+      "scope": "simulation original input",
+      "expected": "d5d95654ef2a8ab3903bfd571f9995b2183d2021d34a35bfa0c0131792f60141",
+      "sha256": "d5d95654ef2a8ab3903bfd571f9995b2183d2021d34a35bfa0c0131792f60141",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\top_tf_hdmi_audio.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "e1367890a0b825c89a469da0552eb33c9dbdc6cf202ce5473d4c0391d1cdee4b",
+      "sha256": "e1367890a0b825c89a469da0552eb33c9dbdc6cf202ce5473d4c0391d1cdee4b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\color_bar.v",
+      "scope": "simulation original input",
+      "expected": "afe1f56714ec58d2477ba1717e5a36c5a0da5fe5c07d70d11aa5ace710c4b152",
+      "sha256": "afe1f56714ec58d2477ba1717e5a36c5a0da5fe5c07d70d11aa5ace710c4b152",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\color_bar.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "afe1f56714ec58d2477ba1717e5a36c5a0da5fe5c07d70d11aa5ace710c4b152",
+      "sha256": "afe1f56714ec58d2477ba1717e5a36c5a0da5fe5c07d70d11aa5ace710c4b152",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\frame_fifo_read.v",
+      "scope": "simulation original input",
+      "expected": "9413d48c5a44efdbed0a038679b848b5aa7bc7d3769763515e5c8021e7b96f40",
+      "sha256": "9413d48c5a44efdbed0a038679b848b5aa7bc7d3769763515e5c8021e7b96f40",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\frame_fifo_read.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "9413d48c5a44efdbed0a038679b848b5aa7bc7d3769763515e5c8021e7b96f40",
+      "sha256": "9413d48c5a44efdbed0a038679b848b5aa7bc7d3769763515e5c8021e7b96f40",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\frame_fifo_write.v",
+      "scope": "simulation original input",
+      "expected": "4f14b7161aa93e9f99f98e523078d4f2c1aa38ed6c19a33d3677e5cf9177ad84",
+      "sha256": "4f14b7161aa93e9f99f98e523078d4f2c1aa38ed6c19a33d3677e5cf9177ad84",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\frame_fifo_write.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "4f14b7161aa93e9f99f98e523078d4f2c1aa38ed6c19a33d3677e5cf9177ad84",
+      "sha256": "4f14b7161aa93e9f99f98e523078d4f2c1aa38ed6c19a33d3677e5cf9177ad84",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\frame_read_write.v",
+      "scope": "simulation original input",
+      "expected": "f4118820280bff4dda4da524422e414acbcf994c6f96fbe6945413e5e4565115",
+      "sha256": "f4118820280bff4dda4da524422e414acbcf994c6f96fbe6945413e5e4565115",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\frame_read_write.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "70847ff264889dfa46a2a36a81104efacfad60a7438c2226e435fdcba126033b",
+      "sha256": "70847ff264889dfa46a2a36a81104efacfad60a7438c2226e435fdcba126033b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\sd_card_bmp.v",
+      "scope": "simulation original input",
+      "expected": "cd4e975f9e4acdc6545317df0fce7f5370c085a5b9a585b8effb7bc3e9c7f903",
+      "sha256": "cd4e975f9e4acdc6545317df0fce7f5370c085a5b9a585b8effb7bc3e9c7f903",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\sd_card_bmp.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "cd4e975f9e4acdc6545317df0fce7f5370c085a5b9a585b8effb7bc3e9c7f903",
+      "sha256": "cd4e975f9e4acdc6545317df0fce7f5370c085a5b9a585b8effb7bc3e9c7f903",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\video_delay.v",
+      "scope": "simulation original input",
+      "expected": "f47c4b63f8baa6d8874c87dca5b72dfdadd19f4a107403da98752bce98936433",
+      "sha256": "f47c4b63f8baa6d8874c87dca5b72dfdadd19f4a107403da98752bce98936433",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\video_delay.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "f47c4b63f8baa6d8874c87dca5b72dfdadd19f4a107403da98752bce98936433",
+      "sha256": "f47c4b63f8baa6d8874c87dca5b72dfdadd19f4a107403da98752bce98936433",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\video_timing_data.v",
+      "scope": "simulation original input",
+      "expected": "c6f75501e98dd5995f687aafb40455beffe45b426137b5089a73ac3a036f7282",
+      "sha256": "c6f75501e98dd5995f687aafb40455beffe45b426137b5089a73ac3a036f7282",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\video_timing_data.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "c6f75501e98dd5995f687aafb40455beffe45b426137b5089a73ac3a036f7282",
+      "sha256": "c6f75501e98dd5995f687aafb40455beffe45b426137b5089a73ac3a036f7282",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\video_rgb_to_axis_640x480.v",
+      "scope": "simulation original input",
+      "expected": "1c8fc26c789f87227036bea034f1ab6fc5633f2ab2684be422c54687a290fb96",
+      "sha256": "1c8fc26c789f87227036bea034f1ab6fc5633f2ab2684be422c54687a290fb96",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\video_rgb_to_axis_640x480.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "1c8fc26c789f87227036bea034f1ab6fc5633f2ab2684be422c54687a290fb96",
+      "sha256": "1c8fc26c789f87227036bea034f1ab6fc5633f2ab2684be422c54687a290fb96",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\sd_card_cmd.v",
+      "scope": "simulation original input",
+      "expected": "617ac307a4daee159a09de5aa87e52ba3d978b78ff8ec60b8701fa5dc4554bd0",
+      "sha256": "617ac307a4daee159a09de5aa87e52ba3d978b78ff8ec60b8701fa5dc4554bd0",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\sd_card_cmd.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "617ac307a4daee159a09de5aa87e52ba3d978b78ff8ec60b8701fa5dc4554bd0",
+      "sha256": "617ac307a4daee159a09de5aa87e52ba3d978b78ff8ec60b8701fa5dc4554bd0",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\sd_card_sec_read_write.v",
+      "scope": "simulation original input",
+      "expected": "2b2bf70bbbef57945eaf202073d0f6fad7fa86a41453fa33cec0cdfac7e2833d",
+      "sha256": "2b2bf70bbbef57945eaf202073d0f6fad7fa86a41453fa33cec0cdfac7e2833d",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\sd_card_sec_read_write.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "2b2bf70bbbef57945eaf202073d0f6fad7fa86a41453fa33cec0cdfac7e2833d",
+      "sha256": "2b2bf70bbbef57945eaf202073d0f6fad7fa86a41453fa33cec0cdfac7e2833d",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\sd_card_top.v",
+      "scope": "simulation original input",
+      "expected": "0e9df60abd3a08a99d7d9fb0cd3ddb4c5169ae3e095d1dbb6a09c1d9ef9de1d8",
+      "sha256": "0e9df60abd3a08a99d7d9fb0cd3ddb4c5169ae3e095d1dbb6a09c1d9ef9de1d8",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\sd_card_top.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "0e9df60abd3a08a99d7d9fb0cd3ddb4c5169ae3e095d1dbb6a09c1d9ef9de1d8",
+      "sha256": "0e9df60abd3a08a99d7d9fb0cd3ddb4c5169ae3e095d1dbb6a09c1d9ef9de1d8",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\spi_master.v",
+      "scope": "simulation original input",
+      "expected": "37f7a21144fa5cca3cc5c3b5f68a5ad40b3108336b600e45a1367734ac61403c",
+      "sha256": "37f7a21144fa5cca3cc5c3b5f68a5ad40b3108336b600e45a1367734ac61403c",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\spi_master.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "37f7a21144fa5cca3cc5c3b5f68a5ad40b3108336b600e45a1367734ac61403c",
+      "sha256": "37f7a21144fa5cca3cc5c3b5f68a5ad40b3108336b600e45a1367734ac61403c",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\hdmi_audio_tone_pcm_scale.v",
+      "scope": "simulation original input",
+      "expected": "0ff1ab2b39e1294c3aae814bf5a252c47c284c2cdb9568adf02d3c6cfd8ddd0b",
+      "sha256": "0ff1ab2b39e1294c3aae814bf5a252c47c284c2cdb9568adf02d3c6cfd8ddd0b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\hdmi_audio_tone_pcm_scale.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "0ff1ab2b39e1294c3aae814bf5a252c47c284c2cdb9568adf02d3c6cfd8ddd0b",
+      "sha256": "0ff1ab2b39e1294c3aae814bf5a252c47c284c2cdb9568adf02d3c6cfd8ddd0b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\audio_arc_calculate.v",
+      "scope": "simulation original input",
+      "expected": "552d8d86afd237666b30ae08f31247808e89eb024efde5efc670b82eb617a7dc",
+      "sha256": "552d8d86afd237666b30ae08f31247808e89eb024efde5efc670b82eb617a7dc",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\audio_arc_calculate.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "552d8d86afd237666b30ae08f31247808e89eb024efde5efc670b82eb617a7dc",
+      "sha256": "552d8d86afd237666b30ae08f31247808e89eb024efde5efc670b82eb617a7dc",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\wav_pcm_bridge.v",
+      "scope": "simulation original input",
+      "expected": "71d4099d517708372e84c7a14664b4a07bdb417e2efb6f07bc754f73a0f1bf6a",
+      "sha256": "71d4099d517708372e84c7a14664b4a07bdb417e2efb6f07bc754f73a0f1bf6a",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\wav_pcm_bridge.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "71d4099d517708372e84c7a14664b4a07bdb417e2efb6f07bc754f73a0f1bf6a",
+      "sha256": "71d4099d517708372e84c7a14664b4a07bdb417e2efb6f07bc754f73a0f1bf6a",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\rgb888_word_codec.v",
+      "scope": "simulation original input",
+      "expected": "414a74a76a828b45f9baa2f0c56f5f80d5c6311b21001e309246d2f60a333552",
+      "sha256": "414a74a76a828b45f9baa2f0c56f5f80d5c6311b21001e309246d2f60a333552",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\rgb888_word_codec.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "414a74a76a828b45f9baa2f0c56f5f80d5c6311b21001e309246d2f60a333552",
+      "sha256": "414a74a76a828b45f9baa2f0c56f5f80d5c6311b21001e309246d2f60a333552",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\frame_buffer_rgb888.v",
+      "scope": "simulation original input",
+      "expected": "4ad0302bdc152056c42d82e84f274069c79899b4085c33b16f371f3101c22501",
+      "sha256": "4ad0302bdc152056c42d82e84f274069c79899b4085c33b16f371f3101c22501",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\frame_buffer_rgb888.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "4ad0302bdc152056c42d82e84f274069c79899b4085c33b16f371f3101c22501",
+      "sha256": "4ad0302bdc152056c42d82e84f274069c79899b4085c33b16f371f3101c22501",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\fat32_catalog.v",
+      "scope": "simulation original input",
+      "expected": "ceba12aab36ad403d789fdfe8cf6692b841f83888a6622752657f47066cf7aa5",
+      "sha256": "ceba12aab36ad403d789fdfe8cf6692b841f83888a6622752657f47066cf7aa5",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\fat32_catalog.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "ceba12aab36ad403d789fdfe8cf6692b841f83888a6622752657f47066cf7aa5",
+      "sha256": "ceba12aab36ad403d789fdfe8cf6692b841f83888a6622752657f47066cf7aa5",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\fat32_dual_file_sector.v",
+      "scope": "simulation original input",
+      "expected": "084b7dc884b1b33e3ebc2804283bc820b0e5a38eb248e7dc14a6303d70f67bfb",
+      "sha256": "084b7dc884b1b33e3ebc2804283bc820b0e5a38eb248e7dc14a6303d70f67bfb",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\fat32_dual_file_sector.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "084b7dc884b1b33e3ebc2804283bc820b0e5a38eb248e7dc14a6303d70f67bfb",
+      "sha256": "084b7dc884b1b33e3ebc2804283bc820b0e5a38eb248e7dc14a6303d70f67bfb",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\tf_bmp_file_player.v",
+      "scope": "simulation original input",
+      "expected": "e46169101374f6d28094d4ad408ff7f2b399908d0cb6fa30e613edebe5fe5ab4",
+      "sha256": "e46169101374f6d28094d4ad408ff7f2b399908d0cb6fa30e613edebe5fe5ab4",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\tf_bmp_file_player.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "e46169101374f6d28094d4ad408ff7f2b399908d0cb6fa30e613edebe5fe5ab4",
+      "sha256": "e46169101374f6d28094d4ad408ff7f2b399908d0cb6fa30e613edebe5fe5ab4",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\tf_wav_file_player.v",
+      "scope": "simulation original input",
+      "expected": "6baa637832cd6ce4722803b6c8a0c0d2abd9706a192a2f15f7107d201993cbf9",
+      "sha256": "6baa637832cd6ce4722803b6c8a0c0d2abd9706a192a2f15f7107d201993cbf9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\tf_wav_file_player.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "6baa637832cd6ce4722803b6c8a0c0d2abd9706a192a2f15f7107d201993cbf9",
+      "sha256": "6baa637832cd6ce4722803b6c8a0c0d2abd9706a192a2f15f7107d201993cbf9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_debug_monitor.v",
+      "scope": "simulation original input",
+      "expected": "8d7325b79bf30aa03cfb6164d18365c5425db5dfdd242a2f2bccb0ce072387a7",
+      "sha256": "8d7325b79bf30aa03cfb6164d18365c5425db5dfdd242a2f2bccb0ce072387a7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_debug_monitor.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "8d7325b79bf30aa03cfb6164d18365c5425db5dfdd242a2f2bccb0ce072387a7",
+      "sha256": "8d7325b79bf30aa03cfb6164d18365c5425db5dfdd242a2f2bccb0ce072387a7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_audio_probe.v",
+      "scope": "simulation original input",
+      "expected": "c4b72dd0c351e8321333160e6044553cc1950a3b6ef48d0b5a991109414bf319",
+      "sha256": "c4b72dd0c351e8321333160e6044553cc1950a3b6ef48d0b5a991109414bf319",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_audio_probe.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "c4b72dd0c351e8321333160e6044553cc1950a3b6ef48d0b5a991109414bf319",
+      "sha256": "c4b72dd0c351e8321333160e6044553cc1950a3b6ef48d0b5a991109414bf319",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\status_hex595.v",
+      "scope": "simulation original input",
+      "expected": "aff2a8b7eb9ccb6d5e2785728dce86bd8e87c4a96f33c20fa4b08fdc151852b9",
+      "sha256": "aff2a8b7eb9ccb6d5e2785728dce86bd8e87c4a96f33c20fa4b08fdc151852b9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\status_hex595.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "aff2a8b7eb9ccb6d5e2785728dce86bd8e87c4a96f33c20fa4b08fdc151852b9",
+      "sha256": "aff2a8b7eb9ccb6d5e2785728dce86bd8e87c4a96f33c20fa4b08fdc151852b9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_osd.v",
+      "scope": "simulation original input",
+      "expected": "baf10da3489a8eacebaf2bcad44f978ee708c0843d2fdf4ffbfb6ae0546e37d7",
+      "sha256": "baf10da3489a8eacebaf2bcad44f978ee708c0843d2fdf4ffbfb6ae0546e37d7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_osd.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "baf10da3489a8eacebaf2bcad44f978ee708c0843d2fdf4ffbfb6ae0546e37d7",
+      "sha256": "baf10da3489a8eacebaf2bcad44f978ee708c0843d2fdf4ffbfb6ae0546e37d7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_osd_state.v",
+      "scope": "simulation original input",
+      "expected": "5dc4cb7eca4acd2aced6aba341608c107bb7d99d5971922b9710bf63ad72c3a7",
+      "sha256": "5dc4cb7eca4acd2aced6aba341608c107bb7d99d5971922b9710bf63ad72c3a7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_osd_state.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "5dc4cb7eca4acd2aced6aba341608c107bb7d99d5971922b9710bf63ad72c3a7",
+      "sha256": "5dc4cb7eca4acd2aced6aba341608c107bb7d99d5971922b9710bf63ad72c3a7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_dynamic_text.v",
+      "scope": "simulation original input",
+      "expected": "8cd40dcc12f7a1b88c3a2f7fc0cad62c7dbf198fe9c9d735c5b75bc40e4fed3b",
+      "sha256": "8cd40dcc12f7a1b88c3a2f7fc0cad62c7dbf198fe9c9d735c5b75bc40e4fed3b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_dynamic_text.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "8cd40dcc12f7a1b88c3a2f7fc0cad62c7dbf198fe9c9d735c5b75bc40e4fed3b",
+      "sha256": "8cd40dcc12f7a1b88c3a2f7fc0cad62c7dbf198fe9c9d735c5b75bc40e4fed3b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_video_source_probe.v",
+      "scope": "simulation original input",
+      "expected": "8b8df6af3c328079b2cfdf6f3cc68f3d5e4b9d5e925f77cff1aff53607af348e",
+      "sha256": "8b8df6af3c328079b2cfdf6f3cc68f3d5e4b9d5e925f77cff1aff53607af348e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_video_source_probe.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "8b8df6af3c328079b2cfdf6f3cc68f3d5e4b9d5e925f77cff1aff53607af348e",
+      "sha256": "8b8df6af3c328079b2cfdf6f3cc68f3d5e4b9d5e925f77cff1aff53607af348e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_cadence_probe.v",
+      "scope": "simulation original input",
+      "expected": "209907f85c97d54a53b70e8a9f761b6a84de624539a81920ba69438ea6b0a712",
+      "sha256": "209907f85c97d54a53b70e8a9f761b6a84de624539a81920ba69438ea6b0a712",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_cadence_probe.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "209907f85c97d54a53b70e8a9f761b6a84de624539a81920ba69438ea6b0a712",
+      "sha256": "209907f85c97d54a53b70e8a9f761b6a84de624539a81920ba69438ea6b0a712",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_bit17_led_probe.v",
+      "scope": "simulation original input",
+      "expected": "f3b29d6feecfb2fa2f95a9d744d10a7492c689326a6f420ec798d01d6cb88772",
+      "sha256": "f3b29d6feecfb2fa2f95a9d744d10a7492c689326a6f420ec798d01d6cb88772",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_bit17_led_probe.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "f3b29d6feecfb2fa2f95a9d744d10a7492c689326a6f420ec798d01d6cb88772",
+      "sha256": "f3b29d6feecfb2fa2f95a9d744d10a7492c689326a6f420ec798d01d6cb88772",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_adjust_control.v",
+      "scope": "simulation original input",
+      "expected": "6fdd3102fd22e04fcbdbbc10c892759b4e1186db6dc9d45fc325e3b4f6529c37",
+      "sha256": "6fdd3102fd22e04fcbdbbc10c892759b4e1186db6dc9d45fc325e3b4f6529c37",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_adjust_control.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "6fdd3102fd22e04fcbdbbc10c892759b4e1186db6dc9d45fc325e3b4f6529c37",
+      "sha256": "6fdd3102fd22e04fcbdbbc10c892759b4e1186db6dc9d45fc325e3b4f6529c37",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_rgb_adjust.v",
+      "scope": "simulation original input",
+      "expected": "5dbe265ffd13b73563c1e374b54a106e79640a8d794458faf2202235d3478739",
+      "sha256": "5dbe265ffd13b73563c1e374b54a106e79640a8d794458faf2202235d3478739",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_rgb_adjust.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "5dbe265ffd13b73563c1e374b54a106e79640a8d794458faf2202235d3478739",
+      "sha256": "5dbe265ffd13b73563c1e374b54a106e79640a8d794458faf2202235d3478739",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_adjust_osd.v",
+      "scope": "simulation original input",
+      "expected": "b4bbb95b2b98949dc25eb0feef1116bcd3e35898c4d999fef57f73893bc3be41",
+      "sha256": "b4bbb95b2b98949dc25eb0feef1116bcd3e35898c4d999fef57f73893bc3be41",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_adjust_osd.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "b4bbb95b2b98949dc25eb0feef1116bcd3e35898c4d999fef57f73893bc3be41",
+      "sha256": "b4bbb95b2b98949dc25eb0feef1116bcd3e35898c4d999fef57f73893bc3be41",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_pcm_waveform.v",
+      "scope": "simulation original input",
+      "expected": "4ded2b8f6fcdf3c4b185ffb999de2503e4efa22624f480964029d53fd593b3ab",
+      "sha256": "4ded2b8f6fcdf3c4b185ffb999de2503e4efa22624f480964029d53fd593b3ab",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_pcm_waveform.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "4ded2b8f6fcdf3c4b185ffb999de2503e4efa22624f480964029d53fd593b3ab",
+      "sha256": "4ded2b8f6fcdf3c4b185ffb999de2503e4efa22624f480964029d53fd593b3ab",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_wipe_address.v",
+      "scope": "simulation original input",
+      "expected": "8712e3490c0ec01fdf1a719bb74eee2bc2d7269ae51119e338f0eb0fbd143f4f",
+      "sha256": "8712e3490c0ec01fdf1a719bb74eee2bc2d7269ae51119e338f0eb0fbd143f4f",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_wipe_address.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "8712e3490c0ec01fdf1a719bb74eee2bc2d7269ae51119e338f0eb0fbd143f4f",
+      "sha256": "8712e3490c0ec01fdf1a719bb74eee2bc2d7269ae51119e338f0eb0fbd143f4f",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\bmp_scale_engine.v",
+      "scope": "simulation original input",
+      "expected": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2",
+      "sha256": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\bmp_scale_engine.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2",
+      "sha256": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_spectrum_analyzer.v",
+      "scope": "simulation original input",
+      "expected": "2edfffb8678fe071428f62f0325ecb6a2e35a7568d84e766f87257f9d486c98e",
+      "sha256": "2edfffb8678fe071428f62f0325ecb6a2e35a7568d84e766f87257f9d486c98e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_spectrum_analyzer.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "2edfffb8678fe071428f62f0325ecb6a2e35a7568d84e766f87257f9d486c98e",
+      "sha256": "2edfffb8678fe071428f62f0325ecb6a2e35a7568d84e766f87257f9d486c98e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\spectrum_coeff_rom.v",
+      "scope": "simulation original input",
+      "expected": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+      "sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\spectrum_coeff_rom.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+      "sha256": "975f99493b1a2d47e9131f0be6b61154cc8d31e6d4017e3bf2515f63cb6fdd04",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_bitbuffer.v",
+      "scope": "simulation original input",
+      "expected": "b4cfe631350b982e3f348610999f94596f9ec4cdc911799030af535adf58bf22",
+      "sha256": "b4cfe631350b982e3f348610999f94596f9ec4cdc911799030af535adf58bf22",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_bitbuffer.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "b4cfe631350b982e3f348610999f94596f9ec4cdc911799030af535adf58bf22",
+      "sha256": "b4cfe631350b982e3f348610999f94596f9ec4cdc911799030af535adf58bf22",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_core.v",
+      "scope": "simulation original input",
+      "expected": "0062463bde0ca4ac5036e89b9f4b20d79846824edad8e97104d9ba7121b3d315",
+      "sha256": "0062463bde0ca4ac5036e89b9f4b20d79846824edad8e97104d9ba7121b3d315",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_core.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "ff190db60b5d2a08a383f71753c09cc58181ff98428333f5fc63d4c3d63a88c4",
+      "sha256": "ff190db60b5d2a08a383f71753c09cc58181ff98428333f5fc63d4c3d63a88c4",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht.v",
+      "scope": "simulation original input",
+      "expected": "fbd890def4b7ac3effb38b7da52f544311759f091bf62d5fe29cb5dc16c53d5f",
+      "sha256": "fbd890def4b7ac3effb38b7da52f544311759f091bf62d5fe29cb5dc16c53d5f",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "c34688029edf2366b0e7b29c72a796fd83b6fe60fbfac0e43d44c60b1a3a68bf",
+      "sha256": "c34688029edf2366b0e7b29c72a796fd83b6fe60fbfac0e43d44c60b1a3a68bf",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_cx_ac.v",
+      "scope": "simulation original input",
+      "expected": "b3a64b9576cc88ef6127f8ced66007437089f9eb64f4891d1a058932f9eb518a",
+      "sha256": "b3a64b9576cc88ef6127f8ced66007437089f9eb64f4891d1a058932f9eb518a",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_cx_ac.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "b3a64b9576cc88ef6127f8ced66007437089f9eb64f4891d1a058932f9eb518a",
+      "sha256": "b3a64b9576cc88ef6127f8ced66007437089f9eb64f4891d1a058932f9eb518a",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_cx_dc.v",
+      "scope": "simulation original input",
+      "expected": "eea1c4a670e2b4920944faf63fa24e93c37c8d5c22ae059b494d85cb90ba729b",
+      "sha256": "eea1c4a670e2b4920944faf63fa24e93c37c8d5c22ae059b494d85cb90ba729b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_cx_dc.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "eea1c4a670e2b4920944faf63fa24e93c37c8d5c22ae059b494d85cb90ba729b",
+      "sha256": "eea1c4a670e2b4920944faf63fa24e93c37c8d5c22ae059b494d85cb90ba729b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_y_ac.v",
+      "scope": "simulation original input",
+      "expected": "bf4597ee2f7386adf503ae5d00081fcc9aeecb21d66a88c210140c8b6790c559",
+      "sha256": "bf4597ee2f7386adf503ae5d00081fcc9aeecb21d66a88c210140c8b6790c559",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_y_ac.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "bf4597ee2f7386adf503ae5d00081fcc9aeecb21d66a88c210140c8b6790c559",
+      "sha256": "bf4597ee2f7386adf503ae5d00081fcc9aeecb21d66a88c210140c8b6790c559",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_y_dc.v",
+      "scope": "simulation original input",
+      "expected": "5275231a2ac4f2dd47a4f42109fa8d0e7a8e045eab729f5852c855628e6e68bf",
+      "sha256": "5275231a2ac4f2dd47a4f42109fa8d0e7a8e045eab729f5852c855628e6e68bf",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_dht_std_y_dc.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "5275231a2ac4f2dd47a4f42109fa8d0e7a8e045eab729f5852c855628e6e68bf",
+      "sha256": "5275231a2ac4f2dd47a4f42109fa8d0e7a8e045eab729f5852c855628e6e68bf",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_dqt.v",
+      "scope": "simulation original input",
+      "expected": "e99bb750bf20903b9cf80407aa1e8274170296c3366e43be0030265a08afcb99",
+      "sha256": "e99bb750bf20903b9cf80407aa1e8274170296c3366e43be0030265a08afcb99",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_dqt.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "e99bb750bf20903b9cf80407aa1e8274170296c3366e43be0030265a08afcb99",
+      "sha256": "e99bb750bf20903b9cf80407aa1e8274170296c3366e43be0030265a08afcb99",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct.v",
+      "scope": "simulation original input",
+      "expected": "3635c2b1d9421a69e389c388d40c4171790d7898ca04bc37401b2f0cd55469ce",
+      "sha256": "3635c2b1d9421a69e389c388d40c4171790d7898ca04bc37401b2f0cd55469ce",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "3635c2b1d9421a69e389c388d40c4171790d7898ca04bc37401b2f0cd55469ce",
+      "sha256": "3635c2b1d9421a69e389c388d40c4171790d7898ca04bc37401b2f0cd55469ce",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_fifo.v",
+      "scope": "simulation original input",
+      "expected": "487d095dc70369d4bb7c9a27e6f27cc4db082b95e9bb6ce13292dc31fb2cf5e0",
+      "sha256": "487d095dc70369d4bb7c9a27e6f27cc4db082b95e9bb6ce13292dc31fb2cf5e0",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_fifo.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "487d095dc70369d4bb7c9a27e6f27cc4db082b95e9bb6ce13292dc31fb2cf5e0",
+      "sha256": "487d095dc70369d4bb7c9a27e6f27cc4db082b95e9bb6ce13292dc31fb2cf5e0",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_ram.v",
+      "scope": "simulation original input",
+      "expected": "e5b95dd53fa8a8e8138bd400ced622f9f39f0aadd8ee1af79e6929f8f1d2b20f",
+      "sha256": "e5b95dd53fa8a8e8138bd400ced622f9f39f0aadd8ee1af79e6929f8f1d2b20f",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_ram.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "e5b95dd53fa8a8e8138bd400ced622f9f39f0aadd8ee1af79e6929f8f1d2b20f",
+      "sha256": "e5b95dd53fa8a8e8138bd400ced622f9f39f0aadd8ee1af79e6929f8f1d2b20f",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_ram_dp.v",
+      "scope": "simulation original input",
+      "expected": "191622cc6447224294c1cfe98aef9fbb329b3a8b00932ed1b33920e90d2b61ea",
+      "sha256": "191622cc6447224294c1cfe98aef9fbb329b3a8b00932ed1b33920e90d2b61ea",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_ram_dp.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "191622cc6447224294c1cfe98aef9fbb329b3a8b00932ed1b33920e90d2b61ea",
+      "sha256": "191622cc6447224294c1cfe98aef9fbb329b3a8b00932ed1b33920e90d2b61ea",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_transpose.v",
+      "scope": "simulation original input",
+      "expected": "e4d3f6ab7f70781be95bf5c5e74cfe44ad5f3060ef2b5dcd8c1049f6845138e7",
+      "sha256": "e4d3f6ab7f70781be95bf5c5e74cfe44ad5f3060ef2b5dcd8c1049f6845138e7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_transpose.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "e4d3f6ab7f70781be95bf5c5e74cfe44ad5f3060ef2b5dcd8c1049f6845138e7",
+      "sha256": "e4d3f6ab7f70781be95bf5c5e74cfe44ad5f3060ef2b5dcd8c1049f6845138e7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_transpose_ram.v",
+      "scope": "simulation original input",
+      "expected": "308e4b0791ee562ca87c7fc923d34f0aff51064d188fea703a1bbf94903be45e",
+      "sha256": "308e4b0791ee562ca87c7fc923d34f0aff51064d188fea703a1bbf94903be45e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_transpose_ram.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "308e4b0791ee562ca87c7fc923d34f0aff51064d188fea703a1bbf94903be45e",
+      "sha256": "308e4b0791ee562ca87c7fc923d34f0aff51064d188fea703a1bbf94903be45e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_x.v",
+      "scope": "simulation original input",
+      "expected": "14b29d01930d68bd2ea3f28060ad008e7204cdde6100d43e3949522fe9323914",
+      "sha256": "14b29d01930d68bd2ea3f28060ad008e7204cdde6100d43e3949522fe9323914",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_x.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "14b29d01930d68bd2ea3f28060ad008e7204cdde6100d43e3949522fe9323914",
+      "sha256": "14b29d01930d68bd2ea3f28060ad008e7204cdde6100d43e3949522fe9323914",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_y.v",
+      "scope": "simulation original input",
+      "expected": "58b15a0afaefd830e9cf61a0a7bab17f87f69d74d632a6a9ec755d76f8e0abe2",
+      "sha256": "58b15a0afaefd830e9cf61a0a7bab17f87f69d74d632a6a9ec755d76f8e0abe2",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_y.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "58b15a0afaefd830e9cf61a0a7bab17f87f69d74d632a6a9ec755d76f8e0abe2",
+      "sha256": "58b15a0afaefd830e9cf61a0a7bab17f87f69d74d632a6a9ec755d76f8e0abe2",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_input.v",
+      "scope": "simulation original input",
+      "expected": "b49e4b133852428e245fbeb88f39b3d29ef0e73629a0fc894348d6d1e172aadd",
+      "sha256": "b49e4b133852428e245fbeb88f39b3d29ef0e73629a0fc894348d6d1e172aadd",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_input.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "b49e4b133852428e245fbeb88f39b3d29ef0e73629a0fc894348d6d1e172aadd",
+      "sha256": "b49e4b133852428e245fbeb88f39b3d29ef0e73629a0fc894348d6d1e172aadd",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_mcu_id.v",
+      "scope": "simulation original input",
+      "expected": "450c780bf08b337238395c8c4b2cd1e9a075b4b2f0a1398e41110238f01859b9",
+      "sha256": "450c780bf08b337238395c8c4b2cd1e9a075b4b2f0a1398e41110238f01859b9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_mcu_id.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "450c780bf08b337238395c8c4b2cd1e9a075b4b2f0a1398e41110238f01859b9",
+      "sha256": "450c780bf08b337238395c8c4b2cd1e9a075b4b2f0a1398e41110238f01859b9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_mcu_proc.v",
+      "scope": "simulation original input",
+      "expected": "cfd8b35fe75a29c02950f5cfcc1493419bee6da155d253d0062aff91493d43af",
+      "sha256": "cfd8b35fe75a29c02950f5cfcc1493419bee6da155d253d0062aff91493d43af",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_mcu_proc.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "cfd8b35fe75a29c02950f5cfcc1493419bee6da155d253d0062aff91493d43af",
+      "sha256": "cfd8b35fe75a29c02950f5cfcc1493419bee6da155d253d0062aff91493d43af",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_output.v",
+      "scope": "simulation original input",
+      "expected": "b9539ff30324ca6a6ffceedfaf0a865bcb16dd6948cecf2899f8bd8126cb012d",
+      "sha256": "b9539ff30324ca6a6ffceedfaf0a865bcb16dd6948cecf2899f8bd8126cb012d",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_output.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "5b150a2fcea50018bcea06a6786d64e53e802cfa3cab37543cc1b8fa528dee9e",
+      "sha256": "5b150a2fcea50018bcea06a6786d64e53e802cfa3cab37543cc1b8fa528dee9e",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_output_cx_ram.v",
+      "scope": "simulation original input",
+      "expected": "d82bbc1fbf0af82b4af951637f30954268571b4f881304b55b7f4c1fde9a0250",
+      "sha256": "d82bbc1fbf0af82b4af951637f30954268571b4f881304b55b7f4c1fde9a0250",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_output_cx_ram.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "d82bbc1fbf0af82b4af951637f30954268571b4f881304b55b7f4c1fde9a0250",
+      "sha256": "d82bbc1fbf0af82b4af951637f30954268571b4f881304b55b7f4c1fde9a0250",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_output_fifo.v",
+      "scope": "simulation original input",
+      "expected": "66cde6db3c4f8c8b64ab35f80c7ef0b383b13d3e395114b9cff5e7ba0d22be72",
+      "sha256": "66cde6db3c4f8c8b64ab35f80c7ef0b383b13d3e395114b9cff5e7ba0d22be72",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_output_fifo.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "66cde6db3c4f8c8b64ab35f80c7ef0b383b13d3e395114b9cff5e7ba0d22be72",
+      "sha256": "66cde6db3c4f8c8b64ab35f80c7ef0b383b13d3e395114b9cff5e7ba0d22be72",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_output_y_ram.v",
+      "scope": "simulation original input",
+      "expected": "4ea4afeed9909b6ea509a42d20778375b76c0827b68b7a811b985d1256cf951b",
+      "sha256": "4ea4afeed9909b6ea509a42d20778375b76c0827b68b7a811b985d1256cf951b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_output_y_ram.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "4ea4afeed9909b6ea509a42d20778375b76c0827b68b7a811b985d1256cf951b",
+      "sha256": "4ea4afeed9909b6ea509a42d20778375b76c0827b68b7a811b985d1256cf951b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\mjp_file_reader.v",
+      "scope": "simulation original input",
+      "expected": "cad1b31de5c3b62f482ec5bed8db8eca802621f315d5d4a525db3411bf737018",
+      "sha256": "cad1b31de5c3b62f482ec5bed8db8eca802621f315d5d4a525db3411bf737018",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\mjp_file_reader.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "cad1b31de5c3b62f482ec5bed8db8eca802621f315d5d4a525db3411bf737018",
+      "sha256": "cad1b31de5c3b62f482ec5bed8db8eca802621f315d5d4a525db3411bf737018",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg420_word_address.v",
+      "scope": "simulation original input",
+      "expected": "3b8c2a641e23711826cbf51f2b0ce343e92e3f0a80b45b69906754e017c7f175",
+      "sha256": "3b8c2a641e23711826cbf51f2b0ce343e92e3f0a80b45b69906754e017c7f175",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg420_word_address.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "3b8c2a641e23711826cbf51f2b0ce343e92e3f0a80b45b69906754e017c7f175",
+      "sha256": "3b8c2a641e23711826cbf51f2b0ce343e92e3f0a80b45b69906754e017c7f175",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_video_schedule.v",
+      "scope": "simulation original input",
+      "expected": "e40f6788061d5b37f459c26810c06032b0753bbc0e6ee445024d4a366c003ecc",
+      "sha256": "e40f6788061d5b37f459c26810c06032b0753bbc0e6ee445024d4a366c003ecc",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_video_schedule.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "e40f6788061d5b37f459c26810c06032b0753bbc0e6ee445024d4a366c003ecc",
+      "sha256": "e40f6788061d5b37f459c26810c06032b0753bbc0e6ee445024d4a366c003ecc",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_transpose_logic_ram.v",
+      "scope": "simulation original input",
+      "expected": "8c527b21e399e0e950c94e74417ce52751eb76cac52344b33d93303c97c49684",
+      "sha256": "8c527b21e399e0e950c94e74417ce52751eb76cac52344b33d93303c97c49684",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\jpeg\\jpeg_idct_transpose_logic_ram.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "8c527b21e399e0e950c94e74417ce52751eb76cac52344b33d93303c97c49684",
+      "sha256": "8c527b21e399e0e950c94e74417ce52751eb76cac52344b33d93303c97c49684",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\rgb565_word_codec.v",
+      "scope": "simulation original input",
+      "expected": "971ab7800db69c06c078160c010778ef4b208620e005e150301e3a4b857b5021",
+      "sha256": "971ab7800db69c06c078160c010778ef4b208620e005e150301e3a4b857b5021",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\rgb565_word_codec.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "971ab7800db69c06c078160c010778ef4b208620e005e150301e3a4b857b5021",
+      "sha256": "971ab7800db69c06c078160c010778ef4b208620e005e150301e3a4b857b5021",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_compact_status_pages.v",
+      "scope": "simulation original input",
+      "expected": "c74cb63109acf552b55530b52f03c89e2a4a6cdf5f6b0fec5d8769acdc0a9f85",
+      "sha256": "c74cb63109acf552b55530b52f03c89e2a4a6cdf5f6b0fec5d8769acdc0a9f85",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_compact_status_pages.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "c74cb63109acf552b55530b52f03c89e2a4a6cdf5f6b0fec5d8769acdc0a9f85",
+      "sha256": "c74cb63109acf552b55530b52f03c89e2a4a6cdf5f6b0fec5d8769acdc0a9f85",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_16_32_256.v",
+      "scope": "simulation original input",
+      "expected": "3d29b06655482184a9ad157b9bd71b79032debe3199168d3b4d9570fdac31835",
+      "sha256": "3d29b06655482184a9ad157b9bd71b79032debe3199168d3b4d9570fdac31835",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\IP\\afifo_16_32_256.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "3d29b06655482184a9ad157b9bd71b79032debe3199168d3b4d9570fdac31835",
+      "sha256": "3d29b06655482184a9ad157b9bd71b79032debe3199168d3b4d9570fdac31835",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\IP\\afifo_32_16_256.v",
+      "scope": "simulation original input",
+      "expected": "7c3ee41f30be75ae686c9abff3a840fc5439209cda077e4aa275eac0dab9f564",
+      "sha256": "7c3ee41f30be75ae686c9abff3a840fc5439209cda077e4aa275eac0dab9f564",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\IP\\afifo_32_16_256.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "7c3ee41f30be75ae686c9abff3a840fc5439209cda077e4aa275eac0dab9f564",
+      "sha256": "7c3ee41f30be75ae686c9abff3a840fc5439209cda077e4aa275eac0dab9f564",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\player_spectrum_bands.vh",
+      "scope": "simulation original input",
+      "expected": "7681a4aaae6fea83ec28cc94c8a9fdf816a17cacf8ee720200e138803b8fef4d",
+      "sha256": "7681a4aaae6fea83ec28cc94c8a9fdf816a17cacf8ee720200e138803b8fef4d",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\player_spectrum_bands.vh",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "7681a4aaae6fea83ec28cc94c8a9fdf816a17cacf8ee720200e138803b8fef4d",
+      "sha256": "7681a4aaae6fea83ec28cc94c8a9fdf816a17cacf8ee720200e138803b8fef4d",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\SD\\video_define.v",
+      "scope": "simulation original input",
+      "expected": "77748966850a8f5af0d77f2cdb08006088ba5e1a31b98391fba6cc61c5247da2",
+      "sha256": "77748966850a8f5af0d77f2cdb08006088ba5e1a31b98391fba6cc61c5247da2",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\frozen\\src\\user_source\\hdl_source\\SD\\video_define.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "77748966850a8f5af0d77f2cdb08006088ba5e1a31b98391fba6cc61c5247da2",
+      "sha256": "77748966850a8f5af0d77f2cdb08006088ba5e1a31b98391fba6cc61c5247da2",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\vendor_qualification\\clock_replay\\pll_clock_replay.v",
+      "scope": "simulation original input",
+      "expected": "82a0a5b4b57f34e7b9568215a0d66d1788629773b4287337f5643c0a5f6a6f25",
+      "sha256": "82a0a5b4b57f34e7b9568215a0d66d1788629773b4287337f5643c0a5f6a6f25",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\pll_clock_replay.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "82a0a5b4b57f34e7b9568215a0d66d1788629773b4287337f5643c0a5f6a6f25",
+      "sha256": "82a0a5b4b57f34e7b9568215a0d66d1788629773b4287337f5643c0a5f6a6f25",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\integration\\pll_replay_wrappers.v",
+      "scope": "simulation original input",
+      "expected": "74703576ec050e208b5f8edf96ea2dfde392663762ef6e134633602f9bd418a9",
+      "sha256": "74703576ec050e208b5f8edf96ea2dfde392663762ef6e134633602f9bd418a9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\pll_replay_wrappers.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "74703576ec050e208b5f8edf96ea2dfde392663762ef6e134633602f9bd418a9",
+      "sha256": "74703576ec050e208b5f8edf96ea2dfde392663762ef6e134633602f9bd418a9",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\card\\sd_spi_card_model.v",
+      "scope": "simulation original input",
+      "expected": "c7a758a7fba278eb8e1be5803bb0a1819a877b3436981f17cba4deb965cbe342",
+      "sha256": "c7a758a7fba278eb8e1be5803bb0a1819a877b3436981f17cba4deb965cbe342",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\sd_spi_card_model.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "c7a758a7fba278eb8e1be5803bb0a1819a877b3436981f17cba4deb965cbe342",
+      "sha256": "c7a758a7fba278eb8e1be5803bb0a1819a877b3436981f17cba4deb965cbe342",
+      "passed": true
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_glbl.v",
+      "scope": "simulation original input",
+      "expected": "95b5fed81000f5844a5a3b110a5b8e82d59a941e6f0715015e38884192ee4fb7",
+      "sha256": "95b5fed81000f5844a5a3b110a5b8e82d59a941e6f0715015e38884192ee4fb7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\eg_phy_glbl.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "95b5fed81000f5844a5a3b110a5b8e82d59a941e6f0715015e38884192ee4fb7",
+      "sha256": "95b5fed81000f5844a5a3b110a5b8e82d59a941e6f0715015e38884192ee4fb7",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\controller_gate_20261016_182922\\build\\controller_gate.v",
+      "scope": "simulation original input",
+      "expected": "89f949eba178ded57a4cf5bc65bc0743be6ecaa235ca895718edcc4ba4a9c443",
+      "sha256": "89f949eba178ded57a4cf5bc65bc0743be6ecaa235ca895718edcc4ba4a9c443",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\controller_gate.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "89f949eba178ded57a4cf5bc65bc0743be6ecaa235ca895718edcc4ba4a9c443",
+      "sha256": "89f949eba178ded57a4cf5bc65bc0743be6ecaa235ca895718edcc4ba4a9c443",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\system_verification_20261016\\memory\\sdram_issi_reference_wrapper.v",
+      "scope": "simulation original input",
+      "expected": "7ebc42fc01eaf44b93f7ada407f6d36bf165dc30e033b8f673bbc28309b1c130",
+      "sha256": "7ebc42fc01eaf44b93f7ada407f6d36bf165dc30e033b8f673bbc28309b1c130",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\sdram_issi_reference_wrapper.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "7ebc42fc01eaf44b93f7ada407f6d36bf165dc30e033b8f673bbc28309b1c130",
+      "sha256": "7ebc42fc01eaf44b93f7ada407f6d36bf165dc30e033b8f673bbc28309b1c130",
+      "passed": true
+    },
+    {
+      "path": "E:\\QQ CACHE\\Download\\\u5b89\u8def\u8d44\u6599\\\u8d5b\u98981_\u5de5\u4f5c\u8d44\u6599\\05_\u8865\u5145\u53c2\u8003\u5de5\u7a0b\\APUG011_SDRAM\u53c2\u8003\u5de5\u7a0b\\source_code\\model\\IS42s32200.v",
+      "scope": "simulation original input",
+      "expected": "6aad09c411b00e319ea6e7ff5a85453eb990532541ae368084406f78a276690b",
+      "sha256": "6aad09c411b00e319ea6e7ff5a85453eb990532541ae368084406f78a276690b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\IS42s32200.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "6aad09c411b00e319ea6e7ff5a85453eb990532541ae368084406f78a276690b",
+      "sha256": "6aad09c411b00e319ea6e7ff5a85453eb990532541ae368084406f78a276690b",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\src\\user_source\\hdl_source\\include\\global_def.v",
+      "scope": "simulation original input",
+      "expected": "da6a16ac7e3b8d3415f45b9f18847d8e6170c7f9eb6e192c417f730977072583",
+      "sha256": "da6a16ac7e3b8d3415f45b9f18847d8e6170c7f9eb6e192c417f730977072583",
+      "passed": true
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\global_def.v",
+      "scope": "compiled frozen input / recorded compatibility",
+      "expected": "da6a16ac7e3b8d3415f45b9f18847d8e6170c7f9eb6e192c417f730977072583",
+      "sha256": "da6a16ac7e3b8d3415f45b9f18847d8e6170c7f9eb6e192c417f730977072583",
+      "passed": true
+    }
+  ],
+  "checks_count": 304,
+  "mismatches": []
+}

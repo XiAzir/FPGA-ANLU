@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "+incdir+E:/VSCODE-project/FPGA-ANLU/development/video19_work/video_pin_scoreboard/runs/C04_Q90_pin_20261021_203750_health_attempt02+E:/VSCODE-project/FPGA-ANLU/development/video19_work/video_pin_scoreboard/runs/C04_Q90_pin_20261021_203750_health_attempt02/frozen/src/user_source/hdl_source+E:/VSCODE-project/FPGA-ANLU/development/video19_work/video_pin_scoreboard/runs/C04_Q90_pin_20261021_203750_health_attempt02/frozen/src/user_source/hdl_source/include+E:/VSCODE-project/FPGA-ANLU/development/video19_work/video_pin_scoreboard/runs/C04_Q90_pin_20261021_203750_health_attempt02/frozen/src/user_source/hdl_source/SD+E:/VSCODE-project/FPGA-ANLU/development/video19_work/video_pin_scoreboard/runs/C04_Q90_pin_20261021_203750_health_attempt02/frozen/src/td_project",
+      "-f",
+      "plain.f"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\video_pin_scoreboard\\runs\\C04_Q90_pin_20261021_203750_health_attempt02\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "-L",
+      "hdmi",
+      "-g/tb_video_system/MAPPED_SECTORS=29686",
+      "-g/tb_video_system/IMAGE_BYTES=536870912",
+      "-g/tb_video_system/CHECK_FRAMES=4",
+      "work.tb_video_system",
+      "work.glbl",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\video_pin_scoreboard\\runs\\C04_Q90_pin_20261021_203750_health_attempt02\\console.log"
+  },
+  "serial_pin_scoreboard": true,
+  "reference_basis": {
+    "rgb": "independent offline C03 frozen-core RGB888 checks every SD write coordinate and quantized framebuffer read; recovered TMDS compares to the matching globally indexed AXIS frame from a two-frame ring, with SOF content-valid/source labels qualifying displayed frames",
+    "pcm": "pcm.mem validated byte-for-byte against source WAV data offset 78"
+  },
+  "assumptions": [
+    "frozen application run video_system_20261021_203750",
+    "qualified nominal PLL replay",
+    "application-interface SDRAM model"
+  ],
+  "unverified": [
+    "physical SDRAM timing",
+    "SDF",
+    "board behavior"
+  ],
+  "negative_control": "none",
+  "run_directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\video_pin_scoreboard\\runs\\C04_Q90_pin_20261021_203750_health_attempt02"
+}

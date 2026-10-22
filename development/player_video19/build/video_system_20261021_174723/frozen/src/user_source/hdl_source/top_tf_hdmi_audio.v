@@ -1,0 +1,715 @@
+
+module top(
+    input                       clk,
+    input                       rst_n,
+    input                       key1,           // 手动下一张
+    input                       key2,           // 自动播放 开/关
+
+    output [3:0]                led,
+    output seg7_dio, seg7_sclk, seg7_rclk,
+
+    // HDMI TMDS
+    output                      HDMI_CLK_P,
+    output                      HDMI_D2_P,
+    output                      HDMI_D1_P,
+    output                      HDMI_D0_P,
+
+    // TF card SPI
+    output                      sd_ncs,
+    output                      sd_dclk,
+    output                      sd_mosi,
+    input                       sd_miso
+);
+wire bmp_write_ready;
+
+
+localparam DISPLAY_WIDTH = 640;
+localparam DISPLAY_HEIGHT = 480;
+
+
+wire sd_card_clk;
+wire ext_mem_clk;
+wire ext_mem_clk_sft;
+wire video_clk;
+wire hdmi_5x_clk;
+wire hdmi_5x_clk_raw;
+EG_LOGIC_BUFG u_hdmi_serial_bufg (.i(hdmi_5x_clk_raw),.o(hdmi_5x_clk));
+// Explicit declaration before passive diagnostic synchronizers use rst_all.
+wire rst_all;
+
+wire hs;
+wire vs;
+wire de;
+
+wire [23:0] vout_data_raw;
+wire [23:0] vout_data;
+wire [23:0] vout_data_base;
+wire [23:0] vout_data_probe;
+wire        debug_tone_press, debug_tone_mode;
+wire        display_valid;
+
+wire [3:0]  state_code;
+
+wire        video_read_req;
+wire        video_read_req_ack;
+wire        video_read_req_osd;
+wire        video_read_en;
+wire [23:0] video_read_data;
+
+wire        sd_card_write_en;
+wire [23:0] sd_card_write_data;
+wire        sd_card_write_req;
+wire        sd_card_write_req_ack;
+wire        frame_write_finish;
+wire display_finish_toggle, wipe_active;
+wire [8:0] wipe_rows;
+wire [1:0] wipe_new_buffer;
+reg         frame_write_toggle_mem;
+
+wire [1:0]  write_buf_idx;
+wire [1:0]  disp_buf_idx;
+wire [1:0]  current_image_index, osd_buffer_idx, osd_image_index;
+wire [2:0]  osd_image_count;
+wire        bmp_auto_mode, osd_auto_mode, osd_frame_valid;
+wire        probe_mode, probe_tone_toggle, probe_key0_active;
+wire bmp_key_next_req,bmp_key_auto_req,bmp_key_next_ack,bmp_key_auto_ack;
+
+wire hs_0;
+wire vs_0;
+wire de_0;
+
+wire bmp_card_read, bmp_card_valid, bmp_card_end;
+wire [31:0] bmp_card_addr;
+wire [7:0] bmp_card_data;
+wire wav_card_read, wav_card_valid, wav_card_end;
+wire [31:0] wav_card_addr;
+wire [7:0] wav_card_data;
+wire shared_card_read, shared_card_valid, shared_card_end, card_init_done;
+wire [31:0] shared_card_addr;
+wire [7:0] shared_card_data;
+wire wav_sample_take, wav_sample_available, wav_primed, wav_error;
+wire [15:0] wav_sample_data;
+wire audio_underflow;
+wire fs_ready, fs_error, fs_wav_found, bmp_error;
+wire fs_video_found;
+wire [31:0] fs_video_cluster, fs_video_size;
+wire [7:0] fs_error_code, bmp_map_error_code, wav_map_error_code;
+wire [31:0] fs_fat_lba, fs_data_lba, fs_cluster_count;
+wire [3:0] fs_cluster_shift;
+wire [2:0] fs_bmp_count;
+wire [23:0] bmp_failure_detail;
+wire [15:0] sd_crc_checked, sd_crc_bad;
+reg [26:0] bmp_diag_sync0,bmp_diag_sync1;
+reg [31:0] sd_crc_sync0,sd_crc_sync1;
+always @(posedge video_clk or posedge rst_all) begin
+    if(rst_all) begin bmp_diag_sync0<=0;bmp_diag_sync1<=0;sd_crc_sync0<=0;sd_crc_sync1<=0;end
+    else begin
+        bmp_diag_sync0<={fs_bmp_count,bmp_failure_detail};bmp_diag_sync1<=bmp_diag_sync0;
+        sd_crc_sync0<={sd_crc_bad,sd_crc_checked};sd_crc_sync1<=sd_crc_sync0;
+    end
+end
+wire [127:0] fs_bmp_clusters, fs_bmp_sizes;
+wire [31:0] fs_wav_cluster, fs_wav_size, bmp_file_cluster, bmp_file_size;
+wire fs_read, bmp_map_error, wav_map_error;
+wire [31:0] fs_addr;
+wire arb_card_read, arb_card_valid, arb_card_end;
+wire [31:0] arb_card_addr;
+// Declare diagnostic buses before their first connection (TD rejects implicit
+// vector redeclarations with critical warnings).
+wire [3:0] debug_wav_state, debug_wav_phase;
+wire [31:0] debug_wav_pos;
+wire [7:0] debug_wav_byte;
+wire [127:0] debug_rows_sd;
+// Stereo PCM and HDMI audio clock regeneration, all in the pixel clock domain.
+wire        audio_valid;
+wire [23:0] audio_left_data;
+wire [23:0] audio_right_data;
+wire        acr_valid;
+wire [19:0] acr_cts;
+wire [19:0] acr_n;
+// HDMI 1.4b 相关
+wire        axis_s_user;
+wire        axis_s_valid;
+wire        axis_s_last;
+wire [23:0] axis_s_data;
+wire        axis_s_ready;
+wire        hdmi_video_locked;
+wire [31:0] status_hex;
+wire [23:0] packet_samples, packet_count, packet_bad_bch, packet_bad_terc, packet_tone_bad;
+wire [23:0] packet_cts, packet_n;
+wire [3:0] packet_flags;
+wire pcm_push; wire [15:0] pcm_push_data; wire [31:0] pcm_push_pos,pcm_data_offset;
+wire [15:0] prefix_src,prefix_fifo,prefix_hdmi,prefix_bad,prefix_count;
+wire [23:0] prefix_high_pos,prefix_data_offset;
+// Display uses the running pixel clock, independently of playback reset.
+wire status_clk = video_clk;
+reg [1:0] status_reset_pipe=2'b11;
+always @(posedge status_clk or negedge rst_n) begin
+    if(!rst_n) status_reset_pipe<=2'b11;
+    else status_reset_pipe<={status_reset_pipe[0],1'b0};
+end
+wire status_sys_rst=status_reset_pipe[1];
+
+
+wire [9:0]  tmds_ch0_data;
+wire [9:0]  tmds_ch1_data;
+wire [9:0]  tmds_ch2_data;
+wire [9:0]  tmds_clk_data;
+
+// 统一复位：TF 图像链路 + HDMI 链路
+wire sys_pll_lock;
+wire video_pll_lock;
+
+reg [19:0] rst_cnt = 20'd0;
+reg rst_all_reg = 1'b1;
+
+always @(posedge clk) begin
+    if (!rst_n) begin
+        rst_cnt <= 20'd0;
+        rst_all_reg <= 1'b1;
+    end else if (!rst_all_reg) begin
+        // 一旦复位释放，忽略后续微小的 PLL 抖动，防止系统在使用时随机复位
+        rst_all_reg <= 1'b0;
+    end else if (sys_pll_lock && video_pll_lock) begin
+        // 等待 PLL 连续稳定 20ms @ 50MHz
+        if (rst_cnt < 20'd1_000_000) begin
+            rst_cnt <= rst_cnt + 1'b1;
+            rst_all_reg <= 1'b1;
+        end else begin
+            rst_all_reg <= 1'b0;
+        end
+    end else begin
+        rst_cnt <= 20'd0;
+        rst_all_reg <= 1'b1;
+    end
+end
+
+// The control classifier survives a media restart so held gestures rearm once.
+wire video_mode_press;
+reg video_mode;
+reg media_reset_active;
+reg [4:0] media_reset_count;
+reg [1:0] video_mode_sd_sync;
+reg [1:0] video_restart_sync;
+reg video_restart_seen;
+reg video_restart_toggle;
+wire video_next_press, video_auto_press;
+wire video_key_next_ack, video_key_auto_ack;
+wire photo_key_next_ack, photo_key_auto_ack;
+wire video_mode_sd=video_mode_sd_sync[1];
+always @(posedge video_clk or posedge rst_all_reg) begin
+    if(rst_all_reg) begin
+        video_mode<=0;media_reset_active<=0;media_reset_count<=0;
+        video_restart_sync<=0;video_restart_seen<=0;
+    end else begin
+        video_restart_sync<={video_restart_sync[0],video_restart_toggle};
+        if(video_mode_press || video_restart_sync[1]!=video_restart_seen) begin
+            if(video_mode_press) video_mode<=~video_mode;
+            video_restart_seen<=video_restart_sync[1];
+            media_reset_active<=1;media_reset_count<=31;
+        end else if(media_reset_active) begin
+            if(media_reset_count==0) media_reset_active<=0;
+            else media_reset_count<=media_reset_count-1'b1;
+        end
+    end
+end
+always @(posedge sd_card_clk or posedge rst_all_reg) begin
+    if(rst_all_reg) begin video_mode_sd_sync<=0;video_restart_toggle<=0;end
+    else begin
+        video_mode_sd_sync<={video_mode_sd_sync[0],video_mode};
+        if(video_mode_sd && video_next_press) video_restart_toggle<=~video_restart_toggle;
+    end
+end
+assign rst_all = rst_all_reg | media_reset_active;
+key_event_mailbox_sink u_video_keys (
+    .clk(sd_card_clk),.rst(rst_all_reg),
+    .next_req_toggle(bmp_key_next_req),.next_ack_toggle(video_key_next_ack),.next_press(video_next_press),
+    .auto_req_toggle(bmp_key_auto_req),.auto_ack_toggle(video_key_auto_ack),.auto_press(video_auto_press)
+);
+assign bmp_key_next_ack=video_mode ? video_key_next_ack : photo_key_next_ack;
+assign bmp_key_auto_ack=video_mode ? video_key_auto_ack : photo_key_auto_ack;
+
+// 保持你原来的 TF / SDRAM / video 时钟
+sys_pll sys_pll_m0(
+    .refclk     (clk),
+    .reset      (1'b0),
+    .extlock    (sys_pll_lock),
+    .clk0_out   (sd_card_clk),
+    .clk1_out   (ext_mem_clk),
+    .clk2_out   (ext_mem_clk_sft)
+);
+
+video_pll video_pll_m0(
+    .refclk     (clk),
+    .reset      (1'b0),
+    .extlock    (video_pll_lock),
+    .clk0_out   (video_clk),
+    .clk1_out   (hdmi_5x_clk_raw)
+);
+
+// mem_clk 域把 write_finish 单拍转成 toggle，供 sd_card_clk 域可靠同步
+always @(posedge ext_mem_clk or posedge rst_all) begin
+    if (rst_all)
+        frame_write_toggle_mem <= 1'b0;
+    else if (frame_write_finish)
+        frame_write_toggle_mem <= ~frame_write_toggle_mem;
+end
+
+// Mount owns the card at startup. Runtime clients request logical file sectors.
+fat32_catalog u_catalog (
+    .clk(sd_card_clk),.rst(rst_all),.sd_init_done(card_init_done),
+    .sd_read(fs_read),.sd_addr(fs_addr),.sd_data(shared_card_data),
+    .sd_valid(!fs_ready && shared_card_valid),.sd_end(!fs_ready && shared_card_end),
+    .ready(fs_ready),.error(fs_error),.error_code(fs_error_code),
+    .fat_lba(fs_fat_lba),.data_lba(fs_data_lba),.cluster_count(fs_cluster_count),
+    .sectors_per_cluster_shift(fs_cluster_shift),.bmp_count(fs_bmp_count),
+    .bmp_clusters(fs_bmp_clusters),.bmp_sizes(fs_bmp_sizes),
+    .wav_found(fs_wav_found),.wav_cluster(fs_wav_cluster),.wav_size(fs_wav_size),
+    .video_found(fs_video_found),.video_cluster(fs_video_cluster),.video_size(fs_video_size)
+);
+wire photo_write_req, photo_write_en, photo_display_valid, photo_error;
+wire [23:0] photo_write_data;
+wire [1:0] photo_write_buffer,photo_display_buffer;
+wire [3:0] photo_state;
+wire [31:0] photo_file_cluster,photo_file_size;
+wire photo_card_read;
+wire [31:0] photo_card_addr;
+wire video_card_read;
+wire [31:0] video_card_addr;
+wire [1:0] video_write_buffer,video_display_buffer;
+wire video_write_req,video_display_valid,video_audio_go;
+wire [3:0] video_state;
+wire video_reader_start,video_reader_next,video_file_ready,video_frame_sent;
+wire video_reader_error,video_core_idle,video_core_reset;
+wire video_jpeg_valid,video_jpeg_accept,video_jpeg_last;
+wire [31:0] video_jpeg_data;
+wire [3:0] video_jpeg_strb;
+wire video_pixel_valid;
+wire [15:0] video_pixel_x,video_pixel_y;
+wire [7:0] video_pixel_r,video_pixel_g,video_pixel_b;
+reg video_paused;
+always @(posedge sd_card_clk or posedge rst_all) begin
+    if(rst_all) video_paused<=0;
+    else if(video_mode_sd && video_auto_press) video_paused<=~video_paused;
+end
+assign bmp_file_cluster=video_mode_sd ? fs_video_cluster : photo_file_cluster;
+assign bmp_file_size=video_mode_sd ? fs_video_size : photo_file_size;
+assign bmp_card_read=video_mode_sd ? video_card_read : photo_card_read;
+assign bmp_card_addr=video_mode_sd ? video_card_addr : photo_card_addr;
+assign write_buf_idx=video_mode_sd ? video_write_buffer : photo_write_buffer;
+assign disp_buf_idx=video_mode_sd ? video_display_buffer : photo_display_buffer;
+assign sd_card_write_req=video_mode_sd ? video_write_req : photo_write_req;
+assign sd_card_write_en=video_mode_sd ? (video_pixel_valid && bmp_write_ready) : photo_write_en;
+assign sd_card_write_data=video_mode_sd ? {video_pixel_r,video_pixel_g,video_pixel_b} : photo_write_data;
+assign display_valid=video_mode_sd ? video_display_valid : photo_display_valid;
+assign bmp_error=video_mode_sd ? video_reader_error : photo_error;
+assign state_code=video_mode_sd ? video_state : photo_state;
+player_video_schedule u_video_schedule (
+    .clk(sd_card_clk),.rst(rst_all),.enable(video_mode_sd),
+    .catalog_ready(fs_ready),.video_found(fs_video_found),.wav_primed(wav_primed),
+    .file_ready(video_file_ready),.reader_frame_sent(video_frame_sent),.decoder_idle(video_core_idle),
+    .reader_start(video_reader_start),.reader_next(video_reader_next),.decoder_reset(video_core_reset),
+    .write_finish_toggle(frame_write_toggle_mem),.display_finish_toggle(display_finish_toggle),
+    .sample_take(wav_sample_take),.write_req(video_write_req),.write_req_ack(sd_card_write_req_ack),
+    .write_buffer(video_write_buffer),.display_buffer(video_display_buffer),
+    .display_valid(video_display_valid),.audio_go(video_audio_go),.state_code(video_state),
+    .displayed_frame(),.frame_late()
+);
+mjp_file_reader u_video_reader (
+    .clk(sd_card_clk),.rst(rst_all),.start(video_reader_start),.next_frame(video_reader_next),
+    .card_read(video_card_read),.card_addr(video_card_addr),.card_data(bmp_card_data),
+    .card_valid(bmp_card_valid && video_mode_sd),.card_end(bmp_card_end && video_mode_sd),
+    .file_error(bmp_map_error && video_mode_sd),.file_ready(video_file_ready),.last_index(),
+    .frame_ready(),.frame_index(),.frame_length(),
+    .jpeg_valid(video_jpeg_valid),.jpeg_data(video_jpeg_data),.jpeg_strb(video_jpeg_strb),
+    .jpeg_last(video_jpeg_last),.jpeg_accept(video_jpeg_accept),.frame_sent(video_frame_sent),
+    .sequence_index(),.busy(),.error(video_reader_error)
+);
+jpeg_core #(.SUPPORT_WRITABLE_DHT(0)) u_jpeg_core (
+    .clk_i(sd_card_clk),.rst_i(video_core_reset || !video_mode_sd),
+    .inport_valid_i(video_jpeg_valid),.inport_data_i(video_jpeg_data),
+    .inport_strb_i(video_jpeg_strb),.inport_last_i(video_jpeg_last),
+    .outport_accept_i(bmp_write_ready),.inport_accept_o(video_jpeg_accept),
+    .outport_valid_o(video_pixel_valid),.outport_width_o(),.outport_height_o(),
+    .outport_pixel_x_o(video_pixel_x),.outport_pixel_y_o(video_pixel_y),
+    .outport_pixel_r_o(video_pixel_r),.outport_pixel_g_o(video_pixel_g),
+    .outport_pixel_b_o(video_pixel_b),.idle_o(video_core_idle)
+);
+
+tf_bmp_file_player #(.CLK_FREQ_HZ(50000000),
+    .FRAME_WIDTH(DISPLAY_WIDTH),.FRAME_HEIGHT(DISPLAY_HEIGHT)) u_bmp_file_player (
+    .clk(sd_card_clk),.rst(rst_all || video_mode_sd),
+    .key_next_req_toggle(bmp_key_next_req),.key_auto_req_toggle(bmp_key_auto_req),
+    .key_next_ack_toggle(photo_key_next_ack),.key_auto_ack_toggle(photo_key_auto_ack),
+    .catalog_ready(fs_ready),.bmp_count(fs_bmp_count),
+    .bmp_clusters(fs_bmp_clusters),.bmp_sizes(fs_bmp_sizes),
+    .file_cluster(photo_file_cluster),.file_size(photo_file_size),
+    .card_read(photo_card_read),.card_addr(photo_card_addr),
+    .card_data(bmp_card_data),.card_valid(bmp_card_valid),.card_end(bmp_card_end),
+    .file_error(bmp_map_error),.write_finish_toggle(frame_write_toggle_mem),
+    .display_finish_toggle(display_finish_toggle),
+    .write_buf_idx(photo_write_buffer),.disp_buf_idx(photo_display_buffer),
+    .write_req(photo_write_req),.write_req_ack(sd_card_write_req_ack),
+    .write_ready(bmp_write_ready),
+    .write_en(photo_write_en),.write_data(photo_write_data),
+    .display_valid(photo_display_valid),.error(photo_error),.state_code(photo_state),
+    .current_image_index(current_image_index),.auto_mode(bmp_auto_mode),
+    .failure_detail(bmp_failure_detail)
+);
+// One FAT execution engine; both clients retain independent file contexts.
+fat32_dual_file_sector #(.REQUEST_STABLE(1),.WAV_STATIC_FILE(1)) u_file_mapper (
+    .clk(sd_card_clk),.rst(rst_all),
+    .fat_lba(fs_fat_lba),.data_lba(fs_data_lba),.cluster_count(fs_cluster_count),
+    .sectors_per_cluster_shift(fs_cluster_shift),
+    .bmp_enable(fs_ready && !fs_error),.bmp_start_cluster(bmp_file_cluster),
+    .bmp_file_size(bmp_file_size),.bmp_file_read(bmp_card_read),.bmp_file_sector(bmp_card_addr),
+    .bmp_file_data(bmp_card_data),.bmp_file_valid(bmp_card_valid),.bmp_file_end(bmp_card_end),
+    .bmp_error(bmp_map_error),.bmp_error_code(bmp_map_error_code),
+    .wav_enable(fs_ready && fs_wav_found && !fs_error),.wav_start_cluster(fs_wav_cluster),
+    .wav_file_size(fs_wav_size),.wav_file_read(wav_card_read),.wav_file_sector(wav_card_addr),
+    .wav_file_data(wav_card_data),.wav_file_valid(wav_card_valid),.wav_file_end(wav_card_end),
+    .wav_error(wav_map_error),.wav_error_code(wav_map_error_code),
+    .sd_read(arb_card_read),.sd_addr(arb_card_addr),
+    .sd_data(shared_card_data),.sd_valid(arb_card_valid),.sd_end(arb_card_end)
+);
+
+// AC201 has four active-low LEDs and a serial segment-display interface.
+// Show the reader state while loading; all four LEDs light after a frame commit.
+// Probe build: four independent, active-low observations, usable without HDMI.
+// D3: mounted; D2: full source-frame sum matches one of the unchanged card BMPs;
+// D1: first two logical WAV bytes are RI; D0: audio primed with no WAV fault.
+wire debug_source_sum_matches = (debug_rows_sd[95:64] == 32'hfb167260) ||
+    (debug_rows_sd[95:64] == 32'hc3ebce2e) ||
+    (debug_rows_sd[95:64] == 32'h0b94a9db) ||
+    (debug_rows_sd[95:64] == 32'h98df6a9e);
+// LED meanings in this audio probe are owned by u_audio_probe below.
+
+// ===================== 原图像时序与帧缓存 =====================
+video_timing_data video_timing_data_m0(
+    .video_clk         (video_clk),
+    .rst               (rst_all),
+    .read_req          (video_read_req),
+    .read_req_ack      (video_read_req_ack),
+    .hs                (hs_0),
+    .vs                (vs_0),
+    .de                (de_0)
+);
+
+video_delay video_delay_m0(
+    .video_clk         (video_clk),
+    .rst               (rst_all),
+    .read_en           (video_read_en),
+    .read_data         (video_read_data),
+    .hs                (hs_0),
+    .vs                (vs_0),
+    .de                (de_0),
+    .hs_r              (hs),
+    .vs_r              (vs),
+    .de_r              (de),
+    .vout_data         (vout_data_raw)
+);
+
+// Select a frame and its OSD label atomically before issuing the memory read.
+// A commit during active video is presented on the next read-frame boundary.
+player_osd_state u_osd_state (
+    .sd_clk(sd_card_clk),.pixel_clk(video_clk),.rst(rst_all),
+    .source_buffer(disp_buf_idx),.source_image(current_image_index),
+    .source_count(fs_bmp_count),.source_auto(bmp_auto_mode),
+    .source_valid(display_valid),.source_video(video_mode),.read_req(video_read_req),.read_req_ack(video_read_req_ack),
+    .wipe_active(wipe_active),.wipe_rows(wipe_rows),.wipe_new_buffer(wipe_new_buffer),
+    .display_finish_toggle(display_finish_toggle),
+    .read_req_out(video_read_req_osd),.frame_buffer(osd_buffer_idx),
+    .frame_image(osd_image_index),.frame_count(osd_image_count),
+    .frame_auto(osd_auto_mode),.frame_valid(osd_frame_valid)
+);
+
+// Product controls arbitrate short/long/chord gestures before legacy BMP debounce.
+wire [1:0] adjust_mode;
+wire [3:0] brightness_index;
+wire [2:0] contrast_index;
+wire waveform_toggle;
+player_adjust_control u_adjust_control (
+ .clk(video_clk),.rst(rst_all_reg),.vs(vs),.key0_n(key1),.key1_n(key2),
+ .next_req_toggle(bmp_key_next_req),.next_ack_async(bmp_key_next_ack),
+ .auto_req_toggle(bmp_key_auto_req),.auto_ack_async(bmp_key_auto_ack),.tone_press(debug_tone_press),
+ .mode(adjust_mode),.brightness_index(brightness_index),.contrast_index(contrast_index),
+ .waveform_toggle(waveform_toggle),.video_mode_press(video_mode_press)
+);
+player_video_source_probe u_video_source_probe (
+    .clk(video_clk),.rst(rst_all),.key0_n_async(1'b1),
+    .tone_press(debug_tone_press),.vs(vs),.bmp_valid(osd_frame_valid),
+    .image_index(osd_image_index),.bmp_rgb(vout_data_raw),
+    .probe_mode(probe_mode),.tone_toggle(probe_tone_toggle),
+    .key0_active(probe_key0_active),
+    .rgb_out(vout_data_probe)
+);
+assign vout_data_base = vout_data_probe;
+
+// RGB888 pixel API; SDRAM word layout is owned by the frame buffer.
+frame_buffer_rgb888 #(
+    .FRAME_WIDTH       (DISPLAY_WIDTH),
+    .FRAME_HEIGHT      (DISPLAY_HEIGHT),
+    .WRITE_V_FLIP      (1)
+) u_frame_buffer (
+    .rst               (rst_all),
+    .mem_clk           (ext_mem_clk),
+    .mem_clk_shift     (ext_mem_clk_sft),
+    .write_clk         (sd_card_clk),
+    .write_req         (sd_card_write_req),
+    .write_req_ack     (sd_card_write_req_ack),
+    .write_frame_index (write_buf_idx),
+    .write_jpeg420     (video_mode_sd),
+    .write_pixel_en    (sd_card_write_en),
+    .write_pixel_rgb   (sd_card_write_data),
+    .write_pixel_ready (bmp_write_ready),
+    .write_finish      (frame_write_finish),
+    .read_clk          (video_clk),
+    .read_req          (video_read_req_osd),
+    .read_req_ack      (video_read_req_ack),
+    .read_frame_index  (osd_buffer_idx),
+    .read_wipe_active  (wipe_active),.read_wipe_rows(wipe_rows),
+    .read_wipe_new_index(wipe_new_buffer),
+    .read_pixel_en     (video_read_en),
+    .read_pixel_rgb    (video_read_data)
+);
+
+// Parse the actual RIFF data region of the root-directory TEST.WAV.
+tf_wav_file_player #(
+    .FIFO_DEPTH          (2048)
+) u_wav_player (
+    .clk(sd_card_clk), .rst(rst_all), .sd_init_done(fs_ready && fs_wav_found),
+    .file_size(fs_wav_size),.file_error(wav_map_error),
+    .sd_read(wav_card_read), .sd_addr(wav_card_addr),
+    .sd_data(wav_card_data), .sd_valid(wav_card_valid), .sd_end(wav_card_end),
+    .sample_take(wav_sample_take), .sample_data(wav_sample_data),
+    .sample_available(wav_sample_available), .primed(wav_primed), .error(wav_error),
+    .debug_state(debug_wav_state), .debug_phase(debug_wav_phase),
+    .debug_scan_pos(debug_wav_pos), .debug_scan_byte(debug_wav_byte),
+    .debug_sample_push(pcm_push),.debug_push_data(pcm_push_data),
+    .debug_push_pos(pcm_push_pos),.debug_data_offset(pcm_data_offset)
+);
+
+// Diagnostic-only build: monitor source pixels and freeze the first WAV fault.
+wire [7:0] debug_flags = {fs_ready,display_valid,fs_wav_found,wav_primed,
+    wav_error,(bmp_error || bmp_map_error),wav_map_error,audio_underflow};
+player_debug_monitor u_debug_monitor (
+    .clk(sd_card_clk),.rst(rst_all),.flags(debug_flags),
+    .fs_code(fs_error_code),.bmp_map_code(bmp_map_error_code),
+    .wav_map_code(wav_map_error_code),
+    .write_req(sd_card_write_req),.write_en(sd_card_write_en),
+    .write_rgb(sd_card_write_data),.wav_addr(wav_card_addr),
+    .wav_valid(wav_card_valid),.wav_end(wav_card_end),.wav_data(wav_card_data),
+    .wav_error(wav_error),.wav_state(debug_wav_state),.wav_phase(debug_wav_phase),
+    .wav_scan_pos(debug_wav_pos),.wav_scan_byte(debug_wav_byte),
+    .debug_rows(debug_rows_sd)
+);
+// Combinational overlays retain the existing VS/DE and pixel latency.
+wire [23:0] vout_data_osd, vout_data_adjusted, vout_data_dynamic, vout_data_adjust_osd;
+wire [23:0] adjusted_rgb;
+player_rgb_adjust u_rgb_adjust (.rgb_in(vout_data_base),
+ .brightness_index(brightness_index),.contrast_index(contrast_index),.rgb_out(adjusted_rgb));
+assign vout_data_adjusted = de ? adjusted_rgb : vout_data_base;
+player_osd u_osd (
+    .clk(video_clk),.rst(rst_all),.vs(vs),.de(de),.rgb_in(vout_data_adjusted),
+    .image_index(osd_image_index),.image_count(osd_image_count),
+    .auto_mode(osd_auto_mode),.image_valid(osd_frame_valid),.rgb_out(vout_data_osd)
+);
+player_dynamic_text #(.CLK_FREQ_HZ(25000000)) u_dynamic_text (
+    .clk(video_clk),.rst(rst_all),.vs(vs),.de(de),
+    .probe_mode(probe_mode),.rgb_in(vout_data_osd),.rgb_out(vout_data_dynamic)
+);
+
+player_adjust_osd u_adjust_osd (.clk(video_clk),.rst(rst_all),.vs(vs),.de(de),
+ .rgb_in(vout_data_dynamic),.mode(adjust_mode),.brightness_index(brightness_index),
+ .contrast_index(contrast_index),.rgb_out(vout_data_adjust_osd));
+wire [23:0] spectrum_debug_frames,spectrum_debug_data;
+wire [23:0] spectrum_debug_progress,spectrum_debug_events,spectrum_debug_accepted;
+wire [7:0] spectrum_debug_control;
+// Passive observer of the exact PCM/VALID buses presented to the HDMI core.
+player_pcm_waveform #(.CLK_FREQ_HZ(25000000)) u_pcm_waveform (
+ .clk(video_clk),.rst(rst_all),.vs(vs),.de(de),.rgb_in(vout_data_adjust_osd),
+ .audio_valid(audio_valid),.audio_pcm(audio_left_data),.tone_mode(debug_tone_mode),
+ .freeze_toggle(waveform_toggle),
+ .rgb_out(vout_data),.spectrum_debug_frames(spectrum_debug_frames),
+ .spectrum_debug_data(spectrum_debug_data),.spectrum_debug_progress(spectrum_debug_progress),
+ .spectrum_debug_events(spectrum_debug_events),.spectrum_debug_accepted(spectrum_debug_accepted),
+ .spectrum_debug_control(spectrum_debug_control)
+);
+player_audio_probe #(.PLAY_GATE(1)) u_audio_probe (
+    .pixel_clk(video_clk),.sd_clk(sd_card_clk),.rst(rst_all),
+    .tone_toggle(probe_tone_toggle),.primed(wav_primed && (!video_mode_sd || video_audio_go)),
+    .play_enable(!video_mode_sd || (video_audio_go && !video_paused)),
+    .sample_available(wav_sample_available),.sample_data(wav_sample_data),
+    .sample_take(wav_sample_take),.underflow(audio_underflow),
+    .audio_valid(audio_valid),.audio_left(audio_left_data),.audio_right(audio_right_data),
+    .acr_valid(acr_valid),.acr_cts(acr_cts),.acr_n(acr_n),
+    .led(led),.tone_mode(debug_tone_mode)
+);
+
+
+assign shared_card_read=fs_ready ? arb_card_read : fs_read;
+assign shared_card_addr=fs_ready ? arb_card_addr : fs_addr;
+assign arb_card_valid=fs_ready && shared_card_valid;
+assign arb_card_end=fs_ready && shared_card_end;
+
+sd_card_top #(.SPI_HIGH_SPEED_DIV(0)) u_shared_card (
+    .clk(sd_card_clk), .rst(rst_all),
+    .SD_nCS(sd_ncs), .SD_DCLK(sd_dclk), .SD_MOSI(sd_mosi), .SD_MISO(sd_miso),
+    .sd_init_done(card_init_done),
+    .sd_sec_read(shared_card_read), .sd_sec_read_addr(shared_card_addr),
+    .sd_sec_read_data(shared_card_data), .sd_sec_read_data_valid(shared_card_valid),
+    .sd_sec_read_end(shared_card_end),
+    .sd_sec_write(1'b0), .sd_sec_write_addr(32'd0), .sd_sec_write_data(8'd0),
+    .sd_sec_write_data_req(), .sd_sec_write_end(),
+    .read_crc_checked(sd_crc_checked),.read_crc_bad(sd_crc_bad)
+);
+// ===================== RGB/DE 转 AXIS 视频 =====================
+video_rgb_to_axis_640x480 u_video_rgb_to_axis_640x480(
+    .I_clk         (video_clk),
+    .I_rst         (rst_all),
+    .I_vs          (vs),
+    .I_de          (de),
+    .I_rgb         (vout_data),
+    .O_video_user  (axis_s_user),
+    .O_video_valid (axis_s_valid),
+    .O_video_last  (axis_s_last),
+    .O_video_data  (axis_s_data)
+);
+
+// AC201 does not connect HDMI DDC to the FPGA. Use fixed 640x480 timing.
+
+// ===================== HDMI 1.4b 发射 =====================
+hdmi_1_4b_transmitter_core_wrapper #(
+    .DEVICE                 ( "EG"       ),
+    .HTOTAL                 ( 800        ),
+    .HSA                    ( 96         ),
+    .HFP                    ( 16         ),
+    .HBP                    ( 48         ),
+    .HACTIVE                ( 640        ),
+    .VTOTAL                 ( 525        ),
+    .VSA                    ( 2          ),
+    .VFP                    ( 10         ),
+    .VBP                    ( 33         ),
+    .VACTIVE                ( 480        ),
+    .VIDEO_VIC              ( 1          ),
+    .VIDEO_TPG              ( "Disable"  ),
+    .VIDEO_FORMAT           ( "RGB"      ),
+    .AUDIO_SAMPLE_RATE      ( "48K"      ),
+    .IIC_SCL_DIV            ( 250        )
+) u_hdmi_1_4b_transmitter_core_wrapper(
+    .I_pixel_clk        (video_clk),
+    .I_rst              (rst_all),
+    .I_edid_read_trig   (1'b0),
+    .O_edid_read_valid  (),
+    .O_edid_read_data   (),
+
+    .I_axis_s_user      (axis_s_user),
+    .I_axis_s_valid     (axis_s_valid),
+    .I_axis_s_last      (axis_s_last),
+    .I_axis_s_data      (axis_s_data),
+    .O_axis_s_ready     (axis_s_ready),
+
+    .I_audio_valid      (audio_valid),
+    .I_audio_left_data  (audio_left_data),
+    .I_audio_right_data (audio_right_data),
+    .I_acr_valid        (acr_valid),
+    .I_acr_cts          (acr_cts),
+    .I_acr_n            (acr_n),
+
+    .O_video_locked     (hdmi_video_locked),
+    .O_ddc_scl          (),
+    .IO_ddc_sda         (),
+
+    .O_ch0_tmds_data    (tmds_ch0_data),
+    .O_ch1_tmds_data    (tmds_ch1_data),
+    .O_ch2_tmds_data    (tmds_ch2_data),
+    .O_clk_tmds_data    (tmds_clk_data)
+);
+
+hdmi_phy_wrapper #(
+    .DEVICE ( "EG" )
+) u_hdmi2phy_wrapper(
+    .I_pixel_clk        (video_clk),
+    .I_serial_clk       (hdmi_5x_clk),
+    .I_rst              (rst_all),
+    .I_tmds_channel_0   (tmds_ch0_data),
+    .I_tmds_channel_1   (tmds_ch1_data),
+    .I_tmds_channel_2   (tmds_ch2_data),
+    .I_tmds_channel_clk (tmds_clk_data),
+    .O_tmds_ch0_p       (HDMI_D0_P),
+    .O_tmds_ch1_p       (HDMI_D1_P),
+    .O_tmds_ch2_p       (HDMI_D2_P),
+    .O_tmds_clk_p       (HDMI_CLK_P)
+);
+
+// Passive one-shot PCM prefix checks; reused display ports carry CRC/count/offset.
+player_pcm_prefix_probe #(.PREFIX_SAMPLES(32768)) u_pcm_prefix (
+    .sd_clk(sd_card_clk),.pixel_clk(video_clk),.rst(rst_all),
+    .push_valid(pcm_push),.push_data(pcm_push_data),
+    .push_high_pos(pcm_push_pos),.data_offset(pcm_data_offset),
+    .pop_valid(wav_sample_take && wav_sample_available),.pop_data(wav_sample_data),
+    .audio_valid(audio_valid),.tone_mode(debug_tone_mode),
+    .audio_left(audio_left_data),.audio_right(audio_right_data),
+    .src_crc(prefix_src),.fifo_crc(prefix_fifo),.hdmi_crc(prefix_hdmi),
+    .capture_flags(packet_flags),.format_bad(prefix_bad),.hdmi_count(prefix_count),
+    .first_high_pos_sync(prefix_high_pos),.data_offset_sync(prefix_data_offset)
+);
+assign packet_samples={8'd0,prefix_src};
+assign packet_count={8'd0,prefix_fifo};
+assign packet_bad_bch={8'd0,prefix_hdmi};
+assign packet_bad_terc={8'd0,prefix_bad};
+assign packet_tone_bad={8'd0,prefix_count};
+// B/C retain display transport only; now observe actual spectrum hardware.
+assign packet_cts=spectrum_debug_frames;
+assign packet_n=spectrum_debug_data;
+wire snapshot_valid;
+wire [27:0] snapshot_header;
+wire [23:0] snapshot_prev_progress,snapshot_progress,snapshot_prev_accepted,snapshot_accepted,snapshot_frames,snapshot_events;
+player_fault_snapshot u_fault_snapshot (
+ .clk(video_clk),.rst(rst_all),.tone_mode(debug_tone_mode),.audio_valid(audio_valid),
+ .axis_valid(axis_s_valid),.axis_user(axis_s_user),.hdmi_locked(hdmi_video_locked),
+ .progress(spectrum_debug_progress),.accepted(spectrum_debug_accepted),
+ .events(spectrum_debug_events),.frames(spectrum_debug_frames),.control(spectrum_debug_control),
+ .snapshot_valid(snapshot_valid),.snapshot_header(snapshot_header),
+ .snapshot_prev_progress(snapshot_prev_progress),.snapshot_progress(snapshot_progress),
+ .snapshot_prev_accepted(snapshot_prev_accepted),.snapshot_accepted(snapshot_accepted),
+ .snapshot_frames(snapshot_frames),.snapshot_events(snapshot_events)
+);
+player_status_monitor #(.SYS_HZ(25000000),.BUILD_ID(24'hC11319)) u_status_monitor (
+    .pixel_clk(video_clk),.sys_clk(status_clk),.rst(rst_all),.sys_rst(status_sys_rst),
+    .axis_rgb(axis_s_data),.axis_valid(axis_s_valid),.axis_user(axis_s_user),
+    .hdmi_locked(hdmi_video_locked),.audio_valid(audio_valid),
+    .tone_mode(debug_tone_mode),.underflow(audio_underflow),.audio_pcm(audio_left_data),
+    .startup_flags({sys_pll_lock,video_pll_lock,rst_all,card_init_done}),
+    .file_flags({fs_ready,fs_error,display_valid,bmp_error,wav_primed,wav_error,bmp_map_error,wav_map_error}),
+    .fs_code(fs_error_code),.wav_map_code(wav_map_error_code),.hex_value(status_hex),
+    .cw_count_data(),.cw_count_trigger(),
+    .window_toggle_out(),
+    .packet_samples(packet_samples),.packet_count(packet_count),
+    .packet_bad_bch(packet_bad_bch),.packet_bad_terc(packet_bad_terc),
+    .packet_tone_bad(packet_tone_bad),.packet_cts(packet_cts),.packet_n(packet_n),
+    .packet_flags(packet_flags),
+    .bmp_diag(bmp_diag_sync1),.sd_crc_diag(sd_crc_sync1),
+    .fft_progress(spectrum_debug_progress),.fft_events(spectrum_debug_events),.fft_accepted(spectrum_debug_accepted),
+    .snapshot_valid(snapshot_valid),.snapshot_header(snapshot_header),
+    .snapshot_prev_progress(snapshot_prev_progress),.snapshot_progress(snapshot_progress),
+    .snapshot_prev_accepted(snapshot_prev_accepted),.snapshot_accepted(snapshot_accepted),
+    .snapshot_frames(snapshot_frames),.snapshot_events(snapshot_events)
+);
+wire [31:0] status_hex_system;
+player_status_mailbox u_status_mailbox (
+    .source_clk(video_clk),.destination_clk(sd_card_clk),.rst(rst_all),
+    .source_hex(status_hex),.destination_hex(status_hex_system)
+);
+status_hex595 #(.CLK_HZ(50000000)) u_status_hex (
+    .clk(sd_card_clk),.rst(rst_all),.hex_value(status_hex_system),
+    .seg7_dio(seg7_dio),.seg7_sclk(seg7_sclk),.seg7_rclk(seg7_rclk)
+);
+endmodule
+
+
+
+
+
+
+

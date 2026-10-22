@@ -1,0 +1,43 @@
+{
+  "status": "PASS_SCOPE_PIN_MODEL",
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "+incdir+E:/VSCODE-project/FPGA-ANLU/development/video19_work/memory_backend/runs/20261021_190927",
+      "-f",
+      "plain.f"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\memory_backend\\runs\\20261021_190927\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "work.tb_video_framebuffer",
+      "work.glbl",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\memory_backend\\runs\\20261021_190927\\console.log"
+  },
+  "testbench_sha256": "58D8A0A16AF378F7FF5F9512E95273B986D7BDB98CCCD02835B3165F08353E02"
+}

@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "simulator": "ModelSim SE-64 10.1c",
+  "frames": 2,
+  "card_period_sysclk": 36,
+  "card_period_ns": 720,
+  "sector_requests": 152,
+  "sector_bytes": 77824,
+  "frame0_bit_exact": true,
+  "frame1": {
+    "software_rgb_mse": 3.443412543402778,
+    "software_rgb_psnr_db": 42.76091303719335,
+    "software_decoder": "FFmpeg",
+    "coordinate_coverage": 307200
+  },
+  "jpeg_input_compatibility": {
+    "source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\vendor\\core_jpeg\\src_v\\jpeg_input.v",
+    "source_sha256": "14f7e98d5d3a7af11de8a1284985b216577450ed168dd212bed4b13ed2e1d3b4",
+    "run_local_sha256": "b49e4b133852428e245fbeb88f39b3d29ef0e73629a0fc894348d6d1e172aadd",
+    "changes": 12,
+    "change": "Qualify every token_soi/sof0/dqt/dht/eoi/sos/pad/sof2/dri/rst/app/com with inport_valid_i"
+  },
+  "frame_summaries": [
+    "JPEG_INPUT frame=0 bytes=37704 crc32=2e7f68e2",
+    "FRAME index=0 jpeg_bytes=37704 card_bytes=38400 sectors=75 total_cycles=2022981 card_mbps=7.768 within_15fps=1",
+    "JPEG_INPUT frame=1 bytes=37905 crc32=4ffde223",
+    "FRAME index=1 jpeg_bytes=37905 card_bytes=38912 sectors=76 total_cycles=2043061 card_mbps=7.629 within_15fps=1",
+    "PASS frames=2 sector_requests=152 card_bytes=77824"
+  ],
+  "mjp_sha256": "2aabdd0ab590d742167aa82d69ff3b34687bc9b4d087b0b6981138fa182efb09",
+  "audio_sha256": "30eaf10a6ff1800163cecb3225cce685873b38c9a8e42635f1e5c92b0e95b5de",
+  "pixel_output_sha256": "97706d7a1e968c333028065207e805940669d93029342598e5916163bc682238",
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "-sv",
+      "-f",
+      "sources.f"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\stream_frontend\\runs\\reader_jpeg_core_modelsim_20261021_181336\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "work.tb_mjp_jpeg_core",
+      "+CARD_HEX=mjp_sector_prefix.hex",
+      "+CARD_BYTES=77824",
+      "+CARD_PERIOD=36",
+      "+SECTOR_REQUESTS=152",
+      "+FRAME0_BYTES=37704",
+      "+FRAME1_BYTES=37905",
+      "+FRAME0_CRC=2e7f68e2",
+      "+FRAME1_CRC=4ffde223",
+      "+OUT=pixels_xy_rgb.bin",
+      "+SUMMARY=frame_summary.txt",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\stream_frontend\\runs\\reader_jpeg_core_modelsim_20261021_181336\\console.log"
+  }
+}

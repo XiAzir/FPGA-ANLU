@@ -1,0 +1,169 @@
+{
+  "status": "FAILED",
+  "scope": "EG_LOGIC_RAMFIFO depth/full/empty/data/read-latency primitive regression",
+  "vendor_model": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_logic_ramfifo.v",
+  "vendor_model_sha256": "3E1EEC8D8B2BFC18CAF57CBC3BEAE6A7BD2340E613038C989A97F3A868BA6ABE",
+  "tb": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\tb\\tb_fifo_depth.v",
+  "tb_sha256": "2C96455D542BA1758931E277D88BEA2FE40A3F691C4A782741100D49A73C0678",
+  "results": [
+    {
+      "variant": "original",
+      "depth": 1024,
+      "status": "FAILED",
+      "model_sha256": "3E1EEC8D8B2BFC18CAF57CBC3BEAE6A7BD2340E613038C989A97F3A868BA6ABE",
+      "tb_sha256": "2C96455D542BA1758931E277D88BEA2FE40A3F691C4A782741100D49A73C0678",
+      "vlib": {
+        "command": [
+          "E:\\ModelsimSE\\win64\\vlib.exe",
+          "work"
+        ],
+        "exit_code": 0,
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\original\\vlib.log",
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "vlog": {
+        "command": [
+          "E:\\ModelsimSE\\win64\\vlog.exe",
+          "-modelsimini",
+          "modelsim.ini",
+          "-work",
+          "work",
+          "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\original\\eg_logic_ramfifo.v",
+          "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\original\\tb_fifo_depth.v"
+        ],
+        "exit_code": 0,
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\original\\vlog.log",
+        "sha256": "5904D345CE8D4DFCA614BA56669AC7E952957CEE14421CB4F85CFC7E2B566666"
+      },
+      "vsim": {
+        "command": [
+          "E:\\ModelsimSE\\win64\\vsim.exe",
+          "-modelsimini",
+          "modelsim.ini",
+          "-c",
+          "-lic_noqueue",
+          "-novopt",
+          "-suppress",
+          "3017,3722",
+          "-L",
+          "work",
+          "-L",
+          "eg4",
+          "work.tb_fifo_depth",
+          "-gEXPECTED_DEPTH=1024",
+          "-do",
+          "run.do"
+        ],
+        "exit_code": 0,
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\original\\vsim.log",
+        "sha256": "BAAB4DF1B793C6F07F882B8A7E75953202AE021F345C202335B09A252F53EFFB"
+      }
+    },
+    {
+      "variant": "depth128",
+      "depth": 128,
+      "status": "FAILED",
+      "model_sha256": "305805ABCD6DD5DE18F9CAA9E4BD34C2556647F363FD858723F1C4460A319D3B",
+      "tb_sha256": "2C96455D542BA1758931E277D88BEA2FE40A3F691C4A782741100D49A73C0678",
+      "vlib": {
+        "command": [
+          "E:\\ModelsimSE\\win64\\vlib.exe",
+          "work"
+        ],
+        "exit_code": 0,
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\depth128\\vlib.log",
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "vlog": {
+        "command": [
+          "E:\\ModelsimSE\\win64\\vlog.exe",
+          "-modelsimini",
+          "modelsim.ini",
+          "-work",
+          "work",
+          "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\depth128\\eg_logic_ramfifo.v",
+          "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\depth128\\tb_fifo_depth.v"
+        ],
+        "exit_code": 0,
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\depth128\\vlog.log",
+        "sha256": "5904D345CE8D4DFCA614BA56669AC7E952957CEE14421CB4F85CFC7E2B566666"
+      },
+      "vsim": {
+        "command": [
+          "E:\\ModelsimSE\\win64\\vsim.exe",
+          "-modelsimini",
+          "modelsim.ini",
+          "-c",
+          "-lic_noqueue",
+          "-novopt",
+          "-suppress",
+          "3017,3722",
+          "-L",
+          "work",
+          "-L",
+          "eg4",
+          "work.tb_fifo_depth",
+          "-gEXPECTED_DEPTH=128",
+          "-do",
+          "run.do"
+        ],
+        "exit_code": 0,
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\depth128\\vsim.log",
+        "sha256": "1FB73C76B13CC90A9315A5CC3656F3BA8A4ECDD046E8D6C21202DA9A07ADBD4E"
+      }
+    },
+    {
+      "variant": "depth256",
+      "depth": 256,
+      "status": "FAILED",
+      "model_sha256": "7BC3B5481E42A080C5B8598BBC237F9527D29625D634D0530F525865D837B689",
+      "tb_sha256": "2C96455D542BA1758931E277D88BEA2FE40A3F691C4A782741100D49A73C0678",
+      "vlib": {
+        "command": [
+          "E:\\ModelsimSE\\win64\\vlib.exe",
+          "work"
+        ],
+        "exit_code": 0,
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\depth256\\vlib.log",
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "vlog": {
+        "command": [
+          "E:\\ModelsimSE\\win64\\vlog.exe",
+          "-modelsimini",
+          "modelsim.ini",
+          "-work",
+          "work",
+          "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\depth256\\eg_logic_ramfifo.v",
+          "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\depth256\\tb_fifo_depth.v"
+        ],
+        "exit_code": 0,
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\depth256\\vlog.log",
+        "sha256": "5904D345CE8D4DFCA614BA56669AC7E952957CEE14421CB4F85CFC7E2B566666"
+      },
+      "vsim": {
+        "command": [
+          "E:\\ModelsimSE\\win64\\vsim.exe",
+          "-modelsimini",
+          "modelsim.ini",
+          "-c",
+          "-lic_noqueue",
+          "-novopt",
+          "-suppress",
+          "3017,3722",
+          "-L",
+          "work",
+          "-L",
+          "eg4",
+          "work.tb_fifo_depth",
+          "-gEXPECTED_DEPTH=256",
+          "-do",
+          "run.do"
+        ],
+        "exit_code": 0,
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\primitive_20261021_184712\\depth256\\vsim.log",
+        "sha256": "6E44500731477D332162C1639848BA2C952720DF3DC72B3F7CACE20E16245F14"
+      }
+    }
+  ]
+}

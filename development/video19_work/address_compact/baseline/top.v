@@ -1,0 +1,1 @@
+module address_top(input clk,rst,start,input [20:0] frame_base,input word_take,output [20:0] word_address);jpeg420_word_address #(.RGB565(1)) u(.clk(clk),.rst(rst),.start(start),.frame_base(frame_base),.word_take(word_take),.word_address(word_address));endmodule

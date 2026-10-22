@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "changed": [
+    "hdl_source/SD/sd_card_cmd.v",
+    "hdl_source/player_compact_status_pages.v"
+  ],
+  "unchanged_user_source_count": 119,
+  "candidate_cases_pass": 168,
+  "baseline_failures_detected": 72,
+  "system_runs": [
+    {
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video27_command_boundary\\build\\video_system_20261022_171144",
+      "summary_sha256": "89e0a2cb1b8c9c8a15b0a8777257dc0ba8fc0a159384e7d6e4e6a6b926a65534",
+      "source_receipt_sha256": "65bc94acfe9eac17200412510498bbcb857aaca2fc93fc2cad6d3bb8461a6893",
+      "console_sha256": "0441fc7d9b201816f5292b70749ed965852b135d8334b48171cf8ae2c07958a0",
+      "testbench_sha256": "81a5eceda78f2c1f299e77b52ca8462c55ac3dac6d7275c09be9120ec9a004b9",
+      "result": "# VIDEO_SYSTEM_PASS decoded_pixels=1032960 commits=3 distinct_frames=2 PCM=6446 underflow=0 late=0",
+      "assumptions": [
+        "Qualified nominal PLL edge replay",
+        "Application-interface SDRAM model",
+        "Source-selection event injected before media starts"
+      ]
+    },
+    {
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video27_command_boundary\\build\\video_system_20261022_171832",
+      "summary_sha256": "7e48fe2d9f7d0406340516f9c89e0f69fdf1f6debf6a296915071b3d416d0252",
+      "source_receipt_sha256": "3b09467c842bb0ba1810d9023db16933d0bdb73b96e4bc4c020461969e5f70cd",
+      "console_sha256": "a60604e89b5fe4c4c42e635f6bb8d43b6e3bc01e5cf9e41ad6d9ad5c6a58192a",
+      "testbench_sha256": "78459878268f357dff1c13efd001bd930b0a83865ad05348f03bd5bfd888d0b1",
+      "result": "# VIDEO_SYSTEM_PASS restart_roundtrip transitions=6 PCM=10875 CMD0=7 CRC=29/0",
+      "assumptions": [
+        "Qualified nominal PLL edge replay",
+        "Application-interface SDRAM model",
+        "Mode/restart events injected at classifier outputs during sector reads"
+      ]
+    }
+  ]
+}

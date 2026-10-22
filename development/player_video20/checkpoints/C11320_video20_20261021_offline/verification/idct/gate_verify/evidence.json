@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "scope": "Isolated EG4S20BG256 Y arithmetic netlist, OUT_SHIFT=11; retime+scale181 DSP candidate vs scalar Y reference.",
+  "source_hashes": {
+    "candidate_source_local": "58b15a0afaefd830e9cf61a0a7bab17f87f69d74d632a6a9ec755d76f8e0abe2",
+    "candidate_source_parent": "58b15a0afaefd830e9cf61a0a7bab17f87f69d74d632a6a9ec755d76f8e0abe2",
+    "reference_source_renamed": "25a82f39e491419c05abf1a03072d93d8d77dde6a06aa8b4b576d933b69a2299",
+    "reference_source_original": "f846530fa88887887c0e7c1dcf444a827d60f335f953ba790be3b17db0ca0bdf",
+    "wrapper": "b99029e475b3086ebc4a270853001c229d91baf096ecda770d62e0f13a7db4e1",
+    "testbench": "24cc8be3c85b51879e4800d6975b2b17b6b6b7ef1ee2cc6c90ae7d0a56b5b2ee",
+    "synthesis_script": "a6fc97e432632ce34f7b601f227d6153d3af0468e4aa37fe23cb2a51083dbb9e",
+    "simulation_script": "a26ff7488558875245b407c48997f89a258141c663639873e1d47b8333f8a122",
+    "gate_netlist": "31e9f55e77d897465f1812cdaaac72a89b6aa58a50a9296bb0991b07b7a5f332",
+    "gate_area": "36d4ea8b33c13cbdde277d9c35893aabeafd40d2917e03c0ea26a9705f00f259",
+    "timing_summary": "b485f54a77a0a1d04c0f25495481741db1b7d9cd3ed4f2aef7e54ad867725f18",
+    "input_receipt": "9b6f4cf6de224e09e405bea23cecea04fa6018732cc723706e8598b0a3bd2b27",
+    "reference_source_player_video19": "f846530fa88887887c0e7c1dcf444a827d60f335f953ba790be3b17db0ca0bdf",
+    "project_file": "aa2fb38267db4827d1cf388d18719bf4bed635672a8a9f3a1a2a680b55d33a8d",
+    "sdc": "97a8005cc495f6adc3e51e1b544e7c330e1e49b63be43920e75a4ef367a64e43",
+    "reference_renamer_copy": "25a82f39e491419c05abf1a03072d93d8d77dde6a06aa8b4b576d933b69a2299"
+  },
+  "vendor_model_hashes": {
+    "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/common/al_map_lut.v": "a8af44de361088c0bb66a58d5af9b8eb5aa6e9b8ca56992d6164a9f689c488f0",
+    "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/common/al_map_seq.v": "3a39778281bfae21ab1e4c2948aaeaa31b9358ae8d004eae86358e9c2cbb40ae",
+    "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_mslice.v": "ec4dadd99381db70f31e6c63378b72f9ebd025c257cd115c5bc4abf15c853b81",
+    "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_lslice.v": "9938ee2c34d01f09bf964c4b9f0011a0a3218d94a87c356efdbfec1828302879",
+    "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_mult18.v": "25ca8de5e98253510d0417d6710046c107064b0decc952a602667117bdd6fbdc",
+    "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pad.v": "ffe3b876ce911ad674f1dc0a76f453ef4cb68ccce38d3f5141a09f31262f017a",
+    "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_config.v": "6df3bc15fc335721f9627af1afd3fbe8c343056f498baf17a040fae3875424cd",
+    "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_dff.v": "968ff2c3db3091eee16dc1da5d5db38f5feafbde7eaee6eeb49a511db76dbc8e",
+    "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_logic_io.v": "3eef9298b0496750534698232f87be61982b759c92df6bee7e04de3eba979245",
+    "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_glbl.v": "95b5fed81000f5844a5a3b110a5b8e82d59a941e6f0715015e38884192ee4fb7"
+  },
+  "simulation": {
+    "simulator": "ModelSim SE-64 10.1c",
+    "command": "vsim -c -lic_noqueue -novopt -do \"run -all; quit -f\" work.tb_gate_compare work.glbl",
+    "valid_transactions": 768,
+    "segments": 3,
+    "random_seed": "0x51D7C0DE",
+    "input_receipt_rows": 768,
+    "input_receipt_sha256": "9b6f4cf6de224e09e405bea23cecea04fa6018732cc723706e8598b0a3bd2b27",
+    "result": "GATE_Y_RESULT sent=768 ref=768 gate=768 errors=0",
+    "retime_latency": "gate output exactly one cycle before scalar reference; data/index match in order"
+  },
+  "synthesis": {
+    "tool": "Tang Dynasty 6.2.178840",
+    "device": "EG4S20BG256",
+    "period_ns": 20,
+    "DSP_cells_in_netlist": 14,
+    "area": "803 LUT / 335 ripple / 848 seq / 14 DSP (top); 423 mapped LUTs",
+    "SWNS_ns": 10.058,
+    "timing_report_coverage_percent": 84.19
+  },
+  "limitations": [
+    "Gate netlist retains top-level I/O pads and emits standard library-wrapper port-connection warnings; simulation completed and all 768 transactions matched.",
+    "TB sign-extends every 21-bit signed input to 32 bits, matching the shared-core input contract."
+  ],
+  "source_identity_note": "player_video19/jpeg_idct_y.v and shared_idct/src_v/jpeg_idct_y.v have identical SHA-256."
+}

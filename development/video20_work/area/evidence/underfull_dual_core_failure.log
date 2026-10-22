@@ -1,0 +1,4 @@
+Attempt: simple word stream without empty-last beat, then two-core output drain.
+Result: failed full-frame completion. Both reference and fixed-profile core accepted all 37,704 JPEG bytes and produced 306,688 exactly matching output pixels, then timed out at 2,000,000 cycles with idle_o=0 in both cores.
+A subsequent experimental quiet-window finish emitted the same 306,688 count with idle_o=0; this is not accepted as a full-frame pass.
+Root cause: this harness omitted the empty-last input beat required by the mature jpeg_core testbench.

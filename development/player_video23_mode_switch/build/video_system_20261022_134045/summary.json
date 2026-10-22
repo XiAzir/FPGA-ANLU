@@ -1,0 +1,215 @@
+{
+  "status": "PASS",
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "+incdir+E:/VSCODE-project/FPGA-ANLU/development/player_video23_mode_switch/build/video_system_20261022_134045+E:/VSCODE-project/FPGA-ANLU/development/player_video23_mode_switch/build/video_system_20261022_134045/frozen/src/user_source/hdl_source+E:/VSCODE-project/FPGA-ANLU/development/player_video23_mode_switch/build/video_system_20261022_134045/frozen/src/user_source/hdl_source/include+E:/VSCODE-project/FPGA-ANLU/development/player_video23_mode_switch/build/video_system_20261022_134045/frozen/src/user_source/hdl_source/SD+E:/VSCODE-project/FPGA-ANLU/development/player_video23_mode_switch/build/video_system_20261022_134045/frozen/src/td_project",
+      "-f",
+      "plain.f"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video23_mode_switch\\build\\video_system_20261022_134045\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "-L",
+      "hdmi",
+      "-g/tb_video_system/MAPPED_SECTORS=22486",
+      "-g/tb_video_system/IMAGE_BYTES=536870912",
+      "-g/tb_video_system/CHECK_FRAMES=2",
+      "work.tb_video_system",
+      "work.glbl",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video23_mode_switch\\build\\video_system_20261022_134045\\console.log"
+  },
+  "assumptions": [
+    "Qualified nominal PLL edge replay",
+    "Application-interface SDRAM model",
+    "Source-selection event injected before media starts"
+  ],
+  "hardware": "Pending board test",
+  "card_metadata": {
+    "format": "FAT32 MBR, SDHC 512MiB, 512-byte sectors, eight sectors per cluster",
+    "image_bytes": 536870912,
+    "total_sectors": 1048576,
+    "partition_start_lba": 2048,
+    "partition_sectors": 1046528,
+    "sectors_per_cluster": 8,
+    "reserved_sectors": 32,
+    "fat_count": 2,
+    "fat_sectors_per_copy": 1024,
+    "fat32_data_clusters": 130556,
+    "root_cluster": 2,
+    "root_directory_lba": 4128,
+    "populated_sectors": 22486,
+    "files": [
+      {
+        "name": "VIDEO.MJP",
+        "sha256": "239a413b3fc9462ab362918177f3e62e7069f10559281815e7c3198457525c31",
+        "source_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\output\\VIDEO.MJP",
+        "source_sha256": "239a413b3fc9462ab362918177f3e62e7069f10559281815e7c3198457525c31",
+        "start_cluster": 4,
+        "end_cluster": 2084,
+        "cluster_count": 2081,
+        "sector_count": 16644,
+        "allocated_sector_count": 16648,
+        "start_lba": 4144,
+        "end_lba": 20787,
+        "allocated_end_lba": 20791,
+        "bytes": 8521728,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_fixture\\card_image\\golden\\VIDEO.MJP"
+      },
+      {
+        "name": "TEST.WAV",
+        "sha256": "30eaf10a6ff1800163cecb3225cce685873b38c9a8e42635f1e5c92b0e95b5de",
+        "source_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\output\\TEST.WAV",
+        "source_sha256": "30eaf10a6ff1800163cecb3225cce685873b38c9a8e42635f1e5c92b0e95b5de",
+        "start_cluster": 2085,
+        "end_cluster": 2553,
+        "cluster_count": 469,
+        "sector_count": 3751,
+        "allocated_sector_count": 3752,
+        "start_lba": 20792,
+        "end_lba": 24542,
+        "allocated_end_lba": 24543,
+        "bytes": 1920078,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_fixture\\card_image\\golden\\TEST.WAV"
+      },
+      {
+        "name": "00_TEST.BMP",
+        "sha256": "4ffa559f5e0cb087dc201433b781abd0263682852ae44c7305620d1708c7c207",
+        "source_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_media\\00_TEST.BMP",
+        "source_sha256": "4ffa559f5e0cb087dc201433b781abd0263682852ae44c7305620d1708c7c207",
+        "start_cluster": 2554,
+        "end_cluster": 2554,
+        "cluster_count": 1,
+        "sector_count": 2,
+        "allocated_sector_count": 8,
+        "start_lba": 24544,
+        "end_lba": 24545,
+        "allocated_end_lba": 24551,
+        "bytes": 822,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_fixture\\card_image\\golden\\00_TEST.BMP"
+      },
+      {
+        "name": "01_TEST.BMP",
+        "sha256": "7718c8ba737fc2bed3e3fe44f861246775ec64b80e4699a3bc306831fccbe504",
+        "source_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_media\\01_TEST.BMP",
+        "source_sha256": "7718c8ba737fc2bed3e3fe44f861246775ec64b80e4699a3bc306831fccbe504",
+        "start_cluster": 2555,
+        "end_cluster": 2555,
+        "cluster_count": 1,
+        "sector_count": 2,
+        "allocated_sector_count": 8,
+        "start_lba": 24552,
+        "end_lba": 24553,
+        "allocated_end_lba": 24559,
+        "bytes": 822,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_fixture\\card_image\\golden\\01_TEST.BMP"
+      },
+      {
+        "name": "02_TEST.BMP",
+        "sha256": "fffd9923eadf7eb2c402abc6776525ac341368bd359c5214a37fca90b7a8480e",
+        "source_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_media\\02_TEST.BMP",
+        "source_sha256": "fffd9923eadf7eb2c402abc6776525ac341368bd359c5214a37fca90b7a8480e",
+        "start_cluster": 2556,
+        "end_cluster": 2556,
+        "cluster_count": 1,
+        "sector_count": 2,
+        "allocated_sector_count": 8,
+        "start_lba": 24560,
+        "end_lba": 24561,
+        "allocated_end_lba": 24567,
+        "bytes": 822,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_fixture\\card_image\\golden\\02_TEST.BMP"
+      },
+      {
+        "name": "03_TEST.BMP",
+        "sha256": "f2511f54312a0472bac65d7a4f1d977b228cdac42af0267cbd78b5ad66a08650",
+        "source_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_media\\03_TEST.BMP",
+        "source_sha256": "f2511f54312a0472bac65d7a4f1d977b228cdac42af0267cbd78b5ad66a08650",
+        "start_cluster": 2557,
+        "end_cluster": 2557,
+        "cluster_count": 1,
+        "sector_count": 2,
+        "allocated_sector_count": 8,
+        "start_lba": 24568,
+        "end_lba": 24569,
+        "allocated_end_lba": 24575,
+        "bytes": 822,
+        "golden_path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_fixture\\card_image\\golden\\03_TEST.BMP"
+      }
+    ],
+    "sector_lba_map": {
+      "mbr": 0,
+      "vbr": 2048,
+      "root_directory": 4128,
+      "video_first": 4144,
+      "video_last": 20787,
+      "wav_first": 20792,
+      "wav_last": 24542,
+      "bmp_files": [
+        {
+          "name": "00_TEST.BMP",
+          "first": 24544,
+          "last": 24545
+        },
+        {
+          "name": "01_TEST.BMP",
+          "first": 24552,
+          "last": 24553
+        },
+        {
+          "name": "02_TEST.BMP",
+          "first": 24560,
+          "last": 24561
+        },
+        {
+          "name": "03_TEST.BMP",
+          "first": 24568,
+          "last": 24569
+        }
+      ],
+      "fat1_first": 2080,
+      "fat1_last": 3103,
+      "fat2_first": 3104,
+      "fat2_last": 4127
+    },
+    "hashes": {
+      "card.mem": "121a35f9e9eac3acece25b648a44ff0502f51aa372cd3264c9478b719872ed49",
+      "packed_mem.mem": "58627e2c9dfc617b626223ac99679be2938ab918e19b157ef5c46845822351c1",
+      "lba_map.mem": "3fbc180f494f0b38120ed1f7f018a48149f3084712fe4e92b87f20de29345851"
+    },
+    "mapped_sectors": 22486,
+    "image_hex_file": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_fixture\\card_image\\card.mem",
+    "packed_sector_file": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_fixture\\card_image\\packed_mem.mem",
+    "lba_map_file": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_fixture\\card_image\\lba_map.mem",
+    "manifest_file": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\mode_fixture\\card_image\\manifest.json"
+  },
+  "startup_model_errors_before_1us": [],
+  "runtime_model_errors": [],
+  "explicit_optimization": null
+}

@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "name": "stream",
+      "sha256": "cf3619906e893d6616c2be8b339ca045a3dad29b5f50ed22855f5cba796be838",
+      "baseline_candidate_identical": true
+    },
+    {
+      "name": "timeout",
+      "sha256": "2a1f9ffa863f1e2f09a5908d423c5922900fefdd7bba870bf3a6e0c8c2388b5e",
+      "baseline_candidate_identical": true
+    },
+    {
+      "name": "disable_drain",
+      "sha256": "5d328bfe2057bd90803852f8e2053cb972a48d90e6a993d42aa21700b3b753f5",
+      "baseline_candidate_identical": true
+    },
+    {
+      "name": "peer_timeout_race",
+      "sha256": "0a569c474aaf882615fd8855fbba221398b714d919fed17299a73404b87170bf",
+      "baseline_candidate_identical": true
+    },
+    {
+      "name": "natural_timeout",
+      "sha256": "47d48de02345a20cf8d3c7b67cee33609bb7ed06f0394e6035c87fc8da604527",
+      "baseline_candidate_identical": true
+    }
+  ],
+  "parameter_modes": [
+    {
+      "REQUEST_STABLE": 0,
+      "WAV_STATIC_FILE": 0,
+      "pass_message": true
+    },
+    {
+      "REQUEST_STABLE": 0,
+      "WAV_STATIC_FILE": 1,
+      "pass_message": true
+    },
+    {
+      "REQUEST_STABLE": 1,
+      "WAV_STATIC_FILE": 0,
+      "pass_message": true
+    },
+    {
+      "REQUEST_STABLE": 1,
+      "WAV_STATIC_FILE": 1,
+      "pass_message": true
+    }
+  ],
+  "wait_limit_widths": [
+    {
+      "WAIT_LIMIT": 0,
+      "baseline_bits": 32,
+      "candidate_bits": 32
+    },
+    {
+      "WAIT_LIMIT": 1,
+      "baseline_bits": 32,
+      "candidate_bits": 1
+    },
+    {
+      "WAIT_LIMIT": 2,
+      "baseline_bits": 32,
+      "candidate_bits": 1
+    },
+    {
+      "WAIT_LIMIT": 50000000,
+      "baseline_bits": 32,
+      "candidate_bits": 26
+    },
+    {
+      "WAIT_LIMIT": 4294967295,
+      "baseline_bits": 32,
+      "candidate_bits": 32
+    }
+  ]
+}

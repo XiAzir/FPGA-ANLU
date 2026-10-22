@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-22",
+  "project": "development/player_video22_audio_diag",
+  "execution": {
+    "shell": "PowerShell 7",
+    "permission": "require_escalated",
+    "reason": "Icarus temp-path failure in restricted execution",
+    "result": "completed"
+  },
+  "tool_paths": {
+    "iverilog": "E:\\VSCODE-project\\FPGA-ANLU\\bringup\\tf_wav_hdmi\\tools\\iverilog\\app\\bin\\iverilog.exe",
+    "vvp": "E:\\VSCODE-project\\FPGA-ANLU\\bringup\\tf_wav_hdmi\\tools\\iverilog\\app\\bin\\vvp.exe"
+  },
+  "static_module_comparison": [
+    {
+      "file": "wav_pcm_bridge.v",
+      "c21_sha256": "71D4099D517708372E84C7A14664B4A07BDB417E2EFB6F07BC754F73A0F1BF6A",
+      "c22_sha256": "1E4327196E68140B2858A99BAD2D91096D0B745BB2BF92E1EC89F69E1939A84A",
+      "normalized_equal": true
+    },
+    {
+      "file": "player_audio_probe.v",
+      "c21_sha256": "C4B72DD0C351E8321333160E6044553CC1950A3B6EF48D0B5A991109414BF319",
+      "c22_sha256": "21179CD7A4C7E27A2AE19E4BD16A08C0F48F3C4F9902DCC150EC312368B2AE69",
+      "normalized_equal": true
+    },
+    {
+      "file": "tf_wav_file_player.v",
+      "c21_sha256": "6BAA637832CD6CE4722803B6C8A0C0D2ABD9706A192A2F15F7107D201993CBF9",
+      "c22_sha256": "94E151E069D55F0B34943D8FC8213EDAF4C57D8F047497576BE4CBEC0F3B5F84",
+      "normalized_equal": true
+    }
+  ],
+  "top_sha256": "69FD6743B0052370B7CD218F5388B80ED60832525ADB799F540599B0BFF693F4",
+  "extracted_blocks": {
+    "crc_snapshot_sha256": "483C39B08FCAE543E3A9F979CDA679C018696E13FD7A475EAD5F4018451A3054",
+    "sd_wait_fifo_observer_sha256": "AC6EEBE79B03BBAAFE7B1B95AACE86DD3D8D77BECD4FD92C1A5091B9DC877DCB"
+  },
+  "tests": [
+    {
+      "simulation_exit_code": 0,
+      "name": "tb_player_compact_status_pages",
+      "logs": [
+        "tb_player_compact_status_pages_compile.log",
+        "tb_player_compact_status_pages_simulation.log"
+      ],
+      "compile_exit_code": 0
+    },
+    {
+      "simulation_exit_code": 0,
+      "name": "tb_audio_crc_snapshot",
+      "logs": [
+        "tb_audio_crc_snapshot_compile.log",
+        "tb_audio_crc_snapshot_simulation.log"
+      ],
+      "compile_exit_code": 0
+    },
+    {
+      "simulation_exit_code": 0,
+      "name": "tb_audio_sd_observer",
+      "logs": [
+        "tb_audio_sd_observer_compile.log",
+        "tb_audio_sd_observer_simulation.log"
+      ],
+      "compile_exit_code": 0
+    }
+  ],
+  "failed_attempts": [
+    {
+      "log": "static_comparison_failed_attempt1.log",
+      "exit_code": 1,
+      "cause": "Tap-removal pattern left a comma in the player_audio_probe instance; fixed by removing the preceding connection comma with the added tap"
+    },
+    {
+      "log": "static_comparison_failed_attempt2.log",
+      "exit_code": 1,
+      "cause": "Tap-removal expression consumed a newline in player_audio_probe.v; no Icarus command was reached"
+    },
+    {
+      "log": "static_comparison_failed_attempt3.log",
+      "exit_code": 1,
+      "cause": "Whitespace pattern consumed an adjacent newline in tf_wav_file_player.v; no Icarus command was reached"
+    }
+  ]
+}

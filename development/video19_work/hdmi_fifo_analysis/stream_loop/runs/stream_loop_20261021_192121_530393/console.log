@@ -1,0 +1,24 @@
+Reading E:/ModelsimSE/tcl/vsim/pref.tcl 
+
+# 10.1c
+
+# vsim +CARD_HEX=card.hex +CARD_BYTES=11755520 +LENGTHS_HEX=frame_lengths.hex +CRCS_HEX=frame_crc32.hex +FRAME_TRACE=frame_trace.csv +REQUEST_TRACE=sector_requests.csv -do run.do -l run.log -c -lic_noqueue -modelsimini modelsim.ini -novopt work.tb_mjp_stream_loop 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/hdmi_fifo_analysis/stream_loop/runs/stream_loop_20261021_192121_530393/work.tb_mjp_stream_loop
+# Loading sv_std.std
+# Loading work.tb_mjp_stream_loop
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/hdmi_fifo_analysis/stream_loop/runs/stream_loop_20261021_192121_530393/work.mjp_file_reader
+# Loading work.mjp_file_reader
+# do run.do 
+# ** Fatal: bad frame_sent index=0 expected=1 saw_last=1
+#    Time: 2616490 ns  Scope: tb_mjp_stream_loop File: E:/VSCODE-project/FPGA-ANLU/development/video19_work/hdmi_fifo_analysis/stream_loop/runs/stream_loop_20261021_192121_530393/tb_mjp_stream_loop.sv Line: 227
+# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/video19_work/hdmi_fifo_analysis/stream_loop/runs/stream_loop_20261021_192121_530393/tb_mjp_stream_loop.sv(227)
+#    Time: 2616490 ns  Iteration: 1  Instance: /tb_mjp_stream_loop

@@ -1,0 +1,371 @@
+{
+  "status": "NOT_QUALIFIED",
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "work.tb_controller_gate",
+      "work.glbl",
+      "+RGB565",
+      "+BURST_WORDS=1",
+      "+GAP_CYCLES=50",
+      "+DATA_LAG=0",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\jpeg_unit\\memory_burst\\runs\\jpeg_rgb565_gate_20261021_182602\\console.log"
+  },
+  "checked_words": 8192,
+  "checked_written_addresses": 512,
+  "expected_words": 8192,
+  "expected_written_addresses": 512,
+  "mismatch_count": 512,
+  "first_mismatches": [
+    {
+      "read_index": 0,
+      "address": 0,
+      "got": null,
+      "expected": "7a310000"
+    },
+    {
+      "read_index": 1,
+      "address": 1,
+      "got": null,
+      "expected": "7b32070b"
+    },
+    {
+      "read_index": 2,
+      "address": 2,
+      "got": null,
+      "expected": "78370e16"
+    },
+    {
+      "read_index": 3,
+      "address": 3,
+      "got": null,
+      "expected": "79381521"
+    },
+    {
+      "read_index": 4,
+      "address": 4,
+      "got": null,
+      "expected": "5a51e160"
+    },
+    {
+      "read_index": 5,
+      "address": 5,
+      "got": null,
+      "expected": "5b52e86b"
+    },
+    {
+      "read_index": 6,
+      "address": 6,
+      "got": null,
+      "expected": "5857ef76"
+    },
+    {
+      "read_index": 7,
+      "address": 7,
+      "got": null,
+      "expected": "5958f681"
+    },
+    {
+      "read_index": 8,
+      "address": 8,
+      "got": null,
+      "expected": "fbb28580"
+    },
+    {
+      "read_index": 9,
+      "address": 9,
+      "got": null,
+      "expected": "f8b78c8b"
+    },
+    {
+      "read_index": 10,
+      "address": 10,
+      "got": null,
+      "expected": "f9b89396"
+    },
+    {
+      "read_index": 11,
+      "address": 11,
+      "got": null,
+      "expected": "febd9aa1"
+    },
+    {
+      "read_index": 12,
+      "address": 12,
+      "got": null,
+      "expected": "dbd566e0"
+    },
+    {
+      "read_index": 13,
+      "address": 13,
+      "got": null,
+      "expected": "d8d66deb"
+    },
+    {
+      "read_index": 14,
+      "address": 14,
+      "got": null,
+      "expected": "d9db74f6"
+    },
+    {
+      "read_index": 15,
+      "address": 15,
+      "got": null,
+      "expected": "dedc7c01"
+    }
+  ],
+  "vendor_model_timing_errors": 0,
+  "sdram_command_counts": {
+    "ACT": 2560,
+    "READ": 2048,
+    "WRITE": 0,
+    "PRECHARGE": 1,
+    "REFRESH": 0
+  },
+  "physical_pin_decode": {
+    "basis": "gate SDRAM pin commands; bank and row from ACT, column from READ/WRITE A[7:0], A10 is auto-precharge",
+    "bank_mask": 15,
+    "banks_seen": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "active_bank_row_pairs": 32,
+    "row_min": 0,
+    "row_max": 7,
+    "unique_command_locations": 2048,
+    "first_read_write_and_all_write_commands": [
+      {
+        "time_ns": 3158778.0,
+        "command": "READ",
+        "bank": 0,
+        "row": 0,
+        "column": 0,
+        "auto_precharge": true,
+        "dq_at_command": "zzzzzzzz",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3158858.0,
+        "command": "READ",
+        "bank": 1,
+        "row": 0,
+        "column": 0,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3158938.0,
+        "command": "READ",
+        "bank": 2,
+        "row": 0,
+        "column": 0,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159018.0,
+        "command": "READ",
+        "bank": 3,
+        "row": 0,
+        "column": 0,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159098.0,
+        "command": "READ",
+        "bank": 0,
+        "row": 0,
+        "column": 4,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159178.0,
+        "command": "READ",
+        "bank": 1,
+        "row": 0,
+        "column": 4,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159258.0,
+        "command": "READ",
+        "bank": 2,
+        "row": 0,
+        "column": 4,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159338.0,
+        "command": "READ",
+        "bank": 3,
+        "row": 0,
+        "column": 4,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159418.0,
+        "command": "READ",
+        "bank": 0,
+        "row": 0,
+        "column": 8,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159498.0,
+        "command": "READ",
+        "bank": 1,
+        "row": 0,
+        "column": 8,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159578.0,
+        "command": "READ",
+        "bank": 2,
+        "row": 0,
+        "column": 8,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159658.0,
+        "command": "READ",
+        "bank": 3,
+        "row": 0,
+        "column": 8,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159738.0,
+        "command": "READ",
+        "bank": 0,
+        "row": 0,
+        "column": 12,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159818.0,
+        "command": "READ",
+        "bank": 1,
+        "row": 0,
+        "column": 12,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159898.0,
+        "command": "READ",
+        "bank": 2,
+        "row": 0,
+        "column": 12,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      },
+      {
+        "time_ns": 3159978.0,
+        "command": "READ",
+        "bank": 3,
+        "row": 0,
+        "column": 12,
+        "auto_precharge": true,
+        "dq_at_command": "xxxxxxxx",
+        "expected_app_address_from_dq": null,
+        "app_wr_en_at_command": "0",
+        "app_wr_addr_at_command": "0012df",
+        "app_wr_data_at_command": "00000000"
+      }
+    ]
+  },
+  "controller_gate_sha256_after": "89F949EBA178DED57A4CF5BC65BC0743BE6ECAA235CA895718EDCC4BA4A9C443",
+  "limitations": [
+    "APUG011 pin-level reference model is not a SiP electrical timing guarantee",
+    "No SDF or routed full-top timing simulation"
+  ]
+}
