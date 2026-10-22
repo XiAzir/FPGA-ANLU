@@ -1,0 +1,66 @@
+standard
+***Report Model: jpeg_core Device: EG4S20BG256***
+
+IO Statistics
+#IO                       132   out of    188   70.21%
+  #input                   41
+  #output                  91
+  #inout                    0
+
+LUT Statistics
+#Total_luts              3082
+  #lut4                  2036
+  #lut5                   274
+  #lut6                   772
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                     5984   out of  19600   30.53%
+#reg                     2686   out of  19600   13.70%
+#bram                      19   out of     64   29.69%
+  #bram9k                  19
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                       24   out of     29   82.76%
+#pad                      132   out of    188   70.21%
+  #ireg                     0
+  #oreg                    90
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+Report Hierarchy Area:
++-------------------------------------------------------------------------------------------------+
+|Instance           |Module                          |lut     |ripple  |seq     |bram    |dsp     |
++-------------------------------------------------------------------------------------------------+
+|top                |jpeg_core                       |4967    |1017    |2776    |19      |24      |
+|  u_jpeg_bitbuffer |jpeg_bitbuffer                  |50      |0       |80      |0       |0       |
+|  u_jpeg_dht       |jpeg_dht                        |656     |0       |14      |0       |0       |
+|  u_jpeg_dqt       |jpeg_dqt                        |49      |0       |90      |1       |1       |
+|  u_jpeg_idct      |jpeg_idct                       |2093    |523     |1896    |12      |23      |
+|    u_id_fifo      |jpeg_idct_fifo                  |67      |0       |10      |0       |0       |
+|    u_idct_x       |jpeg_idct_x                     |525     |236     |719     |0       |9       |
+|    u_idct_y       |jpeg_idct_y                     |547     |287     |869     |0       |14      |
+|    u_input        |jpeg_idct_ram                   |708     |0       |281     |4       |0       |
+|      u_ram0       |jpeg_idct_ram_dp                |0       |0       |0       |1       |0       |
+|      u_ram1       |jpeg_idct_ram_dp                |0       |0       |0       |1       |0       |
+|      u_ram2       |jpeg_idct_ram_dp                |0       |0       |0       |1       |0       |
+|      u_ram3       |jpeg_idct_ram_dp                |0       |0       |0       |1       |0       |
+|    u_transpose    |jpeg_idct_transpose             |246     |0       |17      |8       |0       |
+|      u_ram0       |jpeg_idct_transpose_ram         |0       |0       |0       |2       |0       |
+|      u_ram1       |jpeg_idct_transpose_ram         |0       |0       |0       |2       |0       |
+|      u_ram2       |jpeg_idct_transpose_ram         |0       |0       |0       |2       |0       |
+|      u_ram3       |jpeg_idct_transpose_ram         |0       |0       |0       |2       |0       |
+|  u_jpeg_input     |jpeg_input                      |186     |0       |117     |0       |0       |
+|  u_jpeg_mcu_proc  |jpeg_mcu_proc                   |596     |9       |205     |0       |0       |
+|    u_id           |jpeg_mcu_id                     |209     |0       |65      |0       |0       |
+|  u_jpeg_output    |jpeg_output                     |1045    |485     |284     |6       |0       |
+|    u_info         |jpeg_output_fifo                |68      |0       |10      |0       |0       |
+|    u_ram_cb       |jpeg_output_cx_ram              |81      |34      |89      |2       |0       |
+|      u_ram        |jpeg_output_cx_ram_ram_dp_256_8 |8       |0       |0       |2       |0       |
+|    u_ram_cr       |jpeg_output_cx_ram              |78      |34      |90      |2       |0       |
+|      u_ram        |jpeg_output_cx_ram_ram_dp_256_8 |8       |0       |0       |2       |0       |
+|    u_ram_y        |jpeg_output_y_ram               |79      |17      |84      |2       |0       |
+|      u_ram        |jpeg_output_y_ram_ram_dp_512_9  |0       |0       |0       |2       |0       |
++-------------------------------------------------------------------------------------------------+

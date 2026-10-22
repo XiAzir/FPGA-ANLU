@@ -1,0 +1,13 @@
+{
+  "status": "FAIL",
+  "command": "node development/video19_work/schedule_unit/run.mjs",
+  "simulator": "@veriflow/iverilog-wasm@0.1.4 (Icarus Verilog WASM)",
+  "generation": "2005",
+  "sources": {
+    "player_video_schedule.v": "e40f6788061d5b37f459c26810c06032b0753bbc0e6ee445024d4a366c003ecc",
+    "player_osd_state.v": "5dc4cb7eca4acd2aced6aba341608c107bb7d99d5971922b9710bf63ad72c3a7",
+    "schedule_osd_tb.v": "4ef1a4a339f48b1dd3c2263533ff944a06d5400d26e77d869ac9ba4ed6518851"
+  },
+  "compile_stage": "run",
+  "output": "FATAL: schedule_osd_tb.v:199: OSD publish mismatch valid=0 osd_buffer=0 expected=0 source_valid=1 source_buffer=0 held=102 latest=102 request=0 ack=1 req_sync=11 ack_sync=11\n       Time: 666000  Scope: schedule_osd_tb.finish_display_read"
+}

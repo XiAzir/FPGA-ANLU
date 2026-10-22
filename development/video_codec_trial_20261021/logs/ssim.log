@@ -1,0 +1,22 @@
+Input #0, mjpeg, from 'E:/VSCODE-project/FPGA-ANLU/development/video_codec_trial_20261021/media/letterbox640_q95_420.mjpg':
+  Duration: N/A, bitrate: N/A
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 640x480 [SAR 1:1 DAR 4:3], 15 fps, 15 tbr, 1200k tbn
+[rawvideo @ 0000012BB86879C0] Estimating duration from bitrate, this may be inaccurate
+Input #1, rawvideo, from 'E:/VSCODE-project/FPGA-ANLU/development/video_codec_trial_20261021/media/reference_640x480_15fps.rgb':
+  Duration: 00:00:20.00, start: 0.000000, bitrate: 110592 kb/s
+  Stream #1:0: Video: rawvideo (RGB[24] / 0x18424752), rgb24, 640x480, 110592 kb/s, 15 tbr, 15 tbn
+Stream mapping:
+  Stream #0:0 (mjpeg) -> crop:default
+  Stream #1:0 (rawvideo) -> crop:default
+  ssim:default -> Stream #0:0 (wrapped_avframe)
+[swscaler @ 0000012BBA9B3F80] deprecated pixel format used, make sure you did set range correctly
+[Parsed_ssim_4 @ 0000012BB8626280] not matching timebases found between first input: 1/1200000 and second input 1/15, results may be incorrect!
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf61.1.100
+  Stream #0:0: Video: wrapped_avframe, yuvj420p(pc, bt470bg/unknown/unknown, progressive), 640x360 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 15 fps, 15 tbn
+      Metadata:
+        encoder         : Lavc61.3.100 wrapped_avframe
+[Parsed_ssim_4 @ 0000012BB8626280] SSIM Y:0.998003 (26.995151) U:0.995837 (23.805578) V:0.995759 (23.724916) All:0.997268 (25.634478)
+[out#0/null @ 0000012BB861EF00] video:129KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame=  300 fps=0.0 q=-0.0 Lsize=N/A time=00:00:20.00 bitrate=N/A speed=73.8x    

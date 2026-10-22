@@ -1,0 +1,144 @@
+{
+  "status": "PASS_AFTER_STARTUP_TRANSIENT",
+  "recorded_local": "2026-10-21T21:06:47.804501",
+  "scope": "C04 actual SDRAM controller gate + APUG011 IS42s32200 pin model, original Q95 prefix, nominal PLL replay; no SDF or board test",
+  "base_frozen_run": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\runs\\video_system_C04_20261021_200556",
+  "optimized_replay": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\vopt_try_20261021",
+  "optimized_design": "work.tb_video_system_opt_35998",
+  "effective_parameters": {
+    "MAPPED_SECTORS": 35998,
+    "IMAGE_BYTES": 536870912,
+    "CHECK_FRAMES": 2
+  },
+  "completion_evidence": "# VIDEO_SYSTEM_PASS decoded_pixels=921600 commits=3 distinct_frames=2 PCM=6408 underflow=0 late=0",
+  "process_exit_code": null,
+  "process_exit_note": "Launcher exit code was not captured for the explicit-vopt replay; final transcript records VIDEO_SYSTEM_PASS and normal testbench $finish at 221 ms.",
+  "simulation_ms": 221,
+  "decoded_pixels": 921600,
+  "commits": 3,
+  "distinct_displayed_frames": 2,
+  "original_pcm_samples_exact": 6408,
+  "underflow": 0,
+  "frame_late": 0,
+  "startup_model_errors_before_1us": [
+    {
+      "time_ns": 709.0,
+      "message": "# tb_video_system.dut.u_frame_buffer.u_sdram.sdram.reference_memory : at time     709.0 ns ERROR: all banks must be Precharge before Load Mode Register"
+    },
+    {
+      "time_ns": 709.0,
+      "message": "# tb_video_system.dut.u_frame_buffer.u_sdram.sdram.reference_memory : at time     709.0 ns ERROR: tMRD violation during Load Mode Register"
+    },
+    {
+      "time_ns": 709.2,
+      "message": "# ** Error: E:/VSCODE-project/FPGA-ANLU/development/video19_work/physical_resume/runs/video_system_C04_20261021_200556/IS42s32200.v(954): $hold( posedge Clk:709200 ps, Ras_n:709200 ps, 1 ns );"
+    },
+    {
+      "time_ns": 709.2,
+      "message": "# ** Error: E:/VSCODE-project/FPGA-ANLU/development/video19_work/physical_resume/runs/video_system_C04_20261021_200556/IS42s32200.v(953): $hold( posedge Clk:709200 ps, Cas_n:709200 ps, 1 ns );"
+    },
+    {
+      "time_ns": 709.2,
+      "message": "# ** Error: E:/VSCODE-project/FPGA-ANLU/development/video19_work/physical_resume/runs/video_system_C04_20261021_200556/IS42s32200.v(955): $hold( posedge Clk:709200 ps, We_n:709200 ps, 1 ns );"
+    }
+  ],
+  "runtime_model_errors": [],
+  "prior_attempts": "Original novopt FAILED summary and earlier vopt parameter-range attempts retained unchanged; this result describes only run_opt_35998.",
+  "files": [
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\vopt_try_20261021\\run_opt_35998_console.log",
+      "bytes": 18663,
+      "sha256": "bf7d4e12f3400090c30fe22ddd9d26c80d08bd466d39cf92aabda5b4c1c19ea7"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\vopt_try_20261021\\run_opt_35998.log",
+      "bytes": 18608,
+      "sha256": "f8a3acbd9d3530cf365a9cd1b69c555c7aa4b8e59ecfed41d0e775e1814a5526"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\vopt_try_20261021\\vopt_35998.log",
+      "bytes": 629664,
+      "sha256": "99fc0c2fb069e340829bf7f1696004b85af19ec51e0cfd7f277fffdb0b9562da"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\vopt_try_20261021\\run.do",
+      "bytes": 81,
+      "sha256": "6c7a4c92cb1fc4abf11ad5acf90cd5a376707d51501c6bfd393487873822d942"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\vopt_try_20261021\\modelsim.ini",
+      "bytes": 326,
+      "sha256": "7daa7784567491b3faae6c2190e4b323bdecf1bd4b1101512f1fc545957cdae4"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\vopt_try_20261021\\packed_mem.mem",
+      "bytes": 36897950,
+      "sha256": "6d227ab065acf302ef076c4624ecf28a533e63c1c6e05b3e22a7848e1d24ff36"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\vopt_try_20261021\\lba_map.mem",
+      "bytes": 323982,
+      "sha256": "7f717b6e0063d8f4c55708bd622129683f1773ad799cbab6ba01f9485bd963ce"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\vopt_try_20261021\\jpeg_crc.mem",
+      "bytes": 3000,
+      "sha256": "dc94a82420142c00e7e3017620e6b28e512d4d114e4c5c8a472bccdabf280dd3"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\vopt_try_20261021\\pcm.mem",
+      "bytes": 5760000,
+      "sha256": "4d997420be682687c09311812c76a3c58854d59b57b3ef199a4b6be3e9a3ff6d"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\runs\\video_system_C04_20261021_200556\\source_receipt.json",
+      "bytes": 36629,
+      "sha256": "36e5686f38756680e0d3c2f4d3282e6238d3a1a45d1d415a7e3c309f55e21cb4"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\runs\\video_system_C04_20261021_200556\\sources.f",
+      "bytes": 13292,
+      "sha256": "f9fba12f033598d2d48a939a2494b44c73d573c9f669ec32130cb59496312160"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\runs\\video_system_C04_20261021_200556\\plain.f",
+      "bytes": 13292,
+      "sha256": "f9fba12f033598d2d48a939a2494b44c73d573c9f669ec32130cb59496312160"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\runs\\video_system_C04_20261021_200556\\compile.log",
+      "bytes": 23650,
+      "sha256": "d6ca931a5cabe3ccb30566ffe54d5d4f4824f2a66718859a1c5e8964b1348104"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\runs\\video_system_C04_20261021_200556\\controller_gate.v",
+      "bytes": 297217,
+      "sha256": "89f949eba178ded57a4cf5bc65bc0743be6ecaa235ca895718edcc4ba4a9c443"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\runs\\video_system_C04_20261021_200556\\sdram_issi_reference_wrapper.v",
+      "bytes": 452,
+      "sha256": "7ebc42fc01eaf44b93f7ada407f6d36bf165dc30e033b8f673bbc28309b1c130"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\runs\\video_system_C04_20261021_200556\\IS42s32200.v",
+      "bytes": 40558,
+      "sha256": "6aad09c411b00e319ea6e7ff5a85453eb990532541ae368084406f78a276690b"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\runs\\video_system_C04_20261021_200556\\tb_video_system.v",
+      "bytes": 6812,
+      "sha256": "55121532fb5a3361c5322668057dd1fef7615cb45fc73f06c11db6a4ba1abf94"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\runs\\video_system_C04_20261021_200556\\pll_clock_replay.v",
+      "bytes": 160586,
+      "sha256": "82a0a5b4b57f34e7b9568215a0d66d1788629773b4287337f5643c0a5f6a6f25"
+    },
+    {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\physical_resume\\runs\\video_system_C04_20261021_200556\\clock_qualification.json",
+      "bytes": 3376,
+      "sha256": "1c794fe8eef2a3601b1b4c3a6878e15af674d754f1d37e9335baf6f151e300c4"
+    }
+  ]
+}

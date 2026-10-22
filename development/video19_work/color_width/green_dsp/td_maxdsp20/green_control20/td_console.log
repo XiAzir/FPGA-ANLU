@@ -1,0 +1,603 @@
+============================================================
+   Tang Dynasty, V6.2.178840
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/bin/td_commands_prompt.exe
+   Built at =   14:07:58 Sep  4 2025
+   Run by =     PENGYUHAO
+   Run Date =   Wed Oct 21 19:35:35 2026
+
+   Run on =     DESKTOP-3CITPT4
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20BG256"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :            OPTION            |          IO          |   SETTING   
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  T3/R11/T10/P10/S11  |    gpio    
+ARC-1001 :             done             |         P13          |    gpio    
+ARC-1001 :           program_b          |          T2          |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |   C12/A15/C14/E14    |  dedicate  
+ARC-1001 : ------------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "open_project jpeg_core.al -single_run"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_bitbuffer.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_core.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_dht.v
+HDL-5373 WARNING: identifier 'total_entries_q' is used before its declaration in ../../../../parent/src_v/jpeg_dht.v(89)
+HDL-5373 WARNING: identifier 'idx_q' is used before its declaration in ../../../../parent/src_v/jpeg_dht.v(89)
+HDL-5373 WARNING: identifier 'idx_q' is used before its declaration in ../../../../parent/src_v/jpeg_dht.v(89)
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_dht_std_cx_ac.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_dht_std_cx_dc.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_dht_std_y_ac.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_dht_std_y_dc.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_dqt.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_idct.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_idct_fifo.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_idct_ram.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_idct_ram_dp.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_idct_transpose.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_idct_transpose_logic_ram.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_idct_transpose_ram.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_idct_x.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_idct_y.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_input.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_mcu_id.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_mcu_proc.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_output.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_output_cx_ram.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_output_fifo.v
+HDL-1007 : analyze verilog file ../../../../parent/src_v/jpeg_output_y_ram.v
+PRJ-1401 : Successfully analyzed 24 source files.
+RUN-1002 : start command "load_run_param -run syn_1"
+RUN-1002 : start command "set_param gate add_map_lut_struct high"
+RUN-1002 : start command "set_param gate map_mode area_prior"
+RUN-1002 : start command "set_param gate opt_area high"
+RUN-1002 : start command "set_param gate map_mux41 on"
+RUN-1002 : start command "set_param gate multi_thread_mapping partition"
+RUN-1002 : start command "set_param rtl resource_sharing auto"
+RUN-1002 : start command "set_param rtl shifter_style shifter_reg"
+RUN-1002 : start command "set_param rtl min_ripple_len 18"
+RUN-1002 : start command "set_param gate mapper_lut_delay 1600"
+RUN-1002 : start command "set_param gate max_dsp 20"
+RUN-1002 : start command "elaborate -top jpeg_core"
+HDL-1007 : elaborate module jpeg_core in ../../../../parent/src_v/jpeg_core.v(32)
+HDL-1007 : elaborate module jpeg_input in ../../../../parent/src_v/jpeg_input.v(32)
+HDL-1007 : elaborate module jpeg_dht in ../../../../parent/src_v/jpeg_dht.v(32)
+HDL-1007 : elaborate module jpeg_dht_std_y_dc in ../../../../parent/src_v/jpeg_dht_std_y_dc.v(31)
+HDL-1007 : elaborate module jpeg_dht_std_y_ac in ../../../../parent/src_v/jpeg_dht_std_y_ac.v(31)
+HDL-1007 : elaborate module jpeg_dht_std_cx_dc in ../../../../parent/src_v/jpeg_dht_std_cx_dc.v(31)
+HDL-1007 : elaborate module jpeg_dht_std_cx_ac in ../../../../parent/src_v/jpeg_dht_std_cx_ac.v(31)
+HDL-1007 : elaborate module jpeg_idct in ../../../../parent/src_v/jpeg_idct.v(32)
+HDL-1007 : elaborate module jpeg_idct_ram in ../../../../parent/src_v/jpeg_idct_ram.v(32)
+HDL-1007 : elaborate module jpeg_idct_ram_dp in ../../../../parent/src_v/jpeg_idct_ram_dp.v(32)
+HDL-1007 : extracting RAM for identifier 'ram' in ../../../../parent/src_v/jpeg_idct_ram_dp.v(58)
+HDL-1007 : elaborate module jpeg_idct_x in ../../../../parent/src_v/jpeg_idct_x.v(32)
+HDL-1007 : elaborate module jpeg_idct_transpose in ../../../../parent/src_v/jpeg_idct_transpose.v(32)
+HDL-1007 : elaborate module jpeg_idct_transpose_ram in ../../../../parent/src_v/jpeg_idct_transpose_ram.v(32)
+HDL-1007 : extracting RAM for identifier 'ram' in ../../../../parent/src_v/jpeg_idct_transpose_ram.v(58)
+HDL-1007 : elaborate module jpeg_idct_y in ../../../../parent/src_v/jpeg_idct_y.v(32)
+HDL-1007 : elaborate module jpeg_idct_fifo(WIDTH=32,DEPTH=8,ADDR_W=3) in ../../../../parent/src_v/jpeg_idct_fifo.v(32)
+HDL-1007 : extracting RAM for identifier 'ram_q' in ../../../../parent/src_v/jpeg_idct_fifo.v(69)
+HDL-1007 : elaborate module jpeg_dqt in ../../../../parent/src_v/jpeg_dqt.v(32)
+HDL-1007 : extracting RAM for identifier 'table_dqt_q' in ../../../../parent/src_v/jpeg_dqt.v(68)
+HDL-1007 : elaborate module jpeg_output in ../../../../parent/src_v/jpeg_output.v(32)
+HDL-1007 : elaborate module jpeg_output_y_ram in ../../../../parent/src_v/jpeg_output_y_ram.v(32)
+HDL-1007 : elaborate module jpeg_output_y_ram_ram_dp_512_9 in ../../../../parent/src_v/jpeg_output_y_ram.v(192)
+HDL-1007 : extracting RAM for identifier 'ram' in ../../../../parent/src_v/jpeg_output_y_ram.v(212)
+HDL-1007 : elaborate module jpeg_output_cx_ram in ../../../../parent/src_v/jpeg_output_cx_ram.v(32)
+HDL-1007 : elaborate module jpeg_output_cx_ram_ram_dp_256_8 in ../../../../parent/src_v/jpeg_output_cx_ram.v(488)
+HDL-1007 : extracting RAM for identifier 'ram' in ../../../../parent/src_v/jpeg_output_cx_ram.v(508)
+HDL-1007 : elaborate module jpeg_output_fifo(WIDTH=32,DEPTH=8,ADDR_W=3) in ../../../../parent/src_v/jpeg_output_fifo.v(32)
+HDL-1007 : extracting RAM for identifier 'ram_q' in ../../../../parent/src_v/jpeg_output_fifo.v(69)
+HDL-1007 : elaborate module jpeg_bitbuffer in ../../../../parent/src_v/jpeg_bitbuffer.v(32)
+HDL-1007 : elaborate module jpeg_mcu_proc in ../../../../parent/src_v/jpeg_mcu_proc.v(32)
+HDL-1007 : elaborate module jpeg_mcu_id in ../../../../parent/src_v/jpeg_mcu_id.v(32)
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-1200 : Current top model is jpeg_core
+HDL-1100 : Inferred 7 RAMs.
+RUN-1002 : start command "read_sdc ../jpeg_core.sdc"
+RUN-1002 : start command "commit_param -step rtl"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Rtl Property
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :         Parameters        |  Settings  |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :        fix_undriven       |     0      |        0         |        
+RUN-1001 :   gated_clock_conversion  |    off     |       off        |        
+RUN-1001 :         infer_fsm         |    auto    |       auto       |        
+RUN-1001 :         infer_gsr         |    off     |       off        |        
+RUN-1001 :         infer_rom         |     on     |        on        |        
+RUN-1001 :       keep_hierarchy      |    auto    |       auto       |        
+RUN-1001 :        merge_equal        |     on     |        on        |        
+RUN-1001 :      min_control_set      |     8      |        8         |        
+RUN-1001 :       min_ripple_len      |     18     |       auto       |   *    
+RUN-1001 :          seq_syn          |     on     |        on        |        
+RUN-1001 : -------------------------------------------------------------------
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.002468s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (633.1%); Memory(MB): used = 164, reserved = 140, peak = 164;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 13670, Total nets: 32392.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 0.363556s wall, 0.296875s user + 0.046875s system = 0.343750s CPU (94.6%); Memory(MB): used = 164, reserved = 140, peak = 164;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 2559, Total nets: 20300.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model jpeg_core
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.066356s wall, 0.046875s user + 0.000000s system = 0.046875s CPU (70.6%); Memory(MB): used = 165, reserved = 141, peak = 165;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 2716, Total nets: 19041.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.010668s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (146.5%); Memory(MB): used = 165, reserved = 151, peak = 165;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 2464, Total nets: 18789.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1066 : Inferred FSM for state register 'u_jpeg_idct/u_input/state_q_reg' in module 'jpeg_core'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_jpeg_idct/u_input/state_q_reg' using encoding 'one_hot' in model 'jpeg_core'
+SYN-1066 : Inferred FSM for state register 'u_jpeg_idct/u_transpose/state_q_reg' in module 'jpeg_core'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_jpeg_idct/u_transpose/state_q_reg' using encoding 'one_hot' in model 'jpeg_core'
+SYN-1066 : Inferred FSM for state register 'u_jpeg_input/state_q_reg' in module 'jpeg_core'
+--------------------------------------------------
+     Previous Encoding           New Encoding
+--------------------------------------------------
+                 00000     000000000000000001
+                 00001     000000000000000010
+                 01011     000000000000000100
+                 01100     000000000000001000
+                 01101     000000000000010000
+                 01110     000000000000100000
+                 00010     000000000001000000
+                 01111     000000000010000000
+                 01000     000000000100000000
+                 00101     000000001000000000
+                 00011     000000010000000000
+                 10000     000000100000000000
+                 01001     000001000000000000
+                 00110     000010000000000000
+                 00100     000100000000000000
+                 10001     001000000000000000
+                 01010     010000000000000000
+                 00111     100000000000000000
+--------------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_jpeg_input/state_q_reg' using encoding 'one_hot' in model 'jpeg_core'
+SYN-1066 : Inferred FSM for state register 'u_jpeg_mcu_proc/state_q_reg' in module 'jpeg_core'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                 00000           000001
+                 00001           000010
+                 00010           000100
+                 00011           001000
+                 00101           010000
+                 00100           100000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_jpeg_mcu_proc/state_q_reg' using encoding 'one_hot' in model 'jpeg_core'
+SYN-1057 : Inferred 4 FSM(s)
+SYN-1032 : 18666/19 useful/useless nets, 2422/0 useful/useless insts
+SYN-1021 : Optimized 1 onehot mux instances.
+SYN-1068 : Optimized 26 binary mux instances.
+SYN-1019 : Optimized 6 mux instances.
+SYN-1016 : Merged 1354 instances.
+SYN-1026 : Infer Logic BRAM(u_jpeg_dqt/ramread0_syn_4)
+	 port mode: single port
+	 port a size: 256 x 8	 write mode: READBEFOREWRITE
+	 port b size: 256 x 8	 write mode: NORMAL
+SYN-1027 : Infer Logic DRAM(u_jpeg_idct/u_id_fifo/ramread0_syn_4) read 8x32, write 8x32
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_jpeg_idct/u_input/u_ram0/ramread0_syn_50)
+	 port mode: single dual port
+	 port a size: 64 x 16	 write mode: NORMAL
+	 port b size: 64 x 16	 write mode: READBEFOREWRITE
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_jpeg_idct/u_input/u_ram1/ramread0_syn_50)
+	 port mode: single dual port
+	 port a size: 64 x 16	 write mode: NORMAL
+	 port b size: 64 x 16	 write mode: READBEFOREWRITE
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_jpeg_idct/u_input/u_ram2/ramread0_syn_50)
+	 port mode: single dual port
+	 port a size: 64 x 16	 write mode: NORMAL
+	 port b size: 64 x 16	 write mode: READBEFOREWRITE
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_jpeg_idct/u_input/u_ram3/ramread0_syn_50)
+	 port mode: single dual port
+	 port a size: 64 x 16	 write mode: NORMAL
+	 port b size: 64 x 16	 write mode: READBEFOREWRITE
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_jpeg_idct/u_transpose/u_ram0/ramread0_syn_58)
+	 port mode: single dual port
+	 port a size: 32 x 21	 write mode: NORMAL
+	 port b size: 32 x 21	 write mode: READBEFOREWRITE
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_jpeg_idct/u_transpose/u_ram1/ramread0_syn_58)
+	 port mode: single dual port
+	 port a size: 32 x 21	 write mode: NORMAL
+	 port b size: 32 x 21	 write mode: READBEFOREWRITE
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_jpeg_idct/u_transpose/u_ram2/ramread0_syn_58)
+	 port mode: single dual port
+	 port a size: 32 x 21	 write mode: NORMAL
+	 port b size: 32 x 21	 write mode: READBEFOREWRITE
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_jpeg_idct/u_transpose/u_ram3/ramread0_syn_58)
+	 port mode: single dual port
+	 port a size: 32 x 21	 write mode: NORMAL
+	 port b size: 32 x 21	 write mode: READBEFOREWRITE
+SYN-1027 : Infer Logic DRAM(u_jpeg_output/u_info/ramread0_syn_4) read 8x32, write 8x32
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_jpeg_output/u_ram_cb/u_ram/ramread0_syn_56)
+	 port mode: single dual port
+	 port a size: 256 x 17	 write mode: NORMAL
+	 port b size: 256 x 17	 write mode: READBEFOREWRITE
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_jpeg_output/u_ram_cr/u_ram/ramread0_syn_56)
+	 port mode: single dual port
+	 port a size: 256 x 17	 write mode: NORMAL
+	 port b size: 256 x 17	 write mode: READBEFOREWRITE
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_jpeg_output/u_ram_y/u_ram/ramread0_syn_58)
+	 port mode: single dual port
+	 port a size: 512 x 17	 write mode: NORMAL
+	 port b size: 512 x 17	 write mode: READBEFOREWRITE
+SYN-1023 : Infer 2 Logic DRAMs, 12 Logic BRAMs.
+SYN-1001 : Share 18 instances
+SYN-1001 :    use sharing_strategy = 103, sharing_ratio = 1, min_slack = 1000
+SYN-1016 : Merged 838 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 19.073734s wall, 18.437500s user + 0.281250s system = 18.718750s CPU (98.1%); Memory(MB): used = 292, reserved = 270, peak = 292;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 7362, Total nets: 10424.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1019 : Optimized 13 mux instances.
+SYN-1021 : Optimized 12 onehot mux instances.
+SYN-1014 : Optimize round 1
+SYN-1044 : Optimized 1 inv instances.
+SYN-1017 : Remove 6 const input seq instances
+SYN-1018 : Transformed 5 mux instances.
+SYN-1019 : Optimized 5 mux instances.
+SYN-1020 : Optimized 88 distributor mux.
+SYN-1001 : Optimize 15 less-than instances
+SYN-1019 : Optimized 1 mux instances.
+SYN-2595 : bram inst: u_jpeg_idct/u_input/u_ram0/ramread0_syn_50 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_jpeg_idct/u_input/u_ram1/ramread0_syn_50 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_jpeg_idct/u_input/u_ram2/ramread0_syn_50 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_jpeg_idct/u_input/u_ram3/ramread0_syn_50 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_jpeg_idct/u_transpose/u_ram0/ramread0_syn_58 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_jpeg_idct/u_transpose/u_ram1/ramread0_syn_58 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_jpeg_idct/u_transpose/u_ram2/ramread0_syn_58 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_jpeg_idct/u_transpose/u_ram3/ramread0_syn_58 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_jpeg_output/u_ram_cb/u_ram/ramread0_syn_56 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_jpeg_output/u_ram_cr/u_ram/ramread0_syn_56 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_jpeg_output/u_ram_y/u_ram/ramread0_syn_58 is set to PDPW/SP from DP for resource saving
+SYN-1016 : Merged 395 instances.
+SYN-1015 : Optimize round 1, 4734 better
+SYN-1014 : Optimize round 2
+SYN-1044 : Optimized 14 inv instances.
+SYN-1017 : Remove 24 const input seq instances
+SYN-1019 : Optimized 2 mux instances.
+SYN-1016 : Merged 3 instances.
+SYN-1015 : Optimize round 2, 91 better
+SYN-3010 : Optimized 1 DFF(s)
+SYN-1014 : Optimize round 1
+SYN-1016 : Merged 24 instances.
+SYN-1015 : Optimize round 1, 50 better
+SYN-1014 : Optimize round 2
+SYN-1015 : Optimize round 2, 1 better
+SYN-1014 : Optimize round 3
+SYN-1015 : Optimize round 3, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 5.174165s wall, 5.125000s user + 0.031250s system = 5.156250s CPU (99.7%); Memory(MB): used = 285, reserved = 271, peak = 304;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 7220, Total nets: 10190.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.001537s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 285, reserved = 271, peak = 304;
+
+SYN-1079 : finish stage Check Design. Total instances: 7220, Total nets: 10190.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 24.693146s wall, 23.937500s user + 0.359375s system = 24.296875s CPU (98.4%); Memory(MB): used = 285, reserved = 271, peak = 304;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 7220, Total nets: 10190.
+
+RUN-1003 : finish command "optimize_rtl" in  24.700724s wall, 23.937500s user + 0.359375s system = 24.296875s CPU (98.4%)
+
+RUN-1004 : used memory is 285 MB, reserved memory is 271 MB, peak memory is 304 MB
+RUN-1002 : start command "commit_param -step gate"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Gate Property
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     Parameters    |   Settings   |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     eram_init     |     off      |       off        |        
+RUN-1001 :      map_mode     |  area_prior  |       auto       |   *    
+RUN-1001 :    pack_effort    |    medium    |      medium      |        
+RUN-1001 :   pack_seq_in_io  |     auto     |       auto       |        
+RUN-1001 :       report      |   standard   |     standard     |        
+RUN-1001 : -------------------------------------------------------------
+AREA_OUTPUT={E:/VSCODE-project/FPGA-ANLU/development/video19_work/color_width/green_dsp/td_maxdsp20/green_control20/reports/gate.area}
+RUN-1002 : start command "optimize_gate -packarea E:/VSCODE-project/FPGA-ANLU/development/video19_work/color_width/green_dsp/td_maxdsp20/green_control20/reports/gate.area"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.171500s wall, 0.171875s user + 0.000000s system = 0.171875s CPU (100.2%); Memory(MB): used = 285, reserved = 271, peak = 304;
+
+SYN-1079 : finish stage Map Reg. Total instances: 7220, Total nets: 10190.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2001 : Map 132 IOs to PADs of model 'jpeg_core'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.219085s wall, 0.218750s user + 0.000000s system = 0.218750s CPU (99.8%); Memory(MB): used = 285, reserved = 271, peak = 304;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module jpeg_core"
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-6562 WARNING: The init value of "u_jpeg_dqt/ramread0_syn_4(../../../../parent/src_v/jpeg_dqt.v(117))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_jpeg_idct/u_input/u_ram0/ramread0_syn_50(../../../../parent/src_v/jpeg_idct_ram_dp.v(79))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_jpeg_idct/u_input/u_ram1/ramread0_syn_50(../../../../parent/src_v/jpeg_idct_ram_dp.v(79))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_jpeg_idct/u_input/u_ram2/ramread0_syn_50(../../../../parent/src_v/jpeg_idct_ram_dp.v(79))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_jpeg_idct/u_input/u_ram3/ramread0_syn_50(../../../../parent/src_v/jpeg_idct_ram_dp.v(79))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_jpeg_idct/u_transpose/u_ram0/ramread0_syn_58(../../../../parent/src_v/jpeg_idct_transpose_ram.v(79))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_jpeg_idct/u_transpose/u_ram1/ramread0_syn_58(../../../../parent/src_v/jpeg_idct_transpose_ram.v(79))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_jpeg_idct/u_transpose/u_ram2/ramread0_syn_58(../../../../parent/src_v/jpeg_idct_transpose_ram.v(79))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_jpeg_idct/u_transpose/u_ram3/ramread0_syn_58(../../../../parent/src_v/jpeg_idct_transpose_ram.v(79))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_jpeg_output/u_ram_cb/u_ram/ramread0_syn_56(../../../../parent/src_v/jpeg_output_cx_ram.v(528))" will be ignored since gate eram_init is set to off
+SYN-6562 Similar messages will be suppressed.
+SYN-2571 : Map 13 macro multiplier
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-1016 : Merged 46 instances.
+SYN-2571 : Optimize after map_dsp, round 1, 46 better
+SYN-2571 : Optimize after map_dsp, round 2
+SYN-2571 : Optimize after map_dsp, round 2, 0 better
+SYN-1001 : Throwback 176 control mux instances
+SYN-1001 : Generate 20 bigger adders
+SYN-1001 : Convert 2 adder
+SYN-1001 : Optimize 33 adders
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 3883 instances.
+SYN-2501 : Optimize round 1, 6732 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 10 instances.
+SYN-2501 : Optimize round 1, 10 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Map 152 macro adder(s)
+SYN-1019 : Optimized 504 mux instances.
+SYN-1016 : Merged 716 instances.
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 2.935859s wall, 2.906250s user + 0.031250s system = 2.937500s CPU (100.1%); Memory(MB): used = 301, reserved = 280, peak = 304;
+
+SYN-1079 : finish stage Map Macro. Total instances: 11723, Total nets: 14686.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-3001 : Collect 2119 PI 1641 PO (5 timing unconstrained) for mapping
+SYN-2581 : Mapping with K=6, #lut = 2830 (3.63), #lev = 12 (2.88), #crit_level = 0
+SYN-2551 : Post LUT mapping optimization.
+SYN-2551 : extra runtime-consuming opt
+SYN-2551 : progress: 0%
+SYN-2551 : progress: 12%
+SYN-2551 : progress: 25%
+SYN-2551 : progress: 37%
+SYN-2551 : progress: 50%
+SYN-2551 : progress: 62%
+SYN-2551 : progress: 75%
+SYN-2551 : progress: 87%
+SYN-2551 : progress: 100%
+SYN-2581 : Mapping with K=6, #lut = 2433 (3.84), #lev = 7 (2.63), #crit_level = 0
+SYN-3001 : Logic optimization opt = 0.00 sec, map = 3.79 sec, post map opt = 99.76 sec.
+SYN-3001 : Mapper removed 3 lut buffers
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 105.827164s wall, 101.234375s user + 2.312500s system = 103.546875s CPU (97.8%); Memory(MB): used = 390, reserved = 365, peak = 390;
+
+SYN-1001 : Packing model "jpeg_core" ...
+SYN-4010 : Pack lib has 59 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 2510 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 37 carry chain into lslice
+SYN-4007 : Packing 1211 adder to BLE ...
+SYN-4008 : Packed 1211 adder and 279 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+SYN-4013 : Packed 16 DRAM and 0 SEQ.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+TMR-2502 : Net delay update with mode: Synthesized
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |        -2802                |
+|     Setup TNS             |       -22416                |
+|     Num of violated S-EP  |            8                |
+|     Hold WNS              |          556                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |         2231                |
+|     #luts                 |         2426                |
+|     #lut1                 |           24                |
+|     #lut1(~A)             |           24                |
+|     #slices               |         1000                |
+|     slices percentage     |       10.20%                |
+|     #RAMs                 |           16                |
+|     #DSPs                 |           18                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |           97                |
+|     #insts in MACRO       |         1000                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |            0                |
+|     #keep_hier            |            0                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |        38.12                |
+| dff(single fanout)->dff   |          181                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     clk_i                 |            8                |
+|     Total Number          |            8                |
+|     Total Exceed Level    |           24                |
+|     Worst Level Slack     |           -3                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 1000ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Over-quota Path Details
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Clock  |  Index  |  Budget(Period)  |  Level(Quota)  |                                                        Cell Type List                                                        |       Reason        |  Slack  
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  clk_i  |    1    |   16755(20000)   |     19(17)     |  EMB,LUT5,LUT3,LUT3,LUT5,LUT5,LUT5,LUT3,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,LUT4,LUT6,LUT6,LUT6,PAD  |  large input delay  |  -2205  
+         |    2    |   16755(20000)   |     19(17)     |  EMB,LUT5,LUT3,LUT3,LUT5,LUT5,LUT5,LUT3,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,LUT4,LUT6,LUT6,LUT6,PAD  |  large input delay  |  -2205  
+         |    3    |   16755(20000)   |     19(17)     |  EMB,LUT5,LUT3,LUT3,LUT5,LUT5,LUT5,LUT3,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,LUT4,LUT6,LUT6,LUT6,PAD  |  large input delay  |  -2205  
+         |    4    |   16755(20000)   |     19(17)     |  EMB,LUT5,LUT3,LUT3,LUT5,LUT5,LUT5,LUT3,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,LUT4,LUT6,LUT6,LUT6,PAD  |  large input delay  |  -2205  
+         |    5    |   16755(20000)   |     19(17)     |  EMB,LUT5,LUT3,LUT3,LUT5,LUT5,LUT5,LUT3,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,ADDER,LUT4,LUT6,LUT6,LUT6,PAD  |  large input delay  |  -2205  
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note: Table only show top 5 paths for each clock group in default
+
+Logic Level Distribution
+------------------------------------------------------------------------------------------------------------------------------------
+  Clock  |  Period            |  0    |  1     |  2     |  3    |  4    |  5    |  6    |  7    |  8   |  9    |  10  |  12  |  19
+------------------------------------------------------------------------------------------------------------------------------------
+  clk_i  |  20.000ns (50MHz)  |  805  |  1774  |  1214  |  322  |  115  |  213  |  144  |  205  |  72  |  120  |  18  |  16  |  8
+------------------------------------------------------------------------------------------------------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(5026 paths analyzed)
+
+Hierarchical Rent Exponent Report
++------------------------------------------------------------------+
+|Inst          |Model       |Rent     |Cell     |Pin     |Term     |
++------------------------------------------------------------------+
+|top           |jpeg_core   |0.13     |5823     |31357   |17       |
+|  u_jpeg_idct |jpeg_idct_4 |0.61     |3201     |18111   |783      |
++------------------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+RUN-1003 : finish command "report_qor -step gate -file gate.qor" in  1.180881s wall, 1.046875s user + 0.093750s system = 1.140625s CPU (96.6%)
+
+RUN-1004 : used memory is 392 MB, reserved memory is 366 MB, peak memory is 392 MB
+RUN-1002 : start command "report_area -file E:/VSCODE-project/FPGA-ANLU/development/video19_work/color_width/green_dsp/td_maxdsp20/green_control20/reports/gate.area"
+RUN-1001 : standard
+***Report Model: jpeg_core Device: EG4S20BG256***
+
+IO Statistics
+#IO                       132   out of    188   70.21%
+  #input                   41
+  #output                  91
+  #inout                    0
+
+LUT Statistics
+#Total_luts              2426
+  #lut4                  1545
+  #lut5                   286
+  #lut6                   595
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                     5021   out of  19600   25.62%
+#reg                     2510   out of  19600   12.81%
+#bram                      16   out of     64   25.00%
+  #bram9k                  16
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                       18   out of     29   62.07%
+#pad                      132   out of    188   70.21%
+  #ireg                     0
+  #oreg                    90
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 110.536427s wall, 105.734375s user + 2.437500s system = 108.171875s CPU (97.9%); Memory(MB): used = 392, reserved = 366, peak = 392;
+
+RUN-1003 : finish command "optimize_gate -packarea E:/VSCODE-project/FPGA-ANLU/development/video19_work/color_width/green_dsp/td_maxdsp20/green_control20/reports/gate.area" in  110.548111s wall, 105.750000s user + 2.437500s system = 108.187500s CPU (97.9%)
+
+RUN-1004 : used memory is 392 MB, reserved memory is 366 MB, peak memory is 392 MB
+SYNTHESIS_COMPLETE
+RUN-1002 : start command "close_project"

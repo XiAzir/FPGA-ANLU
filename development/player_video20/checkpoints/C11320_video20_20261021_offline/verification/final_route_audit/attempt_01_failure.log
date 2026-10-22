@@ -1,0 +1,2 @@
+Attempt 01 (2026-10-21): read-only PR netlist export completed and the strict routed ROM parameter audit completed PASS for all four banks (27 parameters per bank, no mismatches).
+The orchestration stopped at its PowerShell bank-count guard because PSCustomObject does not expose the expected `.Count`; this was an audit harness assertion bug, not a design or strict-parameter failure. The exported routed netlist and strict JSON remain preserved. The orchestration guard now counts `banks.PSObject.Properties` and supports resuming only when receipt/run IDs/netlist hash match.

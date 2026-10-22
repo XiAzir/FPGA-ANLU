@@ -1,0 +1,78 @@
+{
+  "status": "FAILED",
+  "run_dir": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\cadence_analysis\\runs\\q90_reader_loop_20261021_204043_572112",
+  "pass_line": null,
+  "source_receipt": {
+    "status": "PREPARED",
+    "simulator": "ModelSim SE-64 10.1c",
+    "profile": "640x480 15fps JPEG420 Q90, 300 frames; reader only",
+    "source_mjp": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\output\\VIDEO.MJP",
+    "source_mjp_sha256": "239A413B3FC9462AB362918177F3E62E7069F10559281815E7C3198457525C31",
+    "run_mjp_sha256": "239A413B3FC9462AB362918177F3E62E7069F10559281815E7C3198457525C31",
+    "source_index_sha256": "FA3DA3C243D75337470BCB89FDB8F7F9F46E8946365916D5767852FA98402879",
+    "source_wav_sha256": "30EAF10A6FF1800163CECB3225CCE685873B38C9A8E42635F1E5C92B0E95B5DE",
+    "mov_extracted_mjpeg": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video_codec_trial_20261021\\media\\letterbox640_q90_420.mjpg",
+    "mov_extracted_mjpeg_sha256": "6CE98EF963AF5E151989FC26F0C3265D586CFEC984D1A911A3E4040719E77E30",
+    "reader_source": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video19\\src\\user_source\\hdl_source\\mjp_file_reader.v",
+    "reader_source_sha256": "CAD1B31DE5C3B62F482EC5BED8DB8ECA802621F315D5D4A525DB3411BF737018",
+    "reader_run_copy_sha256": "CAD1B31DE5C3B62F482EC5BED8DB8ECA802621F315D5D4A525DB3411BF737018",
+    "testbench_sha256": "42A0C57C2F7082D98E1979781117D07DD09633D31FC0EA47502B31A4F827718E",
+    "frame_count": 300,
+    "expected_runs": "300 sequential Q90 frames, frame 0 after wrap, reset/restart frame 0, then file_error stop",
+    "frame_reference_manifest": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\cadence_analysis\\runs\\q90_reader_loop_20261021_204043_572112\\frame_reference_manifest.json",
+    "scope": "live mjp_file_reader; no JPEG core; card_valid gaps and jpeg_accept stalls"
+  },
+  "frame_count": 302,
+  "frame_crc_and_length_match_MOV_extracted_reference": true,
+  "frame_trace_sha256": "039E568D8D6A92C220CE195F074DBEB9D0C304D5364B2787D48C466CD1BFFF3E",
+  "sector_request_count": 16755,
+  "sector_requests_match_index_layout": true,
+  "sector_trace_sha256": "A6E0D2ADE1FAE23719D21C9F318EB989C2FF64C9295084ABF6540C346374DBFE",
+  "reference_hashes": {
+    "VIDEO.MJP": "239A413B3FC9462AB362918177F3E62E7069F10559281815E7C3198457525C31",
+    "TEST.WAV": "30EAF10A6FF1800163CECB3225CCE685873B38C9A8E42635F1E5C92B0E95B5DE",
+    "index.json": "FA3DA3C243D75337470BCB89FDB8F7F9F46E8946365916D5767852FA98402879",
+    "MOV_extracted_MJPEG": "6CE98EF963AF5E151989FC26F0C3265D586CFEC984D1A911A3E4040719E77E30",
+    "mjp_file_reader.v": "CAD1B31DE5C3B62F482EC5BED8DB8ECA802621F315D5D4A525DB3411BF737018"
+  },
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "-sv",
+      "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\cadence_analysis\\runs\\q90_reader_loop_20261021_204043_572112\\mjp_file_reader.v",
+      "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\cadence_analysis\\runs\\q90_reader_loop_20261021_204043_572112\\tb_q90_mjp_stream_loop.sv"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\cadence_analysis\\runs\\q90_reader_loop_20261021_204043_572112\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "work.tb_mjp_stream_loop",
+      "+CARD_HEX=card.hex",
+      "+CARD_BYTES=8521728",
+      "+LENGTHS_HEX=frame_lengths.hex",
+      "+CRCS_HEX=frame_crc32.hex",
+      "+FRAME_TRACE=frame_trace.csv",
+      "+REQUEST_TRACE=sector_requests.csv",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\cadence_analysis\\runs\\q90_reader_loop_20261021_204043_572112\\console.log"
+  },
+  "console_tail": "Reading E:/ModelsimSE/tcl/vsim/pref.tcl \n\n# 10.1c\n\n# vsim +CARD_HEX=card.hex +CARD_BYTES=8521728 +LENGTHS_HEX=frame_lengths.hex +CRCS_HEX=frame_crc32.hex +FRAME_TRACE=frame_trace.csv +REQUEST_TRACE=sector_requests.csv -do run.do -l run.log -c -lic_noqueue -modelsimini modelsim.ini -novopt work.tb_mjp_stream_loop \n# //  ModelSim SE-64 10.1c Jul 28 2012 \n# //\n# //  Copyright 1991-2012 Mentor Graphics Corporation\n# //  All Rights Reserved.\n# //\n# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION\n# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS\n# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.\n# //\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/cadence_analysis/runs/q90_reader_loop_20261021_204043_572112/work.tb_mjp_stream_loop\n# Loading sv_std.std\n# Loading work.tb_mjp_stream_loop\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/cadence_analysis/runs/q90_reader_loop_20261021_204043_572112/work.mjp_file_reader\n# Loading work.mjp_file_reader\n# do run.do \n# STREAM_PHASE1_PASS frames=301 wrap_index=0 last_index=299\n# ** Fatal: unexpected low sector request count=16755\n#    Time: 579541240 ns  Scope: tb_mjp_stream_loop File: E:/VSCODE-project/FPGA-ANLU/development/video19_work/cadence_analysis/runs/q90_reader_loop_20261021_204043_572112/tb_q90_mjp_stream_loop.sv Line: 311\n# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/video19_work/cadence_analysis/runs/q90_reader_loop_20261021_204043_572112/tb_q90_mjp_stream_loop.sv(311)\n#    Time: 579541240 ns  Iteration: 1  Instance: /tb_mjp_stream_loop\n"
+}

@@ -1,0 +1,205 @@
+{
+  "status": "SYNTHESIS_COMPLETE",
+  "captured_utc": "2026-10-21T09:22:07.375985+00:00",
+  "command": "python development/video19_work/td/run_td.py",
+  "tool": {
+    "executable": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\bin\\td_commands_prompt.exe",
+    "version": "6.2.1_SP1_6.2.178.840",
+    "exit_code": 0
+  },
+  "input": {
+    "status": "PREPARED",
+    "core_commit": "bb03cce45d0b7459d395486e9e1db3de1b416bd2",
+    "device": "EG4S20BG256",
+    "top": "jpeg_core",
+    "parameter": "SUPPORT_WRITABLE_DHT=0 (module default)",
+    "clock": {
+      "port": "clk_i",
+      "period_ns": 20
+    },
+    "strategy": "AreaHigh; min_ripple_len=18; mapper_lut_delay=1600; add_map_lut_struct=high; map_mode=area_prior; multi_thread_mapping=partition; resource_sharing=auto; shifter_style=shifter_reg",
+    "sources": [
+      {
+        "name": "jpeg_bitbuffer.v",
+        "sha256": "b4cfe631350b982e3f348610999f94596f9ec4cdc911799030af535adf58bf22"
+      },
+      {
+        "name": "jpeg_core.v",
+        "sha256": "2258f5bec64b0477d30727b428548804ed94c7cc045f108fc203e3925c8c97d0"
+      },
+      {
+        "name": "jpeg_dht.v",
+        "sha256": "fbd890def4b7ac3effb38b7da52f544311759f091bf62d5fe29cb5dc16c53d5f"
+      },
+      {
+        "name": "jpeg_dht_std_cx_ac.v",
+        "sha256": "583885495afc9ab97ba0b328707d5a0a5f3acccdf40ba453d71f6219c662fc6c"
+      },
+      {
+        "name": "jpeg_dht_std_cx_dc.v",
+        "sha256": "cf2851607877ece4eed9acf4e9da33a9e42ee28040ee8c10d42daa1a08bb3cf7"
+      },
+      {
+        "name": "jpeg_dht_std_y_ac.v",
+        "sha256": "d4516b5170780d144a5e60cf0c705ecd7c3695fe770dbccaa3e6cce004f2b275"
+      },
+      {
+        "name": "jpeg_dht_std_y_dc.v",
+        "sha256": "81310e0e924065bc7fde4c53bd9a99b6baeae19d894170d1b069bd53943a675a"
+      },
+      {
+        "name": "jpeg_dqt.v",
+        "sha256": "e99bb750bf20903b9cf80407aa1e8274170296c3366e43be0030265a08afcb99"
+      },
+      {
+        "name": "jpeg_idct.v",
+        "sha256": "f2a45496e29d43eb2b2f024921a5b96732ce57a3f74e4c856686cf00acacd0b6"
+      },
+      {
+        "name": "jpeg_idct_fifo.v",
+        "sha256": "487d095dc70369d4bb7c9a27e6f27cc4db082b95e9bb6ce13292dc31fb2cf5e0"
+      },
+      {
+        "name": "jpeg_idct_ram.v",
+        "sha256": "b45d1f8663c290a27085ed595d633caec980410a1483f10a80be1bfad87a570a"
+      },
+      {
+        "name": "jpeg_idct_ram_dp.v",
+        "sha256": "191622cc6447224294c1cfe98aef9fbb329b3a8b00932ed1b33920e90d2b61ea"
+      },
+      {
+        "name": "jpeg_idct_transpose.v",
+        "sha256": "4b765d2227366e6cfd7953f0f17de3fbbd9f1bf2f55e8207bd5611a96a21e54c"
+      },
+      {
+        "name": "jpeg_idct_transpose_ram.v",
+        "sha256": "833abadcd8fb585d08dddc7e1cc24cfd3e39a9eb728aa72a8d7b016694fc370b"
+      },
+      {
+        "name": "jpeg_idct_x.v",
+        "sha256": "99b8681e002d948fa4ed5fbd3a29704634400c31c376b5e120c07d1392ef62c0"
+      },
+      {
+        "name": "jpeg_idct_y.v",
+        "sha256": "df2bbd47864431354baa2dbc0160b809d94de624d5e16d1a45b313d4564bc9c8"
+      },
+      {
+        "name": "jpeg_input.v",
+        "sha256": "14f7e98d5d3a7af11de8a1284985b216577450ed168dd212bed4b13ed2e1d3b4"
+      },
+      {
+        "name": "jpeg_mcu_id.v",
+        "sha256": "450c780bf08b337238395c8c4b2cd1e9a075b4b2f0a1398e41110238f01859b9"
+      },
+      {
+        "name": "jpeg_mcu_proc.v",
+        "sha256": "cfd8b35fe75a29c02950f5cfcc1493419bee6da155d253d0062aff91493d43af"
+      },
+      {
+        "name": "jpeg_output.v",
+        "sha256": "0117858b853a7cf6f380db442fdb022004019674a2380150e783aab0729d27f5"
+      },
+      {
+        "name": "jpeg_output_cx_ram.v",
+        "sha256": "570bea46974744831816eceda8033425266ae4f3c2178fe8c4935e4194209da1"
+      },
+      {
+        "name": "jpeg_output_fifo.v",
+        "sha256": "66cde6db3c4f8c8b64ab35f80c7ef0b383b13d3e395114b9cff5e7ba0d22be72"
+      },
+      {
+        "name": "jpeg_output_y_ram.v",
+        "sha256": "a17dcca6dc7a696453d8fb3ddae8155abce18e06f868fe41eedce55f7c0d04eb"
+      }
+    ],
+    "project_sha256": "9b81975b9e5338dc3bfb730b643e8f30b84d29c9def62c0bb16bf6b501445f46",
+    "sdc_sha256": "97a8005cc495f6adc3e51e1b544e7c330e1e49b63be43920e75a4ef367a64e43"
+  },
+  "settings_report_verified": {
+    "rtl_sha256": "e9d24e2806b826f25501112410f8fed6f4bebbd83f0335857435e3d3dd2444bb",
+    "gate_sha256": "e9d24e2806b826f25501112410f8fed6f4bebbd83f0335857435e3d3dd2444bb",
+    "parameters": [
+      "min_ripple_len=18",
+      "mapper_lut_delay=1600",
+      "add_map_lut_struct=high",
+      "map_mode=area_prior",
+      "multi_thread_mapping=partition",
+      "resource_sharing=auto",
+      "shifter_style=shifter_reg"
+    ]
+  },
+  "resources": {
+    "device_lut": 5595,
+    "generic_lut_cells": 3099,
+    "ripple_cells": 804,
+    "ff_area_report": 2725,
+    "ff_qor_report": 2327,
+    "bram9k": 19,
+    "dsp": 29,
+    "standalone_qor_slices": 852
+  },
+  "synthesis_timing_estimate_only": {
+    "clock_period_ns": 20,
+    "setup_wns_ps": -966,
+    "setup_tns_ps": -8872,
+    "violated_setup_endpoints": 16,
+    "unconstrained_timing_ports": 5
+  },
+  "warnings": [
+    "HDL-5373 WARNING: identifier 'total_entries_q' is used before its declaration in ../src_v/jpeg_dht.v(89)",
+    "HDL-5373 WARNING: identifier 'idx_q' is used before its declaration in ../src_v/jpeg_dht.v(89)",
+    "HDL-5373 WARNING: identifier 'idx_q' is used before its declaration in ../src_v/jpeg_dht.v(89)",
+    "HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed",
+    "SYN-5011 WARNING: Undriven pin: model \"jpeg_core\" / inst \"u_jpeg_output/u_ram_cb/u_ram/ramread0_syn_86\" in ../src_v/jpeg_output_cx_ram.v(528) / pin \"bea[0]\"",
+    "SYN-5011 WARNING: Undriven pin: model \"jpeg_core\" / inst \"u_jpeg_output/u_ram_cb/u_ram/ramread0_syn_86\" in ../src_v/jpeg_output_cx_ram.v(528) / pin \"beb[0]\"",
+    "SYN-5025 WARNING: Using 0 for all undriven pins and nets",
+    "SYN-6562 WARNING: The init value of \"u_jpeg_dqt/ramread0_syn_4(../src_v/jpeg_dqt.v(117))\" will be ignored since gate eram_init is set to off",
+    "SYN-6562 WARNING: The init value of \"u_jpeg_idct/u_input/u_ram0/ramread0_syn_50(../src_v/jpeg_idct_ram_dp.v(79))\" will be ignored since gate eram_init is set to off",
+    "SYN-6562 WARNING: The init value of \"u_jpeg_idct/u_input/u_ram1/ramread0_syn_50(../src_v/jpeg_idct_ram_dp.v(79))\" will be ignored since gate eram_init is set to off",
+    "SYN-6562 WARNING: The init value of \"u_jpeg_idct/u_input/u_ram2/ramread0_syn_50(../src_v/jpeg_idct_ram_dp.v(79))\" will be ignored since gate eram_init is set to off",
+    "SYN-6562 WARNING: The init value of \"u_jpeg_idct/u_input/u_ram3/ramread0_syn_50(../src_v/jpeg_idct_ram_dp.v(79))\" will be ignored since gate eram_init is set to off",
+    "SYN-6562 WARNING: The init value of \"u_jpeg_idct/u_transpose/u_ram0/ramread0_syn_80(../src_v/jpeg_idct_transpose_ram.v(79))\" will be ignored since gate eram_init is set to off",
+    "SYN-6562 WARNING: The init value of \"u_jpeg_idct/u_transpose/u_ram1/ramread0_syn_80(../src_v/jpeg_idct_transpose_ram.v(79))\" will be ignored since gate eram_init is set to off",
+    "SYN-6562 WARNING: The init value of \"u_jpeg_idct/u_transpose/u_ram2/ramread0_syn_80(../src_v/jpeg_idct_transpose_ram.v(79))\" will be ignored since gate eram_init is set to off",
+    "SYN-6562 WARNING: The init value of \"u_jpeg_idct/u_transpose/u_ram3/ramread0_syn_80(../src_v/jpeg_idct_transpose_ram.v(79))\" will be ignored since gate eram_init is set to off",
+    "SYN-6562 WARNING: The init value of \"u_jpeg_output/u_ram_cb/u_ram/ramread0_syn_86(../src_v/jpeg_output_cx_ram.v(528))\" will be ignored since gate eram_init is set to off"
+  ],
+  "artifacts": [
+    {
+      "path": "jpeg_core_area_high/run_syn.tcl",
+      "sha256": "bf0b37bb90adb19f37f14c53243abd1ef1590c145e3685acc4b0faf000a28c18"
+    },
+    {
+      "path": "jpeg_core_area_high/jpeg_core.sdc",
+      "sha256": "97a8005cc495f6adc3e51e1b544e7c330e1e49b63be43920e75a4ef367a64e43"
+    },
+    {
+      "path": "jpeg_core_area_high/manifest.json",
+      "sha256": "b15f493557d21e83a972ae48bb1c7fe193e6a870f298287d46dc7c9205971639"
+    },
+    {
+      "path": "jpeg_core_area_high/td_console.log",
+      "sha256": "facbf6f715c80946be405a964206899001d155af3296b3d6e8e1d809cabbc0fd"
+    },
+    {
+      "path": "jpeg_core_area_high/reports/gate.area",
+      "sha256": "3d39a412e10c3f00aaf081d8a5a04c4d94374556f9de1df6f4dcdee231e17685"
+    },
+    {
+      "path": "jpeg_core_area_high/reports/actualparams.rtl.log",
+      "sha256": "e9d24e2806b826f25501112410f8fed6f4bebbd83f0335857435e3d3dd2444bb"
+    },
+    {
+      "path": "jpeg_core_area_high/reports/actualparams.gate.log",
+      "sha256": "e9d24e2806b826f25501112410f8fed6f4bebbd83f0335857435e3d3dd2444bb"
+    },
+    {
+      "path": "jpeg_core_area_high/td_project/gate.qor",
+      "sha256": "bf41c37f5c41e93619cbf975aee823a1e4ed3c536e7f105e1e53565d5d29065d"
+    },
+    {
+      "path": "jpeg_core_area_high/td_project/jpeg_core.al",
+      "sha256": "c8353c0ab822dbea0c2a46fe1c523c7ef5c0ec7f1bfde1d40b7fdb68bc54d5c1"
+    }
+  ]
+}

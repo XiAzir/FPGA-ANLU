@@ -1,0 +1,100 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\lib\ivl\system.vpi";
+:vpi_module "E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\lib\ivl\vhdl_sys.vpi";
+:vpi_module "E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\lib\ivl\vhdl_textio.vpi";
+:vpi_module "E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\lib\ivl\v2005_math.vpi";
+:vpi_module "E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\lib\ivl\va_math.vpi";
+:vpi_module "E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\lib\ivl\v2009.vpi";
+S_000001f492a3a370 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000001f492a3cb30 .scope module, "tb_color_mul_width" "tb_color_mul_width" 3 3;
+ .timescale -9 -12;
+v000001f492a3ccc0_0 .net/s *"_ivl_0", 30 0, L_000001f492973640;  1 drivers
+v000001f492942980_0 .net *"_ivl_13", 0 0, L_000001f492972b00;  1 drivers
+v000001f492a3cd60_0 .net *"_ivl_17", 0 0, L_000001f492972ba0;  1 drivers
+L_000001f4929c4048 .functor BUFT 1, C4<0000000000000000001011001101111>, C4<0>, C4<0>, C4<0>;
+v000001f492a3ce00_0 .net/2s *"_ivl_2", 30 0, L_000001f4929c4048;  1 drivers
+v000001f492966920_0 .net/s *"_ivl_6", 30 0, L_000001f492972a60;  1 drivers
+L_000001f4929c4090 .functor BUFT 1, C4<0000000000000000001110001011010>, C4<0>, C4<0>, C4<0>;
+v000001f4929669c0_0 .net/2s *"_ivl_8", 30 0, L_000001f4929c4090;  1 drivers
+v000001f492966a60_0 .net/s "cb_product_31", 30 0, L_000001f492973960;  1 drivers
+v000001f492966b00_0 .net/s "cb_product_32", 31 0, L_000001f4929733c0;  1 drivers
+v000001f492966ba0_0 .var/i "checked_cb", 31 0;
+v000001f492966c40_0 .var/i "checked_cr", 31 0;
+v000001f492966ce0_0 .net/s "cr_product_31", 30 0, L_000001f492973320;  1 drivers
+v000001f4929731e0_0 .net/s "cr_product_32", 31 0, L_000001f4929730a0;  1 drivers
+v000001f492973000_0 .var/i "expected_cb", 31 0;
+v000001f492972e20_0 .var/i "expected_cr", 31 0;
+v000001f492973280_0 .var/i "sample", 31 0;
+v000001f4929735a0_0 .var/s "value", 16 0;
+L_000001f492973640 .extend/s 31, v000001f4929735a0_0;
+L_000001f492973320 .arith/mult 31, L_000001f492973640, L_000001f4929c4048;
+L_000001f492972a60 .extend/s 31, v000001f4929735a0_0;
+L_000001f492973960 .arith/mult 31, L_000001f492972a60, L_000001f4929c4090;
+L_000001f492972b00 .part L_000001f492973320, 30, 1;
+L_000001f4929730a0 .concat [ 31 1 0 0], L_000001f492973320, L_000001f492972b00;
+L_000001f492972ba0 .part L_000001f492973960, 30, 1;
+L_000001f4929733c0 .concat [ 31 1 0 0], L_000001f492973960, L_000001f492972ba0;
+    .scope S_000001f492a3cb30;
+T_0 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000001f492966c40_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000001f492966ba0_0, 0, 32;
+    %end;
+    .thread T_0, $init;
+    .scope S_000001f492a3cb30;
+T_1 ;
+    %pushi/vec4 4294901760, 0, 32;
+    %store/vec4 v000001f492973280_0, 0, 32;
+T_1.0 ;
+    %load/vec4 v000001f492973280_0;
+    %cmpi/s 65535, 0, 32;
+    %flag_or 5, 4;
+    %jmp/0xz T_1.1, 5;
+    %load/vec4 v000001f492973280_0;
+    %pad/s 17;
+    %store/vec4 v000001f4929735a0_0, 0, 17;
+    %delay 1000, 0;
+    %load/vec4 v000001f492973280_0;
+    %muli 5743, 0, 32;
+    %store/vec4 v000001f492972e20_0, 0, 32;
+    %load/vec4 v000001f492973280_0;
+    %muli 7258, 0, 32;
+    %store/vec4 v000001f492973000_0, 0, 32;
+    %load/vec4 v000001f4929731e0_0;
+    %load/vec4 v000001f492972e20_0;
+    %cmp/ne;
+    %jmp/0xz  T_1.2, 6;
+    %vpi_call/w 3 22 "$fatal", 32'sb00000000000000000000000000000001, "cr mismatch input=%0d got=%0d expected=%0d", v000001f492973280_0, v000001f4929731e0_0, v000001f492972e20_0 {0 0 0};
+T_1.2 ;
+    %load/vec4 v000001f492966b00_0;
+    %load/vec4 v000001f492973000_0;
+    %cmp/ne;
+    %jmp/0xz  T_1.4, 6;
+    %vpi_call/w 3 24 "$fatal", 32'sb00000000000000000000000000000001, "cb mismatch input=%0d got=%0d expected=%0d", v000001f492973280_0, v000001f492966b00_0, v000001f492973000_0 {0 0 0};
+T_1.4 ;
+    %load/vec4 v000001f492966c40_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000001f492966c40_0, 0, 32;
+    %load/vec4 v000001f492966ba0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000001f492966ba0_0, 0, 32;
+    %load/vec4 v000001f492973280_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000001f492973280_0, 0, 32;
+    %jmp T_1.0;
+T_1.1 ;
+    %vpi_call/w 3 28 "$display", "COLOR_MUL_WIDTH_EXHAUSTIVE_PASS cr=%0d cb=%0d range=-65536..65535", v000001f492966c40_0, v000001f492966ba0_0 {0 0 0};
+    %vpi_call/w 3 29 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "E:\VSCODE-project\FPGA-ANLU\development\video19_work\color_width\arithmetic\tb_color_mul_width.v";

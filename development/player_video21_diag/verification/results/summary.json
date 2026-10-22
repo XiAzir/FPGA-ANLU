@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-22",
+  "workspace": "development/player_video21_diag",
+  "runner": "verification/run_iverilog_tests.ps1",
+  "execution": {
+    "shell": "PowerShell 7",
+    "permission": "require_escalated",
+    "reason": "Icarus temp-path failure in restricted execution",
+    "result": "completed"
+  },
+  "tool_paths": {
+    "iverilog": "bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe",
+    "vvp": "bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe"
+  },
+  "tests": [
+    {
+      "name": "player_compact_status_pages",
+      "compile_exit_code": 0,
+      "simulation_exit_code": 0,
+      "coverage": "16 page words, wrap, mid-interval reset",
+      "logs": [
+        "tb_player_compact_status_pages_compile.log",
+        "tb_player_compact_status_pages_simulation.log"
+      ]
+    },
+    {
+      "name": "frame_fifo_write_diff",
+      "compile_exit_code": 0,
+      "simulation_exit_code": 0,
+      "coverage": "debug taps and outputs vs renamed C20 reference; delayed SDRAM init; RGB/JPEG modes; reset",
+      "c20_source_sha256": "4F14B7161AA93E9F99F98E523078D4F2C1AA38ED6C19A33D3677E5CF9177AD84",
+      "logs": [
+        "tb_frame_fifo_write_diff_compile.log",
+        "tb_frame_fifo_write_diff_simulation.log"
+      ]
+    },
+    {
+      "name": "first4_capture_observer",
+      "compile_exit_code": 0,
+      "simulation_exit_code": 0,
+      "coverage": "single-cycle request with delayed/gapped valid; sustained request; nonzero sector; end; asynchronous reset",
+      "top_source_sha256": "E1FFFB7EB1DB94D2D63EE7552633C82E3F2EB25D73A667E7D70B020BD3D686E8",
+      "extracted_observer_sha256": "5B7066A05076FAA2F19EA8067C8B84C2AB47E9A4ECC55311663F672529B0FFD6",
+      "logs": [
+        "tb_first4_capture_observer_compile.log",
+        "tb_first4_capture_observer_simulation.log"
+      ]
+    }
+  ],
+  "failed_attempts_preserved": [
+    {
+      "log": "tb_frame_fifo_write_diff_compile_failed_attempt1.log",
+      "exit_code": 3,
+      "cause": "C20 reference output included a UTF-8 BOM and dependency source ordering was wrong; fixed by emitting UTF-8 without BOM and placing the address module first"
+    },
+    {
+      "log": "tb_frame_fifo_write_diff_simulation_failed_attempt1.log",
+      "exit_code": 1,
+      "cause": "short test payload did not reach the default 128-word burst completion; fixed with matched 4-word burst parameters in both DUT and reference"
+    },
+    {
+      "log": "tb_first4_capture_observer_compile_failed_attempt1.log",
+      "exit_code": 2,
+      "cause": "PowerShell expandable here-string consumed the Verilog timescale backtick; fixed by escaping it"
+    }
+  ],
+  "static_review": {
+    "source_files_changed_vs_c20": 5,
+    "control_outputs_modified": false,
+    "status_page_word_width": 32,
+    "diag_words_width": 384,
+    "diag_words_page_slices": 12,
+    "page_interval": "25,000,000 video clocks; 1 second at 25 MHz",
+    "steady_read_after_page_change": "allow at least 120 ns for page and selected-data CDC settling"
+  }
+}

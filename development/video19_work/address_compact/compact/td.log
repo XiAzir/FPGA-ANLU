@@ -1,0 +1,347 @@
+============================================================
+   Tang Dynasty, V6.2.178840
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/bin/td_commands_prompt.exe
+   Built at =   14:07:58 Sep  4 2025
+   Run by =     PENGYUHAO
+   Run Date =   Wed Oct 21 18:47:55 2026
+
+   Run on =     DESKTOP-3CITPT4
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20BG256"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :            OPTION            |          IO          |   SETTING   
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  T3/R11/T10/P10/S11  |    gpio    
+ARC-1001 :             done             |         P13          |    gpio    
+ARC-1001 :           program_b          |          T2          |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |   C12/A15/C14/E14    |  dedicate  
+ARC-1001 : ------------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "open_project address_top.al -single_run"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file jpeg420_word_address.v
+HDL-1007 : analyze verilog file top.v
+PRJ-1401 : Successfully analyzed 2 source files.
+RUN-1002 : start command "load_run_param -run syn_1"
+RUN-1002 : start command "set_param gate add_map_lut_struct high"
+RUN-1002 : start command "set_param gate map_mode area_prior"
+RUN-1002 : start command "set_param gate opt_area high"
+RUN-1002 : start command "set_param gate map_mux41 on"
+RUN-1002 : start command "set_param rtl min_ripple_len 18"
+RUN-1002 : start command "set_param gate mapper_lut_delay 1600"
+RUN-1002 : start command "elaborate -top address_top"
+HDL-1007 : elaborate module address_top in top.v(1)
+HDL-1007 : elaborate module jpeg420_word_address(RGB565=1) in jpeg420_word_address.v(4)
+HDL-1200 : Current top model is address_top
+HDL-1100 : Inferred 0 RAMs.
+RUN-1002 : start command "get_ports clk"
+RUN-1002 : start command "create_clock -name clk -period 20 "
+USR-8122 CRITICAL-WARNING: create_clock: please import a netlist and launch a sdcinfo at first.
+RUN-1002 : start command "commit_param -step rtl"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Rtl Property
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :         Parameters        |  Settings  |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------------
+RUN-1001 :        fix_undriven       |     0      |        0         |        
+RUN-1001 :   gated_clock_conversion  |    off     |       off        |        
+RUN-1001 :         infer_fsm         |    auto    |       auto       |        
+RUN-1001 :         infer_gsr         |    off     |       off        |        
+RUN-1001 :         infer_rom         |     on     |        on        |        
+RUN-1001 :       keep_hierarchy      |    auto    |       auto       |        
+RUN-1001 :        merge_equal        |     on     |        on        |        
+RUN-1001 :      min_control_set      |     8      |        8         |        
+RUN-1001 :       min_ripple_len      |     18     |       auto       |   *    
+RUN-1001 :          seq_syn          |     on     |        on        |        
+RUN-1001 : -------------------------------------------------------------------
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.000082s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 90, reserved = 101, peak = 90;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 146, Total nets: 388.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 0.004199s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 90, reserved = 101, peak = 90;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 43, Total nets: 285.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model address_top
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.000617s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 90, reserved = 101, peak = 90;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 42, Total nets: 239.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.000249s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 91, reserved = 101, peak = 91;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 44, Total nets: 241.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1032 : 239/2 useful/useless nets, 42/2 useful/useless insts
+SYN-1016 : Merged 2 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 0.049464s wall, 0.046875s user + 0.000000s system = 0.046875s CPU (94.8%); Memory(MB): used = 93, reserved = 101, peak = 93;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 93, Total nets: 166.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1014 : Optimize round 1
+SYN-1020 : Optimized 6 distributor mux.
+SYN-1016 : Merged 3 instances.
+SYN-1015 : Optimize round 1, 9 better
+SYN-1014 : Optimize round 2
+SYN-1015 : Optimize round 2, 0 better
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 0.099960s wall, 0.093750s user + 0.000000s system = 0.093750s CPU (93.8%); Memory(MB): used = 89, reserved = 94, peak = 101;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 91, Total nets: 164.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.000029s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 89, reserved = 94, peak = 101;
+
+SYN-1079 : finish stage Check Design. Total instances: 91, Total nets: 164.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 0.154877s wall, 0.140625s user + 0.000000s system = 0.140625s CPU (90.8%); Memory(MB): used = 89, reserved = 94, peak = 101;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 91, Total nets: 164.
+
+RUN-1002 : start command "commit_param -step gate"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Gate Property
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     Parameters    |   Settings   |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     eram_init     |     off      |       off        |        
+RUN-1001 :      map_mode     |  area_prior  |       auto       |   *    
+RUN-1001 :    pack_effort    |    medium    |      medium      |        
+RUN-1001 :   pack_seq_in_io  |     auto     |       auto       |        
+RUN-1001 :       report      |   standard   |     standard     |        
+RUN-1001 : -------------------------------------------------------------
+RUN-1002 : start command "optimize_gate -packarea area.rpt"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.000850s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%); Memory(MB): used = 89, reserved = 94, peak = 101;
+
+SYN-1079 : finish stage Map Reg. Total instances: 91, Total nets: 164.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2001 : Map 46 IOs to PADs of model 'address_top'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.045700s wall, 0.046875s user + 0.000000s system = 0.046875s CPU (102.6%); Memory(MB): used = 89, reserved = 94, peak = 101;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module address_top"
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-2571 : Optimize after map_dsp, round 1, 0 better
+SYN-1001 : Throwback 18 control mux instances
+SYN-1001 : Generate 1 bigger adders
+SYN-1001 : Optimize 6 adders
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 4 instances.
+SYN-2501 : Optimize round 1, 17 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Optimize round 1
+SYN-2501 : Optimize round 1, 0 better
+SYN-2501 : Map 8 macro adder(s)
+SYN-1016 : Merged 8 instances.
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 0.017763s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (88.0%); Memory(MB): used = 90, reserved = 95, peak = 101;
+
+SYN-1079 : finish stage Map Macro. Total instances: 199, Total nets: 269.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-2581 : Mapping with K=5, #lut = 38 (3.50), #lev = 3 (2.32), #crit_level = 0
+SYN-2551 : Post LUT mapping optimization.
+SYN-2551 : extra runtime-consuming opt
+SYN-2551 : progress: 0%
+SYN-2551 : progress: 12%
+SYN-2551 : progress: 25%
+SYN-2551 : progress: 37%
+SYN-2551 : progress: 50%
+SYN-2551 : progress: 62%
+SYN-2551 : progress: 75%
+SYN-2551 : progress: 87%
+SYN-2551 : progress: 100%
+SYN-2581 : Mapping with K=6, #lut = 34 (4.50), #lev = 2 (1.57), #crit_level = 0
+SYN-3001 : Logic optimization opt = 0.00 sec, map = 0.34 sec, post map opt = 2.25 sec.
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 2.598236s wall, 2.359375s user + 0.187500s system = 2.546875s CPU (98.0%); Memory(MB): used = 120, reserved = 101, peak = 120;
+
+SYN-1001 : Packing model "address_top" ...
+SYN-4010 : Pack lib has 59 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 18 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 1 carry chain into lslice
+SYN-4007 : Packing 13 adder to BLE ...
+SYN-4008 : Packed 13 adder and 0 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+TMR-2502 : Net delay update with mode: Synthesized
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |        15999                |
+|     Setup TNS             |            0                |
+|     Num of violated S-EP  |            0                |
+|     Hold WNS              |         1713                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |           18                |
+|     #luts                 |           34                |
+|     #lut1                 |            0                |
+|     #lut1(~A)             |            0                |
+|     #slices               |           13                |
+|     slices percentage     |        0.13%                |
+|     #RAMs                 |            0                |
+|     #DSPs                 |            0                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |            2                |
+|     #insts in MACRO       |           13                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |            0                |
+|     #keep_hier            |            0                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |        39.00                |
+| dff(single fanout)->dff   |            0                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total Number          |            0                |
+|     Total Exceed Level    |            0                |
+|     Worst Level Slack     |           17                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 1000ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+-------------------------------------------------
+  Clock        |  Period            |  1  |  2
+-------------------------------------------------
+  DeriveClock  |  20.000ns (50MHz)  |  4  |  14
+-------------------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(18 paths analyzed)
+
+Hierarchical Rent Exponent Report
++--------------------------------------------------------+
+|Inst     |Model  |Rent     |Cell     |Pin     |Term     |
++--------------------------------------------------------+
++--------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+RUN-1002 : start command "report_area -file area.rpt"
+RUN-1001 : standard
+***Report Model: address_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        46   out of    188   24.47%
+  #input                   25
+  #output                  21
+  #inout                    0
+
+LUT Statistics
+#Total_luts                34
+  #lut4                    15
+  #lut5                     9
+  #lut6                    10
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                       70   out of  19600    0.36%
+#reg                       18   out of  19600    0.09%
+#bram                       0   out of     64    0.00%
+  #bram9k                   0
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                       46   out of    188   24.47%
+  #ireg                    21
+  #oreg                     0
+  #treg                     0
+#pll                        0   out of      4    0.00%
+#gclk                       0   out of     16    0.00%
+
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 2.727518s wall, 2.484375s user + 0.187500s system = 2.671875s CPU (98.0%); Memory(MB): used = 121, reserved = 101, peak = 121;
+
+RUN-1003 : finish command "optimize_gate -packarea area.rpt" in  2.735140s wall, 2.500000s user + 0.187500s system = 2.687500s CPU (98.3%)
+
+RUN-1004 : used memory is 121 MB, reserved memory is 101 MB, peak memory is 121 MB
+RUN-1002 : start command "close_project"

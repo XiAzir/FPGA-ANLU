@@ -1,0 +1,78 @@
+{
+  "status": "DIAGNOSTIC_OFFLINE_CHECKS_PASS",
+  "crc_probe": {
+    "status": "PASS",
+    "compile_exit_code": 0,
+    "simulation_exit_code": 0,
+    "compile_command": "iverilog.exe -g2012 -s tb_player_pcm_crc_probe -o tb_player_pcm_crc_probe.vvp tb_player_pcm_crc_probe.v player_pcm_crc_probe.v",
+    "simulation_command": "vvp.exe tb_player_pcm_crc_probe.vvp",
+    "source_wav_sha256": "30eaf10a6ff1800163cecb3225cce685873b38c9a8e42635f1e5c92b0e95b5de",
+    "source_data_offset": 78,
+    "source_samples": 960000,
+    "golden_two_pass_samples": 1920000,
+    "golden_block_count": 469,
+    "rtl_positive_blocks": [
+      "9DC4",
+      "D821",
+      "1B4B"
+    ],
+    "negative_control": "L packed PCM bit0 (audio_left[8])",
+    "negative_first_crc": "9D84",
+    "sample_period_pattern": [
+      520,
+      521
+    ],
+    "hashes": {
+      "simulation_pass.log": "781cdccd8122b7bba44c6d15d69c38b47124faeeed89974944611a3285a2cc4d",
+      "canonical_crc_first80.json": "2c17f25f7a16059df8db938db77ce41d83739a9921720d5a09ea2f3bc7211fd8",
+      "gen_crc_golden.py": "e1e7d888fefe7c9ae5f16aa196f99926e53afa7f4518a6d92cbc7c43046d8180",
+      "canonical_crc_two_pass.csv": "305e655370b5a807470fbc72b42a8928ab505e81c29599b63d139ce0421856af",
+      "canonical_crc_two_pass.json": "6c36d118e81d28d3cef0e0bf7da720f8e725e971d645694ca649af43ee37adb9",
+      "golden_inputs.json": "5bec0c200409198fcaf41ad4200d66e7ccd75ebe38f2c2f3ac039e11cc37e578",
+      "player_pcm_crc_probe.v": "2fae63d0a85912ff1cab144ba39155d74084f02831089bf3eab0e52fd16fbc0f",
+      "tb_player_pcm_crc_probe.v": "67ee9a616519eb10e6552b95a22a63fc2920f2fc4d43e8827a82e36e2312b326",
+      "canonical_crc_first80.csv": "38e3fbd189f47bab1ad1f6985053a48933b4d5f8a539594b2a6d1ec2ed1be9ce"
+    }
+  },
+  "observer_tests": [
+    {
+      "simulation_exit_code": 0,
+      "name": "tb_player_compact_status_pages",
+      "logs": [
+        "tb_player_compact_status_pages_compile.log",
+        "tb_player_compact_status_pages_simulation.log"
+      ],
+      "compile_exit_code": 0
+    },
+    {
+      "simulation_exit_code": 0,
+      "name": "tb_audio_crc_snapshot",
+      "logs": [
+        "tb_audio_crc_snapshot_compile.log",
+        "tb_audio_crc_snapshot_simulation.log"
+      ],
+      "compile_exit_code": 0
+    },
+    {
+      "simulation_exit_code": 0,
+      "name": "tb_audio_sd_observer",
+      "logs": [
+        "tb_audio_sd_observer_compile.log",
+        "tb_audio_sd_observer_simulation.log"
+      ],
+      "compile_exit_code": 0
+    }
+  ],
+  "inputs_bound": 125,
+  "timing": {
+    "setup_wns_ns": 1.187,
+    "hold_wns_ns": 0.024,
+    "setup_tns_ns": 0,
+    "hold_tns_ns": 0
+  },
+  "preservation": "C21 media algorithms unchanged; three audio modules exactly match after removing output taps",
+  "scope": "CRC/observer unit tests and full TD build/timing; no new full JPEG/HDMI system simulation",
+  "board_root_cause": "pending PCM CRC and service metrics",
+  "mode_reproduction": "six reset phases remounted original model successfully; user currently unable to reproduce IMG0/0",
+  "service_gap": "healthy 12000 outputs exact; scaled same-clock 30/40/45ms injected no-service intervals reproduced underrun/zero insertion and recovery; not a measurement of real-card latency"
+}

@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "base": "player_video22_audio_diag",
+  "candidate": "player_video26_runtime_diag",
+  "changed_files": [
+    "hdl_source/SD/sd_card_cmd.v",
+    "hdl_source/SD/sd_card_sec_read_write.v",
+    "hdl_source/SD/sd_card_top.v",
+    "hdl_source/SD/spi_master.v",
+    "hdl_source/player_adjust_control.v",
+    "hdl_source/player_compact_status_pages.v",
+    "hdl_source/top_tf_hdmi_audio.v",
+    "src/td_project/AC201_tf_hdmi.al"
+  ],
+  "user_source_changed_files": [
+    "hdl_source/SD/sd_card_cmd.v",
+    "hdl_source/SD/sd_card_sec_read_write.v",
+    "hdl_source/SD/sd_card_top.v",
+    "hdl_source/SD/spi_master.v",
+    "hdl_source/player_adjust_control.v",
+    "hdl_source/player_compact_status_pages.v",
+    "hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "project_path_update": "src/td_project/AC201_tf_hdmi.al: C22 project path retargeted to C26",
+  "unchanged_count": 114,
+  "source_file_count": 121,
+  "normalization": {
+    "newline_policy": "CRLF and CR normalized to LF before comparison",
+    "proof": "Only the seven allowlisted HDL files differ; all other user_source files normalize byte-for-text equal to C22.",
+    "diagnostic_scope": "passive output additions, B/C/D page packing, 4-bit video-mode press counter, and C26 page identifier"
+  },
+  "checks": {
+    "counter_is_only_globally_reset": true,
+    "page_b_pack": true,
+    "page_c_pack": true,
+    "page_d_pack": true,
+    "sd_debug_assembly": true,
+    "r1_observer_has_r1_state_and_ack_gate": true,
+    "r1_observer_reset_ff": true,
+    "adjust_debug_declared": true,
+    "page_id": true
+  },
+  "r1_negative_control": "PASS: only (state=S_CMD && spi_wr_ack) updates last_r1; distinct bytes in non-R1 states leave it unchanged",
+  "testbench": "sd_card_cmd_r1_probe_tb.v created; simulator unavailable in current PATH, so HDL simulation not executed",
+  "td_build": "NOT RUN by instruction"
+}

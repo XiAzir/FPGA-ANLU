@@ -1,0 +1,84 @@
+{
+  "status": "ENVIRONMENT_BLOCKED",
+  "run_directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final",
+  "source_receipt": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\source_receipt.json",
+  "source_receipt_sha256": "F4E8D9EA649DC09F8611E6A8EFDA437A56E781EB2A88EC2C694B9E4ACF720B66",
+  "receipt_binding": {
+    "status": "PASS",
+    "checks_count": 304,
+    "mismatches": [],
+    "result_file": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video20_work\\physical_final\\receipt_binding.json"
+  },
+  "source_run": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\video_system_20261021_215714",
+  "source_run_status": "INTERRUPTED_NO_PASS",
+  "simulation_started": false,
+  "optimization": {
+    "strategy": "Copied frozen run work library into this directory's isolated work library; intended no-acc vopt first",
+    "tool": "E:\\ModelsimSE\\win64\\vopt.exe",
+    "tool_sha256": "D14BD8D724ABBD514655D041095E8EE10F4980A2CB1B2A8834B4170CF848E10C",
+    "result": "Windows CreateProcess failed before vopt execution",
+    "winerror": 623,
+    "message": "The system DLL was relocated in memory and occupied an address range reserved for Windows system DLLs."
+  },
+  "decoded_pixels": null,
+  "commits": null,
+  "distinct_displayed_frames": null,
+  "original_pcm_samples_exact": null,
+  "underflow": null,
+  "frame_late": null,
+  "peak_decode_ns": null,
+  "runtime_model_errors": null,
+  "startup_model_errors_before_1us": [
+    {
+      "time_ns": 709.0,
+      "classification": "SDRAM model startup command diagnostic",
+      "message": "all banks must be Precharge before Load Mode Register"
+    },
+    {
+      "time_ns": 709.0,
+      "classification": "SDRAM model startup timing diagnostic",
+      "message": "tMRD violation during Load Mode Register"
+    },
+    {
+      "time_ns": 709.2,
+      "classification": "SDRAM model startup specify hold check",
+      "message": "$hold (posedge Clk:709200 ps, Ras_n:709200 ps, 1 ns)"
+    },
+    {
+      "time_ns": 709.2,
+      "classification": "SDRAM model startup specify hold check",
+      "message": "$hold (posedge Clk:709200 ps, Cas_n:709200 ps, 1 ns)"
+    },
+    {
+      "time_ns": 709.2,
+      "classification": "SDRAM model startup specify hold check",
+      "message": "$hold (posedge Clk:709200 ps, We_n:709200 ps, 1 ns)"
+    }
+  ],
+  "startup_error_evidence_run": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\video_system_20261021_215714",
+  "prior_run_last_progress_ms": 100,
+  "prior_run_terminal_pass_marker": false,
+  "partial_evidence": {
+    "run_directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video20\\build\\video_system_20261021_215714",
+    "status": "INTERRUPTED_PARTIAL_ONLY",
+    "last_progress_ms": 100,
+    "decoded_pixels_at_last_progress": 382976,
+    "commits": 1,
+    "distinct_displayed_frames": 1,
+    "first_display_ms": 47.14053,
+    "original_pcm_samples_exact_at_last_progress": 648,
+    "underflow_observed": false,
+    "frame_late_observed": false,
+    "terminal_pass_marker": false
+  },
+  "inputs": {
+    "controller_gate.v": "89F949EBA178DED57A4CF5BC65BC0743BE6ECAA235CA895718EDCC4BA4A9C443",
+    "sdram_issi_reference_wrapper.v": "7EBC42FC01EAF44B93F7ADA407F6D36BF165DC30E033B8F673BBC28309B1C130",
+    "IS42s32200.v": "6AAD09C411B00E319EA6E7FF5A85453EB990532541AE368084406F78A276690B",
+    "global_def.v": "DA6A16AC7E3B8D3415F45B9F18847D8E6170C7F9EB6E192C417F730977072583",
+    "packed_mem.mem": "F18BB49C18B6DFA3C6131527B5A2F937258368C9A374BF21523D3306D9A3635F",
+    "lba_map.mem": "5F8869DB56F174C4EA1B63A4D7E7D9CFA0A16C09E0D7E79AB74282C0ABDE9F21",
+    "jpeg_crc.mem": "AB857FFCCBDAFE5D71ED1D53E0B72E36C974474BA37BAD177C02679C66778DDE",
+    "pcm.mem": "4D997420BE682687C09311812C76A3C58854D59B57B3EF199A4B6BE3E9A3FF6D"
+  }
+}

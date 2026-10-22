@@ -1,0 +1,25 @@
+C11327 SD命令发送/响应边界修正版
+
+位流video27_command_boundary.bit；版本页00C11327。
+基于C26，仅修正sd_card_cmd六字节命令发完后才检查R1，版本页同步更新。
+D页最后采样字节限定在响应阶段。SPI工作态12.5MHz；TF文件沿用当前版本。
+无新增重试、超时或回退分支。C22保留可播放对照，原位流保持。
+
+建议实板顺序：
+1. 加载后等待10秒，核对00C11327、图片轮切、原声和内置音阶。
+2. 进入视频，确认画面/声音，然后短KEY0从头播放，连续试3次。
+3. 图片→视频→图片往返，包含视频仅播1～2秒就返回。
+4. 若再次仅UI，录完整一轮数码管；重点ID、2开头状态、CRC、B/C/D。
+   同时保留图片绿点、IMG0/4和声音状态，便于与C26原反馈对照。
+
+离线验证：命令边界候选168项通过，原版72项提前解析失败被检出，8项错误R1控制通过；
+完整冷启视频/PCM及6次模式/重播整机回归结果见validation.json。
+使用名义PLL与SDRAM应用模型；实板CMD8停住的因果、图片异常和无声继续等待现场验证。
+
+B页：bit27 video_mode，bit26/25 raw key1/key2（1=松开）；bit24:9为adjust debug；
+bit8:5 mode事件计数，bit4 media_reset，bit3冷reset，bit2 card_init_done，bit1/0两PLL lock。
+C页：bit27:23 SD controller，bit22:18 command，bit17:15 SPI state；
+bit14/13/12 cmd_req/ack/error，bit11 init，bit10/9/8 shared_read/end/valid；
+bit7/6/5/4 CS/SCLK/MOSI/MISO，bit3/2 media/cold reset，bit1/0两PLL lock。
+D页：bit27:22命令号，bit21:14预期R1，bit13:6响应阶段最后采样字节，低6位0。
+响应等待期间FF等高位为1的字节也会显示；实际响应判定沿用原驱动规则。

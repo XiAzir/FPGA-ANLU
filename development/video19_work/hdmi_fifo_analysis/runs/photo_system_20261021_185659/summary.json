@@ -1,0 +1,134 @@
+{
+  "status": "PASS",
+  "candidate": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video19",
+  "photo_mode_default": true,
+  "video_mode_press_injected": false,
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "+define+HAS_FFT",
+      "+incdir+E:/VSCODE-project/FPGA-ANLU/development/video19_work/hdmi_fifo_analysis/runs/photo_system_20261021_185659/frozen/src/user_source/hdl_source+E:/VSCODE-project/FPGA-ANLU/development/video19_work/hdmi_fifo_analysis/runs/photo_system_20261021_185659/frozen/src/user_source/hdl_source/include+E:/VSCODE-project/FPGA-ANLU/development/video19_work/hdmi_fifo_analysis/runs/photo_system_20261021_185659/frozen/src/user_source/hdl_source/SD+E:/VSCODE-project/FPGA-ANLU/development/video19_work/hdmi_fifo_analysis/runs/photo_system_20261021_185659/frozen/src/td_project",
+      "-f",
+      "plain.f"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\photo_system_20261021_185659\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "-suppress",
+      "3017,3722",
+      "-L",
+      "work",
+      "-L",
+      "eg4",
+      "-L",
+      "hdmi",
+      "work.tb_system",
+      "work.glbl",
+      "+max_ms=200",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\photo_system_20261021_185659\\console.log"
+  },
+  "fft": {
+    "status": "PASS_SCOPE",
+    "completed_frames": 3,
+    "band_checks": 72,
+    "max_abs_error": 0,
+    "oracle_sha256": "c7459ba9b0c10656ed8b68370a25b7ba97a7db9b79592cf3cd2c2c480adc2bff",
+    "scope": "Actual full-top accepted PCM captures, real ROM/FFT, independent fixed-point band reference; nominal startup/WAV case only"
+  },
+  "assumptions": [
+    "qualified nominal PLL edge replay",
+    "application-interface SDRAM model",
+    "archived 64MiB SDHC fixture with PIC.BMP and 4096-sample TEST.WAV"
+  ],
+  "unverified": [
+    "physical SDRAM timing",
+    "SDF",
+    "physical board behavior",
+    "HDMI serial content"
+  ],
+  "run_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\hdmi_fifo_analysis\\runs\\photo_system_20261021_185659\\console.log",
+  "fifo_depth_experiment": {
+    "variant": "depth128",
+    "depth_override_only_for_data_width_96": 128,
+    "local_model_source_sha256": "D60BFE438DE9BB0CA2A641492AAC592A2F4D6483645257A03A7B43813A484EBC",
+    "max_occupancy_events": [
+      {
+        "depth": 128,
+        "occupancy": 1,
+        "writes": 1,
+        "reads": 0
+      },
+      {
+        "depth": 128,
+        "occupancy": 2,
+        "writes": 8,
+        "reads": 6
+      },
+      {
+        "depth": 128,
+        "occupancy": 3,
+        "writes": 373,
+        "reads": 370
+      }
+    ],
+    "periodic_fifo_stats": [
+      {
+        "depth": 128,
+        "occupancy": 0,
+        "max": 3,
+        "writes": 1024,
+        "reads": 1023,
+        "overflow": 0,
+        "underflow": 1842
+      },
+      {
+        "depth": 128,
+        "occupancy": 0,
+        "max": 3,
+        "writes": 2048,
+        "reads": 2047,
+        "overflow": 0,
+        "underflow": 2811
+      },
+      {
+        "depth": 128,
+        "occupancy": 1,
+        "max": 3,
+        "writes": 3072,
+        "reads": 3070,
+        "overflow": 0,
+        "underflow": 3782
+      },
+      {
+        "depth": 128,
+        "occupancy": 0,
+        "max": 3,
+        "writes": 4096,
+        "reads": 4095,
+        "overflow": 0,
+        "underflow": 4754
+      }
+    ],
+    "model_bound": true
+  }
+}

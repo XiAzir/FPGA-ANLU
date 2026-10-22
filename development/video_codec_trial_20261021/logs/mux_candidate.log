@@ -1,0 +1,21 @@
+Input #0, mjpeg, from 'E:/VSCODE-project/FPGA-ANLU/development/video_codec_trial_20261021/media/letterbox640_q95_420.mjpg':
+  Duration: N/A, bitrate: N/A
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 640x480 [SAR 1:1 DAR 4:3], 15 fps, 15 tbr, 1200k tbn
+[aist#1:0/pcm_s16le @ 0000013958F6D980] Guessed Channel Layout: mono
+Input #1, wav, from 'E:/VSCODE-project/FPGA-ANLU/development/video_codec_trial_20261021/media/original_audio_16_36_pcm48k_mono.wav':
+  Metadata:
+    encoder         : Lavf61.1.100
+  Duration: 00:00:20.00, bitrate: 768 kb/s
+  Stream #1:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, mono, s16, 768 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #1:0 -> #0:1 (pcm_s16le (native) -> pcm_s16le (native))
+Output #0, avi, to 'E:/VSCODE-project/FPGA-ANLU/development/video_codec_trial_20261021/media/candidate_640x480_15fps_q95_original_audio.avi':
+  Metadata:
+    ISFT            : Lavf61.1.100
+  Stream #0:0: Video: mjpeg (Baseline) (MJPG / 0x47504A4D), yuvj420p(pc, bt470bg/unknown/unknown), 640x480 [SAR 1:1 DAR 4:3], q=2-31, 15 fps, 15 tbr, 30 tbn
+  Stream #0:1: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, mono, s16, 768 kb/s
+      Metadata:
+        encoder         : Lavc61.3.100 pcm_s16le
+[out#0/avi @ 00000139571FEEC0] video:11256KiB audio:1875KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.224444%
+size=   13160KiB time=00:00:20.00 bitrate=5390.3kbits/s speed=1.21e+03x    

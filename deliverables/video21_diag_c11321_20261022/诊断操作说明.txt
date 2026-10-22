@@ -1,0 +1,37 @@
+C11321 被动状态诊断版（基于C11320）
+
+目的：定位C11319/C11320同卡素材播放故障。
+播放器算法、视频媒体、SPI12.5MHz、PLL与引脚约束沿用C11320。
+数码管由原4页扩至16页，每页1秒，循环16秒。
+Build ID=00C11321；照片/视频按键沿用。
+
+操作：
+1. 保持这次同一张TF卡及卡内文件、同一供电和HDMI连接。
+2. BitWriter用PROGRAM_SRAM加载video21_diag.bit，确认00C11321。
+3. 等待10秒，从出现00C11321开始拍摄数码管20秒，同时记录是否有照片/UI/音乐、LED状态。
+4. 双键长按超过1.5秒并全部松开。等10秒后，再从00C11321开始拍摄20秒，记录视频/音乐/LED状态。
+5. 若诊断版恰好播放成功，同样保留两段状态记录，以供判断物理实现变化的影响。
+
+16页顺序（页号为十六进制）：
+0 00C11321：Build ID。
+1 2ffpveex：原状态。ff依次fs_ready/fs_error/wav_found/video_found/display_valid/video_mode/paused/wav_primed；p为当前选中播放器调度状态，v为视频调度状态，ee为FS错误码；x低4位依次图片或视频消费者错/WAV消费者错/图片或视频mapper错/WAVmapper错。
+2 ccccbbbb：SD CRC已校验计数/错误计数。
+3 ffffff0u：FFT帧数及音频欠载（最低字节bit3）。
+4 4mmwwspn：mm图片或视频mapper错误码；ww WAV mapper错误码；s WAV状态；p WAV解析阶段；n[3:1]图片数，[0]JPEG idle。
+5 5ddddddf：24位图片失败详情dddddd，f从bit3到0为视频reader_error/WAVerror/display_valid/video_mode。
+6 6mmmm000：mmmm为16位SDRAM/帧缓存诊断。bit15初始化完成，14初始化/刷新有效，13忙，12应用读使能，11应用写使能，10写请求，9写应答，8帧写完成，7:4写控制器状态，3同步后写请求，2写FIFO清空，1后端写就绪，0读FIFO空。
+7 7ccccccc：目录第一张BMP起始簇低28位。
+8 8ccccccc：WAV起始簇低28位。
+9 9ccccccc：VIDEO.MJP起始簇低28位。
+A Addddddd：文件系统数据区物理LBA低28位。
+B Bfffffff：文件系统FAT物理LBA低28位。
+C Clllllll：当前图片或视频请求逻辑扇区低28位。
+D Dppppppp：当前SD物理扇区地址低28位。
+E 原始32位WAV首4字节（字节阅读顺序高位在前，RIFF应为52494646）。
+F 原始32位BMP或MJP首4字节（BMP以424D开头；本包MJP预期4D4A5031（MJP1））。
+
+mapper code：00无；01逻辑扇区/文件范围；03起簇范围；04物理地址溢出；05扇区长度；06非法FAT值；07提前链尾；08簇链循环；09长度上限；0A等待超时。
+图片失败详情高8位原因：01头扇区长度、02头字段检查、03缩放器错误、04文件映射错误、05超时、06状态异常；低16位按对应原因解释。
+
+观测寄存器仅服务数码管。选页跨时钟后约数百ns稳定；读取每页稳定显示期间。
+

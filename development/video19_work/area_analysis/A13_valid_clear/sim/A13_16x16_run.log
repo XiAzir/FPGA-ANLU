@@ -1,0 +1,20 @@
+# vsim +JPEG=E:/VSCODE-project/FPGA-ANLU/development/video19_work/jpeg_unit/runs/fixture_16x16_audit/frame_16x16.jpg +OUT=A13_16x16_pixels.bin +LOG=A13_16x16.log +WIDTH=16 +HEIGHT=16 -do {run -all; quit -code 0 -f} -l A13_16x16_run.log -c -lic_noqueue -modelsimini modelsim.ini work.tb_jpeg_core 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.tb_jpeg_core(fast)
+# Loading work.jpeg_output_y_ram(fast)
+# Loading work.jpeg_output_cx_ram(fast)
+# run -all 
+# RESULT bytes=228 aborted_input_bytes=0 accepted_bytes=228 tail_strb=0x0 empty_last_accepted=1 pixels=256 cycles=993 stalls=0 hold_errors=0 duplicate_coords=0 bad_coords=0 width=16 height=16 idle=1
+# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/video19_work/area_analysis/A13_valid_clear/sim/tb_jpeg_core_trace.sv(213)
+#    Time: 9975 ns  Iteration: 1  Instance: /tb_jpeg_core

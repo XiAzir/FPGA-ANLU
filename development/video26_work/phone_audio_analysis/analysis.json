@@ -1,0 +1,535 @@
+{
+  "method": "12kHz mono, 0.75s windows at 1s intervals; FFT bandpass 100-5500Hz; cyclic normalized cross-correlation over the 20s reference; local rate grid 0.996..1.004; drift fit from best offsets",
+  "inputs": {
+    "photo": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\board_20261022\\photo\\audio.wav",
+      "sha256": "dedef9d9df8b4169d36b5d29fa91f441b5c01963fa5d3dd36c25dd31b2315f22",
+      "bytes": 3014734
+    },
+    "video": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video23_work\\board_20261022\\video\\audio.wav",
+      "sha256": "6a0840acc476c9ed36937fcf2d58aa74224e720151afdce71366f912aa2fda55",
+      "bytes": 2969678
+    },
+    "gold": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\media_q90_trial\\output\\TEST.WAV",
+      "sha256": "30eaf10a6ff1800163cecb3225cce685873b38c9a8e42635f1e5c92b0e95b5de",
+      "bytes": 1920078
+    },
+    "photo_12k_derivative": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video26_work\\phone_audio_analysis\\photo_12k.wav",
+      "sha256": "004b11432af187199c62568f85d2840148dc775912886c5de204cafe21d470fb",
+      "bytes": 376910
+    },
+    "video_12k_derivative": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video26_work\\phone_audio_analysis\\video_12k.wav",
+      "sha256": "6e75225a42042edf0d83d105928d331f22bc4a0f0b86302ea21cf8274ee78717",
+      "bytes": 371278
+    },
+    "gold_12k_derivative": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video26_work\\phone_audio_analysis\\gold_12k.wav",
+      "sha256": "fea2edf87c3a9ca627d68fb84829b83a224cc4ebbbc67f9b9993f35303e740d5",
+      "bytes": 480078
+    }
+  },
+  "source_stereo": {
+    "photo": {
+      "channels": 2,
+      "fs": 48000,
+      "rms": [
+        0.017975619666659014,
+        0.007207070280037744
+      ],
+      "lr_corr": 0.5581814848725951,
+      "mono_lr_rms": 0.01139836887933885,
+      "side_lr_rms": 0.007590096778132045
+    },
+    "video": {
+      "channels": 2,
+      "fs": 48000,
+      "rms": [
+        0.01773652157171641,
+        0.007722161276176797
+      ],
+      "lr_corr": 0.5511970695675018,
+      "mono_lr_rms": 0.011458721885765171,
+      "side_lr_rms": 0.007470319863587452
+    }
+  },
+  "duration_s": {
+    "photo": 15.701333333333332,
+    "video": 15.466666666666667,
+    "gold": 20.0
+  },
+  "match": {
+    "photo": {
+      "windows": [
+        {
+          "phone_t_s": 0.5,
+          "gold_offset_s": 6.837833333333333,
+          "score": -0.17110566995320542,
+          "competing_peak": 0.15702480779009376,
+          "local_rate": 0.996,
+          "rate_score_margin": 0.0034048542995082642
+        },
+        {
+          "phone_t_s": 1.5,
+          "gold_offset_s": 2.2624166666666667,
+          "score": 0.17305952127455673,
+          "competing_peak": 0.14654163335316722,
+          "local_rate": 1.0024999999999993,
+          "rate_score_margin": 0.001963981642316953
+        },
+        {
+          "phone_t_s": 2.5,
+          "gold_offset_s": 2.94825,
+          "score": 0.17763489587262396,
+          "competing_peak": 0.16863663947442434,
+          "local_rate": 1.0039999999999991,
+          "rate_score_margin": 0.009569718263974791
+        },
+        {
+          "phone_t_s": 3.5,
+          "gold_offset_s": 2.71025,
+          "score": -0.16108061062039794,
+          "competing_peak": 0.14869458032054592,
+          "local_rate": 1.0014999999999994,
+          "rate_score_margin": 0.0003155599192453673
+        },
+        {
+          "phone_t_s": 4.5,
+          "gold_offset_s": 5.4165833333333335,
+          "score": 0.19571134605496895,
+          "competing_peak": 0.1601114203721152,
+          "local_rate": 0.9964999999999999,
+          "rate_score_margin": 0.0006281607246268472
+        },
+        {
+          "phone_t_s": 5.5,
+          "gold_offset_s": 5.450666666666667,
+          "score": -0.16921257307776358,
+          "competing_peak": 0.14275479711830524,
+          "local_rate": 1.0004999999999995,
+          "rate_score_margin": 0.0005141968430416866
+        },
+        {
+          "phone_t_s": 6.5,
+          "gold_offset_s": 2.9084166666666667,
+          "score": -0.18886407162543406,
+          "competing_peak": 0.187549515659734,
+          "local_rate": 1.0039999999999991,
+          "rate_score_margin": 0.001237211921613468
+        },
+        {
+          "phone_t_s": 7.5,
+          "gold_offset_s": 5.483083333333333,
+          "score": 0.18934360066450817,
+          "competing_peak": 0.14458420241349848,
+          "local_rate": 0.9994999999999996,
+          "rate_score_margin": 0.0012610996779572892
+        },
+        {
+          "phone_t_s": 8.5,
+          "gold_offset_s": 2.551083333333333,
+          "score": -0.17132678762456738,
+          "competing_peak": 0.1462266887696508,
+          "local_rate": 1.0019999999999993,
+          "rate_score_margin": 5.49110310099632e-06
+        },
+        {
+          "phone_t_s": 9.5,
+          "gold_offset_s": 5.493083333333334,
+          "score": -0.19686507064305067,
+          "competing_peak": 0.1619259807859703,
+          "local_rate": 1.0009999999999994,
+          "rate_score_margin": 0.00040511915305688206
+        },
+        {
+          "phone_t_s": 10.5,
+          "gold_offset_s": 2.7124166666666665,
+          "score": 0.18854803103734258,
+          "competing_peak": 0.18537309992986442,
+          "local_rate": 1.0029999999999992,
+          "rate_score_margin": 0.00016189338907660056
+        },
+        {
+          "phone_t_s": 11.5,
+          "gold_offset_s": 5.31175,
+          "score": 0.1858455701819127,
+          "competing_peak": 0.17038939879177512,
+          "local_rate": 0.996,
+          "rate_score_margin": 0.0007535926223791733
+        },
+        {
+          "phone_t_s": 12.5,
+          "gold_offset_s": 0.005833333333333334,
+          "score": 0.17162808006483435,
+          "competing_peak": 0.16954261711192767,
+          "local_rate": 1.0039999999999991,
+          "rate_score_margin": 0.00190536623274834
+        },
+        {
+          "phone_t_s": 13.5,
+          "gold_offset_s": 5.441833333333333,
+          "score": -0.16377962627476456,
+          "competing_peak": 0.15465004555182338,
+          "local_rate": 0.996,
+          "rate_score_margin": 0.0031546706616245868
+        },
+        {
+          "phone_t_s": 14.5,
+          "gold_offset_s": 5.52075,
+          "score": -0.17321245895517504,
+          "competing_peak": 0.143826062215452,
+          "local_rate": 1.0009999999999994,
+          "rate_score_margin": 0.002192717109272768
+        }
+      ],
+      "fit": {
+        "gold_seconds_per_phone_second": -0.012736453694846899,
+        "drift_ppm": -1012736.4536948468,
+        "gold_start_offset_s_mod_20": 4.264303871434999,
+        "weighted_residual_rms_s": 1.778870298227567,
+        "weighted_r2": -0.00010270239681098303,
+        "median_abs_corr": 0.17321245895517504,
+        "median_peak_gap": 0.01545617139013758
+      }
+    },
+    "video": {
+      "windows": [
+        {
+          "phone_t_s": 0.5,
+          "gold_offset_s": 4.856833333333333,
+          "score": -0.176120358402655,
+          "competing_peak": 0.14980182582083315,
+          "local_rate": 0.9964999999999999,
+          "rate_score_margin": 0.0004517823037202551
+        },
+        {
+          "phone_t_s": 1.5,
+          "gold_offset_s": 5.408083333333333,
+          "score": -0.17144375945987061,
+          "competing_peak": 0.14886787647363237,
+          "local_rate": 0.996,
+          "rate_score_margin": 0.006878882468017156
+        },
+        {
+          "phone_t_s": 2.5,
+          "gold_offset_s": 2.6486666666666667,
+          "score": -0.16935410675809212,
+          "competing_peak": 0.15426486821626556,
+          "local_rate": 1.0024999999999993,
+          "rate_score_margin": 0.0007650872276362408
+        },
+        {
+          "phone_t_s": 3.5,
+          "gold_offset_s": 2.7841666666666667,
+          "score": -0.18293796182561095,
+          "competing_peak": 0.16293602220580378,
+          "local_rate": 1.0024999999999993,
+          "rate_score_margin": 0.002999464668027252
+        },
+        {
+          "phone_t_s": 4.5,
+          "gold_offset_s": 2.62425,
+          "score": 0.18961748033778367,
+          "competing_peak": 0.15317810743570276,
+          "local_rate": 1.0029999999999992,
+          "rate_score_margin": 0.001947625725711416
+        },
+        {
+          "phone_t_s": 5.5,
+          "gold_offset_s": 5.280166666666666,
+          "score": -0.19238847702475217,
+          "competing_peak": 0.18680659032847904,
+          "local_rate": 1.0039999999999991,
+          "rate_score_margin": 0.007502011880708509
+        },
+        {
+          "phone_t_s": 6.5,
+          "gold_offset_s": 3.7885,
+          "score": -0.1779909610662616,
+          "competing_peak": 0.1623142731617375,
+          "local_rate": 1.0034999999999992,
+          "rate_score_margin": 0.0010819660787393937
+        },
+        {
+          "phone_t_s": 7.5,
+          "gold_offset_s": 7.089916666666666,
+          "score": -0.17460451579463399,
+          "competing_peak": 0.15994893882702044,
+          "local_rate": 0.996,
+          "rate_score_margin": 0.007112160467382916
+        },
+        {
+          "phone_t_s": 8.5,
+          "gold_offset_s": 5.284416666666667,
+          "score": 0.1767082015746308,
+          "competing_peak": 0.1577469401735826,
+          "local_rate": 0.996,
+          "rate_score_margin": 0.0024738296169050933
+        },
+        {
+          "phone_t_s": 9.5,
+          "gold_offset_s": 5.4825,
+          "score": 0.17198813777929042,
+          "competing_peak": 0.16232330685839427,
+          "local_rate": 1.0024999999999993,
+          "rate_score_margin": 0.00013819128768455258
+        },
+        {
+          "phone_t_s": 10.5,
+          "gold_offset_s": 5.29825,
+          "score": 0.16677981904849593,
+          "competing_peak": 0.14184924199956633,
+          "local_rate": 1.0004999999999995,
+          "rate_score_margin": 0.0016727541430409387
+        },
+        {
+          "phone_t_s": 11.5,
+          "gold_offset_s": 2.8583333333333334,
+          "score": -0.1753252284966672,
+          "competing_peak": 0.15797066495269996,
+          "local_rate": 1.0024999999999993,
+          "rate_score_margin": 0.0008824463456834908
+        },
+        {
+          "phone_t_s": 12.5,
+          "gold_offset_s": 5.574666666666666,
+          "score": -0.18056802220369417,
+          "competing_peak": 0.1445682211550198,
+          "local_rate": 1.0019999999999993,
+          "rate_score_margin": 0.0019943009776442477
+        },
+        {
+          "phone_t_s": 13.5,
+          "gold_offset_s": 2.6715,
+          "score": -0.177206350967873,
+          "competing_peak": 0.16865630160427011,
+          "local_rate": 1.0039999999999991,
+          "rate_score_margin": 0.0025650307989359966
+        },
+        {
+          "phone_t_s": 14.5,
+          "gold_offset_s": 7.076666666666667,
+          "score": -0.1968604200724704,
+          "competing_peak": 0.19664394571203916,
+          "local_rate": 0.9964999999999999,
+          "rate_score_margin": 0.0014298863272251272
+        }
+      ],
+      "fit": {
+        "gold_seconds_per_phone_second": 0.11410731969187801,
+        "drift_ppm": -885892.680308122,
+        "gold_start_offset_s_mod_20": 3.7502583964307266,
+        "weighted_residual_rms_s": 1.4801963815600496,
+        "weighted_r2": 0.07628478851828113,
+        "median_abs_corr": 0.1767082015746308,
+        "median_peak_gap": 0.01735456354396725
+      }
+    }
+  },
+  "spectral": {
+    "photo": {
+      "n_segments": 30,
+      "candidate_lines": [
+        {
+          "band": "mains50",
+          "peak_hz": 48.0,
+          "db_above_local_median": 13.122039886203098
+        },
+        {
+          "band": "mains100",
+          "peak_hz": 96.0,
+          "db_above_local_median": 7.912503275515835
+        },
+        {
+          "band": "mains60",
+          "peak_hz": 60.0,
+          "db_above_local_median": 2.5610223600246695
+        },
+        {
+          "band": "mains120",
+          "peak_hz": 124.0,
+          "db_above_local_median": 19.184976839578635
+        }
+      ],
+      "top_30_1000_hz_bins": [
+        {
+          "hz": 72.0,
+          "power": 2.1177149894566778e-05
+        },
+        {
+          "hz": 71.0,
+          "power": 1.0566464320779994e-05
+        },
+        {
+          "hz": 144.0,
+          "power": 2.5581359651602553e-06
+        },
+        {
+          "hz": 73.0,
+          "power": 2.511436608429936e-06
+        },
+        {
+          "hz": 143.0,
+          "power": 2.4479245082587663e-06
+        },
+        {
+          "hz": 124.0,
+          "power": 2.403449603881963e-06
+        },
+        {
+          "hz": 200.0,
+          "power": 1.8644408951909707e-06
+        },
+        {
+          "hz": 215.0,
+          "power": 1.205603572687935e-06
+        },
+        {
+          "hz": 123.0,
+          "power": 9.035570392004141e-07
+        },
+        {
+          "hz": 199.0,
+          "power": 7.036313245811369e-07
+        }
+      ]
+    },
+    "video": {
+      "n_segments": 29,
+      "candidate_lines": [
+        {
+          "band": "mains50",
+          "peak_hz": 48.0,
+          "db_above_local_median": 14.075756461760358
+        },
+        {
+          "band": "mains100",
+          "peak_hz": 100.0,
+          "db_above_local_median": 11.72367569251335
+        },
+        {
+          "band": "mains60",
+          "peak_hz": 63.0,
+          "db_above_local_median": 1.1080311637753861
+        },
+        {
+          "band": "mains120",
+          "peak_hz": 124.0,
+          "db_above_local_median": 19.406671250440407
+        }
+      ],
+      "top_30_1000_hz_bins": [
+        {
+          "hz": 72.0,
+          "power": 2.0982704747324853e-05
+        },
+        {
+          "hz": 71.0,
+          "power": 9.849857236896358e-06
+        },
+        {
+          "hz": 144.0,
+          "power": 2.7224936516466124e-06
+        },
+        {
+          "hz": 73.0,
+          "power": 2.5860347091194692e-06
+        },
+        {
+          "hz": 124.0,
+          "power": 2.497871674118093e-06
+        },
+        {
+          "hz": 143.0,
+          "power": 2.251713151528664e-06
+        },
+        {
+          "hz": 200.0,
+          "power": 1.9516974084869802e-06
+        },
+        {
+          "hz": 215.0,
+          "power": 1.1673087806645265e-06
+        },
+        {
+          "hz": 123.0,
+          "power": 8.264991815567823e-07
+        },
+        {
+          "hz": 216.0,
+          "power": 7.731520485412553e-07
+        }
+      ]
+    },
+    "gold": {
+      "n_segments": 39,
+      "candidate_lines": [
+        {
+          "band": "mains50",
+          "peak_hz": 45.0,
+          "db_above_local_median": 8.408441464687694
+        },
+        {
+          "band": "mains100",
+          "peak_hz": 90.0,
+          "db_above_local_median": 3.456299345046214
+        },
+        {
+          "band": "mains60",
+          "peak_hz": 58.0,
+          "db_above_local_median": 3.736369682064722
+        },
+        {
+          "band": "mains120",
+          "peak_hz": 126.0,
+          "db_above_local_median": 1.1958984466024063
+        }
+      ],
+      "top_30_1000_hz_bins": [
+        {
+          "hz": 44.0,
+          "power": 3.9981534162038036e-05
+        },
+        {
+          "hz": 45.0,
+          "power": 2.7738361870988572e-05
+        },
+        {
+          "hz": 43.0,
+          "power": 2.079925328892253e-05
+        },
+        {
+          "hz": 46.0,
+          "power": 1.161223430537357e-05
+        },
+        {
+          "hz": 58.0,
+          "power": 9.052311145730541e-06
+        },
+        {
+          "hz": 59.0,
+          "power": 8.811603518122865e-06
+        },
+        {
+          "hz": 66.0,
+          "power": 7.478330574249609e-06
+        },
+        {
+          "hz": 52.0,
+          "power": 7.444078413695698e-06
+        },
+        {
+          "hz": 67.0,
+          "power": 7.205366180694555e-06
+        },
+        {
+          "hz": 53.0,
+          "power": 7.169545168031505e-06
+        }
+      ]
+    }
+  }
+}

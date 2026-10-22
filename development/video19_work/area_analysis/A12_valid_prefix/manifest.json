@@ -1,0 +1,112 @@
+{
+  "variant": "A12_valid_prefix",
+  "parent": "A11_color_mul",
+  "change": "replace four 64-bit per-bank data-valid maps with per-block/per-bank valid-prefix counts",
+  "invariant": "accepted JPEG coefficients arrive in ascending index order 0..63; writes to a block slot begin at index 0",
+  "same_cycle_priority": "read-block clear, then new-block clear, then accepted input write",
+  "device": "EG4S20BG256",
+  "top": "jpeg_core",
+  "strategy": "TD 6.2.1 SP1; AreaHigh; min_ripple_len=18; mapper_lut_delay=1600; add_map_lut_struct=high; map_mode=area_prior; multi_thread_mapping=partition; resource_sharing=auto; shifter_style=shifter_reg",
+  "clock_period_ns": 20,
+  "sources": [
+    {
+      "name": "jpeg_bitbuffer.v",
+      "sha256": "b4cfe631350b982e3f348610999f94596f9ec4cdc911799030af535adf58bf22"
+    },
+    {
+      "name": "jpeg_core.v",
+      "sha256": "2258f5bec64b0477d30727b428548804ed94c7cc045f108fc203e3925c8c97d0"
+    },
+    {
+      "name": "jpeg_dht.v",
+      "sha256": "fbd890def4b7ac3effb38b7da52f544311759f091bf62d5fe29cb5dc16c53d5f"
+    },
+    {
+      "name": "jpeg_dht_std_cx_ac.v",
+      "sha256": "583885495afc9ab97ba0b328707d5a0a5f3acccdf40ba453d71f6219c662fc6c"
+    },
+    {
+      "name": "jpeg_dht_std_cx_dc.v",
+      "sha256": "cf2851607877ece4eed9acf4e9da33a9e42ee28040ee8c10d42daa1a08bb3cf7"
+    },
+    {
+      "name": "jpeg_dht_std_y_ac.v",
+      "sha256": "d4516b5170780d144a5e60cf0c705ecd7c3695fe770dbccaa3e6cce004f2b275"
+    },
+    {
+      "name": "jpeg_dht_std_y_dc.v",
+      "sha256": "81310e0e924065bc7fde4c53bd9a99b6baeae19d894170d1b069bd53943a675a"
+    },
+    {
+      "name": "jpeg_dqt.v",
+      "sha256": "e99bb750bf20903b9cf80407aa1e8274170296c3366e43be0030265a08afcb99"
+    },
+    {
+      "name": "jpeg_idct.v",
+      "sha256": "f2a45496e29d43eb2b2f024921a5b96732ce57a3f74e4c856686cf00acacd0b6"
+    },
+    {
+      "name": "jpeg_idct_fifo.v",
+      "sha256": "487d095dc70369d4bb7c9a27e6f27cc4db082b95e9bb6ce13292dc31fb2cf5e0"
+    },
+    {
+      "name": "jpeg_idct_ram.v",
+      "sha256": "9113a6e88af618ef8102b16ae7d85a0cf35d46cbc9267c6c07f4a15f4467c2fa"
+    },
+    {
+      "name": "jpeg_idct_ram_dp.v",
+      "sha256": "191622cc6447224294c1cfe98aef9fbb329b3a8b00932ed1b33920e90d2b61ea"
+    },
+    {
+      "name": "jpeg_idct_transpose.v",
+      "sha256": "6c4ac9fabb58d3a8633bb40ebba289e66ca119062f0499a7e76e0c18c5906e9e"
+    },
+    {
+      "name": "jpeg_idct_transpose_logic_ram.v",
+      "sha256": "8c527b21e399e0e950c94e74417ce52751eb76cac52344b33d93303c97c49684"
+    },
+    {
+      "name": "jpeg_idct_transpose_ram.v",
+      "sha256": "833abadcd8fb585d08dddc7e1cc24cfd3e39a9eb728aa72a8d7b016694fc370b"
+    },
+    {
+      "name": "jpeg_idct_x.v",
+      "sha256": "9fa39c530cce6765337a9c2a511371cace7c3e4a4e9df5e7098163cb44ff4370"
+    },
+    {
+      "name": "jpeg_idct_y.v",
+      "sha256": "722b0597fd543c96aaad05868b6339f968f4ba91019c6ccdcfde887e316d4cc5"
+    },
+    {
+      "name": "jpeg_input.v",
+      "sha256": "b49e4b133852428e245fbeb88f39b3d29ef0e73629a0fc894348d6d1e172aadd"
+    },
+    {
+      "name": "jpeg_mcu_id.v",
+      "sha256": "450c780bf08b337238395c8c4b2cd1e9a075b4b2f0a1398e41110238f01859b9"
+    },
+    {
+      "name": "jpeg_mcu_proc.v",
+      "sha256": "cfd8b35fe75a29c02950f5cfcc1493419bee6da155d253d0062aff91493d43af"
+    },
+    {
+      "name": "jpeg_output.v",
+      "sha256": "c816e697ba69c9f5220fbb36d588e3414772e7c4c7e5d6830f0231ffe72551fe"
+    },
+    {
+      "name": "jpeg_output_cx_ram.v",
+      "sha256": "570bea46974744831816eceda8033425266ae4f3c2178fe8c4935e4194209da1"
+    },
+    {
+      "name": "jpeg_output_fifo.v",
+      "sha256": "66cde6db3c4f8c8b64ab35f80c7ef0b383b13d3e395114b9cff5e7ba0d22be72"
+    },
+    {
+      "name": "jpeg_output_y_ram.v",
+      "sha256": "a17dcca6dc7a696453d8fb3ddae8155abce18e06f868fe41eedce55f7c0d04eb"
+    }
+  ],
+  "project_sha256": "80ae9453d344b3e074f53082f5ed154e0c98e2361c3a65d5d3a1090ba3b57704",
+  "sdc_sha256": "97a8005cc495f6adc3e51e1b544e7c330e1e49b63be43920e75a4ef367a64e43",
+  "tcl_sha256": "3b8c9bc5da5f006e99ab2ee3f312e0fa4216a8a44672106a61baede3bec36df8"
+}

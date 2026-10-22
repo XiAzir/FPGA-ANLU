@@ -1,0 +1,242 @@
+--- development\player_video20\src\user_source\hdl_source\frame_buffer_rgb888.v
++++ development\player_video21_diag\src\user_source\hdl_source\frame_buffer_rgb888.v
+@@ -31,6 +31,7 @@
+     input  [8:0]  read_wipe_rows,
+     input  [1:0]  read_wipe_new_index,
+     input         read_pixel_en,
++    output wire [15:0] debug_memory,
+     output [23:0] read_pixel_rgb
+ );
+     // Addresses below are 32-bit SDRAM word addresses, never pixel API ports.
+@@ -44,6 +45,11 @@
+     localparam [ADDR_BITS-1:0] UNUSED_WORD_ADDR = 0;
+ 
+     wire init_done, init_ref_valid, mem_busy;
++    wire [3:0] debug_write_state;
++    wire debug_write_req_sync;
++    assign debug_memory={init_done,init_ref_valid,mem_busy,app_read_en,app_write_en,
++        write_req,write_req_ack,write_finish,debug_write_state,debug_write_req_sync,
++        write_fifo_clear,backend_write_ready,read_fifo_empty};
+     wire app_read_en, app_write_en, mem_read_valid;
+     wire [ADDR_BITS-1:0] app_read_addr, app_write_addr;
+     wire [31:0] mem_read_word, mem_write_word, read_word;
+@@ -117,6 +123,7 @@
+         .read_fifo_empty(read_fifo_empty), .read_fifo_clear(read_fifo_clear),
+         .write_fifo_clear(write_fifo_clear),
+         .write_fifo_ready(backend_write_ready),
++        .debug_write_state(debug_write_state),.debug_write_req_sync(debug_write_req_sync),
+         .read_addr_0(BUF0_WORD_ADDR), .read_addr_1(BUF1_WORD_ADDR),
+         .read_addr_2(UNUSED_WORD_ADDR), .read_addr_3(UNUSED_WORD_ADDR),
+         .read_addr_index(read_frame_index), .read_len(read_jpeg420 ? VIDEO_FRAME_WORDS : FRAME_WORDS),
+--- development\player_video20\src\user_source\hdl_source\player_compact_status_pages.v
++++ development\player_video21_diag\src\user_source\hdl_source\player_compact_status_pages.v
+@@ -12,8 +12,9 @@
+     input wire [15:0] sd_crc_bad,
+     input wire audio_underflow,
+     input wire [23:0] spectrum_frames,
++    input wire [31:0] diag4,diag5,diag6,diag7,diag8,diag9,diag10,diag11,diag12,diag13,diag14,diag15,
+     output reg [31:0] hex_value,
+-    output reg [1:0] page_index
++    output reg [3:0] page_index
+ );
+ 
+ localparam integer TIMER_W = (PAGE_CYCLES <= 1) ? 1 : $clog2(PAGE_CYCLES);
+@@ -22,7 +23,7 @@
+ always @(posedge clk or posedge rst) begin
+     if (rst) begin
+         page_timer <= {TIMER_W{1'b0}};
+-        page_index <= 2'd0;
++        page_index <= 4'd0;
+     end else if (page_timer == PAGE_CYCLES - 1) begin
+         page_timer <= {TIMER_W{1'b0}};
+         page_index <= page_index + 1'b1;
+@@ -33,11 +34,23 @@
+ 
+ always @* begin
+     case (page_index)
+-        2'd0: hex_value = 32'h00C11320;
+-        2'd1: hex_value = {4'h2, file_flags, photo_state, video_state,
++        4'd0: hex_value = 32'h00C11321;
++        4'd1: hex_value = {4'h2, file_flags, photo_state, video_state,
+                            fs_error_code, file_error_flags};
+-        2'd2: hex_value = {sd_crc_checked, sd_crc_bad};
+-        default: hex_value = {spectrum_frames, 4'h0, audio_underflow, 3'b000};
++        4'd2: hex_value = {sd_crc_checked, sd_crc_bad};
++        4'd3: hex_value = {spectrum_frames, 4'h0, audio_underflow, 3'b000};
++        4'd4: hex_value = diag4;
++        4'd5: hex_value = diag5;
++        4'd6: hex_value = diag6;
++        4'd7: hex_value = diag7;
++        4'd8: hex_value = diag8;
++        4'd9: hex_value = diag9;
++        4'd10: hex_value = diag10;
++        4'd11: hex_value = diag11;
++        4'd12: hex_value = diag12;
++        4'd13: hex_value = diag13;
++        4'd14: hex_value = diag14;
++        default: hex_value = diag15;
+     endcase
+ end
+ 
+--- development\player_video20\src\user_source\hdl_source\top_tf_hdmi_audio.v
++++ development\player_video21_diag\src\user_source\hdl_source\top_tf_hdmi_audio.v
+@@ -129,7 +129,9 @@
+ wire        axis_s_ready;
+ wire        hdmi_video_locked;
+ wire [31:0] compact_status_hex;
+-wire [1:0] compact_status_page;
++wire [3:0] compact_status_page;
++wire [23:0] photo_failure_detail;
++wire [15:0] debug_memory;
+ wire pcm_push;
+ wire [15:0] pcm_push_data;
+ 
+@@ -339,7 +341,7 @@
+     .write_en(photo_write_en),.write_data(photo_write_data),
+     .display_valid(photo_display_valid),.error(photo_error),.state_code(photo_state),
+     .current_image_index(current_image_index),.auto_mode(bmp_auto_mode),
+-    .failure_detail()
++    .failure_detail(photo_failure_detail)
+ );
+ // One FAT execution engine; both clients retain independent file contexts.
+ fat32_dual_file_sector #(.REQUEST_STABLE(1),.WAV_STATIC_FILE(1)) u_file_mapper (
+@@ -450,7 +452,8 @@
+     .read_wipe_active  (wipe_active),.read_wipe_rows(wipe_rows),
+     .read_wipe_new_index(wipe_new_buffer),
+     .read_pixel_en     (video_read_en),
+-    .read_pixel_rgb    (video_read_data)
++    .read_pixel_rgb    (video_read_data),
++    .debug_memory(debug_memory)
+ );
+ 
+ // Parse the actual RIFF data region of the root-directory TEST.WAV.
+@@ -639,6 +642,77 @@
+     end
+ end
+ 
++// Passive board diagnostics. These registers have no consumer in media control.
++reg [15:0] diag_mem_sync0,diag_mem_sync1;
++reg [9:0] diag_bmp_byte,diag_wav_byte;
++reg [31:0] diag_bmp_head,diag_wav_head;
++reg [31:0] diag_sd_sync0,diag_sd_sync1;
++reg [3:0] diag_page_sync0,diag_page_sync1;
++reg [31:0] diag_selected_sd;
++wire [383:0] diag_sd_words={
++    {4'h4,bmp_map_error_code,wav_map_error_code,debug_wav_state,debug_wav_phase,fs_bmp_count,video_core_idle},
++    {4'h5,photo_failure_detail,video_reader_error,wav_error,display_valid,video_mode_sd},
++    {4'h6,16'd0,12'd0},
++    {4'h7,fs_bmp_clusters[27:0]},
++    {4'h8,fs_wav_cluster[27:0]},
++    {4'h9,fs_video_cluster[27:0]},
++    {4'ha,fs_data_lba[27:0]},
++    {4'hb,fs_fat_lba[27:0]},
++    {4'hc,bmp_card_addr[27:0]},
++    {4'hd,shared_card_addr[27:0]},
++    diag_wav_head,diag_bmp_head};
++always @* begin
++    case(diag_page_sync1)
++        4'd4:diag_selected_sd=diag_sd_words[383:352];
++        4'd5:diag_selected_sd=diag_sd_words[351:320];
++        4'd6:diag_selected_sd=diag_sd_words[319:288];
++        4'd7:diag_selected_sd=diag_sd_words[287:256];
++        4'd8:diag_selected_sd=diag_sd_words[255:224];
++        4'd9:diag_selected_sd=diag_sd_words[223:192];
++        4'd10:diag_selected_sd=diag_sd_words[191:160];
++        4'd11:diag_selected_sd=diag_sd_words[159:128];
++        4'd12:diag_selected_sd=diag_sd_words[127:96];
++        4'd13:diag_selected_sd=diag_sd_words[95:64];
++        4'd14:diag_selected_sd=diag_sd_words[63:32];
++        4'd15:diag_selected_sd=diag_sd_words[31:0];
++        default:diag_selected_sd=0;
++    endcase
++end
++always @(posedge sd_card_clk or posedge rst_all) begin
++    if(rst_all) begin
++        diag_bmp_byte<=0;diag_wav_byte<=0;diag_bmp_head<=0;diag_wav_head<=0;
++        diag_page_sync0<=0;diag_page_sync1<=0;
++    end else begin
++        diag_page_sync0<=compact_status_page;diag_page_sync1<=diag_page_sync0;
++        if(bmp_card_end) diag_bmp_byte<=0;
++        else if(bmp_card_valid) begin
++            diag_bmp_byte<=diag_bmp_byte+1'b1;
++            if(bmp_card_addr==0) case(diag_bmp_byte)
++                0:diag_bmp_head[31:24]<=bmp_card_data;
++                1:diag_bmp_head[23:16]<=bmp_card_data;
++                2:diag_bmp_head[15:8]<=bmp_card_data;
++                3:diag_bmp_head[7:0]<=bmp_card_data;
++            endcase
++        end
++        if(wav_card_end) diag_wav_byte<=0;
++        else if(wav_card_valid) begin
++            diag_wav_byte<=diag_wav_byte+1'b1;
++            if(wav_card_addr==0) case(diag_wav_byte)
++                0:diag_wav_head[31:24]<=wav_card_data;
++                1:diag_wav_head[23:16]<=wav_card_data;
++                2:diag_wav_head[15:8]<=wav_card_data;
++                3:diag_wav_head[7:0]<=wav_card_data;
++            endcase
++        end
++    end
++end
++always @(posedge video_clk or posedge rst_all) begin
++    if(rst_all) begin diag_mem_sync0<=0;diag_mem_sync1<=0;diag_sd_sync0<=0;diag_sd_sync1<=0;end
++    else begin
++        diag_mem_sync0<=debug_memory;diag_mem_sync1<=diag_mem_sync0;
++        diag_sd_sync0<=diag_selected_sd;diag_sd_sync1<=diag_sd_sync0;
++    end
++end
+ player_compact_status_pages #(.PAGE_CYCLES(25000000)) u_status_pages (
+     .clk(video_clk),.rst(rst_all),
+     .file_flags(compact_file_status_sync1[27:20]),
+@@ -648,6 +722,12 @@
+     .file_error_flags(compact_file_status_sync1[3:0]),
+     .sd_crc_checked(sd_crc_sync1[15:0]),.sd_crc_bad(sd_crc_sync1[31:16]),
+     .audio_underflow(audio_underflow),.spectrum_frames(spectrum_debug_frames),
++    .diag4(diag_sd_sync1),.diag5(diag_sd_sync1),
++    .diag6({4'h6,diag_mem_sync1,12'd0}),.diag7(diag_sd_sync1),
++    .diag8(diag_sd_sync1),.diag9(diag_sd_sync1),
++    .diag10(diag_sd_sync1),.diag11(diag_sd_sync1),
++    .diag12(diag_sd_sync1),.diag13(diag_sd_sync1),
++    .diag14(diag_sd_sync1),.diag15(diag_sd_sync1),
+     .hex_value(compact_status_hex),.page_index(compact_status_page)
+ );
+ status_hex595 #(.CLK_HZ(25000000)) u_status_hex (
+--- development\player_video20\src\user_source\hdl_source\SD\frame_fifo_write.v
++++ development\player_video21_diag\src\user_source\hdl_source\SD\frame_fifo_write.v
+@@ -30,6 +30,8 @@
+ 	*/
+ 	input                            write_req,                  // data write module write request,keep '1' until read_req_ack = '1'
+     input                            write_jpeg420,
++	output wire [3:0]                debug_state,
++    output wire                      debug_req_sync,
+ 	output reg                       write_req_ack,              // data write module write request response
+ 	output                           write_finish,               // data write module write request finish
+ 	input[ADDR_BITS - 1:0]           write_addr_0,               // data write module write request base address 0, used when write_addr_index = 0
+@@ -98,6 +100,8 @@
+     .clk(mem_clk),.rst(rst),.start(state==S_ACK),.frame_base(jpeg_frame_base),
+     .word_take(App_wr_en && jpeg_mode_latch),.word_address(jpeg_word_address)
+ );
++assign debug_state = state;
++assign debug_req_sync = write_req_d2;
+ assign App_wr_addr = jpeg_mode_latch ? jpeg_word_address : App_wr_addr_r;
+ //assign O_wr_busy = (state != S_IDLE || (S_IDLE && write_req_d2));
+ assign O_wr_busy = (state == S_WRITE_BURST ||
+--- development\player_video20\src\user_source\hdl_source\SD\frame_read_write.v
++++ development\player_video21_diag\src\user_source\hdl_source\SD\frame_read_write.v
+@@ -49,6 +49,8 @@
+     output                           read_fifo_empty,           // read-clock domain
+     output                           read_fifo_clear,           // asynchronous frame clear
+     output                           write_fifo_clear,
++    output wire [3:0]                debug_write_state,
++    output wire                      debug_write_req_sync,
+     output                           write_fifo_ready,          // write-clock domain, reserves in-flight packed words
+ 	/*
+ 	output                           wr_burst_req,               // to external memory controller,send out a burst write request
+@@ -173,6 +175,7 @@
+ 	.write_req                  (write_req                ),
+     .write_jpeg420               (write_jpeg420            ),
+ 	.write_req_ack              (write_req_ack            ),
++    .debug_state(debug_write_state),.debug_req_sync(debug_write_req_sync),
+ 	.write_finish               (write_finish             ),
+ 	.write_addr_0               (write_addr_0             ),
+ 	.write_addr_1               (write_addr_1             ),

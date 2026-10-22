@@ -1,0 +1,61 @@
+{
+  "status": "OFFLINE_PASS_BOARD_PENDING",
+  "build_id": "00C11325",
+  "purpose": "SDHC initialization CMD16 removal; C23 session-preserving mode handoff retained",
+  "bit_sha256": "12174ebedd65a438427a79708a9224cff1c880b8bd28b6cb1f7963f81c699cc5",
+  "changed_from_c23": [
+    "hdl_source/SD/sd_card_sec_read_write.v",
+    "hdl_source/player_compact_status_pages.v"
+  ],
+  "other_user_source_identical": 121,
+  "clock": "SD SPI12.5MHz, initialization100kHz; pixel/system/PLL unchanged",
+  "timing_ns": {
+    "setup_wns": 0.256,
+    "setup_tns": 0.0,
+    "hold_wns": 0.03,
+    "hold_tns": 0.0
+  },
+  "slice_used": 9160,
+  "slice_percent": 93.46938775510205,
+  "routed_slices": {
+    "EG_PHY_MSLICE": 4591,
+    "EG_PHY_LSLICE": 4569
+  },
+  "physical": {
+    "lut": 17355,
+    "reg": 9370,
+    "bram": 62,
+    "dsp": 26,
+    "pll": 2,
+    "gclk": 3
+  },
+  "video_system": {
+    "status": "PASS",
+    "duration_ms": 210,
+    "decoded_pixels": 1030912,
+    "commits": 3,
+    "distinct_frames": 2,
+    "pcm_samples": 6440,
+    "underflow": 0,
+    "late": 0,
+    "log_sha256": "6910a3d163b68b57cd3c56bf608240f82863308ed309c8da1af269558ec360d2",
+    "source_receipt_sha256": "ca348993a8bda8d1d761a6fd477ef0ef0293409b296f88b3ff220dd85336fb42",
+    "assumptions": [
+      "Qualified nominal PLL edge replay",
+      "Application-interface SDRAM model",
+      "Source-selection event injected before media starts"
+    ]
+  },
+  "sd_phase_crc": {
+    "status": "PASS",
+    "phases": 6,
+    "cmd0_count": 1,
+    "negative_payload_bit_crc_bad": 1,
+    "log_sha256": "143665ff465075f193ff8e05c83520aa3a32315760d2cf93bc41d9e7590574b0"
+  },
+  "board_result": "Pending; C22 remains user-confirmed playable baseline",
+  "audio_noise": "Audio path unchanged; metadata prototype remains separate",
+  "causality": "CMD16 rejection injection reproduced a timeout path; physical card response not captured",
+  "final_stage_binding_sha256": "8f56ca02a0bebe17dcc0094e9eaa31b88c18bfe35639eb55eeb95717f429f7f3",
+  "created_utc": "2026-10-22T06:49:04.555595+00:00"
+}

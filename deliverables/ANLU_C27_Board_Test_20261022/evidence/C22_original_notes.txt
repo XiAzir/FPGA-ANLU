@@ -1,0 +1,43 @@
+C11322 音频PCM核验版（基于C11321）
+
+目的：图片/视频均持续杂音时，直接核对送入HDMI发射核的左右声道PCM；同时保留文件/内存错误页。
+播放器算法、TF素材、SPI12.5MHz、PLL、SDC、图片/视频和按键流程沿用C11321；新增信号均为只读观测。
+
+操作：
+1. 保持原TF卡及文件、供电和HDMI接线，PROGRAM_SRAM加载video22_audio_diag.bit。
+2. 确认Build ID为00C11322，先保持默认图片/音乐模式，不切内部测试音。
+3. 等10秒，从出现00C11322开始录制数码管20秒，说明此时杂音是否持续。
+4. 双键长按超过1.5秒并全部松开转视频，等10秒，再从00C11322起录20秒；说明杂音情况。
+5. 若返回图片再次出现IMG0/0，保留当时完整一轮状态；本轮不要求反复尝试复现。
+
+优先读7页：配套TEST.WAV的首块应为 79DC4000。
+该值核对最初4096个立体声PCM事务，即约85.33ms；首块完成后冻结，正常运行一秒内即可读。
+实际PCM输入按每24位左右声道的低字节先取、每字节MSB先算CRC16-CCITT(poly1021/initFFFF)，两个声道均参与。
+每4096个audio_valid事务更新一次；CRC/块号/样本总数/欠载计数在进入第7页时一并锁存，跨8/9/A/D页仍使用同一快照。
+
+每页1秒，一轮16秒，顺序：
+0 00C11322：Build ID。
+1 2ffpveex：ff按fs_ready/fs_error/wav_found/video_found/display_valid/video_mode/paused/wav_primed；p当前模式调度状态，v视频调度状态，ee文件系统错误码，x从高到低为图片或视频消费者错误/WAV错误/图片或视频mapper错误/WAVmapper错误。
+2 ccccbbbb：SD CRC校验计数/错误计数。
+3 ffffff0u：FFT帧数；最后字节08表示历史音频欠载置位。
+4 4mmwwspn：图片或视频mapper错误码mm、WAV mapper错误码ww、WAV状态s/解析阶段p；n[3:1]BMP数、n[0]JPEG idle。
+5 5ddddddf：图片失败详情24位，最后f为video_reader_error/wav_error/display_valid/video_mode。
+6 6mmmm000：SDRAM/帧缓存状态16位；bit15 init_done，14 init/ref，13busy，12app读，11app写，10写请求，9写应答，8帧写完成，7:4写控制状态，3同步后请求，2写FIFO清空，1写就绪，0读FIFO空。
+7 7cccc000：首次4096笔完整PCM事务的CRC。配套素材应为79DC4000。
+8 8cccc000：快照中的最近一个完整4096笔PCM块CRC。
+9 9iiii000：第8页对应的块号，零基序号；对照随包canonical_crc_period_1875.csv的block_mod_1875=(i mod1875)。
+A Auuuuuu0：快照中的缺样插零次数，24位十六进制（每个48kHz缺样tick计一次）。
+B Btttttt0：WAV逻辑扇区读请求上升沿到首字节valid的最大等待时钟数，24位十六进制；50MHz系统下，t/50000=毫秒。涵盖WAV头解析和播放读取，自本次媒体reset后累计。
+C Clllccc0：l为开始消费音频后的最低FIFO样本数，c为当前FIFO样本数，均12位十六进制；800=2048样本。
+D Dnnnnnn0：快照累计送入HDMI核的PCM事务数，24位十六进制。
+E WAV首4字节，正常RIFF为52494646。
+F 图片或MJP首4字节；视频MJP1应为4D4A5031，BMP以424D开头。
+
+首CRC、后续块CRC按配套TEST.WAV生成。若实卡素材不同，需先按该素材计算参考CRC。
+图片模式A=0且首/后续CRC匹配时，继续检查HDMI封装/输出/接收；若CRC不同，结合A/B/C定位样本差异与供数空窗。
+若A非0，对应输出包含插零，其CRC也随之改变；同时记录块号与欠载计数。
+B/C为实时统计，8/9/A/D为同一快照；在每页稳定显示期间读取。
+
+当前媒体参数：640×480，内容640×360+上下60像素黑边，15fps/20秒300帧JPEG420 Q90；视频缓存RGB565，图片RGB888。
+JPEG平均3.3165176Mbps；48kHz/PCM16单声道原声0.768Mbps，HDMI左右复制；MJP+WAV文件总平均读卡量4.1767224Mbps。
+HDMI25MHz、800×525扫描，约59.5238Hz。

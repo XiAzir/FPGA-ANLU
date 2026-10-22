@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "command": "pwsh -NoProfile -File development/video19_work/schedule_unit/run_native.ps1",
+  "simulator": "Icarus Verilog version 12.0 (devel) (s20150603-1539-g2693dd32b)",
+  "generation": "2005",
+  "sources": {
+    "schedule_osd_tb.v": "2f31998364688342290749c19cc8fb5d6b74e6ee6f000368aac704845eb97dc9",
+    "player_osd_state.v": "5dc4cb7eca4acd2aced6aba341608c107bb7d99d5971922b9710bf63ad72c3a7",
+    "player_video_schedule.v": "e40f6788061d5b37f459c26810c06032b0753bbc0e6ee445024d4a366c003ecc"
+  },
+  "formal_audio_frames": 602,
+  "samples_per_audio_frame": 3200,
+  "reset_restart": "one reset between two 301-frame phases",
+  "expected": "602 formal frames, one late injection, one paused first frame, 604 display reads",
+  "exit_code": 0,
+  "output": "SCHEDULE_PROGRESS phase_epoch=50 phase_frame=50 total_frames=50 reads=51 time=1625376000\r\nSCHEDULE_PROGRESS phase_epoch=100 phase_frame=100 total_frames=100 reads=101 time=3249376000\r\nSCHEDULE_PROGRESS phase_epoch=150 phase_frame=150 total_frames=150 reads=151 time=4873376000\r\nSCHEDULE_PROGRESS phase_epoch=200 phase_frame=200 total_frames=200 reads=201 time=6497376000\r\nSCHEDULE_PROGRESS phase_epoch=250 phase_frame=250 total_frames=250 reads=251 time=8121376000\r\nSCHEDULE_PROGRESS phase_epoch=300 phase_frame=300 total_frames=300 reads=301 time=9745376000\r\nSCHEDULE_PROGRESS phase_epoch=301 phase_frame=301 total_frames=301 reads=302 time=9777856000\r\nSCHEDULE_PROGRESS phase_epoch=50 phase_frame=50 total_frames=351 reads=353 time=11402766000\r\nSCHEDULE_PROGRESS phase_epoch=100 phase_frame=100 total_frames=401 reads=403 time=13026766000\r\nSCHEDULE_PROGRESS phase_epoch=150 phase_frame=150 total_frames=451 reads=453 time=14650766000\r\nSCHEDULE_PROGRESS phase_epoch=200 phase_frame=200 total_frames=501 reads=503 time=16274766000\r\nSCHEDULE_PROGRESS phase_epoch=250 phase_frame=250 total_frames=551 reads=553 time=17898766000\r\nSCHEDULE_PROGRESS phase_epoch=300 phase_frame=300 total_frames=601 reads=603 time=19522766000\r\nSCHEDULE_PROGRESS phase_epoch=301 phase_frame=301 total_frames=602 reads=604 time=19555246000\r\nSCHEDULE_OSD_PASS formal_frames=602 audio_samples=1926400 reader_frames=604 reads=604 late_injections=1\r\nE:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\schedule_unit\\schedule_osd_tb.v:378: $finish called at 19555246000 (1ps)"
+}

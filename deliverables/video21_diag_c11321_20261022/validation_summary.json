@@ -1,0 +1,49 @@
+{
+  "status": "DIAGNOSTIC_OFFLINE_CHECKS_PASS",
+  "tests": [
+    {
+      "name": "player_compact_status_pages",
+      "compile_exit_code": 0,
+      "simulation_exit_code": 0,
+      "coverage": "16 page words, wrap, mid-interval reset",
+      "logs": [
+        "tb_player_compact_status_pages_compile.log",
+        "tb_player_compact_status_pages_simulation.log"
+      ]
+    },
+    {
+      "name": "frame_fifo_write_diff",
+      "compile_exit_code": 0,
+      "simulation_exit_code": 0,
+      "coverage": "debug taps and outputs vs renamed C20 reference; delayed SDRAM init; RGB/JPEG modes; reset",
+      "c20_source_sha256": "4F14B7161AA93E9F99F98E523078D4F2C1AA38ED6C19A33D3677E5CF9177AD84",
+      "logs": [
+        "tb_frame_fifo_write_diff_compile.log",
+        "tb_frame_fifo_write_diff_simulation.log"
+      ]
+    },
+    {
+      "name": "first4_capture_observer",
+      "compile_exit_code": 0,
+      "simulation_exit_code": 0,
+      "coverage": "single-cycle request with delayed/gapped valid; sustained request; nonzero sector; end; asynchronous reset",
+      "top_source_sha256": "E1FFFB7EB1DB94D2D63EE7552633C82E3F2EB25D73A667E7D70B020BD3D686E8",
+      "extracted_observer_sha256": "5B7066A05076FAA2F19EA8067C8B84C2AB47E9A4ECC55311663F672529B0FFD6",
+      "logs": [
+        "tb_first4_capture_observer_compile.log",
+        "tb_first4_capture_observer_simulation.log"
+      ]
+    }
+  ],
+  "source_binding_count": 124,
+  "stages": "DIAGNOSTIC_READY_BOARD_OBSERVATION_PENDING",
+  "physical_timing": {
+    "setup_wns_ns": 0.163,
+    "hold_wns_ns": 0.048,
+    "setup_tns_ns": 0,
+    "hold_tns_ns": 0
+  },
+  "board": "pending user observation; no hardware operated by agent",
+  "scope": "status pages, write handshake differential, header observer; no new full video simulation",
+  "previous_failed_attempts": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video21_diag\\verification\\README.md"
+}

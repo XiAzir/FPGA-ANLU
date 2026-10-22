@@ -1,0 +1,47 @@
+{
+  "status": "FAILED",
+  "compile": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vlog.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-work",
+      "work",
+      "-sv",
+      "-f",
+      "sources.f"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\stream_frontend\\runs\\reader_jpeg_core_modelsim_20261021_180545\\compile.log"
+  },
+  "simulation": {
+    "command": [
+      "E:\\ModelsimSE\\win64\\vsim.exe",
+      "-modelsimini",
+      "modelsim.ini",
+      "-c",
+      "-lic_noqueue",
+      "-novopt",
+      "work.tb_mjp_jpeg_core",
+      "+CARD_HEX=E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/mjp_sector_prefix.hex",
+      "+CARD_BYTES=77824",
+      "+CARD_PERIOD=36",
+      "+SECTOR_REQUESTS=152",
+      "+FRAME0_BYTES=37704",
+      "+FRAME1_BYTES=37905",
+      "+FRAME0_CRC=2e7f68e2",
+      "+FRAME1_CRC=4ffde223",
+      "+OUT=E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/pixels_xy_rgb.bin",
+      "+SUMMARY=E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/frame_summary.txt",
+      "-do",
+      "run.do",
+      "-l",
+      "run.log"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video19_work\\stream_frontend\\runs\\reader_jpeg_core_modelsim_20261021_180545\\console.log"
+  },
+  "console_tail": "g_idct_transpose\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_idct_transpose_ram\n# Loading work.jpeg_idct_transpose_ram\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_idct_y\n# Loading work.jpeg_idct_y\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_idct_fifo\n# Loading work.jpeg_idct_fifo\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_dqt\n# Loading work.jpeg_dqt\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_output\n# Loading work.jpeg_output\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_output_y_ram\n# Loading work.jpeg_output_y_ram\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_output_y_ram_ram_dp_512_9\n# Loading work.jpeg_output_y_ram_ram_dp_512_9\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_output_cx_ram\n# Loading work.jpeg_output_cx_ram\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_output_cx_ram_ram_dp_256_8\n# Loading work.jpeg_output_cx_ram_ram_dp_256_8\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_output_fifo\n# Loading work.jpeg_output_fifo\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_bitbuffer\n# Loading work.jpeg_bitbuffer\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_mcu_proc\n# Loading work.jpeg_mcu_proc\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_mcu_id\n# Loading work.jpeg_mcu_id\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_dht_std_y_dc\n# Loading work.jpeg_dht_std_y_dc\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_dht_std_y_ac\n# Loading work.jpeg_dht_std_y_ac\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_dht_std_cx_dc\n# Loading work.jpeg_dht_std_cx_dc\n# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/work.jpeg_dht_std_cx_ac\n# Loading work.jpeg_dht_std_cx_ac\n# do run.do \n# ** Warning: (vsim-7) Failed to open readmem file \"-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/mjp_sector_prefix.hex\" in read mode.\n# \n# No such file or directory. (errno = ENOENT)    : E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/tb_mjp_jpeg_core.sv(138)\n#    Time: 0 ps  Iteration: 0  Instance: /tb_mjp_jpeg_core\n# ** Warning: (vsim-3533) [FOFIW] - Failed to open file \"CODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/pixels_xy_rgb.bin\" for writing.\n# \n# No such file or directory. (errno = ENOENT)    : E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/tb_mjp_jpeg_core.sv(139)\n#    Time: 0 ps  Iteration: 0  Instance: /tb_mjp_jpeg_core\n# ** Warning: (vsim-3533) [FOFIW] - Failed to open file \"CODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/frame_summary.txt\" for writing.\n# \n# No such file or directory. (errno = ENOENT)    : E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/tb_mjp_jpeg_core.sv(140)\n#    Time: 0 ps  Iteration: 0  Instance: /tb_mjp_jpeg_core\n# ** Fatal: cannot open simulation output\n#    Time: 0 ps  Scope: tb_mjp_jpeg_core.load_inputs File: E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/tb_mjp_jpeg_core.sv Line: 141\n# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/video19_work/stream_frontend/runs/reader_jpeg_core_modelsim_20261021_180545/tb_mjp_jpeg_core.sv(141)\n#    Time: 0 ps  Iteration: 0  Instance: /tb_mjp_jpeg_core\n"
+}

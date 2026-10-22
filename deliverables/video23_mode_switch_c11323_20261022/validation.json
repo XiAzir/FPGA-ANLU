@@ -1,0 +1,74 @@
+{
+  "status": "OFFLINE_VERIFIED_BOARD_PENDING",
+  "build_id": "00C11323",
+  "created_local": "2026-10-22T13:56:14.250302+08:00",
+  "bit_sha256": "3373e099d2bf5abd5ba90e5bf169ada4343b319f17334c36699a38ee4203e86d",
+  "timing_ns": {
+    "setup_wns": 1.017,
+    "setup_tns": 0.0,
+    "hold_wns": 0.024,
+    "hold_tns": 0.0
+  },
+  "physical": {
+    "lut": 17063,
+    "reg": 9377,
+    "bram": 62,
+    "dsp": 26,
+    "pll": 2,
+    "gclk": 3
+  },
+  "routed_slice_primitives": {
+    "EG_PHY_MSLICE": 4507,
+    "EG_PHY_LSLICE": 4476
+  },
+  "slice_used": 8983,
+  "slice_total": 9800,
+  "slice_percent": 91.66326530612245,
+  "diagnostic_resource_note": "Contains retained C22 audio diagnostics; C20 production 88.13% optimization baseline retained.",
+  "unit_evidence": [
+    {
+      "path": "mode_analysis/c23_mode_restart.log",
+      "sha256": "f5db62adff58385b22b21ebd35f157a6ee56d795c2abd53464b9c047cd1346d8"
+    },
+    {
+      "path": "mode_analysis/sd_quiesce_c23_actual.log",
+      "sha256": "ce14076814ac747fbb320b5b4e3bea900c9838e7b109eda714531473fb1340de"
+    },
+    {
+      "path": "audio_analysis/simulation.log",
+      "sha256": "4fdc44cb62ed61859b00a7fa3e7dfb3377cce1dfbbcc1371cb947b565ca394f6"
+    }
+  ],
+  "stage_binding_sha256": "da37ed3557efdabf900c30addfa410e6f774709c028bec84313224a7bae3d9bd",
+  "old_bits_preserved": {
+    "video19.bit": "2cc753d6cc2d241cc06e8ecb1e7b5bc86bc08eb99a6f074cba5ca5bf0791e430",
+    "video20.bit": "2c97c1152d69a1a7a9b7681d543f3834c2a4fdd4a0f15ec0982bc90579310e6d",
+    "video21_diag.bit": "9834b3070ffe42958d8f527a6a64d1c9a328112b87bacb1c385253078c89dc9a",
+    "video22_audio_diag.bit": "489e1d92558404d67d10467b4a78979a017ea4e1816527446706419c5c43f87e"
+  },
+  "board_pending": [
+    "Repeated real TF-card photo/video switching",
+    "Physical SD SPI/SDRAM/HDMI and reset release behavior",
+    "Continuous audio noise: original PCM CRC matched two blocks; HDMI source/sink boundary still under investigation"
+  ],
+  "test_scope": [
+    "Nominal PLL replay and application-interface SDRAM model; no SDF",
+    "Mode test uses 16x16 BMP expanded by production scaler to640x480; video and WAV are unchanged delivered media",
+    "Cold video test uses original640x480 BMP directory fixture and Q90 video with original PCM",
+    "No full20second simulation or real-board claim"
+  ],
+  "system_tests": [
+    {
+      "kind": "cold_video",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video23_mode_switch\\build\\video_system_20261022_133206",
+      "status": "PASS",
+      "input_checks": 83
+    },
+    {
+      "kind": "mode_roundtrip",
+      "directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video23_mode_switch\\build\\video_system_20261022_134045",
+      "status": "PASS",
+      "input_checks": 83
+    }
+  ]
+}
