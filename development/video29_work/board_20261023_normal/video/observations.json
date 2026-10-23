@@ -1,0 +1,209 @@
+{
+  "source": "source.json",
+  "interpretation": "人工逐帧核对 2 fps 提帧及原分辨率数码管区域裁切；帧号采用 display_%03d.jpg（从 001 开始），时间为 ffmpeg fps=2 输出对应的约秒数。只记录可见字符。",
+  "display_page_words": [
+    {
+      "page": "3",
+      "hex": "30180000",
+      "frame": "display_001.jpg",
+      "time_s": 0.0,
+      "confidence": "高",
+      "decoded": "ACR N=0x01800; BCH上一秒=0"
+    },
+    {
+      "page": "4",
+      "hex": "40000729",
+      "frame": "display_002.jpg",
+      "time_s": 0.5,
+      "confidence": "高"
+    },
+    {
+      "page": "5",
+      "hex": "5F84B000",
+      "frame": "display_004.jpg",
+      "time_s": 1.5,
+      "confidence": "高",
+      "decoded": "flags=0xF8（app_read/returned/nonzero_read/app_write/nonzero_write均为1，count_mismatch=0）；returned_words=153600（视频帧大小）"
+    },
+    {
+      "page": "6",
+      "hex": "680222C7",
+      "frame": "display_006.jpg",
+      "time_s": 2.5,
+      "confidence": "高",
+      "decoded": "memory=0x8022; reader_state=2; pixel_flags=0xC7（含underflow_seen=1、raw_nonzero_seen=1、gated_nonzero_seen=1）"
+    },
+    {
+      "page": "7",
+      "hex": "79DC4000",
+      "frame": "display_008.jpg",
+      "time_s": 3.5,
+      "confidence": "中高"
+    },
+    {
+      "page": "8",
+      "hex": "87F2F000",
+      "frame": "display_010.jpg",
+      "time_s": 4.5,
+      "confidence": "高"
+    },
+    {
+      "page": "9",
+      "hex": "90050000",
+      "frame": "display_012.jpg",
+      "time_s": 5.5,
+      "confidence": "高"
+    },
+    {
+      "page": "A",
+      "hex": "A0000000",
+      "frame": "display_014.jpg",
+      "time_s": 6.5,
+      "confidence": "高",
+      "decoded": "audio_underflow=0"
+    },
+    {
+      "page": "B",
+      "hex": "BE000067",
+      "frame": "display_016.jpg",
+      "time_s": 7.5,
+      "confidence": "高",
+      "note": "七段数码管小写 b 形状对应页号 B。"
+    },
+    {
+      "page": "C",
+      "hex": "C3148E33",
+      "frame": "display_018.jpg",
+      "time_s": 8.5,
+      "confidence": "高"
+    },
+    {
+      "page": "C",
+      "hex": "C8840873",
+      "frame": "display_019.jpg",
+      "time_s": 9.0,
+      "confidence": "高"
+    },
+    {
+      "page": "D",
+      "hex": "D4400000",
+      "frame": "display_020.jpg",
+      "time_s": 9.5,
+      "confidence": "高",
+      "note": "数码管以小写 d 形状表示页号 D。"
+    },
+    {
+      "page": "E",
+      "hex": "EEBB8000",
+      "frame": "display_022.jpg",
+      "time_s": 10.5,
+      "confidence": "高",
+      "decoded": "flags=0xE; samples_previous_sec=0xBB80 (48000); bad_terc_previous_sec=0"
+    },
+    {
+      "page": "F",
+      "hex": "F061A800",
+      "frame": "display_024.jpg",
+      "time_s": 11.5,
+      "confidence": "高",
+      "decoded": "CTS=0x061A8 (25000); tone_bad_previous_sec=0"
+    },
+    {
+      "page": "0",
+      "hex": "00C11329",
+      "frame": "display_026.jpg",
+      "time_s": 12.5,
+      "confidence": "高",
+      "decoded": "版本页 C11329"
+    },
+    {
+      "page": "1",
+      "hex": "2BD44000",
+      "frame": "display_028.jpg",
+      "time_s": 13.5,
+      "confidence": "中",
+      "note": "页1内容随状态变化；在后续 t=14.0 的 display_029.jpg 显示 26D66000。"
+    },
+    {
+      "page": "2",
+      "hex": "49580000",
+      "frame": "display_030.jpg",
+      "time_s": 14.5,
+      "confidence": "高",
+      "note": "页2计数随时间变化；t=15.0 的 display_031.jpg 显示 46620000。"
+    },
+    {
+      "page": "3",
+      "hex": "30180000",
+      "frame": "display_032.jpg",
+      "time_s": 15.5,
+      "confidence": "高",
+      "decoded": "ACR N=0x01800; BCH上一秒=0"
+    },
+    {
+      "page": "4",
+      "hex": "40000728",
+      "frame": "display_034.jpg",
+      "time_s": 16.5,
+      "confidence": "高"
+    },
+    {
+      "page": "5",
+      "hex": "5F84B000",
+      "frame": "display_036.jpg",
+      "time_s": 17.5,
+      "confidence": "高",
+      "decoded": "flags=0xF8（app_read/returned/nonzero_read/app_write/nonzero_write均为1，count_mismatch=0）；returned_words=153600（视频帧大小）"
+    },
+    {
+      "page": "6",
+      "hex": "680222C7",
+      "frame": "display_038.jpg",
+      "time_s": 18.5,
+      "confidence": "高",
+      "decoded": "memory=0x8022; reader_state=2; pixel_flags=0xC7（含underflow_seen=1、raw_nonzero_seen=1、gated_nonzero_seen=1）"
+    },
+    {
+      "page": "7",
+      "hex": "79DC4000",
+      "frame": "display_040.jpg",
+      "time_s": 19.5,
+      "confidence": "中高"
+    }
+  ],
+  "screen_content_checks": [
+    {
+      "frame": "frame_001.jpg",
+      "time_s": 0.0,
+      "observation": "画面为开发板局部及数码管，未出现 HDMI 显示器画面。"
+    },
+    {
+      "frame": "frame_022.jpg",
+      "time_s": 10.5,
+      "observation": "仍为开发板局部及数码管，未出现 HDMI 显示器画面。"
+    },
+    {
+      "frame": "frame_040.jpg",
+      "time_s": 19.5,
+      "observation": "仍为开发板局部及数码管，未出现 HDMI 显示器画面。"
+    }
+  ],
+  "audio": "ffprobe检出48 kHz双声道AAC音轨；本次未实际听取，声音表现不作判断。",
+  "limitations": [
+    "页C、页1、页2部分字段属于动态计数，记录的是相应采样时刻显示值。",
+    "录像没有拍摄显示器，无法根据本片判断视频内容是否变化。",
+    "录像画面为近景板卡数码管；本分析不推断音频可听性。"
+  ],
+  "corrections": [
+    {
+      "evidence": "重新逐字符核对原分辨率 display_native 裁切，并按 status_hex595.v 中 6/B 与 8/D 的亮灭段辨认。",
+      "changes": [
+        "页5 display_004 从 5F846000 更正为 5F84B000；returned_words=153600。",
+        "页7 display_008 从 79DE4000 更正为 79DC4000；小写 d 位于第3字符。",
+        "页8 display_010 从 87C2F000 更正为 87F2F000。",
+        "页E display_022 从 EE668000 更正为 EEBB8000；两个 b 顶段暗，samples=48000。",
+        "页1 display_028 从 26D44000 更正为 2BD44000；后续 t=14.0 display_029 为 2BD66000。"
+      ]
+    }
+  ]
+}

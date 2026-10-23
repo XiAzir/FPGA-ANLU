@@ -1,0 +1,131 @@
+{
+  "schema": "photo_regression.v1",
+  "generated_utc": "2026-10-23T03:00:03.1626636Z",
+  "method": "Icarus Verilog；C27 与 C28 分开运行并使用相同确定性刺激；未生成波形",
+  "stimulus": {
+    "write_ready_bubble": "每 67 周期插入 9 周期有界停顿",
+    "card_valid_bubble": "字节 valid 间插入确定性空隙",
+    "source_pattern": "按源图行列生成的非均匀 BGR24"
+  },
+  "source": {
+    "c27": {
+      "tf_sha256": "e46169101374f6d28094d4ad408ff7f2b399908d0cb6fa30e613edebe5fe5ab4",
+      "scaler_sha256": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2"
+    },
+    "c28": {
+      "tf_sha256": "67968d0b24967acca09cfdb0a87114274ea275a76c33f85cbdd0df3e2e9509f0",
+      "scaler_sha256": "dc5cddb4de781087b23e84b589ccee732a1c80afc308f6d68eddf100c16f087a"
+    }
+  },
+  "cases": [
+    {
+      "variant": "C27",
+      "case": "photo16",
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video28_work\\photo_regression\\C27-photo16.log",
+      "width": 16,
+      "height": 16,
+      "file_size": 822,
+      "writes": 307200,
+      "cycles": 3434692,
+      "reads": 3,
+      "ready_stalls": 76827,
+      "pixel_crc": "e6d3bbc5",
+      "cycle_crc": "3cc39ad5"
+    },
+    {
+      "variant": "C28",
+      "case": "photo16",
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video28_work\\photo_regression\\C28-photo16.log",
+      "width": 16,
+      "height": 16,
+      "file_size": 822,
+      "writes": 307200,
+      "cycles": 3434692,
+      "reads": 3,
+      "ready_stalls": 76827,
+      "pixel_crc": "e6d3bbc5",
+      "cycle_crc": "3cc39ad5",
+      "debug": "077e7f"
+    },
+    {
+      "variant": "C27",
+      "case": "photo640x480",
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video28_work\\photo_regression\\C27-photo640x480.log",
+      "width": 640,
+      "height": 480,
+      "file_size": 921654,
+      "writes": 307200,
+      "cycles": 7358547,
+      "reads": 1802,
+      "ready_stalls": 77597,
+      "pixel_crc": "d4300dc5",
+      "cycle_crc": "b0ba89e0"
+    },
+    {
+      "variant": "C28",
+      "case": "photo640x480",
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video28_work\\photo_regression\\C28-photo640x480.log",
+      "width": 640,
+      "height": 480,
+      "file_size": 921654,
+      "writes": 307200,
+      "cycles": 7358547,
+      "reads": 1802,
+      "ready_stalls": 77597,
+      "pixel_crc": "d4300dc5",
+      "cycle_crc": "b0ba89e0",
+      "debug": "077e7f"
+    }
+  ],
+  "comparisons": [
+    {
+      "case": "photo16",
+      "match": true,
+      "compared_fields": [
+        "width",
+        "height",
+        "file_size",
+        "writes",
+        "cycles",
+        "reads",
+        "ready_stalls",
+        "pixel_crc",
+        "cycle_crc"
+      ]
+    },
+    {
+      "case": "photo640x480",
+      "match": true,
+      "compared_fields": [
+        "width",
+        "height",
+        "file_size",
+        "writes",
+        "cycles",
+        "reads",
+        "ready_stalls",
+        "pixel_crc",
+        "cycle_crc"
+      ]
+    }
+  ],
+  "payload_expectation": {
+    "file_size": 921654,
+    "payload_bytes": 921600,
+    "payload_sectors": 1801,
+    "total_sector_reads_including_header": 1802
+  },
+  "scope": "仅完成 Icarus 功能仿真，覆盖 16×16 与 640×480 交付图几何；未做 TD、ModelSim 或整机验证。现场 TF 首图几何仍未核验。",
+  "delivery_image_header": {
+    "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_bmp_scale\\build\\delivery\\TF_ROOT\\SCALE1.BMP",
+    "bytes": 230454,
+    "declared_size": 230454,
+    "pixel_offset": 54,
+    "width": 320,
+    "height": 240,
+    "bits_per_pixel": 24,
+    "compression": 0,
+    "sha256": "d5bd5a31eb4fef3bf93b5eeb2e6494f071e0980f1b18f83cba1d5cf8ef65fdae",
+    "note": "仅为交付备用 BMP 元数据；不代表当前 TF 卡首图。"
+  }
+}

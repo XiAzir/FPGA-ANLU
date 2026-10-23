@@ -1,0 +1,30 @@
+--- C27/hdl_source/SD/frame_read_write.v
++++ C29/hdl_source/SD/frame_read_write.v
+@@ -50,6 +50,9 @@
+     output                           read_fifo_clear,           // asynchronous frame clear
+     output                           write_fifo_clear,
+     output wire [3:0]                debug_write_state,
++    output wire [3:0] debug_read_state,
++    output wire debug_read_valid,
++    output wire [MEM_DATA_BITS-1:0] debug_read_word,
+     output wire                      debug_write_req_sync,
+     output                           write_fifo_ready,          // write-clock domain, reserves in-flight packed words
+ 	/*
+@@ -133,6 +136,9 @@
+ wire [MEM_DATA_BITS-1:0] read_capture_data =
+     SDR_READ_DATA_DELAY ? sdr_read_data_d1 : Sdr_rd_dout;
+ 
++assign debug_read_valid = read_capture_valid;
++assign debug_read_word = read_capture_data;
++
+ //instantiate an asynchronous FIFO 
+ wfifo_32_32_512 write_buf
+ 	(
+@@ -225,6 +231,7 @@
+     .App_rd_en					(App_rd_en),
+     .App_rd_addr				(App_rd_addr),
+ 	.read_refill_request        (read_refill_request      ),
++    .debug_read_state(debug_read_state),
+ 	.read_req                   (read_req                 ),
+ 	.read_req_ack               (read_req_ack             ),
+ 	.read_finish                (read_finish              ),

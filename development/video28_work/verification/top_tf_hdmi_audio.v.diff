@@ -1,0 +1,109 @@
+--- C27/hdl_source\top_tf_hdmi_audio.v
++++ C28/hdl_source\top_tf_hdmi_audio.v
+@@ -131,6 +131,9 @@
+ wire [31:0] compact_status_hex;
+ wire [3:0] compact_status_page;
+ wire [23:0] photo_failure_detail;
++wire [23:0] photo_progress;
++wire [31:0] hdmi_probe_page_e,hdmi_probe_page_f;
++wire hdmi_clock_bit_probe;
+ wire [15:0] debug_memory;
+ wire [15:0] pcm_first_crc,pcm_last_crc,pcm_crc_block;
+ wire [23:0] pcm_observed_samples;
+@@ -358,7 +361,7 @@
+     .write_en(photo_write_en),.write_data(photo_write_data),
+     .display_valid(photo_display_valid),.error(photo_error),.state_code(photo_state),
+     .current_image_index(current_image_index),.auto_mode(bmp_auto_mode),
+-    .failure_detail(photo_failure_detail)
++    .failure_detail(photo_failure_detail),.debug_progress(photo_progress)
+ );
+ // One FAT execution engine; both clients retain independent file contexts.
+ fat32_dual_file_sector #(.REQUEST_STABLE(1),.WAV_STATIC_FILE(1)) u_file_mapper (
+@@ -642,7 +645,8 @@
+     .O_tmds_ch0_p       (HDMI_D0_P),
+     .O_tmds_ch1_p       (HDMI_D1_P),
+     .O_tmds_ch2_p       (HDMI_D2_P),
+-    .O_tmds_clk_p       (HDMI_CLK_P)
++    .O_tmds_clk_p       (HDMI_CLK_P),
++    .O_clock_bit_probe  (hdmi_clock_bit_probe)
+ );
+ 
+ wire [27:0] compact_file_status_sd = {
+@@ -710,8 +714,6 @@
+ end
+ // Passive board diagnostics. These registers have no consumer in media control.
+ reg [15:0] diag_mem_sync0,diag_mem_sync1;
+-reg [9:0] diag_bmp_byte,diag_wav_byte;
+-reg [31:0] diag_bmp_head,diag_wav_head;
+ reg [31:0] diag_sd_sync0,diag_sd_sync1;
+ reg [3:0] diag_page_sync0,diag_page_sync1;
+ reg [31:0] diag_selected_sd;
+@@ -720,7 +722,7 @@
+ wire [31:0] diag_page_c={4'hC,card_debug_state,card_init_done,shared_card_read,shared_card_end,shared_card_valid,sd_ncs,sd_dclk,sd_mosi,sd_miso,media_reset_active,rst_all_reg,sys_pll_lock,video_pll_lock};
+ wire [383:0] diag_sd_words={
+     {4'h4,bmp_map_error_code,wav_map_error_code,debug_wav_state,debug_wav_phase,fs_bmp_count,video_core_idle},
+-    {4'h5,photo_failure_detail,video_reader_error,wav_error,display_valid,video_mode_sd},
++    {4'h5,(photo_error ? photo_failure_detail : photo_progress),video_reader_error,wav_error,display_valid,video_mode_sd},
+     {4'h6,16'd0,12'd0},
+     {4'h7,pcm_first_crc,12'd0},
+     {4'h8,pcm_crc_snapshot,12'd0},
+@@ -729,7 +731,7 @@
+     diag_page_b,
+     diag_page_c,
+     diag_page_d,
+-    diag_wav_head,diag_bmp_head};
++    32'd0,32'd0};
+ always @* begin
+     case(diag_page_sync1)
+         4'd4:diag_selected_sd=diag_sd_words[383:352];
+@@ -749,30 +751,9 @@
+ end
+ always @(posedge sd_card_clk or posedge rst_all) begin
+     if(rst_all) begin
+-        diag_bmp_byte<=0;diag_wav_byte<=0;diag_bmp_head<=0;diag_wav_head<=0;
+         diag_page_sync0<=0;diag_page_sync1<=0;
+     end else begin
+         diag_page_sync0<=compact_status_page;diag_page_sync1<=diag_page_sync0;
+-        if(bmp_card_end) diag_bmp_byte<=0;
+-        else if(bmp_card_valid) begin
+-            diag_bmp_byte<=diag_bmp_byte+1'b1;
+-            if(bmp_card_addr==0) case(diag_bmp_byte)
+-                0:diag_bmp_head[31:24]<=bmp_card_data;
+-                1:diag_bmp_head[23:16]<=bmp_card_data;
+-                2:diag_bmp_head[15:8]<=bmp_card_data;
+-                3:diag_bmp_head[7:0]<=bmp_card_data;
+-            endcase
+-        end
+-        if(wav_card_end) diag_wav_byte<=0;
+-        else if(wav_card_valid) begin
+-            diag_wav_byte<=diag_wav_byte+1'b1;
+-            if(wav_card_addr==0) case(diag_wav_byte)
+-                0:diag_wav_head[31:24]<=wav_card_data;
+-                1:diag_wav_head[23:16]<=wav_card_data;
+-                2:diag_wav_head[15:8]<=wav_card_data;
+-                3:diag_wav_head[7:0]<=wav_card_data;
+-            endcase
+-        end
+     end
+ end
+ always @(posedge video_clk or posedge rst_all) begin
+@@ -796,8 +777,18 @@
+     .diag8(diag_sd_sync1),.diag9(diag_sd_sync1),
+     .diag10(diag_sd_sync1),.diag11(diag_sd_sync1),
+     .diag12(diag_sd_sync1),.diag13(diag_sd_sync1),
+-    .diag14(diag_sd_sync1),.diag15(diag_sd_sync1),
++    .diag14(hdmi_probe_page_e),.diag15(hdmi_probe_page_f),
+     .hex_value(compact_status_hex),.page_index(compact_status_page)
++);
++// Independent, read-only diagnostics. No probe output enters media or HDMI control.
++player_hdmi_runtime_probe u_hdmi_runtime_probe (
++    .pixel_clk(video_clk),.serial_clk(hdmi_5x_clk),
++    .cold_rst(rst_all_reg),.media_rst(rst_all),
++    .locked(hdmi_video_locked),.axis_ready(axis_s_ready),
++    .axis_valid(axis_s_valid),.axis_user(axis_s_user),
++    .hs(hs),.vs(vs),.de(de),.serial_clock_out(hdmi_clock_bit_probe),
++    .tmds_clock_word(tmds_clk_data),
++    .page_e(hdmi_probe_page_e),.page_f(hdmi_probe_page_f)
+ );
+ status_hex595 #(.CLK_HZ(25000000)) u_status_hex (
+     .clk(video_clk),.rst(rst_all),.hex_value(compact_status_hex),

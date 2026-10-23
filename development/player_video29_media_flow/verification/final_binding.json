@@ -1,0 +1,64 @@
+{
+  "status": "PASSIVE_DIAGNOSTIC_OFFLINE_PASS_BOARD_PENDING",
+  "build_id": "00C11329",
+  "created_utc": "2026-10-23T04:06:32.614602+00:00",
+  "base": "C11327 media control; C11328 diagnostic branch",
+  "purpose": "Frame-memory/pixel flow and HDMI post-core audio packet observation",
+  "bit_sha256": "0f87f90f55eec622fcfe2373fbcb7c7a97a349bda79babcbafbe483e4a6e3c56",
+  "timing_ns": {
+    "setup_wns": 0.709,
+    "setup_tns": 0.0,
+    "hold_wns": 0.024,
+    "hold_tns": 0.0
+  },
+  "slice_used": 9235,
+  "slice_percent": 94.23469387755102,
+  "routed_slices": {
+    "EG_PHY_MSLICE": 4618,
+    "EG_PHY_LSLICE": 4617
+  },
+  "physical_resources": {
+    "lut": 17501,
+    "reg": 9580,
+    "le": 17513,
+    "bram": 62,
+    "dsp": 26,
+    "pll": 2,
+    "gclk": 3
+  },
+  "offline_tests_sha256": "7e5c6bb5653522b7d6695314b202c6ab927d305ba78c3f3fd24aa0af451f965b",
+  "final_stage_binding_sha256": "0106e1d027df1c13f3e2a46a1f00af8b8bb4ac3a63363cc0f55807ca5174e5ea",
+  "final_routed_sha256": "56ef33d51414516949694921915c205a8db0e09edfc0b8569693adb074e5d145",
+  "routed_export_binding_sha256": "12e7431ce5d50345b4b17de9423486ca2b405a4861fec4147134f9520df665a5",
+  "production_delta": {
+    "changed": [
+      "hdl_source/SD/frame_fifo_read.v",
+      "hdl_source/SD/frame_read_write.v",
+      "hdl_source/frame_buffer_rgb888.v",
+      "hdl_source/player_compact_status_pages.v",
+      "hdl_source/top_tf_hdmi_audio.v"
+    ],
+    "added": [
+      "hdl_source/player_memory_runtime_probe.v"
+    ],
+    "removed": [],
+    "byte_identical_count": 116
+  },
+  "parent_c27_preserved": true,
+  "observations": {
+    "3": "ACR N20/BCH8 saturated",
+    "5": "completed read-session flags8/return words19/0",
+    "6": "existing memory status16/reader state4/pixel flags8",
+    "E": "packet flags4/valid stereo sample pairs16 per sec/bad TERC8 saturated",
+    "F": "ACR CTS20/tone bad sample pairs8 saturated"
+  },
+  "outstanding": [
+    "C29 whole-system/SDF simulation not performed",
+    "C29 physical implementation and board tests are separate validation stages",
+    "C28 black content and audio noise root causes remain unresolved",
+    "Post-core parallel TMDS monitoring precedes PHY, cable and display receiver",
+    "Live multi-bit diagnostic states may briefly show mixed transitions"
+  ],
+  "board_result": "PENDING",
+  "board_supply_to_keep": "external5V USB adapter, USB-A to USB-C"
+}

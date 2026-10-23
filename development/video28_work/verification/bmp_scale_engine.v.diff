@@ -1,0 +1,23 @@
+--- C27/hdl_source\bmp_scale_engine.v
++++ C28/hdl_source\bmp_scale_engine.v
+@@ -18,7 +18,8 @@
+     input wire file_error,
+     output reg pixel_valid, output reg [23:0] pixel_rgb,
+     output reg done, output reg error,
+-    output reg [7:0] failure_code
++    output reg [7:0] failure_code,
++    output wire [23:0] debug_progress
+ );
+ localparam [4:0] S_IDLE=0, S_DIV=1, S_DIV_FIN=2, S_SETUP=3,
+  S_Y_BEGIN=4, S_Y_NORM=5, S_ROW_CHECK=6, S_BYTE=7, S_SECTOR=8,
+@@ -92,6 +93,10 @@
+ reg [23:0] row_q;
+ reg [X_W-1:0] out_x;
+ reg [Y_W-1:0] out_y;
++// Passive observation only: {state[4:0], output_y[8:0], output_x[9:0]}.
++wire [9:0] debug_out_x=out_x;
++wire [8:0] debug_out_y=out_y;
++assign debug_progress={state,debug_out_y,debug_out_x};
+ reg [X_PHASE_W-1:0] x_phase;
+ reg [Y_PHASE_W-1:0] y_phase;
+ reg [9:0] x_src;

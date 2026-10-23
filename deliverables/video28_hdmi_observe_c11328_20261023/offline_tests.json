@@ -1,0 +1,314 @@
+{
+  "status": "PASS",
+  "build_id": "00C11328",
+  "purpose": "Passive HDMI/photo observability",
+  "parent_c27_preserved": true,
+  "production_delta": {
+    "changed": [
+      "hdl_source/bmp_scale_engine.v",
+      "hdl_source/hdmi_phy_warpper.v",
+      "hdl_source/lane_lvds_10_1.v",
+      "hdl_source/player_compact_status_pages.v",
+      "hdl_source/tf_bmp_file_player.v",
+      "hdl_source/top_tf_hdmi_audio.v"
+    ],
+    "added": [
+      "hdl_source/player_hdmi_runtime_probe.v"
+    ],
+    "byte_identical": 115,
+    "observation_stripped_control_tokens": "IDENTICAL"
+  },
+  "photo": {
+    "schema": "photo_regression.v1",
+    "generated_utc": "2026-10-23T03:00:03.1626636Z",
+    "method": "Icarus Verilog；C27 与 C28 分开运行并使用相同确定性刺激；未生成波形",
+    "stimulus": {
+      "write_ready_bubble": "每 67 周期插入 9 周期有界停顿",
+      "card_valid_bubble": "字节 valid 间插入确定性空隙",
+      "source_pattern": "按源图行列生成的非均匀 BGR24"
+    },
+    "source": {
+      "c27": {
+        "tf_sha256": "e46169101374f6d28094d4ad408ff7f2b399908d0cb6fa30e613edebe5fe5ab4",
+        "scaler_sha256": "cde50900d2307674272134b2043c1cd26b53f1372fad913eef1b227a7f9706e2"
+      },
+      "c28": {
+        "tf_sha256": "67968d0b24967acca09cfdb0a87114274ea275a76c33f85cbdd0df3e2e9509f0",
+        "scaler_sha256": "dc5cddb4de781087b23e84b589ccee732a1c80afc308f6d68eddf100c16f087a"
+      }
+    },
+    "cases": [
+      {
+        "variant": "C27",
+        "case": "photo16",
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video28_work\\photo_regression\\C27-photo16.log",
+        "width": 16,
+        "height": 16,
+        "file_size": 822,
+        "writes": 307200,
+        "cycles": 3434692,
+        "reads": 3,
+        "ready_stalls": 76827,
+        "pixel_crc": "e6d3bbc5",
+        "cycle_crc": "3cc39ad5"
+      },
+      {
+        "variant": "C28",
+        "case": "photo16",
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video28_work\\photo_regression\\C28-photo16.log",
+        "width": 16,
+        "height": 16,
+        "file_size": 822,
+        "writes": 307200,
+        "cycles": 3434692,
+        "reads": 3,
+        "ready_stalls": 76827,
+        "pixel_crc": "e6d3bbc5",
+        "cycle_crc": "3cc39ad5",
+        "debug": "077e7f"
+      },
+      {
+        "variant": "C27",
+        "case": "photo640x480",
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video28_work\\photo_regression\\C27-photo640x480.log",
+        "width": 640,
+        "height": 480,
+        "file_size": 921654,
+        "writes": 307200,
+        "cycles": 7358547,
+        "reads": 1802,
+        "ready_stalls": 77597,
+        "pixel_crc": "d4300dc5",
+        "cycle_crc": "b0ba89e0"
+      },
+      {
+        "variant": "C28",
+        "case": "photo640x480",
+        "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video28_work\\photo_regression\\C28-photo640x480.log",
+        "width": 640,
+        "height": 480,
+        "file_size": 921654,
+        "writes": 307200,
+        "cycles": 7358547,
+        "reads": 1802,
+        "ready_stalls": 77597,
+        "pixel_crc": "d4300dc5",
+        "cycle_crc": "b0ba89e0",
+        "debug": "077e7f"
+      }
+    ],
+    "comparisons": [
+      {
+        "case": "photo16",
+        "match": true,
+        "compared_fields": [
+          "width",
+          "height",
+          "file_size",
+          "writes",
+          "cycles",
+          "reads",
+          "ready_stalls",
+          "pixel_crc",
+          "cycle_crc"
+        ]
+      },
+      {
+        "case": "photo640x480",
+        "match": true,
+        "compared_fields": [
+          "width",
+          "height",
+          "file_size",
+          "writes",
+          "cycles",
+          "reads",
+          "ready_stalls",
+          "pixel_crc",
+          "cycle_crc"
+        ]
+      }
+    ],
+    "payload_expectation": {
+      "file_size": 921654,
+      "payload_bytes": 921600,
+      "payload_sectors": 1801,
+      "total_sector_reads_including_header": 1802
+    },
+    "scope": "仅完成 Icarus 功能仿真，覆盖 16×16 与 640×480 交付图几何；未做 TD、ModelSim 或整机验证。现场 TF 首图几何仍未核验。",
+    "delivery_image_header": {
+      "path": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_bmp_scale\\build\\delivery\\TF_ROOT\\SCALE1.BMP",
+      "bytes": 230454,
+      "declared_size": 230454,
+      "pixel_offset": 54,
+      "width": 320,
+      "height": 240,
+      "bits_per_pixel": 24,
+      "compression": 0,
+      "sha256": "d5bd5a31eb4fef3bf93b5eeb2e6494f071e0980f1b18f83cba1d5cf8ef65fdae",
+      "note": "仅为交付备用 BMP 元数据；不代表当前 TF 卡首图。"
+    }
+  },
+  "phy": {
+    "status": "PASS",
+    "simulator": "ModelSim SE-64 10.1c",
+    "primitive_library": "TD precompiled EG4 EG_LOGIC_ODDR, plus eg_phy_glbl.v",
+    "scope": "C28 PHY + exact candidate passive probe + original serial receiver; no full-system or TD run",
+    "phase_offsets_ps": [
+      0,
+      1000,
+      2000,
+      3000,
+      4000,
+      5000,
+      6000,
+      7000
+    ],
+    "reset_release_offsets_ps": [
+      0,
+      1000,
+      2000,
+      3000,
+      4000,
+      5000,
+      6000,
+      7000
+    ],
+    "epochs_per_case": 3,
+    "pixel_words_per_epoch": 450,
+    "clock_word_tests": [
+      {
+        "tag": "3e0",
+        "clock_word": "0x3e0",
+        "case_count": 195,
+        "healthy_case_count": 192,
+        "negative_control_case_count": 3,
+        "receiver_symbols_min": 443.0,
+        "receiver_symbols_max": 444.0,
+        "receiver_data_errors": 0,
+        "negative_control_data_errors_per_epoch": 1,
+        "clock_delta_min": 256.0,
+        "clock_delta_max": 256.0,
+        "run_log": "run_3e0.log"
+      },
+      {
+        "tag": "01f",
+        "clock_word": "0x01f",
+        "case_count": 195,
+        "healthy_case_count": 192,
+        "negative_control_case_count": 3,
+        "receiver_symbols_min": 443.0,
+        "receiver_symbols_max": 444.0,
+        "receiver_data_errors": 0,
+        "negative_control_data_errors_per_epoch": 1,
+        "clock_delta_min": 256.0,
+        "clock_delta_max": 256.0,
+        "run_log": "run_01f.log"
+      }
+    ],
+    "page_f_tail": "00",
+    "compile_exit_code": 0,
+    "compile_log": "compile.log",
+    "console_logs": [
+      "console_3e0.log",
+      "console_01f.log"
+    ],
+    "candidate_source_root": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video28_hdmi_observe\\src\\user_source\\hdl_source",
+    "sha256": {
+      "player_hdmi_runtime_probe.v": "7773b067d60da672c9a07e56554f04f032d73d70d0f748886cda291a83959b28",
+      "lane_lvds_10_1.v": "127659f3c138b66a8c34db3a5b10b480c601d7257cef15a821923387fe233c76",
+      "hdmi_serial_receiver.v": "88f2931e7d894a6a5efe03d50e67b0a105153f8f0ddcd68e47c56ca51fa75971",
+      "hdmi_phy_warpper.v": "367f77bf252a646e6a78caed16373195450b5cfecc6acca628208d771c8f5305",
+      "tb_phy_probe_matrix.sv": "d854f63d0779995bd688b0d50840c124f11169a929a6d090925cf3232f570cca",
+      "run_phy_probe_matrix.ps1": "19ec43d80caa8d249c6ade57645a6ee44ec1ac18abc18ccdc102b20813cf374c"
+    }
+  },
+  "probe_unit": {
+    "status": "PASS",
+    "compiled_source_sha256": "7773b067d60da672c9a07e56554f04f032d73d70d0f748886cda291a83959b28",
+    "cases": [
+      "480-line SOF accounting",
+      "media/cold reset",
+      "lock loss sticky",
+      "ready/de sticky",
+      "clock data stop/restart",
+      "serial clock stop/restart"
+    ]
+  },
+  "evidence": [
+    {
+      "path": "development/video28_work/verification/check_passive_delta.py",
+      "sha256": "02223b29794b4687161ec0a92fe34e2e33e24ace484ffd807caa1ed87ec5543f"
+    },
+    {
+      "path": "development/video28_work/verification/passive_delta.json",
+      "sha256": "c6700efc1c6387c51c00f9201723106104a223c0466f6a7ec6936d6e18a2f8a8"
+    },
+    {
+      "path": "development/video28_work/verification/bind_offline.py",
+      "sha256": "8f9da0e6791ea234ab313b6d6adee3f10858c00c01b2076782d92d425252fcfd"
+    },
+    {
+      "path": "development/video28_work/verification/probe_unit_compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "development/video28_work/verification/probe_unit_run.log",
+      "sha256": "3e442753e1ccb0d2ddf1a0b42d735dabe1a61e730d9a88efc201f517c0cf9adc"
+    },
+    {
+      "path": "development/video28_work/monitor_module/tb_player_hdmi_runtime_probe.v",
+      "sha256": "95820b4a6da04c31ef89e8c2313b3ad4bd9b36bfd887598056edde7a310fcac1"
+    },
+    {
+      "path": "development/video28_work/monitor_module/phy_probe_summary.json",
+      "sha256": "ece6ecefa82c54a6bee72750453a5f46856809ec31017c7ea1033a400a58394a"
+    },
+    {
+      "path": "development/video28_work/monitor_module/compile.log",
+      "sha256": "d284d5932ee30936dbf105e74d73e5cde41d8c984a89a481d00c2f93d62528c1"
+    },
+    {
+      "path": "development/video28_work/monitor_module/run_3e0.log",
+      "sha256": "3009ca508eb1a17a371198570acbc54b35d7cd3d32c31c9c06f99f8354125b59"
+    },
+    {
+      "path": "development/video28_work/monitor_module/run_01f.log",
+      "sha256": "cf7b3447a1603738cdb26bb3a7dbd4fbf1aa0bd9adf037edf6a2b9daeccc79b8"
+    },
+    {
+      "path": "development/video28_work/photo_regression/summary.json",
+      "sha256": "829e36a5f4dd3cc262bcf558f4c6208478fea77ef84bddf737397f64cd148ef3"
+    },
+    {
+      "path": "development/video28_work/photo_regression/tb_photo_regression.v",
+      "sha256": "fb6dc9712a7143eef191ef12806318d26fd7ead85ddb2cde25e38b7851c6db21"
+    },
+    {
+      "path": "development/video28_work/photo_regression/run_photo_regression.ps1",
+      "sha256": "f370a9a32a6f2afc9a817104b420c8b639b119ff740e004407d2d9a385ace524"
+    },
+    {
+      "path": "development/video28_work/photo_regression/C27-photo16.log",
+      "sha256": "af7e7f01d7bd8d77b9fd37e32029230113377ebe991a943bb87f632e76439106"
+    },
+    {
+      "path": "development/video28_work/photo_regression/C27-photo640x480.log",
+      "sha256": "ee8cef382cd83a99db9178e38fe9f48c2c1b9b38218aca8f54454722c2f96e9f"
+    },
+    {
+      "path": "development/video28_work/photo_regression/C28-photo16.log",
+      "sha256": "f50c85377530dc641df7d7b99f41ba7aabe7946f9ae23574e52a238cd3105bd8"
+    },
+    {
+      "path": "development/video28_work/photo_regression/C28-photo640x480.log",
+      "sha256": "bd77a5628672fe3ac76d2ec4570d2d26151286ca9e3d69b62d442148529da316"
+    }
+  ],
+  "outstanding": [
+    "C28 board test",
+    "Physical HDMI clock/data/receiver state",
+    "Actual TF photo geometry remains unconfirmed",
+    "No C28 full-system or SDF regression; unchanged media control covered by source delta and focused differential tests"
+  ]
+}

@@ -1,0 +1,26 @@
+--- C27/hdl_source/player_compact_status_pages.v
++++ C29/hdl_source/player_compact_status_pages.v
+@@ -10,8 +10,7 @@
+     input wire [3:0] file_error_flags,
+     input wire [15:0] sd_crc_checked,
+     input wire [15:0] sd_crc_bad,
+-    input wire audio_underflow,
+-    input wire [23:0] spectrum_frames,
++    input wire [31:0] diag3,
+     input wire [31:0] diag4,diag5,diag6,diag7,diag8,diag9,diag10,diag11,diag12,diag13,diag14,diag15,
+     output reg [31:0] hex_value,
+     output reg [3:0] page_index
+@@ -34,11 +33,11 @@
+ 
+ always @* begin
+     case (page_index)
+-        4'd0: hex_value = 32'h00C11327;
++        4'd0: hex_value = 32'h00C11329;
+         4'd1: hex_value = {4'h2, file_flags, photo_state, video_state,
+                            fs_error_code, file_error_flags};
+         4'd2: hex_value = {sd_crc_checked, sd_crc_bad};
+-        4'd3: hex_value = {spectrum_frames, 4'h0, audio_underflow, 3'b000};
++        4'd3: hex_value = diag3;
+         4'd4: hex_value = diag4;
+         4'd5: hex_value = diag5;
+         4'd6: hex_value = diag6;

@@ -1,0 +1,21 @@
+--- C27/hdl_source\lane_lvds_10_1.v
++++ C28/hdl_source\lane_lvds_10_1.v
+@@ -10,7 +10,8 @@
+ 
+     input wire[9:0] I_data_in,
+ 
+-    output wire     O_serial_out
++    output wire     O_serial_out,
++    output wire     O_serial_bit_probe
+ );
+ 
+     reg      S_odd_even;     
+@@ -22,6 +23,8 @@
+     reg[9:0] S_shift_data;   
+     reg[9:0] S_pending_data;
+     reg[1:0] S_oddr_data;    
++    // Observe the positive-edge ODDR input; dedicated ODDR Q stays pad-only.
++    assign O_serial_bit_probe=S_oddr_data[1];
+ 
+ 
+     always @(posedge I_pixel_clk or posedge I_rst) begin

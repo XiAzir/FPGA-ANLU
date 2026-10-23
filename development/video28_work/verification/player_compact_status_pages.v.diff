@@ -1,0 +1,11 @@
+--- C27/hdl_source\player_compact_status_pages.v
++++ C28/hdl_source\player_compact_status_pages.v
+@@ -34,7 +34,7 @@
+ 
+ always @* begin
+     case (page_index)
+-        4'd0: hex_value = 32'h00C11327;
++        4'd0: hex_value = 32'h00C11328;
+         4'd1: hex_value = {4'h2, file_flags, photo_state, video_state,
+                            fs_error_code, file_error_flags};
+         4'd2: hex_value = {sd_crc_checked, sd_crc_bad};

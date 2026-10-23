@@ -1,0 +1,22 @@
+--- C27/hdl_source\hdmi_phy_warpper.v
++++ C28/hdl_source\hdmi_phy_warpper.v
+@@ -15,7 +15,8 @@
+     output wire     O_tmds_ch0_p,
+     output wire     O_tmds_ch1_p,
+     output wire     O_tmds_ch2_p,
+-    output wire     O_tmds_clk_p
++    output wire     O_tmds_clk_p,
++    output wire     O_clock_bit_probe
+ );
+     
+     wire[9:0] S_tmds_data_ch0;
+@@ -112,7 +113,8 @@
+         .I_rst        ( I_rst           ),
+         
+         .I_data_in    ( S_tmds_data_clk ),
+-        .O_serial_out ( O_tmds_clk_p    )
++        .O_serial_out ( O_tmds_clk_p    ),
++        .O_serial_bit_probe (O_clock_bit_probe)
+     );
+ 
+ 

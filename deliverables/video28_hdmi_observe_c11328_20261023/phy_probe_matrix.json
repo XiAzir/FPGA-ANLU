@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "simulator": "ModelSim SE-64 10.1c",
+  "primitive_library": "TD precompiled EG4 EG_LOGIC_ODDR, plus eg_phy_glbl.v",
+  "scope": "C28 PHY + exact candidate passive probe + original serial receiver; no full-system or TD run",
+  "phase_offsets_ps": [
+    0,
+    1000,
+    2000,
+    3000,
+    4000,
+    5000,
+    6000,
+    7000
+  ],
+  "reset_release_offsets_ps": [
+    0,
+    1000,
+    2000,
+    3000,
+    4000,
+    5000,
+    6000,
+    7000
+  ],
+  "epochs_per_case": 3,
+  "pixel_words_per_epoch": 450,
+  "clock_word_tests": [
+    {
+      "tag": "3e0",
+      "clock_word": "0x3e0",
+      "case_count": 195,
+      "healthy_case_count": 192,
+      "negative_control_case_count": 3,
+      "receiver_symbols_min": 443.0,
+      "receiver_symbols_max": 444.0,
+      "receiver_data_errors": 0,
+      "negative_control_data_errors_per_epoch": 1,
+      "clock_delta_min": 256.0,
+      "clock_delta_max": 256.0,
+      "run_log": "run_3e0.log"
+    },
+    {
+      "tag": "01f",
+      "clock_word": "0x01f",
+      "case_count": 195,
+      "healthy_case_count": 192,
+      "negative_control_case_count": 3,
+      "receiver_symbols_min": 443.0,
+      "receiver_symbols_max": 444.0,
+      "receiver_data_errors": 0,
+      "negative_control_data_errors_per_epoch": 1,
+      "clock_delta_min": 256.0,
+      "clock_delta_max": 256.0,
+      "run_log": "run_01f.log"
+    }
+  ],
+  "page_f_tail": "00",
+  "compile_exit_code": 0,
+  "compile_log": "compile.log",
+  "console_logs": [
+    "console_3e0.log",
+    "console_01f.log"
+  ],
+  "candidate_source_root": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video28_hdmi_observe\\src\\user_source\\hdl_source",
+  "sha256": {
+    "player_hdmi_runtime_probe.v": "7773b067d60da672c9a07e56554f04f032d73d70d0f748886cda291a83959b28",
+    "lane_lvds_10_1.v": "127659f3c138b66a8c34db3a5b10b480c601d7257cef15a821923387fe233c76",
+    "hdmi_serial_receiver.v": "88f2931e7d894a6a5efe03d50e67b0a105153f8f0ddcd68e47c56ca51fa75971",
+    "hdmi_phy_warpper.v": "367f77bf252a646e6a78caed16373195450b5cfecc6acca628208d771c8f5305",
+    "tb_phy_probe_matrix.sv": "d854f63d0779995bd688b0d50840c124f11169a929a6d090925cf3232f570cca",
+    "run_phy_probe_matrix.ps1": "19ec43d80caa8d249c6ade57645a6ee44ec1ac18abc18ccdc102b20813cf374c"
+  }
+}

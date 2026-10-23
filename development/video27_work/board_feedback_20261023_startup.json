@@ -1,0 +1,33 @@
+{
+  "recorded_local": "2026-10-23T10:17:30.847178+08:00",
+  "source": "User report, 2026-10-23",
+  "candidate": "C11327 inferred from most recent delivery; displayed build ID pending recording",
+  "observations": [
+    {
+      "trial": 1,
+      "screen": "Black with backlight; UI visibility unspecified",
+      "audio": "Playing normally; user reports no noise"
+    },
+    {
+      "trial": 2,
+      "preceding_action": "Board powered off for approximately 10 seconds, then reprogrammed",
+      "screen": "Black with no backlight reported",
+      "audio": "None",
+      "video_mode_attempt": "No image or audio; screen remains black without backlight"
+    }
+  ],
+  "not_yet_observed": [
+    "Displayed Build ID and actual programmed filename",
+    "Full diagnostic page cycle",
+    "Monitor no-signal indication/input timing information",
+    "Cold-load temporal sequence"
+  ],
+  "recording_request": [
+    "Current fault: 25 seconds readable eight-digit display, all buttons released; include Build/2/status CRC/4/5/6/B/C/D",
+    "Current fault: 10-15 seconds display screen and ambient audio, LED state; monitor input signal information when available",
+    "At next reprogramming: continuous video from before PROGRAM_SRAM through success and 40 seconds afterwards",
+    "If black/backlit with clean audio recurs: same diagnostic recording plus 10 seconds original audio"
+  ],
+  "interpretation": "Two user-reported startup outcomes retained separately; HDMI signal, SD state, reset/PLL and audio causality pending evidence",
+  "actions_this_turn": "Recording guidance and documentation only; no HDL/build/board/TF/Flash changes"
+}
