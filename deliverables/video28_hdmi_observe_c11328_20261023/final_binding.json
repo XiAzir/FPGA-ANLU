@@ -1,0 +1,61 @@
+{
+  "status": "PASSIVE_DIAGNOSTIC_OFFLINE_PASS_BOARD_PENDING",
+  "build_id": "00C11328",
+  "created_utc": "2026-10-23T03:20:08.886532+00:00",
+  "base": "C11327",
+  "purpose": "HDMI lock/line/clock-input activity and photo-progress observations",
+  "bit_sha256": "072395117426c362194864403b95bb53692150d9d4e88c84fb896f778464eea0",
+  "timing_ns": {
+    "setup_wns": 0.242,
+    "setup_tns": 0.0,
+    "hold_wns": 0.021,
+    "hold_tns": 0.0
+  },
+  "slice_used": 8969,
+  "slice_percent": 91.5204081632653,
+  "routed_slices": {
+    "EG_PHY_MSLICE": 4493,
+    "EG_PHY_LSLICE": 4476
+  },
+  "physical_resources": {
+    "lut": 17139,
+    "reg": 9322,
+    "le": 17176,
+    "bram": 62,
+    "dsp": 26,
+    "pll": 2,
+    "gclk": 3
+  },
+  "offline_tests_sha256": "a066d07ba75d48d1c8a4b31ddadecece086b542984fcee8ac04c84175f33c8e6",
+  "final_stage_binding_sha256": "ef9768d5f95ac736ee7c2094f0cf414edc271630e48bd455bc0a39cba8b81666",
+  "final_routed_sha256": "9095da7e0033b39efa133230d289f1f0ab9d7ccf5cb782da27a1a4f035d4b5b7",
+  "routed_export_binding_sha256": "8e5c4377b9a62bf0d7f726aa816a435aecdad12890bd020d86819d1f59d8b796",
+  "production_delta": {
+    "changed": [
+      "hdl_source/bmp_scale_engine.v",
+      "hdl_source/hdmi_phy_warpper.v",
+      "hdl_source/lane_lvds_10_1.v",
+      "hdl_source/player_compact_status_pages.v",
+      "hdl_source/tf_bmp_file_player.v",
+      "hdl_source/top_tf_hdmi_audio.v"
+    ],
+    "added": [
+      "hdl_source/player_hdmi_runtime_probe.v"
+    ],
+    "byte_identical": 115,
+    "observation_stripped_control_tokens": "IDENTICAL"
+  },
+  "parent_c27_preserved": true,
+  "observations": {
+    "E": "HDMI lock/ready, input SOFs and previous active-line count",
+    "F": "Raw TMDS clock word, pre-ODDR clock transitions/128 pixel cycles; tail 00",
+    "page5": "Scaler state/y/x when photo has no error; original failure detail otherwise"
+  },
+  "outstanding": [
+    "C28 board test",
+    "Physical HDMI clock/data/receiver state",
+    "Actual TF photo geometry remains unconfirmed",
+    "No C28 full-system or SDF regression; unchanged media control covered by source delta and focused differential tests"
+  ],
+  "board_result": "PENDING"
+}

@@ -1,0 +1,12 @@
+Tool resolution: scripts/anlu_tools.ps1 Resolve-AnluTool
+iverilog: E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\iverilog.exe
+vvp: E:\VSCODE-project\FPGA-ANLU\bringup\tf_wav_hdmi\tools\iverilog\app\bin\vvp.exe
+Command: iverilog -g2012 -Wall -s tb_player_memory_runtime_probe -o memory_probe_tb.vvp player_memory_runtime_probe.v tb_player_memory_runtime_probe.v
+--- compile output ---
+compile_exit_code=0
+Command: vvp memory_probe_tb.vvp
+--- run output ---
+PASS sessions and negative control page5=5c400004 page6_tail=a47
+PASS asynchronous reset page5=50000000 page6_tail=000
+tb_player_memory_runtime_probe.v:81: $finish called at 824000 (1ps)
+run_exit_code=0

@@ -1,0 +1,22 @@
+--- C27/hdl_source\tf_bmp_file_player.v
++++ C28/hdl_source\tf_bmp_file_player.v
+@@ -23,7 +23,8 @@
+     output [3:0] state_code,
+     output [1:0] current_image_index,
+     output auto_mode,
+-    output wire [23:0] failure_detail
++    output wire [23:0] failure_detail,
++    output wire [23:0] debug_progress
+ );
+ localparam [3:0] WAIT_CATALOG=0, IDLE=1, HEADER=2, CHECK=3,
+                   WRITE_WAIT=4, PAYLOAD=5, GAP=6, COMMIT=7, HALT=8,
+@@ -114,7 +115,8 @@
+     .card_read(scale_card_read),.card_addr(scale_card_addr),.card_data(card_data),
+     .card_valid(card_valid),.card_end(card_end),.file_error(file_error),
+     .pixel_valid(scale_pixel_valid),.pixel_rgb(scale_pixel_rgb),
+-    .done(scale_done),.error(scale_error),.failure_code(scale_failure_code));
++    .done(scale_done),.error(scale_error),.failure_code(scale_failure_code),
++    .debug_progress(debug_progress));
+ 
+ always @(posedge clk or posedge rst) begin
+     if(rst) begin

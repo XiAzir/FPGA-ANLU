@@ -1,0 +1,18 @@
+--- C27/hdl_source/SD/frame_fifo_read.v
++++ C29/hdl_source/SD/frame_fifo_read.v
+@@ -18,6 +18,7 @@
+ 	input							 App_wr_busy,
+     output							 O_rd_busy,
+     output read_refill_request,
++    output wire [3:0] debug_read_state,
+ 	/*
+     output reg                       rd_burst_req,               // to external memory controller,send out a burst read request  
+ 	output reg[BURST_BITS - 1:0]     rd_burst_len,               // to external memory controller,data length of the burst read request, not bytes 
+@@ -72,6 +73,7 @@
+ wire rd_vld;
+ reg [3:0] rd_delay;
+ 
++assign debug_read_state = state;
+ assign App_rd_addr = {App_rd_addr_r[ADDR_BITS - 1:0]};
+ assign rd_vld = (state == S_READ_BURST && burst_cnt >= BURST_SIZE);
+ 

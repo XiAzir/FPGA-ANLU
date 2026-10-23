@@ -1,0 +1,178 @@
+{
+  "mode": "photo_original_audio",
+  "version": "00C11329",
+  "source_sha256": "7e166ece8a87fcfbf23724b1684f3fb2cc823622823c0c7b7bff4cac193a3d0d",
+  "duration_seconds": 17.601689,
+  "method": "manual reading of original full-resolution frames; extraction fps2",
+  "pages": [
+    {
+      "hex": "B6000047",
+      "frame": "frame_001.jpg",
+      "nominal_source_time_seconds": 0.25
+    },
+    {
+      "hex": "C3140863",
+      "frame": "frame_003.jpg",
+      "nominal_source_time_seconds": 1.25
+    },
+    {
+      "hex": "D4400000",
+      "frame": "frame_005.jpg",
+      "nominal_source_time_seconds": 2.25
+    },
+    {
+      "hex": "EEBB8000",
+      "frame": "frame_007.jpg",
+      "nominal_source_time_seconds": 3.25
+    },
+    {
+      "hex": "F061A800",
+      "frame": "frame_009.jpg",
+      "nominal_source_time_seconds": 4.25
+    },
+    {
+      "hex": "00C11329",
+      "frame": "frame_011.jpg",
+      "nominal_source_time_seconds": 5.25
+    },
+    {
+      "hex": "2B910000",
+      "frame": "frame_013.jpg",
+      "nominal_source_time_seconds": 6.25
+    },
+    {
+      "hex": "0F320000",
+      "frame": "frame_015.jpg",
+      "nominal_source_time_seconds": 7.25
+    },
+    {
+      "hex": "30180000",
+      "frame": "frame_017.jpg",
+      "nominal_source_time_seconds": 8.25
+    },
+    {
+      "hex": "40000729",
+      "frame": "frame_019.jpg",
+      "nominal_source_time_seconds": 9.25
+    },
+    {
+      "hex": "5E070800",
+      "frame": "frame_021.jpg",
+      "nominal_source_time_seconds": 10.25
+    },
+    {
+      "hex": "6B0023C7",
+      "frame": "frame_023.jpg",
+      "nominal_source_time_seconds": 11.25
+    },
+    {
+      "hex": "79DC4000",
+      "frame": "frame_025.jpg",
+      "nominal_source_time_seconds": 12.25
+    },
+    {
+      "hex": "826A2000",
+      "frame": "frame_027.jpg",
+      "nominal_source_time_seconds": 13.25
+    },
+    {
+      "hex": "9010B000",
+      "frame": "frame_029.jpg",
+      "nominal_source_time_seconds": 14.25
+    },
+    {
+      "hex": "A0000000",
+      "frame": "frame_031.jpg",
+      "nominal_source_time_seconds": 15.25
+    },
+    {
+      "hex": "B6000047",
+      "frame": "frame_033.jpg",
+      "nominal_source_time_seconds": 16.25
+    },
+    {
+      "hex": "C8840873",
+      "frame": "frame_035.jpg",
+      "nominal_source_time_seconds": 17.25
+    }
+  ],
+  "decoded": [
+    {
+      "hex": "EEBB8000",
+      "page": "E",
+      "samples_previous_sec": 48000,
+      "bad_terc_previous_sec": 0,
+      "flags": {
+        "format_bad_seen": false,
+        "acr_seen": true,
+        "audio_seen": true,
+        "island_seen": true
+      }
+    },
+    {
+      "hex": "F061A800",
+      "page": "F",
+      "acr_cts": 25000,
+      "tone_bad_previous_sec": 0
+    },
+    {
+      "hex": "30180000",
+      "page": "3",
+      "acr_n": 6144,
+      "bad_bch_previous_sec": 0
+    },
+    {
+      "hex": "5E070800",
+      "page": "5",
+      "returned_words": 230400,
+      "flags": {
+        "reserved0": false,
+        "reserved1": false,
+        "count_mismatch": false,
+        "nonzero_write": false,
+        "app_write": false,
+        "nonzero_read": true,
+        "returned": true,
+        "app_read": true
+      }
+    },
+    {
+      "hex": "6B0023C7",
+      "page": "6",
+      "memory_hex": "B002",
+      "reader_state": 3,
+      "pixel_flags": {
+        "gated_nonzero_seen": true,
+        "raw_nonzero_seen": true,
+        "underflow_seen": true,
+        "fifo_clear": false,
+        "read_ack": false,
+        "read_req": false,
+        "source_valid": true,
+        "osd_valid": true
+      }
+    }
+  ],
+  "pcm_checks": [
+    {
+      "block": 0,
+      "observed": "9DC4",
+      "expected": "9DC4",
+      "match": true
+    },
+    {
+      "block": 267,
+      "observed": "26A2",
+      "expected": "26A2",
+      "match": true
+    }
+  ],
+  "pcm_source_sha256": "30eaf10a6ff1800163cecb3225cce685873b38c9a8e42635f1e5c92b0e95b5de",
+  "notes": [
+    "Video frames show board/digits throughout; no monitor image in sampled frames. Screen/audio normal is retained as the user report.",
+    "Page9 final four-digit block is 0x010B=267. Full-resolution crop resolves lowercase b vs6; CRC26A2 independently matches block267.",
+    "Page6 pixel_underflow_seen=1 is sticky since media reset; occurrence time/frequency is unavailable. Audio underflow pageA=0.",
+    "No playback/control source changes, TD build, board operation or bit/package modification in this analysis.",
+    "Page6 full-resolution digit_023.png shows lowercase b in the second digit (top segment unlit): 6B0023C7, memory B002. Earlier contact estimate 680023C7 corrected before final report."
+  ]
+}

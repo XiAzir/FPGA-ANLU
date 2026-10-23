@@ -1,0 +1,277 @@
+{
+  "method": "人工查看视频画面及原分辨率数码管裁切；按hex数码管逐位抄录。整段只拍到板卡数码管，没有拍到外接显示器画面。时间为视频时间戳，frame编号对应 digit_crops_6fps/digit_NNN.jpg；不由测试预期补齐缺失读数。",
+  "observations": [
+    {
+      "page": "B",
+      "hex": "B6000047",
+      "time_seconds": 0.0,
+      "frame": "digit_001.jpg",
+      "confidence": "high",
+      "notes": "首字符顶部段未亮，按小写b字形判为页B。"
+    },
+    {
+      "page": "C",
+      "hex": "C8840873",
+      "time_seconds": 0.5,
+      "frame": "digit_004.jpg",
+      "confidence": "high",
+      "notes": "完整八位可读。"
+    },
+    {
+      "page": "D",
+      "hex": "D4400000",
+      "time_seconds": 1.5,
+      "frame": "digit_010.jpg",
+      "confidence": "high",
+      "notes": "完整八位可读。"
+    },
+    {
+      "page": "E",
+      "hex": "EEBB8000",
+      "time_seconds": 2.83,
+      "frame": "digit_018.jpg",
+      "confidence": "high",
+      "notes": "完整八位可读；与约19秒再次读数一致。",
+      "decoded": {
+        "flags": "0xE",
+        "samples_previous_sec": 48000,
+        "bad_terc_previous_sec": 0,
+        "island_seen": true,
+        "audio_seen": true,
+        "acr_seen": true,
+        "format_bad_seen": false
+      }
+    },
+    {
+      "page": "F",
+      "hex": "F061A800",
+      "time_seconds": 3.83,
+      "frame": "digit_024.jpg",
+      "confidence": "high",
+      "notes": "完整八位可读；约20秒重复。"
+    },
+    {
+      "page": "0",
+      "hex": "00C11329",
+      "time_seconds": 4.67,
+      "frame": "digit_029.jpg",
+      "confidence": "high",
+      "notes": "版本页。"
+    },
+    {
+      "page": "2",
+      "hex": "2B910000",
+      "time_seconds": 5.83,
+      "frame": "digit_036.jpg",
+      "confidence": "high",
+      "notes": "状态页读数；与随后快速变化的SD CRC显示分开记录。"
+    },
+    {
+      "page": "3",
+      "hex": "30180000",
+      "time_seconds": 7.83,
+      "frame": "digit_048.jpg",
+      "confidence": "high",
+      "decoded": {
+        "acr_n": "0x01800",
+        "bad_bch_previous_sec": 0
+      }
+    },
+    {
+      "page": "4",
+      "hex": "40000829",
+      "time_seconds": 8.83,
+      "frame": "digit_054.jpg",
+      "confidence": "high"
+    },
+    {
+      "page": "5",
+      "hex": "5E070800",
+      "time_seconds": 9.83,
+      "frame": "digit_060.jpg",
+      "confidence": "high",
+      "decoded": {
+        "returned_words": 230400,
+        "app_read": true,
+        "returned": true,
+        "nonzero_read": true,
+        "app_write": false,
+        "nonzero_write": false,
+        "count_mismatch": false
+      }
+    },
+    {
+      "page": "6",
+      "hex": "680022C7",
+      "time_seconds": 10.83,
+      "frame": "review_30fps/frame_011.jpg",
+      "confidence": "high",
+      "decoded": {
+        "memory_hex": "8002",
+        "reader_state": 2,
+        "pixel_flags": "0xC7",
+        "osd_valid": true,
+        "source_valid": true,
+        "underflow_seen": true,
+        "raw_nonzero_seen": true,
+        "gated_nonzero_seen": true
+      },
+      "notes": "30fps原始视频复核；同一显示窗随reader_state有变化，另见680023C7。"
+    },
+    {
+      "page": "7",
+      "hex": "79DC4000",
+      "time_seconds": 11.83,
+      "frame": "digit_072.jpg",
+      "confidence": "high",
+      "notes": "按小写d字形复核。"
+    },
+    {
+      "page": "8",
+      "hex": "8051D000",
+      "time_seconds": 12.83,
+      "frame": "digit_078.jpg",
+      "confidence": "high",
+      "notes": "末组首字符为小写d字形。"
+    },
+    {
+      "page": "9",
+      "hex": "902B2000",
+      "time_seconds": 13.67,
+      "frame": "digit_083.jpg",
+      "confidence": "high",
+      "notes": "第四字符顶部段未亮，按小写b字形复核。"
+    },
+    {
+      "page": "A",
+      "hex": "A0000000",
+      "time_seconds": 14.67,
+      "frame": "digit_089.jpg",
+      "confidence": "high"
+    },
+    {
+      "page": "C",
+      "hex": "C8840873",
+      "time_seconds": 16.83,
+      "frame": "digit_102.jpg",
+      "confidence": "high",
+      "notes": "与前段重复。"
+    },
+    {
+      "page": "D",
+      "hex": "D4400000",
+      "time_seconds": 17.83,
+      "frame": "digit_108.jpg",
+      "confidence": "high",
+      "notes": "与前段重复。"
+    },
+    {
+      "page": "E",
+      "hex": "EEBB8000",
+      "time_seconds": 19.0,
+      "frame": "digit_115.jpg",
+      "confidence": "high",
+      "decoded": {
+        "flags": "0xE",
+        "samples_previous_sec": 48000,
+        "bad_terc_previous_sec": 0,
+        "island_seen": true,
+        "audio_seen": true,
+        "acr_seen": true,
+        "format_bad_seen": false
+      },
+      "notes": "第三、四字符顶部段未亮，按小写b字形逐位复核；与48000样本对一致。"
+    },
+    {
+      "page": "F",
+      "hex": "F061A800",
+      "time_seconds": 19.83,
+      "frame": "digit_120.jpg",
+      "confidence": "high",
+      "decoded": {
+        "acr_cts": 25000,
+        "tone_bad_previous_sec": 0
+      }
+    },
+    {
+      "page": "SD CRC快速变化显示",
+      "hex_sequence": [
+        "2B18",
+        "2B38",
+        "2B59",
+        "2B79",
+        "2B99",
+        "2B69"
+      ],
+      "time_seconds": [
+        6.83,
+        7.0,
+        7.17,
+        7.33,
+        7.5,
+        7.67
+      ],
+      "frames": [
+        "digit_042.jpg",
+        "digit_043.jpg",
+        "digit_044.jpg",
+        "digit_045.jpg",
+        "digit_046.jpg",
+        "digit_047.jpg"
+      ],
+      "confidence": "medium",
+      "notes": "按原帧逐位记录的快速变化值，单独于页2状态值2B910000；数码管扫描混叠可能影响个别字形。"
+    },
+    {
+      "page": "6",
+      "hex_sequence": [
+        "680023C7",
+        "680022C7",
+        "680023C7"
+      ],
+      "time_seconds": [
+        10.767,
+        10.833,
+        11.0
+      ],
+      "frames": [
+        "review_30fps/frame_009.jpg",
+        "review_30fps/frame_011.jpg",
+        "review_30fps/frame_016.jpg"
+      ],
+      "confidence": "high",
+      "decoded": {
+        "memory_hex": "8002",
+        "reader_state_sequence": [
+          3,
+          2,
+          3
+        ],
+        "pixel_flags": "0xC7",
+        "underflow_seen": true
+      },
+      "notes": "30fps原始裁切相邻帧显示reader_state在2/3间变化；跨帧抄录用于说明状态变化。"
+    }
+  ],
+  "unobserved_pages": [
+    "1"
+  ],
+  "uncertainties": [
+    "录像画面以约2fps及局部6fps查看；LED扫描与相机快门造成部分瞬态笔画混叠。页2计数末位变化为近似人工读取。",
+    "未对音轨作听音判定；此记录仅报告视频画面数码管。"
+  ],
+  "correction_history": [
+    {
+      "correction": "页首字符原读66000043，逐段复核顶部段未亮，改为B6000047。"
+    },
+    {
+      "correction": "页6原读660022C7，按顶部段和30fps相邻原帧复核，改为680022C7/680023C7；memory由6002更正为8002，reader_state为2或3。"
+    },
+    {
+      "correction": "页E原读EE668000，第三、四字符顶部段均未亮，改为EEBB8000（48000样本对）。"
+    },
+    {
+      "correction": "页7/8/9根据小写d/b字形复核，分别更正为79DC4000、8051D000、902B2000。"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "recorded_local": "2026-10-23T10:20:42.128754+08:00",
+  "scope": "User asks why host RAM fills after bit builds; read-only inspection during current turn",
+  "system_sample_1_KiB": {
+    "total_visible": 15897600,
+    "available_physical": 3111244,
+    "total_virtual": 37917696,
+    "free_virtual": 16413712
+  },
+  "system_sample_2": {
+    "available_MiB": 2776,
+    "committed_bytes": 22380564480,
+    "commit_limit_bytes": 38827720704,
+    "cache_bytes": 513622016,
+    "nonpaged_pool_bytes": 770039808,
+    "paged_pool_bytes": 728621056,
+    "standby_core_bytes": 66736128,
+    "standby_normal_bytes": 2745712640
+  },
+  "app_aggregates_GiB": [
+    {
+      "name": "msedge",
+      "count": 16,
+      "private_commit": 1.72,
+      "working_set": 2.127
+    },
+    {
+      "name": "QQ",
+      "count": 8,
+      "private_commit": 1.428,
+      "working_set": 1.213
+    },
+    {
+      "name": "msedgewebview2",
+      "count": 31,
+      "private_commit": 1.216,
+      "working_set": 1.816
+    },
+    {
+      "name": "ChatGPT",
+      "count": 9,
+      "private_commit": 1.157,
+      "working_set": 1.174
+    },
+    {
+      "name": "node",
+      "count": 13,
+      "private_commit": 1.14,
+      "working_set": 0.964
+    }
+  ],
+  "currently_matched_build_or_sim_processes": [],
+  "td_reported_peak_MB": {
+    "synthesis": 1029,
+    "physical": 1185,
+    "hold": 1068,
+    "bitstream": 831
+  },
+  "confirmed_workflow": "C27 synthesis/physical stages overlapped with ModelSim full-system simulations in prior turns",
+  "script_review": "TD wrapper awaits each invocation; simulation helper waits and terminates its own process tree on timeout. User interruption cleanup and historical per-process peak RAM were not established by this read-only review.",
+  "conclusion": "Parallel TD+ModelSim can increase RAM pressure on this 16GB host. Current snapshot shows substantial non-build app memory and no residual matched build processes; historical post-build saturation attribution remains unmeasured.",
+  "future_execution_policy": "One heavyweight TD or whole-system simulation at a time; inspect owned child process termination and host memory after each. Do not alter frozen candidate build scripts solely for scheduling.",
+  "changes": "No processes terminated, no RAM purge, no paging setting change, no HDL/build/bit or hardware changes",
+  "counters_note": "Private commit and working set are different measurements; working sets can include shared pages. Available RAM includes reclaimable standby pages; do not add standby again to available."
+}

@@ -1,0 +1,103 @@
+{
+  "build_id": "00C11327",
+  "board_result": "USER_CONFIRMED_BLACK_NO_BACKLIGHT_NO_AUDIO",
+  "video_sha256": "f6d8ade88a9d4f43b6bde4c32343b31da0949e27c74162365c1a7a5378f02778",
+  "evidence": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video27_work\\board_20261023_startup_2dba7e94\\observations.json",
+  "decoded": {
+    "status": {
+      "fs_ready": 1,
+      "fs_error": 0,
+      "wav_found": 1,
+      "video_found": 1,
+      "display_valid": 0,
+      "video_mode": 0,
+      "paused": 0,
+      "wav_primed": 1,
+      "photo_state": 5,
+      "photo_meaning": "PAYLOAD",
+      "video_state": 0,
+      "fs_error_code": 0,
+      "consumer_errors": 0
+    },
+    "B": {
+      "video_mode": 0,
+      "event_count": 0,
+      "media_reset": 0,
+      "cold_reset": 0,
+      "card_init": 1,
+      "sys_pll_lock": 1,
+      "video_pll_lock": 1
+    },
+    "C": {
+      "sector_state": 17,
+      "sector_meaning": "S_WAIT_READ_WRITE",
+      "command_state": 1,
+      "command_meaning": "S_WAIT",
+      "spi_state": 0,
+      "spi_meaning": "IDLE",
+      "cmd_req": 0,
+      "cmd_ack": 0,
+      "cmd_error": 0,
+      "card_init": 1,
+      "shared_read": 0,
+      "shared_end": 0,
+      "shared_valid": 0,
+      "media_reset": 0,
+      "cold_reset": 0,
+      "pll_locks": 3
+    },
+    "D": {
+      "command": 17,
+      "expected_r1": 0,
+      "sampled_response_byte": 0
+    },
+    "memory": {
+      "raw": "8022",
+      "init_done": 1,
+      "init_ref": 0,
+      "busy": 0,
+      "app_read": 0,
+      "app_write": 0,
+      "write_req": 0,
+      "write_ack": 0,
+      "write_finish": 0,
+      "write_state": 2,
+      "write_req_sync": 0,
+      "fifo_clear": 0,
+      "write_ready": 1,
+      "read_empty": 0
+    },
+    "audio": {
+      "first_pcm_crc": "9DC4",
+      "expected_first_pcm_crc": "9DC4",
+      "later_block_index": 4393,
+      "block_mod_1875": 643,
+      "observed_crc": "5E15",
+      "expected_crc": "5E15",
+      "underflow_count": 0
+    },
+    "sd_crc": {
+      "checked": 65535,
+      "checked_counter_saturated": true,
+      "bad": 0
+    },
+    "page4": {
+      "bmp_mapper_error": 0,
+      "wav_mapper_error": 0,
+      "wav_state": 7,
+      "wav_phase": 2,
+      "bmp_count": 4,
+      "jpeg_idle": 1
+    }
+  },
+  "golden_audio_blocks_match": true,
+  "monitor_signal_info": "Pending",
+  "hardware_root_cause": "Pending",
+  "note": "Build ID observed on digits; programmed bit file content was not read back",
+  "monitor_confirmation": {
+    "source": "User report 2026-10-23",
+    "no_signal_then_standby": true,
+    "input_information_menu_available": false,
+    "evidence": "development/video27_work/board_20261023_startup_2dba7e94/monitor_confirmation_20261023.json"
+  }
+}

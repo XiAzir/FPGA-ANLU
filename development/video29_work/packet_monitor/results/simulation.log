@@ -1,0 +1,10 @@
+PASS legal +/- tone, two consecutive packets in one island
+PASS wrong 500000 amplitude: tone_bad=1 and BCH=0
+PASS window rollover clears counters when no new packet arrives
+PASS original-audio mode does not impose tone amplitude
+PASS flipped header BCH parity detected
+PASS illegal TERC symbol detected
+PASS ACR N=6144 CTS=25000, four repeated subpackets
+PASS empty windows remain zero
+PACKET_MONITOR_PASS cases=8 window=80
+E:\VSCODE-project\FPGA-ANLU\development\video29_work\packet_monitor\tb_hdmi_packet_monitor.v:180: $finish called at 6950000 (1ps)
