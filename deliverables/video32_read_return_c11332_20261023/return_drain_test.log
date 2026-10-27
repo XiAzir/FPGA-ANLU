@@ -1,0 +1,9 @@
+BASELINE early finish at cycle 298 with 112 requested words still pending
+BASELINE early finish at cycle 568 with 216 requested words still pending
+PASS: first JPEG BL4 write overlapped pending returns baseline=213, candidate=0
+PASS: first FIFO clear snapshots baseline pending=207, candidate pending=0
+PASS: baseline_early=1 candidate_early=0 baseline_reset_pending=1 candidate_reset_pending=0
+development/video32_work/pressure_test/tb_frame_fifo_return_drain_rw.v:161: $finish called at 9586000 (1ps)
+PASS: BURST_SIZE=256 threshold is <256; at 255 words App_wr_busy blocks, then read App_rd_en starts with Sdr_busy=1 and Sdr_init_ref_vld=1; App_rd_addr=0
+PASS: observed 7 App_rd_en beat(s) during SDRAM busy/refresh window
+development/video32_work/pressure_test/tb_frame_fifo_read_pressure.v:52: $finish called at 330000 (1ps)

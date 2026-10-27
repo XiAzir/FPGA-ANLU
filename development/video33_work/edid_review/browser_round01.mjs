@@ -1,0 +1,13 @@
+const fs = await import('node:fs/promises');
+const task = await taskSpace('ANLU EDID audit 20261027');
+const page = task.page('p1');
+const url = 'https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux/+/refs/heads/master/drivers/gpu/drm/drm_edid.c';
+await page.goto(url);
+const body = await page.evaluate(() => document.body.innerText);
+const root = 'E:/VSCODE-project/FPGA-ANLU/development/video33_work/edid_review';
+await fs.writeFile(root + '/linux_drm_edid_source.txt', body, 'utf8');
+const labels = ['3 - 720x480@60Hz', '4 - 1280x720@60Hz', '5 - 1920x1080i@60Hz', '16 - 1920x1080@60Hz', '19 - 1280x720@50Hz', '34 - 1920x1080@30Hz'];
+const matches = labels.map(label => { const at = body.indexOf(label); return {label, at, excerpt: at < 0 ? null : body.slice(at, at + 340)}; });
+const result = {spaceId:task.spaceId, url:await page.url(), title:await page.title(), matches};
+await fs.writeFile(root + '/primary_mode_reference.json', JSON.stringify(result,null,2),'utf8');
+console.log(JSON.stringify(result));

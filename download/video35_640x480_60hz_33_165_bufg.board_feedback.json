@@ -1,0 +1,34 @@
+{
+  "recorded_at": "2026-10-27T11:55:50+08:00",
+  "build_id": "00C11335",
+  "status": "USER_REPORTED_STABLE_COLORBARS",
+  "evidence_source": "user_feedback",
+  "user_quote": "完整稳定彩条，仍然D3 D1 D0常亮，但这次D2的闪烁频率非常快，比前两次黑屏无信号的闪烁频率快得多",
+  "version_context": "对应C35加载提问；用户未单独复述版本页",
+  "display": "完整稳定彩条",
+  "led": {
+    "D3": "steady_on",
+    "D2": "fast_blinking_relative_to_C33_C36",
+    "D1": "steady_on",
+    "D0": "steady_on"
+  },
+  "expected_blink": "frame_count[2] has full-cycle frequency scan_fps/8; nominal C35 7.5Hz and C33/C36 1.875Hz, ratio4; actual blink period not measured",
+  "geometry": {
+    "active": [
+      640,
+      480
+    ],
+    "total": [
+      1000,
+      550
+    ],
+    "nominal_scan_fps": 60,
+    "nominal_pixel_mhz": 33,
+    "nominal_serial_mhz": 165
+  },
+  "bit": "download\\video35_640x480_60hz_33_165_bufg.bit",
+  "bit_sha256": "627f77a1dd1b19f3130f78448fb10f589954cd417d9ceb60cf49f82baa550c78",
+  "interpretation": "同接线高频PHY及该自定义60Hz栅格可被显示；C33/C36的1080p15栅格、核输出符号及接收接受情况继续核对",
+  "limits": "1080p15无信号原因未闭合；真实接收端EDID/串行波形未取证；持续时间及冷启动次数未提供",
+  "hardware_action_by_agent": "none"
+}

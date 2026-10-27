@@ -1,0 +1,74 @@
+{
+  "scope": "C41 read-only review for C42 SDRAM clock increase",
+  "production_tree_modified": false,
+  "heavy_tools_started": false,
+  "status": {
+    "spec_inference": "PLL target and refresh period derived from visible settings/macros; EM638325 Rev3.2 Table 16 values extracted",
+    "simulation": "not run",
+    "routed_timing": "C41 and C42 physical reports available; C42 routed report has negative WNS",
+    "board_test": "not run for C42; C41 normal operation is user-reported"
+  },
+  "pll_recommendation": {
+    "reference_mhz": 50,
+    "sd_card_clk_mhz": 50,
+    "ext_mem_clk_mhz": 100,
+    "ext_mem_clk_shifted_mhz": 100,
+    "shift_degrees": 144,
+    "shift_ns_at_100mhz": 4,
+    "clkc0_div_cphase": [20, 19],
+    "clkc1_div_cphase": [10, 9],
+    "clkc2_div_cphase": [10, 3],
+    "video_pixel_mhz_unchanged": 25,
+    "hdmi_5x_mhz_unchanged": 125,
+    "tf_clock_unchanged": true
+  },
+  "refresh": {
+    "macro_period_expression_c41": "1000000000/50000000",
+    "macro_period_ns_c41": 20,
+    "target_period_ns": 10,
+    "interval_expression": "64000000/SDR_CLK_PERIOD/4096-1",
+    "c41_terminal": 780,
+    "target_terminal": 1561,
+    "target_interval_cycles": 1562,
+    "interval_us": 15.62
+  },
+  "encrypted_controller_visibility": {
+    "files": ["sdr_as_ram.enc.v", "sdr_wrrd.enc.v", "sdr_init_ref.enc.v"],
+    "detailed_command_spacing_visible": false,
+    "tRC_tRCD_tRP_tWR_tRAS_cas_mrs_waits_verified": false
+  },
+  "cdc": {
+    "write_fifo": {"writer": "sd_card_clk 50 MHz", "reader": "ext_mem_clk 50 MHz -> target 100 MHz", "async_fifo": true},
+    "read_fifo": {"writer": "ext_mem_clk 50 MHz -> target 100 MHz", "reader": "video_clk 25 MHz", "async_fifo": true},
+    "frame_read_write_parameter_defaults": [0, 0],
+    "top_frame_buffer_defaults": {"read_capture_delay": 0, "read_data_delay": 1},
+    "important_checks": ["mem-to-SDRAM command/data output timing", "controller return data/valid capture phase (C41 data delay=1, valid delay=0)", "50-to-100 MHz FIFO producer/consumer and headroom", "100 MHz SDRAM read supply after refresh overhead versus 18.75 Mword/s 480p RGB888 demand", "request/ack and stable multi-bit address/length CDC", "actual routed clock constraints and exceptions"],
+    "c41_routed_timing": {"path": "development/player_video41_refresh/build/manual/AC201_tf_hdmi_pr.timing", "ext_mem_rperiod_ns": 17.380, "worst_setup_slack_ns": 8.981, "worst_path_data_delay_ns": 10.739, "worst_path_start": "write_buf/rd_addr_reg[0]", "worst_path_end": "frame_fifo_read_m0/App_rd_en_r_reg", "logic_levels": 11, "mem_to_sdram_dq_setup_slack_ns": 2.160, "mem_to_sdram_dq_data_delay_ns": 9.047, "mem_to_sdram_dq_clock_skew_ns": 3.307, "sdram_dq_to_mem_setup_slack_ns": 1.572, "sdram_dq_to_mem_data_delay_ns": 6.453, "sdram_dq_to_mem_clock_skew_ns": 4.035, "wipe_address_path_data_delay_ns": 9.360, "wipe_address_path_slack_ns": 10.360},
+    "c42_synthesis": {"path": "development/player_video42_sdram100/build/manual/AC201_tf_hdmi_gate.timing", "status": "success", "confidence": "Synthesized", "mem_clock_mhz": 100, "mem_rperiod_ns": 13.011, "mem_swns_ns": -3.011, "worst_mem_start": "write_buf/rd_addr_reg[2]", "worst_mem_end": "frame_fifo_read_m0/state_reg[2]", "worst_mem_data_delay_ns": 12.895, "worst_mem_logic_levels": 11, "mem_to_dq_slack_ns": -5.663, "mem_to_dq_data_delay_ns": 9.663, "dq_to_mem_slack_ns": -0.293, "dq_to_mem_data_delay_ns": 6.453, "wipe_address_slack_ns": -1.703, "wipe_address_data_delay_ns": 11.223},
+    "c42_routed": {"path": "development/player_video42_sdram100/build/manual/AC201_tf_hdmi_pr.timing", "status": "success", "confidence": "Routed", "overall_swns_ns": -4.428, "mem_self_swns_ns": -0.139, "mem_to_sd_swns_ns": -1.329, "sd_to_mem_swns_ns": -4.428, "dq_output_slack_ns": -2.001, "dq_input_slack_ns": -4.428},
+    "pad_output_enable_audit": {"primitive_parameters": {"TO_DFFMODE": ["NONE", "FF", "LATCH"], "TO_REGSET": ["RESET", "SET"]}, "primitive_declaration_sources": ["C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pad.v:99-100", "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/arch/eagle_macro.v:736-737"], "c42_gate_pad_instance": "sdram_syn_47 DQ PAD has DO_DFFMODE=FF, IN_DFFMODE=FF, TSMUX=INV, TO_DFFMODE omitted/default NONE; ts connects shared sdr_t register", "supported_controls_found": ["set_param gate pack_seq_in_io on", "RTL directive /* synthesis iob = true */", "ADC PackReg ON string found without complete syntax example"], "default_value": "auto", "known_limit": "No evidence pack_seq_in_io clones one shared register to 32 PAD TREGs; gate netlist and physical STA must confirm", "documented_related_command": "phys_opt -force_replication_on_nets <net> -fanout_threshold <num> (help says HFN replication; does not specify PAD TREG mapping)", "generic_pack_effort_is_force": false},
+    "clock_forwarding_oddr_candidate": {"primitive": "EG_LOGIC_ODDR", "template": "C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/template/verilog/Device-Primitive/EG4/I,O/eg4_i_o.v", "d0": "posedge half-cycle value", "d1": "negedge half-cycle value", "constant_clock_candidate": "d0=1,d1=0", "direct_sdram_reference_found": false, "needs_routed_sta": true},
+    "routed_phase_first_order": {"current_phase_ns": 4, "dq_output_slack_ns": -2.001, "dq_input_slack_ns": -4.428, "output_nonnegative_requires_phase_ns_at_least": 6.001, "input_nonnegative_requires_phase_ns_at_most": -0.428, "estimated_gap_ns": 6.429, "caution": "fixed-path-delay same-capture-cycle estimate; phase 9 with a verified next-edge data capture is a distinct multicycle candidate"},
+    "phase9_multicycle_candidate": {"pll": {"clkc2_div": 10, "clkc2_cphase": 8, "phase_degrees": 324, "phase_ns": 9}, "input_pad_clock": "INPCLKMUX=CLK, rising mem edge", "dq_output_slack_estimate_ns": 2.999, "dq_setup_multicycle": 2, "dq_input_slack_estimate_ns": 0.572, "edge_pair": {"pll_shift_edge_n_ns": 9, "routed_sdram_clk_pin_edge_estimate_ns": 14.568, "dq_max_arrival_estimate_ns": 19.568, "input_pad_data_arrival_estimate_ns": 21.021, "mem_input_ff_edge_nplus1_ns": 20, "routed_mem_capture_clock_estimate_ns": 21.366, "next_pll_shift_edge_nplus1_ns": 19, "next_sdram_clk_pin_edge_estimate_ns": 24.568, "next_data_min_transition": "checked by routed MCP hold path using the 1ns input min delay; board skew remains unmodeled"}, "hold_exception": "No extra -hold 1; routed hold source9/capture10 is the periodic equivalent of next beat source19/capture20", "frame_buffer_capture_delay_current": {"valid": 0, "data": 1}, "frame_buffer_data_delay_zero": "gate/model beat+valid comparison required", "status": "routed STA completed; gate/EM638325 functional verification pending"},
+    "phase9_timing_audit": {"report": "development/video42_work/spec_review/phase9_timing_exception_audit.md", "mcp_setup_total": 32, "mcp_setup_dominated": 32, "mcp_setup_shadowed": 0, "mcp_setup_ignored": 0, "dq_setup_slack_ns": 0.572, "dq_hold_slack_ns": 3.392, "hold_report_pair_ns": "source9/capture10; periodic equivalent source19/capture20", "abnormal_input_delay_bits": 32, "abnormal_delay_values_ns": {"max": 5, "min": 1}, "global_routed_setup_wns_ns": 0.285, "global_routed_hold_wns_ns": 0.037},
+    "candidate_selection": {"active_review_candidate": "phase9/data0/setup_multicycle_2_only", "status": "routed STA complete; gate/EM638325 functional verification pending"},
+    "startup_refresh_gate": {"production_source": "development/player_video42_sdram100/src/user_source/hdl_source/SD/sdram.v", "production_source_sha256": "131A14483969DD0AB59E2E53DCE835F2AC2DCD9E923F70FA8494F10E4D4428BC", "testbench": "development/video42_work/spec_review/tb_startup_refresh_gate.sv", "testbench_status": "prepared; not run", "dut": "production sdram.v with raw-event sdr_as_ram stub and nonfunctional PHY stub", "coverage": ["initialization ref_valid fall excluded", "one periodic AREF completion does not release ready", "two periodic AREF completions release ready", "reset aborts partial qualification and restart requires two fresh completions"]},
+    "pad_probe_script": {"script": "development/video42_work/spec_review/pad_probe/pad_probe.tcl", "readme": "development/video42_work/spec_review/pad_probe/README.md", "input_gate_db": "development/player_video42_sdram100/build/manual/AC201_tf_hdmi_gate.db", "input_db_modified": false, "status": "disabled historical TOFF candidate; not run and excluded from delivery manifest", "output_root": "development/video42_work/spec_review/pad_probe/<rising|falling>/"},
+    "device_timing_100mhz": {"tWR_unit": "tCK", "tWR_cycles": 2, "tWR_ns": 20, "tWR_note": "Table 16 merged unit cell shared with tCCD; tWR=2 tCK"},
+    "wipe_equivalence": {"script": "development/video42_work/spec_review/check_wipe_address_equivalence.py", "status": "PASS", "cases": 10240, "actual_frame_words": 230400, "actual_max_cut_absolute": 460800, "address_space": 2097152}
+  },
+  "sources": {
+    "engineering_project": "development/player_video41_refresh",
+    "pll_verilog": "src/user_source/hdl_source/IP/sys_pll.v",
+    "pll_ipc": "src/user_source/hdl_source/IP/sys_pll.ipc",
+    "global_def": "src/user_source/hdl_source/include/global_def.v",
+    "sdram_wrapper": "src/user_source/hdl_source/SD/sdram.v",
+    "top": "src/user_source/hdl_source/top_tf_hdmi_audio.v",
+    "fifo_and_controller_interface": "src/user_source/hdl_source/SD/frame_read_write.v",
+    "write_scheduler": "src/user_source/hdl_source/SD/frame_fifo_write.v",
+    "read_scheduler": "src/user_source/hdl_source/SD/frame_fifo_read.v",
+    "constraints": "src/user_source/constraints_source/timing.sdc",
+    "device_pdf": "E:/QQ CACHE/Download/安路资料/开发记录/专题记录/视频播放实现_C11319_20261021/C11341_SDRAM刷新修复_20261027/参考资料/EM638325_Rev3.2_Etron_官方.pdf",
+    "vendor_controller_excerpt": "development/video34_work/sdram_contract_excerpt.json"
+  }
+}

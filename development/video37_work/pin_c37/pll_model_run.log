@@ -1,0 +1,47 @@
+Reading E:/ModelsimSE/tcl/vsim/pref.tcl 
+
+# 10.1c
+
+# vsim -do {onerror {quit -code 2 -f}; run -all; quit -code 0 -f} -c -modelsimini E:/VSCODE-project/FPGA-ANLU/development/video37_work/pin_c37/modelsim.ini -novopt work.tb_pll_lock_model work.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video37_work/pin_c37/work_143559.tb_pll_lock_model
+# Loading sv_std.std
+# Loading work.tb_pll_lock_model
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video37_work/pin_c37/work_143559.video_pll
+# Loading work.video_pll
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video37_work/pin_c37/work_143559.EG_LOGIC_BUFG
+# Loading work.EG_LOGIC_BUFG
+# Loading work.EG_PHY_PLL
+# Loading work.eg_dphase_sel
+# Loading work.prediv_mux
+# Loading work.eg_pll_div2
+# Loading work.eg_clko_premux
+# Loading work.eg_pll_div128
+# Loading work.eg_clko_ctrl
+# Loading work.glbl
+# ** Warning: (vsim-3015) development/player_video37_open_tx/src/user_source/hdl_source/IP/video_pll.v(66): [PCDPC] - Port size (5 or 5) does not match connection size (1) for port 'load_reg'. The port definition is at: C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v(25).
+# 
+#         Region: /tb_pll_lock_model/dut/pll_inst
+# onerror {quit -code 2 -f} 
+#  Warning: onerror command for use within macro
+#  run -all 
+# ******************** : The Attribute            REFCLK_DIV on pll instance tb_pll_lock_model.dut.pll_inst.para_int_range_chk is set to           2.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             FBCLK_DIV on pll instance tb_pll_lock_model.dut.pll_inst.para_int_range_chk is set to          33.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC0_DIV on pll instance tb_pll_lock_model.dut.pll_inst.para_int_range_chk is set to          25.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC1_DIV on pll instance tb_pll_lock_model.dut.pll_inst.para_int_range_chk is set to           5.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC2_DIV on pll instance tb_pll_lock_model.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC3_DIV on pll instance tb_pll_lock_model.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC4_DIV on pll instance tb_pll_lock_model.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# PLL_NO_RESET locked=0 fakecount=xxxx internal_lock=1 lock_count= 513 period_difference=0.000000
+# PLL_AFTER_RESET locked=1 fakecount=0110 internal_lock=1 lock_count=  33 period_difference=0.000000
+# PLL_MODEL_RESET_INITIALIZATION_REPRODUCED
+# ** Note: $finish    : development/video37_work/tb_pll_lock_model.sv(21)
+#    Time: 20200 ns  Iteration: 0  Instance: /tb_pll_lock_model

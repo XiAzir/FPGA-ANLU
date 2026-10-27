@@ -1,0 +1,137 @@
+{
+  "audit_id": "C30-C29-probe-removal-boundary-20261023",
+  "date_local": "2026-10-23",
+  "status": "completed_static_review",
+  "scope": {
+    "read_only_sources": [
+      "development/player_video29_media_flow/src/user_source/hdl_source/top_tf_hdmi_audio.v",
+      "development/player_video29_media_flow/src/user_source/hdl_source/player_audio_probe.v",
+      "development/player_video29_media_flow/src/user_source/hdl_source/player_video_source_probe.v",
+      "development/player_video29_media_flow/src/user_source/hdl_source/player_memory_runtime_probe.v",
+      "development/player_video29_media_flow/src/user_source/hdl_source/player_pcm_crc_probe.v",
+      "development/player_video29_media_flow/src/user_source/hdl_source/hdmi_packet_monitor.v",
+      "development/player_video29_media_flow/src/user_source/hdl_source/player_compact_status_pages.v",
+      "development/player_video29_media_flow/src/user_source/hdl_source/player_adjust_control.v",
+      "development/player_video29_media_flow/src/user_source/hdl_source/player_dynamic_text.v",
+      "development/player_video29_media_flow/src/user_source/hdl_source/SD/sd_card_cmd.v",
+      "development/player_video29_media_flow/src/user_source/hdl_source/frame_buffer_rgb888.v"
+    ],
+    "synthesis_artifact": "development/player_video29_media_flow/build/manual/AC201_tf_hdmi_gate.area",
+    "not_performed": ["source edits", "TD", "large simulation", "hardware operation"]
+  },
+  "freeze_context": {
+    "c29_build": "00C11329",
+    "user_feedback": "C29 five mode switches and three video replays reported normal; preserve C29 source/bit as frozen reference.",
+    "interpretation": "This audit recommends only future C30 changes in its independent candidate. It makes no C29 source, bitstream, or package changes."
+  },
+  "preserve_product_behavior": [
+    {
+      "behavior": "Internal tone selection and WAV audio playback",
+      "implementation": "player_adjust_control.tone_press -> player_video_source_probe.tone_toggle -> player_audio_probe.tone_mode mux; wav_pcm_bridge, tone generator, audio_valid/audio data and ACR outputs feed HDMI audio input.",
+      "recommendation": "Keep tone event path, tone generator, WAV bridge, audio mux, and HDMI audio interface. Rename debug_tone_press/debug_tone_mode/probe_tone_toggle to functional names in C30 if touching these nets."
+    },
+    {
+      "behavior": "RGB valid gate",
+      "implementation": "player_video_source_probe.rgb_out returns raw BMP RGB only when bmp_valid, otherwise black; probe_mode is reset low and key0_n_async is tied high at the top, so its test-pattern toggle request is unreachable in this integration.",
+      "recommendation": "Keep equivalent gate: vout_data_base = osd_frame_valid ? vout_data_raw : 24'h000000. Remove the probe wrapper, unreachable probe-mode state/test-pattern mux, unused key0_active output, and its constant-high synchronizer input. Preserve dynamic text overlay; its probe_mode label input can be tied low or removed while retaining timer/text behavior."
+    },
+    {
+      "behavior": "Physical key semantics",
+      "implementation": "player_adjust_control drives short next/auto requests, long-press mode/brightness/contrast/tone events and chord events for waveform/video mode. Its debug_state is a read-only packed snapshot.",
+      "recommendation": "Keep the complete control classifier and event outputs. Remove only debug_state output/adjust_debug_state wire when diagnostic pages are removed. Keep key1/key2 top-level pins and the mailbox/ack paths."
+    },
+    {
+      "behavior": "Four LED feedback outputs",
+      "implementation": "player_audio_probe owns LED sticky-event bits and half-second tone-mode blink; led is a top-level physical output.",
+      "recommendation": "Keep LED behavior and required state. Do not delete player_audio_probe as one unit. If the product no longer needs a given LED indication, remove that indicator only after explicitly changing the intended LED behavior."
+    }
+  ],
+  "remove_candidates": [
+    {
+      "candidate": "u_memory_runtime_probe and module player_memory_runtime_probe",
+      "pure_observation": true,
+      "evidence": "All outputs only feed diagnostic pages 5/6; its state never feeds video, memory, SD, audio, or reset control.",
+      "top_signals": ["memory_probe_page5", "memory_probe_page6_tail", "memory_app_read", "memory_read_valid", "memory_read_word", "memory_app_write", "memory_write_word", "memory_read_state", "memory_fifo_clear", "memory_underflow", "debug_memory", "diag_mem_sync0", "diag_mem_sync1"],
+      "resource_from_gate_area": {"lut": 115, "ripple": 20, "seq": 113, "bram": 0, "dsp": 0},
+      "control_impact_basis": "The probe consumes tapped read/write/status signals and only emits page values. No output has a control consumer. Keep the underlying frame buffer operational signals and remove only diagnostic taps/logic."
+    },
+    {
+      "candidate": "u_pcm_crc_probe and module player_pcm_crc_probe",
+      "pure_observation": true,
+      "evidence": "CRC/count outputs feed page display and snapshots only; audio_valid/audio_left/audio_right are observed in parallel.",
+      "top_signals": ["pcm_first_crc", "pcm_last_crc", "pcm_crc_block", "pcm_observed_samples", "pcm_crc_snapshot", "pcm_block_snapshot", "pcm_count_snapshot", "diag_page_previous"],
+      "resource_from_gate_area": {"lut": 125, "ripple": 0, "seq": 149, "bram": 0, "dsp": 0},
+      "control_impact_basis": "No CRC output returns to the WAV bridge, audio mux, HDMI core, or any player state machine. pcm_count_snapshot is assigned but never consumed and is dead source state."
+    },
+    {
+      "candidate": "u_packet_monitor and module hdmi_packet_monitor",
+      "pure_observation": true,
+      "evidence": "It decodes the already-generated TMDS channel buses; outputs are only status-page fields.",
+      "top_signals": ["packet_samples", "packet_bch", "packet_terc", "packet_tone", "packet_cts", "packet_n", "packet_flags", "packet_bch_sat", "packet_terc_sat", "packet_tone_sat"],
+      "resource_from_gate_area": {"lut": 446, "ripple": 31, "seq": 346, "bram": 0, "dsp": 0},
+      "control_impact_basis": "No monitor output fans into TMDS generation, ACR calculation, audio validity, video validity, reset, or playback control."
+    },
+    {
+      "candidate": "C29 status display chain",
+      "instances": ["u_status_pages", "u_status_hex"],
+      "pure_observation": true,
+      "evidence": "The chain selects diagnostic/version words and serially drives the 595 display. Top-level seg7 pins have no control consumers.",
+      "resource_from_gate_area": {"u_status_pages": {"lut": 3, "seq": 3}, "u_status_hex": {"lut": 323, "seq": 82}},
+      "control_impact_basis": "Removing the page mux/595 path leaves the media and key state machines without inputs changed. The board's numeric diagnostic feedback and version display are lost."
+    },
+    {
+      "candidate": "SD read CRC observer counters",
+      "location": "SD/sd_card_cmd.v read_crc16/read_crc_hi/read_crc_checked/read_crc_bad observer block; sd_card_top outputs and top page-2 sync/page display",
+      "pure_observation": true,
+      "resource_from_gate_area": {"parent_sd_card_top_lut": 459, "parent_sd_card_top_seq": 242, "observer_subtotal": "not independently reported"},
+      "control_impact_basis": "The source comment marks CRC16 as passive; the comparator only increments read_crc_bad and does not gate data delivery, SPI transaction completion, or the read FSM. The complete sd_card_cmd parent must remain."
+    },
+    {
+      "candidate": "Top-level diagnostic counters/registers unused by media control",
+      "signals": ["audio_underflow_count", "underflow_count_snapshot", "wav_first_wait_cycles", "wav_max_first_wait_cycles", "wav_first_wait_active", "wav_read_previous", "diag_wav_started", "wav_fifo_lowwater"],
+      "pure_observation": true,
+      "evidence": "These state values only populate a diagnostic page or have no consumer. wav_first_wait_* and wav_fifo_lowwater have no read consumer in the audited top; synthesis may already remove them.",
+      "control_impact_basis": "Their only observed endpoints are status registers/pages; no feedback into audio sample_take, file reads, key control, or reset."
+    },
+    {
+      "candidate": "Read-only debug ports on frame_buffer_rgb888",
+      "ports": ["debug_memory", "debug_app_read", "debug_read_valid", "debug_read_word", "debug_app_write", "debug_write_word", "debug_read_state", "debug_fifo_clear", "debug_underflow"],
+      "pure_observation": true,
+      "evidence": "Ports are assignments/taps for u_memory_runtime_probe and status pages. Keep their underlying operational nets where they drive the frame logic; remove only debug port aliases after deleting the observers.",
+      "resource_from_gate_area": "Included in u_memory_runtime_probe and possible top/frame-buffer flattening; no isolated port cost is reported."
+    },
+    {
+      "candidate": "status-only debug buses and output ports",
+      "signals": ["card_debug_state", "card_command_debug", "adjust_debug_state", "sd_crc_checked", "sd_crc_bad", "diag_page_b", "diag_page_c", "diag_page_d", "diag_sd_words", "diag_selected_sd", "diag_page_sync0", "diag_page_sync1", "diag_mem_sync0", "diag_mem_sync1", "diag_sd_sync0", "diag_sd_sync1"],
+      "pure_observation": true,
+      "evidence": "Their only consumers are page assembly, synchronization for display, or unused diagnostics after status chain removal.",
+      "control_impact_basis": "The producers' operational outputs remain connected to the same media controller; discard only status outputs/aliases."
+    }
+  ],
+  "debug_named_but_functional": [
+    {"signal": "debug_tone_press", "functional_role": "long-press event from player_adjust_control; toggles real WAV/tone source selection via the audio probe wrapper."},
+    {"signal": "probe_tone_toggle", "functional_role": "carries the tone selection event into player_audio_probe.tone_mode."},
+    {"signal": "debug_tone_mode", "functional_role": "actual selected audio source state; consumed by PCM waveform renderer and packet monitor tone checking, as well as diagnostic context."},
+    {"signal": "debug_wav_state/debug_wav_phase/debug_wav_pos/debug_wav_byte", "functional_role": "names are diagnostic; only status/debug monitor taps. They do not control playback in top."},
+    {"signal": "debug_memory and frame_buffer_rgb888 debug_* ports", "functional_role": "read-only instrumentation taps, safe removal after removing dependent observer."},
+    {"signal": "player_video_source_probe.rgb_out", "functional_role": "despite the module name, implements the pixel-valid black gate in addition to an unreachable test pattern; preserve the gate, remove the wrapper/test-only branch."}
+  ],
+  "area_notes": {
+    "artifact": "AC201_tf_hdmi_gate.area",
+    "reported_major_observers": ["u_packet_monitor", "u_pcm_crc_probe", "u_memory_runtime_probe", "u_status_hex"],
+    "not_an_attribution": "These are per-instance hierarchy area values from the C29 gate report; synthesis may share, flatten, or remove logic after edits, so C30 needs a fresh build before claiming actual savings.",
+    "video_source_probe": "No separate u_video_source_probe row appears in this gate hierarchy report. Its key synchronizer/test-pattern path is constant or optimized in the integrated build; only source inspection confirms the surviving functional valid gate requirement."
+  },
+  "recommended_c30_cut_order": [
+    "Remove u_packet_monitor, u_pcm_crc_probe, and u_memory_runtime_probe plus their diagnostic-only CDC/snapshot buses.",
+    "Remove SD CRC observer counters and output plumbing if status page 2 and CRC reports are retired; keep sd_card_cmd read/command operation intact.",
+    "Remove C29 compact status pages and status_hex595 when C30 no longer needs serial numeric diagnosis; this also removes the segment output display behavior.",
+    "Replace u_video_source_probe with the direct RGB valid gate and delete its unreachable test-pattern/key0 state.",
+    "Trim diagnostic-only audio status if desired while preserving the documented tone/WAV selection, ACR/LED behavior, and event semantics."
+  ],
+  "validation_limits": [
+    "Static connectivity and existing C29 area report only; no equivalence proof for a future C30 edit.",
+    "Area savings are expected from hierarchy counts, not guaranteed post-synthesis values.",
+    "C29 five switches/three replays are user-reported and treated as freeze context, not independently retested in this audit."
+  ]
+}

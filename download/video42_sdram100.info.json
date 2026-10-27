@@ -1,0 +1,50 @@
+{
+  "status": "OFFLINE_VERIFIED_BOARD_PENDING",
+  "build_id": "00C11342",
+  "created_utc": "2026-10-27T14:44:33.505143+00:00",
+  "filename": "video42_sdram100.bit",
+  "bit_sha256": "bf8e700b9a046576b0ceec99a37085137e31ba0ef6fee44e3401905a76ba6059",
+  "bit_bytes": 634280,
+  "purpose": "SDRAM升至100MHz，按8ns转发相位对齐读数据；补齐初始化刷新就绪条件，简化FIFO写入仲裁。",
+  "board_result": "PENDING",
+  "clocks_hz": {
+    "tf_spi_data": 25000000,
+    "sd_logic": 50000000,
+    "sdram": 100000000,
+    "pixel": 25000000,
+    "serializer": 125000000
+  },
+  "sdram_forward_phase_ns": 8,
+  "sdram_read_data_delay_cycles": 0,
+  "timing_ns": {
+    "setup_wns": 0.285,
+    "setup_tns": 0.0,
+    "hold_wns": 0.037,
+    "hold_tns": 0.0
+  },
+  "resources": {
+    "lut": 17004,
+    "reg": 8701,
+    "logic_elements": 17035,
+    "bram": 62,
+    "dsp": 26,
+    "slices": 8884,
+    "slice_percent": 90.65306122448979
+  },
+  "timing_scope": "Final routed hold-stage evidence; board I/O behavior and full media playback require separate confirmation.",
+  "runtime_pages": {
+    "00C11342": "版本",
+    "C000xxxx": "TF已校验扇区计数",
+    "E000xxxx": "TF CRC不一致扇区计数"
+  },
+  "source_scope_hash": "d87973e91e4d777ae015d14b62ae1eb8ce1554358352ac249ff4c94d601b91f2",
+  "final_routed_netlist_sha256": "437d44141607624e94ad9d04bea60f8eca6eec0d2d034d92573c8eec0230097c",
+  "final_routed_db_sha256": "3556b5a1e17d7dee9db6d19fba741e1f02cc33b9e5e72b07e44dba3270bae991",
+  "offline_checks_sha256": "ecad5c57cb65950ea1c558848f5001a26dfc42fd019b109a6767784ed17965b2",
+  "final_stage_binding_sha256": "117f0e1a9ceed5ee214c604db3d5f50f622416bb106dd589763dbb2c6e6787ab",
+  "rollback_bit_sha256": "f572afe5baa74dc61df58132c172298690c92171d5c631630fec6b02d3c6b7ac",
+  "outstanding": [
+    "C42整机实板图片、视频、音频与模式切换验证",
+    "冷启动与长期运行验证"
+  ]
+}

@@ -1,0 +1,167 @@
+Table of Contents
+-----------------
+1. checking no clock(0) (HIGH)
+2. checking clock definition(0) (HIGH)
+3. checking dummy node(2) (HIGH)
+4. checking invalid constraint(0) (HIGH)
+5. checking pll/clock buffer clock constraints(0) (HIGH)
+6. checking combinational loops(0) (HIGH)
+7. checking soft fifo timing exception constraints(0) (HIGH)
+8. checking no path constraints(0) (MEDIUM)
+9. checking shadowed/ignored timing exception constraints(0) (MEDIUM)
+10. checking no input delay(1) (MEDIUM)
+11. checking no output delay(11) (MEDIUM)
+12. checking partial input delay(0) (MEDIUM)
+13. checking partial output delay(0) (MEDIUM)
+14. checking abnormal input delay(0) (MEDIUM)
+
+
+1. checking nets with no clock driven. (HIGH)
+---------------------------------------------
+2. checking clock definition problems. (HIGH)
+---------------------------------------------
+2.1 There are 0 leaf clock pins driven by multiple clocks. (HIGH)
+
+
+2.2 There are 0 clocks created on internal clock network. (HIGH)
+
+
+2.3 There are 0 unexpandable clock sets. (HIGH)
+
+
+2.4 There are 0 local clocks. (HIGH)
+
+
+2.5 There are 0 generated clocks that are not connected to their master clocks. (HIGH)
+
+
+3. checking dummy nodes. (HIGH)
+---------------------------------------------
+There are 2 nodes are dangling. (HIGH)
+
+DummyNode in Model: EG_PHY_LSLICE
+	u_hdmi_phy/u0_lane_lvds_8_1/S_pending_data_reg[8]_syn_4.c[0]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[5]_syn_4.c[0]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_oddr_data_reg[1]_syn_4.c[0]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[5]_syn_4.c[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_5.c[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_6.c[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_7.c[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_8.c[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_9.c[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_10.c[1]
+	u_hdmi_phy/u0_lane_lvds_8_1/S_pending_data_reg[8]_syn_4.b[0]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[5]_syn_4.b[0]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_oddr_data_reg[1]_syn_4.b[0]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[5]_syn_4.b[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_5.d[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_6.d[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_7.d[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_8.d[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_9.d[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_10.d[1]
+	u_hdmi_phy/u0_lane_lvds_8_1/S_pending_data_reg[8]_syn_4.d[0]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[5]_syn_4.d[0]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_oddr_data_reg[1]_syn_4.d[0]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[5]_syn_4.d[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_5.b[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_6.b[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_7.b[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_8.b[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_9.b[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_10.b[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_5.mi[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_6.mi[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_7.mi[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_8.mi[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_9.mi[1]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[9]_syn_10.mi[1]
+
+DummyNode in Model: EG_PHY_MSLICE
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[7]_syn_4.c[0]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[7]_syn_4.b[0]
+	u_hdmi_phy/u2_lane_lvds_8_1/S_pending_data_reg[7]_syn_4.d[0]
+
+4. checking invalid constraints. (HIGH)
+---------------------------------------------
+There are 0 invalid constraints. (HIGH)
+
+
+5. checking PLL/buffer clocks. (HIGH)
+---------------------------------------------
+PLL/buffer inst: u_video_pll/pll_inst
+{
+	There are 0 clock pins that have no clock constraints. (HIGH)
+
+
+	There are 0 clocks whose clock frequency do not match the PLL setting. (HIGH)
+
+
+}
+
+6. checking combinational loops. (HIGH)
+---------------------------------------------
+There are 0 combinational loops. (HIGH)
+
+
+7. checking soft fifo set_max_delay constraints. (HIGH)
+---------------------------------------------
+There are 0 max-delay datapath-only paths that are part of the provided async clock paths, whereas the timing between other registers is not relaxed or ignored. (HIGH)
+
+
+8. checking no path constraints. (MEDIUM)
+---------------------------------------------
+There are 0 constraints that have no timing paths. (MEDIUM)
+
+
+9. checking path exception constraints shadowed/ignored by other constraints. (MEDIUM)
+---------------------------------------------
+
+MCP/SMD Summary
+--------------------
+
+		Max Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+
+		Min Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+
+10. checking no input delay (MEDIUM)
+--------------------------
+There is 1 input port that with no input delay specified. (MEDIUM)
+
+	rst_n
+
+11. checking no output delay (MEDIUM)
+--------------------------
+There are 11 output ports that with no output delay specified. (MEDIUM)
+
+	HDMI_CLK_P
+	HDMI_D0_P
+	HDMI_D1_P
+	HDMI_D2_P
+	led[3]
+	led[2]
+	led[1]
+	led[0]
+	seg7_dio
+	seg7_rclk
+	seg7_sclk
+
+12. checking partial input delay (MEDIUM)
+--------------------------
+There are 0 input ports with partial input delay specified. (MEDIUM)
+
+
+13. checking partial output delay (MEDIUM)
+--------------------------
+There are 0 output ports with partial output delay specified. (MEDIUM)
+
+
+14. checking abnormal set_input_delay constraints. (MEDIUM)
+---------------------------------------------
+There are 0 abnormal set_input_delay constraints. (MEDIUM)
+
+

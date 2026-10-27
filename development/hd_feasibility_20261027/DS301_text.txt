@@ -1,0 +1,1527 @@
+PAGE 1
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SALEAGLE®4S20 系列 FPGA 
+数据手册 
+ 
+上海安路信息科技股份有限公司 
+ 
+DS_301（v2.7.8）2025 年 12月 
+ 
+ 
+ 
+ 
+ 
+ 
+ALQR-7.5-11 
+
+PAGE 2
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com I 
+2025.12   
+ 
+目 录 
+目 录 ................................ .......................  I 
+1 简介 ................................ .....................  1 
+1.1 SALEAGLE®4（以下简称为EG4）S20 器件特性 ................................... 1 
+1.2 EG4S20 器件介绍 ............................................................ 2 
+2 EG4S20 架构介绍 ................................ ........... 3 
+3 EG4S20 交直流特性 ................................ ......... 3 
+4 EG4S20 内部 SDRAM ................................ ......... 3 
+5 EG4S20 FPGA 配置说明 ................................ ...... 6 
+5.1 EG4S20 配置模式 ............................................................ 6 
+5.2 FPGA I/O 引脚在配置阶段的设置 .............................................. 7 
+5.3 FPGA I/O 引脚在配置阶段的状态 ............................................. 7 
+6 引脚和封装 ................................ ............... 9 
+6.1 引脚定义 .................................................................. 9 
+6.2 IO 命名规则 ............................................................... 11 
+6.3 EG4S20NG88 FPGA 引脚列表 .................................................. 12 
+6.4 EG4S20BG256 FPGA 引脚列表 ................................................. 15 
+6.5 EG4S20CG324 FPGA 引脚列表 ................................................. 20 
+6.6 EG4S20NG88 封装尺寸 ....................................................... 26 
+6.7 EG4S20BG256 封装尺寸 ...................................................... 27 
+6.8 EG4S20CG324 封装尺寸 ...................................................... 28 
+7 订购信息 ................................ ................ 29 
+PAGE 3
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com II 
+2025.12   
+ 
+版本信息 ................................ .................. 31 
+免责声明 ................................ .................. 33 
+ 
+ 
+PAGE 4
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 1 
+2025.12   
+ 
+1 简介 
+ SALEAGLE®4（以下简称为 EG4）S20 器件特性 
+ 灵活的逻辑结构 
+ 19600 LUTs 
+ 低功耗器件 
+ 先进的55nm 低功耗工艺 
+ 静态功耗低至5mA 
+ 丰富的片内存储空间 
+ 64 块 9Kbits 嵌入式RAM(ERAM9K),16 块
+32Kbits 嵌入式RAM 
+ 64Mb SDRAM 存储空间 
+ 最大156.8Kbits 分布式RAM 
+ 可配置逻辑模块(PLBs) 
+ 优化的LUT4/LUT5 组合设计 
+ 双端口分布式存储器 
+ 支持算数逻辑运算 
+ 快速进位链逻辑 
+ 嵌入式乘法器 
+ 29 个 18 x 18 乘法器，支持9 x 9 模式 
+ 源同步输入/输出接口 
+ 输入/输出单元包含DDR 寄存器 
+ Generic DDRx1 
+ Generic DDRx2 
+ 高性能，灵活的输入/输出缓冲器 
+ 支持热插拔 
+ 可配置上拉/下拉模式 
+ 片内100Ω差分电阻 
+ 时钟资源 
+ 16 个全局时钟 
+ 4 个PLLs 用于频率综合 
+ 5 路时钟输出 
+ 分频系数1 到 128 
+ 支持5 路时钟输出级联 
+ 动态相位选择 
+ 嵌入式硬核 IP 
+ ADC 
+– 12 比特逐次逼近寄存器型（SAR） 
+– 最多8 个模拟输入 
+– 1MHz 采样速率（MSPS） 
+ 集成电压监控模块 
+ 内置环形振荡器 
+ 配置模式 
+ 主模式串行SPI(MSPI) 
+ 从模式串行(SS) 
+ 主模式并行x8(MP) 
+ 从模式并行x8(SP) 
+ JTAG 模式(IEEE-1532) 
+ 支持DUAL BOOT 和 MULTI BOOT 
+ BSCAN 
+ 兼容IEEE-1149.1 
+PAGE 5
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 2 
+2025.12   
+ 
+ 封装 
+ NG88 10mm×10mm,0.4mm pitch 
+ BG256 17mm×17mm,1.0mm pitch 
+ CG324 15mm×15mm,0.8mm pitch 
+ 
+ 
+ 
+ 
+ 
+ 
+表 1-1 EG4S20 器件资源 
+General feature EG4S20NG88 EG4S20BG256 EG4S20BG256B EG4S20CG324 
+Number of FFs 19,600 19,600 19,600 19,600 
+Number of LUTS 19,600 19,600 19,600 19,600 
+Dis-Ram bits 156,800 156,800 156,800 156,800 
+Number of ERAM (9k) 64 64 64 64 
+Number of ERAM (32k) 16 16 16 16 
+Total ERAM bits（K） 1,088 1,088 1,088 1,088 
+Number of M18x18 29 29 29 29 
+PLL 4 4 4 4 
+Low-skew GCLK 16 16 16 16 
+EM SDRAM 2Mx32bits 2Mx32bits
+ 
+- 2Mx32bits 
+User IO Banks 8 4 4 4 
+Maximum user IOs 71 193 193 215 
+ 
+表 1-2 EG4S20 FPGA 封装 
+Packages EG4S20NG88 
+EG4S20BG256、 
+EG4S20BG256B 
+EG4S20CG324 
+QFN88 (10x10, 0.4mm pitch) 71/（9+8） - - 
+BGA256 (17x17, 1.0mm pitch) - 193/（42+44） - 
+CG324 (15x15, 0.8mm pitch) - - 215/（50+54） 
+注： 
+ 71/（9+8）：用户可用IO 数/（用户可用True LVDS 对+用户可用Emulated LVDS 对） 。 
+  
+PAGE 6
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 2 
+2025.12   
+ 
+ EG4S20 器件介绍 
+安路科技的EG4S20 FPGA， 是基于安路成熟可靠的低成本、 低功耗可编程FPGA——EG4X20， 采用最
+新的3D 合封技术，与一块2M X 32bits 的SDRAM 合封而成。EG4S20 既有尺寸更小、更简单可靠的QFN
+封装， 又有用户可用IO 更多的BGA 封装。 更大的内嵌存储容量， 特别适用于大容量， 高速数据的采集、
+传输和变换等应用。 
+特色优势： 
+ 多品种，大容量的内置存储空间 
+ 内置64Mb SDRAM 存储空间，32 位数据总线宽度，最高200MHz 工作频率，最大读写带宽高达
+800MB/s。 
+ 内置64 块ERAM9K 随机读写RAM，可配置为真双口，简单双口,单口RAM 和 FIFO 工作模式，位
+宽可配置为512x18, 1Kx9, 2Kx4, 4Kx2, 8Kx1, 最高频率220MHz。 
+ 内置16 块32Kb RAM，可配置为单口RAM、双口RAM，可独立配置为2K×16 或者4K×8。 
+ 更小封装，更多IO，更利于PCB 布线的引脚排布 
+ BGA256 封装为1.0mm 引脚间距，封装尺寸17mm × 17mm。 
+ QFN88 封装为0.4mm 引脚间距，10mm × 10mm。 
+ CG324 封装为0.8mm 引脚间距，封装尺寸15mm × 15mm。 
+ 优化的引脚排布，只需要两层PCB 即可轻松使用器件所有IO。 
+ 支持简单低成本的SPI FLASH 配置；上电配置后，FLASH 可开放给用户使用。 
+ 集成多种专用IP 
+ 集成电源监控模块，可对指定BANK 电压监控。 
+ 集成内部环型振荡器。 
+ 
+PAGE 7
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 3 
+2025.12   
+ 
+2 EG4S20 架构介绍 
+同EG4X20，详情请参考《DS300_Eagle_Datasheet》。 
+3 EG4S20 交直流特性 
+同EG4X20，详情请参考《DS300_Eagle_Datasheet》。 
+4 EG4S20 内部 SDRAM 
+EG4S20 内嵌一片2M × 32bit 的SDRAM（EM638325） ，最高200MHz 工作频率，最大读写带宽高达
+800MB/s。SDRAM 与 FPGA 通过软件深度整合，所以如果要使用SDRAM，只需要在IP generate 中例化，
+或者在顶层实例化如下IP 模块即可。该IP 的原型如下： 
+EG_PHY_SDRAM_2M_32  U_EG_PHY_SDRAM_2M_32( 
+.clk(CLK),       // SDRAM时钟 1bit位宽 
+.ras_n(RAS_N),   // SDRAM 行选通 1bit位宽 
+.cas_n(CAN_N),  //SDRAM列选通 1bit位宽 
+.we_n(WE_N),   //SDRAM写使能 1bit位宽 
+.addr(SA),       //SDRAM地址 11bits位宽 
+.ba(BA),        // SDRAM BANK地址 2bits位宽 
+.dq(DQ),        //SDRAM 数据 32bits位宽 
+.cs_n(CS_N),      //SDRAM片选 1bit位宽 低有效 
+.cke(CKE),      //SDRAM 时钟使能 1bit位宽 
+.dm0(DM0),        //SDRAM数据屏蔽0 1bit位宽 
+.dm1(DM1),        //SDRAM数据屏蔽1 1bit位宽 
+.dm2(DM2),        //SDRAM数据屏蔽2 1bit位宽 
+.dm3(DM3)         //SDRAM数据屏蔽3 1bit位宽 
+); 
+ 
+PAGE 8
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 4 
+2025.12   
+ 
+表 4-1 SDRAM 引脚分配 
+SDRAM 引脚名称 SDRAM 引脚描述 引脚连接 
+DQ0 数据脚0 与IP 相连 
+DQ1 数据脚1 与IP 相连 
+DQ2 数据脚2 与IP 相连 
+DQ3 数据脚3 与IP 相连 
+DQ4 数据脚4 与IP 相连 
+DQ5 数据脚5 与IP 相连 
+DQ6 数据脚6 与IP 相连 
+DQ7 数据脚7 与IP 相连 
+DQ8 数据脚8 与IP 相连 
+DQ9 数据脚9 与IP 相连 
+DQ10 数据脚10 与IP 相连 
+DQ11 数据脚11 与IP 相连 
+DQ12 数据脚12 与IP 相连 
+DQ13 数据脚13 与IP 相连 
+DQ14 数据脚14 与IP 相连 
+DQ15 数据脚15 与IP 相连 
+DQ16 数据脚16 与IP 相连 
+DQ17 数据脚17 与IP 相连 
+DQ18 数据脚18 与IP 相连 
+DQ19 数据脚19 与IP 相连 
+DQ20 数据脚20 与IP 相连 
+DQ21 数据脚21 与IP 相连 
+DQ22 数据脚22 与IP 相连 
+DQ23 数据脚23 与IP 相连 
+DQ24 数据脚24 与IP 相连 
+DQ25 数据脚25 与IP 相连 
+DQ26 数据脚26 与IP 相连 
+DQ27 数据脚27 与IP 相连 
+DQ28 数据脚28 与IP 相连 
+DQ29 数据脚29 与IP 相连 
+DQ30 数据脚30 与IP 相连 
+DQ31 数据脚31 与IP 相连 
+SA0 地址脚0 与IP 相连 
+SA1 地址脚1 与IP 相连 
+SA2 地址脚2 与IP 相连 
+PAGE 9
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 5 
+2025.12   
+ 
+SDRAM 引脚名称 SDRAM 引脚描述 引脚连接 
+SA3 地址脚3 与IP 相连 
+SA4 地址脚4 与IP 相连 
+SA5 地址脚5 与IP 相连 
+SA6 地址脚6 与IP 相连 
+SA7 地址脚7 与IP 相连 
+SA8 地址脚8 与IP 相连 
+SA9 地址脚9 与IP 相连 
+SA10 地址脚10 与IP 相连 
+BA0 BANK 地址脚0 与IP 相连 
+BA1 BANK 地址脚1 与IP 相连 
+WE_N 写使能 与IP 相连 
+RAS_N 行选通 与IP 相连 
+CAS_N 列选通 与IP 相连 
+CLK 芯片时钟 与IP 相连 
+CS_N 片选 固定拉低 
+DM0 数据 0-7 屏蔽 固定拉低 
+DM1 数据 8-15 屏蔽 固定拉低 
+DM2 数据 16-23 屏蔽 固定拉低 
+DM3 数据 24-31 屏蔽 固定拉低 
+CKE 时钟使能 固定拉高 
+  
+PAGE 10
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 6 
+2025.12   
+ 
+5 EG4S20 FPGA 配置说明 
+EAGLE FPGA 支持的配置方式，分别是从动串行，从动并行，主动并行，MSPI 模式和 JTAG 配置模
+式。配置模式由M[1:0]的模式选择信号来选择，具体选择关系见下表。 
+EAGLE 系列 FPGA 配置位流长度4.8M～6M bits，位流长度与ERAM 初始化数据长度相关，需要配置
+芯片容量大于或等于6M bits。 配置芯片可以使用工业标准串行SPI 接口FLASH， 比如M25Pxx、SST25LFxxx
+和 S25FLxxx 等。EAGLE FPGA 支持读命令为0X03 的SPI FLASH。 
+ EG4S20 配置模式 
+表 5-1 EG4S20 配置模式及引脚 
+配置模式 
+配置引脚 类型 
+SS SP MSPI MP 
+JTAG 从动串行
+Slave 
+serial 
+从动并行
+Slave 
+Parallel 
+标准SPI 
+Master SPI 
+Standard 
+主动并行
+Master 
+Parallel 
+(X8) 
+M[1:0] 复用 11 10 01 00 XX 
+PROGRAM_B 复用 PROGRAM_B - 
+INIT_B 复用 INIT_B - 
+DONE 复用 DONE - 
+CCLK 复用 CCLK - 
+MOSI_CSI_B 复用 - CSI_B MOSI CSI_B - 
+CSO_B 复用 - - CSO_B - - 
+TMS TCK 
+TDO TDI 
+复用 - - - - 
+TMS TCK 
+TDO TDI 
+D[7:2] 复用 - D[7:2] - D[7:2] - 
+D[1] 复用 - D[1] - D[1] - 
+D[0]_DIN_MISO 复用 DIN D[0] MISO D[0] - 
+  
+PAGE 11
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 7 
+2025.12   
+ 
+ FPGA I/O 引脚在配置阶段的设置 
+在配置阶段， 一些FPGA 引脚有专用的上拉/下拉电阻。 大部分的用户I/O 引脚在配置过程中有可选
+的上拉电阻。在配置过程中由HSWAPEN 信号来决定I/O 引脚上是否使能上拉电阻。 
+ FPGA I/O 引脚在配置阶段的状态 
+ 非配置相关IO 
+芯片上电完成后到程序加载完成前，非配置相关IO 的状态受HSWAPEN 脚控制可以为弱上拉或者高
+阻态。 
+在EG4S20 器件中，HSWAPEN 为 0 时，用户I/O 管脚在配置过程中为弱上拉状态；HSWAPEN 为1 时，
+用户I/O 处于高阻态。 
+进入用户模式之后，用户使用的IO 脚状态受代码控制，未使用的管脚为弱上拉状态。 
+ 在EG4S20 器件中，HSWAPEN 是一个I/O 引脚，默认为弱上拉，引脚设置相关如下表所示。 
+表 5-2 EG4S20 Pin Termination 
+Pin 
+Pre-configuration 
+Post-configuration 
+HSWAPEN=0(enable) HSWAPEN=1(disable) 
+M[1:0] Pull-up to Vccio Pull-up to Vccio User I/O 
+PROGRAM_B Pull-up to Vccio Pull-up to Vccio 软件ProgPin 设置 
+INIT_B Pull-up to Vccio Pull-up to Vccio User I/O 
+DONE Pull-up to Vccio Pull-up to Vccio 软件DonePin 设置 
+CCLK Pull-up to Vccio Pull-up to Vccio 软件SpiPin 设置 
+MOSI_CSI_B
+1
+ Pull-down to Gnd Pull-down to Gnd 软件SpiPin 设置 
+TMS TCK TDO TDI Pull-up to Vccio Pull-up to Vccio 软件JtagPin 设置 
+D[7:1] Pull-up to Vccio Pull-up to Vccio User I/O 
+D[0]_DIN_MISO Pull-up to Vccio Pull-up to Vccio 软件SpiPin 设置 
+CSO_B Pull-up to Vccio Pull-up to Vccio 软件SpiPin 设置 
+HSWAPEN Pull-up to Vccio Pull-up to Vccio User I/O 
+Others Pull-up to Vccio High-Z User I/O 
+注： 
+ EG4S20 器件的MOSI_CSI_B 信号在JTAG 加载模式、SS 模式和MSPI 模式时不能为上拉状态。 
+  
+PAGE 12
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 8 
+2025.12   
+ 
+ EG4S20 器件的以下管脚如果在代码中设置为 output 或 inout 类型，在加载时不能一直保持高阻
+态， 会输出高脉冲或者低脉冲信号。 如果用户在加载时对管脚状态有要求， 需要尽量避开这些管脚，
+或是通过软件设置进行规避，具体参考《TR303_EG4X20 N9 IO 上电不可控问题分析》。 
+表 5-3 EG4S20 器件在配置期间不受控引脚列表 
+DEVICE PIN NAME 
+EG4S20NG88 - 
+EG4S20BG256 
+EG4S20BG256B 
+L13,M13,L14,M14,K15,R1,P9,R14,R12,M10,P11,L10 
+EG4S20CG324 M14, L14, L15,M16,L16,P18,L5,V9,V14,V15,U15,T15,V16 
+ 
+PAGE 13
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 9 
+2025.12   
+ 
+6 引脚和封装 
+ 引脚定义 
+表 6-1 引脚定义规则 
+引脚名称 方向 描述 
+电源地 
+NC － 无连接 
+GND － 电源地 
+GND_EPAD － 芯片地PAD 
+VCC － 内部核心模块电源 
+VCCIO － I/O 组电源 
+VCCAUX － 辅助电源 
+GND_PLLAx － PLL 地 
+JTAG 专用引脚 
+TCK 输入 TCK 输入边界扫描时钟 
+TDI 输入 边界扫描数据输入 
+TDO 输出 边界扫描数据输出 
+TMS 输入 边界扫描模式选择 
+配置引脚 
+MOSI_CSI_B 输入 
+MOSI：MSPI 模式下数据输出引脚，连接到SPI Flash 数据输入
+引脚 
+CSI_B：并行下载模式片选信号，低有效 
+D0_DIN_MISO 输入 
+D0：并行模式下配置数据输入引脚 
+DIN：串行模式下配置数据输入引脚 
+MISO：MSPI 模式下的数据输入引脚 
+M[1:0] 输入 下载模式选择 
+PROGRAM_B 输入 全局复位输入，低有效 
+CCLK I/O 专用配置时钟引脚 
+DONE I/O 
+专用配置状态引脚，在配置完成后会输出高，源端开路。 
+（1）在配置完成前，需保证DONE 引脚可被内部驱动为低电
+平。 
+（2）进入用户模式后，可复用为USER I/O。在复用时作为输入
+使用，可能会导致重新加载等问题，但是可以作为输出引脚使
+用。 
+INIT_B I/O 专用配置状态引脚，输出低时表示上电初始化或配置错误；输
+PAGE 14
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 10 
+2025.12   
+ 
+出高表示FPGA 准备进入配置模式，源端开路。 
+（1）在配置完成前，需保证INITB 引脚可被内部驱动为高电
+平。 
+（2）进入用户模式后，可复用为USER I/O，在复用时作为输入
+使用，可能会导致重新加载等问题，但是可以作为输出引脚使
+用。 
+CSO_B I/O MSPI FLASH 片选 
+HSWAPEN I/O I/O 加载状态控制引脚 
+  
+PAGE 15
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 11 
+2025.12   
+ 
+ IO 命名规则 
+IO
+ B
+ E
+ 1
+ N
+ 0
+IO标志
+位置
+T——top
+L——left
+B——bottom
+R——right
+差分对
+E——伪差分对
+NULL——真差分对
+IO所在BANK
+差分对极性
+N——差分对N端
+P——差分对P端
+差分对编号
+ 
+  
+PAGE 16
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 12 
+2025.12   
+ 
+ EG4S20NG88 FPGA 引脚列表 
+编号 BANK
+1
+ EG4S20NG88 引脚名称 功能描述 最小系统需要 
+1 - VCC 内核电源 是 
+2 1 IO_L1_1 通用IO - 
+3 1 IO_L2_1 通用IO - 
+4 1 IO_L1N_1 通用IO - 
+5 1 IO_L1P_1 通用IO - 
+6 1 GND 芯片地 是 
+7 1 VCCIO1 3.3V BANK1 IO 电源 是 
+8 1 IO_L3_1,DONE 配置完成/通用IO 是 
+9 1 VCCIO1 3.3V BANK1 IO 电源 是 
+10 1 IO_L2P_1, GCLKIOL_3 通用IO - 
+11 1 IO_L2N_1,GCLKIOL_2 通用IO - 
+12 2 IO_L2P_2,GCLKIOL_5 通用IO - 
+13 2 IO_L2N_2,GCLKIOL_4 通用IO - 
+14 2 IO_L5_2 通用IO - 
+15 2 VCCIO2 3.3V BANK2 IO 电源 是 
+16 2 IO_L1N_2 通用IO - 
+17 2 IO_L1P_2 通用IO - 
+18 2 IO_L1_2 通用IO - 
+19 2 IO_L2_2 通用IO - 
+20 2 VCCIO2 3.3V BANK2 IO 电源 是 
+21 2 IO_L3_2,TDO JTAG/通用IO 是 
+22 2 IO_L4_2,TMS JTAG/通用IO 是 
+23 3 IO_B1_3 通用IO - 
+24 3 VCCIO3 BANK3 IO 电源 是 
+25 3 IO_B2_3,TDI JTAG/通用IO 是 
+26 3 IO_B3_3,TCK JTAG/通用IO 是 
+27 3 IO_B4_3 通用IO - 
+28 3 IO_BE1N_3 通用IO - 
+29 3 IO_BE1P_3 通用IO - 
+30 3 IO_B5_3 通用IO - 
+31 3 IO_B6_3 通用IO - 
+32 3 IO_BE2P_3 通用IO - 
+33 3 IO_BE2N_3 通用IO - 
+34 3 IO_B7_3,GCLKIOB_5 通用IO - 
+PAGE 17
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 13 
+2025.12   
+ 
+编号 BANK
+1
+ EG4S20NG88 引脚名称 功能描述 最小系统需要 
+35 4 IO_B1_4,GCLKIOB_2 通用IO - 
+36 4 VCC 内核电源  是 
+37 4 IO_BE1P_4 通用IO - 
+38 4 IO_BE1N_4 通用IO - 
+39 4 IO_B2_4 通用IO - 
+40 4 IO_BE2N_4 通用IO - 
+41 4 IO_BE2P_4 通用IO - 
+42 4 IO_B3_4 通用IO - 
+43 4 VCCIO4 BANK4 IO 电源 是 
+44 4 IO_B4_4,HSWAPEN IO 加载状态/通用IO - 
+45 5 IO_R1_5 通用IO - 
+46 5 VCCIO5 3.3V BANK5 IO 电源 是 
+47 5 IO_R1P_5 通用IO - 
+48 5 IO_R1N_5 通用IO - 
+49 5 IO_R2P_5 通用IO - 
+50 5 IO_R2N_5 通用IO - 
+51 5 IO_R2_5 通用IO - 
+52 5 IO_R3_5 通用IO - 
+53 5 VCCIO5 3.3V BANK5 IO 电源 - 
+54 5 IO_R3N_5,GCLKIOR_0 通用IO - 
+55 5 IO_R3P_5,GCLKIOR_1 通用IO - 
+56 6 VCC 核心电源 - 
+57 6 IO_R1_6,GCLKIOR_4 通用IO - 
+58 6 VCCIO6 3.3V BANK6 IO 电源 是 
+59 6 IO_R2_6 通用IO - 
+60 6 IO_R1N_6 通用IO - 
+61 6 IO_R1P_6 通用IO - 
+62 6 IO_R3_6 通用IO - 
+63 6 IO_R2N_6 通用IO - 
+64 6 IO_R2P_6 通用IO - 
+65 6 VCCIO6 3.3V BANK6 IO 电源 是 
+66 6 IO_R4_6 通用IO - 
+67 7 IO_T1_7,PROGRAM_B 芯片复位/通用IO 是 
+68 7 IO_T2_7,INIT_N 通用IO 是 
+69 7 IO_T3_7,CSO_B FLASH 片选/通用IO 是 
+70 7 IO_TE1P_7,D3 通用IO - 
+PAGE 18
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 14 
+2025.12   
+ 
+编号 BANK
+1
+ EG4S20NG88 引脚名称 功能描述 最小系统需要 
+71 7 IO_TE1N_7,D4 通用IO - 
+72 7 IO_T4_7,D7 通用IO - 
+73 7 VCCIO7 BANK7 IO 电源 是 
+74 7 IO_TE2N_7,D6 通用IO - 
+75 7 IO_T5_7,GCLKIOT_7 通用IO - 
+76 7 IO_TE2P_7,D5 通用IO - 
+77 7 IO_TE3N_7,GCLKIOT_4 通用IO - 
+78 7 IO_TE3P_7,GCLKIOT_5 通用IO - 
+79 7 IO_T6_7,GCLKIOB_0 通用IO - 
+80 8 IO_T1_8,D0_DIN_MISO FLASH IO/通用IO 是 
+81 8 IO_T2_8,MOSI_CSI_B FLASH IO/通用IO 是 
+82 8 IO_T3_8,CCLK FLASH 时钟/通用IO 是 
+83 8 IO_T4_8,M0 模式选择/通用IO 是 
+84 8 IO_T5_8,M1 模式选择/通用IO 是 
+85 8 VCCIO8 BANK8 IO 电源 是 
+86 8 IO_TE1P_8,D1 通用IO - 
+87 8 IO_TE1N_8,D2 通用IO - 
+88 - VCCAUX 3.3V 辅助电源 是 
+89 - GND_EPAD 芯片地PAD 是 
+注： 
+ EG4S20NG88 器件的BANK1、BANK2、BANK3、BANK4、BANK5、BANK6 和BANK7 必须使用3.3V IO 电压，
+BANK8 可支持1.2V、1.5V、1.8V、2.5V 和3.3V IO 电平。 
+ EG4A20NG88 器件的引脚与EG4S20NG88 相同，EG4A20NG88 的BANK3、BANK4 和BANK7 必须使用3.3V 
+IO 电压，其他BANK 均支持1.2V、1.5V、1.8V、2.5V 和3.3V IO 电平。
+PAGE 19
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 15 
+2025.12   
+ 
+ EG4S20BG256 FPGA 引脚列表 
+编号 BANK 引脚说明 
+C12 0 IO_B1_0, TDI 
+C14 0 IO_B2_0, TCK 
+C9 0 IO_BE10N_GCLKIOB_4_0 
+B10 0 IO_BE10P_GCLKIOB_5_0 
+A9 0 IO_BE11N_GCLKIOB_6_0 
+A10 0 IO_BE11P_GCLKIOB_7_0 
+E8 0 IO_BE12N_GCLKIOB_2_0 
+D8 0 IO_BE12P_GCLKIOB_3_0 
+C15 0 IO_BE13N_0 
+C16 0 IO_BE13P_0 
+A14 0 IO_BE14N_0 
+B14 0 IO_BE14P_0 
+B15 0 IO_BE15N_0 
+B16 0 IO_BE15P_0 
+B8 0 IO_BE16N_0 
+C8 0 IO_BE16P_0 
+A12 0 IO_BE17N_0 
+A13 0 IO_BE17P_0 
+A7 0 IO_BE18N_0 
+A8 0 IO_BE18P_0 
+C7 0 IO_BE19N_0 
+C6 0 IO_BE19P_0 
+F16 0 IO_BE1N_0 
+E16 0 IO_BE1P_0 
+A6 0 IO_BE20N_0 
+A5 0 IO_BE20P_0 
+B6 0 IO_BE21N_0 
+编号 BANK 引脚说明 
+C5 0 IO_BE21P_0 
+E7 0 IO_BE22N_0 
+F7 0 IO_BE22P_0 
+F6 0 IO_BE23N_0 
+E6 0 IO_BE23P_0 
+A4 0 IO_BE24N_0 
+A3 0 IO_BE24P_0 
+D6 0 IO_BE25N_0 
+D5 0 IO_BE25P_0 
+B5 0 IO_BE26N_0 
+C4 0 IO_BE26P_0,HSWAPEN 
+E12 0 IO_BE2N_0 
+F12 0 IO_BE2P_0 
+H11 0 IO_BE3N_0 
+F10 0 IO_BE3P_0 
+D12 0 IO_BE4N_0 
+D11 0 IO_BE4P_0 
+E10 0 IO_BE5N_0 
+E11 0 IO_BE5P_0 
+C13 0 IO_BE6N_0 
+E13 0 IO_BE6P_0 
+C10 0 IO_BE7N_0 
+B12 0 IO_BE7P_0 
+A11 0 IO_BE8N_0 
+C11 0 IO_BE8P_0 
+D9 0 IO_BE9N_GCLKIOB_0_0 
+F9 0 IO_BE9P_GCLKIOB_1_0 
+  
+PAGE 20
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 16 
+2025.12   
+ 
+编号 BANK 引脚说明 
+K14 1 IO_L1_GCLKIOL_4_1 
+N16 1 IO_L10N_1 
+N14 1 IO_L10P_1 
+G14 1 IO_L11N_1 
+H15 1 IO_L11P_1 
+F14 1 IO_L12N_1 
+F13 1 IO_L12P_1 
+G11 1 IO_L13N_1 
+G12 1 IO_L13P_1 
+M16 1 IO_L14N_1 
+L16 1 IO_L14P_1 
+K16 1 IO_L15N_1 
+J16 1 IO_L15P_1 
+D16 1 IO_L16N_1 
+D14 1 IO_L16P_1 
+E15 1 IO_L17N_1 
+F15 1 IO_L17P_1 
+H16 1 IO_L18N_1 
+G16 1 IO_L18P_1 
+P15 1 IO_L1N_1 
+P16 1 IO_L1P_1 
+编号 BANK 引脚说明 
+J14 1 IO_L2_1 
+M11 1 IO_L2N_1 
+L12 1 IO_L2P_1 
+H14 1 IO_L3_1 
+P14 1 IO_L3N_1 
+P13 1 IO_L3P_1,DONE 
+E14 1 IO_L4_1,TDO 
+J11 1 IO_L4N_1 
+K11 1 IO_L4P_1 
+A15 1 IO_L5_1,TMS 
+M13 1 IO_L5N_1 
+L13 1 IO_L5P_1 
+M14 1 IO_L6N_1 
+L14 1 IO_L6P_1 
+M15 1 IO_L7N_1 
+K15 1 IO_L7P_1 
+J12 1 IO_L8N_GCLKIOL_2_1 
+K12 1 IO_L8P_GCLKIOL_3_1 
+J13 1 IO_L9N_1 
+H13 1 IO_L9P_1 
+  
+PAGE 21
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 17 
+2025.12   
+ 
+编号 BANK 引脚说明 
+T2 2 IO_T1_2,PROGRAM_B 
+R3 2 IO_T2_2,INIT_B 
+T3 2 IO_T3_2,CSO_B 
+P10 2 IO_T4_2,D0_DIN_MISO 
+T10 2 IO_T5_2,MOSI_CSI_B 
+T11 2 IO_T6_2,M0 
+R11 2 IO_T7_2,CCLK 
+L10 2 IO_T8_2,ADC_CH_2 
+N11 2 IO_T9_2,M1,ADC_CH_0 
+M9 2 IO_TE10N_GCLKIOT_6_2 
+P7 2 IO_TE10P_GCLKIOT_7_2 
+T7 2 IO_TE11N_GCLKIOT_4_2 
+R7 2 IO_TE11P_GCLKIOT_5_2 
+T8 2 IO_TE12N_GCLKIOT_0_2 
+N9 2 IO_TE12P_GCLKIOT_1_2 
+T13 2 IO_TE13N_GCLKIOT_2_2 
+T14 2 IO_TE13P_GCLKIOT_3_2 
+T15 2 IO_TE15N_2 
+R15 2 IO_TE15P_2 
+R12 2 IO_TE16N_2 
+R14 2 IO_TE16P_2 
+P11 2 IO_TE17N_2,ADC_CH_3 
+M10 2 IO_TE17P_2,ADC_CH_1 
+编号 BANK 引脚说明 
+P12 2 IO_TE18N_2,D2,ADC_CH_6 
+N12 2 IO_TE18P_2,D1,ADC_CH_5 
+R16 2 IO_TE19N_2,ADC_CH_7 
+M12 2 IO_TE19P_2,ADC_CH_4 
+T4 2 IO_TE1N_2 
+P6 2 IO_TE1P_2 
+T6 2 IO_TE2N_2 
+T5 2 IO_TE2P_2 
+P5 2 IO_TE3N_2,D4 
+N5 2 IO_TE3P_2,D3 
+N6 2 IO_TE4N_2 
+M6 2 IO_TE4P_2 
+M7 2 IO_TE5N_2 
+T12 2 IO_TE5P_2 
+P8 2 IO_TE6N_2 
+R5 2 IO_TE6P_2,D7 
+N8 2 IO_TE7N_2 
+T9 2 IO_TE7P_2 
+P9 2 IO_TE8N_2 
+R9 2 IO_TE8P_2 
+L7 2 IO_TE9N_2,D6 
+L8 2 IO_TE9P_2,D5 
+  
+PAGE 22
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 18 
+2025.12   
+ 
+编号 BANK 引脚说明 
+B1 3 IO_R1_3 
+G3 3 IO_R10N_3 
+G1 3 IO_R10P_3 
+H5 3 IO_R11N_3 
+H1 3 IO_R11P_3 
+J1 3 IO_R12N_3 
+K1 3 IO_R12P_3 
+L1 3 IO_R13N_GCLKIOR_6_3 
+H2 3 IO_R13P_GCLKIOR_7_3 
+H3 3 IO_R14N_GCLKIOR_0_3 
+H4 3 IO_R14P_GCLKIOR_1_3 
+J4 3 IO_R15N_GCLKIOR_4_3 
+J3 3 IO_R15P_GCLKIOR_5_3 
+K2 3 IO_R16N_3 
+K3 3 IO_R16P_3 
+J6 3 IO_R17N_3 
+K5 3 IO_R17P_3 
+R1 3 IO_R18N_3 
+P1 3 IO_R18P_3 
+P2 3 IO_R19N_3 
+R2 3 IO_R19P_3 
+D3 3 IO_R1N_3 
+B3 3 IO_R1P_3 
+F3 3 IO_R2_3 
+M2 3 IO_R20N_3 
+L3 3 IO_R20P_3 
+M3 3 IO_R21N_3 
+编号 BANK 引脚说明 
+K6 3 IO_R21P_3 
+N3 3 IO_R22N_3 
+M4 3 IO_R22P_3 
+N4 3 IO_R23N_3 
+P4 3 IO_R23P_3 
+M1 3 IO_R24N_3 
+N1 3 IO_R24P_3 
+E4 3 IO_R2N_3 
+E3 3 IO_R2P_3 
+L4 3 IO_R3_3 
+F4 3 IO_R3N_3 
+F5 3 IO_R3P_3 
+L5 3 IO_R4_3 
+A2 3 IO_R4N_3 
+B2 3 IO_R4P_3 
+M5 3 IO_R5_3 
+C2 3 IO_R5N_3 
+C3 3 IO_R5P_3 
+E2 3 IO_R6N_3 
+C1 3 IO_R6P_3 
+D1 3 IO_R7N_3 
+E1 3 IO_R7P_3 
+F2 3 IO_R8N_3 
+F1 3 IO_R8P_3 
+G6 3 IO_R9N_3 
+G5 3 IO_R9P_3 
+  
+PAGE 23
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 19 
+2025.12   
+ 
+编号 BANK 引脚说明 
+B13 - VCCO_0 
+B4 - VCCO_0 
+B9 - VCCO_0 
+D10 - VCCO_0 
+D7 - VCCO_0 
+D15 - VCCO_1 
+G13 - VCCO_1 
+J15 - VCCO_1 
+K13 - VCCO_1 
+N15 - VCCO_1 
+N10 - VCCO_2 
+N7 - VCCO_2 
+R4 - VCCO_2 
+R8 - VCCO_2 
+D2 - VCCO_3 
+G4 - VCCO_3 
+J2 - VCCO_3 
+K4 - VCCO_3 
+N2 - VCCO_3 
+R13 - ADC_VDDA 
+L11 - ADC_VREF 
+A1 - GND 
+G8 - GND 
+H12 - GND 
+H7 - GND 
+H9 - GND 
+J5 - GND 
+J8 - GND 
+K7 - GND 
+K9 - GND 
+L15 - GND 
+L2 - GND 
+编号 BANK 引脚说明 
+A16 - GND_ 
+P3 - GND_ 
+R10 - GND_ 
+R6 - GND 
+M8 - GND 
+N13 - GND 
+T1 - GND 
+T16 - GND 
+B11 - GND 
+B7 - GND 
+D13 - GND 
+D4 - GND 
+E9 - GND 
+G15 - GND 
+G2 - GND 
+E5 - VCCAUX 
+F11 - VCCAUX 
+F8 - VCCAUX 
+G10 - VCCAUX 
+H6 - VCCAUX 
+J10 - VCCAUX 
+L6 - VCCAUX 
+L9 - VCCAUX 
+G7 - VCCINT 
+G9 - VCCINT 
+H10 - VCCINT 
+H8 - VCCINT 
+J7 - VCCINT 
+J9 - VCCINT 
+K10 - VCCINT 
+K8 - VCCINT 
+注： 
+ 因为内部BANK1 与 BANK3VCCIO 与SDR SDRAM 电源相连，所以VCCO1、VCCO3 只能接3.3V 电源，且
+VCCIO3、VCCAUX、VCCIO1 内部相互短路，使用时需要注意。 
+ EG4S20BG256B 器件的引脚与EG4S20BG256 相同。  
+PAGE 24
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 20 
+2025.12   
+ 
+ EG4S20CG324 FPGA 引脚列表 
+编号 BANK 引脚说明 
+E11 0 IO_BE10N_0 
+E10 0 IO_BE10P_0 
+A12 0 IO_BE11N_0,GCLKIOB_0 
+B12 0 IO_BE11P_0,GCLKIOB_1 
+C11 0 IO_BE12N_0,GCLKIOB_4 
+B11 0 IO_BE12P_0,GCLKIOB_5 
+A10 0 IO_BE13N_0,GCLKIOB_6 
+A11 0 IO_BE13P_0,GCLKIOB_7 
+B10 0 IO_BE14N_0,GCLKIOB_2 
+C10 0 IO_BE14P_0,GCLKIOB_3 
+D9 0 IO_BE15N_0,VREF0_1 
+E9 0 IO_BE15P_0 
+B9 0 IO_BE16N_0 
+A9 0 IO_BE16P_0 
+C8 0 IO_BE17N_0 
+C9 0 IO_BE17P_0 
+B8 0 IO_BE18N_0 
+A8 0 IO_BE18P_0 
+D7 0 IO_BE19N_0 
+D8 0 IO_BE19P_0 
+B18 0 IO_BE1N_0,GPLL0_CLKIN1 
+A18 0 IO_BE1P_0,GPLL0_CLKIN0 
+B7 0 IO_BE20N_0 
+C7 0 IO_BE20P_0 
+A6 0 IO_BE21N_0 
+B6 0 IO_BE21P_0 
+A5 0 IO_BE22N_0 
+A4 0 IO_BE22P_0 
+B5 0 IO_BE23N_0 
+编号 BANK 引脚说明 
+B4 0 IO_BE23P_0 
+A3 0 IO_BE24N_0,GPLL3_OUTN 
+B3 0 IO_BE24P_0,GPLL3_OUTP 
+A2 0 IO_BE25N_0 
+A1 0 IO_BE25P_0 
+B1 0 IO_BE26N_0 
+B2 0 IO_BE26P_0 
+C2 0 IO_BE27N_0 
+C1 0 IO_BE27P_0 
+D2 0 IO_BE28N_0,DPCLKIO_4 
+D3 0 IO_BE28P_0 
+D4 0 IO_BE29N_0,VREF0_0 
+D5 0 IO_BE29P_0,HSWAPEN 
+A17  0 IO_BE2N_0,TCK 
+B17 0 IO_BE2P_0,TDI 
+A16 0 IO_BE3N_0 
+B16 0 IO_BE3P_0,DPCLKIO_3 
+D14 0 IO_BE4N_0 
+C14 0 IO_BE4P_0 
+B15 0 IO_BE5N_0,GPLL0_OUTN 
+B14 0 IO_BE5P_0,GPLL0_OUTP 
+A14 0 IO_BE6N_0 
+A15 0 IO_BE6P_0 
+A13 0 IO_BE7N_0 
+B13 0 IO_BE7P_0 
+D12 0 IO_BE8N_0,VREF0_2 
+D11 0 IO_BE8P_0 
+C12 0 IO_BE9N_0 
+C13 0 IO_BE9P_0 
+  
+PAGE 25
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 21 
+2025.12   
+ 
+编号 BANK 引脚说明 
+L15  1 IO_L1_1 
+K17  1 IO_L10N_1 
+K18  1 IO_L10P_1 
+J17  1 IO_L11N_1 
+J16  1 IO_L11P_1 
+J14  1 IO_L12N_1 
+J18  1 IO_L12P_1 
+H16  1 IO_L13N_1 
+H17  1 IO_L13P_1,DPCLKIO_2 
+F17  1 IO_L14N_1 
+G17  1 IO_L14P_1 
+F16  1 IO_L15N_1 
+G16  1 IO_L15P_1 
+E18  1 IO_L16N_1,VREF1_0 
+F18  1 IO_L16P_1 
+E17  1 IO_L17N_1 
+E16  1 IO_L17P_1 
+D15  1 IO_L18N_1 
+D16  1 IO_L18P_1 
+C18  1 IO_L19N_1 
+D18  1 IO_L19P_1 
+R16  1 IO_L1N_1 
+R15  1 IO_L1P_1 
+编号 BANK 引脚说明 
+L17  1 IO_L2_1 
+C16  1 IO_L20N_1,TMS 
+C17  1 IO_L20P_1,TDO 
+T17  1 IO_L2N_1 
+T18  1 IO_L2P_1 
+L18  1 IO_L3_1 
+B17 1 IO_L3N_1 
+R17  1 IO_L3P_1,DONE 
+H14  1 IO_L4_1 
+P16  1 IO_L4N_1 
+N16  1 IO_L4P_1 
+G18  1 IO_L5_1 
+L14  1 IO_L5N_1 
+M14  1 IO_L5P_1 
+L16  1 IO_L6N_1 
+M16  1 IO_L6P_1 
+R18  1 IO_L7N_1 
+P18  1 IO_L7P_1 
+M18  1 IO_L8N_1,GCLKIOL_2 
+N18  1 IO_L8P_1,GCLKIOL_3 
+K15  1 IO_L9N_1,GCLKIOL_4 
+K14  1 IO_L9P_1,GCLKIOL_5 
+  
+PAGE 26
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 22 
+2025.12   
+ 
+编号 BANK 引脚说明 
+V7  2 IO_TE10N_2,VREF2_1 
+V6  2 IO_TE10P_2,D7 
+R9  2 IO_TE11N_2 
+T9  2 IO_TE11P_2 
+V9  2 IO_TE12N_2 
+V8  2 IO_TE12P_2 
+V10  2 IO_TE13N_2,D6 
+U10  2 IO_TE13P_2,D5 
+U11  2 IO_TE14N_2,GCLKIOT_6 
+V11  2 IO_TE14P_2,GCLKIOT_7 
+R10  2 IO_TE15N_2,GCLKIOT_4 
+T10  2 IO_TE15P_2,GCLKIOT_5 
+U12  2 IO_TE16N_2,GCLKIOT_0 
+V12  2 IO_TE16P_2,GCLKIOT_1 
+T11  2 IO_TE17N_2,GCLKIOT_2 
+R11  2 IO_TE17P_2,GCLKIOT_3 
+U13  2 IO_TE18N_2,MOSI_CSI_B 
+V13  2 IO_TE18P_2,D0_DIN_MISO 
+T12  2 IO_TE19N_2 
+R12  2 IO_TE19P_2 
+V1  2 IO_TE1N_2,PROGRAM_B 
+U1  2 IO_TE1P_2 
+V15  2 IO_TE20N_2 
+V14  2 IO_TE20P_2 
+T14  2 IO_TE21N_2,M0 
+T13  2 IO_TE21P_2,CCLK 
+T15  2 IO_TE22N_2,ADC_CH_3 
+编号 BANK 引脚说明 
+U15  2 IO_TE22P_2,ADC_CH_1 
+V16  2 IO_TE23N_2,VREF2_0,ADC_CH_2 
+U16  2 IO_TE23P_2,M1,ADC_CH_0 
+U17  2 IO_TE24N_2,D2,ADC_CH_6 
+V17  2 IO_TE24P_2,D1,ADC_CH_5 
+U18  2 IO_TE25N_2,GPLL1_CLKIN1,ADC_CH_7 
+V18  2 IO_TE25P_2,GPLL1_CLKIN0,ADC_CH_4 
+V2  2 IO_TE2N_2,GPLL2_OUTN 
+U2  2 IO_TE2P_2,GPLL2_OUTP 
+V3  2 IO_TE3N_2,CSO_B 
+U3  2 IO_TE3P_2,INIT_B 
+T5  2 IO_TE4N_2 
+T6  2 IO_TE4P_2,DPCLKIO_7 
+U5  2 IO_TE5N_2 
+U4  2 IO_TE5P_2 
+R8  2 IO_TE6N_2,D4 
+R7  2 IO_TE6P_2,D3 
+V5  2 IO_TE7N_2 
+V4  2 IO_TE7P_2 
+U7  2 IO_TE8N_2 
+U6  2 IO_TE8P_2 
+T7  2 IO_TE9N_2 
+T8  2 IO_TE9P_2 
+M12  2 ADC_VDDA 
+N12  2 ADC_VDDD 
+R13  2 ADC_VREF 
+P11  2 ADC_VSSA 
+  
+PAGE 27
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 23 
+2025.12   
+ 
+编号 BANK 引脚说明 
+G5  3 IO_R1_3 
+H4  3 IO_R10N_3 
+H3  3 IO_R10P_3 
+H1  3 IO_R11N_3 
+J1  3 IO_R11P_3 
+J6  3 IO_R12N_3 
+J5  3 IO_R12P_3 
+J4  3 IO_R13N_3,GCLKIOR_6 
+J3  3 IO_R13P_3,GCLKIOR_7 
+K1  3 IO_R14N_3,GCLKIOR_0 
+K2  3 IO_R14P_3,GCLKIOR_1 
+K3  3 IO_R15N_3,GCLKIOR_4 
+K4  3 IO_R15P_3,GCLKIOR_5 
+K5  3 IO_R16N_3 
+K6  3 IO_R16P_3 
+L1  3 IO_R17N_3 
+L2  3 IO_R17P_3 
+M1  3 IO_R18N_3 
+M2  3 IO_R18P_3 
+L5  3 IO_R19N_3 
+L6  3 IO_R19P_3 
+E5  3 IO_R1N_3,GPLL3_CLKIN1 
+E6  3 IO_R1P_3,GPLL3_CLKIN0 
+G6  3 IO_R2_3 
+L4  3 IO_R20N_3 
+M4  3 IO_R20P_3 
+N1  3 IO_R21N_3 
+N2  3 IO_R21P_3 
+N4  3 IO_R22N_3,VREF3_0 
+N3  3 IO_R22P_3 
+M6  3 IO_R23N_3 
+编号 BANK 引脚说明 
+M5  3 IO_R23P_3 
+R1  3 IO_R24N_3 
+P1  3 IO_R24P_3 
+P3  3 IO_R25N_3 
+P2  3 IO_R25P_3 
+T1  3 IO_R26N_3 
+R2  3 IO_R26P_3 
+N6  3 IO_R27N_3,DPCLKIO_6 
+N5  3 IO_R27P_3 
+T3  3 IO_R28N_3 
+T2 3 IO_R28P_3 
+R5  3 IO_R29N_3 
+R4  3 IO_R29P_3 
+D1  3 IO_R2N_3 
+E1  3 IO_R2P_3 
+P5  3 IO_R30N_3,GPLL2_CLKIN1 
+P6  3 IO_R30P_3,GPLL2_CLKIN0 
+E2  3 IO_R3N_3 
+E3  3 IO_R3P_3 
+F6  3 IO_R4N_3 
+F5  3 IO_R4P_3 
+G4  3 IO_R5N_3 
+F4  3 IO_R5P_3 
+F2  3 IO_R6N_3 
+F3  3 IO_R6P_3 
+F1  3 IO_R7N_3 
+G1  3 IO_R7P_3 
+G3  3 IO_R8N_3 
+G2  3 IO_R8P_3 
+H5  3 IO_R9N_3 
+H6  3 IO_R9P_3 
+  
+PAGE 28
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 24 
+2025.12   
+ 
+编号 BANK 引脚说明 
+A7  - GND 
+E14  - GND 
+E15  - GND 
+F14  - GND 
+G14  - GND 
+G15  - GND 
+H2  - GND 
+H15  - GND 
+H18  - GND 
+J2  - GND 
+J9  - GND 
+C3  - GND 
+J10   GND 
+J13  - GND 
+J15  - GND 
+K9  - GND 
+K10  - GND 
+K16  - GND 
+L7  - GND 
+L9  - GND 
+L10  - GND 
+M9  - GND 
+C4  - GND 
+M10  - GND 
+M11  - GND 
+M17  - GND 
+N11  - GND 
+N15  - GND 
+N17  - GND 
+P4  - GND 
+P14  - GND 
+P15  - GND 
+R3  - GND 
+C5  - GND 
+R6  - GND 
+R14  - GND 
+编号 BANK 引脚说明 
+T4  - GND 
+T16  - GND 
+U8  - GND 
+U9  - GND 
+U14  - GND 
+C6  - GND 
+C15  - GND 
+D6  - GND 
+D10  - GND 
+D17  - GND 
+D13  - GND_PLLA0 
+E13  - GND_PLLA0 
+N13  - GND_PLLA1 
+N14  - GND_PLLA1 
+M7  - GND_PLLA2 
+N7  - GND_PLLA2 
+E7  - GND_PLLA3 
+F7  - GND_PLLA3 
+F12  - VCC 
+L11  - VCC 
+N9  - VCC 
+N10  - VCC 
+G8  - VCC 
+G9  - VCC 
+G11  - VCC 
+H9  - VCC 
+H10  - VCC 
+H11  - VCC 
+J8  - VCC 
+J11  - VCC 
+F13  - VCCAUX 
+G7  - VCCAUX 
+G10  - VCCAUX 
+K11  - VCCAUX 
+M3  - VCCAUX 
+M13  - VCCAUX 
+PAGE 29
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 25 
+2025.12   
+ 
+编号 BANK 引脚说明 
+M15  - VCCAUX 
+N8  - VCCAUX 
+E8  - VCCIO_0 
+E12  - VCCIO_0 
+F8  - VCCIO_0 
+F9  - VCCIO_0 
+F10  - VCCIO_0 
+F11  - VCCIO_0 
+F15  - VCCIO_1 
+L13  - VCCIO_1 
+G12  - VCCIO_1 
+G13  - VCCIO_1 
+H12  - VCCIO_1 
+H13  - VCCIO_1 
+J12  - VCCIO_1 
+K12  - VCCIO_1 
+K13  - VCCIO_1 
+编号 BANK 引脚说明 
+L12  - VCCIO_1 
+P7  - VCCIO_2 
+P8  - VCCIO_2 
+P9  - VCCIO_2 
+P10  - VCCIO_2 
+P12  - VCCIO_2 
+P13  - VCCIO_2 
+E4  - VCCIO_3 
+H7  - VCCIO_3 
+H8  - VCCIO_3 
+J7  - VCCIO_3 
+K7  - VCCIO_3 
+K8  - VCCIO_3 
+L3  - VCCIO_3 
+L8  - VCCIO_3 
+M8  - VCCIO_3 
+注： 
+ 因为内部BANK1 与 BANK3VCCIO 与SDR SDRAM 电源相连，所以VCCO1、VCCO3 只能接3.3V 电源，且
+VCCIO3、VCCAUX、VCCIO1 内部相互短路，使用时需要注意。此外，所有的GND 与GND_PLLx 相互短
+路。  
+PAGE 30
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 26 
+2025.12   
+ 
+ EG4S20NG88 封装尺寸 
+  
+  
+
+PAGE 31
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 27 
+2025.12   
+ 
+ EG4S20BG256 封装尺寸 
+ 
+注： 
+ EG4S20BG256B 器件的封装尺寸与EG4S20BG256 相同。 
+ 
+ 
+  
+
+PAGE 32
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 28 
+2025.12   
+ 
+ EG4S20CG324 封装尺寸 
+ 
+ 
+ 
+
+PAGE 33
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 29 
+2025.12   
+ 
+7 订购信息 
+表 7-1 器件号缩写 
+器件名称 类别 查找表容量 封装类型 温度等级 
+EG4 S 20 BG256 I 
+ 产品系列 
+ EAGLE 系列 
+ 类别 
+ S 合封SDR SDRAM 
+ 查找表容量 
+ 20 20K 查找表 
+ 封装类型：<类型><#> 
+ BG256 17mm×17mm，1.0mm pitch 
+ NG88 10mm×10mm，0.4 pitch 
+ CG324 15mm×15mm，0.8mm pitch 
+ # 引脚数（256 指 256 个引脚，88 指 88 个引脚，324 指324 个引脚） 
+ 温度等级 
+ C 商业（TJ = 0 ～ 85 ℃） 
+ I 工业（TJ = -40 ～ 100 ℃） 
+注： 
+ 器件内箱标签GRADE 栏中的“I7”、“I8”和“I”均为I 等级。 
+ 器件内箱标签GRADE 栏中的“C7”和“C”均为C 等级。 
+ SDRAM 信息 
+ B 无SDRAM 封装 
+  
+PAGE 34
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 30 
+2025.12   
+ 
+EG4
+ S
+ 20
+ BG256
+器件名称 
+EG4 FPGA
+类型
+S 合封SDR SDRAM
+查找表容量
+20  20K查找表
+封装类型
+BG256  17mm×17mm，1.0mm pitch
+NG88  10mm×10mm，0.4mm pitch
+CG324  15mm×15mm，0.8mm pitch
+C
+温度等级
+C  商业（TJ = 0 ～ 85 ）
+I  工业（TJ = -40 ～ 100 ）
+SDRAM信息
+B  无SDRAM封装
+ 
+ 
+ 
+PAGE 35
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 31 
+2025.12   
+ 
+版本信息 
+日期 版本 修订记录 
+2019/03/13 1.7 调整文档格式，添加新的引脚命名规则，修改所有引脚命名 
+2019/03/29 1.8 添加EG4S20 内置SDRAM 型号说明 
+2018/04/10 1.9 修正文档页眉 
+2019/04/28 2.0 
+ERAM、ERAM 统一修改为ERAM 
+取消等效LUT4 说明，统一采用LUT4/LUT5 物理数目表示 
+2019/06/04 2.1 
+在表1-1-1、表1-1-2 中添加EG4S20CG324 器件资源与封装信息； 
+添加5.8 节EG4S20CG324 器件封装尺寸规格； 
+2019/09/18 2.2 修正表1-1-1 中EG4 器件BANK 数量。 
+2019/09/23 2.3 
+修正EG4S20NG88 第78 脚引脚标识，由“IO_T2P_7，GCLKIOT_5”修改
+为“IO_TE2P_7，GCLKIOT_5 
+2019/12/30 2.4 修正封装信息中的器件名标识错误 
+2020/02/20 2.5 添加EG4S20CG324 BANK0 IO 的真伪差分标识 
+2020/03/02 2.6 
+校对EG4S20NG88 器件的差分对数，同时在差分对统计中不再包括配置
+必需的复用IO 
+2021/03/03 2.7 更新嵌入式乘法器速度 
+2021/06/15 2.7.1 修正表5-1-1 中加载相关信息 
+2022/03/17 2.7.2 更新GND 引脚命名：GND 更新为GND_EPAD; 
+2023/04/02 2.7.3 
+1. 增加EG4S20BG256B 器件信息 
+2. 更新第4 节的SDRAM IP 例化原型 
+3. 更新MSEL 信号描述为M 信号，更新CSN 信号为CSI_B 
+4. 更新第5 节中配置模式选择的说明， 删除EG4A 器件的引脚状态设置
+表，在表5-3-1 后增加EG4S20 器件的配置引脚说明注1 和注2 
+5. 增加表5-3-2 EG4S20 器件在加载过程中不受控引脚列表 
+2023/05/10 2.7.4 在第7 章节中，新增I7 扩展工业温度为-40-110℃ 
+2024/03/12 2.7.5 
+1. 删除全文中相关规格描述，具体以《DS300_Eagle_Datasheet》为准 
+2. 更新第1.1 章的配置模式，删除主动串行模式 
+3. 更新表 1-2 EG4S20BG256 差分对数量 
+4. 更新表 6-1 增加GND_EPAD 引脚命名 
+5. 更新第6.3 章，EG4S20NG88 引脚信息 
+6. 更新第6.6 章，EG4S20NG88 封装尺寸 
+2024/11/15 2.7.6 
+1. 更新 1.1 SALEAGLE®4S20 器件特性 “封装”模块下的 CG324 和
+FBGA256 封装类型，并全文统一更新。 
+2. 更新表 5-1 EG4S20 配置模式及引脚。 
+PAGE 36
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 32 
+2025.12   
+ 
+日期 版本 修订记录 
+3. 更新5.3 FPGA I/O 引脚在配置阶段的状态一节的非配置相关IO 上
+电过程描述。 
+4. 删除表 5-2 EG4S20 Pin Termination 中的DOUT 引脚。 
+5. 更新表 6-1 引脚定义规则，并全文统一更新。 
+6. 更新7 订购信息一章中的“类别”、 “温度等级” 、 “SDRAM 信息”以
+及订购信息图。 
+2025/09/25 2.7.7 
+1. 更新1.1 SALEAGLE®4（以下简称为EG4）S20 器件特性一节中的封装
+模块。 
+2. 更新表 1-2 EG4S20 FPGA 封装中的IO 数量以及注释1，说明IO 数
+量的表达形式。 
+3. 更新表 6-1 引脚定义规则中的DONE 引脚、INIT_B 引脚描述。 
+4. 更新7 订购信息一章中的温度等级模块的注释1、注释2， 说明器件
+内箱标签及丝印描述。 
+2025/12/30 2.7.8 
+1. 更新6.5 EG4S20CG324 FPGA 引脚列表。 
+2. 更新6.7 EG4S20BG256 封装尺寸。 
+ 
+  
+PAGE 37
+ 
+ 
+SALEAGLE®4S20系列FPGA数据手册  
+DS301_2.7.8 www.anlogic.com 33 
+2025.12   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+版权所有©2025 上海安路信息科技股份有限公司  
+未经本公司书面许可， 任何单位和个人都不得擅自摘抄、 复制、 翻译本文档内容的部分或全部， 并不得
+以任何形式传播。  
+免责声明 
+本文档并未授予任何知识产权的许可， 并未以明示或暗示， 或以禁止发言或其他方式授予任何知识产权
+许可；本文档仅为向用户提供使用器件的参考， 协助用户正确地使用安路科技产品之用， 其著作权归安
+路科技所有；本文档所展示的任何产品信息均不构成安路科技对所涉产品或服务作出任何明示或默示
+的声明或保证。  
+安路科技将不定期地对本文档进行更新、 修订。 用户如需获取最新版本的文档， 可通过安路科技的官方
+网站（网址为：https://www.anlogic.com）自行查询下载，也可联系安路科技的销售人员咨询获取。 

@@ -1,0 +1,78 @@
+{
+  "title": "SPI 25 MHz production variant byte-level regression",
+  "timestamp": "2026-10-27",
+  "baseline_sha256": "186434460B5D87DF91DE6F6C1BC94FB5EECF60E9451FEC23CD8286C469035663",
+  "production_candidate_sha256": "923183EB08380F161DA8F0DFBC5B3DADA2C4DC0C547AC24C9C7DE3689E337484",
+  "production_testbench_sha256": "38EE0A01F8838293D73FF93BF354CA83A392B38473D44B8557859BD0D7919EB1",
+  "production_runner_sha256": "6D341CCADADD9ECDF094360ED4CB7E9FE1403E6C69044FD7542FF3D0B1FC58E6",
+  "change_summary": [
+    "FAST_ACK_WAIT_BYPASS parameter and ACK bypass removed",
+    "ACK always advances to ACK_WAIT",
+    "DCLK_IDLE fast/div0 special case removed; clk_cnt equality only",
+    "FAST_DIV0 edge-continuous logic retained for div0"
+  ],
+  "test_scope": "Icarus Verilog, CPOL=1 CPHA=1, mode 3, 50 MHz sys_clk, pin-based MOSI decoding and falling-edge delayed MISO",
+  "runs": [
+    {
+      "mode": "baseline",
+      "tod_ns": 0,
+      "result": "PASS",
+      "log": "run_production_baseline_tod0_inject-1.log"
+    },
+    {
+      "mode": "baseline",
+      "tod_ns": 7,
+      "result": "PASS",
+      "log": "run_production_baseline_tod7_inject-1.log"
+    },
+    {
+      "mode": "baseline",
+      "tod_ns": 14,
+      "result": "PASS",
+      "log": "run_production_baseline_tod14_inject-1.log"
+    },
+    {
+      "mode": "fast",
+      "tod_ns": 0,
+      "result": "PASS",
+      "log": "run_production_fast_tod0_inject-1.log"
+    },
+    {
+      "mode": "fast",
+      "tod_ns": 7,
+      "result": "PASS",
+      "log": "run_production_fast_tod7_inject-1.log"
+    },
+    {
+      "mode": "fast",
+      "tod_ns": 14,
+      "result": "PASS",
+      "log": "run_production_fast_tod14_inject-1.log"
+    }
+  ],
+  "coverage": [
+    "00/ff/a5/5a/3c/96 and 8 deterministic $random bytes",
+    "MISO tOD 0/7/14 ns",
+    "div=248 low speed",
+    "continuous request/ACK handshake",
+    "CS passthrough",
+    "mid-byte asynchronous reset"
+  ],
+  "negative_control": {
+    "description": "flip captured MOSI bit 2",
+    "expected": "PIN MOSI mismatch",
+    "exit_code": 1,
+    "log": "run_production_negative_mosi_bit2.log"
+  },
+  "measurements": {
+    "fast_div0_half_period_ns": 20,
+    "fast_div0_byte_ns": 320,
+    "baseline_div0_half_period_ns": 40,
+    "baseline_div0_byte_ns": 640,
+    "div248_half_period_ns": 5000,
+    "div248_byte_ns": 80000,
+    "fast_consumer_gap_ns": 100
+  },
+  "scope_limit": "digital byte-pin model only; no card protocol, board parasitics, TD, SDF, external timing constraints, or hardware",
+  "result": "PASS"
+}

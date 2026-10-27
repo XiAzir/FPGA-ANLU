@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "response_latency_mem_clocks": 2,
+      "status": "PASS",
+      "log": "latency_2_run.log"
+    },
+    {
+      "response_latency_mem_clocks": 10,
+      "status": "PASS",
+      "log": "latency_10_run.log"
+    },
+    {
+      "response_latency_mem_clocks": 32,
+      "status": "PASS",
+      "log": "latency_32_run.log"
+    },
+    {
+      "response_latency_mem_clocks": 64,
+      "status": "PASS",
+      "log": "latency_64_run.log"
+    }
+  ],
+  "coverage": "Two exact RGB888 frames, actual generated FIFO RTL, concurrent background write/display read, uninterrupted pixels and gapped pixels, exact stored/captured word and output pixel checks",
+  "scope": "Application SDRAM model with configurable latency and data-leading-valid 1; no real encrypted controller/device or SDF",
+  "inputs": [
+    {
+      "path": "development/video32_work/frame_integration/tb_compact_frame_buffer.v",
+      "sha256": "cd41f45104fb5fab8777e61a3f1c98ab3a551f8045909f851fd98c1a06f914a6"
+    },
+    {
+      "path": "development/player_video32_read_return/src/user_source/hdl_source/frame_buffer_rgb888.v",
+      "sha256": "df605f5245cf23d2da0dfc6f437a4819c3c5becb9fcc90a794d1ab4d0a725d89"
+    },
+    {
+      "path": "development/player_video32_read_return/src/user_source/hdl_source/rgb888_word_codec.v",
+      "sha256": "414a74a76a828b45f9baa2f0c56f5f80d5c6311b21001e309246d2f60a333552"
+    },
+    {
+      "path": "development/player_video32_read_return/src/user_source/hdl_source/rgb565_word_codec.v",
+      "sha256": "971ab7800db69c06c078160c010778ef4b208620e005e150301e3a4b857b5021"
+    },
+    {
+      "path": "development/player_video32_read_return/src/user_source/hdl_source/player_wipe_address.v",
+      "sha256": "8712e3490c0ec01fdf1a719bb74eee2bc2d7269ae51119e338f0eb0fbd143f4f"
+    },
+    {
+      "path": "development/player_video32_read_return/src/user_source/hdl_source/jpeg420_word_address.v",
+      "sha256": "3b8c2a641e23711826cbf51f2b0ce343e92e3f0a80b45b69906754e017c7f175"
+    },
+    {
+      "path": "development/player_video32_read_return/src/user_source/hdl_source/SD/frame_read_write.v",
+      "sha256": "ae65501f4d915f297674265659c24fef88ea37ce3e2cc8c362e5b0bdac697b1c"
+    },
+    {
+      "path": "development/player_video32_read_return/src/user_source/hdl_source/SD/frame_fifo_read.v",
+      "sha256": "15374fcde4bb47e965b283df92112e168ba8b0a569f06ef9118a85addbcf715a"
+    },
+    {
+      "path": "development/player_video32_read_return/src/user_source/hdl_source/SD/frame_fifo_write.v",
+      "sha256": "265508397e01ded802df9046d8e08ead8f6404091fcd989a74d1c3e410facb92"
+    },
+    {
+      "path": "development/player_video32_read_return/src/user_source/hdl_source/IP/afifo_32_16_256.v",
+      "sha256": "7c3ee41f30be75ae686c9abff3a840fc5439209cda077e4aa275eac0dab9f564"
+    },
+    {
+      "path": "development/player_video32_read_return/src/user_source/hdl_source/IP/afifo_16_32_256.v",
+      "sha256": "3d29b06655482184a9ad157b9bd71b79032debe3199168d3b4d9570fdac31835"
+    }
+  ],
+  "generator_sha256": "1bc0ce0903719a0f699944d75e91a7f83e2dde9d5304f4f6d770f02d5c3a98bc"
+}

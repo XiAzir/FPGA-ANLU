@@ -1,0 +1,47 @@
+PASS reviewed file-set assertions: added=1 deleted=10 changed=6
+PASS all retained media/control core file hashes match
+PASS audio always-scope comparison: sensitivity, reset condition/value, and tone_toggle else condition/value match
+PASS control-bit negative control: mutated sd_card_write_en mode-select detected
+{
+  "status": "PASS",
+  "source_counts": {
+    "baseline": 115,
+    "candidate": 106
+  },
+  "added_files": [
+    "player_audio_output.v"
+  ],
+  "deleted_files": [
+    "hdmi_packet_monitor.v",
+    "player_audio_probe.v",
+    "player_bit17_led_probe.v",
+    "player_cadence_probe.v",
+    "player_compact_status_pages.v",
+    "player_debug_monitor.v",
+    "player_debug_overlay.v",
+    "player_memory_runtime_probe.v",
+    "player_pcm_crc_probe.v",
+    "player_video_source_probe.v"
+  ],
+  "changed_files": [
+    "SD/frame_fifo_read.v",
+    "SD/frame_read_write.v",
+    "SD/sd_card_cmd.v",
+    "SD/sd_card_top.v",
+    "frame_buffer_rgb888.v",
+    "top_tf_hdmi_audio.v"
+  ],
+  "expected_observer_deletions_present": true,
+  "top_media_control_instance_equal": {
+    "u_video_schedule": true,
+    "u_video_reader": true,
+    "u_video_keys": true,
+    "u_wav_player": true,
+    "u_osd_state": true,
+    "u_bmp_file_player": true,
+    "u_adjust_control": true,
+    "u_audio_probe_after_module_rename": true
+  },
+  "audio_functional_tokens_equal_after_LED_observation_removal": true,
+  "sd_cmd_tokens_equal_after_only_CRC_observer_removal": true
+}

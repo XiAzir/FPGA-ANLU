@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "wrapper": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video34_1080p15\\src\\user_source\\hdl_source\\native_yuv420_frame_buffer.v",
+  "geometry": {
+    "width": 32,
+    "height": 32,
+    "frame_words": 384
+  },
+  "native_blocks_per_frame": 24,
+  "idct_index_permutation": "native_index={sequence[2:0],sequence[5:3]}; 64-cycle nonstallable blocks",
+  "complete_unique_writes": 768,
+  "write_frame_done_pulses": [
+    [
+      0,
+      384
+    ],
+    [
+      1,
+      384
+    ]
+  ],
+  "read_words_checked": 768,
+  "rgb_pixels_checked": 2048,
+  "frame1_write_overlapped_frame0_rgb_indices": [
+    58,
+    756
+  ],
+  "underflows": 0,
+  "apug_data_delay_1_cycle_and_actual_return_handoff": "PASS; address-coded memory readback matched",
+  "rgb_reference": "Python independently applies sample clipping, YUV420 coordinates, C32 constants, >>>12, and RGB saturation",
+  "simulator_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video34_work\\yuv_scan\\sim_native_wrapper.log"
+}

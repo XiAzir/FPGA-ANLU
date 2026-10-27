@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "scope": "Original public prefix; forced-init unit and natural startup; delayed ACK. No protected command encoder, device or SDF.",
+  "required_refresh_commands_per_64ms": 4096,
+  "period_mem_clocks": 781,
+  "terminal": 780,
+  "interval_ns": 15620,
+  "window_4096_intervals_ns": 63979520,
+  "inputs": {
+    "development\\video40_work\\timing_review\\refresh_macro\\sdr_init_ref_public_prefix_C40.v": "dd819265959e21aa700c29b7344dc9531466a9cc51d58eecfe655abb30a926e1",
+    "development\\video41_work\\tb_refresh_period.v": "00981fc1a39d9ddf16b8863c36be6d70be2890908eab00c09c73511d070106eb",
+    "development\\player_video41_refresh\\src\\user_source\\hdl_source\\include\\global_def.v": "4712c00a4f52be2c643b2ac11c57bd554793e739faf1360af657b5eaec2dee9b"
+  },
+  "cases": [
+    {
+      "case": "C40_reproduce",
+      "status": "PASS",
+      "returncode": 0,
+      "stdout": "MACRO period_ns=32 terminal=32\nBASELINE_ZERO_REQUEST_REPRODUCED active_cycles=5000\nE:\\VSCODE-project\\FPGA-ANLU\\development\\video41_work\\tb_refresh_period.v:60: $finish called at 100051000 (1ps)\n"
+    },
+    {
+      "case": "C41_period",
+      "status": "PASS",
+      "returncode": 0,
+      "stdout": "MACRO period_ns=32 terminal=32\nREFRESH_SPEC_PASS natural_init=0 pulses=4097 gap=781 window_ns=63979520\nE:\\VSCODE-project\\FPGA-ANLU\\development\\video41_work\\tb_refresh_period.v:69: $finish called at 63994991000 (1ps)\n"
+    },
+    {
+      "case": "C41_natural_startup",
+      "status": "PASS",
+      "returncode": 0,
+      "stdout": "MACRO period_ns=32 terminal=32\nREFRESH_SPEC_PASS natural_init=1 pulses=4097 gap=781 window_ns=63979520\nE:\\VSCODE-project\\FPGA-ANLU\\development\\video41_work\\tb_refresh_period.v:69: $finish called at 66617131000 (1ps)\n"
+    },
+    {
+      "case": "negative_no_refresh",
+      "status": "EXPECTED_FAILURE_DETECTED",
+      "returncode": 1,
+      "stdout": "MACRO period_ns=32 terminal=32\nFATAL: E:\\VSCODE-project\\FPGA-ANLU\\development\\video41_work\\tb_refresh_period.v:57: no periodic refresh by required interval\n       Time: 15691000  Scope: tb_refresh_period\n"
+    },
+    {
+      "case": "negative_row_count",
+      "status": "EXPECTED_FAILURE_DETECTED",
+      "returncode": 1,
+      "stdout": "MACRO period_ns=32 terminal=32\nFATAL: E:\\VSCODE-project\\FPGA-ANLU\\development\\video41_work\\tb_refresh_period.v:57: no periodic refresh by required interval\n       Time: 15691000  Scope: tb_refresh_period\n"
+    },
+    {
+      "case": "negative_off_by_one",
+      "status": "EXPECTED_FAILURE_DETECTED",
+      "returncode": 1,
+      "stdout": "MACRO period_ns=32 terminal=32\nFATAL: E:\\VSCODE-project\\FPGA-ANLU\\development\\video41_work\\tb_refresh_period.v:51: request gap 782 expected 781\n       Time: 31131000  Scope: tb_refresh_period\n"
+    }
+  ]
+}

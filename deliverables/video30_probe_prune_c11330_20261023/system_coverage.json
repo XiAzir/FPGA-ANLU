@@ -1,0 +1,141 @@
+{
+  "status": "PASS",
+  "run_directory": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video30_work\\system_regression\\build\\player_video30_probe_prune_system_20261023_133535",
+  "simulation_scope": {
+    "card": "SPI-mode SDHC, FAT32 512MiB image, 22486 explicitly mapped sectors",
+    "media": "real RTL SD SPI/FAT/JPEG/WAV consumers; qualified nominal PLL edge replay; SDRAM application-interface model; no SDF",
+    "events": {
+      "transitions": 6,
+      "video_mode_switches": 4,
+      "video_restarts": 2,
+      "byte_positions": [
+        37,
+        0,
+        511,
+        512,
+        37,
+        513
+      ],
+      "CMD0_count_including_initial_mount": 7
+    },
+    "pcm": {
+      "samplewise_gold_checks": 10875,
+      "underflow_seen": false
+    },
+    "jpeg": {
+      "frames_checked": 4,
+      "bytes_per_frame": 27180,
+      "crc32": [
+        "ee4ddeb6",
+        "ee4ddeb6",
+        "ee4ddeb6",
+        "ee4ddeb6"
+      ]
+    },
+    "rgb": {
+      "complete_frames": 4,
+      "pixels_per_frame": 307200,
+      "unique_full_coordinate_coverage_asserted": true,
+      "crc32": [
+        "4c424446",
+        "4c424446",
+        "4c424446",
+        "4c424446"
+      ]
+    },
+    "source_rgb_gate": {
+      "valid_cycles": 568220,
+      "invalid_cycles": 10755632,
+      "assertion": "vout_data_base == osd_frame_valid ? vout_data_raw : 0"
+    },
+    "external_spi_model": {
+      "protocol_errors": 0,
+      "commands": 457,
+      "reads": 422,
+      "cmd0_count": 7
+    },
+    "session_trace": [
+      {
+        "transition": 0,
+        "video": false,
+        "complete_rgb_frames": 0,
+        "pcm_samples": 3208,
+        "pcm_total": 3208,
+        "reads": 29,
+        "commands": 34,
+        "cmd0_count": 1
+      },
+      {
+        "transition": 1,
+        "video": true,
+        "complete_rgb_frames": 1,
+        "pcm_samples": 256,
+        "pcm_total": 3545,
+        "reads": 113,
+        "commands": 123,
+        "cmd0_count": 2
+      },
+      {
+        "transition": 2,
+        "video": true,
+        "complete_rgb_frames": 1,
+        "pcm_samples": 256,
+        "pcm_total": 3824,
+        "reads": 197,
+        "commands": 212,
+        "cmd0_count": 3
+      },
+      {
+        "transition": 3,
+        "video": true,
+        "complete_rgb_frames": 1,
+        "pcm_samples": 256,
+        "pcm_total": 4094,
+        "reads": 280,
+        "commands": 300,
+        "cmd0_count": 4
+      },
+      {
+        "transition": 4,
+        "video": false,
+        "complete_rgb_frames": 0,
+        "pcm_samples": 3208,
+        "pcm_total": 7316,
+        "reads": 309,
+        "commands": 334,
+        "cmd0_count": 5
+      },
+      {
+        "transition": 5,
+        "video": true,
+        "complete_rgb_frames": 1,
+        "pcm_samples": 256,
+        "pcm_total": 7653,
+        "reads": 393,
+        "commands": 423,
+        "cmd0_count": 6
+      },
+      {
+        "transition": 6,
+        "video": false,
+        "complete_rgb_frames": 0,
+        "pcm_samples": 3208,
+        "pcm_total": 10875,
+        "reads": 422,
+        "commands": 457,
+        "cmd0_count": 7
+      }
+    ]
+  },
+  "compile_exit_code": 0,
+  "simulation_exit_code": 0,
+  "modelsim_final_time_text": "Time: 472963769200 ps  Iteration: 3  Instance: /tb_video_system",
+  "wall_elapsed_seconds_run_log": 532.9,
+  "fixture_source_sha256": {
+    "candidate_top_tf_hdmi_audio.v": "D56284A10D87CDA211D4F5EB284F8156C3DCD68FD7CABB31FD8A497C13B891C8",
+    "isolated_sd_spi_card_model.v": "FD8C44E68EAC5D426A5D2269CDA3CF7B19DB867290AAD767CEE88FE83E232474",
+    "tb_video_system.v": "8EAE5EB2F5484979C82783D7B5C4D93A29B6FA01E34227BB65A96468625227C4",
+    "source_receipt.json": "33B12CCAAA7B6A2D54704CE873D4FE80F6E37087810EAEB54CF85D785085923E",
+    "fixture_receipt.json": "5EC8C4DD3CA3A8F1DB820416D8D4DED7FE30BF4D1F2DD8F15BA21DBBABE00E06"
+  }
+}

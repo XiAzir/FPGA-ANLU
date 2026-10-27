@@ -1,0 +1,25 @@
+{
+  "base": "C11329",
+  "candidate": "C11330",
+  "groups": {
+    "D1": "Remove post-core packet, PCM CRC, memory probes, snapshots and runtime diagnostic pages; collapse unreachable test-pattern source; fixed version display",
+    "D2": "Remove audio LED measurements/blink and passive SD CRC arithmetic/counters; live LED indicators"
+  },
+  "removed_files": [
+    "player_video_source_probe.v",
+    "player_memory_runtime_probe.v",
+    "player_pcm_crc_probe.v",
+    "hdmi_packet_monitor.v",
+    "player_compact_status_pages.v",
+    "player_debug_monitor.v",
+    "player_debug_overlay.v",
+    "player_bit17_led_probe.v",
+    "player_cadence_probe.v",
+    "player_audio_probe.v"
+  ],
+  "added_files": [
+    "player_audio_output.v"
+  ],
+  "baseline_bit_sha256": "0f87f90f55eec622fcfe2373fbcb7c7a97a349bda79babcbafbe483e4a6e3c56",
+  "baseline_package_sha256": "583134df6387f162b13b9a21128c8a94285fe9be3419156e84d0e49bdd4f8432"
+}

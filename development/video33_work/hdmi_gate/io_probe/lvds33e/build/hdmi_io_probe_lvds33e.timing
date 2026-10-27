@@ -1,0 +1,564 @@
+Created by          : Tang Dynasty v6.2.178840
+                    : Copyright (c) 2012-2025 Anlogic Inc.
+Generated           : Tue Oct 27 10:34:08 2026
+
+Top Model           : hdmi_io_probe
+Device              : EG4S20BG256
+Speed               : NA
+STA coverage        : 100.00%
+Constraint File     : E:/VSCODE-project/FPGA-ANLU/development/video33_work/hdmi_gate/io_probe/lvds33e/src/user_source/timing.sdc;
+Confidence          : Synthesized
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min     
+------------------------------------
+Slow     | yes      yes     
+Fast     | yes      yes     
+
+
+Timing Status
+--------------------
+	SWNS: 17.913ns, STNS: 0.000ns
+	HWNS: 1.693ns, HTNS: 0.000ns
+	Period Check WNS: 0.000ns
+
+
+Clock Summary
+--------------------
+
+       Clock-Id:       C-Freq       Fanout   Clock-Name
+--------------------------------------------------------------------------------
+           clk0:       50.000            5   clk
+--------------------------------------------------------------------------------
+
+       Name            Type         Rise(ns)   Fall(ns)          C-Period(ns)     C-Freq(MHz)          R-Period(ns)     R-Freq(MHz)         SWNS(ns)   STNS(ns)         HWNS(ns)   HTNS(ns)         Skew(ns)           Fanout        Max-Level        CC-From    CC-To
+       clk0           local            0.000     10.000                20.000          50.000                 2.087         479.157           17.913      0.000            1.693      0.000            0.000                5                1             no       no
+
+Notes
+----------
+C-Period  :  constraint period
+C-Freq    :  constraint freq
+R-Period  :  report min period
+R-Freq    :  report fmax
+CC-From   :  has path(s) from cross-domain clock
+CC-To     :  has path(s) to cross-domain clock
+
+
+*   Clock R-Period data only takes intra-clock timing. SWNS/STNS/HWNS/HTNS take both intra-clock and inter-clock timing.
+*   If there is mismatch between R-Period and SWNS, check inter-clock timing of this clock as capture clock.
+*   SWNS/STNS/HWNS/HTNS of timing exception (SMCP/SMD) only counted in global Timing Status, not counted in Clock Summary.
+
+Intra clock domain timing
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     clk -> clk
+Type           :     Self
+From Clock     :     clk
+To Clock       :     clk
+Min Period     :     2.087ns
+Fmax           :     479.157MHz
+
+Statistics:
+Max            : SWNS     17.913ns, STNS      0.000ns,         0 Viol Endpoints,         5 Total Endpoints,         5 Paths Analyzed
+Min            : HWNS      1.693ns, HTNS      0.000ns,         0 Viol Endpoints,         5 Total Endpoints,         5 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 17.913ns
+Begin Point         : div_reg.clk (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : div_reg.d (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk rising@20.000ns - clk rising@0.000ns }
+Data Path Delay     : 1.971ns (cell 0.672ns (34%), net 1.299ns (66%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT1=1 )
+Max Fanout          : 5
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: div_reg.q
+net (fo=1)                              0.562          0.708          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+                                                                      pin: div_n_syn_1.a
+LUT1                                    0.408    f     1.116       1  pin: div_n_syn_1.o
+net (fo=5)                              0.737          1.853          net: div_n,  NOFILE(0)
+                                                                      pin: div_reg.d
+SEQ (reg)                               0.118    f     1.971          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.971               
+
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.913               
+
+Slack               : 18.086ns
+Begin Point         : div_reg.clk (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : HDMI_CLK_P_syn_1.do[0] (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk rising@20.000ns - clk rising@0.000ns }
+Data Path Delay     : 1.853ns (cell 0.554ns (29%), net 1.299ns (71%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT1=1 )
+Max Fanout          : 5
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: div_reg.q
+net (fo=1)                              0.562          0.708          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+                                                                      pin: div_n_syn_1.a
+LUT1                                    0.408    f     1.116       1  pin: div_n_syn_1.o
+net (fo=5)                              0.737          1.853          net: div_n,  NOFILE(0)
+                                                                      pin: HDMI_CLK_P_syn_1.do[0]
+PAD (reg)                               0.000    f     1.853          net: HDMI_CLK_P,  ../user_source/hdmi_io_probe.v(3)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.853               
+
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: HDMI_CLK_P_syn_1.osclk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.061         19.939               
+clock uncertainty                       0.000         19.939               
+clock pessimism                         0.000         19.939               
+--------------------------------------------------------------------  ---------------
+Required                                              19.939               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.086               
+
+Slack               : 18.086ns
+Begin Point         : div_reg.clk (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : HDMI_D0_P_syn_1.do[0] (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk rising@20.000ns - clk rising@0.000ns }
+Data Path Delay     : 1.853ns (cell 0.554ns (29%), net 1.299ns (71%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT1=1 )
+Max Fanout          : 5
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: div_reg.q
+net (fo=1)                              0.562          0.708          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+                                                                      pin: div_n_syn_1.a
+LUT1                                    0.408    f     1.116       1  pin: div_n_syn_1.o
+net (fo=5)                              0.737          1.853          net: div_n,  NOFILE(0)
+                                                                      pin: HDMI_D0_P_syn_1.do[0]
+PAD (reg)                               0.000    f     1.853          net: HDMI_D0_P,  ../user_source/hdmi_io_probe.v(4)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.853               
+
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: HDMI_D0_P_syn_1.osclk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.061         19.939               
+clock uncertainty                       0.000         19.939               
+clock pessimism                         0.000         19.939               
+--------------------------------------------------------------------  ---------------
+Required                                              19.939               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.086               
+
+Slack               : 18.086ns
+Begin Point         : div_reg.clk (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : HDMI_D1_P_syn_1.do[0] (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk rising@20.000ns - clk rising@0.000ns }
+Data Path Delay     : 1.853ns (cell 0.554ns (29%), net 1.299ns (71%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT1=1 )
+Max Fanout          : 5
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: div_reg.q
+net (fo=1)                              0.562          0.708          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+                                                                      pin: div_n_syn_1.a
+LUT1                                    0.408    f     1.116       1  pin: div_n_syn_1.o
+net (fo=5)                              0.737          1.853          net: div_n,  NOFILE(0)
+                                                                      pin: HDMI_D1_P_syn_1.do[0]
+PAD (reg)                               0.000    f     1.853          net: HDMI_D1_P,  ../user_source/hdmi_io_probe.v(5)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.853               
+
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: HDMI_D1_P_syn_1.osclk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.061         19.939               
+clock uncertainty                       0.000         19.939               
+clock pessimism                         0.000         19.939               
+--------------------------------------------------------------------  ---------------
+Required                                              19.939               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.086               
+
+Slack               : 18.086ns
+Begin Point         : div_reg.clk (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : HDMI_D2_P_syn_4.do[0] (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk rising@20.000ns - clk rising@0.000ns }
+Data Path Delay     : 1.853ns (cell 0.554ns (29%), net 1.299ns (71%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT1=1 )
+Max Fanout          : 5
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.146    r     0.146          pin: div_reg.q
+net (fo=1)                              0.562          0.708          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+                                                                      pin: div_n_syn_1.a
+LUT1                                    0.408    f     1.116       1  pin: div_n_syn_1.o
+net (fo=5)                              0.737          1.853          net: div_n,  NOFILE(0)
+                                                                      pin: HDMI_D2_P_syn_4.do[0]
+PAD (reg)                               0.000    f     1.853          net: HDMI_D2_P,  ../user_source/hdmi_io_probe.v(6)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.853               
+
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: HDMI_D2_P_syn_4.osclk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.061         19.939               
+clock uncertainty                       0.000         19.939               
+clock pessimism                         0.000         19.939               
+--------------------------------------------------------------------  ---------------
+Required                                              19.939               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.086               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 1.693ns
+Begin Point         : div_reg.clk (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : HDMI_CLK_P_syn_1.do[0] (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk rising@0.000ns - clk rising@0.000ns }
+Data Path Delay     : 1.690ns (cell 0.391ns (23%), net 1.299ns (77%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT1=1 )
+Max Fanout          : 5
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: div_reg.q
+net (fo=1)                              0.562          0.671          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+                                                                      pin: div_n_syn_1.a
+LUT1                                    0.282    r     0.953       1  pin: div_n_syn_1.o
+net (fo=5)                              0.737          1.690          net: div_n,  NOFILE(0)
+                                                                      pin: HDMI_CLK_P_syn_1.do[0]
+PAD (reg)                               0.000    f     1.690          net: HDMI_CLK_P,  ../user_source/hdmi_io_probe.v(3)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.690               
+
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: HDMI_CLK_P_syn_1.osclk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                   -0.003         -0.003               
+clock uncertainty                       0.000         -0.003               
+clock pessimism                         0.000         -0.003               
+--------------------------------------------------------------------  ---------------
+Required                                              -0.003               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.693               
+
+Slack               : 1.693ns
+Begin Point         : div_reg.clk (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : HDMI_D0_P_syn_1.do[0] (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk rising@0.000ns - clk rising@0.000ns }
+Data Path Delay     : 1.690ns (cell 0.391ns (23%), net 1.299ns (77%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT1=1 )
+Max Fanout          : 5
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: div_reg.q
+net (fo=1)                              0.562          0.671          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+                                                                      pin: div_n_syn_1.a
+LUT1                                    0.282    r     0.953       1  pin: div_n_syn_1.o
+net (fo=5)                              0.737          1.690          net: div_n,  NOFILE(0)
+                                                                      pin: HDMI_D0_P_syn_1.do[0]
+PAD (reg)                               0.000    f     1.690          net: HDMI_D0_P,  ../user_source/hdmi_io_probe.v(4)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.690               
+
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: HDMI_D0_P_syn_1.osclk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                   -0.003         -0.003               
+clock uncertainty                       0.000         -0.003               
+clock pessimism                         0.000         -0.003               
+--------------------------------------------------------------------  ---------------
+Required                                              -0.003               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.693               
+
+Slack               : 1.693ns
+Begin Point         : div_reg.clk (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : HDMI_D1_P_syn_1.do[0] (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk rising@0.000ns - clk rising@0.000ns }
+Data Path Delay     : 1.690ns (cell 0.391ns (23%), net 1.299ns (77%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT1=1 )
+Max Fanout          : 5
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: div_reg.q
+net (fo=1)                              0.562          0.671          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+                                                                      pin: div_n_syn_1.a
+LUT1                                    0.282    r     0.953       1  pin: div_n_syn_1.o
+net (fo=5)                              0.737          1.690          net: div_n,  NOFILE(0)
+                                                                      pin: HDMI_D1_P_syn_1.do[0]
+PAD (reg)                               0.000    f     1.690          net: HDMI_D1_P,  ../user_source/hdmi_io_probe.v(5)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.690               
+
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: HDMI_D1_P_syn_1.osclk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                   -0.003         -0.003               
+clock uncertainty                       0.000         -0.003               
+clock pessimism                         0.000         -0.003               
+--------------------------------------------------------------------  ---------------
+Required                                              -0.003               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.693               
+
+Slack               : 1.693ns
+Begin Point         : div_reg.clk (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : HDMI_D2_P_syn_4.do[0] (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk rising@0.000ns - clk rising@0.000ns }
+Data Path Delay     : 1.690ns (cell 0.391ns (23%), net 1.299ns (77%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT1=1 )
+Max Fanout          : 5
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: div_reg.q
+net (fo=1)                              0.562          0.671          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+                                                                      pin: div_n_syn_1.a
+LUT1                                    0.282    r     0.953       1  pin: div_n_syn_1.o
+net (fo=5)                              0.737          1.690          net: div_n,  NOFILE(0)
+                                                                      pin: HDMI_D2_P_syn_4.do[0]
+PAD (reg)                               0.000    f     1.690          net: HDMI_D2_P,  ../user_source/hdmi_io_probe.v(6)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.690               
+
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: HDMI_D2_P_syn_4.osclk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                   -0.003         -0.003               
+clock uncertainty                       0.000         -0.003               
+clock pessimism                         0.000         -0.003               
+--------------------------------------------------------------------  ---------------
+Required                                              -0.003               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.693               
+
+Slack               : 1.713ns
+Begin Point         : div_reg.clk (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : div_reg.d (rising edge triggered by clock clk  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : hold
+Process             : fast
+Budget              : 0.000ns { clk rising@0.000ns - clk rising@0.000ns }
+Data Path Delay     : 1.774ns (cell 0.475ns (26%), net 1.299ns (74%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT1=1 )
+Max Fanout          : 5
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.109    f     0.109          pin: div_reg.q
+net (fo=1)                              0.562          0.671          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+                                                                      pin: div_n_syn_1.a
+LUT1                                    0.282    r     0.953       1  pin: div_n_syn_1.o
+net (fo=5)                              0.737          1.690          net: div_n,  NOFILE(0)
+                                                                      pin: div_reg.d
+SEQ (reg)                               0.084    r     1.774          net: HDMI_D2_P_dup_3,  ../user_source/hdmi_io_probe.v(6)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.774               
+
+source latency                          0.000          0.000               
+port                K14                 0.000          0.000          pin: clk
+hierarchy                               0.000          0.000          pin: clk_syn_2.ipad
+PAD                                     0.000          0.000          pin: clk_syn_2.di
+net (fo=5)                              0.000          0.000          net: clk_dup_1,  ../user_source/hdmi_io_probe.v(2)
+                                                                      pin: div_reg.clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+hold                                    0.061          0.061               
+clock uncertainty                       0.000          0.061               
+clock pessimism                         0.000          0.061               
+--------------------------------------------------------------------  ---------------
+Required                                               0.061               
+--------------------------------------------------------------------  ---------------
+Slack                                                  1.713               
+
+
+Inter clock domain timing
+--------------------------------------------------
+
+IP timing
+--------------------------------------------------

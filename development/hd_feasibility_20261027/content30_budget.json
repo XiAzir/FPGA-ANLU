@@ -1,0 +1,52 @@
+{
+  "scope": "Calculation only; existing 15fps samples extrapolated to 30fps, not a newly encoded 30fps file or board result.",
+  "content_frame_budget_ms": 33.333333333333336,
+  "hdmi_nominal": {
+    "pixel_hz": 74250000,
+    "serial_ddr_clock_hz": 371250000,
+    "data_lane_bps": 742500000,
+    "scan_hz": 30,
+    "same_for_repeated15_or_unique30": true
+  },
+  "tf": {
+    "raw_12p5mhz_Bps": 1562500.0,
+    "historical_model_service_Bps": 1353638,
+    "q65_15fps_mean_jpeg_bytes": 62387.21,
+    "jpeg_30fps_Mbps_estimate": 14.972930400000001,
+    "mjp_audio_other_30fps_Bps_estimate": 2010758.4,
+    "largest_sample_frame_record_plus_audio_other_30fps_Bps": 2204960,
+    "raw_25mhz_Bps": 3125000.0,
+    "method": "Double saved MJP video byte rate; retain PCM and miscellaneous byte rates. New 600-frame encoding/quality and actual card throughput remain pending."
+  },
+  "decode": {
+    "observed_first_frame_cycles": 4010755,
+    "model_clock_hz": 100000000,
+    "first_frame_ms_at_100mhz": 40.10755,
+    "first_frame_only_throughput_fps_at_100mhz": 24.9329614997675,
+    "clock_hz_for_same_first_frame_cycles_at_30fps": 120322650,
+    "native_samples_per_padded_frame": 3133440,
+    "one_native_sample_per_cycle_floor_ms_at_100mhz": 31.3344,
+    "note": "First-frame measurement does not characterize all frames. Decoder/SDRAM 100MHz production integration and STA remain pending."
+  },
+  "sdram_yuv420": {
+    "read_30hz_Bps": 93312000.0,
+    "padded_write_frame_bytes": 3133440,
+    "write_content15_Bps": 47001600,
+    "write_content30_Bps": 94003200,
+    "total_15_content_30_scan_Bps": 140313600.0,
+    "total_30_content_30_scan_Bps": 187315200.0,
+    "payload_ratio_30_over_15_content": 1.3349753694581281,
+    "raw_50mhz_Bps": 200000000,
+    "raw_100mhz_Bps": 400000000,
+    "ideal_app_cycles_per_second_read6_write18": 61430400.0,
+    "ideal_app_cycles_per_second_read7_write18": 67262400.0,
+    "video_double_buffer_bytes": 6266880,
+    "assumptions": "Each scanned chroma sample read once with row reuse; 1088 padded write lines and 1080 visible read lines; app transaction estimates exclude refresh/busy and physical timing."
+  },
+  "scheduler": {
+    "pcm_hz": 48000,
+    "samples_per_content_frame_15fps": 3200,
+    "samples_per_content_frame_30fps": 1600,
+    "frames_in_20s_30fps": 600
+  }
+}

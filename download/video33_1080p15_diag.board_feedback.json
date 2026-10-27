@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-27T11:54:05+08:00",
+  "build_id": "00C11333",
+  "status": "USER_REPORTED_NO_HDMI_SIGNAL",
+  "evidence_source": "user_feedback",
+  "user_quote": "板子上D3 D1 D0常亮，D2闪烁，显示器无信号，也就是黑屏无背光。",
+  "version_context": "对应本次加载提问；用户未单独复述数码管版本页",
+  "led": {
+    "D3": "steady_on",
+    "D2": "blinking",
+    "D1": "steady_on",
+    "D0": "steady_on"
+  },
+  "led_source_meaning": {
+    "D3": "startup_done=1",
+    "D2": "frame_count[2] toggles",
+    "D1": "HDMI core O_video_locked=1",
+    "D0": "PLL extlock=1"
+  },
+  "display": "无输入信号，随后无背光",
+  "bit": "download\\video33_1080p15_diag.bit",
+  "bit_sha256": "da3403c8390c27fe6579e7b0cfb060144464b6afcc3a44a21d08885431ceb44d",
+  "tested_scope": "固定彩条；设计未包含TF/SDRAM/JPEG/音频",
+  "interpretation": "板内PLL与输入时序检测有活动；显示端未收到可显示信号，物理输出与自定义时序接受仍待核验",
+  "hardware_action_by_agent": "none",
+  "original_source_bit_and_zip": "preserved"
+}

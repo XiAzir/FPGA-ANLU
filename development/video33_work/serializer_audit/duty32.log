@@ -1,0 +1,74 @@
+# do run_duty_c32.do 
+# vlib work_duty
+# ** Warning: (vlib-34) Library already exists at "work_duty".
+# 
+# vlog -work work_duty -timescale 1ns/1ps C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module EG_PHY_PLL
+# -- Compiling module prediv_mux
+# -- Compiling module eg_dphase_sel
+# -- Compiling module eg_clko_premux
+# -- Compiling module eg_clko_ctrl
+# -- Compiling module eg_pll_div128
+# -- Compiling module eg_pll_div2
+# 
+# Top level modules:
+# 	EG_PHY_PLL
+# vlog -work work_duty -timescale 1ps/1ps C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_logic_clk.v
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module EG_LOGIC_BUFG
+# -- Compiling module EG_LOGIC_BUFIO
+# -- Compiling module EG_LOGIC_BUFGMUX
+# 
+# Top level modules:
+# 	EG_LOGIC_BUFG
+# 	EG_LOGIC_BUFIO
+# 	EG_LOGIC_BUFGMUX
+# vlog -work work_duty -timescale 1ns/1ps C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_glbl.v
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# vlog -work work_duty -timescale 1ns/1ps ../../player_video32_read_return/src/user_source/hdl_source/IP/video_pll.v tb_pll_duty.sv
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module video_pll
+# -- Compiling module tb_pll_duty
+# 
+# Top level modules:
+# 	tb_pll_duty
+# vsim -c work_duty.tb_pll_duty work_duty.glbl
+# vsim -c work_duty.tb_pll_duty work_duty.glbl 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# ** Warning: ../../player_video32_read_return/src/user_source/hdl_source/IP/video_pll.v(87): (vopt-2241) Connection width does not match width of port 'load_reg'. The port definition is at: C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v(25).
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.tb_pll_duty(fast)
+# Loading work.video_pll(fast)
+# Loading work.EG_PHY_PLL(fast)
+# Loading work.glbl(fast)
+# ** Warning: (vsim-3015) ../../player_video32_read_return/src/user_source/hdl_source/IP/video_pll.v(87): [PCDPC] - Port size (5 or 5) does not match connection size (1) for port 'load_reg'. The port definition is at: C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v(25).
+# 
+#         Region: /tb_pll_duty/dut/pll_inst
+# run -all
+# ******************** : The Attribute            REFCLK_DIV on pll instance tb_pll_duty.dut.pll_inst.para_int_range_chk is set to           2.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             FBCLK_DIV on pll instance tb_pll_duty.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC0_DIV on pll instance tb_pll_duty.dut.pll_inst.para_int_range_chk is set to          40.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC1_DIV on pll instance tb_pll_duty.dut.pll_inst.para_int_range_chk is set to           8.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC2_DIV on pll instance tb_pll_duty.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC3_DIV on pll instance tb_pll_duty.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC4_DIV on pll instance tb_pll_duty.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# SERIAL avg_period=8.000000 high=4.000000..4.000000 low=4.000000..4.000000
+# PIXEL avg_period=40.000000 high=20.000000..20.000000 low=20.000000..20.000000
+# ** Note: $finish    : tb_pll_duty.sv(6)
+#    Time: 5000809200 ps  Iteration: 0  Instance: /tb_pll_duty

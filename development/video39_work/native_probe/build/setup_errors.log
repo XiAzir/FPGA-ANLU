@@ -1,0 +1,6 @@
+2026-10-27 本地证据采集中的非设计错误（原始命令输出按时保留）：
+1. 初次寻找 lane_lvds_10_1 模块时，误从 hdmi_phy_warpper.v 切片，PowerShell Substring startIndex=-1；已改为复制独立 lane_lvds_10_1.v。见 setup_error_01.log。
+2. A版第一次 read_adc 后，pin.adc 仍指定 clk，顶层已改为 refclk，TD报 USR-8052/USR-8168。见 td_run_clock_probe.log；改约束后重跑成功。
+3. B版初始 XML 工程中生成 Verilog 文件项时重复条目并包含未转义字符，TD报 PRJ-8640；后续项目名与文件名不匹配报 PRJ-8643，已从A版干净项目重建并改名，最终run成功。完整输出见 td_run_clock_probe_b.log、retry01.log、retry02.log；retry03.log为成功run。
+4. 系统Python缺少openpyxl；bundled Python可用。首次读取工作表名“Sheet1”报KeyError，读取真实表名（概要信息）后成功。此处未改变任何工程文件。
+5. 用Poppler目录下猜测路径调用pdftotext时可执行文件不存在，失败；管脚位/接口号最终从XLSX和现成300dpi原图复核。没有DS301 PDF提取输出，且不影响已保存的P/N mapping report。

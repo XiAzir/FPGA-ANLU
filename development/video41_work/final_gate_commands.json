@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "final_gate_sha256": "1c0dc1b9799724c18ead8dd27214d6ba75e161c8d92453a19fa16849c6d14263",
+  "final_routed_sha256": "a8ccaa65b235e18caa20b037ba24630b0773bd33b7f2c9c22f280255a8418fe3",
+  "checks": [
+    {
+      "name": "synthesized_short_burst",
+      "status": "PASS",
+      "binding_path": "development/video41_work/gate_refresh/run_C41_20261027_192512/source_binding.json",
+      "binding_sha256": "8198bdfb16086c20fc3ac3972b4e92f32c4b6758798afd8f692da15c547fb18e",
+      "log_path": "development/video41_work/gate_refresh/run_C41_20261027_192512/run.log",
+      "log_sha256": "2d4cd4048847c02ee9d07450caf3d78f7261f69373f59ba09d3659f06951fde8",
+      "trace_sha256": "2a22f91f448f1cc849afbc510d2149a1eced108b43cae95966a0bec227b52013",
+      "summary": "GATE_REFRESH_SUMMARY case=0 inject_req=0 traffic=1 measured_cycles=4653 req_rises=6 ack_rises=7 aref_commands=6 writes=114 reads=114",
+      "AREF_gaps_mem_clocks": [
+        782,
+        782,
+        763,
+        781,
+        781
+      ],
+      "request_to_AREF_mem_clocks": [
+        23,
+        24,
+        25,
+        7,
+        7,
+        7
+      ],
+      "maximum_observed_request_service_delay_ns": 500,
+      "source_kind": "synthesized",
+      "source_sha256": "1c0dc1b9799724c18ead8dd27214d6ba75e161c8d92453a19fa16849c6d14263"
+    },
+    {
+      "name": "routed_long_burst",
+      "status": "PASS",
+      "binding_path": "development/video41_work/gate_refresh/run_C41_20261027_193406/source_binding.json",
+      "binding_sha256": "be1efb6e5fdfcdc109877d28849ecc3a43b74e9ebd6f9bc929e6e25f348d6b83",
+      "log_path": "development/video41_work/gate_refresh/run_C41_20261027_193406/run.log",
+      "log_sha256": "6f7f7b4192ba7b511debaea51d16b09024a94b2bad96e520defaa54de44025b5",
+      "trace_sha256": "424cbe98e6ac68ed3d4adc525eab1e051eae598ba9d162a78c3102be15e2c271",
+      "summary": "GATE_REFRESH_SUMMARY case=0 inject_req=0 traffic=1 measured_cycles=4729 req_rises=6 ack_rises=6 aref_commands=6 writes=576 reads=512",
+      "AREF_gaps_mem_clocks": [
+        838,
+        835,
+        838,
+        566,
+        835
+      ],
+      "request_to_AREF_mem_clocks": [
+        77,
+        134,
+        188,
+        245,
+        30,
+        84
+      ],
+      "maximum_observed_request_service_delay_ns": 4900,
+      "source_kind": "routed",
+      "source_sha256": "a8ccaa65b235e18caa20b037ba24630b0773bd33b7f2c9c22f280255a8418fe3"
+    },
+    {
+      "name": "routed_idle",
+      "status": "PASS",
+      "binding_path": "development/video41_work/gate_refresh/run_C41_20261027_193626/source_binding.json",
+      "binding_sha256": "aa0410b6f2f56a05d7c1a43bd690c87d6761a1433c46c9f395bd313a1bd5ae59",
+      "log_path": "development/video41_work/gate_refresh/run_C41_20261027_193626/run.log",
+      "log_sha256": "f91c83d4a161a57aec3b5c22bb1c343c539e9301fb6ae6a753c5abc8051869dd",
+      "trace_sha256": "50edc0a8e55e39d4e905ccec5b62e613ea02318c6fe6835cc2fc73fce33b8c6d",
+      "summary": "GATE_REFRESH_SUMMARY case=0 inject_req=0 traffic=0 measured_cycles=1528 req_rises=2 ack_rises=2 aref_commands=2 writes=0 reads=0",
+      "AREF_gaps_mem_clocks": [
+        781
+      ],
+      "request_to_AREF_mem_clocks": [
+        7,
+        7
+      ],
+      "maximum_observed_request_service_delay_ns": 140,
+      "source_kind": "routed",
+      "source_sha256": "a8ccaa65b235e18caa20b037ba24630b0773bd33b7f2c9c22f280255a8418fe3"
+    }
+  ],
+  "scope": "Full original mapped netlists with only top rename; actual command pins, forced app inputs/clocks/reset and accelerated startup; inert device command observer; no SDF, storage contents or board capture.",
+  "source_logic_ack_override": false,
+  "routed_reset_fanout_aliases": "Explicit per-run list bound in source_binding; all use the same test reset."
+}

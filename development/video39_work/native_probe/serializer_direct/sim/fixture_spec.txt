@@ -1,0 +1,7 @@
+1. Candidate transformation:
+   - delete S_oddr_data register and its negedge assignment;
+   - connect EG_LOGIC_ODDR.d1 directly to S_shift_data[9] and d0 to S_shift_data[8];
+   - preserve pending/load/shift scheduling from B.
+2. Simulation compares reference and candidate module physical O_serial_out (ODDR q) streams for all four independently driven lanes, over three serial-clock phase offsets.
+3. Clocks are 74.285714 MHz pixel / 371.428571 MHz serial, exact 5:1 ratio at these rounded rates.
+4. Each lane receives a deterministic pseudorandom 10-bit word on every pixel edge. Playback and asynchronous reset events each span more than one full serial period.

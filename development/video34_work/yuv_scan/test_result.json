@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "test_geometry": {
+    "width": 32,
+    "height": 32,
+    "four_line_groups_per_frame": 8,
+    "mcus_per_frame": 4,
+    "frame_words": 384
+  },
+  "frames_checked": 2,
+  "commands_checked": 192,
+  "returned_words_checked": 768,
+  "pixels_ycbcr_checked": 2048,
+  "underflows": 0,
+  "rd_latency_and_gaps": "command ready stalls plus variable command delay and an inter-beat return gap",
+  "bank_release": "8 sequential groups per frame exercise both banks and repeated overwrite after group consumption",
+  "frame_base_change": "second frame base=384",
+  "expected_ycbcr": "Python independently maps each pixel to MCU-tiled plane word/lane and decodes address-coded memory bytes",
+  "1080p15_schedule_audit": {
+    "visible_width": 1920,
+    "visible_height": 1080,
+    "padded_height": 1088,
+    "groups": 270,
+    "commands_per_group": 720,
+    "commands_per_frame": 194400,
+    "returned_words_per_frame": 777600,
+    "frame_words": 783360,
+    "double_frame_words": 1566720,
+    "all_addresses_aligned_in_range_unique": true
+  },
+  "simulation_log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video34_work\\yuv_scan\\sim.log"
+}

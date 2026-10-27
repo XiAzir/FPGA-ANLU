@@ -1,0 +1,91 @@
+{
+  "state": "DIAGNOSTIC_BOARD_PENDING",
+  "version": "00C11338",
+  "filename": "video38_open_tx_1080p15.bit",
+  "purpose": "新开放单包HDMI发射核固定彩条接收对照",
+  "bit_sha256": "80ea48146f802cb7016ba673a1149ef6387a76ccd5d76ea7ab4334d69afc3c66",
+  "bit_bytes": 629624,
+  "source_root": "E:/VSCODE-project/FPGA-ANLU/development/player_video38_open_tx",
+  "geometry": {
+    "active": [
+      1920,
+      1080
+    ],
+    "total": [
+      2000,
+      1100
+    ],
+    "pixel_hz": 33000000,
+    "serial_ddr_hz": 165000000,
+    "refresh_hz": 15.0,
+    "hsync": "negative",
+    "vsync": "negative"
+  },
+  "timing_ns": {
+    "SWNS": 0.416,
+    "STNS": 0.0,
+    "HWNS": 0.067,
+    "HTNS": 0.0
+  },
+  "stage_receipts": {
+    "synthesis": "E:/VSCODE-project/FPGA-ANLU/development/player_video38_open_tx/build/manual/synthesis_20261027_144412.json",
+    "physical": "E:/VSCODE-project/FPGA-ANLU/development/player_video38_open_tx/build/manual/physical_20261027_144415.json",
+    "bitstream": "E:/VSCODE-project/FPGA-ANLU/development/player_video38_open_tx/build/manual/bitstream_20261027_144511.json"
+  },
+  "source_binding": {
+    "scripts/generate_bit.tcl": "8cb6c0c68cb5ad710311abe449711b528d67dc32bcf497b24f43ac13f6c37467",
+    "src/td_project/AC201_video38_open_tx.al": "66972d26c40508aefc3e88bec60d387c110285ab4930ded046efde4a0bd4a9aa",
+    "src/user_source/constraints_source/pin.adc": "a476f6b164134b357a044e500719c8c867b34a0f7b6991e84386f58d9bafae9d",
+    "src/user_source/constraints_source/timing.sdc": "4d762c83c84579ec61d921cf8e1df8178231404153084960d60110aa41fdea29",
+    "src/user_source/hdl_source/hdmi_phy_warpper.v": "a5f65498cd54feca211c755ae1be9bda62c88cdf2160215c114bce3a9ed46369",
+    "src/user_source/hdl_source/IP/video_pll.ipc": "eb3a4378e96e3b3f7adb7cdbd0579ab88dcf43f9ad5c668e523749857858a7ab",
+    "src/user_source/hdl_source/IP/video_pll.v": "462486a5653c93eb13b66c73cf6e828ba7cbf18f6bdc2e2e4034dc3cdacd5403",
+    "src/user_source/hdl_source/lane_lvds_10_1.v": "7c2a17cb1576583d8fb7ebff9296288707a3baf5502b8c6dd8c540d3cf37a0ca",
+    "src/user_source/hdl_source/open_tx/auxiliary_video_information_info_frame.v": "acb189a91c346ec603b0db28bb154dcaec5129fd2c90893754be73314151adde",
+    "src/user_source/hdl_source/open_tx/packet_assembler_compat.v": "4c6cd8bdfbee13b4e2737bc381f749384274cab09d119d669d5f688aa652b1cb",
+    "src/user_source/hdl_source/open_tx/tmds_channel.v": "7912966c8e444e060fb8977ed09c35596000087796b9f901218103c1ee7ec943",
+    "src/user_source/hdl_source/open_tx/video_only_tmds_tx.v": "19d24f9f396f7e8a60f950b70bbddb4e77f1feaef8bba500a4ada6267ecffe02",
+    "src/user_source/hdl_source/status_hex595.v": "db906f4dfb891ef03448831d06b87e3c234cbe3f6a99a82112bdf394e521b578",
+    "src/user_source/hdl_source/top.v": "11ff40fa10adf240e742e079085d0de1caad02fef1f93e2cf1bb5b609cbfbb23"
+  },
+  "gate_db_sha256": "b946ce5467572f836ff955fe30d894aabba30635c4b4099b1336337db685253c",
+  "routed_db_sha256": "00ac6be86e316f8f383d0cc72beceb1765613a4182030c3630637e47abf3dc77",
+  "mapped_pin_verification": {
+    "status": "PIN_PROTOCOL_WINDOW_PASS",
+    "version": 38,
+    "stream": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video37_work\\pin_c38\\words.txt",
+    "stream_sha256": "242ec704b6a0287774d07400a23fb106969fd1add3c3fbedeb610b267e428d03",
+    "captured_words": 30000,
+    "unknown_before_video": 0,
+    "first_video_word": 33,
+    "complete_video_rows": 15,
+    "rgb_pixels_checked": 28800,
+    "packets_by_header": {
+      "0d0282": 1,
+      "190183": 1,
+      "000000": 13
+    },
+    "h_period_words": {
+      "2000": 14
+    },
+    "h_low_width_words": {
+      "8": 15
+    },
+    "v_period_words": {},
+    "v_low_width_words": {},
+    "pixel_period_ns_min_max": [
+      30.30239999992773,
+      30.303700000047684
+    ],
+    "injected_lane0_bit0_word": null,
+    "error": null,
+    "scope": "Original mapped gate and official EG4 PLL/ODDR/IO models; model-only 200ns PLL input reset and accelerated startup wait; short pin window, no SDF or physical receiver."
+  },
+  "verification_scope": "完整几何RTL仿真、独立VS契约检查、实际映射网表短窗口串行引脚解码、原约束routed STA；实板与SDF待验证。",
+  "simulation_initialization": {
+    "pll_primitive_input_reset_ns": 200,
+    "startup_count_force": 999999,
+    "production_pll_reset_unchanged": true
+  },
+  "media_scope": "固定彩条，视频与音频播放器后续集成。"
+}

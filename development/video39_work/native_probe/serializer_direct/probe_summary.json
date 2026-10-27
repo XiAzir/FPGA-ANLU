@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-27",
+  "device": "EG4S20BG256",
+  "scope": "isolated direct ODDR serializer probe",
+  "candidate": {
+    "change": "Removed S_oddr_data and negedge capture; ODDR.d0=S_shift_data[9], d1=S_shift_data[8]; pending/load/shift unchanged",
+    "simulation": {
+      "result": "PASS",
+      "simulator": "ModelSim SE-64 10.1c",
+      "primitive_model": "TD sim_release/eg4/eg_logic_io.v",
+      "glbl": "TD sim_release/eg4/eg_phy_glbl.v",
+      "pixel_mhz": 74.285714,
+      "serial_mhz": 371.428571,
+      "phases_ps": [
+        0,
+        400,
+        1000
+      ],
+      "lanes_per_phase": 4,
+      "random_10bit_words_per_lane": 162,
+      "q_vectors_per_phase": 1618,
+      "q_lane_samples_total": 19416,
+      "playback_reset": "asserted on pixel positive edge for 3.2ns",
+      "async_reset": "asserted off-clock-edge for 3.2ns",
+      "first_wrong_wiring_failure": "phase 400ps at displayed 61ns ref=1010 direct=0011; preserved in modelsim_equivalence_run01.log"
+    },
+    "td_route": {
+      "result": "PASS",
+      "sta_coverage_percent": 83.45,
+      "swns_ns": 0.892,
+      "stns_ns": 0,
+      "hwns_ns": 0.067,
+      "htns_ns": 0,
+      "serial_clock_min_period_ns": 1.8,
+      "serial_clock_fmax_mhz": 555.556,
+      "worst_path": "serial positive-edge S_load_en_2d_reg to serial positive-edge S_shift_data_reg[7], budget 2.692ns",
+      "prior_b_half_cycle_path_removed": true,
+      "resource": {
+        "lut": 43,
+        "registers": 105,
+        "pll": 1,
+        "gclk": 1,
+        "ddrx1_outputs": 4
+      },
+      "pin_mapping": {
+        "L4": "K11/J11",
+        "L6": "L14/M14",
+        "L7": "K15/M15",
+        "L9": "H13/J13"
+      },
+      "warnings": [
+        "PHY-5014 missing pib for PLL fbclk[0]",
+        "derived serial clock constraint 371.500MHz vs PLL configured 371.428571MHz",
+        "refclk has no input delay; four outputs have no output delay",
+        "reset auto-assigned H16 LVCMOS33 PULLUP"
+      ]
+    }
+  },
+  "hardware_lock_verified": false,
+  "board_si_verified": false,
+  "bitstream_generated": false,
+  "sha256": {
+    "README.md": "863E816F2F83856DAD64F1CAE8B3EE0007172A62968340015C7D9324E063177A",
+    "src/td_project/native_clock_serializer_probe_b.al": "879009E1C4643DBB4A8B60ACC75D4F5870C9989BF6E490A12894BE7CDA8E0936",
+    "src/user_source/native_clock_serializer_probe.v": "369586030825E91266C99AC2156788D3FAB987073CC65FBAB9FD4C1233903C6C",
+    "src/user_source/serializer.v": "5C2669C048A863CBF23EB241D7273E39846787BF5827571544746920727EE9DF",
+    "src/user_source/IP/video_pll.v": "D37737C8FF5D5931D53B2295828B06203670EE157F8F3C09A05BC19C0A4A93AD",
+    "scripts/run_clock_probe_b.tcl": "FB309CB67C826E6965AE5B38480FBD9A8C3EF67CC481420A42286CFE401E3D5E",
+    "sim/fixture_spec.txt": "4400ECAF18257DDE5333781A759638A89088849060B7F8C1248DC3419FE363A5",
+    "sim/tb_direct_equivalence.sv": "4BFB05EC7B8C0756A3F20F0E8E0D8F957B9C625AE87DDDA572C95168A2804B48",
+    "sim/serializer_reference.v": "F8E76BDA4209B5EBE8F6C28C6C41C8EF33281367C73D9918BC18DEDB87FBB181",
+    "sim/eg_logic_io.v": "3EEF9298B0496750534698232F87BE61982B759C92DF6BEE7E04DE3EBA979245",
+    "sim/eg_phy_glbl.v": "95B5FED81000F5844A5A3B110A5B8E82D59A941E6F0715015E38884192EE4FB7",
+    "sim/modelsim_equivalence_run01.log": "871F3246320204B4CAC3614F3448E9B88AE24678A59A8672FBA9C2C840A80033",
+    "sim/modelsim_equivalence_run02.log": "D7209836265E112A714CB02E8445A79A213DF29FFC1FBDF2E7B5FFBA9614B466",
+    "sim/modelsim_equivalence_run03.log": "D5307675C56D72EAAFD234A27339DDCF9E1515F6A1AB3D8C794A9F9C2E5A28F0",
+    "sim/modelsim_debug_run01.log": "4FE70765D537C5DBE01FD7FF3CF6D858C773F3A1E547344568601D5F9B0F7058",
+    "sim/modelsim_debug_run02.log": "5D109F513D702306C4B3A747EAC73D6474F81BE5AD869F68775D97208EE2C583",
+    "sim/modelsim_debug_run03.log": "19B0D09B8E8BDEFE2E65978C28807D45C9D9883644A29EA7337AA51257990951",
+    "sim/modelsim_debug_run04.log": "CE8A661BE444A77E619266A03BBCB05843174626C51A60E4A877C1D45B2B873C",
+    "sim/modelsim_debug_run05.log": "421C53EF4613663AADA05E960AFA151511D02A1ADE4A8B9C2DBA7C7A90A895C0",
+    "sim/modelsim_debug_run06.log": "5CF49C0CC9C6D219A028EE4BF18DB9B5EC9C8FC48A8890F520DA761CFE522A9E",
+    "sim/modelsim_find_instances.log": "0C9F6F9F4FC8C7ED731903A58D452B37EBD0FAAA0F0870FB398F378950A8DEB5",
+    "sim/setup_errors.log": "27C30A03ADD81EB60DB04E0FBE07D3CFBDE3049B5CFC4C4ED234779D6EC6BADA",
+    "build/td_run_direct.log": "0998D2280F6721E48F1CE8C9FABF8318F7B5DA0DA7F22DA546BE265A60933619",
+    "build/native_clock_serializer_probe_b.area": "84D467B1F7402F736FA32CE9875A9DC66040CA696E6DA723D9EFCE656F01703E",
+    "build/native_clock_serializer_probe_b.timing": "A4187921B400D0A20B3B62BE455C9E60C2C05C273E1FD7BC3F9552640D7DD6F9",
+    "build/native_clock_serializer_probe_b.ts": "46AD64FC5A31E5A2AE4027AF40C4D6FE60CF2F6020A2A0CB2A46A05D14FE5146",
+    "build/native_clock_serializer_probe_b_gate.db": "3DB839CCD68F419614FAB4728B706A4C5AB958A4F8796F0017A29B25CB674C29",
+    "build/native_clock_serializer_probe_b_place.ts": "05F63610EF811FA8CDD14455586725EDB9AD424728F3D607A811972F2B7D1978",
+    "build/native_clock_serializer_probe_b_phy.ts": "3C7BA74E1AF582A93F815F7092228961C6A477989852EAB8DE54F54CAF422027",
+    "build/native_clock_serializer_probe_b_pr.timing": "E74B5A54A27F51BFD08F73777F3A96A2732E76EF4543E8A974495F137F2E899F",
+    "build/native_clock_serializer_probe_b_chk.timing": "82449D7B032ABB39C656143682072BE9CC26FD5D88CE3C5AB2DE12321E955DA2",
+    "build/native_clock_serializer_probe_b_exception.timing": "78D74316C6569C4750785C6AB7D3B990AB0B443047CE77589BD7F5706E44AB68",
+    "build/native_clock_serializer_probe_b_phy.area": "3B3C372DE08C966C77D8026BAF8BB030EF6F05D297D649029101476448B98F26",
+    "build/native_clock_serializer_probe_b_pr.db": "34FDF1A0C52D3AB24852FD7219F68B65D6FCF8A81C5C5865340EA51A8E81D0FE"
+  }
+}

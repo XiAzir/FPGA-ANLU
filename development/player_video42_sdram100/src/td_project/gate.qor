@@ -1,0 +1,81 @@
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |        -1663                |
+|     Setup TNS             |       -72330                |
+|     Num of violated S-EP  |          110                |
+|     Hold WNS              |         -309                |
+|     Hold TNS              |        -7872                |
+|     Num of violated H-EP  |           32                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |         8397                |
+|     #luts                 |        10761                |
+|     #lut1                 |           70                |
+|     #lut1(~A)             |           70                |
+|     #slices               |         1330                |
+|     slices percentage     |       13.57%                |
+|     #RAMs                 |           62                |
+|     #DSPs                 |           26                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |          132                |
+|     #insts in MACRO       |         1330                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |          171                |
+|     #keep_hier            |          159                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |           24                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |        43.11                |
+| dff(single fanout)->dff   |          849                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total Number          |            0                |
+|     Total Exceed Level    |            0                |
+|     Worst Level Slack     |            1                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 1000ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Clock            |  Period             |  0     |  1     |  2     |  3     |  4     |  5    |  6     |  7    |  8    |  9    |  10   |  11   |  12   |  13   |  14  |  15  |  16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  clk              |  20.000ns (50MHz)   |  0     |  0     |  0     |  0     |  0     |  0    |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0   |  0
+  ext_mem_clk      |  10.000ns (100MHz)  |  592   |  543   |  87    |  58    |  84    |  14   |  23    |  6    |  16   |  0    |  0    |  0    |  0    |  0    |  0   |  0   |  0
+  ext_mem_clk_sft  |  10.000ns (100MHz)  |  16    |  32    |  0     |  0     |  0     |  0    |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0   |  0
+  hdmi_5x_clk      |  8.000ns (125MHz)   |  77    |  102   |  0     |  0     |  0     |  0    |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0   |  0
+  sd_card_clk      |  20.000ns (50MHz)   |  860   |  4220  |  2789  |  1763  |  612   |  691  |  478   |  831  |  603  |  412  |  280  |  225  |  135  |  278  |  19  |  1   |  31
+  video_clk        |  40.000ns (25MHz)   |  2096  |  1313  |  344   |  522   |  409   |  191  |  542   |  141  |  77   |  25   |  19   |  23   |  0    |  0    |  0   |  0   |  0
+  Total            |  NA                 |  3641  |  6210  |  3220  |  2343  |  1105  |  896  |  1043  |  978  |  696  |  437  |  299  |  248  |  135  |  278  |  19  |  1   |  31
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Hierarchical Rent Exponent Report
++---------------------------------------------------------------------------------------------------------------------+
+|Inst                                   |Model                                 |Rent     |Cell     |Pin     |Term     |
++---------------------------------------------------------------------------------------------------------------------+
+|top                                    |top                                   |0.13     |21205    |97177   |16       |
+|  u_file_mapper                        |fat32_dual_file_sector_8              |0.62     |1364     |6709    |440      |
+|  u_bmp_file_player                    |tf_bmp_file_player_5                  |0.62     |1840     |8766    |490      |
+|  u_catalog                            |fat32_catalog_6                       |0.61     |2418     |11647   |553      |
+|  u_jpeg_core                          |jpeg_core_12                          |0.57     |3755     |19834   |562      |
+|  u_hdmi_1_4b_transmitter_core_wrapper |hdmi_1_4b_transmitter_core_wrapper_11 |0.55     |2259     |8144    |252      |
+|  u_frame_buffer                       |frame_buffer_rgb888_9                 |0.47     |2545     |9060    |138      |
+|  u_wav_player                         |tf_wav_file_player_23                 |0.42     |1732     |8375    |111      |
+|  u_pcm_waveform                       |player_pcm_waveform_15                |0.40     |1306     |6578    |86       |
++---------------------------------------------------------------------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+

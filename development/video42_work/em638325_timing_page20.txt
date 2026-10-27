@@ -1,0 +1,53 @@
+EtronTech                             
+EM638325 
+ 
+Rev. 3.2  20    Aug. /2015 
+Table 16. Electrical Characteristics and Recommended A.C. Operating Conditions 
+(VDD = 3.3V ± 0.3V, TA = 0~70°C) (Note: 5, 6, 7, 8) 
+-5 -6 -7 Symbol A.C. Parameter 
+Min. Max. Min. Max. Min. Max.
+Unit Note
+tRC Row cycle time (same bank) 55 - 60 - 63 -  
+tRCD RAS# to CAS# delay (same bank) 15 - 18 - 21 -  
+tRP Precharge to refresh/row activate 
+command (same bank) 15 - 18 - 21 -  
+tRRD Row activate to row activate delay 
+(different banks) 10 - 12 - 14 -  
+tRAS Row activate to precharge time 
+(same bank) 40 100K 42 100K 42 100K
+ns
+ 
+tWR Write recovery time 2 - 2 - 2 -  
+tCCD CAS# to CAS# Delay time 1 - 1 - 1 - 
+tCK
+ 
+CL* = 2 - - 10 - 10 - 9
+tCK Clock cycle time CL* = 3 5 - 6 - 7 -  
+tCH Clock high time 2 - 2.5 - 2.5 - 10
+tCL Clock low time 2 - 2.5 - 2.5 - 10
+CL* = 2 - - - 6 - 6.5 10
+tAC Access time from CLK 
+(positive edge) CL* = 3 - 5 - 5.4 - 5.4  
+tOH Data output hold time 2 - 2.5 - 2.5 - 9
+tLZ Data output low impedance 1 - 1 - 1 -  
+tHZ Data output high impedance CL* = 3 - 5 - 5.4 - 5.4 8
+tIS Data/Address/Control Input set-up time 1.5 - 1.5 - 1.5 - 10
+tIH Data/Address/Control Input hold time 1 - 1 - 1 - 10
+tPDE Power Down Exit set-up time tIS+tCK - t IS+tCK - t IS+tCK - 
+ns
+ 
+tREFI Average Refresh Interval Time - 15.6 - 15.6 - 15.6 µs  
+tXSR Exit Self-Refresh to Any Command tRC+tIS - t RC+tIS - t RC+tIS - ns  
+tMRD Mode Register Set cycle time 2 - 2 - 2 - t CK  
+tRFC Refresh cycle time 55 - 60  - 63 - ns  
+CL is CAS Latency. 
+Note: 
+1. Stress greater than those listed under "Absolute Maximum Ratings" may cause permanent damage to the 
+device. 
+2. All voltages are referenced to V SS. VIH (Max) = 4.6V for pulse width <  3ns. VIL (Min) = -1.0V for pulse width 
+< 3ns 
+3. These parameters depend on the cycle rate and thes e values are measured by the cycle rate under the 
+minimum value of tCK and tRC. Input signals are changed one time during every 2 tCK. 
+4. These parameters depend on the output loading. S pecified values are obtained with the output open. 
+5. Power-up sequence is described in Note 11. 
+6. A.C. Test Conditions 

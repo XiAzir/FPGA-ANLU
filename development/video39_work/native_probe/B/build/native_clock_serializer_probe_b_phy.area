@@ -1,0 +1,80 @@
+standard
+***Report Model: native_clock_serializer_probe_b Device: EG4S20BG256***
+
+IO Statistics
+#IO                         6   out of    188    3.19%
+  #input                    2
+  #output                   4
+  #inout                    0
+
+Utilization Statistics
+#lut                       43   out of  19600    0.22%
+#reg                      113   out of  19600    0.58%
+#le                       113
+  #lut only                 0   out of    113    0.00%
+  #reg only                70   out of    113   61.95%
+  #lut&reg                 43   out of    113   38.05%
+#bram                       0   out of     64    0.00%
+  #bram9k                   0
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                       10   out of    188    5.32%
+  #ireg                     0
+  #oreg                     4
+  #treg                     0
+#pll                        1   out of      4   25.00%
+#gclk                       1   out of     16    6.25%
+
+
+Detailed IO Report
+
+   Name      Direction    Location    IOStandard    IOType    DriveStrength    PullType    PackReg    DiffResistor  
+  refclk       INPUT        K14        LVCMOS33      PAD           N/A          PULLUP      NONE          NONE      
+   reset       INPUT        H16        LVCMOS33      PAD           N/A          PULLUP      NONE          NONE      
+   L4_P       OUTPUT        K11         LVDS33       PAD           NA            NONE       DDRX1         NONE      
+  L4_P(n)     OUTPUT        J11         LVDS33       PAD           NA            NONE       NONE          NONE      
+   L6_P       OUTPUT        L14         LVDS33       PAD           NA            NONE       DDRX1         NONE      
+  L6_P(n)     OUTPUT        M14         LVDS33       PAD           NA            NONE       NONE          NONE      
+   L7_P       OUTPUT        K15         LVDS33       PAD           NA            NONE       DDRX1         NONE      
+  L7_P(n)     OUTPUT        M15         LVDS33       PAD           NA            NONE       NONE          NONE      
+   L9_P       OUTPUT        H13         LVDS33       PAD           NA            NONE       DDRX1         NONE      
+  L9_P(n)     OUTPUT        J13         LVDS33       PAD           NA            NONE       NONE          NONE      
+
+Report Clock Domain Luts:
+
+-----------------------------------------------------------------------------------------------------------------------------
+  Index   |  Name                    |  Frequency   |  LUT As Logic   |  LUT As Shifter   |  LUT As Dram   |  BRAM   |  DSP
+-----------------------------------------------------------------------------------------------------------------------------
+  #1      |  u_pll/pll_inst.clkc[0]  |  74MHz       |  3              |  0                |  0             |  0      |  0
+  #2      |  u_pll/pll_inst.clkc[1]  |  371MHz      |  21             |  0                |  0             |  0      |  0
+-----------------------------------------------------------------------------------------------------------------------------
+
+Clock Resource Statistics
+Index     ClockNet                    Type               DriverType         Driver                  Fanout
+#1        u_lane0/I_serial_clk        Global             pll                u_pll/pll_inst.clkc1    47
+#2        u_pll/pll_clkc_unused[0]    Global             pll                u_pll/pll_inst.clkc0    17
+#3        refclk_dup_1                GeneralRouting     io                 refclk_syn_2.di         1
+
+Report Hierarchy Area:
++-------------------------------------------------------------------------------------------------+
+|Instance  |Module                          |le      |lut     |ripple  |seq     |bram    |dsp     |
++-------------------------------------------------------------------------------------------------+
+|top       |native_clock_serializer_probe_b |113     |43      |0       |117     |0       |0       |
+|  u_lane0 |lane_lvds_10_1                  |39      |18      |0       |39      |0       |0       |
+|  u_pll   |video_pll                       |0       |0       |0       |0       |0       |0       |
+|  u_lane1 |lane_lvds_10_1                  |16      |6       |0       |16      |0       |0       |
+|  u_lane2 |lane_lvds_10_1                  |18      |8       |0       |18      |0       |0       |
+|  u_lane3 |lane_lvds_10_1                  |10      |8       |0       |10      |0       |0       |
++-------------------------------------------------------------------------------------------------+
+
+
+DataNet Average Fanout:
+
+   Index     Fanout    Nets  
+    #1         1        78   
+    #2         2        28   
+    #3         3        6    
+    #4       11-50      2    
+    #5       51-100     1    
+  Average     2.30           

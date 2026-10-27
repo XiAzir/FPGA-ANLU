@@ -1,0 +1,2546 @@
+{
+  "task": "C36 custom short-blank A/B source ablation",
+  "base_candidate": "development/video33_work/candidates/C11336_1080p15_serial_bufg",
+  "source_pair_constraint": true,
+  "source_manifest": "source_manifest.json",
+  "parser_script": "analyze_words_ablation.py",
+  "replay_script": "run_replay.ps1",
+  "model_manifest": "sim_model_manifest.json",
+  "no_route_or_bit_generated": true,
+  "variants": {
+    "A": {
+      "settings": {
+        "H_BACK": 64,
+        "V_ACTIVE": 16,
+        "H_SYNC": 8,
+        "H_TOTAL": 2000,
+        "V_FRONT": 4,
+        "V_SYNC": 5,
+        "H_FRONT": 8,
+        "H_ACTIVE": 1920,
+        "V_TOTAL": 36,
+        "V_BACK": 11
+      },
+      "pixel_mhz": 33,
+      "serial_mhz": 165,
+      "audio_valid": 0,
+      "acr_valid": 0,
+      "source_top_sha256": "3B5164ABB704685083FF0FC74D721886B20D77B5A2EBAEF4897EF57AB8E4D557",
+      "project_file_sha256": "E286274AA7D45ABC6B842E48E4A567ACA9DC62FAC01E7C2371D50B5E9568A2B5",
+      "mapped_gate_sha256": "91F55A2E11BC9821998F5E89BF88B95F6FA592B9B0ECD55F7A2DB6372A4ED805",
+      "replay_gate_sha256": "D594484D601E30996A04EFB289E0915CEDCE0017BB081244B0166B47DB22991C",
+      "only_top_module_renamed": true,
+      "gate_file": "A/build/manual/AC201_protocol_ablation_A_gate.v",
+      "area_file": "A/build/manual/AC201_protocol_ablation_A_gate.area",
+      "td": {
+        "log": "A/build/manual/td_A_synth_map.log",
+        "peak_private_mib": 163.3,
+        "peak_working_set_mib": 181.0,
+        "exit_code": 0,
+        "duration_seconds": 3.7,
+        "memory_samples": "A/build/manual/td_A_memory.csv"
+      },
+      "capture": {
+        "variant": "A",
+        "words": 200000,
+        "exit_code": 0,
+        "duration_seconds": 241.28,
+        "capture_complete": true,
+        "stream": "A_words.txt",
+        "stream_bytes": 7852472,
+        "model_ini": "modelsim.ini",
+        "model_library": "work"
+      },
+      "stream_sha256": "A6F93D09829C70084350B14B0848FAE96A32C64551DD26E05C23827496B93041",
+      "strict_parser": {
+        "exit_code": 1,
+        "log": "A/A_strict_parser.log"
+      },
+      "analysis_json": "A/A_analysis_invalid_transitions.json",
+      "analysis_log": "A/A_analysis_run.log",
+      "analysis": {
+        "status": "PROTOCOL_VIOLATIONS_DETECTED",
+        "variant": "A",
+        "width": 1920,
+        "horizontal_total": 2000,
+        "vertical_total": 36,
+        "captured_words": 200000,
+        "first_locked_word": 72001,
+        "locked_words": 128000,
+        "unknown_words": 0,
+        "unknown_after_lock": 0,
+        "h_period_words": {
+          "2000": 82,
+          "35929": 1
+        },
+        "v_period_words": {
+          "105929": 1,
+          "72000": 1
+        },
+        "locked_h_period_words": {
+          "2000": 63
+        },
+        "locked_h_width_words": {
+          "0": {
+            "8": 64
+          },
+          "1": {
+            "1992": 63
+          }
+        },
+        "locked_v_width_words": {
+          "0": {
+            "10000": 2
+          },
+          "1": {
+            "62000": 1
+          }
+        },
+        "video_frame_start_period_words": {
+          "72000": 1
+        },
+        "video_frame_groups": [
+          {
+            "first_line_start": 72024,
+            "last_line_start": 102024,
+            "lines": 16
+          },
+          {
+            "first_line_start": 144024,
+            "last_line_start": 174024,
+            "lines": 16
+          }
+        ],
+        "h_width_words": {
+          "0": {
+            "8": 84
+          },
+          "1": {
+            "1992": 82,
+            "35921": 1
+          }
+        },
+        "v_width_words": {
+          "0": {
+            "10000": 3
+          },
+          "1": {
+            "95929": 1,
+            "62000": 1
+          }
+        },
+        "completed_video_bursts": 32,
+        "locked_video_bursts": 32,
+        "locked_video_lengths": {
+          "1920": 32
+        },
+        "island_payload_lengths": {
+          "96": 51,
+          "33977": 1,
+          "48": 31
+        },
+        "locked_island_payload_lengths": {
+          "48": 31,
+          "96": 32
+        },
+        "island_events_by_line_type": {
+          "visible_video_line": {
+            "payload=48,transition=video_guard,tail=0": 30,
+            "payload=96,transition=island_tail,tail=2": 2
+          },
+          "vertical_blank_line": {
+            "payload=96,transition=island_tail,tail=2": 49,
+            "payload=33977,transition=video_guard,tail=0": 1,
+            "payload=48,transition=video_guard,tail=0": 1
+          }
+        },
+        "island_events": [
+          {
+            "start": 45,
+            "end": 140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 2045,
+            "end": 2140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 4045,
+            "end": 4140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 6045,
+            "end": 6140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 8045,
+            "end": 8140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 10045,
+            "end": 10140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 12045,
+            "end": 12140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 14045,
+            "end": 14140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 16045,
+            "end": 16140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 18045,
+            "end": 18140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 20045,
+            "end": 20140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 22045,
+            "end": 22140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 24045,
+            "end": 24140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 26045,
+            "end": 26140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 28045,
+            "end": 28140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 30045,
+            "end": 30140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 32045,
+            "end": 32140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 34045,
+            "end": 34140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 36045,
+            "end": 36140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 38045,
+            "end": 72021,
+            "payload_symbols": 33977,
+            "started_locked": false,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 73974,
+            "end": 74021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 72024
+          },
+          {
+            "start": 75974,
+            "end": 76021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 74024
+          },
+          {
+            "start": 77974,
+            "end": 78021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 76024
+          },
+          {
+            "start": 79974,
+            "end": 80021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 78024
+          },
+          {
+            "start": 81974,
+            "end": 82021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 80024
+          },
+          {
+            "start": 83974,
+            "end": 84021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 82024
+          },
+          {
+            "start": 85974,
+            "end": 86021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 84024
+          },
+          {
+            "start": 87974,
+            "end": 88021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 86024
+          },
+          {
+            "start": 89974,
+            "end": 90021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 88024
+          },
+          {
+            "start": 91974,
+            "end": 92021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 90024
+          },
+          {
+            "start": 93974,
+            "end": 94021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 92024
+          },
+          {
+            "start": 95974,
+            "end": 96021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 94024
+          },
+          {
+            "start": 97974,
+            "end": 98021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 96024
+          },
+          {
+            "start": 99974,
+            "end": 100021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 98024
+          },
+          {
+            "start": 101974,
+            "end": 102021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 100024
+          },
+          {
+            "start": 103974,
+            "end": 104069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 102024
+          },
+          {
+            "start": 105974,
+            "end": 106069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 107974,
+            "end": 108069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 109974,
+            "end": 110069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 111974,
+            "end": 112069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 113974,
+            "end": 114069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 115974,
+            "end": 116069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 117974,
+            "end": 118069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 119974,
+            "end": 120069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 121974,
+            "end": 122069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 123974,
+            "end": 124069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 125974,
+            "end": 126069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 127974,
+            "end": 128069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 129974,
+            "end": 130069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 131974,
+            "end": 132069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 133974,
+            "end": 134069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 135974,
+            "end": 136069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 137974,
+            "end": 138069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 139974,
+            "end": 140069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 141974,
+            "end": 142069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 143974,
+            "end": 144021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 145974,
+            "end": 146021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 144024
+          },
+          {
+            "start": 147974,
+            "end": 148021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 146024
+          },
+          {
+            "start": 149974,
+            "end": 150021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 148024
+          },
+          {
+            "start": 151974,
+            "end": 152021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 150024
+          },
+          {
+            "start": 153974,
+            "end": 154021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 152024
+          },
+          {
+            "start": 155974,
+            "end": 156021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 154024
+          },
+          {
+            "start": 157974,
+            "end": 158021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 156024
+          },
+          {
+            "start": 159974,
+            "end": 160021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 158024
+          },
+          {
+            "start": 161974,
+            "end": 162021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 160024
+          },
+          {
+            "start": 163974,
+            "end": 164021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 162024
+          },
+          {
+            "start": 165974,
+            "end": 166021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 164024
+          },
+          {
+            "start": 167974,
+            "end": 168021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 166024
+          },
+          {
+            "start": 169974,
+            "end": 170021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 168024
+          },
+          {
+            "start": 171974,
+            "end": 172021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 170024
+          },
+          {
+            "start": 173974,
+            "end": 174021,
+            "payload_symbols": 48,
+            "started_locked": true,
+            "transition": "video_guard",
+            "trailing_guard_symbols": 0,
+            "missing_video_preamble": true,
+            "on_visible_video_line": true,
+            "visible_line_start": 172024
+          },
+          {
+            "start": 175974,
+            "end": 176069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 174024
+          },
+          {
+            "start": 177974,
+            "end": 178069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 179974,
+            "end": 180069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 181974,
+            "end": 182069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 183974,
+            "end": 184069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 185974,
+            "end": 186069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 187974,
+            "end": 188069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 189974,
+            "end": 190069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 191974,
+            "end": 192069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 193974,
+            "end": 194069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 195974,
+            "end": 196069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 197974,
+            "end": 198069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          }
+        ],
+        "island_trailing_guard_runs": 51,
+        "island_trailing_guard_symbol_lengths": {
+          "2": 51
+        },
+        "video_preamble_before_guard_runs": 0,
+        "video_preamble_before_guard_symbol_lengths": {},
+        "locked_video_preamble_before_guard_runs": 0,
+        "locked_video_preamble_before_guard_symbol_lengths": {},
+        "rgb_pixels_checked": 61440,
+        "rgb_mismatches": 7,
+        "first_rgb_errors": [
+          {
+            "word": 72263,
+            "x": 239,
+            "expected": [
+              255,
+              255,
+              255
+            ],
+            "actual": [
+              255,
+              255,
+              0
+            ]
+          },
+          {
+            "word": 72503,
+            "x": 479,
+            "expected": [
+              255,
+              255,
+              0
+            ],
+            "actual": [
+              0,
+              255,
+              255
+            ]
+          },
+          {
+            "word": 72743,
+            "x": 719,
+            "expected": [
+              0,
+              255,
+              255
+            ],
+            "actual": [
+              0,
+              255,
+              0
+            ]
+          },
+          {
+            "word": 72983,
+            "x": 959,
+            "expected": [
+              0,
+              255,
+              0
+            ],
+            "actual": [
+              255,
+              0,
+              255
+            ]
+          },
+          {
+            "word": 73223,
+            "x": 1199,
+            "expected": [
+              255,
+              0,
+              255
+            ],
+            "actual": [
+              255,
+              0,
+              0
+            ]
+          },
+          {
+            "word": 73463,
+            "x": 1439,
+            "expected": [
+              255,
+              0,
+              0
+            ],
+            "actual": [
+              0,
+              0,
+              255
+            ]
+          },
+          {
+            "word": 73703,
+            "x": 1679,
+            "expected": [
+              0,
+              0,
+              255
+            ],
+            "actual": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "rgb_mismatches_first_locked_line": 7,
+        "rgb_mismatches_later_lines": 0,
+        "first_video_bursts": [
+          {
+            "start": 72024,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 74024,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 76024,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 78024,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 80024,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 82024,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 84024,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 86024,
+            "words": 1920,
+            "locked_at_start": true
+          }
+        ],
+        "last_video_bursts": [
+          {
+            "start": 168024,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 170024,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 172024,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 174024,
+            "words": 1920,
+            "locked_at_start": true
+          }
+        ],
+        "stream_sha256": "a6f93d09829c70084350b14b0848fae96a32c64551dd26e05c23827496b93041",
+        "injected_lane0_bit0_at_word": null,
+        "protocol_violations": 32,
+        "violations_started_after_lock": 31,
+        "locked_interrupted_payload_lengths": {
+          "48": 31
+        },
+        "first_protocol_violations": [
+          {
+            "word": 72022,
+            "type": "VIDEO_GUARD_INTERRUPTS_ISLAND",
+            "island_payload_symbols": 33977,
+            "payload_mod32": 25,
+            "island_started_locked": false,
+            "missing_island_trailing_guards": true,
+            "missing_video_preamble": true
+          },
+          {
+            "word": 74022,
+            "type": "VIDEO_GUARD_INTERRUPTS_ISLAND",
+            "island_payload_symbols": 48,
+            "payload_mod32": 16,
+            "island_started_locked": true,
+            "missing_island_trailing_guards": true,
+            "missing_video_preamble": true
+          },
+          {
+            "word": 76022,
+            "type": "VIDEO_GUARD_INTERRUPTS_ISLAND",
+            "island_payload_symbols": 48,
+            "payload_mod32": 16,
+            "island_started_locked": true,
+            "missing_island_trailing_guards": true,
+            "missing_video_preamble": true
+          },
+          {
+            "word": 78022,
+            "type": "VIDEO_GUARD_INTERRUPTS_ISLAND",
+            "island_payload_symbols": 48,
+            "payload_mod32": 16,
+            "island_started_locked": true,
+            "missing_island_trailing_guards": true,
+            "missing_video_preamble": true
+          },
+          {
+            "word": 80022,
+            "type": "VIDEO_GUARD_INTERRUPTS_ISLAND",
+            "island_payload_symbols": 48,
+            "payload_mod32": 16,
+            "island_started_locked": true,
+            "missing_island_trailing_guards": true,
+            "missing_video_preamble": true
+          },
+          {
+            "word": 82022,
+            "type": "VIDEO_GUARD_INTERRUPTS_ISLAND",
+            "island_payload_symbols": 48,
+            "payload_mod32": 16,
+            "island_started_locked": true,
+            "missing_island_trailing_guards": true,
+            "missing_video_preamble": true
+          },
+          {
+            "word": 84022,
+            "type": "VIDEO_GUARD_INTERRUPTS_ISLAND",
+            "island_payload_symbols": 48,
+            "payload_mod32": 16,
+            "island_started_locked": true,
+            "missing_island_trailing_guards": true,
+            "missing_video_preamble": true
+          },
+          {
+            "word": 86022,
+            "type": "VIDEO_GUARD_INTERRUPTS_ISLAND",
+            "island_payload_symbols": 48,
+            "payload_mod32": 16,
+            "island_started_locked": true,
+            "missing_island_trailing_guards": true,
+            "missing_video_preamble": true
+          }
+        ],
+        "scope": "Original mapped gate netlist and official EG4 functional models; timer accelerated; no routed SDF or physical HDMI receiver."
+      }
+    },
+    "B": {
+      "settings": {
+        "H_BACK": 144,
+        "V_ACTIVE": 16,
+        "H_SYNC": 8,
+        "H_TOTAL": 2080,
+        "V_FRONT": 4,
+        "V_SYNC": 5,
+        "H_FRONT": 8,
+        "H_ACTIVE": 1920,
+        "V_TOTAL": 36,
+        "V_BACK": 11
+      },
+      "pixel_mhz": 33,
+      "serial_mhz": 165,
+      "audio_valid": 0,
+      "acr_valid": 0,
+      "source_top_sha256": "13F5DA2C76D48DBA05631B9A741B5877FE4AA720D3ACD05C8647CB60BF5AB775",
+      "project_file_sha256": "49BD63E09D23CF5E5F4561DCB5A2E861460A7A3980C5A0B1A692F94BCBB0420C",
+      "mapped_gate_sha256": "F6F5AB4C163E7D204E9BADA6AC62DDC4F9B0F1E0335C7E6C13BB7419117D699A",
+      "replay_gate_sha256": "EFBE9D4303509C74BEC47772219924B819AE4443A068FCA474B7ECD2F6A6B701",
+      "only_top_module_renamed": true,
+      "gate_file": "B/build/manual/AC201_protocol_ablation_B_gate.v",
+      "area_file": "B/build/manual/AC201_protocol_ablation_B_gate.area",
+      "td": {
+        "log": "B/build/manual/td_B_synth_map.log",
+        "peak_private_mib": 163.6,
+        "peak_working_set_mib": 179.7,
+        "exit_code": 0,
+        "duration_seconds": 3.7,
+        "memory_samples": "B/build/manual/td_B_memory.csv"
+      },
+      "capture": {
+        "variant": "B",
+        "words": 200000,
+        "exit_code": 0,
+        "duration_seconds": 246.44,
+        "capture_complete": true,
+        "stream": "B_words.txt",
+        "stream_bytes": 7852472,
+        "model_ini": "modelsim.ini",
+        "model_library": "work"
+      },
+      "stream_sha256": "55F0AA4D4ED16FFF6047360528E6A21BF15F6617916FFE330999C04B22104A75",
+      "strict_parser": {
+        "exit_code": 0,
+        "log": "B/B_strict_parser.log"
+      },
+      "analysis_json": "B/B_analysis_invalid_transitions.json",
+      "analysis_log": "B/B_analysis_run.log",
+      "analysis": {
+        "status": "DIGITAL_TIMING_PASS_STARTUP_RGB_DIFFERENCE",
+        "variant": "B",
+        "width": 1920,
+        "horizontal_total": 2080,
+        "vertical_total": 36,
+        "captured_words": 200000,
+        "first_locked_word": 74881,
+        "locked_words": 125120,
+        "unknown_words": 0,
+        "unknown_after_lock": 0,
+        "h_period_words": {
+          "2080": 78,
+          "37289": 1
+        },
+        "v_period_words": {
+          "110089": 1,
+          "74880": 1
+        },
+        "locked_h_period_words": {
+          "2080": 59
+        },
+        "locked_h_width_words": {
+          "0": {
+            "8": 60
+          },
+          "1": {
+            "2072": 59
+          }
+        },
+        "locked_v_width_words": {
+          "0": {
+            "10400": 1
+          },
+          "1": {
+            "64480": 1
+          }
+        },
+        "video_frame_start_period_words": {
+          "74880": 1
+        },
+        "video_frame_groups": [
+          {
+            "first_line_start": 74904,
+            "last_line_start": 106104,
+            "lines": 16
+          },
+          {
+            "first_line_start": 149784,
+            "last_line_start": 180984,
+            "lines": 16
+          }
+        ],
+        "h_width_words": {
+          "0": {
+            "8": 80
+          },
+          "1": {
+            "2072": 78,
+            "37281": 1
+          }
+        },
+        "v_width_words": {
+          "0": {
+            "10400": 2
+          },
+          "1": {
+            "99689": 1,
+            "64480": 1
+          }
+        },
+        "completed_video_bursts": 32,
+        "locked_video_bursts": 32,
+        "locked_video_lengths": {
+          "1920": 32
+        },
+        "island_payload_lengths": {
+          "96": 80
+        },
+        "locked_island_payload_lengths": {
+          "96": 60
+        },
+        "island_events_by_line_type": {
+          "visible_video_line": {
+            "payload=96,transition=island_tail,tail=2": 32
+          },
+          "vertical_blank_line": {
+            "payload=96,transition=island_tail,tail=2": 48
+          }
+        },
+        "island_events": [
+          {
+            "start": 45,
+            "end": 140,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 2125,
+            "end": 2220,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 4205,
+            "end": 4300,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 6285,
+            "end": 6380,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 8365,
+            "end": 8460,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 10445,
+            "end": 10540,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 12525,
+            "end": 12620,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 14605,
+            "end": 14700,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 16685,
+            "end": 16780,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 18765,
+            "end": 18860,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 20845,
+            "end": 20940,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 22925,
+            "end": 23020,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 25005,
+            "end": 25100,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 27085,
+            "end": 27180,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 29165,
+            "end": 29260,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 31245,
+            "end": 31340,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 33325,
+            "end": 33420,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 35405,
+            "end": 35500,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 37485,
+            "end": 37580,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 39565,
+            "end": 39660,
+            "payload_symbols": 96,
+            "started_locked": false,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 76854,
+            "end": 76949,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 74904
+          },
+          {
+            "start": 78934,
+            "end": 79029,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 76984
+          },
+          {
+            "start": 81014,
+            "end": 81109,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 79064
+          },
+          {
+            "start": 83094,
+            "end": 83189,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 81144
+          },
+          {
+            "start": 85174,
+            "end": 85269,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 83224
+          },
+          {
+            "start": 87254,
+            "end": 87349,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 85304
+          },
+          {
+            "start": 89334,
+            "end": 89429,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 87384
+          },
+          {
+            "start": 91414,
+            "end": 91509,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 89464
+          },
+          {
+            "start": 93494,
+            "end": 93589,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 91544
+          },
+          {
+            "start": 95574,
+            "end": 95669,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 93624
+          },
+          {
+            "start": 97654,
+            "end": 97749,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 95704
+          },
+          {
+            "start": 99734,
+            "end": 99829,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 97784
+          },
+          {
+            "start": 101814,
+            "end": 101909,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 99864
+          },
+          {
+            "start": 103894,
+            "end": 103989,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 101944
+          },
+          {
+            "start": 105974,
+            "end": 106069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 104024
+          },
+          {
+            "start": 108054,
+            "end": 108149,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 106104
+          },
+          {
+            "start": 110134,
+            "end": 110229,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 112214,
+            "end": 112309,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 114294,
+            "end": 114389,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 116374,
+            "end": 116469,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 118454,
+            "end": 118549,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 120534,
+            "end": 120629,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 122614,
+            "end": 122709,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 124694,
+            "end": 124789,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 126774,
+            "end": 126869,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 128854,
+            "end": 128949,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 130934,
+            "end": 131029,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 133014,
+            "end": 133109,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 135094,
+            "end": 135189,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 137174,
+            "end": 137269,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 139254,
+            "end": 139349,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 141334,
+            "end": 141429,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 143414,
+            "end": 143509,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 145494,
+            "end": 145589,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 147574,
+            "end": 147669,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 149654,
+            "end": 149749,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 151734,
+            "end": 151829,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 149784
+          },
+          {
+            "start": 153814,
+            "end": 153909,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 151864
+          },
+          {
+            "start": 155894,
+            "end": 155989,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 153944
+          },
+          {
+            "start": 157974,
+            "end": 158069,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 156024
+          },
+          {
+            "start": 160054,
+            "end": 160149,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 158104
+          },
+          {
+            "start": 162134,
+            "end": 162229,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 160184
+          },
+          {
+            "start": 164214,
+            "end": 164309,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 162264
+          },
+          {
+            "start": 166294,
+            "end": 166389,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 164344
+          },
+          {
+            "start": 168374,
+            "end": 168469,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 166424
+          },
+          {
+            "start": 170454,
+            "end": 170549,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 168504
+          },
+          {
+            "start": 172534,
+            "end": 172629,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 170584
+          },
+          {
+            "start": 174614,
+            "end": 174709,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 172664
+          },
+          {
+            "start": 176694,
+            "end": 176789,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 174744
+          },
+          {
+            "start": 178774,
+            "end": 178869,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 176824
+          },
+          {
+            "start": 180854,
+            "end": 180949,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 178904
+          },
+          {
+            "start": 182934,
+            "end": 183029,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": true,
+            "visible_line_start": 180984
+          },
+          {
+            "start": 185014,
+            "end": 185109,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 187094,
+            "end": 187189,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 189174,
+            "end": 189269,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 191254,
+            "end": 191349,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 193334,
+            "end": 193429,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 195414,
+            "end": 195509,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 197494,
+            "end": 197589,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          },
+          {
+            "start": 199574,
+            "end": 199669,
+            "payload_symbols": 96,
+            "started_locked": true,
+            "transition": "island_tail",
+            "trailing_guard_symbols": 2,
+            "missing_video_preamble": false,
+            "on_visible_video_line": false,
+            "visible_line_start": null
+          }
+        ],
+        "island_trailing_guard_runs": 80,
+        "island_trailing_guard_symbol_lengths": {
+          "2": 80
+        },
+        "video_preamble_before_guard_runs": 32,
+        "video_preamble_before_guard_symbol_lengths": {
+          "35217": 1,
+          "8": 31
+        },
+        "locked_video_preamble_before_guard_runs": 32,
+        "locked_video_preamble_before_guard_symbol_lengths": {
+          "35217": 1,
+          "8": 31
+        },
+        "rgb_pixels_checked": 61440,
+        "rgb_mismatches": 7,
+        "first_rgb_errors": [
+          {
+            "word": 75143,
+            "x": 239,
+            "expected": [
+              255,
+              255,
+              255
+            ],
+            "actual": [
+              255,
+              255,
+              0
+            ]
+          },
+          {
+            "word": 75383,
+            "x": 479,
+            "expected": [
+              255,
+              255,
+              0
+            ],
+            "actual": [
+              0,
+              255,
+              255
+            ]
+          },
+          {
+            "word": 75623,
+            "x": 719,
+            "expected": [
+              0,
+              255,
+              255
+            ],
+            "actual": [
+              0,
+              255,
+              0
+            ]
+          },
+          {
+            "word": 75863,
+            "x": 959,
+            "expected": [
+              0,
+              255,
+              0
+            ],
+            "actual": [
+              255,
+              0,
+              255
+            ]
+          },
+          {
+            "word": 76103,
+            "x": 1199,
+            "expected": [
+              255,
+              0,
+              255
+            ],
+            "actual": [
+              255,
+              0,
+              0
+            ]
+          },
+          {
+            "word": 76343,
+            "x": 1439,
+            "expected": [
+              255,
+              0,
+              0
+            ],
+            "actual": [
+              0,
+              0,
+              255
+            ]
+          },
+          {
+            "word": 76583,
+            "x": 1679,
+            "expected": [
+              0,
+              0,
+              255
+            ],
+            "actual": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "rgb_mismatches_first_locked_line": 7,
+        "rgb_mismatches_later_lines": 0,
+        "first_video_bursts": [
+          {
+            "start": 74904,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 76984,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 79064,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 81144,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 83224,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 85304,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 87384,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 89464,
+            "words": 1920,
+            "locked_at_start": true
+          }
+        ],
+        "last_video_bursts": [
+          {
+            "start": 174744,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 176824,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 178904,
+            "words": 1920,
+            "locked_at_start": true
+          },
+          {
+            "start": 180984,
+            "words": 1920,
+            "locked_at_start": true
+          }
+        ],
+        "stream_sha256": "55f0aa4d4ed16fff6047360528e6a21bf15f6617916ffe330999c04b22104a75",
+        "injected_lane0_bit0_at_word": null,
+        "protocol_violations": 0,
+        "violations_started_after_lock": 0,
+        "locked_interrupted_payload_lengths": {},
+        "first_protocol_violations": [],
+        "scope": "Original mapped gate netlist and official EG4 functional models; timer accelerated; no routed SDF or physical HDMI receiver."
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+standard
+***Report Model: top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        13   out of    188    6.91%
+  #input                    2
+  #output                  11
+  #inout                    0
+
+LUT Statistics
+#Total_luts               908
+  #lut4                   846
+  #lut5                    62
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                     1434   out of  19600    7.32%
+#reg                     1252   out of  19600    6.39%
+#bram                       8   out of     64   12.50%
+  #bram9k                   8
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                       17   out of    188    9.04%
+  #ireg                     0
+  #oreg                     7
+  #treg                     0
+#pll                        1   out of      4   25.00%
+#gclk                       2   out of     16   12.50%
+
+Report Hierarchy Area:
++-------------------------------------------------------------------------------------------------------------------------+
+|Instance                                |Module                             |lut     |ripple  |seq     |bram    |dsp     |
++-------------------------------------------------------------------------------------------------------------------------+
+|top                                     |top                                |1171    |263     |1259    |8       |0       |
+|  u_axis_adapter                        |video_axis_1080p_adapter           |7       |0       |5       |0       |0       |
+|  u_build_id                            |status_hex595                      |89      |14      |53      |0       |0       |
+|  u_colorbars                           |video_timing_1080p_custom_colorbar |76      |57      |51      |0       |0       |
+|  u_hdmi_core                           |hdmi_1_4b_transmitter_core_wrapper |871     |186     |1004    |8       |0       |
+|    u0_reset_sync                       |hdmi_1_4b_tx_reset_sync            |0       |0       |2       |0       |0       |
+|    u_hdmi_tx_controller_wrapper        |hdmi_tx_controller_wrapper         |871     |186     |1002    |8       |0       |
+|      u0_hdmi_tmds_encode               |hdmi_tmds_encode                   |130     |30      |160     |0       |0       |
+|      u1_hdmi_tmds_encode               |hdmi_tmds_encode                   |125     |30      |108     |0       |0       |
+|      u2_hdmi_tmds_encode               |hdmi_tmds_encode                   |129     |30      |108     |0       |0       |
+|      u_hdmi_data_distribution          |hdmi_data_distribution             |2       |0       |42      |0       |0       |
+|      u_hdmi_island_data_assemble       |hdmi_island_data_assemble          |225     |0       |365     |0       |0       |
+|      u_hdmi_island_data_gen            |hdmi_island_data_gen               |95      |0       |84      |5       |0       |
+|        U_audio_sample_packet_2_channel |audio_sample_packet_2_channel      |12      |0       |12      |5       |0       |
+|          u_w96_d1024_fifo              |w96_d1024_fifo                     |12      |0       |11      |5       |0       |
+|      u_hdmi_video_data_assemble        |hdmi_video_data_assemble           |0       |0       |40      |0       |0       |
+|      u_hdmi_video_source               |hdmi_video_source                  |138     |96      |38      |0       |0       |
+|      u_video_axi_stream_receiver       |video_axi_stream_receiver          |27      |0       |57      |3       |0       |
+|        u_w24_d1024_fifo                |w24_d1024_fifo                     |25      |0       |55      |3       |0       |
+|  u_hdmi_phy                            |hdmi_phy_wrapper                   |35      |0       |78      |0       |0       |
+|    u0_lane_lvds_8_1                    |lane_lvds_10_1                     |12      |0       |28      |0       |0       |
+|    u1_lane_lvds_8_1                    |lane_lvds_10_1                     |10      |0       |22      |0       |0       |
+|    u2_lane_lvds_8_1                    |lane_lvds_10_1                     |10      |0       |22      |0       |0       |
+|    u3_lane_lvds_8_1                    |lane_lvds_10_1                     |3       |0       |6       |0       |0       |
+|  u_video_pll                           |video_pll                          |0       |0       |0       |0       |0       |
++-------------------------------------------------------------------------------------------------------------------------+

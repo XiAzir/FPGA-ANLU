@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-27",
+  "status": "PASS",
+  "simulator": {
+    "name": "Icarus Verilog / vvp",
+    "version": "12.0 (devel) (s20150603-1539-g2693dd32b)",
+    "verilog_2005_four_source_compile": "PASS",
+    "short_v_compile_and_two_frame_sim": "PASS after final tmds_channel.v edit",
+    "c35_full_frame_compile_and_sim": "PASS",
+    "c36_full_frame_compile_and_sim": "PASS",
+    "td_compile_or_route_run_in_this_conversion_task": false
+  },
+  "scenarios": [
+    {
+      "name": "short vertical, two frames",
+      "geometry": "1920+8+8+64 by 16+4+5+11",
+      "frame_starts": 2,
+      "active_pixels_rgb888_decoded": 61440,
+      "active_symbols_per_active_row": 1920,
+      "packet_payload_symbols": 2304,
+      "packets": 72,
+      "status": "PASS",
+      "compile_log": "tb/short_compile.log",
+      "simulation_log": "tb/short_sim.log"
+    },
+    {
+      "name": "C35 full frame",
+      "geometry": "640+16+96+248 by 480+10+2+58",
+      "frame_starts": 1,
+      "active_pixels_rgb888_decoded": 307200,
+      "active_symbols_per_active_row": 640,
+      "packet_payload_symbols": 17600,
+      "packets": 550,
+      "status": "PASS",
+      "compile_log": "tb/c35_full_compile.log",
+      "simulation_log": "tb/c35_full_sim.log"
+    },
+    {
+      "name": "C36 full frame",
+      "geometry": "1920+8+8+64 by 1080+4+5+11",
+      "frame_starts": 1,
+      "active_pixels_rgb888_decoded": 2073600,
+      "active_symbols_per_active_row": 1920,
+      "packet_payload_symbols": 35200,
+      "packets": 1100,
+      "status": "PASS",
+      "compile_log": "tb/c36_full_compile.log",
+      "simulation_log": "tb/c36_full_sim.log"
+    }
+  ],
+  "checks_per_scenario": {
+    "startup_control_video_preamble_guard": true,
+    "active_row_pixel_count_and_rgb888_decode": true,
+    "one_complete_32_symbol_packet_per_line": true,
+    "AVI_VIC0_SPD_NULL_headers_and_checksums": true,
+    "packet_BCH_ECC": true,
+    "data_island_leading_trailing_guards": true,
+    "video_preamble_and_guard": true,
+    "H_V_control_and_TERC4_sync_state": true,
+    "parallel_clockword_0000011111": true,
+    "single_bit_TERC4_negative_control": "PASS"
+  },
+  "final_edit_scope": {
+    "file": "tmds_channel.v",
+    "edit": "Removed two default assignments from complete 2-bit control and 4-bit TERC4 case statements; they only assigned symbols for unknown/out-of-range input values.",
+    "post_edit_checks": ["-g2005 compile PASS", "short-V two-frame simulation PASS"],
+    "full_frame_logs_precede_edit": true,
+    "equivalence_basis": "The full-frame testbench drives only defined control and TERC4 values; legal value outputs are unchanged by removal of these defaults."
+  },
+  "resource_observation": {
+    "short_v_elapsed_seconds_approx": 3.9,
+    "c35_full_frame_elapsed_seconds_approx": 17.4,
+    "c36_full_frame_elapsed_seconds_approx": 69.4,
+    "peak_working_set_measured": false
+  }
+}

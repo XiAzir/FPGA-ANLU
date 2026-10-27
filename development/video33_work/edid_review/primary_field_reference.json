@@ -1,0 +1,21 @@
+{
+  "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux/+/refs/heads/master/include/drm/drm_edid.h",
+  "title": "include/drm/drm_edid.h - pub/scm/linux/kernel/git/torvalds/linux - Git at Google",
+  "matches": [
+    {
+      "label": "struct detailed_data_monitor_range",
+      "at": 3783,
+      "excerpt": "struct detailed_data_monitor_range {\n\tu8 min_vfreq;\n\tu8 max_vfreq;\n\tu8 min_hfreq_khz;\n\tu8 max_hfreq_khz;\n\tu8 pixel_clock_mhz; /* need to multiply by 10 */\n\tu8 flags;\n\tunion {\n\t\tstruct {\n\t\t\tu8 reserved;\n\t\t\tu8 hfreq_start_khz; /* need to multiply by 2 */\n\t\t\tu8 c; /* need to divide by 2 */\n\t\t\t__le16 m;\n\t\t\tu8 k;\n\t\t\tu8 j; /* need to divide by 2 */\n\t\t} __packed gtf2;\n\t\tstruct {\n\t\t\tu8 version;\n\t\t\tu8 data1; /* high 6 bits: extra clock resolution */\n\t\t\tu8 data2; /* plus low 2 of above: max hactive */\n\t\t\tu8 supported_aspects;\n\t\t\tu8 flags; /* preferred aspect and blanking support */\n\t\t\tu8 supported_scalings;\n\t\t\tu8 preferred_refresh;\n\t\t} __packed cvt;\n\t} __packed formula;\n} __packed;\n\nstruct detailed_data_wpindex {\n\tu8 white_yx_lo; /* Lower 2 bits each */\n\tu8 white_x_hi;\n\tu8 white_y_hi;\n\tu8 gamma; /* need to divide by 100 then add 1 */\n} __packed;\n\nstruct detailed_data_color_point {\n\tu8 windex1;\n\tu8 wpindex1[3];\n\tu8 windex2;\n\tu8 wpindex2[3];\n} __packed;\n\nstruct cvt_timing {\n\tu8 code[3];\n} __packed"
+    },
+    {
+      "label": "struct detailed_pixel_timing",
+      "at": 2573,
+      "excerpt": "struct detailed_pixel_timing {\n\tu8 hactive_lo;\n\tu8 hblank_lo;\n\tu8 hactive_hblank_hi;\n\tu8 vactive_lo;\n\tu8 vblank_lo;\n\tu8 vactive_vblank_hi;\n\tu8 hsync_offset_lo;\n\tu8 hsync_pulse_width_lo;\n\tu8 vsync_offset_pulse_width_lo;\n\tu8 hsync_vsync_offset_pulse_width_hi;\n\tu8 width_mm_lo;\n\tu8 height_mm_lo;\n\tu8 width_height_mm_hi;\n\tu8 hborder;\n\tu8 vborder;\n\tu8 misc;\n} __packed;\n\n/* If it's not pixel timing, it'll be one of the below */\nstruct detailed_data_string {\n\tu8 str[13];\n} __packed;\n\n#define DRM_EDID_RANGE_OFFSET_MIN_VFREQ (1 << 0) /* 1.4 */\n#define DRM_EDID_RANGE_OFFSET_MAX_VFREQ (1 << 1) /* 1.4 */\n#define DRM_EDID_RANGE_OFFSET_MIN_HFREQ (1 << 2) /* 1.4 */\n#define DRM_EDID_RANGE_OFFSET_MAX_HFREQ (1 << 3) /* 1.4 */\n\n#define DRM_EDID_DEFAULT_GTF_SUPPORT_FLAG   0x00 /* 1.3 */\n#define DRM_EDID_RANGE_LIMITS_ONLY_FLAG     0x01 /* 1.4 */\n#define DRM_EDID_SECONDARY_GTF_SUPPORT_FLAG 0x02 /* 1.3 */\n#define DRM_EDID_CVT_SUPPORT_FLAG           0x04 /* 1.4 */\n\n#define DRM_EDID_CVT_FLAGS_STANDARD_BLANKING ("
+    },
+    {
+      "label": "EDID_DETAIL_MONITOR_RANGE",
+      "at": 5446,
+      "excerpt": "EDID_DETAIL_MONITOR_RANGE 0xfd\n#define EDID_DETAIL_MONITOR_STRING 0xfe\n#define EDID_DETAIL_MONITOR_SERIAL 0xff\n\nstruct detailed_timing {\n\t__le16 pixel_clock; /* need to multiply by 10 KHz */\n\tunion {\n\t\tstruct detailed_pixel_timing pixel_data;\n\t\tstruct detailed_non_pixel other_data;\n\t} __packed data;\n} __packed;\n\n#define DRM_EDID_INPUT_SERRATION_VSYNC (1 << 0)\n#define DRM_EDID_INPUT_SYNC_ON_GREEN   (1 << 1)\n#define DRM_EDID_INPUT_COMPOSITE_SYNC  (1 << 2)\n#define DRM_EDID_INPUT_SEPARATE_SYNCS  (1 << 3)\n#define DRM_EDID_INPUT_BLANK_TO_BLACK  (1 << 4)\n#define DRM_EDID_INPUT_VIDEO_LEVEL     (3 << 5)\n#define DRM_EDID_INPUT_DIGITAL         (1 << 7)\n#define DRM_EDID_DIGITAL_DEPTH_MASK    (7 << 4) /* 1.4 */\n#define DRM_EDID_DIGITAL_DEPTH_UNDEF   (0 << 4) /* 1.4 */\n#define DRM_EDID_DIGITAL_DEPTH_6       (1 << 4) /* 1.4 */\n#define DRM_EDID_DIGITAL_DEPTH_8       (2 << 4) /* 1.4 */\n#define DRM_EDID_DIGITAL_DEPTH_10      (3 << 4) /* 1.4 */\n#define DRM_EDID_DIGITAL_DEPTH_12      (4 << 4) /* 1.4 */\n#d"
+    }
+  ]
+}

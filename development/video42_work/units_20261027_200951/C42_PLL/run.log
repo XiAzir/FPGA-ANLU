@@ -1,0 +1,55 @@
+Reading E:/ModelsimSE/tcl/vsim/pref.tcl 
+
+# 10.1c
+
+# vsim -do {onerror {quit -code 2 -f}; onbreak {quit -code 3 -f}; run -all; quit -code 0 -f} -c -modelsimini E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/modelsim.ini -novopt -gMEM_SHIFT_NS=4 -gMEM_PERIOD_NS=10 work.tb_sys_pll work.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/work.tb_sys_pll
+# Loading sv_std.std
+# Loading work.tb_sys_pll
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/work.sys_pll
+# Loading work.sys_pll
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/work.EG_LOGIC_BUFG
+# Loading work.EG_LOGIC_BUFG
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/work.EG_PHY_PLL
+# Loading work.EG_PHY_PLL
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/work.eg_dphase_sel
+# Loading work.eg_dphase_sel
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/work.prediv_mux
+# Loading work.prediv_mux
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/work.eg_pll_div2
+# Loading work.eg_pll_div2
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/work.eg_clko_premux
+# Loading work.eg_clko_premux
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/work.eg_pll_div128
+# Loading work.eg_pll_div128
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/work.eg_clko_ctrl
+# Loading work.eg_clko_ctrl
+# Refreshing E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_PLL/work.glbl
+# Loading work.glbl
+# ** Warning: (vsim-3015) E:/VSCODE-project/FPGA-ANLU/development/player_video42_sdram100/src/user_source/hdl_source/IP/sys_pll.v(94): [PCDPC] - Port size (5 or 5) does not match connection size (1) for port 'load_reg'. The port definition is at: C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v(25).
+# 
+#         Region: /tb_sys_pll/dut/pll_inst
+# onerror {quit -code 2 -f} 
+#  Warning: onerror command for use within macro
+#  onbreak {quit -code 3 -f} 
+#  Warning: onbreak command for use within macro
+#  run -all 
+# ******************** : The Attribute            REFCLK_DIV on pll instance tb_sys_pll.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             FBCLK_DIV on pll instance tb_sys_pll.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC0_DIV on pll instance tb_sys_pll.dut.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC1_DIV on pll instance tb_sys_pll.dut.pll_inst.para_int_range_chk is set to          10.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC2_DIV on pll instance tb_sys_pll.dut.pll_inst.para_int_range_chk is set to          10.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC3_DIV on pll instance tb_sys_pll.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC4_DIV on pll instance tb_sys_pll.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# PLL_CLOCK_PASS sd_period=20ns mem_period=10ns shifted_period=10ns phase=4ns
+# ** Note: $finish    : E:/VSCODE-project/FPGA-ANLU/development/video42_work/tb_sys_pll.sv(55)
+#    Time: 2411200 ps  Iteration: 0  Instance: /tb_sys_pll

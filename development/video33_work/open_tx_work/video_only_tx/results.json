@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-27",
+  "status": "PASS",
+  "simulator": {
+    "name": "Icarus Verilog / vvp",
+    "version": "12.0 (devel) (s20150603-1539-g2693dd32b)",
+    "compile_exit_code": 0,
+    "simulation_exit_code": 0,
+    "compile_diagnostics": {
+      "constant_select_sensitivity_not_supported": 59,
+      "unique_case_qualifier_ignored": 6,
+      "errors": 0
+    },
+    "simulation_warnings": 0
+  },
+  "test_geometry": {
+    "basis": "C36 exact 1920x2000 horizontal timing; vertical active shortened to 16 and blank remains 20",
+    "pixel_rate_hz": 33000000,
+    "h_active": 1920,
+    "h_front": 8,
+    "h_sync": 8,
+    "h_back": 64,
+    "h_total": 2000,
+    "h_blank": 80,
+    "v_active": 16,
+    "v_front": 4,
+    "v_sync": 5,
+    "v_back": 11,
+    "v_total": 36,
+    "sync_polarity": "negative / negative",
+    "avi_vic": 0
+  },
+  "startup": {
+    "initial_counter": "(H_TOTAL-32, V_TOTAL-1)",
+    "symbols_before_first_active_pixel": 32,
+    "control_symbols": 22,
+    "video_preamble_symbols": 8,
+    "video_guard_symbols": 2,
+    "first_active_pixel_checked": true
+  },
+  "coverage": {
+    "complete_frame_starts": 2,
+    "simulated_pixel_cycles": 144032,
+    "decoded_rgb888_active_pixels": 61440,
+    "rows_checked_per_frame": 36,
+    "active_symbols_per_active_row": 1920,
+    "packet_count": 72,
+    "packet_payload_symbols": 2304,
+    "packet_symbols_per_line": 32,
+    "avi_vic0_packets": 2,
+    "spd_packets": 2,
+    "null_packets": 68,
+    "all_packet_headers_checked": true,
+    "all_packet_bch_ecc_checked": true,
+    "avi_spd_checksum_checked": true,
+    "spd_vendor_and_source_device_checked": true,
+    "data_island_leading_and_trailing_guard_checked": true,
+    "eight_symbol_video_preamble_checked": true,
+    "h_v_control_and_terc4_sync_bits_checked": true,
+    "clockword_checked": "0000011111",
+    "single_bit_terc4_negative_control": "PASS"
+  },
+  "resource_observation": {
+    "peak_vvp_working_set_mib": 9.9,
+    "simulation_elapsed_seconds": 3.54
+  },
+  "not_run": [
+    "TD compile, mapping, area/timing report",
+    "EG4 PHY integration or bitstream generation",
+    "board or display test",
+    "full 1080-line vertical simulation"
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "date": "2026-10-27",
+  "device": "EG4S20BG256",
+  "directory": "development/video39_work/native_probe",
+  "candidate_pin_pairs": [
+    {
+      "p4_pins": [
+        23,
+        25
+      ],
+      "gpio": [
+        "GPIO2_20",
+        "GPIO2_21"
+      ],
+      "positive_ball": "K11",
+      "negative_ball": "J11",
+      "bank": "Bank1 L4"
+    },
+    {
+      "p4_pins": [
+        33,
+        34
+      ],
+      "gpio": [
+        "GPIO2_24",
+        "GPIO2_25"
+      ],
+      "positive_ball": "L14",
+      "negative_ball": "M14",
+      "bank": "Bank1 L6"
+    },
+    {
+      "p4_pins": [
+        35,
+        36
+      ],
+      "gpio": [
+        "GPIO2_26",
+        "GPIO2_27"
+      ],
+      "positive_ball": "K15",
+      "negative_ball": "M15",
+      "bank": "Bank1 L7"
+    },
+    {
+      "p4_pins": [
+        21,
+        22
+      ],
+      "gpio": [
+        "GPIO2_18",
+        "GPIO2_19"
+      ],
+      "positive_ball": "H13",
+      "negative_ball": "J13",
+      "bank": "Bank1 L9"
+    }
+  ],
+  "stage1": {
+    "legalize_phy_inst": "pass",
+    "timing_report": "pass",
+    "synthesis": "pass",
+    "p4_old_table_error": "GPIO2_24/25 incorrectly listed as P4 25/26; corrected to P4 33/34; P4 24=GND and 26=VDD3.3",
+    "database_export": "pass",
+    "source_of_p4_mapping": "AC201_CONN_300-8.png visual recheck + AC201-EG4S20管脚信息表.xlsx 概要信息 + TD IO report",
+    "four_p_outputs": "LVDS33",
+    "read_adc": "pass",
+    "vccio": "Bank1 3.3V per DS301/AC601 supply evidence in output_limits investigation",
+    "resources": {
+      "pll": 0,
+      "lut": 1,
+      "output_registers": 4,
+      "registers": 1
+    }
+  },
+  "stage2": {
+    "a": {
+      "hwns_ns": 0.083,
+      "timing": "Routed",
+      "swns_ns": -0.04,
+      "resource": {
+        "gclk": 1,
+        "lut": 32,
+        "pll": 1,
+        "registers": 62,
+        "output_registers": 4
+      },
+      "stns_ns": -0.08,
+      "htns_ns": 0,
+      "sta_coverage_percent": 84.86,
+      "clock_check_warning": "STA/derived clock constraint reports 371.500 MHz vs PLL setting 371.428571 MHz; 4 outputs have no output_delay and refclk has no input_delay."
+    },
+    "pll_params": {
+      "vco_mhz": 742.857143,
+      "feedback_mode": "NOCOMP",
+      "N": 7,
+      "fin_mhz": 50,
+      "serial_mhz": 371.428571,
+      "C0": 10,
+      "pixel_mhz": 74.285714,
+      "feedback_path": "VCO_PHASE_0",
+      "C1": 2,
+      "M": 104
+    },
+    "hardware_lock": "Not verified",
+    "tool_derived_clock_multipliers": {
+      "pixel": 1.4857,
+      "serial": 7.4286
+    },
+    "exceptions": "No false paths or exclusive clock exceptions introduced",
+    "b": {
+      "timing": "Routed",
+      "swns_ns": 0.007,
+      "sta_coverage_percent": 84.09,
+      "htns_ns": 0,
+      "resource": {
+        "gclk": 1,
+        "lut": 43,
+        "pll": 1,
+        "registers": 113,
+        "output_registers": 4
+      },
+      "hwns_ns": 0.067,
+      "stns_ns": 0,
+      "warning": "PHY-5014: detail route does not find pib for u_pll/pll_inst.fbclk[0]",
+      "clock_check_warning": "STA/derived clock constraint reports 371.500 MHz vs PLL setting 371.428571 MHz; 4 outputs have no output_delay and refclk has no input_delay.",
+      "reset_pin": "Unconstrained in pin.adc; auto-assigned H16 LVCMOS33 PULLUP",
+      "route_warning": "PHY-5014 detail route does not find pib for u_pll/pll_inst.fbclk[0]"
+    },
+    "board_signal_integrity": "Not verified",
+    "bitstream_generated": false
+  },
+  "sha256": {
+    "src/user_source/pin.adc": "76F4E8B7740404F7B8D6AF1E766DA24DD1681B86FB5CE385624E52BCA52F16E2",
+    "src/user_source/timing.sdc": "D12B2B5A732494084F8591D3C006BDD9CF169B0E8713A7774410CC9A5BE0376B",
+    "src/user_source/native_io_probe.v": "8116E6D5DCCB1CE34DAF502ED457570C55A5DC7823D541DE206FDA19B8EEEA91",
+    "src/td_project/native_io_probe.al": "CC16ADDCB7ABFCA3A1EABE9638BF240CFC00E96580A5DFEF88E627637AEF1581",
+    "build/td_run.log": "457DAB827D27724B1C98D50905402D2C9F4376CB049CBB9435C4CCF052268018",
+    "build/td_run_lvds33_attrs_removed.log": "A0C028FE3DAA7EA44E006F0CD68891C047F9953F02FF59BD0C48D1732742F4F0",
+    "build/native_io_probe.area": "DE909E1E9990C3011CA13249DEF7553DE4ECA244277D8AAD52ABF6498CE28A03",
+    "build/native_io_probe.ts": "346B297DF8A99F065FC20767DA336BBC97BE4B2863BDD815C631404F0A8E4F27",
+    "build/native_io_probe.timing": "F7BDBAB5E084B68647FDBD0559F321C43DA2E875FFA5B396E7CF9F62CB446569",
+    "src/user_source/IP/video_pll.v": "D37737C8FF5D5931D53B2295828B06203670EE157F8F3C09A05BC19C0A4A93AD",
+    "src/user_source/serializer.v": "7C2A17CB1576583D8FB7EBFF9296288707A3BAF5502B8C6DD8C540D3CF37A0CA",
+    "src/user_source/native_clock_serializer_probe.v": "63C11EF8B72CC2110083C92B094840D8AB0EF4A2360B60169C5A769972A58C93",
+    "scripts/run_clock_probe.tcl": "9A5D024287EDDFB092915D6781B9323DD623164EBA2E5DC961BA66FE90C6C43E",
+    "build/td_run_clock_probe.log": "2BFCEAC2E1969EF4E320F276C65805A69B0725A317F4B77321F65EBDA74E82DE",
+    "build/td_run_clock_probe_retry01.log": "322B394B170C3851726C566EA8F9F099F66AEE1951DA978472416F387ED235FB",
+    "build/native_clock_serializer_probe_phy.area": "00ABB027E685555058A9143FBE8CBF8A96B5E2BDCD41E5F2996D9C276580FF47",
+    "build/native_clock_serializer_probe_phy.ts": "8EEB945FF11F3E97C265AFA002950409A72496C81EA49725D319E88D4FA6DD97",
+    "build/native_clock_serializer_probe_pr.timing": "68F12DF29ACF357B6DF517CA15548A6CE336E83E01A1216969984681D6EF5680",
+    "build/native_clock_serializer_probe_chk.timing": "82449D7B032ABB39C656143682072BE9CC26FD5D88CE3C5AB2DE12321E955DA2",
+    "build/native_clock_serializer_probe_exception.timing": "6516E0949A76D99750744AB81BBCBD34165E3BB1BE7051BFB49CC648DA1B3CF6",
+    "build/native_clock_serializer_probe_pr.db": "92AF2BB9B67708FB7B547B926C42DB08C9E87423A9CA33CB62FA5089206E7213",
+    "B/src/user_source/native_clock_serializer_probe_b.v": "369586030825E91266C99AC2156788D3FAB987073CC65FBAB9FD4C1233903C6C",
+    "B/src/td_project/native_clock_serializer_probe_b.al": "CA2FA68C4CA3DBCC8911F423183F17FBCEF3D8F75026C7630D0ED04D00F505C4",
+    "B/scripts/run_clock_probe_b.tcl": "E6D9D70A3BC7EF0A4F6CC54692833E6740848D4FC7D034DBD320E144D458A9C5",
+    "B/build/td_run_clock_probe_b.log": "AC4977547585F31FFF0F74A688E46C7C74863AE0756D2A1496BDA95203A33696",
+    "B/build/td_run_clock_probe_b_retry01.log": "737AAA65D89B1773F70217EDCEC6672CF82BA953BDAD06801CFEBCE39DDC3BD9",
+    "B/build/td_run_clock_probe_b_retry02.log": "4D7768FDC39DE670424F04493BD0ADC648EC619864BCCCEFC1B4F5E14A039444",
+    "B/build/td_run_clock_probe_b_retry03.log": "D57987A2FCBF0AAF44B1D091F53F4ED4264252F216903FAD6C81B7442F073F26",
+    "B/build/native_clock_serializer_probe_b_phy.area": "49C12A375E662057A94FBE3B9FCBB6773FFE0AAFEA4D136A1E7BEF4809E40EE5",
+    "B/build/native_clock_serializer_probe_b_phy.ts": "31357424AC10A002648789020A6E8AF16F9AE5915F467D8F7B9E035D63528829",
+    "B/build/native_clock_serializer_probe_b_pr.timing": "4888E18BDF27B3929F43D9537D5FB409A8A4662069165283FFDB9AE7ED48A1F4",
+    "B/build/native_clock_serializer_probe_b_chk.timing": "82449D7B032ABB39C656143682072BE9CC26FD5D88CE3C5AB2DE12321E955DA2",
+    "B/build/native_clock_serializer_probe_b_exception.timing": "289B16DB6622361D58095F0B1B4CC02D479D07D3DB6D035DC41B6FCFC2D53DD5",
+    "B/build/native_clock_serializer_probe_b_pr.db": "D71105425CA688EF280B0C03B2146399C3306A074BA2E318EE556E9EAD22787E",
+    "build/setup_errors.log": "C31983BE1D66C763412302E4B423FB2908449512B835FED728D01AB23E155D2A"
+  }
+}

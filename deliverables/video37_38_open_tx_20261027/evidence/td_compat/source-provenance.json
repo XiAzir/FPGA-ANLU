@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-27",
+  "upstream": {
+    "repository": "https://github.com/hdl-util/hdmi",
+    "commit": "83b1c9543a91b776671a44e68e130f81cae437b7",
+    "license_expression": "MIT OR Apache-2.0",
+    "mit_license_path": "licenses/LICENSE-MIT",
+    "mit_license_sha256": "B251E55EC37096B94E852090DEE6164CF7518C9E5EF57476D91ED54E61C3DC0D",
+    "apache_license_path": "licenses/LICENSE-APACHE-2.0.txt",
+    "apache_license_sha256": "3A0B32A74C46BDDA3499EC9F39AB4F2A98FC2B239A1C1C1592086D26FDF76159"
+  },
+  "converted_sources": [
+    {
+      "path": "tmds_channel.v",
+      "sha256": "7912966C8E444E060FB8977ED09C35596000087796B9F901218103C1EE7EC943",
+      "frozen_reference": "development/video33_work/open_tx_work/video_only_tx/upstream/src/tmds_channel.sv",
+      "frozen_reference_sha256": "FFAD8647C0C0FC7F376A79D54227AFEBF6C68EEAFD101604F9D38FDAF7042751",
+      "notes": "Verilog-2001 syntax translation; final complete-case default assignments removed as agreed."
+    },
+    {
+      "path": "auxiliary_video_information_info_frame.v",
+      "sha256": "ACB189A91C346EC603B0DB28BB154DCAEC5129FD2C90893754BE73314151ADDE",
+      "frozen_reference": "development/video33_work/open_tx_work/video_only_tx/upstream/src/auxiliary_video_information_info_frame.sv",
+      "frozen_reference_sha256": "6221E9C6B1E359B120610F6EA7709EE861461473039771B9B7AB3E880D02DAC8",
+      "notes": "Parameter set reduced to the experiment's fixed RGB/VIC0/default AVI fields; unpacked outputs flattened to 224 bits."
+    },
+    {
+      "path": "packet_assembler_compat.v",
+      "sha256": "4C6CD8BDFBEE13B4E2737BC381F749384274CAB09D119D669D5F688AA652B1CB",
+      "frozen_reference": "development/video33_work/open_tx_work/video_only_tx/rtl/packet_assembler_compat.sv",
+      "frozen_reference_sha256": "4ED9318DE09ACC5196268E46BD8E5D3CC589176B829534C908587E2E2DE298A7",
+      "notes": "Scalar ECC state retained; four 56-bit subpacket array port flattened in sub0-to-sub3 order."
+    },
+    {
+      "path": "video_only_tmds_tx.v",
+      "sha256": "19D24F9F396F7E8A60F950B70BBDDB4E77F1FEAEF8BBA500A4ADA6267ECFFE02",
+      "frozen_reference": "development/video33_work/open_tx_work/video_only_tx/rtl/video_only_tmds_tx.sv",
+      "frozen_reference_sha256": "64F1142679C718D85979C32A61BAD80D6A2E43B1BA7AF35E6040B41AD98091C9",
+      "notes": "Top-level ports and geometry behavior retained; flattened internal subpacket interface and Verilog-2001 clog2 function."
+    }
+  ],
+  "test_artifacts": [
+    {"path": "tb/tb_short_v.sv", "sha256": "46249B2880B4EF9EF9C431F08E2843BB9DE280F9B0DBB6C78DC45E51CCF11C9E"},
+    {"path": "tb/tb_c35_full.sv", "sha256": "2EF480D387665C818479292BD8CAB1DFE1AD6858248885356A5E3EE76BC79591"},
+    {"path": "tb/tb_c36_full.sv", "sha256": "DAAAA08F713E5ABF751D7C9D35643138555E1CDC296C5DDE29133DC146C2FE82"},
+    {"path": "tb/run_all.ps1", "sha256": "229616C212462C358D96D3D1198443DEE639180DF054EABCD82E7A5CCD3674CF"}
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "candidate": "C42 phase8, SDRAM forwarded clock 8ns / 288deg, CPHASE7, FPHASE0",
+  "audit_scope": "read-only final routed, exception/check timing, route QoR, bitstream evidence, and routed-netlist SDRAM model run",
+  "tools_run_by_auditor": [],
+  "result": {
+    "offline_artifact_eligible": true,
+    "routed_sta_pass": true,
+    "routed_gate_model_pass": true,
+    "board_validation_complete": false,
+    "board_grade_and_skew_known": false,
+    "finding": "No routed setup/hold, MCP coverage, or gate scoreboard failure blocks an offline package. Preserve board-pending status; external device grade and board skew remain unverified."
+  },
+  "pll": {
+    "clkc2_div": 10,
+    "clkc2_cphase": 7,
+    "clkc2_fphase": 0,
+    "phase_deg": 288,
+    "phase_ns": 8,
+    "routed_clock_edges_ns": {
+      "rise": 8,
+      "fall": 3,
+      "period": 10
+    }
+  },
+  "global_routed_timing": {
+    "coverage_pct": 99.99,
+    "setup_wns_ns": 0.285,
+    "setup_tns_ns": 0,
+    "setup_violation_endpoints": 0,
+    "hold_wns_ns": 0.037,
+    "hold_tns_ns": 0,
+    "hold_violation_endpoints": 0,
+    "route_qor_setup_wns_ps": 285,
+    "route_qor_hold_wns_ps": 37,
+    "slices": 8884,
+    "slice_utilization_pct": 90.65,
+    "bram": 62,
+    "dsp": 26
+  },
+  "dq_input_mcp": {
+    "constraint": "set_multicycle_path 2 -setup -from [get_clocks ext_mem_clk_sft] -to [get_clocks ext_mem_clk]",
+    "exception_report_path_count": 32,
+    "exception_report_endpoints": 32,
+    "dominated": 32,
+    "shadowed": 0,
+    "ignored": 0,
+    "setup_slack_ns": 1.572,
+    "setup_worst_path": "sdram.dq[0] -> sdram_syn_1.bpad",
+    "setup_source_edge_ns": 8,
+    "setup_capture_edge_ns": 20,
+    "setup_budget_ns": 12,
+    "hold_slack_ns": 2.392,
+    "hold_worst_path": "sdram.dq[23] -> sdram_syn_18.bpad",
+    "hold_source_edge_ns": 8,
+    "hold_capture_edge_ns": 10,
+    "hold_next_word_equivalent": "source18 -> capture20",
+    "hold_budget_ns": -2,
+    "td_check_timing_mcp_max_checks": 64,
+    "td_check_timing_mcp_dominated": 64,
+    "td_check_timing_mcp_shadowed": 0,
+    "td_check_timing_mcp_ignored": 0
+  },
+  "external_delay_basis": {
+    "td_hard_ip_dq_input_delay_max_ns": 5,
+    "td_hard_ip_dq_input_delay_min_ns": 1,
+    "reference_pin": "u_frame_buffer/u_sdram/sdram.clk",
+    "reference_clock": "ext_mem_clk_sft",
+    "check_timing_abnormal_input_delay_bits": 32,
+    "em638325_tac_max_ns": {
+      "speed_grade_minus5": 5,
+      "speed_grade_minus6_minus7": 5.4
+    },
+    "em638325_toh_min_ns": {
+      "speed_grade_minus5": 2,
+      "speed_grade_minus6_minus7": 2.5
+    },
+    "actual_behavior_model_tac_ns": 5.4,
+    "actual_behavior_model_toh_ns": 2.5,
+    "model_tac_minus_sta_max_delay_ns": 0.4,
+    "model_tac_adjusted_dq_setup_slack_ns": 1.172,
+    "notes": [
+      "Run 221527 instantiates the APUG011 IS42s32200 model with explicit T_AC=5.4ns and T_OH=2.5ns parameters; these match the EM638325 -7 timing values assumed by the harness.",
+      "Input min delay 1ns is earlier than the listed tOH(min), so the STA hold check uses an early transition assumption.",
+      "Input delay source is not present in the project timing.sdc and remains to be traced to the TD/IP timing source.",
+      "Actual EM638325 speed grade and PCB DQ/CLK skew are unverified."
+    ]
+  },
+  "sdram_output_timing": {
+    "path_group": "ext_mem_clk -> ext_mem_clk_sft",
+    "group_endpoints": 48,
+    "dq_setup_worst_slack_ns": 2.011,
+    "dq_setup_worst_path": "sdr_t_reg -> SDRAM DQ",
+    "output_group_hold_worst_slack_ns": 1.78,
+    "output_group_hold_worst_path": "sdram_syn_8.osclk -> SDRAM CAS_N",
+    "hard_ip_output_delay_max_ns": -5,
+    "hard_ip_output_delay_min_ns": -1
+  },
+  "phase9_prediction_comparison": {
+    "dq_setup_phase9_actual_ns": 0.572,
+    "dq_setup_phase8_predicted_ns": 1.572,
+    "dq_setup_phase8_routed_ns": 1.572,
+    "dq_hold_phase9_actual_ns": 3.392,
+    "dq_hold_phase8_predicted_ns": 2.392,
+    "dq_hold_phase8_routed_ns": 2.392,
+    "dq_output_setup_phase9_actual_ns": 3.011,
+    "dq_output_setup_phase8_predicted_ns": 2.011,
+    "dq_output_setup_phase8_routed_ns": 2.011,
+    "output_group_hold_phase9_ns": 0.78,
+    "output_group_hold_phase8_ns": 1.78
+  },
+  "routed_gate_model": {
+    "result_json": "development/video42_work/memory_bench/run_C42_20261027_221527/result.json",
+    "source_binding_json": "development/video42_work/memory_bench/run_C42_20261027_221527/source_binding.json",
+    "result": "PASS",
+    "init_status": "PASS",
+    "data_status": "PASS",
+    "model_timing_errors": 0,
+    "init_sequence": {
+      "preall": 1,
+      "mrs": 1,
+      "startup_aref": 2,
+      "ready_time_ns": 31815
+    },
+    "scoreboard": {
+      "writes": 460,
+      "reads": 460,
+      "returns": 460,
+      "matched": 460,
+      "read_data_delay": 0
+    },
+    "refresh_traffic_aref": 3,
+    "sdram_pin_counts": {
+      "mrs": 1,
+      "aref": 5,
+      "act": 230,
+      "read": 115,
+      "write": 115,
+      "pre": 1
+    },
+    "device_model": "APUG011 official IS42s32200 behavioral model parameterized with EM638325 -7 timing assumptions",
+    "model_tac_ns": 5.4,
+    "model_toh_ns": 2.5,
+    "sdf_backannotation": false,
+    "negative_control_detected": false,
+    "single_sample_corruption_verified": false,
+    "original_final_routed_gate_sha256": "437D44141607624E94AD9D04BEA60F8ECA6EEC0D2D034D92573C8EEC0230097C",
+    "simulation_gate_module_rename_only_verified": true
+  },
+  "supplemental_gate_controls": [
+    {
+      "run": "development/video42_work/memory_bench/run_C42_20261027_222536",
+      "purpose": "single-bit read corruption negative control",
+      "result": "expected scoreboard failure; original sample 767/768-bit variant detected",
+      "negative_control_detected": true,
+      "single_sample_corruption_verified": true,
+      "final_routed_gate_sha256": "437D44141607624E94AD9D04BEA60F8ECA6EEC0D2D034D92573C8EEC0230097C"
+    },
+    {
+      "run": "development/video42_work/memory_bench/run_C42_20261027_222654",
+      "purpose": "previous-beat capture comparison",
+      "result": "expected previous-data scoreboard failure; raw current matched all 768 words and raw previous matched 0",
+      "raw_current_matches": 768,
+      "raw_previous_matches": 0,
+      "overall_pass": false,
+      "final_routed_gate_sha256": "437D44141607624E94AD9D04BEA60F8ECA6EEC0D2D034D92573C8EEC0230097C"
+    }
+  ],
+  "check_timing_other_io_findings": {
+    "unconstrained_top_inputs": [
+      "key1",
+      "key2",
+      "rst_n",
+      "sd_miso"
+    ],
+    "top_outputs_without_output_delay_count": 14,
+    "areas": [
+      "HDMI",
+      "SPI",
+      "LED",
+      "7-segment display"
+    ]
+  },
+  "bitstream": {
+    "path": "development/player_video42_sdram100/build/manual/AC201_player_video42_sdram100.bit",
+    "stage_status": "success",
+    "route_stage": "hold",
+    "sha256": "BF8E700B9A046576B0CEEC99A37085137E31BA0EF6FEE44E3401905A76BA6059"
+  },
+  "evidence_sha256": {
+    "verification/final_routed.v": "437D44141607624E94AD9D04BEA60F8ECA6EEC0D2D034D92573C8EEC0230097C",
+    "verification/final_route.qor": "4B849B36259F98CCFCA00800A9A50332C56973F05D5B159776583E3E2CD0456F",
+    "build/manual/AC201_tf_hdmi_pr.timing": "E646D7D9FE680D3BE545AA2D1BB6C0A02036A89D2B426ADD0F6C078FB9EBE2FD",
+    "build/manual/AC201_tf_hdmi_exception.timing": "36F9C6D88B83F9B3706504FBD70F51468ABD5FED5361731BFEC1982362D903A4",
+    "build/manual/AC201_tf_hdmi_chk.timing": "B22C05716BFDEFDB43BF1A81AED68B9B680E33EE100D7FB246388768BECF791C",
+    "verification/source_audit.json": "64617D1B88FCA81D371EC83CB6830AE4E5D98DEE129F2EF7154211BDE20D4C99"
+  }
+}

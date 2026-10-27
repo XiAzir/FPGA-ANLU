@@ -1,0 +1,32 @@
+diff --git "a/E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video32_read_return\\src\\user_source\\hdl_source\\SD\\spi_master.v" "b/E:\\VSCODE-project\\FPGA-ANLU\\development\\video40_work\\spi_candidate\\spi_master_production.v"
+index 705283cc..f11315c9 100644
+--- "a/E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video32_read_return\\src\\user_source\\hdl_source\\SD\\spi_master.v"
++++ "b/E:\\VSCODE-project\\FPGA-ANLU\\development\\video40_work\\spi_candidate\\spi_master_production.v"
+@@ -1,5 +1,5 @@
+ 
+-module spi_master
++module spi_master #(parameter FAST_DIV0 = 1'b0)
+ (
+ 	input                       sys_clk,
+ 	input                       rst,
+@@ -61,7 +61,12 @@ begin
+ 		DCLK_EDGE:
+ 			//a SPI byte with a total of 16 clock edges
+ 			if(clk_edge_cnt == 5'd15)
+-				next_state <= LAST_HALF_CYCLE;
++				if(FAST_DIV0 && clk_div == 16'd0)
++					next_state <= ACK;
++				else
++					next_state <= LAST_HALF_CYCLE;
++			else if(FAST_DIV0 && clk_div == 16'd0)
++				next_state <= DCLK_EDGE;
+ 			else
+ 				next_state <= DCLK_IDLE;
+ 		//this is the last data edge
+@@ -136,4 +141,4 @@ begin
+ 		else if(CPHA == 1'b1 && (clk_edge_cnt[0] == 1'b1))
+ 			MISO_shift <= {MISO_shift[6:0],MISO};
+ end
+-endmodule
+\ No newline at end of file
++endmodule
