@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-27",
+  "device": "EG4S20BG256",
+  "tool": "TD 6.2.1 SP1 6.2.178.840",
+  "property": {
+    "syntax": "set_pin_assignment {port} {LOCATION=...; IOSTANDARD=LVDS33; VCM=<volts>; VOD=<mV>m;}",
+    "scope": "per pin; all LVDS outputs sharing a bank must use one VOD value",
+    "eg4_vod_mV": [
+      150,
+      200,
+      250,
+      350,
+      480
+    ],
+    "eg4_vcm_V": [
+      0.8,
+      0.9,
+      1.2
+    ],
+    "software_default_vod_mV": 350,
+    "software_default_vcm_V": 1.2,
+    "large_swing_config_vod_mV": 480,
+    "tool_manual_note": "480mV VOD is supported, but TD manual says it is not recommended",
+    "evidence": "TD_User_Guide_V6.2.pdf PDF p.159, printed p.158, section 9.1, tables 9-1 and 9-2; USR-8090 at PDF p.172"
+  },
+  "parser_probe": {
+    "directory": "development/video39_work/electrical_review/swing_config/parser_probe",
+    "input": "pin.adc",
+    "value_tested": "VOD=480m; VCM=0.8",
+    "command_sequence": [
+      "import_device",
+      "read_hdl",
+      "read_adc"
+    ],
+    "result": "ADC_PARSER_PROBE_ACCEPTED",
+    "synthesis_or_physical_design": false,
+    "hardware_operation": false,
+    "td_log": "development/video39_work/electrical_review/swing_config/parser_probe/td_parser_result.log"
+  },
+  "current_c39_build_report": {
+    "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video39_work\\native_probe\\B\\build\\td_run_clock_probe_b_retry03.log",
+    "line": 753,
+    "bank1": "DIFFRESISTOR:NONE VOD:350M VCM:1.2",
+    "interpretation": "Matches the TD software defaults reported in its user guide; not a board measurement."
+  },
+  "datasheet_physical_ranges": {
+    "path": "E:\\QQ CACHE\\Download\\安路资料\\赛题1_工作资料\\04_补充芯片手册\\DS300_Eagle_EG4系列数据手册_v3.9.6_官方.pdf",
+    "pdf_page": 84,
+    "printed_page": 78,
+    "standard_vod_mV_min_typ_max": [
+      150,
+      250,
+      350
+    ],
+    "large_swing_vod_mV_min_typ_max": [
+      450,
+      480,
+      550
+    ],
+    "vocm_V_at_vccio_3v3_rt_100ohm": [
+      0.6,
+      1.4
+    ],
+    "rt_ohm": 100
+  },
+  "scope": "Only files under swing_config were created/updated; no production source, constraints, bit/info, or original reference materials changed."
+}

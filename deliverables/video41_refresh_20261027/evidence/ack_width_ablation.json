@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "fixed",
+      "exit_code": 0,
+      "stdout": "ACK_EDGE_PASS cases=5 widths=1,2,3,8,reset2\nE:\\VSCODE-project\\FPGA-ANLU\\development\\video41_work\\tb_ack_normalization.v:41: $finish called at 751000 (1ps)\n",
+      "prefix_sha256": "5a12916b24a65cb943d05c277c404579e6c39cfc4413b5f213200b35756694bb"
+    },
+    {
+      "case": "negative_raw_ack",
+      "exit_code": 1,
+      "stdout": "FATAL: E:\\VSCODE-project\\FPGA-ANLU\\development\\video41_work\\tb_ack_normalization.v:24: ACK level width=2 generated 2 triggers\n       Time: 251000  Scope: tb_ack_normalization.ack_level\n",
+      "prefix_sha256": "dd819265959e21aa700c29b7344dc9531466a9cc51d58eecfe655abb30a926e1"
+    }
+  ],
+  "scope": "Candidate ACK shift pipeline with raw ACK widths and original-prefix negative control; protected command encoding checked separately by mapped gate."
+}

@@ -1,0 +1,162 @@
+{
+  "status": "OFFLINE_VERIFIED_REFRESH_BOARD_PENDING",
+  "build_id": "00C11341",
+  "created_utc": "2026-10-27T11:38:13.313672+00:00",
+  "filename": "video41_refresh.bit",
+  "bit_sha256": "f572afe5baa74dc61df58132c172298690c92171d5c631630fec6b02d3c6b7ac",
+  "bit_bytes": 634280,
+  "purpose": "基于用户正常C40，恢复EM638325周期刷新，并修复合并ACK连续电平引发重复AREF的移位入口。",
+  "board_result": "PENDING",
+  "clocks_hz": {
+    "spi_initialization": 100000,
+    "spi_data": 25000000,
+    "sdram": 50000000
+  },
+  "slice_used": 8797,
+  "slice_percent": 89.76530612244899,
+  "C40_slice_used": 8818,
+  "slice_delta_vs_C40": -21,
+  "physical_resources": {
+    "lut": 16850,
+    "reg": 8744,
+    "le": 16856,
+    "bram": 62,
+    "dsp": 26,
+    "pll": 2,
+    "gclk": 3
+  },
+  "timing_ns": {
+    "setup_wns": 1.177,
+    "setup_tns": 0.0,
+    "hold_wns": 0.003,
+    "hold_tns": 0.0
+  },
+  "STA_coverage_percent": 99.99,
+  "timing_scope": "Production constrained internal paths; external card/PCB delays and real SDRAM data retention require board evidence.",
+  "refresh": {
+    "device": "EM638325",
+    "specification_commands_per_64ms": 4096,
+    "terminal": 780,
+    "request_interval_mem_clocks": 781,
+    "request_interval_ns": 15620,
+    "window_4096_intervals_ns": 63979520,
+    "ack_shift_input": "rising-edge event; raw scheduler ACK interface preserved",
+    "protected_suffix_identical": true,
+    "gate_commands": {
+      "status": "PASS",
+      "final_gate_sha256": "1c0dc1b9799724c18ead8dd27214d6ba75e161c8d92453a19fa16849c6d14263",
+      "final_routed_sha256": "a8ccaa65b235e18caa20b037ba24630b0773bd33b7f2c9c22f280255a8418fe3",
+      "checks": [
+        {
+          "name": "synthesized_short_burst",
+          "status": "PASS",
+          "binding_path": "development/video41_work/gate_refresh/run_C41_20261027_192512/source_binding.json",
+          "binding_sha256": "8198bdfb16086c20fc3ac3972b4e92f32c4b6758798afd8f692da15c547fb18e",
+          "log_path": "development/video41_work/gate_refresh/run_C41_20261027_192512/run.log",
+          "log_sha256": "2d4cd4048847c02ee9d07450caf3d78f7261f69373f59ba09d3659f06951fde8",
+          "trace_sha256": "2a22f91f448f1cc849afbc510d2149a1eced108b43cae95966a0bec227b52013",
+          "summary": "GATE_REFRESH_SUMMARY case=0 inject_req=0 traffic=1 measured_cycles=4653 req_rises=6 ack_rises=7 aref_commands=6 writes=114 reads=114",
+          "AREF_gaps_mem_clocks": [
+            782,
+            782,
+            763,
+            781,
+            781
+          ],
+          "request_to_AREF_mem_clocks": [
+            23,
+            24,
+            25,
+            7,
+            7,
+            7
+          ],
+          "maximum_observed_request_service_delay_ns": 500,
+          "source_kind": "synthesized",
+          "source_sha256": "1c0dc1b9799724c18ead8dd27214d6ba75e161c8d92453a19fa16849c6d14263"
+        },
+        {
+          "name": "routed_long_burst",
+          "status": "PASS",
+          "binding_path": "development/video41_work/gate_refresh/run_C41_20261027_193406/source_binding.json",
+          "binding_sha256": "be1efb6e5fdfcdc109877d28849ecc3a43b74e9ebd6f9bc929e6e25f348d6b83",
+          "log_path": "development/video41_work/gate_refresh/run_C41_20261027_193406/run.log",
+          "log_sha256": "6f7f7b4192ba7b511debaea51d16b09024a94b2bad96e520defaa54de44025b5",
+          "trace_sha256": "424cbe98e6ac68ed3d4adc525eab1e051eae598ba9d162a78c3102be15e2c271",
+          "summary": "GATE_REFRESH_SUMMARY case=0 inject_req=0 traffic=1 measured_cycles=4729 req_rises=6 ack_rises=6 aref_commands=6 writes=576 reads=512",
+          "AREF_gaps_mem_clocks": [
+            838,
+            835,
+            838,
+            566,
+            835
+          ],
+          "request_to_AREF_mem_clocks": [
+            77,
+            134,
+            188,
+            245,
+            30,
+            84
+          ],
+          "maximum_observed_request_service_delay_ns": 4900,
+          "source_kind": "routed",
+          "source_sha256": "a8ccaa65b235e18caa20b037ba24630b0773bd33b7f2c9c22f280255a8418fe3"
+        },
+        {
+          "name": "routed_idle",
+          "status": "PASS",
+          "binding_path": "development/video41_work/gate_refresh/run_C41_20261027_193626/source_binding.json",
+          "binding_sha256": "aa0410b6f2f56a05d7c1a43bd690c87d6761a1433c46c9f395bd313a1bd5ae59",
+          "log_path": "development/video41_work/gate_refresh/run_C41_20261027_193626/run.log",
+          "log_sha256": "f91c83d4a161a57aec3b5c22bb1c343c539e9301fb6ae6a753c5abc8051869dd",
+          "trace_sha256": "50edc0a8e55e39d4e905ccec5b62e613ea02318c6fe6835cc2fc73fce33b8c6d",
+          "summary": "GATE_REFRESH_SUMMARY case=0 inject_req=0 traffic=0 measured_cycles=1528 req_rises=2 ack_rises=2 aref_commands=2 writes=0 reads=0",
+          "AREF_gaps_mem_clocks": [
+            781
+          ],
+          "request_to_AREF_mem_clocks": [
+            7,
+            7
+          ],
+          "maximum_observed_request_service_delay_ns": 140,
+          "source_kind": "routed",
+          "source_sha256": "a8ccaa65b235e18caa20b037ba24630b0773bd33b7f2c9c22f280255a8418fe3"
+        }
+      ],
+      "scope": "Full original mapped netlists with only top rename; actual command pins, forced app inputs/clocks/reset and accelerated startup; inert device command observer; no SDF, storage contents or board capture.",
+      "source_logic_ack_override": false,
+      "routed_reset_fanout_aliases": "Explicit per-run list bound in source_binding; all use the same test reset."
+    }
+  },
+  "source_delta": [
+    "hdl_source/include/global_def.v",
+    "hdl_source/include/sdr_init_ref.enc.v",
+    "hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "unchanged_user_sources": 110,
+  "runtime_pages": {
+    "00C11341": "版本",
+    "C000xxxx": "TF已校验扇区计数，16位十六进制饱和",
+    "E000xxxx": "TF CRC不一致扇区计数"
+  },
+  "baseline_bit_sha256": "412b028d2d0866012a35f1e51b84e8566eaff3f04d0611d1169cdfb7396306ed",
+  "source_audit_sha256": "3841952d14d1f74eb6117884181c8b5a879b71a624944c47b068ae56f358739a",
+  "final_stage_binding_sha256": "dddc0d44599b0b3054055b02467f35a897708cffd417de0c81368c8562c92ff1",
+  "routed_database_sha256": "a5705054786eb5cb39ec1e65668003480a9b6813c8382f5b3279faabdfc1118e",
+  "final_routed_netlist_sha256": "a8ccaa65b235e18caa20b037ba24630b0773bd33b7f2c9c22f280255a8418fe3",
+  "external_spi_path_estimate": {
+    "scope": "Routed path estimate using artificial 20ns max IO delays; actual card tOD/PCB and min timing unmeasured.",
+    "sck_pad_falling_arrival_ns": 6.28,
+    "miso_required_ns": 21.422,
+    "miso_pad_net_register_path_ns": 3.4080000000000013,
+    "remaining_card_tOD_plus_PCB_roundtrip_ns": 11.734,
+    "report_sha256": "e0eb15e28922cb0e082edd5306e2c80487de01dc9f267e876d6b8b1c24b87862"
+  },
+  "outstanding": [
+    "C41 board media/cold-start/long-running validation",
+    "Physical timing and data retention",
+    "SDRAM100 and HD integration"
+  ],
+  "historical_fault_causality": "Periodic refresh and ACK command defects have digital evidence; previous board black-screen/audio faults remain unassigned."
+}

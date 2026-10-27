@@ -1,0 +1,15 @@
+E:/VSCODE-project/FPGA-ANLU/development/video32_work/real_sdram_test/tb_real_sdram_frame_buffer.v
+E:/VSCODE-project/FPGA-ANLU/development/video32_work/real_sdram_test/frame_buffer_rgb888_compat.v
+hdl_source/rgb888_word_codec.v
+hdl_source/rgb565_word_codec.v
+hdl_source/player_wipe_address.v
+hdl_source/jpeg420_word_address.v
+hdl_source/SD/frame_read_write.v
+hdl_source/SD/frame_fifo_read.v
+hdl_source/SD/frame_fifo_write.v
+hdl_source/SD/sdram.v
+hdl_source/IP/afifo_32_16_256.v
+hdl_source/IP/afifo_16_32_256.v
+hdl_source/include/sdr_as_ram.enc.v
+hdl_source/include/sdr_wrrd.enc.v
+hdl_source/include/sdr_init_ref.enc.v

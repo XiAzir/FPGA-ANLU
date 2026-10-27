@@ -1,0 +1,101 @@
+# do run_c33.do 
+# if {[file exists work]} {vdel -lib work -all}
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is PENGYUHAO@DESKTOP-3CITPT4.
+# 
+# vlib work
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# vlog -timescale 1ns/1ps C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module EG_PHY_PLL
+# -- Compiling module prediv_mux
+# -- Compiling module eg_dphase_sel
+# -- Compiling module eg_clko_premux
+# -- Compiling module eg_clko_ctrl
+# -- Compiling module eg_pll_div128
+# -- Compiling module eg_pll_div2
+# 
+# Top level modules:
+# 	EG_PHY_PLL
+# vlog -timescale 1ns/1ps C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_logic_io.v
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module EG_LOGIC_IDELAY
+# -- Compiling module EG_LOGIC_IDDR
+# -- Compiling module EG_LOGIC_ODDR
+# -- Compiling module EG_LOGIC_IDDRx2
+# -- Compiling module EG_LOGIC_ODELAY
+# -- Compiling module EG_LOGIC_ODDRx2
+# -- Compiling module EG_LOGIC_ODDRx2l
+# 
+# Top level modules:
+# 	EG_LOGIC_IDELAY
+# 	EG_LOGIC_IDDR
+# 	EG_LOGIC_IDDRx2
+# 	EG_LOGIC_ODELAY
+# 	EG_LOGIC_ODDRx2
+# 	EG_LOGIC_ODDRx2l
+# vlog -timescale 1ps/1ps C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_logic_clk.v
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module EG_LOGIC_BUFG
+# -- Compiling module EG_LOGIC_BUFIO
+# -- Compiling module EG_LOGIC_BUFGMUX
+# 
+# Top level modules:
+# 	EG_LOGIC_BUFG
+# 	EG_LOGIC_BUFIO
+# 	EG_LOGIC_BUFGMUX
+# vlog -timescale 1ns/1ps C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_glbl.v
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# vlog -timescale 1ns/1ps ../../player_video33_1080p_output/src/user_source/hdl_source/IP/video_pll.v ../../player_video33_1080p_output/src/user_source/hdl_source/lane_lvds_10_1.v tb_lane_scoreboard_c33.sv
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module video_pll
+# -- Compiling module lane_lvds_10_1
+# -- Compiling module tb_lane_scoreboard
+# -- Compiling module lane_capture
+# 
+# Top level modules:
+# 	tb_lane_scoreboard
+# vsim -c work.tb_lane_scoreboard work.glbl
+# vsim -c work.tb_lane_scoreboard work.glbl 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# ** Warning: ../../player_video33_1080p_output/src/user_source/hdl_source/IP/video_pll.v(66): (vopt-2241) Connection width does not match width of port 'load_reg'. The port definition is at: C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v(25).
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.tb_lane_scoreboard(fast)
+# Loading work.video_pll(fast)
+# Loading work.EG_PHY_PLL(fast)
+# Loading work.lane_lvds_10_1(fast)
+# Loading work.EG_LOGIC_BUFG(fast)
+# Loading work.glbl(fast)
+# ** Warning: (vsim-3015) ../../player_video33_1080p_output/src/user_source/hdl_source/IP/video_pll.v(66): [PCDPC] - Port size (5 or 5) does not match connection size (1) for port 'load_reg'. The port definition is at: C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v(25).
+# 
+#         Region: /tb_lane_scoreboard/pll/pll_inst
+# run -all
+# ******************** : The Attribute            REFCLK_DIV on pll instance tb_lane_scoreboard.pll.pll_inst.para_int_range_chk is set to           2.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             FBCLK_DIV on pll instance tb_lane_scoreboard.pll.pll_inst.para_int_range_chk is set to          33.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC0_DIV on pll instance tb_lane_scoreboard.pll.pll_inst.para_int_range_chk is set to          25.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC1_DIV on pll instance tb_lane_scoreboard.pll.pll_inst.para_int_range_chk is set to           5.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC2_DIV on pll instance tb_lane_scoreboard.pll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC3_DIV on pll instance tb_lane_scoreboard.pll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC4_DIV on pll instance tb_lane_scoreboard.pll.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# 33_165_RAW first_word_start_bit=17 word0=01f
+# 33_165_RAW PASS 16 consecutive words
+# 33_165_BUFG first_word_start_bit=17 word0=01f
+# 33_165_BUFG PASS 16 consecutive words
+# ALL_CASES_DONE
+# ** Note: $finish    : tb_lane_scoreboard_c33.sv(8)
+#    Time: 9 us  Iteration: 1  Instance: /tb_lane_scoreboard

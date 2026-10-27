@@ -1,0 +1,22 @@
+[
+  {
+    "page": 4,
+    "text": "  \n                                                 基于ERAM 接口实现的高性能SDRAM 读写 \nAPUG011_1.2                         www.anlogic.com                                   1 \n2023.06 \n1 概要 \nFPGA 为可编程逻辑器件，广泛应用于通信、视频图像处理等领域，这些应用都需要大量使用FPGA\n内的ERAM，当ERAM 容量不能满足要求时， 可能会考虑更换更大型号的FPGA， 或者外面扩展SDRAM 或者\nDDR 等存储器件。但扩展类似的存储器件，需要FPGA 以及存储器 IP 的支持，对于小型 FPGA 器件或者\n没有存储器硬IP 的FPGA 器件，要增加存储，对于FPGA 人员以及系统成本、产品面市都提出了挑战。 \n本文档通过介绍一种ERAM 容量扩展方案，使用者可以以FPGA 内部的ERAM 的方式接口进行操作，\n通过此种 RAM 容量扩展方式，将 ERAM 扩展到 64Mb 以及更大的容量，读写时钟可以支持200Mhz，读写\n带宽可以达到6Gbps 以上，效率可支持到95%。 \n方案中使用参数化完成，支持各种任意大小容量和不同位宽的SDRAM 器件。 \n使用方式接口与ERAM 操作一致，通过此种方式，可以实现数据的大缓存以及处理，用户可利用此\n方案快速实现各种数据缓存应用。 \n "
+  },
+  {
+    "page": 8,
+    "text": "  \n                                                 基于ERAM 接口实现的高性能SDRAM 读写 \nAPUG011_1.2                         www.anlogic.com                                   5 \n2023.06 \n \n图 2-6 写入数据掩码时序 \n2.3.4 跳跃地址读写 \nFPGA 内的 ERAM 可以支持任意地址的跳跃， 本方案理论上也可以支持任意地址， 但数据是以128bit\n为基础（如本方案数据标准位宽为32bit）进行任意地址跳跃。 \n在实现地址跳跃时，app_wr_addr[1:0]为 2’b00，任意更改app_wr_addr[22:2]，简单理解为每4\n个时钟，可以任意跳跃1 次地址。 \n下图2-7 中的x 代表任意地址。 \n \n图 2-7 数据地址跳跃操作时序 \n2.4 读写效率与注意事项 \nSDRAM 工作频率可以支持200Mhz， 按照32bit 位宽， 理论上可以支持6.4Gbps 有效带宽， 如果持续\n写入或者持续读出，实际带宽与理论带宽一致。如写入和读出有停顿，带宽可以支持到6Gbps，带宽利\n用率在95%以上。 \n每次写入或读出持续的长度，可随机，为了效率， 尽量长度是4 的倍数。长度为非4 的倍数时， 请\n配合数据掩码使用。 \n每次写入或读出的数据以 4 个为单位，每 4 个中第 1 个地址即为首地址，第 2~4 地址是依据首地\n址做累加，如下图2-8 所示. \n"
+  },
+  {
+    "page": 10,
+    "text": "  \n                                                 基于ERAM 接口实现的高性能SDRAM 读写 \nAPUG011_1.2                         www.anlogic.com                                   7 \n2023.06 \n3 模块接口介绍 \n方案顶层接口中，只提供用户的读写通道信号，扩展SDRAM 器件使用的是Anlogic EG4S 内部自带\n的 SDRAM SIP。如用户需要更换成Anlogic 其他器件，将此部分接口引出到工程顶层，分配IO 即可。 \n方案接口信号定义如表3-1 所示。 \n表 3-1 方案接口信号 \n信号 方向 功能说明 \nSdr_clk in 应用方案SDRAM 工作时钟 \nSdr_clk_sft in 同频可能不同相位的SDRAM 时钟 \nRst in 高有效 \n用户读写接口 \nApp_wr_en in 写使能，高有效 \nApp_wr_addr[20:0] in 写地址 \nApp_wr_din[31:0] in 写数据 \nApp_wr_dm[3:0] in 写入数据掩码 \nApp_rd_en in 读使能 \nApp_rd_addr[20:0] in 读地址 \nSdr_rd_en out 有效读数据输出使能 \nSdr_rd_dout[31:0] out 有效读出数据 \n控制信号 \nSdr_init_done out SDRAM 初始化完成 \nSdr_init_ref_vld out SDRAM 刷新有效标志 \nSdr_busy out SDRAM 忙状态，暂不使用 \nApp_ref_req in 用户自行请求刷新操作 \nSDRAM 信号 \nSDR_CLK in SDRAM 时钟 \nSDR_CKE in SDRAM 的CKE 时钟使能 \nSDR_RAS in SDARM 行有效 \nSDR_CAS in SDRAM 片选 \nSDR_WE in SDRAM 写使能 \nSDR_BA[1:0] in SDRAM  Bank \nSDR_ADDR[10:0] in SDRAM 的操作地址 \nSDR_DM[3:0] in SDRAM 的数据掩码 \nSDR_DQ[31:0] inout SDRAM 数据总线 \n操作该虚拟ERAM 时，请先等待初始化完成后，可进行操作。使用前，请先判断是否在刷新，如没\n有刷新，方可进行任意长度的读写操作。 "
+  },
+  {
+    "page": 11,
+    "text": "  \n                                                 基于ERAM 接口实现的高性能SDRAM 读写 \nAPUG011_1.2                         www.anlogic.com                                   8 \n2023.06 \n为了不造成有效带宽的利用， 写入和读出的长度， 尽量是4 的倍数。 如长度不是4 的倍数， 请使用\n掩码功能，屏蔽无效数据的写入。如写入长度为5，那么在第5~8 个数据时，第5 个数据正常写入，第\n6~8 个的数据写入时，将app_wr_dm[3:0]设置位 4’b1111。 "
+  },
+  {
+    "page": 15,
+    "text": "  \n                                                 基于ERAM 接口实现的高性能SDRAM 读写 \nAPUG011_1.2                         www.anlogic.com                                   12 \n2023.06 \n7 移植与注意事项 \n1、使用前请注意等待SDRAM 初始化完成，再开始工作； \n2、地址跳跃和掩码，请按照第二章中数据掩码规则进行； \n3、每次读写操作前，请判断Sdr_busy 是否忙； \n4、读写操作长度可以任意，尽量是4 的倍数； \n5、地址可以任意跳跃，为4 的倍数，倍数内不支持跳，倍数间可以任意跳； \n6、读数据时，SDRAM 与不同硬件， 使用不同的频率和相位， 可能出现时钟和数据错一拍的情形， 请\n根据实际情况，在应用中做调整； \n7、可支持Anlogic 其他系列FPGA； \n8、方案中使用的是64Mb、宽度为32bit 的SDRAM，更换其他型号的器件时，请更改文件中的全局\n宏定义参数； \n`define   DATA_WIDTH                      32 \n`define   ADDR_WIDTH                      21 \n`define   DM_WIDTH                        4 \n`define   ROW_WIDTH                       11 \n`define   BA_WIDTH                        2 \n`define   SDR_CLK_PERIOD    1000000000/150000000 \n`defien   SELF_REFRESH_INTERVAL   64000000/`SDR_CLK_PERIOD/2**`ROW_WIDTH \n9、需要确认使用何种刷新方式，保持数据内容在长期没有操作时，数据不会发生变化。 \n10、工程中的SDRAM 地址位宽，可在global_def 文件中更改，因此必须要将该文件include 到目\n标工程文件中。 \n \n \n "
+  }
+]

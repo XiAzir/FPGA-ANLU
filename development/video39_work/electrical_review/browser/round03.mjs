@@ -1,0 +1,12 @@
+const fs = await import('node:fs/promises');
+const task = await taskSpace(4);
+const page = task.page('p1');
+console.log({spaceId:4,url:await page.url()});
+const body = await page.evaluate(() => document.body.innerText);
+await fs.writeFile('E:/VSCODE-project/FPGA-ANLU/development/video39_work/electrical_review/browser/ti_termination.txt',body);
+console.log(body.slice(-12500));
+const response = await fetch('https://www.ti.com/lit/pdf/slla120');
+if (!response.ok) throw new Error('TI SLLA120 fetch status '+response.status);
+const pdf = Buffer.from(await response.arrayBuffer());
+await fs.writeFile('E:/VSCODE-project/FPGA-ANLU/development/video39_work/electrical_review/LVDS_CML_interface_slla120.pdf',pdf);
+console.log({download:response.url,bytes:pdf.length});

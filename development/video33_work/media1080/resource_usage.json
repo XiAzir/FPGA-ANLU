@@ -1,0 +1,12 @@
+{
+  "measurement_method": "PowerShell polls process working sets every 500 ms with Get-Process while prepare_media1080.py runs and accumulates matching ffmpeg.exe working sets.",
+  "measurement_run": "full 300-frame encode, four JPEG qualities, audio extraction and MJP packing",
+  "python_max_working_set_bytes": 124227584,
+  "python_max_working_set_MiB": 118.4,
+  "ffmpeg_max_working_set_bytes": 171241472,
+  "ffmpeg_max_working_set_MiB": 163.3,
+  "sampled_simultaneous_python_plus_ffmpeg_max_bytes": 295448576,
+  "sampled_simultaneous_python_plus_ffmpeg_max_MiB": 281.8,
+  "poll_interval_ms": 500,
+  "note": "Per-process Python peak was below 150 MiB; combined Python plus FFmpeg working set was above 150 MiB. Working-set sampling is approximate and excludes other processes."
+}

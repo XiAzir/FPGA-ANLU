@@ -1,0 +1,57 @@
+diff --git "a/E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video32_read_return\\src\\user_source\\hdl_source\\SD\\spi_master.v" "b/E:\\VSCODE-project\\FPGA-ANLU\\development\\video40_work\\spi_candidate\\spi_master.v"
+index 705283c..37f8de6 100644
+--- "a/E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video32_read_return\\src\\user_source\\hdl_source\\SD\\spi_master.v"
++++ "b/E:\\VSCODE-project\\FPGA-ANLU\\development\\video40_work\\spi_candidate\\spi_master.v"
+@@ -1,5 +1,8 @@
+ 
+-module spi_master
++module spi_master #(
++	parameter FAST_DIV0 = 1'b0,
++	parameter FAST_ACK_WAIT_BYPASS = 1'b0
++)
+ (
+ 	input                       sys_clk,
+ 	input                       rst,
+@@ -54,14 +57,21 @@ begin
+ 				next_state <= IDLE;
+ 		DCLK_IDLE:
+ 			//half a SPI clock cycle produces a clock edge
+-			if(clk_cnt == clk_div)
++			if(FAST_DIV0 && clk_div == 16'd0)
++				next_state <= DCLK_EDGE;
++			else if(clk_cnt == clk_div)
+ 				next_state <= DCLK_EDGE;
+ 			else
+ 				next_state <= DCLK_IDLE;
+ 		DCLK_EDGE:
+ 			//a SPI byte with a total of 16 clock edges
+ 			if(clk_edge_cnt == 5'd15)
+-				next_state <= LAST_HALF_CYCLE;
++				if(FAST_DIV0 && clk_div == 16'd0)
++					next_state <= ACK;
++				else
++					next_state <= LAST_HALF_CYCLE;
++			else if(FAST_DIV0 && clk_div == 16'd0)
++				next_state <= DCLK_EDGE;
+ 			else
+ 				next_state <= DCLK_IDLE;
+ 		//this is the last data edge
+@@ -72,7 +82,10 @@ begin
+ 				next_state <= LAST_HALF_CYCLE;
+ 		//send one byte complete
+ 		ACK:
+-			next_state <= ACK_WAIT;
++			if(FAST_ACK_WAIT_BYPASS && FAST_DIV0 && clk_div == 16'd0)
++				next_state <= IDLE;
++			else
++				next_state <= ACK_WAIT;
+ 		//wait for one clock cycle, to ensure that the cancel request signal
+ 		ACK_WAIT:
+ 			next_state <= IDLE;
+@@ -136,4 +149,4 @@ begin
+ 		else if(CPHA == 1'b1 && (clk_edge_cnt[0] == 1'b1))
+ 			MISO_shift <= {MISO_shift[6:0],MISO};
+ end
+-endmodule
+\ No newline at end of file
++endmodule

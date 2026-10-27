@@ -1,0 +1,35 @@
+{
+  "state": "PASS",
+  "scope": "32-sector external pin card model at 50MHz; CRC and byte goldens; delays 0/14/18ns are modeling points, not asserted board/card specifications.",
+  "cases": [
+    {
+      "tag": "fast0_delay14_inject0",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_wall_s": 4.469,
+      "stdout": "SD model loading 2073 mapped sectors from packed_mem.mem and lba_map.mem (geometry 67108864 bytes)\nSD_FILECHECK_BEGIN t=0\nSD_READMEMH_DATA_BEGIN t=0\nSD_READMEMH_LBA_BEGIN t=0\nSD_READMEMH_COMPLETE t=0\nINIT_DONE FAST=0 delay=14 time_ns=4003040000\nCARD25_PASS FAST=0 delay=14 sectors=32 bytes=16384 elapsed_ns=12106240 throughput_Bps=1353351.660 crc_checked=32 crc_bad=0\nE:\\VSCODE-project\\FPGA-ANLU\\development\\video40_work\\card\\tb_card25.v:130: $finish called at 16109280000 (1ps)\n"
+    },
+    {
+      "tag": "fast1_delay14_inject0",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_wall_s": 3.094,
+      "stdout": "SD model loading 2073 mapped sectors from packed_mem.mem and lba_map.mem (geometry 67108864 bytes)\nSD_FILECHECK_BEGIN t=0\nSD_READMEMH_DATA_BEGIN t=0\nSD_READMEMH_LBA_BEGIN t=0\nSD_READMEMH_COMPLETE t=0\nINIT_DONE FAST=1 delay=14 time_ns=4000480000\nCARD25_PASS FAST=1 delay=14 sectors=32 bytes=16384 elapsed_ns=6730240 throughput_Bps=2434385.698 crc_checked=32 crc_bad=0\nE:\\VSCODE-project\\FPGA-ANLU\\development\\video40_work\\card\\tb_card25.v:130: $finish called at 10730720000 (1ps)\n"
+    },
+    {
+      "tag": "fast1_delay14_inject1",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_wall_s": 3.11,
+      "stdout": "SD model loading 2073 mapped sectors from packed_mem.mem and lba_map.mem (geometry 67108864 bytes)\nSD_FILECHECK_BEGIN t=0\nSD_READMEMH_DATA_BEGIN t=0\nSD_READMEMH_LBA_BEGIN t=0\nSD_READMEMH_COMPLETE t=0\nINIT_DONE FAST=1 delay=14 time_ns=4000480000\nCARD25_NEGATIVE_PASS data_errors=32 crc_bad=32 crc_bad_dut=32\nE:\\VSCODE-project\\FPGA-ANLU\\development\\video40_work\\card\\tb_card25.v:130: $finish called at 10730720000 (1ps)\n"
+    }
+  ],
+  "source_sha256": {
+    "development/video40_work/card/sd_spi_card_model.v": "c7a758a7fba278eb8e1be5803bb0a1819a877b3436981f17cba4deb965cbe342",
+    "development/video40_work/card/tb_card25.v": "45a80c96735112144eaf95d90a9d60cac3b0c6069a64cb26c48193900ffe40d1",
+    "development/player_video40_spi25/src/user_source/hdl_source/SD/sd_card_top.v": "8e04938b8097c081c4056456b5e3b16cfa23e66805f379900d90cded235c8ade",
+    "development/player_video40_spi25/src/user_source/hdl_source/SD/sd_card_sec_read_write.v": "447d3efc58e2ea366c9d0468499a37142d70939c3f7e670d45f1ad4d7d4c683f",
+    "development/player_video40_spi25/src/user_source/hdl_source/SD/sd_card_cmd.v": "2b5250da3ce13a7d7c83a9af3d152fb1fb97357377205be4abed01644cf4ef45",
+    "development/player_video40_spi25/src/user_source/hdl_source/SD/spi_master.v": "923183eb08380f161da8f0dfbc5b3dada2c4dc0c547ac24c9c7de3689e337484"
+  }
+}

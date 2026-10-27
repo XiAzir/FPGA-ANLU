@@ -1,0 +1,7 @@
+Debug setup attempt: tb hierarchical probes initially used U_EG4_ODDR without the generated genblk scope, then adding genblk1 still produced unresolved references in a fresh ModelSim elaboration. This only affects the diagnostic bench; the baseline q-equivalence failure and original log are preserved. Diagnostic strategy changed to passive monitors in copied sources.
+
+2026-10-27 模型诊断/目录错误记录：
+- 第一版direct连接将d0/d1反序，官方模型比较首差case=1/400ps、61ns、ref=1010/direct=0011；原始log保留于modelsim_equivalence_run01.log，纠正连线后modelsim_equivalence_run03.log通过。
+- TB直接访问primitive hierarchy时最初漏掉generate scope，随后诊断层级查询仍失败；失败日志modelsim_debug_run02.log与modelsim_debug_run04.log保留，使用官方模型的只读被动监视器modelsim_debug_run06.log取得primitive状态。
+- modelsim_debug_run05.log记录一次诊断用$display格式项数量不匹配；仅诊断夹具有误，主要等价夹具未受影响。
+- 为保留B build而误用Copy-Item将目标baseline_B建在build源目录中，导致递归嵌套；已验证绝对目标后通过同一PowerShell的扩展长度.NET Directory.Delete清理整个明确错误目标。最终baseline_B不存在，原始B目录和serializer_direct主build结果均在。

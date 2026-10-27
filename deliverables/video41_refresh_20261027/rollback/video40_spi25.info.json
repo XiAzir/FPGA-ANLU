@@ -1,0 +1,75 @@
+{
+  "status": "OFFLINE_VERIFIED_SPI_BOARD_PENDING",
+  "build_id": "00C11340",
+  "created_utc": "2026-10-27T09:58:32.491620+00:00",
+  "filename": "video40_spi25.bit",
+  "bit_sha256": "412b028d2d0866012a35f1e51b84e8566eaff3f04d0611d1169cdfb7396306ed",
+  "bit_bytes": 634280,
+  "purpose": "以已板测C32为基线，单独验证TF数据SPI25MHz。原HDMI、480p播放器、SDRAM50MHz。",
+  "board_result": "PENDING",
+  "clocks_hz": {
+    "sd_logic": 50000000,
+    "spi_initialization": 100000,
+    "spi_data": 25000000,
+    "sdram": 50000000
+  },
+  "slice_used": 8818,
+  "slice_percent": 89.9795918367347,
+  "C32_slice_used": 8778,
+  "slice_delta_vs_C32": 40,
+  "physical_resources": {
+    "lut": 16851,
+    "reg": 8753,
+    "le": 16894,
+    "bram": 62,
+    "dsp": 26,
+    "pll": 2,
+    "gclk": 3
+  },
+  "timing_ns": {
+    "setup_wns": 1.531,
+    "setup_tns": 0.0,
+    "hold_wns": 0.011,
+    "hold_tns": 0.0
+  },
+  "STA_coverage_percent": 99.99,
+  "timing_scope": "Production constrained internal paths. External card/PCB min/max IO delays remain uncharacterized.",
+  "model_throughput_Bps": {
+    "C32_mode": 1353351.66,
+    "C40_mode": 2434385.698
+  },
+  "throughput_scope": "32 sectors, identical 50MHz SDHC pin model/commands; not real-card throughput.",
+  "external_setup_estimate_ns": 11.734,
+  "external_setup_scope": "Remaining card tOD plus PCB SCK/MISO round-trip allowance from routed SCK/MISO paths, artificial pressure constraints. Not measured margin.",
+  "runtime_pages": {
+    "00C11340": "版本",
+    "C000xxxx": "已校验512字节扇区数，十六进制，16位饱和",
+    "E000xxxx": "CRC16不一致扇区数，十六进制，16位饱和"
+  },
+  "observation_policy": "被动CRC观察，仅计数；无重试、自动降速或控制流反馈。",
+  "existing_baseline_issue": {
+    "name": "SDRAM periodic refresh request macro",
+    "source_macro_value": 0,
+    "evidence": "C32/C40 macro/public-prefix tests and gate Sdr_ref_req tied to zero.",
+    "state": "Inherited unchanged for isolated TF comparison; separate repair candidate pending.",
+    "board_fault_causality": "UNDETERMINED"
+  },
+  "source_delta": [
+    "hdl_source/SD/sd_card_cmd.v",
+    "hdl_source/SD/sd_card_top.v",
+    "hdl_source/SD/spi_master.v",
+    "hdl_source/top_tf_hdmi_audio.v"
+  ],
+  "unchanged_user_sources": 109,
+  "baseline_bit_sha256": "a0c8a7b53ac7c12f2e7315f0a51423407eccc7b9844f2e6d8bc08ca565481809",
+  "source_audit_sha256": "86cd27e53f1c44196a32e3672ed43b96891991566bf401f623acceca9a22295d",
+  "final_stage_binding_sha256": "483989edf718bc66cfac53aab4ac32dacfff83bbcfa5b26ea601b91b9c93aa94",
+  "routed_database_sha256": "2ebaee3b9236cb8f9837d7b10669ac8e3c1af65edd919173073efbbe267c6788",
+  "final_routed_netlist_sha256": "871d969733288a6d1b7ba7e32f4dfa84b3b6f9e01dd462281666b8a885d54352",
+  "outstanding": [
+    "TF25 real-card CRC and media board test",
+    "Card/PCB external minimum/maximum timing measurement",
+    "Independent SDRAM periodic refresh repair and validation",
+    "SDRAM100 and HD player integration"
+  ]
+}

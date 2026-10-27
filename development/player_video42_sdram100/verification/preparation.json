@@ -1,0 +1,51 @@
+{
+  "status": "INITIAL_CLOCK_CANDIDATE_CREATED",
+  "baseline_bit_sha256": "f572afe5baa74dc61df58132c172298690c92171d5c631630fec6b02d3c6b7ac",
+  "baseline_board_feedback": "download/video41_refresh.board_feedback.json",
+  "clocks_hz": {
+    "sd_logic": 50000000,
+    "spi_data": 25000000,
+    "memory": 100000000,
+    "memory_shift": 100000000,
+    "pixel": 25000000,
+    "serializer": 125000000
+  },
+  "memory_phase_shift_ns": 4,
+  "refresh_request_cycles": 1562,
+  "refresh_interval_ns": 15620,
+  "changes": [
+    {
+      "path": "hdl_source/include/global_def.v",
+      "before": "4712c00a4f52be2c643b2ac11c57bd554793e739faf1360af657b5eaec2dee9b",
+      "after": "d5027ce542808e509ad1cf8055ccd3d46a47962e346fbde088ecc2b08df941ae"
+    },
+    {
+      "path": "hdl_source/IP/sys_pll.ipc",
+      "before": "080f09567af222192413dc6ee75c9fda3accbfc9b79444d3c779d8b6946086b5",
+      "after": "e22cf3c2b1dd76c64bf9078f086cbf8e8e7a1bd4220f9ce9a14949896a8bebdd"
+    },
+    {
+      "path": "hdl_source/IP/sys_pll.v",
+      "before": "4a410fc8776c9c116695b7dd8a84012317f9d88aa654b8287a89bdc1f88d0b4e",
+      "after": "2357f0238d0e7c122c7ce972b394d0efc58d2dfefb41680f649a9f0dc5a96cfe"
+    },
+    {
+      "path": "hdl_source/IP/sys_pll.vhd",
+      "before": "ec237133a9ef4b2bf806d3c4514420ed0db3b6b556c563dad6e2c5746116b3e0",
+      "after": "4ceda2655b0d394a3b3204a5dc7ff536a113fa4078ee0fc3b13e612f4d10eae4"
+    },
+    {
+      "path": "hdl_source/top_tf_hdmi_audio.v",
+      "before": "a4e245d9cb82a7104ef909a85a432fa7788bc614834e049f0f9dd2c558fb63cc",
+      "after": "b6c8cec24518d3fbf723ca90130e1f53020b4b915cd397280037005380fa7764"
+    }
+  ],
+  "unchanged_user_sources": 108,
+  "scope": "480p media, C41 refresh/ACK correction; isolate memory clock upgrade",
+  "pending": [
+    "PLL functional model",
+    "100 MHz protocol/data tests",
+    "timing closure",
+    "board validation"
+  ]
+}

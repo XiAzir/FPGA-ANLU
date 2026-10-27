@@ -1,0 +1,7 @@
+CLASSIFICATION=INVALID_FIXTURE_LAST_WORD_TRUNCATION
+The pre-fix source incorrectly asserted inport_last_i on the final payload word. jpeg_input.v treats last as a one-byte terminal marker, so this run discarded the last three payload lanes. This is a harness stimulus error, not a production-core failure.
+
+Captured pre-fix VVP stop:
+FATAL: tb_native1080.v:148: CYCLE_BUDGET_EXCEEDED cycles=8398881 limit=8398880 input_words=15416 blocks=48954 samples=3133056 eof=0 words=783264
+
+Corrected source protocol: send all payload words with last=0, then send a separate data=0 / strb=0000 / last=1 tail word. A 16x16 full front-end rerun with this protocol passed: 6 real blocks, 384 samples, one EOF block, and all 96 output addresses.

@@ -1,0 +1,109 @@
+standard
+***Report Model: top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        13   out of    188    6.91%
+  #input                    2
+  #output                  11
+  #inout                    0
+
+Utilization Statistics
+#lut                     1427   out of  19600    7.28%
+#reg                     1261   out of  19600    6.43%
+#le                      1651
+  #lut only               390   out of   1651   23.62%
+  #reg only               224   out of   1651   13.57%
+  #lut&reg               1037   out of   1651   62.81%
+#bram                       8   out of     64   12.50%
+  #bram9k                   8
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                       17   out of    188    9.04%
+  #ireg                     0
+  #oreg                     7
+  #treg                     0
+#pll                        1   out of      4   25.00%
+#gclk                       2   out of     16   12.50%
+
+
+Detailed IO Report
+
+      Name         Direction    Location    IOStandard    IOType    DriveStrength    PullType    PackReg    DiffResistor  
+       clk           INPUT        K14        LVCMOS33      PAD           N/A          PULLUP      NONE          NONE      
+      rst_n          INPUT        H14        LVCMOS33      PAD           N/A          PULLUP      NONE          NONE      
+   HDMI_CLK_P       OUTPUT        B10        LVDS33_E      PAD            8            NONE       DDRX1         NONE      
+  HDMI_CLK_P(n)     OUTPUT         C9        LVDS33_E      PAD            8            NONE       NONE          NONE      
+    HDMI_D0_P       OUTPUT        D11        LVDS33_E      PAD            8            NONE       DDRX1         NONE      
+  HDMI_D0_P(n)      OUTPUT        D12        LVDS33_E      PAD            8            NONE       NONE          NONE      
+    HDMI_D1_P       OUTPUT        C11        LVDS33_E      PAD            8            NONE       DDRX1         NONE      
+  HDMI_D1_P(n)      OUTPUT        A11        LVDS33_E      PAD            8            NONE       NONE          NONE      
+    HDMI_D2_P       OUTPUT        F10        LVDS33_E      PAD            8            NONE       DDRX1         NONE      
+  HDMI_D2_P(n)      OUTPUT        H11        LVDS33_E      PAD            8            NONE       NONE          NONE      
+     led[3]         OUTPUT        T15        LVCMOS33      PAD            8            NONE       NONE          NONE      
+     led[2]         OUTPUT        R15        LVCMOS33      PAD            8            NONE       NONE          NONE      
+     led[1]         OUTPUT        R16        LVCMOS33      PAD            8            NONE       NONE          NONE      
+     led[0]         OUTPUT        M12        LVCMOS33      PAD            8            NONE       NONE          NONE      
+    seg7_dio        OUTPUT        R14        LVCMOS33      PAD            8            NONE       OREG          NONE      
+    seg7_rclk       OUTPUT        R12        LVCMOS33      PAD            8            NONE       OREG          NONE      
+    seg7_sclk       OUTPUT        T14        LVCMOS33      PAD            8            NONE       OREG          NONE      
+
+Report Clock Domain Luts:
+
+------------------------------------------------------------------------------------------------------------------
+  Index   |  Name         |  Frequency   |  LUT As Logic   |  LUT As Shifter   |  LUT As Dram   |  BRAM   |  DSP
+------------------------------------------------------------------------------------------------------------------
+  #1      |  hdmi_5x_clk  |  165MHz      |  46             |  0                |  0             |  0      |  0
+  #2      |  pixel_clk    |  32MHz       |  646            |  0                |  0             |  8      |  0
+------------------------------------------------------------------------------------------------------------------
+
+Clock Resource Statistics
+Index     ClockNet                Type               DriverType         Driver                        Fanout
+#1        u_video_pll/clk0_buf    Global             pll                u_video_pll/pll_inst.clkc0    643
+#2        serial_clk_raw          Global             pll                u_video_pll/pll_inst.clkc1    54
+#3        clk_dup_1               GeneralRouting     io                 clk_syn_2.di                  1
+
+Report Hierarchy Area:
++----------------------------------------------------------------------------------------------------------------------------------+
+|Instance                                |Module                             |le      |lut     |ripple  |seq     |bram    |dsp     |
++----------------------------------------------------------------------------------------------------------------------------------+
+|top                                     |top                                |1651    |1176    |251     |1268    |8       |0       |
+|  u_axis_adapter                        |video_axis_1080p_adapter           |5       |1       |0       |5       |0       |0       |
+|  u_build_id                            |status_hex595                      |79      |65      |14      |55      |0       |0       |
+|  u_colorbars                           |video_timing_1080p_custom_colorbar |169     |69      |59      |74      |0       |0       |
+|  u_hdmi_core                           |hdmi_1_4b_transmitter_core_wrapper |1259    |934     |172     |1002    |8       |0       |
+|    u0_reset_sync                       |hdmi_1_4b_tx_reset_sync            |9       |0       |0       |9       |0       |0       |
+|    u_hdmi_tx_controller_wrapper        |hdmi_tx_controller_wrapper         |1250    |934     |172     |993     |8       |0       |
+|      u0_hdmi_tmds_encode               |hdmi_tmds_encode                   |203     |93      |30      |164     |0       |0       |
+|      u1_hdmi_tmds_encode               |hdmi_tmds_encode                   |148     |103     |30      |109     |0       |0       |
+|      u2_hdmi_tmds_encode               |hdmi_tmds_encode                   |152     |122     |30      |113     |0       |0       |
+|      u_hdmi_data_distribution          |hdmi_data_distribution             |29      |25      |0       |29      |0       |0       |
+|      u_hdmi_island_data_assemble       |hdmi_island_data_assemble          |338     |304     |0       |338     |0       |0       |
+|      u_hdmi_island_data_gen            |hdmi_island_data_gen               |83      |83      |0       |83      |5       |0       |
+|        U_audio_sample_packet_2_channel |audio_sample_packet_2_channel      |11      |11      |0       |11      |5       |0       |
+|          u_w96_d1024_fifo              |w96_d1024_fifo                     |10      |10      |0       |10      |5       |0       |
+|      u_hdmi_video_data_assemble        |hdmi_video_data_assemble           |33      |22      |0       |33      |0       |0       |
+|      u_hdmi_video_source               |hdmi_video_source                  |197     |115     |82      |57      |0       |0       |
+|      u_video_axi_stream_receiver       |video_axi_stream_receiver          |67      |67      |0       |67      |3       |0       |
+|        u_w24_d1024_fifo                |w24_d1024_fifo                     |65      |65      |0       |65      |3       |0       |
+|  u_hdmi_phy                            |hdmi_phy_wrapper                   |74      |65      |0       |70      |0       |0       |
+|    u0_lane_lvds_8_1                    |lane_lvds_10_1                     |28      |22      |0       |28      |0       |0       |
+|    u1_lane_lvds_8_1                    |lane_lvds_10_1                     |18      |16      |0       |18      |0       |0       |
+|    u2_lane_lvds_8_1                    |lane_lvds_10_1                     |22      |21      |0       |18      |0       |0       |
+|    u3_lane_lvds_8_1                    |lane_lvds_10_1                     |6       |6       |0       |6       |0       |0       |
+|  u_video_pll                           |video_pll                          |0       |0       |0       |0       |0       |0       |
++----------------------------------------------------------------------------------------------------------------------------------+
+
+
+DataNet Average Fanout:
+
+   Index     Fanout     Nets  
+    #1          1       1518  
+    #2          2       127   
+    #3          3       102   
+    #4          4        61   
+    #5        5-10      193   
+    #6        11-50      42   
+    #7       51-100      2    
+    #8       101-500     1    
+  Average     2.35            

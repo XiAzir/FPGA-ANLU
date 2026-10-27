@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "scope": "Official PLL functional model with 200ns test reset; public refresh prefix with natural startup; no SDF/board evidence",
+  "records": [
+    {
+      "case": "C41_PLL",
+      "status": "PASS",
+      "source_sha256": "4a410fc8776c9c116695b7dd8a84012317f9d88aa654b8287a89bdc1f88d0b4e",
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video42_work\\units_20261027_200951\\C41_PLL\\run.log"
+    },
+    {
+      "case": "C42_PLL",
+      "status": "PASS",
+      "source_sha256": "2357f0238d0e7c122c7ce972b394d0efc58d2dfefb41680f649a9f0dc5a96cfe",
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video42_work\\units_20261027_200951\\C42_PLL\\run.log"
+    },
+    {
+      "case": "negative_unchanged_PLL",
+      "status": "NEGATIVE_DETECTED",
+      "source_sha256": "4a410fc8776c9c116695b7dd8a84012317f9d88aa654b8287a89bdc1f88d0b4e",
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video42_work\\units_20261027_200951\\negative_unchanged_PLL\\run.log"
+    },
+    {
+      "case": "C41_refresh",
+      "status": "PASS",
+      "macro_sha256": "4712c00a4f52be2c643b2ac11c57bd554793e739faf1360af657b5eaec2dee9b",
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video42_work\\units_20261027_200951\\C41_refresh\\run.log",
+      "stdout": "MACRO period_ns=20 terminal=780\nREFRESH_SPEC_PASS natural_init=1 pulses=4097 gap=781 window_ns=63979520\nE:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C41_refresh/bench.v:71: $finish called at 66617131000 (1ps)\n"
+    },
+    {
+      "case": "C42_refresh",
+      "status": "PASS",
+      "macro_sha256": "d5027ce542808e509ad1cf8055ccd3d46a47962e346fbde088ecc2b08df941ae",
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video42_work\\units_20261027_200951\\C42_refresh\\run.log",
+      "stdout": "MACRO period_ns=10 terminal=1561\nREFRESH_SPEC_PASS natural_init=1 pulses=4097 gap=1562 window_ns=63979520\nE:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/C42_refresh/bench.v:71: $finish called at 65306136000 (1ps)\n"
+    },
+    {
+      "case": "negative_old_period_macro",
+      "status": "NEGATIVE_DETECTED",
+      "macro_sha256": "4712c00a4f52be2c643b2ac11c57bd554793e739faf1360af657b5eaec2dee9b",
+      "log": "E:\\VSCODE-project\\FPGA-ANLU\\development\\video42_work\\units_20261027_200951\\negative_old_period_macro\\run.log",
+      "stdout": "MACRO period_ns=20 terminal=780\nFATAL: E:/VSCODE-project/FPGA-ANLU/development/video42_work/units_20261027_200951/negative_old_period_macro/bench.v:53: request gap 781 expected 1562\n       Time: 1326616000  Scope: tb_refresh_period\n"
+    }
+  ],
+  "runner_sha256": "170963706b38ca4c5e5683b2f8b32c9a454afd3d2fbae7c0dff18044f3ca5bf8",
+  "pll_bench_sha256": "e924e520e4f2e3a8f775a5576e76c29f11e43e2617affe17fb838869a9349ca1"
+}

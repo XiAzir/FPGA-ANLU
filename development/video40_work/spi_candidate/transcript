@@ -1,0 +1,30 @@
+# vsim +TOD=7 -do {run -all; quit -f} -c -gFAST=1 work.tb_spi 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_spi(fast)
+# run -all 
+# PIN_TX byte=00 t=490000
+# BYTE_PASS tx=00 rx=00 div=0 ack=500000
+# PIN_TX byte=ff t=890000
+# BYTE_PASS tx=ff rx=ff div=0 ack=900000
+# PIN_TX byte=a5 t=1290000
+# BYTE_PASS tx=a5 rx=5a div=0 ack=1300000
+# PIN_TX byte=5a t=1690000
+# BYTE_PASS tx=5a rx=a5 div=0 ack=1700000
+# PIN_TX byte=3c t=2090000
+# BYTE_PASS tx=3c rx=c3 div=0 ack=2100000
+# PIN_TX byte=96 t=82150000
+# BYTE_PASS tx=96 rx=69 div=248 ack=87140000
+# METRIC fast=1 tod_ns=7 half_min_ns=40.0 half_max_ns=10060.0 tx_bytes=6
+# PASS
+# ** Note: $finish    : tb_spi.v(73)
+#    Time: 87220 ns  Iteration: 1  Instance: /tb_spi

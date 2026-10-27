@@ -1,0 +1,226 @@
+{
+  "case": "C42",
+  "gate_file": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video42_sdram100\\verification\\final_routed.v",
+  "original_gate_sha256": "437d44141607624e94ad9d04bea60f8eca6eec0d2d034d92573c8eec0230097c",
+  "simulation_gate_copy_sha256": "6E541AE3CE92B40EBD2F9ECF95D611CB9C455067DFA2C2802D0855CC2EE8DD00",
+  "copy_diff": true,
+  "only_module_rename_verified": true,
+  "mapped_cone": false,
+  "routed_netlist": true,
+  "routed_reset_replicas": [
+    "rst_all_dup_6",
+    "rst_all_dup_10",
+    "rst_all_dup_11",
+    "rst_all_dup_12",
+    "rst_all_dup_15",
+    "rst_all_dup_17",
+    "rst_all_dup_18",
+    "rst_all_dup_20",
+    "rst_all_dup_21",
+    "rst_all_dup_25",
+    "rst_all_dup_27",
+    "rst_all_dup_30",
+    "rst_all_dup_31",
+    "rst_all_dup_32",
+    "rst_all_dup_37",
+    "rst_all_dup_42",
+    "rst_all_dup_44",
+    "rst_all_dup_45",
+    "rst_all_dup_47",
+    "rst_all_dup_48",
+    "rst_all_dup_56",
+    "rst_all_dup_57",
+    "rst_all_dup_58",
+    "rst_all_dup_62",
+    "rst_all_dup_63",
+    "rst_all_dup_66",
+    "rst_all_dup_67",
+    "rst_all_dup_69",
+    "rst_all_dup_71",
+    "rst_all_dup_73",
+    "rst_all_dup_74",
+    "rst_all_dup_76",
+    "rst_all_dup_77",
+    "rst_all_dup_80",
+    "rst_all_dup_81",
+    "rst_all_dup_86",
+    "rst_all_dup_88",
+    "rst_all_dup_92",
+    "rst_all_dup_93",
+    "rst_all_dup_96",
+    "rst_all_dup_99",
+    "rst_all_dup_100",
+    "rst_all_dup_104",
+    "rst_all_dup_105",
+    "rst_all_dup_107",
+    "rst_all_dup_109",
+    "rst_all_dup_111",
+    "rst_all_dup_112",
+    "rst_all_dup_113",
+    "rst_all_dup_114",
+    "rst_all_dup_115",
+    "rst_all_dup_116",
+    "rst_all_dup_117",
+    "rst_all_dup_118",
+    "rst_all_dup_119",
+    "rst_all_dup_120",
+    "rst_all_dup_121",
+    "rst_all_dup_122",
+    "rst_all_dup_123",
+    "rst_all_dup_124",
+    "rst_all_dup_125",
+    "rst_all_dup_126",
+    "rst_all_dup_127",
+    "rst_all_dup_128",
+    "rst_all_dup_129"
+  ],
+  "routed_input_aliases": [
+    "Sdr_ref_req",
+    "legacy_frame_backend/Sdr_init_done",
+    "u2_ram/SDRAM_CLK",
+    "u_sdram/App_rd_en",
+    "photo_App_wr_addr_r"
+  ],
+  "forced_clock_nodes": [
+    "dut.\\sys_pll_m0/clk0_buf",
+    "dut.\\u_frame_buffer/u_legacy_frame_backend/frame_fifo_read_m0/mem_clk",
+    "dut.\\u_frame_buffer/u_sdram/u2_ram/Sdr_clk_sft",
+    "dut.clk0"
+  ],
+  "forced_reset_node": "dut.rst_all",
+  "forced_startup_node": "dut.\\u_frame_buffer/u_sdram/u2_ram/u1_init_ref/pwr_200ms_cnt",
+  "forced_idle_node": null,
+  "c40_only_injected_node": "dut.\\u_frame_buffer/u_sdram/u2_ram/u2_wrrd/Sdr_ref_req",
+  "observed_request_node": "dut.\\u_frame_buffer/u_sdram/u2_ram/u2_wrrd/Sdr_ref_req_syn_4",
+  "observed_ack_node": "dut.\\u_frame_buffer/u_sdram/u2_ram/u1_init_ref/Sdr_ref_ack",
+  "phy_command_ports": [
+    "clk0",
+    "cs_n",
+    "cke",
+    "ras_n",
+    "cas_n",
+    "we_n"
+  ],
+  "inject_c40_request": false,
+  "simulation_started": true,
+  "mem_period_ns": 10,
+  "shifted_clock_ns": 8,
+  "expected_refresh_interval_ns": 15620,
+  "expected_refresh_cycles": 1562,
+  "device_timing": {
+    "tRFC_ns": 63,
+    "tRCD_ns": 21,
+    "tRRD_ns": 14,
+    "tRC_ns": 63,
+    "tRAS_ns": 42,
+    "tMRD_cycles": 2,
+    "tWR_cycles": 2,
+    "tRP_ns": 21
+  },
+  "inject_read_bit_error": false,
+  "capture_mode": 1,
+  "diagnose_missing_init_aref": false,
+  "use_public_init_done": true,
+  "production_capture_binding": "controller raw output (DATA_DELAY0)",
+  "model_tDPL_ns": 20,
+  "init_pin_trace_window_ns": 1000,
+  "init_pin_trace_file": "init_pin_trace.csv",
+  "sdram_dq_trace_file": "sdram_pin_trace.csv",
+  "app_pipeline_trace_file": "app_pipeline_trace.csv",
+  "traffic": 1,
+  "burst_words": 256,
+  "simulation_ack_stage0_edge_override": 0,
+  "traffic_force_nodes": [
+    "App_wr_en",
+    "App_rd_en",
+    "App_wr_addr=incrementing_4word_burst",
+    "App_rd_addr=incrementing_4word_burst"
+  ],
+  "address_alias_forces": [
+    "frame_fifo_read_m0/App_rd_addr",
+    "frame_fifo_write_m0/App_wr_addr_r"
+  ],
+  "bench_sha256": "1685A93904D755B5CE5D3042906B624FF0612ECDA702FA5B03E7E22A39B7C425",
+  "device_model_sha256": "6AAD09C411B00E319EA6E7FF5A85453EB990532541AE368084406F78A276690B",
+  "device_model_source": "APUG011 official reference model; see source_receipt.json in prior harness",
+  "device_shell_sha256": "83BB5C8B2D813858864494CC20CCDAB966DB48E4A530E7D1E373319E40149682",
+  "runner_sha256": "5C6289735ABB286CE09DA163855F559B28FFB34DC88D99DFC234CB5F4538DD25",
+  "vendor_model_sha256": [
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\common\\al_map_seq.v",
+      "sha256": "3A39778281BFAE21AB1E4C2948AAEAA31B9358AE8D004EAE86358E9C2CBB40AE"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\common\\al_map_lut.v",
+      "sha256": "A8AF44DE361088C0BB66A58D5AF9B8EB5AA6E9B8CA56992D6164A9F689C488F0"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\common\\al_map_alu2b.v",
+      "sha256": "98DDBB673A9550E5FC923DC22CD48D83CD5B5DC038F33A304B3228CC346F4135"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\common\\al_map_basic.v",
+      "sha256": "AC0AA7F986FDFBA39FB7B361B26ACE4BA1049807D6FECCDE09B2FA21EB0903DA"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_glbl.v",
+      "sha256": "95B5FED81000F5844A5A3B110A5B8E82D59A941E6F0715015E38884192EE4FB7"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_logic_io.v",
+      "sha256": "3EEF9298B0496750534698232F87BE61982B759C92DF6BEE7E04DE3EBA979245"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_logic_clk.v",
+      "sha256": "686CE0C1E4DF0BC3CBE1AFC4DE359F78DA57D5521671CC27B8DC5181412A04F2"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_logic_gate.v",
+      "sha256": "8D1F1A7406A0DD46DF6172670C30F8269E77E7D0FACB4139B1EBA34CAAE447B9"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_logic_bram.v",
+      "sha256": "C492C2D713156AAFC881E4C54D6926C34D957931FA550D3D1CEB861B7FB88A2C"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_dff.v",
+      "sha256": "968FF2C3DB3091EEE16DC1DA5D5DB38F5FEAFBDE7EAEE6EEB49A511DB76DBC8E"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_lslice.v",
+      "sha256": "9938EE2C34D01F09BF964C4B9F0011A0A3218D94A87C356EFDBFEC1828302879"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_mslice.v",
+      "sha256": "EC4DADD99381DB70F31E6C63378B72F9EBD025C257CD115C5BC4ABF15C853B81"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_mult18.v",
+      "sha256": "25CA8DE5E98253510D0417D6710046C107064B0DECC952A602667117BDD6FBDC"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_pad.v",
+      "sha256": "FFE3B876CE911AD674F1DC0A76F453EF4CB68CCCE38D3F5141A09F31262F017A"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_clk.v",
+      "sha256": "C15977B4E0D20C605FB05FEE5AE3EF71358E49F998FEC1703921E794AFC14514"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_bram.v",
+      "sha256": "9BBB66FFDE87F457AE406366C87BB9CBE5D2C28871B052D8989D2FF4BE2AF57D"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_config.v",
+      "sha256": "6DF3BC15FC335721F9627AF1AFD3FBE8C343056F498BAF17A040FAE3875424CD"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_pll.v",
+      "sha256": "73671E13F74679AC630F68506CE67408455734B21CACAE62AEB94F284D7A8EB8"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_bankref.v",
+      "sha256": "BD3FECC4FA1CF83E277815D606E4D9C86DB906ED72952BD03FD7758F8006B367"
+    }
+  ]
+}

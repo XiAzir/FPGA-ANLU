@@ -1,0 +1,33 @@
+# do run_vga60.do 
+# if {[file exists work_vga]} {vdel -lib work_vga -all}
+# vlib work_vga
+# vlog -work work_vga -timescale 1ns/1ps ../candidates/C11335_640x480_60hz_33_165_bufg/src/user_source/hdl_source/video_timing_1080p_custom_colorbar.v ../candidates/C11335_640x480_60hz_33_165_bufg/src/user_source/hdl_source/video_axis_1080p_adapter.v tb_vga60_timing.sv
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module video_timing_1080p_custom_colorbar
+# -- Compiling module video_axis_1080p_adapter
+# -- Compiling module tb_vga60_timing
+# 
+# Top level modules:
+# 	tb_vga60_timing
+# vsim -c work_vga.tb_vga60_timing
+# vsim -c work_vga.tb_vga60_timing 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.tb_vga60_timing(fast)
+# Loading work.video_timing_1080p_custom_colorbar(fast)
+# Loading work.video_axis_1080p_adapter(fast)
+# run -all
+# C11335 frame clocks=550000 DE=307200 HSyncLow=52800 VSyncLow=2000 AXIS_USER=1 VALID=307200 LAST=480
+# C11335 one-frame timing PASS; 33 MHz / 550000 = 60 fps
+# ** Note: $finish    : tb_vga60_timing.sv(12)
+#    Time: 1100005100 ps  Iteration: 0  Instance: /tb_vga60_timing

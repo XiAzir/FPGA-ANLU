@@ -1,0 +1,125 @@
+{
+  "title": "SPI div0 25MHz candidate isolated byte-level regression",
+  "timestamp": "2026-10-27",
+  "baseline_sha256": "186434460B5D87DF91DE6F6C1BC94FB5EECF60E9451FEC23CD8286C469035663",
+  "candidate_spi_master_sha256": "B04C2A82B9C2DACAB9355C9647AFFF5B97D549F8F4D9B29C27F2A70401C98B83",
+  "testbench_sha256": "401DA142316A9B8E6AEB229D4FDBE5FB7CBFE76E200A66196320634F7E053F70",
+  "assumptions": {
+    "sys_clk_hz": 50000000,
+    "CPOL": 1,
+    "CPHA": 1,
+    "SCK_mode": "Mode 3",
+    "slave_output_edge": "SCK falling",
+    "tod_ns": [
+      0,
+      7,
+      14
+    ],
+    "bfm": "DCLK/MOSI pin decode plus delayed MISO",
+    "scope": "digital byte-pin simulation only; no card protocol, board parasitics, TD, SDF, or hardware"
+  },
+  "measurements": {
+    "div0_baseline": {
+      "sck_hz": 12500000,
+      "half_period_ns": 40,
+      "edge_span_ns": 600,
+      "full_byte_ns": 640,
+      "consumer_gap_ns": 100
+    },
+    "div0_fast": {
+      "sck_hz": 25000000,
+      "half_period_ns": 20,
+      "edge_span_ns": 300,
+      "full_byte_ns": 320,
+      "consumer_gap_ns": 100
+    },
+    "div248": {
+      "sck_hz": 100000,
+      "half_period_ns": 5000,
+      "edge_span_ns": 75000,
+      "full_byte_ns": 80000
+    },
+    "fast_ack_wait_bypass": {
+      "consumer_gap_ns": 80,
+      "interval_gain_ns": 20,
+      "default": "disabled"
+    },
+    "tOD14_setup_remainder_ns": 6
+  },
+  "tests": [
+    {
+      "mode": "baseline",
+      "tod_ns": 0,
+      "ack_wait_bypass": false,
+      "result": "PASS",
+      "log": "run_baseline_tod0_keep_inject-1.log"
+    },
+    {
+      "mode": "baseline",
+      "tod_ns": 7,
+      "ack_wait_bypass": false,
+      "result": "PASS",
+      "log": "run_baseline_tod7_keep_inject-1.log"
+    },
+    {
+      "mode": "baseline",
+      "tod_ns": 14,
+      "ack_wait_bypass": false,
+      "result": "PASS",
+      "log": "run_baseline_tod14_keep_inject-1.log"
+    },
+    {
+      "mode": "fast",
+      "tod_ns": 0,
+      "ack_wait_bypass": false,
+      "result": "PASS",
+      "log": "run_fast_tod0_keep_inject-1.log"
+    },
+    {
+      "mode": "fast",
+      "tod_ns": 7,
+      "ack_wait_bypass": false,
+      "result": "PASS",
+      "log": "run_fast_tod7_keep_inject-1.log"
+    },
+    {
+      "mode": "fast",
+      "tod_ns": 14,
+      "ack_wait_bypass": false,
+      "result": "PASS",
+      "log": "run_fast_tod14_keep_inject-1.log"
+    },
+    {
+      "mode": "fast",
+      "tod_ns": 0,
+      "ack_wait_bypass": true,
+      "result": "PASS",
+      "log": "run_fast_tod0_bypass_inject-1.log"
+    },
+    {
+      "mode": "fast",
+      "tod_ns": 7,
+      "ack_wait_bypass": true,
+      "result": "PASS",
+      "log": "run_fast_tod7_bypass_inject-1.log"
+    },
+    {
+      "mode": "fast",
+      "tod_ns": 14,
+      "ack_wait_bypass": true,
+      "result": "PASS",
+      "log": "run_fast_tod14_bypass_inject-1.log"
+    }
+  ],
+  "negative_control": {
+    "test": "flip captured MOSI bit 2",
+    "observed": "PIN MOSI mismatch",
+    "exit_code": 1,
+    "log": "run_negative_mosi_bit2.log"
+  },
+  "reset_control": {
+    "test": "asynchronous reset after 4 rising DCLK samples in byte",
+    "result": "PASS; no spurious ACK; idle DCLK restored high"
+  },
+  "status": "PASS for defined digital pin-level byte scope"
+}

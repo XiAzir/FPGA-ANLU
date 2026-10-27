@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-27",
+  "scope": "read-only review of C40 routed report, stress SDC, and SPI RTL",
+  "result": {
+    "status": "arithmetic_confirmed_with_scope_caveat",
+    "formula_ns": "21.422 - 6.280 - (1.831 + 1.263 + 0.314) = 11.734",
+    "external_budget_interpretation": "Estimated combined allowance for card tOD plus PCB round-trip delay, under the report timing model; not a measured board margin.",
+    "setup_reported": {
+      "required_ns": 21.422,
+      "sck_oreg_to_pad_ns": 4.620,
+      "clock_arrival_ns": 1.660,
+      "sck_pad_fall_time_ns": 6.280,
+      "miso_pad_ns": 1.831,
+      "miso_net_ns": 1.263,
+      "lut3_reg_increment_ns": 0.314,
+      "miso_internal_data_path_ns": 3.408,
+      "slack_ns": -1.579,
+      "artificial_input_delay_max_ns": 20.0,
+      "capture_edge": "sd_card_clk rising at 20 ns"
+    },
+    "hold_reported": {
+      "corner": "fast",
+      "min_input_delay_ns": 0.0,
+      "miso_data_path_ns": 2.300,
+      "slack_ns": 0.009,
+      "summary_hw_ns": 0.009,
+      "summary_ht_ns": 0.0,
+      "violating_endpoints": 0,
+      "interpretation": "Passes this artificial SDC check with only 9 ps reported margin; no proof of real card tOH or board min-delay margin."
+    }
+  },
+  "evidence": [
+    {"file": "development/video40_work/timing_review/c40_spi_raw_path_output/rawio_stress_summary_v6.rpt", "lines": "85-134", "claim": "SCK OREG-to-pad path; 4.620 ns pad delay; 1.660 ns clock arrival; 6.280 ns pad-fall arrival."},
+    {"file": "development/video40_work/timing_review/c40_spi_raw_path_output/rawio_stress_summary_v6.rpt", "lines": "187-240", "claim": "MISO setup path and required time; PAD/net/LUT increments; capture edge; setup/uncertainty/CRPR effects."},
+    {"file": "development/video40_work/timing_review/c40_spi_raw_path_output/rawio_stress_summary_v6.rpt", "lines": "1047-1105", "claim": "MISO min/hold path and positive 0.009 ns slack."},
+    {"file": "development/video40_work/timing_review/raw_io_stress.sdc", "claim": "Analysis-only stress delays, input max 20 ns and min 0 ns; output max 20 ns and min 0 ns."},
+    {"file": "development/player_video40_spi25/src/user_source/hdl_source/SD/spi_master.v", "claim": "MISO shift register updates on posedge sys_clk under CPOL/CPHA conditions."}
+  ],
+  "limitations": [
+    "20 ns stress input delay is artificial and not a production I/O constraint.",
+    "No card tOD/tOH, PCB round-trip/min-delay, pin-level board measurement, or real SCK measurement was verified.",
+    "Production WNS and timing coverage are internal-only evidence; 14/18 ns RTL pass had no real routed implementation."
+  ],
+  "actions": {"td": false, "simulation": false, "hardware": false, "production_rtl_or_constraints_modified": false}
+}

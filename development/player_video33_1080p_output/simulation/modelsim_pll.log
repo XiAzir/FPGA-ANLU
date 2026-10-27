@@ -1,0 +1,67 @@
+Reading E:/ModelsimSE/tcl/vsim/pref.tcl 
+
+# 10.1c
+
+# do run_pll_model.do 
+# if {[file exists work]} {vdel -lib work -all}
+# vlib work
+# vlog -timescale 1ns/1ps C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_phy_pll.v
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module EG_PHY_PLL
+# -- Compiling module prediv_mux
+# -- Compiling module eg_dphase_sel
+# -- Compiling module eg_clko_premux
+# -- Compiling module eg_clko_ctrl
+# -- Compiling module eg_pll_div128
+# -- Compiling module eg_pll_div2
+# 
+# Top level modules:
+# 	EG_PHY_PLL
+# vlog -timescale 1ns/1ps C:/Anlogic/TD_6.2.1_SP1_6.2.178.840/sim_release/eg4/eg_logic_clk.v
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module EG_LOGIC_BUFG
+# -- Compiling module EG_LOGIC_BUFIO
+# -- Compiling module EG_LOGIC_BUFGMUX
+# 
+# Top level modules:
+# 	EG_LOGIC_BUFG
+# 	EG_LOGIC_BUFIO
+# 	EG_LOGIC_BUFGMUX
+# vlog -timescale 1ns/1ps ../src/user_source/hdl_source/IP/video_pll.v tb_video_pll.sv
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module video_pll
+# -- Compiling module tb_video_pll
+# 
+# Top level modules:
+# 	tb_video_pll
+# vsim -c work.tb_video_pll
+# vsim -c work.tb_video_pll 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.tb_video_pll(fast)
+# Loading work.video_pll(fast)
+# Loading work.EG_PHY_PLL(fast)
+# run -all
+# ******************** : The Attribute            REFCLK_DIV on pll instance tb_video_pll.dut.pll_inst.para_int_range_chk is set to           2.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             FBCLK_DIV on pll instance tb_video_pll.dut.pll_inst.para_int_range_chk is set to          33.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC0_DIV on pll instance tb_video_pll.dut.pll_inst.para_int_range_chk is set to          25.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC1_DIV on pll instance tb_video_pll.dut.pll_inst.para_int_range_chk is set to           5.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC2_DIV on pll instance tb_video_pll.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC3_DIV on pll instance tb_video_pll.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC4_DIV on pll instance tb_video_pll.dut.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# PLL model lock after 5 ms: 0
+# PLL internals ref_cycle=20.000000 ref_cycle_reg=20.000000 tmp=0.000000 phase7=0 fake=x elock=0 pulse_count=30
+# PLL_LOCK=0 pixel_period_ns=30.302400 serial_period_ns=6.061000 pixel_MHz=33.000686 serial_MHz=164.989276
+# PASS: EG4 vendor PLL model realizes 50 MHz -> 33/165 MHz.
+# ** Note: $finish    : tb_video_pll.sv(44)
+#    Time: 5000064746400 fs  Iteration: 0  Instance: /tb_video_pll

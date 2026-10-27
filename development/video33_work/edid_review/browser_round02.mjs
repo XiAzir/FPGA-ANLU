@@ -1,0 +1,12 @@
+const fs = await import('node:fs/promises');
+const task = await taskSpace(2);
+const page = task.page('p1');
+const root = 'E:/VSCODE-project/FPGA-ANLU/development/video33_work/edid_review';
+await page.goto('https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux/+/refs/heads/master/include/drm/drm_edid.h');
+const body = await page.evaluate(() => document.body.innerText);
+await fs.writeFile(root + '/linux_drm_edid_header.txt', body, 'utf8');
+const labels = ['struct detailed_data_monitor_range', 'struct detailed_pixel_timing', 'EDID_DETAIL_MONITOR_RANGE'];
+const result = {url:await page.url(),title:await page.title(),matches:labels.map(label => { const at=body.indexOf(label);return {label, at, excerpt:at<0?null:body.slice(at,at+1100)};})};
+await fs.writeFile(root + '/primary_field_reference.json', JSON.stringify(result,null,2), 'utf8');
+console.log(JSON.stringify(result));
+await task.finish({keep:[]});

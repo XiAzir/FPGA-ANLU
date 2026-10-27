@@ -1,0 +1,59 @@
+{
+  "recording_note": "recorded from actual tool stdout after run; this evidence capture did not rerun either simulation",
+  "simulator": "Icarus Verilog (iverilog -g2012 / vvp)",
+  "source_hashes_sha256": {
+    "development/video33_work/open_tx_work/video_only_tx/rtl/video_only_tmds_tx.sv": "64F1142679C718D85979C32A61BAD80D6A2E43B1BA7AF35E6040B41AD98091C9",
+    "development/video33_work/open_tx_work/video_only_tx/rtl/packet_assembler_compat.sv": "4ED9318DE09ACC5196268E46BD8E5D3CC589176B829534C908587E2E2DE298A7",
+    "development/video33_work/open_tx_work/video_only_tx/upstream/src/tmds_channel.sv": "FFAD8647C0C0FC7F376A79D54227AFEBF6C68EEAFD101604F9D38FDAF7042751",
+    "development/video33_work/open_tx_work/video_only_tx/upstream/src/auxiliary_video_information_info_frame.sv": "6221E9C6B1E359B120610F6EA7709EE861461473039771B9B7AB3E880D02DAC8",
+    "development/video37_work/review/tb_vsync_contract.sv": "BEC19754D88FDDA924ED1ECBCF5F1398E1D8DCEC760F46AEBF964D62264FE80C"
+  },
+  "runs": [
+    {
+      "case": "1080p15",
+      "compile_executable": "E:/VSCODE-project/FPGA-ANLU/bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe",
+      "compile_argv": [
+        "-g2012", "-s", "tb_vsync_contract",
+        "-o", "E:/VSCODE-project/FPGA-ANLU/development/video37_work/review/1080p15.vvp",
+        "E:/VSCODE-project/FPGA-ANLU/development/video33_work/open_tx_work/video_only_tx/upstream/src/tmds_channel.sv",
+        "E:/VSCODE-project/FPGA-ANLU/development/video33_work/open_tx_work/video_only_tx/upstream/src/auxiliary_video_information_info_frame.sv",
+        "E:/VSCODE-project/FPGA-ANLU/development/video33_work/open_tx_work/video_only_tx/rtl/packet_assembler_compat.sv",
+        "E:/VSCODE-project/FPGA-ANLU/development/video33_work/open_tx_work/video_only_tx/rtl/video_only_tmds_tx.sv",
+        "E:/VSCODE-project/FPGA-ANLU/development/video37_work/review/tb_vsync_contract.sv"
+      ],
+      "run_command": "E:/VSCODE-project/FPGA-ANLU/bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe E:/VSCODE-project/FPGA-ANLU/development/video37_work/review/1080p15.vvp",
+      "actual_stdout_file": "development/video37_work/review/1080p15_vsync_pass.log",
+      "actual_stdout": [
+        "PASS: H=1920/2000 V=1080/1100 F=2200000; VS fall=2167928 rise=2177928 width=10000; H fall/rise=1100/1100; next-frame=2200000",
+        "E:\\VSCODE-project\\FPGA-ANLU\\development\\video37_work\\review\\tb_vsync_contract.sv:226: $finish called at 22000356000 (1ps)"
+      ]
+    },
+    {
+      "case": "C35",
+      "compile_executable": "E:/VSCODE-project/FPGA-ANLU/bringup/tf_wav_hdmi/tools/iverilog/app/bin/iverilog.exe",
+      "compile_argv": [
+        "-g2012", "-s", "tb_vsync_contract",
+        "-P", "tb_vsync_contract.H_ACTIVE=640",
+        "-P", "tb_vsync_contract.H_FRONT=16",
+        "-P", "tb_vsync_contract.H_SYNC=96",
+        "-P", "tb_vsync_contract.H_BACK=248",
+        "-P", "tb_vsync_contract.V_ACTIVE=480",
+        "-P", "tb_vsync_contract.V_FRONT=10",
+        "-P", "tb_vsync_contract.V_SYNC=2",
+        "-P", "tb_vsync_contract.V_BACK=58",
+        "-o", "E:/VSCODE-project/FPGA-ANLU/development/video37_work/review/C35.vvp",
+        "E:/VSCODE-project/FPGA-ANLU/development/video33_work/open_tx_work/video_only_tx/upstream/src/tmds_channel.sv",
+        "E:/VSCODE-project/FPGA-ANLU/development/video33_work/open_tx_work/video_only_tx/upstream/src/auxiliary_video_information_info_frame.sv",
+        "E:/VSCODE-project/FPGA-ANLU/development/video33_work/open_tx_work/video_only_tx/rtl/packet_assembler_compat.sv",
+        "E:/VSCODE-project/FPGA-ANLU/development/video33_work/open_tx_work/video_only_tx/rtl/video_only_tmds_tx.sv",
+        "E:/VSCODE-project/FPGA-ANLU/development/video37_work/review/tb_vsync_contract.sv"
+      ],
+      "run_command": "E:/VSCODE-project/FPGA-ANLU/bringup/tf_wav_hdmi/tools/iverilog/app/bin/vvp.exe E:/VSCODE-project/FPGA-ANLU/development/video37_work/review/C35.vvp",
+      "actual_stdout_file": "development/video37_work/review/C35_vsync_pass.log",
+      "actual_stdout": [
+        "PASS: H=640/1000 V=480/550 F=550000; VS fall=489656 rise=491656 width=2000; H fall/rise=550/550; next-frame=550000",
+        "E:\\VSCODE-project\\FPGA-ANLU\\development\\video37_work\\review\\tb_vsync_contract.sv:226: $finish called at 5500356000 (1ps)"
+      ]
+    }
+  ]
+}

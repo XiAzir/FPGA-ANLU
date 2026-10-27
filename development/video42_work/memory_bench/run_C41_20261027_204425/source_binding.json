@@ -1,0 +1,208 @@
+{
+  "case": "C41",
+  "gate_file": "E:\\VSCODE-project\\FPGA-ANLU\\development\\player_video41_refresh\\verification\\final_routed.v",
+  "original_gate_sha256": "a8ccaa65b235e18caa20b037ba24630b0773bd33b7f2c9c22f280255a8418fe3",
+  "simulation_gate_copy_sha256": "39E7D26D32B0BAA7345C6CCABACA33BF15B0CD21BFAEC92F9735C98D6394AE4D",
+  "copy_diff": true,
+  "only_module_rename_verified": true,
+  "mapped_cone": false,
+  "routed_netlist": true,
+  "routed_reset_replicas": [
+    "rst_all_dup_6",
+    "rst_all_dup_10",
+    "rst_all_dup_13",
+    "rst_all_dup_14",
+    "rst_all_dup_15",
+    "rst_all_dup_16",
+    "rst_all_dup_18",
+    "rst_all_dup_20",
+    "rst_all_dup_22",
+    "rst_all_dup_23",
+    "rst_all_dup_24",
+    "rst_all_dup_26",
+    "rst_all_dup_27",
+    "rst_all_dup_28",
+    "rst_all_dup_30",
+    "rst_all_dup_31",
+    "rst_all_dup_34",
+    "rst_all_dup_37",
+    "rst_all_dup_41",
+    "rst_all_dup_43",
+    "rst_all_dup_45",
+    "rst_all_dup_47",
+    "rst_all_dup_48",
+    "rst_all_dup_51",
+    "rst_all_dup_54",
+    "rst_all_dup_58",
+    "rst_all_dup_59",
+    "rst_all_dup_60",
+    "rst_all_dup_61",
+    "rst_all_dup_63",
+    "rst_all_dup_69",
+    "rst_all_dup_70",
+    "rst_all_dup_75",
+    "rst_all_dup_78",
+    "rst_all_dup_79",
+    "rst_all_dup_83",
+    "rst_all_dup_84",
+    "rst_all_dup_85",
+    "rst_all_dup_86",
+    "rst_all_dup_87",
+    "rst_all_dup_90",
+    "rst_all_dup_95",
+    "rst_all_dup_96",
+    "rst_all_dup_98",
+    "rst_all_dup_99",
+    "rst_all_dup_100",
+    "rst_all_dup_101",
+    "rst_all_dup_103",
+    "rst_all_dup_104",
+    "rst_all_dup_105",
+    "rst_all_dup_106",
+    "rst_all_dup_107",
+    "rst_all_dup_109",
+    "rst_all_dup_110",
+    "rst_all_dup_111"
+  ],
+  "routed_input_aliases": [
+    "Sdr_ref_req",
+    "legacy_frame_backend/Sdr_init_done",
+    "u2_ram/SDRAM_CLK",
+    "u_sdram/App_rd_en",
+    "photo_App_wr_addr_r"
+  ],
+  "forced_clock_nodes": [
+    "dut.\\sys_pll_m0/clk0_buf",
+    "dut.\\u_frame_buffer/u_legacy_frame_backend/frame_fifo_read_m0/mem_clk",
+    "dut.\\u_frame_buffer/u_sdram/u2_ram/Sdr_clk_sft",
+    "dut.clk0"
+  ],
+  "forced_reset_node": "dut.rst_all",
+  "forced_startup_node": "dut.\\u_frame_buffer/u_sdram/u2_ram/u1_init_ref/pwr_200ms_cnt",
+  "forced_idle_node": null,
+  "c40_only_injected_node": "dut.\\u_frame_buffer/u_sdram/u2_ram/u2_wrrd/Sdr_ref_req",
+  "observed_request_node": "dut.\\u_frame_buffer/u_sdram/u2_ram/u2_wrrd/Sdr_ref_req_syn_4",
+  "observed_ack_node": "dut.\\u_frame_buffer/u_sdram/u2_ram/u1_init_ref/Sdr_ref_ack",
+  "phy_command_ports": [
+    "clk0",
+    "cs_n",
+    "cke",
+    "ras_n",
+    "cas_n",
+    "we_n"
+  ],
+  "inject_c40_request": false,
+  "simulation_started": true,
+  "mem_period_ns": 20,
+  "shifted_clock_ns": 8,
+  "expected_refresh_interval_ns": 15620,
+  "expected_refresh_cycles": 781,
+  "device_timing": {
+    "tRAS_ns": 42,
+    "tRCD_ns": 21,
+    "tRRD_ns": 14,
+    "tMRD_cycles": 2,
+    "tRP_ns": 21,
+    "tRFC_ns": 63,
+    "tWR_cycles": 2,
+    "tRC_ns": 63
+  },
+  "inject_read_bit_error": false,
+  "capture_mode": 2,
+  "traffic": 1,
+  "burst_words": 256,
+  "simulation_ack_stage0_edge_override": 0,
+  "traffic_force_nodes": [
+    "App_wr_en",
+    "App_rd_en",
+    "App_wr_addr=incrementing_4word_burst",
+    "App_rd_addr=incrementing_4word_burst"
+  ],
+  "address_alias_forces": [
+    "frame_fifo_read_m0/App_rd_addr",
+    "frame_fifo_write_m0/App_wr_addr_r"
+  ],
+  "bench_sha256": "6580BFA254AA2E5996D2B157B703BB2C932F2ECCB25FADDFD4A60277C63BAEA9",
+  "device_model_sha256": "6AAD09C411B00E319EA6E7FF5A85453EB990532541AE368084406F78A276690B",
+  "device_model_source": "APUG011 official reference model; see source_receipt.json in prior harness",
+  "device_shell_sha256": "EE40961B93F5A703613156282E7005D69289CFDBAEA47FF4A4C01F2D5D7C5CDB",
+  "runner_sha256": "A331D582F631677DD89457C5C9916855F458D9CE861046002C579967FE17036B",
+  "vendor_model_sha256": [
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\common\\al_map_seq.v",
+      "sha256": "3A39778281BFAE21AB1E4C2948AAEAA31B9358AE8D004EAE86358E9C2CBB40AE"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\common\\al_map_lut.v",
+      "sha256": "A8AF44DE361088C0BB66A58D5AF9B8EB5AA6E9B8CA56992D6164A9F689C488F0"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\common\\al_map_alu2b.v",
+      "sha256": "98DDBB673A9550E5FC923DC22CD48D83CD5B5DC038F33A304B3228CC346F4135"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\common\\al_map_basic.v",
+      "sha256": "AC0AA7F986FDFBA39FB7B361B26ACE4BA1049807D6FECCDE09B2FA21EB0903DA"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_glbl.v",
+      "sha256": "95B5FED81000F5844A5A3B110A5B8E82D59A941E6F0715015E38884192EE4FB7"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_logic_io.v",
+      "sha256": "3EEF9298B0496750534698232F87BE61982B759C92DF6BEE7E04DE3EBA979245"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_logic_clk.v",
+      "sha256": "686CE0C1E4DF0BC3CBE1AFC4DE359F78DA57D5521671CC27B8DC5181412A04F2"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_logic_gate.v",
+      "sha256": "8D1F1A7406A0DD46DF6172670C30F8269E77E7D0FACB4139B1EBA34CAAE447B9"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_logic_bram.v",
+      "sha256": "C492C2D713156AAFC881E4C54D6926C34D957931FA550D3D1CEB861B7FB88A2C"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_dff.v",
+      "sha256": "968FF2C3DB3091EEE16DC1DA5D5DB38F5FEAFBDE7EAEE6EEB49A511DB76DBC8E"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_lslice.v",
+      "sha256": "9938EE2C34D01F09BF964C4B9F0011A0A3218D94A87C356EFDBFEC1828302879"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_mslice.v",
+      "sha256": "EC4DADD99381DB70F31E6C63378B72F9EBD025C257CD115C5BC4ABF15C853B81"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_mult18.v",
+      "sha256": "25CA8DE5E98253510D0417D6710046C107064B0DECC952A602667117BDD6FBDC"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_pad.v",
+      "sha256": "FFE3B876CE911AD674F1DC0A76F453EF4CB68CCCE38D3F5141A09F31262F017A"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_clk.v",
+      "sha256": "C15977B4E0D20C605FB05FEE5AE3EF71358E49F998FEC1703921E794AFC14514"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_bram.v",
+      "sha256": "9BBB66FFDE87F457AE406366C87BB9CBE5D2C28871B052D8989D2FF4BE2AF57D"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_config.v",
+      "sha256": "6DF3BC15FC335721F9627AF1AFD3FBE8C343056F498BAF17A040FAE3875424CD"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_pll.v",
+      "sha256": "73671E13F74679AC630F68506CE67408455734B21CACAE62AEB94F284D7A8EB8"
+    },
+    {
+      "path": "C:\\Anlogic\\TD_6.2.1_SP1_6.2.178.840\\sim_release\\eg4\\eg_phy_bankref.v",
+      "sha256": "BD3FECC4FA1CF83E277815D606E4D9C86DB906ED72952BD03FD7758F8006B367"
+    }
+  ]
+}

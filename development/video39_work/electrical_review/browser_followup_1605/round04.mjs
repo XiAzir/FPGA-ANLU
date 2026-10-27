@@ -1,0 +1,16 @@
+const fs = await import('node:fs/promises');
+const task = await taskSpace(5);
+const page = task.page('p1');
+const urls = await page.evaluate(() => [...document.querySelectorAll('a[href]')].map(a=>({text:a.innerText.trim(),url:a.href})).filter(a=>/ADN4624|cn0571\.pdf/i.test(a.url)));
+console.log(urls);
+const downloads = [];
+const url = 'https://www.analog.com/media/en/reference-design-documentation/reference-designs/cn0571.pdf';
+const response = await fetch(url);
+if (!response.ok) throw new Error('PDF response '+response.status);
+const body = new Uint8Array(await response.arrayBuffer());
+if (new TextDecoder().decode(body.slice(0,5)) !== '%PDF-') throw new Error('Expected PDF');
+const file = 'E:/VSCODE-project/FPGA-ANLU/development/video39_work/electrical_review/browser_followup_1605/ADI_CN0571.pdf';
+await fs.writeFile(file,body);
+downloads.push({url,file,bytes:body.length});
+await fs.writeFile('E:/VSCODE-project/FPGA-ANLU/development/video39_work/electrical_review/browser_followup_1605/downloads04.json',JSON.stringify({links:urls,downloads},null,2));
+console.log(downloads);

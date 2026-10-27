@@ -1,0 +1,761 @@
+Created by          : Tang Dynasty v6.2.178840
+                    : Copyright (c) 2012-2025 Anlogic Inc.
+Generated           : Tue Oct 27 17:38:28 2026
+
+Top Model           : top
+Device              : EG4S20BG256
+Speed               : NA
+STA coverage        : 1.00%
+Constraint File     : E:/VSCODE-project/FPGA-ANLU/development/player_video40_spi25/src/user_source/constraints_source/timing.sdc;E:/VSCODE-project/FPGA-ANLU/development/video40_work/timing_review/raw_io_analysis.sdc;
+Confidence          : Routed
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min     
+------------------------------------
+Slow     | yes      yes     
+Fast     | yes      yes     
+
+
+Timing Status
+--------------------
+	SWNS: 17.918ns, STNS: 0.000ns
+	HWNS: 0.000ns, HTNS: 0.000ns
+	Period Check WNS: 0.000ns
+
+
+Clock Summary
+--------------------
+       Name            Type         Rise(ns)   Fall(ns)          C-Period(ns)     C-Freq(MHz)          R-Period(ns)     R-Freq(MHz)         SWNS(ns)   STNS(ns)         HWNS(ns)   HTNS(ns)         Skew(ns)           Fanout        Max-Level        CC-From    CC-To
+
+Notes
+----------
+C-Period  :  constraint period
+C-Freq    :  constraint freq
+R-Period  :  report min period
+R-Freq    :  report fmax
+CC-From   :  has path(s) from cross-domain clock
+CC-To     :  has path(s) to cross-domain clock
+
+
+*   Clock R-Period data only takes intra-clock timing. SWNS/STNS/HWNS/HTNS take both intra-clock and inter-clock timing.
+*   If there is mismatch between R-Period and SWNS, check inter-clock timing of this clock as capture clock.
+*   SWNS/STNS/HWNS/HTNS of timing exception (SMCP/SMD) only counted in global Timing Status, not counted in Clock Summary.
+
+Intra clock domain timing
+--------------------------------------------------
+
+Inter clock domain timing
+--------------------------------------------------
+
+IP timing
+--------------------------------------------------
+
+Timing details for U_FRAME_BUFFER/U_LEGACY_FRAME_BACKEND/READ_BUF
+------------------------------
+
+Timing details for u_frame_buffer/u_legacy_frame_backend/read_buf
+------------------------------------------------------------
+
+Timing details for constraint:
+	set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 19.700
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     
+set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 19.700
+
+Type           :     SMD
+
+Statistics:
+Max            : SWNS     18.656ns, STNS      0.000ns,         0 Viol Endpoints,        18 Total Endpoints,        18 Paths Analyzed
+Min            : HWNS      0.000ns, HTNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 18.656ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[1]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[1]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.928ns (cell 0.289ns (31%), net 0.639ns (69%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x020y045z0          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[1]_syn_4.q[1]
+net (fo=1)                              0.639          0.785          net: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg[1],  ../user_source/hdl_source/ip/afifo_32_16_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[1]_syn_4.mi[0]
+reg                 x018y049z1          0.143    r     0.928          net: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/sync_r1[1],  ../user_source/hdl_source/ip/afifo_32_16_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.928               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.656               
+
+Slack               : 18.670ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[3]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/sync_r1_reg[2]_syn_4.mi[1]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.914ns (cell 0.289ns (31%), net 0.625ns (69%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x018y044z2          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[3]_syn_4.q[0]
+net (fo=1)                              0.625          0.771          net: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[2],  ../user_source/hdl_source/ip/afifo_32_16_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/sync_r1_reg[2]_syn_4.mi[1]
+reg                 x019y047z0          0.143    r     0.914          net: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/sync_r1[2],  ../user_source/hdl_source/ip/afifo_32_16_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.914               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.670               
+
+Slack               : 18.693ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[4]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/read_buf/sub1_syn_61.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.891ns (cell 0.289ns (32%), net 0.602ns (68%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x020y045z3          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[4]_syn_4.q[0]
+net (fo=1)                              0.602          0.748          net: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg[5],  ../user_source/hdl_source/ip/afifo_32_16_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/read_buf/sub1_syn_61.mi[0]
+ADDER (reg)         x018y045z0          0.143    r     0.891          net: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/sync_r1[5],  ../user_source/hdl_source/ip/afifo_32_16_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.891               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.693               
+
+Slack               : 18.693ns
+Begin Point         : u_video_rgb_to_axis_640x480/I_rgb[7]_syn_21.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/sync_r1_reg[8]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.891ns (cell 0.289ns (32%), net 0.602ns (68%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x019y045z3          0.146    r     0.146          pin: u_video_rgb_to_axis_640x480/I_rgb[7]_syn_21.q[0]
+net (fo=1)                              0.602          0.748          net: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[0],  ../user_source/hdl_source/ip/afifo_32_16_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/sync_r1_reg[8]_syn_4.mi[0]
+reg                 x019y046z2          0.143    r     0.891          net: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/sync_r1[0],  ../user_source/hdl_source/ip/afifo_32_16_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.891               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.693               
+
+Slack               : 18.693ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[7]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/sync_r1_reg[7]_syn_4.mi[1]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.891ns (cell 0.289ns (32%), net 0.602ns (68%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x019y046z0          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[7]_syn_4.q[1]
+net (fo=1)                              0.602          0.748          net: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg[7],  ../user_source/hdl_source/ip/afifo_32_16_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/sync_r1_reg[7]_syn_4.mi[1]
+reg                 x018y046z3          0.143    r     0.891          net: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/sync_r1[7],  ../user_source/hdl_source/ip/afifo_32_16_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.891               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.693               
+
+Slack               : 18.769ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[7]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_sync_reg[6]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.815ns (cell 0.289ns (35%), net 0.526ns (65%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x020y044z2          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[7]_syn_4.q[1]
+net (fo=1)                              0.526          0.672          net: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[7],  ../user_source/hdl_source/ip/afifo_32_16_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_sync_reg[6]_syn_4.mi[0]
+reg                 x021y047z1          0.143    r     0.815          net: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/sync_r1[7],  ../user_source/hdl_source/ip/afifo_32_16_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.815               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.769               
+
+Slack               : 18.813ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[7]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/sync_r1_reg[4]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.771ns (cell 0.289ns (37%), net 0.482ns (63%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x019y046z0          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[7]_syn_4.q[0]
+net (fo=1)                              0.482          0.628          net: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg[6],  ../user_source/hdl_source/ip/afifo_32_16_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/sync_r1_reg[4]_syn_4.mi[0]
+reg                 x022y046z3          0.143    r     0.771          net: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/sync_r1[6],  ../user_source/hdl_source/ip/afifo_32_16_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.771               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.813               
+
+Slack               : 18.816ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[4]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/sync_r1_reg[4]_syn_4.mi[1]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.768ns (cell 0.289ns (37%), net 0.479ns (63%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x020y045z3          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[4]_syn_4.q[1]
+net (fo=1)                              0.479          0.625          net: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/primary_addr_gray_reg[4],  ../user_source/hdl_source/ip/afifo_32_16_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/sync_r1_reg[4]_syn_4.mi[1]
+reg                 x022y046z3          0.143    r     0.768          net: u_frame_buffer/u_legacy_frame_backend/read_buf/wr_to_rd_cross_inst/sync_r1[4],  ../user_source/hdl_source/ip/afifo_32_16_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.768               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.816               
+
+Slack               : 18.819ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[1]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_sync_reg[7]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.765ns (cell 0.289ns (37%), net 0.476ns (63%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x018y049z1          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[1]_syn_4.q[1]
+net (fo=1)                              0.476          0.622          net: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[1],  ../user_source/hdl_source/ip/afifo_32_16_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_sync_reg[7]_syn_4.mi[0]
+reg                 x017y048z1          0.143    r     0.765          net: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/sync_r1[1],  ../user_source/hdl_source/ip/afifo_32_16_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.765               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.819               
+
+Slack               : 18.819ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[3]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_sync_reg[8]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.765ns (cell 0.289ns (37%), net 0.476ns (63%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x018y044z2          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[3]_syn_4.q[1]
+net (fo=1)                              0.476          0.622          net: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[3],  ../user_source/hdl_source/ip/afifo_32_16_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/primary_addr_gray_sync_reg[8]_syn_4.mi[0]
+reg                 x019y046z3          0.143    r     0.765          net: u_frame_buffer/u_legacy_frame_backend/read_buf/rd_to_wr_cross_inst/sync_r1[3],  ../user_source/hdl_source/ip/afifo_32_16_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.765               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.819               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+Timing details for U_FRAME_BUFFER/U_LEGACY_FRAME_BACKEND/WRITE_BUF
+------------------------------
+
+Timing details for u_frame_buffer/u_legacy_frame_backend/write_buf
+------------------------------------------------------------
+
+Timing details for constraint:
+	set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 19.700
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     
+set_max_delay -from [get_regs -nowarn {*/primary_addr_gray_reg[*]}] -to [get_regs -nowarn {*/sync_r1[*]}] -datapath_only 19.700
+
+Type           :     SMD
+
+Statistics:
+Max            : SWNS     17.918ns, STNS      0.000ns,         0 Viol Endpoints,        18 Total Endpoints,        18 Paths Analyzed
+Min            : HWNS      0.000ns, HTNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 17.918ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[5]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[8]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 1.666ns (cell 0.289ns (17%), net 1.377ns (83%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x033y022z0          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[5]_syn_4.q[0]
+net (fo=1)                              1.377          1.523          net: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_reg[6],  ../user_source/hdl_source/ip/afifo_16_32_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[8]_syn_4.mi[0]
+reg                 x034y020z2          0.143    r     1.666          net: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1[6],  ../user_source/hdl_source/ip/afifo_16_32_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.666               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.918               
+
+Slack               : 18.076ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[0]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_sync_reg[0]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 1.508ns (cell 0.289ns (19%), net 1.219ns (81%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x034y012z1          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[0]_syn_4.q[0]
+net (fo=1)                              1.219          1.365          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[0],  ../user_source/hdl_source/ip/afifo_16_32_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_sync_reg[0]_syn_4.mi[0]
+reg                 x027y015z1          0.143    r     1.508          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1[0],  ../user_source/hdl_source/ip/afifo_16_32_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.508               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.076               
+
+Slack               : 18.239ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[0]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1_reg[2]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 1.345ns (cell 0.289ns (21%), net 1.056ns (79%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x036y011z1          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[0]_syn_4.q[0]
+net (fo=1)                              1.056          1.202          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[1],  ../user_source/hdl_source/ip/afifo_16_32_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1_reg[2]_syn_4.mi[0]
+reg                 x030y016z3          0.143    r     1.345          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1[1],  ../user_source/hdl_source/ip/afifo_16_32_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.345               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.239               
+
+Slack               : 18.262ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[1]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1_reg[3]_syn_4.mi[1]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 1.322ns (cell 0.289ns (21%), net 1.033ns (79%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x036y012z0          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[1]_syn_4.q[0]
+net (fo=1)                              1.033          1.179          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[3],  ../user_source/hdl_source/ip/afifo_16_32_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1_reg[3]_syn_4.mi[1]
+reg                 x031y016z3          0.143    r     1.322          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1[3],  ../user_source/hdl_source/ip/afifo_16_32_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.322               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.262               
+
+Slack               : 18.492ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[2]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[1]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 1.092ns (cell 0.289ns (26%), net 0.803ns (74%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x035y020z1          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[2]_syn_4.q[1]
+net (fo=1)                              0.803          0.949          net: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_reg[2],  ../user_source/hdl_source/ip/afifo_16_32_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[1]_syn_4.mi[0]
+reg                 x034y017z2          0.143    r     1.092          net: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1[2],  ../user_source/hdl_source/ip/afifo_16_32_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.092               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.492               
+
+Slack               : 18.530ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/secondary_addr_o_reg[5]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[7]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 1.054ns (cell 0.289ns (27%), net 0.765ns (73%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x033y019z1          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/secondary_addr_o_reg[5]_syn_4.q[0]
+net (fo=1)                              0.765          0.911          net: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_reg[7],  ../user_source/hdl_source/ip/afifo_16_32_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[7]_syn_4.mi[0]
+reg                 x034y018z2          0.143    r     1.054          net: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1[7],  ../user_source/hdl_source/ip/afifo_16_32_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.054               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.530               
+
+Slack               : 18.558ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[4]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1_reg[2]_syn_4.mi[1]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 1.026ns (cell 0.289ns (28%), net 0.737ns (72%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x034y013z0          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg_reg[4]_syn_4.q[0]
+net (fo=1)                              0.737          0.883          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[2],  ../user_source/hdl_source/ip/afifo_16_32_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1_reg[2]_syn_4.mi[1]
+reg                 x030y016z3          0.143    r     1.026          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1[2],  ../user_source/hdl_source/ip/afifo_16_32_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.026               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.558               
+
+Slack               : 18.559ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[2]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1_reg[3]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 1.025ns (cell 0.289ns (28%), net 0.736ns (72%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x034y012z3          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[2]_syn_4.q[0]
+net (fo=1)                              0.736          0.882          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[5],  ../user_source/hdl_source/ip/afifo_16_32_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1_reg[3]_syn_4.mi[0]
+reg                 x031y016z3          0.143    r     1.025          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1[5],  ../user_source/hdl_source/ip/afifo_16_32_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.025               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.559               
+
+Slack               : 18.598ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[8]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[8]_syn_4.mi[1]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.986ns (cell 0.289ns (29%), net 0.697ns (71%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x030y018z3          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_reg_reg[8]_syn_4.q[1]
+net (fo=1)                              0.697          0.843          net: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/primary_addr_gray_reg[8],  ../user_source/hdl_source/ip/afifo_16_32_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1_reg[8]_syn_4.mi[1]
+reg                 x034y020z2          0.143    r     0.986          net: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/sync_r1[8],  ../user_source/hdl_source/ip/afifo_16_32_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.986               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.598               
+
+Slack               : 18.605ns
+Begin Point         : u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[3]_syn_4.clk
+End Point           : u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1_reg[4]_syn_4.mi[0]
+Check Type          : setup
+Process             : slow
+Budget              : 19.700ns
+Data Path Delay     : 0.979ns (cell 0.289ns (29%), net 0.690ns (71%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 1
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+--------------------------------------------------------------------  ---------------
+clk2q               x034y013z3          0.146    r     0.146          pin: u_frame_buffer/u_legacy_frame_backend/write_buf/wr_to_rd_cross_inst/secondary_addr_o_reg[3]_syn_4.q[0]
+net (fo=1)                              0.690          0.836          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/primary_addr_gray_reg[6],  ../user_source/hdl_source/ip/afifo_16_32_256.v(263)
+                                                                      pin: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1_reg[4]_syn_4.mi[0]
+reg                 x031y015z3          0.143    r     0.979          net: u_frame_buffer/u_legacy_frame_backend/write_buf/rd_to_wr_cross_inst/sync_r1[6],  ../user_source/hdl_source/ip/afifo_16_32_256.v(264)
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.979               
+
+constraint delay                       19.700         19.700               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.584               
+clock uncertainty                       0.000         19.584               
+clock pessimism                         0.000         19.584               
+--------------------------------------------------------------------  ---------------
+Required                                              19.584               
+--------------------------------------------------------------------  ---------------
+Slack                                                 18.605               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+
+
+
+

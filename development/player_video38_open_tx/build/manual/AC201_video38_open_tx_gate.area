@@ -1,0 +1,50 @@
+standard
+***Report Model: top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        13   out of    188    6.91%
+  #input                    2
+  #output                  11
+  #inout                    0
+
+LUT Statistics
+#Total_luts               365
+  #lut4                   327
+  #lut5                    38
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                      643   out of  19600    3.28%
+#reg                      265   out of  19600    1.35%
+#bram                       0   out of     64    0.00%
+  #bram9k                   0
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        0   out of     29    0.00%
+#pad                       17   out of    188    9.04%
+  #ireg                     0
+  #oreg                     7
+  #treg                     0
+#pll                        1   out of      4   25.00%
+#gclk                       2   out of     16   12.50%
+
+Report Hierarchy Area:
++-------------------------------------------------------------------------------------------+
+|Instance             |Module                  |lut     |ripple  |seq     |bram    |dsp     |
++-------------------------------------------------------------------------------------------+
+|top                  |top                     |504     |139     |272     |0       |0       |
+|  u_build_id         |status_hex595           |88      |14      |53      |0       |0       |
+|  u_hdmi_phy         |hdmi_phy_wrapper        |35      |0       |78      |0       |0       |
+|    u0_lane_lvds_8_1 |lane_lvds_10_1          |12      |0       |28      |0       |0       |
+|    u1_lane_lvds_8_1 |lane_lvds_10_1          |10      |0       |22      |0       |0       |
+|    u2_lane_lvds_8_1 |lane_lvds_10_1          |10      |0       |22      |0       |0       |
+|    u3_lane_lvds_8_1 |lane_lvds_10_1          |3       |0       |6       |0       |0       |
+|  u_video_pll        |video_pll               |0       |0       |0       |0       |0       |
+|  u_video_tx         |video_only_tmds_tx      |307     |91      |109     |0       |0       |
+|    packet_ecc       |packet_assembler_compat |30      |0       |45      |0       |0       |
+|    tmds_blue        |tmds_channel            |58      |3       |14      |0       |0       |
+|    tmds_green       |tmds_channel            |54      |3       |14      |0       |0       |
+|    tmds_red         |tmds_channel            |71      |3       |14      |0       |0       |
++-------------------------------------------------------------------------------------------+

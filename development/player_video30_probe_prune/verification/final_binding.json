@@ -1,0 +1,78 @@
+{
+  "status": "OFFLINE_VERIFIED_BOARD_PENDING",
+  "build_id": "00C11330",
+  "created_utc": "2026-10-23T05:56:40.168601+00:00",
+  "base": "C11329 board-tested rollback",
+  "purpose": "Remove runtime diagnostic observers and their statistic fanout",
+  "bit_sha256": "2e70135f031bd9eb83ecb3b4b2b56ccbff4c160a4d0641beeab5c8bf399de5cc",
+  "timing_ns": {
+    "setup_wns": 0.113,
+    "setup_tns": 0.0,
+    "hold_wns": 0.025,
+    "hold_tns": 0.0
+  },
+  "slice_used": 8539,
+  "slice_percent": 87.13265306122449,
+  "routed_slices": {
+    "EG_PHY_MSLICE": 4289,
+    "EG_PHY_LSLICE": 4250
+  },
+  "physical_resources": {
+    "lut": 16419,
+    "reg": 8553,
+    "le": 16424,
+    "bram": 62,
+    "dsp": 26,
+    "pll": 2,
+    "gclk": 3
+  },
+  "C29_slice_used": 9235,
+  "slice_saved_vs_C29": 696,
+  "resource_ablation_sha256": "b439d06becb322158c6d7189034571e02087028519dfbdf231f2180d5ecbddc9",
+  "offline_tests_sha256": "fc32f4f3389eb47b1a18f24a35f97053a88d68e1d839e8bfb99fe19197144a50",
+  "final_stage_binding_sha256": "478d0c8bdea8639c4ddf30ce8ab60443f57b97ccff23113065b5e27521fd44cb",
+  "final_routed_sha256": "9bc59877e8a0b27be487e7a11955234f46059e5c6c9cb9bd23c4f4a402c552b6",
+  "routed_export_binding_sha256": "1fef96cea9ba6bedaa8f719f6427fe24904c3923d1b953acec6d502f049e429d",
+  "production_delta": {
+    "added_files": [
+      "player_audio_output.v"
+    ],
+    "deleted_files": [
+      "hdmi_packet_monitor.v",
+      "player_audio_probe.v",
+      "player_bit17_led_probe.v",
+      "player_cadence_probe.v",
+      "player_compact_status_pages.v",
+      "player_debug_monitor.v",
+      "player_debug_overlay.v",
+      "player_memory_runtime_probe.v",
+      "player_pcm_crc_probe.v",
+      "player_video_source_probe.v"
+    ],
+    "changed_files": [
+      "SD/frame_fifo_read.v",
+      "SD/frame_read_write.v",
+      "SD/sd_card_cmd.v",
+      "SD/sd_card_top.v",
+      "frame_buffer_rgb888.v",
+      "top_tf_hdmi_audio.v"
+    ]
+  },
+  "ui_changes": {
+    "digits": "fixed00C11330",
+    "LED_active_low": [
+      "D3 video",
+      "D2 tone",
+      "D1 display_valid",
+      "D0 mounted"
+    ]
+  },
+  "outstanding": [
+    "C30 board validation pending",
+    "Nominal PLL/application SDRAM simulation, no SDF",
+    "Media events injected at classifier outputs; physical buttons and HDMI receiver checked on board",
+    "C29 remains the board-tested rollback; removal changes physical placement"
+  ],
+  "board_result": "PENDING",
+  "C29_bit_sha256": "0f87f90f55eec622fcfe2373fbcb7c7a97a349bda79babcbafbe483e4a6e3c56"
+}

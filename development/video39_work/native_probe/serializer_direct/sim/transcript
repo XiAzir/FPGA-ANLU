@@ -1,0 +1,49 @@
+# vdel -lib work -all 
+#  vlib work 
+#  vlog -sv ../sim/eg_phy_glbl.v ../sim/eg_logic_io.v ../sim/serializer_reference.v ../src/user_source/serializer.v ../sim/tb_direct_equivalence.sv 
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module glbl
+# -- Compiling module EG_LOGIC_IDELAY
+# -- Compiling module EG_LOGIC_IDDR
+# -- Compiling module EG_LOGIC_ODDR
+# -- Compiling module EG_LOGIC_IDDRx2
+# -- Compiling module EG_LOGIC_ODELAY
+# -- Compiling module EG_LOGIC_ODDRx2
+# -- Compiling module EG_LOGIC_ODDRx2l
+# -- Compiling module lane_lvds_10_1_reference
+# -- Compiling module lane_lvds_10_1
+# -- Compiling module phase_case
+# -- Compiling module tb_direct_equivalence
+# 
+# Top level modules:
+# 	glbl
+# 	EG_LOGIC_IDELAY
+# 	EG_LOGIC_IDDR
+# 	EG_LOGIC_IDDRx2
+# 	EG_LOGIC_ODELAY
+# 	EG_LOGIC_ODDRx2
+# 	EG_LOGIC_ODDRx2l
+# 	tb_direct_equivalence
+#  vsim -t 1ps work.tb_direct_equivalence work.glbl 
+# vsim -t 1ps work.tb_direct_equivalence work.glbl 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.tb_direct_equivalence(fast)
+# Loading work.glbl(fast)
+#  run -all 
+# PHASE_CASE_PASS case=0 phase_ps=0 words_per_lane=162 q_samples=1618
+# PHASE_CASE_PASS case=1 phase_ps=400 words_per_lane=162 q_samples=1618
+# PHASE_CASE_PASS case=2 phase_ps=1000 words_per_lane=162 q_samples=1618
+# DIRECT_SERIALIZER_Q_EQUIVALENCE_PASS cases=3 lanes_per_case=4 random_words_per_lane>=32
+# ** Note: $finish    : ../sim/tb_direct_equivalence.sv(66)
+#    Time: 2179202 ps  Iteration: 1  Instance: /tb_direct_equivalence

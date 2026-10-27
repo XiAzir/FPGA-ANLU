@@ -1,0 +1,524 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-10-27T14:44:19.404230+00:00",
+  "source_scope_hash": "d87973e91e4d777ae015d14b62ae1eb8ce1554358352ac249ff4c94d601b91f2",
+  "final_routed_netlist_sha256": "437d44141607624e94ad9d04bea60f8eca6eec0d2d034d92573c8eec0230097c",
+  "final_routed_db_sha256": "3556b5a1e17d7dee9db6d19fba741e1f02cc33b9e5e72b07e44dba3270bae991",
+  "final_bit_sha256": "bf8e700b9a046576b0ceec99a37085137e31ba0ef6fee44e3401905a76ba6059",
+  "checks": [
+    {
+      "name": "routed_memory_data",
+      "status": "PASS",
+      "scope": "Complete final routed netlist with vendor PAD and APUG IS42 bus model using EM638325 timing values; forced application/clock/reset, accelerated power counter, no SDF. Controller/SDRAM data interface only.",
+      "inputs": [
+        {
+          "path": "development/player_video42_sdram100/verification/final_routed.v",
+          "sha256": "437d44141607624e94ad9d04bea60f8eca6eec0d2d034d92573c8eec0230097c"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221201/tb_memory_gate.sv",
+          "sha256": "1685a93904d755b5ce5d3042906b624ff0612ecda702fa5b03e7e22a39b7c425"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221201/eg_phy_sdram_model.v",
+          "sha256": "83bb5c8b2d813858864494cc20ccdab966db48e4a530e7d1e373319e40149682"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221201/IS42s32200.v",
+          "sha256": "6aad09c411b00e319ea6e7ff5a85453eb990532541ae368084406f78a276690b"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221201/runner.ps1",
+          "sha256": "5c6289735abb286ce09da163855f559b28ffb34dc88d99dfc234cb5f4538dd25"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221201/source_binding.json",
+          "sha256": "ae89da64a34c640979c430f0d1cff050c752474a64dc8f7ace66b809a405f108"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221201/result.json",
+          "sha256": "6dfc0604f845f843973e4cbf242551fba1245127ca0de7ce31a8d9ca6afe28de"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221201/run.log",
+          "sha256": "9b4768237e831ddc9d0cb9b882ccf63699b52e1c85d90a475dd120eb8559f975"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221201/command_trace.csv",
+          "sha256": "171eab4388dd1bcb2d6f55cfbfcb3358ebfa0774d31388a2ce32c8fbbf86fcfb"
+        }
+      ],
+      "writes": 4352,
+      "reads": 4352,
+      "returns": 4352,
+      "application_burst_words": 256,
+      "periodic_aref_commands": 6,
+      "unique_application_addresses": 4352,
+      "application_address_min": 0,
+      "application_address_max": 4351,
+      "source_kind": "final_routed_gate",
+      "final_routed_netlist_sha256": "437d44141607624e94ad9d04bea60f8eca6eec0d2d034d92573c8eec0230097c",
+      "final_routed_db_sha256": "3556b5a1e17d7dee9db6d19fba741e1f02cc33b9e5e72b07e44dba3270bae991"
+    },
+    {
+      "name": "routed_memory_short_bursts",
+      "status": "PASS",
+      "scope": "Complete final routed netlist with vendor PAD and APUG IS42 bus model using EM638325 timing values; forced application/clock/reset, accelerated power counter, no SDF. Controller/SDRAM data interface only.",
+      "inputs": [
+        {
+          "path": "development/player_video42_sdram100/verification/final_routed.v",
+          "sha256": "437d44141607624e94ad9d04bea60f8eca6eec0d2d034d92573c8eec0230097c"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221527/tb_memory_gate.sv",
+          "sha256": "1685a93904d755b5ce5d3042906b624ff0612ecda702fa5b03e7e22a39b7c425"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221527/eg_phy_sdram_model.v",
+          "sha256": "83bb5c8b2d813858864494cc20ccdab966db48e4a530e7d1e373319e40149682"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221527/IS42s32200.v",
+          "sha256": "6aad09c411b00e319ea6e7ff5a85453eb990532541ae368084406f78a276690b"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221527/runner.ps1",
+          "sha256": "5c6289735abb286ce09da163855f559b28ffb34dc88d99dfc234cb5f4538dd25"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221527/source_binding.json",
+          "sha256": "12b8e75e34cba734425d59580ec4d302451646fc9dc80c340c0e96a7edb39ce8"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221527/result.json",
+          "sha256": "d2a1c36358b8ee8c32e57ac0367382fa7ec0b3695e93519aaec8689bc4fb618c"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221527/run.log",
+          "sha256": "2cc974a0cefb6f9fcc7286855a362f2317e3852570d98b2594f636e94c2c5f50"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_221527/command_trace.csv",
+          "sha256": "2907517e7481e55f03a4b612a09091b69c2bea868082cf7ba2b9416491a0bca0"
+        }
+      ],
+      "writes": 460,
+      "reads": 460,
+      "returns": 460,
+      "application_burst_words": 4,
+      "periodic_aref_commands": 3,
+      "unique_application_addresses": 460,
+      "application_address_min": 0,
+      "application_address_max": 459,
+      "source_kind": "final_routed_gate",
+      "final_routed_netlist_sha256": "437d44141607624e94ad9d04bea60f8eca6eec0d2d034d92573c8eec0230097c",
+      "final_routed_db_sha256": "3556b5a1e17d7dee9db6d19fba741e1f02cc33b9e5e72b07e44dba3270bae991"
+    },
+    {
+      "name": "final_pll",
+      "status": "PASS",
+      "scope": "Official functional PLL model, 200ns test reset; 100MHz memory and 8ns phase checked. No measured board frequency or jitter.",
+      "inputs": [
+        {
+          "path": "development/player_video42_sdram100/src/user_source/hdl_source/IP/sys_pll.v",
+          "sha256": "e8ef0ae434e68ac891c89d8717f14c93f63f567669e941bc2b76de4d2996917c"
+        },
+        {
+          "path": "development/video42_work/tb_sys_pll.sv",
+          "sha256": "e924e520e4f2e3a8f775a5576e76c29f11e43e2617affe17fb838869a9349ca1"
+        },
+        {
+          "path": "development/video42_work/run_initial_units.py",
+          "sha256": "96ecaca2ba3affc135cfd25bfd453c45d6f8293593ae0a2b0f71a09579cbc4a7"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/units_20261027_222447/summary.json",
+          "sha256": "9a2709f2709ec5e132def8328b5e9f2d358b6fd4466e7be50c6982c3d1226be8"
+        },
+        {
+          "path": "development/video42_work/units_20261027_222447/C42_PLL/run.log",
+          "sha256": "6d9216dee8276daf63f4ec8aecf8eeb98bcacf85180e8829f1f3c2c380287b7b"
+        }
+      ]
+    },
+    {
+      "name": "refresh_interval",
+      "status": "PASS",
+      "scope": "Public refresh producer prefix with natural startup, 4097 requests; 4096 intervals total 63.97952ms.",
+      "inputs": [
+        {
+          "path": "development/player_video42_sdram100/src/user_source/hdl_source/include/global_def.v",
+          "sha256": "d5027ce542808e509ad1cf8055ccd3d46a47962e346fbde088ecc2b08df941ae"
+        },
+        {
+          "path": "development/player_video42_sdram100/src/user_source/hdl_source/include/sdr_init_ref.enc.v",
+          "sha256": "eba99d0903a7eff706553b4d21a15afb560c428a58556e373a29f4cc1f41ec5b"
+        },
+        {
+          "path": "development/video42_work/units_20261027_200951/C42_refresh/prefix.v",
+          "sha256": "c57d5de4bf44df264eeed1841495efcd6f628dd397a490cc60bcab75032eaa51"
+        },
+        {
+          "path": "development/video42_work/units_20261027_200951/C42_refresh/bench.v",
+          "sha256": "83c716ec3634352d06a999a3c11ada595e7174e4769f89ef9dc3d61fc34bd905"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/units_20261027_200951/summary.json",
+          "sha256": "4936508a47f7a04478cd3217cfc2d24e004f22019455082b0af0559f1fcb8bd0"
+        },
+        {
+          "path": "development/video42_work/units_20261027_200951/C42_refresh/run.log",
+          "sha256": "551b67f2321c521dd5129c99112876a0f66527b8eebab21c0ee2069c6c506aca"
+        }
+      ]
+    },
+    {
+      "name": "remaining_words_equivalence",
+      "status": "PASS",
+      "scope": "Production write-scheduler RTL compared against C41 at 256-word bursts, photo/JPEG traffic, reset and read contention; 4782 sampled cycles.",
+      "inputs": [
+        {
+          "path": "development/player_video42_sdram100/src/user_source/hdl_source/SD/frame_fifo_write.v",
+          "sha256": "49f6178c1dbc39782895cad769a0a1dd7db7508a234a568531c572afedb7061a"
+        },
+        {
+          "path": "development/video42_work/fifo_timing/frame_fifo_write_original.v",
+          "sha256": "8e9681b3c854536ad4b4b1aaff2642316bfa2763e27695f9c24dc7e0fb87bccd"
+        },
+        {
+          "path": "development/video42_work/fifo_timing/frame_fifo_write_candidate.v",
+          "sha256": "addc9e4ca73d4bef7d0ec147fe11102e5f3bd05b9f2bf45424e88e9e4458a365"
+        },
+        {
+          "path": "development/video42_work/fifo_timing/tb_equiv.v",
+          "sha256": "2fc0829b8dc8e629abd24d70146cb8df28a15c3d1e842bc8400375cb238fc544"
+        },
+        {
+          "path": "development/video42_work/fifo_timing/jpeg420_word_address.v",
+          "sha256": "3b8c2a641e23711826cbf51f2b0ce343e92e3f0a80b45b69906754e017c7f175"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/fifo_timing/applied.json",
+          "sha256": "d03c75c60853ba9d6586bb2c5154d4f05ef680fb25067c7d33f22f4001394e0f"
+        },
+        {
+          "path": "development/video42_work/fifo_timing/production256_20261027_203423.log",
+          "sha256": "37bf40ec37603f4e6a7e34c684397c2b7d1bb31858d20632173a0c616a5dc270"
+        }
+      ]
+    },
+    {
+      "name": "fifo_ready_reset",
+      "status": "PASS",
+      "scope": "Extracted reset/ready logic model; 31 edges and four reset epochs. Physical reset aperture remains a hardware timing dependency.",
+      "inputs": [
+        {
+          "path": "development/player_video42_sdram100/src/user_source/hdl_source/SD/frame_read_write.v",
+          "sha256": "9595c55876cba001b73caa826b9920c02a5bdeff990d0d320a589df5d7411944"
+        },
+        {
+          "path": "development/video42_work/fifo_timing/tb_write_fifo_ready.v",
+          "sha256": "7a0d06f36d744c3f869d3ac376847f6091b28c9deeb24857c47209b5a240a002"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/fifo_timing/write_fifo_ready_positive.log",
+          "sha256": "db3e0baeb9cedcafa38c7666d5a6fab18a0c3239918a19c88f8b6ebe6a27b1c7"
+        },
+        {
+          "path": "development/video42_work/fifo_timing/write_fifo_ready_analysis.md",
+          "sha256": "39545cb7411cbe303ad00199fbe65d2cd8dfbe23108409979d6b83026e308f54"
+        }
+      ]
+    },
+    {
+      "name": "startup_refresh_gate",
+      "status": "PASS",
+      "scope": "Actual sdram.v wrapper with stub raw events; exclude initialization falling edge, wait two refresh completions and restart after reset.",
+      "inputs": [
+        {
+          "path": "development/player_video42_sdram100/src/user_source/hdl_source/SD/sdram.v",
+          "sha256": "131a14483969dd0ab59e2e53dce835f2ac2dcd9e923f70fa8494f10e4d4428bc"
+        },
+        {
+          "path": "development/video42_work/spec_review/tb_startup_refresh_gate.sv",
+          "sha256": "212f792b585b31091f7857e8e1eb3ab34290bd4c22f7bcff098002da86ad390f"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/startup_unit/compile.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "development/video42_work/startup_unit/run.log",
+          "sha256": "4a9ef4b801ab83fb94700c5386e5b79cc85dd8ffb7f36b8fd86d138b3aaf28c4"
+        }
+      ]
+    },
+    {
+      "name": "final_stage_binding",
+      "status": "PASS",
+      "scope": "Final source/script/synthesis/hold-route/bit hashes verified by check_final_stages.ps1.",
+      "inputs": [
+        {
+          "path": "development/player_video42_sdram100/verification/check_final_stages.ps1",
+          "sha256": "dea55cd13c5b6507022f7f7f541a27c4eb3264f520ac9794e263ae5c57eb5ef7"
+        },
+        {
+          "path": "development/player_video42_sdram100/scripts/build_evidence.ps1",
+          "sha256": "28da451f9d92c29ece3f2cae489580cd53fd98df67775e673ab8642ce733ea86"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/player_video42_sdram100/verification/final_stage_binding.json",
+          "sha256": "117f0e1a9ceed5ee214c604db3d5f50f622416bb106dd589763dbb2c6e6787ab"
+        },
+        {
+          "path": "development/player_video42_sdram100/verification/source_audit.json",
+          "sha256": "64617d1b88fca81d371ec83cb6830ae4e5d98dee129f2ef7154211bde20d4c99"
+        },
+        {
+          "path": "development/player_video42_sdram100/verification/final_route.qor",
+          "sha256": "4b849b36259f98ccfca00800a9a50332c56973f05d5b159776583e3e2cd0456f"
+        },
+        {
+          "path": "development/player_video42_sdram100/build/manual/AC201_tf_hdmi_phy.ts",
+          "sha256": "1821708f941ac972cbec5b137167bb90db10e731fe398f426ddc2baae5b546ce"
+        },
+        {
+          "path": "development/player_video42_sdram100/build/manual/AC201_tf_hdmi_exception.timing",
+          "sha256": "36f9c6d88b83f9b3706504fbd70f51468abd5fed5361731bfec1982362d903a4"
+        }
+      ]
+    },
+    {
+      "name": "independent_timing_audit",
+      "status": "PASS",
+      "scope": "Read-only audit of final route; checks DQ setup/hold edge pairing, I/O delay assumptions, coverage and 0.4ns tAC budget adjustment.",
+      "inputs": [
+        {
+          "path": "development/player_video42_sdram100/build/manual/AC201_tf_hdmi_pr.timing",
+          "sha256": "e646d7d9fe680d3be545aa2d1bb6c0a02036a89d2b426add0f6c078fb9ebe2fd"
+        },
+        {
+          "path": "development/player_video42_sdram100/build/manual/AC201_tf_hdmi_exception.timing",
+          "sha256": "36f9c6d88b83f9b3706504fbd70f51468abd5fed5361731bfec1982362d903a4"
+        },
+        {
+          "path": "development/player_video42_sdram100/build/manual/AC201_tf_hdmi_chk.timing",
+          "sha256": "b22c05716bfdefdb43bf1a81aed68b9b680e33ee100d7fb246388768becf791c"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/spec_review/phase8_final_audit.json",
+          "sha256": "c3c73caa38889e205c72e7b4cfcffda60900068dba40fbf33a60bbaeb1534371"
+        },
+        {
+          "path": "development/video42_work/spec_review/phase8_final_audit.md",
+          "sha256": "77c0aa46701e34d1fa193b2359c59c40fe604804a7aa3d09d00cfe1c390d8583"
+        }
+      ]
+    }
+  ],
+  "ablations": [
+    {
+      "name": "single_sample_bit_flip",
+      "status": "EXPECTED_FAILURE",
+      "scope": "Scoreboard sensitivity: flip one bit in one observed sample; production gate and physical DQ remain unchanged.",
+      "inputs": [
+        {
+          "path": "development/player_video42_sdram100/verification/final_routed.v",
+          "sha256": "437d44141607624e94ad9d04bea60f8eca6eec0d2d034d92573c8eec0230097c"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_222536/tb_memory_gate.sv",
+          "sha256": "1685a93904d755b5ce5d3042906b624ff0612ecda702fa5b03e7e22a39b7c425"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_222536/runner.ps1",
+          "sha256": "5c6289735abb286ce09da163855f559b28ffb34dc88d99dfc234cb5f4538dd25"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_222536/source_binding.json",
+          "sha256": "b20100ef92f1f10d983bfd734a0a0a551b5c0d65e989e55c90aa3d18f4f601fb"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_222536/result.json",
+          "sha256": "7805212953dd3363bdda875b992ed08d388241e49efbde2be0f6f829a02ba909"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_222536/run.log",
+          "sha256": "ee2f31ebffc9dbfc92e397011162c7f94cf2ca1d7afab630018b32dc167ac301"
+        }
+      ],
+      "source_kind": "final_routed_gate",
+      "final_routed_netlist_sha256": "437d44141607624e94ad9d04bea60f8eca6eec0d2d034d92573c8eec0230097c",
+      "final_routed_db_sha256": "3556b5a1e17d7dee9db6d19fba741e1f02cc33b9e5e72b07e44dba3270bae991"
+    },
+    {
+      "name": "previous_word_alignment",
+      "status": "EXPECTED_FAILURE",
+      "scope": "Alignment counterfactual: compare previous-cycle raw data at the real valid edge. Current-cycle data matches 768/768; previous-cycle matches 0/768. Gate unchanged.",
+      "inputs": [
+        {
+          "path": "development/player_video42_sdram100/verification/final_routed.v",
+          "sha256": "437d44141607624e94ad9d04bea60f8eca6eec0d2d034d92573c8eec0230097c"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_222654/tb_memory_gate.sv",
+          "sha256": "1685a93904d755b5ce5d3042906b624ff0612ecda702fa5b03e7e22a39b7c425"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_222654/runner.ps1",
+          "sha256": "5c6289735abb286ce09da163855f559b28ffb34dc88d99dfc234cb5f4538dd25"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_222654/source_binding.json",
+          "sha256": "81dccf719b7ff8f8725e1e3da74236c5cb6eb9542e580e3d3da474e91d57c41a"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_222654/result.json",
+          "sha256": "81318e3779dc256f046efc1173d94c1dc655ff43ab03d5e763072b592de122e3"
+        },
+        {
+          "path": "development/video42_work/memory_bench/run_C42_20261027_222654/run.log",
+          "sha256": "3473f3f5eca9d275d0ef2888327bf0f309eddbd0217a0e80bfc53a411426304f"
+        }
+      ],
+      "source_kind": "final_routed_gate",
+      "final_routed_netlist_sha256": "437d44141607624e94ad9d04bea60f8eca6eec0d2d034d92573c8eec0230097c",
+      "final_routed_db_sha256": "3556b5a1e17d7dee9db6d19fba741e1f02cc33b9e5e72b07e44dba3270bae991"
+    },
+    {
+      "name": "old_pll",
+      "status": "EXPECTED_FAILURE",
+      "scope": "C41 50MHz PLL tested against the requested C42 100MHz clock contract.",
+      "inputs": [
+        {
+          "path": "development/player_video41_refresh/src/user_source/hdl_source/IP/sys_pll.v",
+          "sha256": "4a410fc8776c9c116695b7dd8a84012317f9d88aa654b8287a89bdc1f88d0b4e"
+        },
+        {
+          "path": "development/video42_work/tb_sys_pll.sv",
+          "sha256": "e924e520e4f2e3a8f775a5576e76c29f11e43e2617affe17fb838869a9349ca1"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/units_20261027_222447/summary.json",
+          "sha256": "9a2709f2709ec5e132def8328b5e9f2d358b6fd4466e7be50c6982c3d1226be8"
+        },
+        {
+          "path": "development/video42_work/units_20261027_222447/negative_unchanged_PLL/run.log",
+          "sha256": "56075c6c1b1c576b06fa9c83fc59cfa5b3c4c6f6528eaec92895b05f82fb7cc5"
+        }
+      ]
+    },
+    {
+      "name": "old_refresh_count",
+      "status": "EXPECTED_FAILURE",
+      "scope": "Old 50MHz cycle count violates the new 100MHz interval contract.",
+      "inputs": [
+        {
+          "path": "development/video42_work/units_20261027_200951/negative_old_period_macro/global_def.v",
+          "sha256": "4712c00a4f52be2c643b2ac11c57bd554793e739faf1360af657b5eaec2dee9b"
+        },
+        {
+          "path": "development/video42_work/units_20261027_200951/negative_old_period_macro/bench.v",
+          "sha256": "83c716ec3634352d06a999a3c11ada595e7174e4769f89ef9dc3d61fc34bd905"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/units_20261027_200951/negative_old_period_macro/run.log",
+          "sha256": "7da9dd47325454ae0469bb57a40737699d433c760795ae79d802ebaaa5e53bae"
+        }
+      ]
+    },
+    {
+      "name": "early_burst_admission",
+      "status": "EXPECTED_FAILURE",
+      "scope": "One-word-early admission variant detected at cycle170.",
+      "inputs": [
+        {
+          "path": "development/video42_work/fifo_timing/frame_fifo_write_negative.v",
+          "sha256": "fe2985806aa666d6dcf4eee0ee86eb835ddf9fb5d6c2561d2d12f742fbcff65c"
+        },
+        {
+          "path": "development/video42_work/fifo_timing/tb_equiv.v",
+          "sha256": "2fc0829b8dc8e629abd24d70146cb8df28a15c3d1e842bc8400375cb238fc544"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/fifo_timing/production256_20261027_203423.log",
+          "sha256": "37bf40ec37603f4e6a7e34c684397c2b7d1bb31858d20632173a0c616a5dc270"
+        }
+      ]
+    },
+    {
+      "name": "missing_release_synchronizer",
+      "status": "EXPECTED_FAILURE",
+      "scope": "Extracted-logic negative control removing the existing two-stage release qualification.",
+      "inputs": [
+        {
+          "path": "development/video42_work/fifo_timing/tb_write_fifo_ready.v",
+          "sha256": "7a0d06f36d744c3f869d3ac376847f6091b28c9deeb24857c47209b5a240a002"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/fifo_timing/write_fifo_ready_negative.log",
+          "sha256": "3d4e7dcac5e5afb10fa354ffbaa1e0bd4b4f8d26595ee5eac579622ebfb64ccc"
+        }
+      ]
+    },
+    {
+      "name": "minimal_100mhz_4ns",
+      "status": "EXPECTED_FAILURE",
+      "scope": "Archived initial five-source-change implementation: setup -4.428ns; route failure preserved as the initial frequency-change control.",
+      "inputs": [
+        {
+          "path": "development/video42_work/initial_100mhz_4ns/manifest.json",
+          "sha256": "70219c5feca4331858546063ea03e79fd1207a338bdf4a7ee8a2dc97aaf7267a"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "development/video42_work/initial_100mhz_4ns/build/AC201_tf_hdmi_phy.ts",
+          "sha256": "48ee27e5930f5c88f7467c96560c16d22f0bd3792b8eeee79c2453b7e6c3e106"
+        }
+      ]
+    }
+  ],
+  "outstanding": [
+    "C42 board media playback and mode switching",
+    "Cold starts and long runs",
+    "Board I/O skew, signal integrity, clock jitter and full external timing characterization"
+  ],
+  "coverage_notes": [
+    "Memory functional replay has no SDF, uses forced application/clock/reset and accelerated startup.",
+    "Application controller data path and separately tested arbitration are covered; whole TF/media/HDMI replay is outside these new tests.",
+    "Long run covers application addresses 0..4351, short run 0..459. Full-capacity/multi-bank retention coverage is not claimed.",
+    "SDRAM TD max input delay is 5ns; EM638325 model uses 5.4ns. See final timing audit for resulting 0.4ns budget adjustment.",
+    "Earlier C41/C42 failures and harness calibration logs remain preserved."
+  ]
+}
